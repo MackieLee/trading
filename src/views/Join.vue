@@ -1,17 +1,15 @@
 <template>
-  <select-box></select-box>
+  <div class="join">注册</div>
 </template>
 
 <script>
-import SelectBox from './SelectBox'
-
 export default {
-  components : { SelectBox }
+  name: 'join'
 }
 </script>
 
 <style lang="scss" scoped>
-
+.join {
+  
+}
 </style>
-
-

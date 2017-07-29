@@ -1,13 +1,15 @@
 <template>
-  <div class="home-img"></div>
+  <div class="home">主页</div>
 </template>
 
 <script>
 export default {
-
+  name: 'home'
 }
 </script>
 
 <style lang="scss" scoped>
-
+.home {
+  
+}
 </style>

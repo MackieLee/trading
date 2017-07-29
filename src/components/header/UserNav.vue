@@ -1,9 +1,6 @@
 <template>
-  <ul class="nav-user">
-    <template v-if="!user">
-      <li><router-link :to="{ name : 'regist' }"></router-link></li>
-      <li><a>注册</a></li>
-    </template>
+  <ul class="user-nav">
+    <li v-if="!user"><router-link :to="toJoin">注册</router-link></li>
     <template v-else>
       <li>
         <a>欢迎回来</a>
@@ -24,6 +21,13 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  name: 'user-nav',
+  props: {
+    toJoin: {
+      type: [Object, String],
+      required: true
+    }
+  },
   data() {
     return {
       userPanel: false
@@ -32,19 +36,20 @@ export default {
   computed: mapGetters({
     user: 'getUser'
   }),
-  methods: {
-
+  created () {
+    console.log(this.user)
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .nav-user{
-    height: 35px;
-    font-size: 12px;
-    line-height: 35px;
-    li{
-      margin: 0 10px;
-    }
+.user-nav {
+  text-align: right;
+  height: 35px;
+  font-size: 12px;
+  line-height: 35px;
+  li{
+    margin: 0 10px;
   }
+}
 </style>
