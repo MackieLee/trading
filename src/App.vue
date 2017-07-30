@@ -1,22 +1,18 @@
 <template>
   <div id="app">
-    <app-header></app-header>
-    <app-nav></app-nav>
-    <router-view class="view"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import AppHeader from './components/AppHeader'
-import AppNav from './components/AppNav'
-
 export default {
-  components: { AppHeader,AppNav }
+  name: 'app'
 }
 </script>
 
 <style lang="scss">
-@import './assets/reset.scss';
+@import './assets/style/reset.scss';
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

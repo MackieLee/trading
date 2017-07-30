@@ -1,20 +1,30 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from '../view/Home'
-import regist from '../view/Regist'
+import Index from '../views/index/Index'
+import Home from '../views/home/Home'
+import Join from '../views/Join'
 
 Vue.use(Router)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: home
+    component: Index,
+    redirect: {
+      name: 'home'
+    },
+    children: [
+      {
+        path: 'home',
+        name: 'home',
+        component: Home
+      }
+    ]
   },
   {
-    path: '/regist',
-    name: 'regist',
-    component: regist
+    path: '/join',
+    name: 'join',
+    component: Join
   }
 ]
 export default new Router({
