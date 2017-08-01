@@ -1,15 +1,22 @@
 <template>
-  <div class="home">主页</div>
+  <div class="home">
+    <first-glance></first-glance>
+    <select-box></select-box>
+  </div>
 </template>
 
 <script>
+import FirstGlance from './FirstGlance'
+import SelectBox from './SelectBox'
+
 export default {
-  name: 'home'
+  name: 'home',
+  components: { FirstGlance,SelectBox }
 }
 </script>
 
 <style lang="scss" scoped>
 .home {
-  
+
 }
 </style>
