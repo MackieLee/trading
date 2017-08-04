@@ -1,7 +1,7 @@
 <template>
   <div class="app-header">
     <router-link :to="{name: 'home'}" class="logo" tag="span">
-      <img src="../../assets/logo.png" alt="logo">
+      <img src="../../assets/img/logo.png" alt="logo">
     </router-link>
     <div>
       <user-nav :to-join="toJoin"></user-nav>

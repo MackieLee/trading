@@ -1,22 +1,22 @@
 <template>
   <form @submit.prevent="submit">
     <div class="form-content">
-      <p :class="{ 'p-danger':danger,'hidden':!danger }">{{ uNameError.error_01 }}</p>
+      <p :class="{ 'p-danger':userState==='danger'}">{{ uNameError.error_01 }}</p>
       <div>
         <span>用户名:</span>
-        <input :class="{ 'has-success':success , 'has-danger':danger }" type="text" placeholder="用户名" />
+        <input :class=userState type="text" @input="test('user',$event)" placeholder="用户名" />
       </div>
-      <p :class="{ 'p-danger':danger,'hidden':!danger }"></p>
+      <p :class="{ 'p-danger':pwdState==='danger'}">{{ pwdError.error_01 }}</p>
       <div>
         <span>密码:</span>
-        <input :class="{ 'has-success':success , 'has-danger':danger }" type="password" placeholder="密码" />
+        <input :class=pwdState type="password" placeholder="密码" />
       </div>
-      <p :class="{ 'p-danger':danger,'hidden':!danger }"></p>
+      <p :class="{ 'p-danger':confirmState==='danger'}"></p>
       <div>
         <span>确认密码:</span>
-        <input :class="{ 'has-success':success , 'has-danger':danger }" type="password" placeholder="确认密码" />
+        <input :class=confirmState type="password" placeholder="确认密码" />
       </div>
-      <p :class="{ 'p-danger':danger,'hidden':!danger }"></p>
+      <p></p>
       <div>
         <span>性别:</span>
         <div class="sex">
@@ -24,7 +24,7 @@
           <input type="radio" name="sex" />女
         </div>
       </div>
-      <p :class="{ 'p-danger':danger,'hidden':!danger }"></p>
+      <p></p>
       <div>
         <span>生日:</span>
         <div class="birthday" @click="changeBirthday">
@@ -33,7 +33,7 @@
           <div><span data-tar="day" data-act="decre">-</span><input type="text" maxlength="2" v-model="birth.day"><span data-tar="day" data-act="plus">+</span></div>
         </div>
       </div>
-      <p :class="{ 'p-danger':danger,'hidden':!danger }"></p>
+      <p :class="{ 'p-danger':adressState}"></p>
       <div>
         <span>所在地:</span>
         <div class="adress">
@@ -47,15 +47,15 @@
           </select>
         </div>
       </div>
-      <p :class="{ 'p-danger':danger,'hidden':!danger }"></p>
+      <p :class="{ 'p-danger':emailState==='danger'}"></p>
       <div>
         <span>电子邮箱:</span>
-        <input :class="{ 'has-success':success , 'has-danger':danger }" type="text" placeholder="电子邮箱" />
+        <input :class=emailState type="text" data-role="email" placeholder="电子邮箱" />
       </div>
-      <p :class="{ 'p-danger':danger,'hidden':!danger }"></p>
+      <p :class="{ 'p-danger':phoneNumState==='danger'}"></p>
       <div>
         <span>手机号码:</span>
-        <input :class="{ 'has-success':success , 'has-danger':danger }" type="text" placeholder="手机号码" />
+        <input :class=phoneNumState type="text" data-role="phoneNum" placeholder="手机号码" />
       </div>
       <button class="submit" type="submit">注册</button>
     </div>
@@ -65,11 +65,15 @@
 export default {
   data(){
     return {
-      success : false,
-      danger : false,
+      userState:'',
+      pwdState:'',
+      confirmState:'',
+      adressState:false,
+      emailState:'',
+      phoneNumState:'',
       selected:null,
       birth: {
-        'year' : 2000 ,
+        year : 2000 ,
         mon : 1,
         day : 1
       },
@@ -97,14 +101,16 @@ export default {
     changeBirthday:function(e){
       let what = e.target.dataset.tar
       if(e.target.dataset.act === 'plus'){
+        let [mon,day] = [ this.birth.mon,this.birth.day ]
         this.birth[what]++
+        what==="mon"&&mon===12?this.birth.mon=1:what==="day"?((mon===2&&day===29)||(mon===(4||6||9||11)&&day===30)||day===31?this.birth.day=1:""):""
       }else if(e.target.dataset.act === 'decre' && this.birth[what] > 1){
         this.birth[what]--
       }
     },
     submit:function(){
 
-    }
+    },
   }
 }
 </script>
@@ -120,9 +126,10 @@ export default {
         padding:5px 10px;
         font-size: 12px;
         width: 400px;
-        margin: 5px 0;
+        margin: 6px 0;
         border-radius: 3px;
         color: #fff;
+        height: 16px;
       }
       .p-danger{
         background-color: #a94442;
@@ -186,10 +193,10 @@ export default {
             border-radius: 3px;
           }
         }
-        .has-success{
+        .success{
           border-color: #3c763d;
         }
-        .has-danger{
+        .danger{
           border-color: #a94442;
         }
       }

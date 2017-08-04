@@ -1,7 +1,7 @@
 <template>
   <div class="join-header">
     <router-link :to="{ name: 'home'}">
-      <img src="../../assets/logo.png" class="logo" />
+      <img src="../../assets/img/logo.png" class="logo" />
     </router-link>
     <span>账号注册</span>
   </div>

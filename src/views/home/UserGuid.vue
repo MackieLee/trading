@@ -70,7 +70,7 @@ export default {
           display:inline-block;
           width:64px;
           height:64px;
-          background-image: url('../../assets/img_index.png');
+          background-image: url('../../assets/img/img_index.png');
         }
         .qb{
           background-position: -65px 0 ;
