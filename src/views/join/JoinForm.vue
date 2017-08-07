@@ -4,7 +4,7 @@
       <p :class="{ 'p-danger':userState==='danger'}">{{ uNameError.error_01 }}</p>
       <div>
         <span>用户名:</span>
-        <input :class=userState type="text" @input="test('user',$event)" placeholder="用户名" />
+        <input :class=userState type="text" @input="validate('user',$event.target.value)" placeholder="用户名" />
       </div>
       <p :class="{ 'p-danger':pwdState==='danger'}">{{ pwdError.error_01 }}</p>
       <div>
@@ -62,6 +62,8 @@
   </form>
 </template>
 <script>
+import { validateForm } from '../../util'
+
 export default {
   data(){
     return {
@@ -111,6 +113,15 @@ export default {
     submit:function(){
 
     },
+    validateForm,
+    validate:(type,value) => {
+      console.log(validateForm(type,value))
+      console.log(type+'State')
+      console.log(this.userState)
+      console.log('type='+type)
+      console.log('value='+value)
+      this[type + 'State'] = validateForm(type,value)
+    }
   }
 }
 </script>

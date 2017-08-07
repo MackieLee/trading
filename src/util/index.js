@@ -1,5 +1,1 @@
-import * as validate from './checkForm'
-
-export default{
-  validate
-}
+export * from './check.js'

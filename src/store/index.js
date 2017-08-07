@@ -9,4 +9,3 @@ export default new Vuex.Store({
     user
   }
 })
-// 如果在这儿引入表单处理代码，该怎么写处理逻辑？
