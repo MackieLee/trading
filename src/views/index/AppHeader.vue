@@ -38,7 +38,6 @@ export default {
   display: flex;
   justify-content: space-between;
   width: $base-width;
-  height:100px;
   margin: 0 auto;
   .logo{
     padding-left: 50px;

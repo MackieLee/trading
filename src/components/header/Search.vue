@@ -4,7 +4,7 @@
     <!--搜索框主题-->
     <div class="multi-search">
         <ul>
-          <li><a href="#">游戏名称</a></li>
+          <li><a href="#" @click="clear">游戏名称</a></li>
           <li><a href="#">游戏区</a></li>
           <li><a href="#">游戏服务器</a></li>
           <li><a href="#">全部分类</a></li>
@@ -13,7 +13,16 @@
         </ul>
     </div>
     <!--下拉选择面板(游戏分类选择面板)-->
-    <div v-show="selectPanel" class="select-panel"></div>
+    <div v-show="selectPanel" class="select-panel">
+      <ul class="select-title" v-show="!name">
+        <li v-for="item in chars" :key="item" @click="getLetter(item)" :class="{'active':item.toLowerCase()===letter}">{{ item }}</li>
+      </ul>
+      <ul class="select-content" v-for="items in games">
+        <li v-for="(item,index) in items[letter]" :key="item.name" @click="getItem(item.name,index)">
+           <span v-show="!name">{{ item[key] }}</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -21,45 +30,91 @@
 export default {
   data() {
     return {
-      selectPanel: true,
+      selectPanel: false,
       childSelect: false,
-      chars: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+      letter:'a',
+      key:'name',
+      name:'',
+      area:'',
+      server:'',
+      chars: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
       games: [
-        {name: '地下城与勇士'},
-        {name: '新天龙八部'},
-        {name: '剑侠情缘Ⅲ'},
-        {name: '英雄联盟'},
-        {name: '地下城与勇士'},
-        {name: '新天龙八部'},
-        {name: '剑侠情缘Ⅲ'},
-        {name: '英雄联盟'},
-        {name: '地下城与勇士'},
-        {name: '新天龙八部'},
-        {name: '剑侠情缘Ⅲ'},
-        {name: '英雄联盟'},
-        {name: '地下城与勇士'},
-        {name: '新天龙八部'},
-        {name: '剑侠情缘Ⅲ'},
-        {name: '英雄联盟'}
+        {
+          a : [
+            { name : 'a',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '坦克世界',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '魔兽世界',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '老王卖屁股',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '刀塔2',area :['beijing','shanghai','guangdong','hebei']},
+            { name : 'ABCD',area :['beijing','shanghai','guangdong','hebei']}
+          ]
+        },
+        {
+          b : [
+            { name : 'b',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '坦克世界',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '魔兽世界',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '老王卖屁股',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '刀塔2',area :['beijing','shanghai','guangdong','hebei']},
+            { name : 'ABCD',area :['beijing','shanghai','guangdong','hebei']}
+          ]
+        },
+        {
+          c : [
+            { name : 'c',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '坦克世界',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '魔兽世界',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '老王卖屁股',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '刀塔2',area :['beijing','shanghai','guangdong','hebei']},
+            { name : 'ABCD',area :['beijing','shanghai','guangdong','hebei']}
+          ]
+        },
+        {
+          d : [
+            { name : 'd',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '坦克世界',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '魔兽世界',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '老王卖屁股',area :['beijing','shanghai','guangdong','hebei']},
+            { name : '刀塔2',area :['beijing','shanghai','guangdong','hebei']},
+            { name : 'ABCD',area :['beijing','shanghai','guangdong','hebei']}
+          ]
+        }
+      ],
+      area:[
+        {
+          a:[]
+        }
       ]
     }
   },
   methods: {
-
+    clear:function(){ 
+      this.name=''
+      !this.selectPanel?this.selectPanel = true :this.selectPanel = false
+    },
+    getLetter:function(item){
+      this.letter = item.toLowerCase()
+    },
+    getItem:function(item,index){
+      this.name = item
+      console.log(this.games[this.letter][index])
+      //error：index 0 undefined
+      //如何根据index取到对象数组中的一项
+    }
   }
 }
 </script>
 
 <style lang="scss">
   .multi-select{
-    height: 65px;
-    line-height: 65px;
     input{
       height: 30px;
       line-height: 30px;
     }
-    li{
-      margin: 0 10px;
+    .multi-search{
+      li{
+        margin: 0 12px;
+      }
     }
   }
   .input-search{
@@ -67,9 +122,36 @@ export default {
     width: 250px;
   }
   .select-panel{
-    height: 100px;
-    width: 100px;
-    display: absolute;
-    background: #f8f8f8;
+    position: absolute;
+    background: #fff;
+    border: 2px solid #4D90FE;
+    padding: 10px;
+    width: 533px;
+    margin-top: 15px;
+    .select-title{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      li{
+        padding: 5px;
+        cursor: pointer;
+        &:hover{
+          color: #0275D8;
+          font-weight: bold;
+        }
+      }
+    }
+    .select-content{
+      li{
+        cursor: pointer;
+        margin:0 10px
+      }
+    }
+    .active{
+      color: #0275D8;
+      font-weight: bold;
+      font-size: 14px;
+    }
   }
 </style>

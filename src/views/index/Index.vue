@@ -1,6 +1,7 @@
 <template>
   <div class="index">
     <app-header></app-header>
+    <app-nav></app-nav>
     <section class="content">
       <router-view></router-view>
     </section>
@@ -8,11 +9,12 @@
 </template>
 <script>
 import AppHeader from './AppHeader'
+import AppNav from './AppNav'
 
 export default {
   name: 'index',
   components: {
-    AppHeader
+    AppHeader,AppNav
   }
 }
 </script>

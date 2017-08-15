@@ -114,12 +114,7 @@ export default {
 
     },
     validateForm,
-    validate:(type,value) => {
-      console.log(validateForm(type,value))
-      console.log(type+'State')
-      console.log(this.userState)
-      console.log('type='+type)
-      console.log('value='+value)
+    validate:function(type,value){
       this[type + 'State'] = validateForm(type,value)
     }
   }

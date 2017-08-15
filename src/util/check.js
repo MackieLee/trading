@@ -1,5 +1,5 @@
 const validate = (validation,type, value) => {
-  // debounce ;
+  //debounce ;
   // let delta = 1000
   // let timeoutID = null
   // clearTimeout(timeoutID)

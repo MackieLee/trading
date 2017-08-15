@@ -3,22 +3,22 @@
     <div class="trade-info-title">
       <ul>
         <li><a @mouseenter="showList" ref="a1" :class="active">最新售出</a></li>
-        <li><a @mouseenter="showList" ref="a2">最新上架</a></li>
+        <li><a @mouseenter="showList" ref="a2" >最新上架</a></li>
       </ul>
     </div>
     <div class="trade-list">
-      <ul v-if="show">
-        <li v-for="item in bought" :key="item">
+       <ul v-if="show">
+        <li v-for="item in bought" :key="item.title">
           <a>{{item.title}}</a>
           <span>{{item.price}}</span>
         </li>
-      </ul>
-      <ul v-if="hide">
-        <li v-for="item in sold" :key="item">
+      </ul> 
+       <ul v-if="hide">
+        <li v-for="item in sold" :key="item.title">
           <a>{{item.title}}</a>
           <span>{{item.price}}</span>
         </li>
-      </ul>
+      </ul> 
     </div>
   </div>
 </template>
