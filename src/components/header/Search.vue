@@ -128,6 +128,7 @@ export default {
     padding: 10px;
     width: 533px;
     margin-top: 15px;
+    z-index: 1000;
     .select-title{
       display: flex;
       flex-direction: row;

@@ -65,6 +65,7 @@
 import { validateForm } from '../../util'
 
 export default {
+  name: 'join',
   data(){
     return {
       userState:'',

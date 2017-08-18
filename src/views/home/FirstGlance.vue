@@ -20,6 +20,7 @@ export default {
   .first-glance,.busniss-pub{
     display: flex;
     flex-direction: row;
+    z-index: 500;
   }
   .trade-info{
     height: 265px;

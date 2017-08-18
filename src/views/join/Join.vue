@@ -3,8 +3,9 @@
     <div class="header">
       <join-header></join-header>
     </div>
-    <div class="join-form">
-      <join-form></join-form>
+    <div class="split"></div>
+    <div class="form-container">
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -23,12 +24,15 @@ export default {
 .header{
   display: flex;
   justify-content: center;
-  background-color: #f8f8f8;
   .join-header{
     width: 1000px;
   }
 }
-.join-form {
+.split{
+  height: 5px;
+  background-color: #0275d8;
+}
+.form-container{
   display: flex;
   width: 1000px;
   margin: auto;

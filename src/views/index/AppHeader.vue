@@ -4,7 +4,7 @@
       <img src="../../assets/img/logo.png" alt="logo">
     </router-link>
     <div>
-      <user-nav :to-join="toJoin"></user-nav>
+      <user-nav :to-join="toJoin" :to-login="toLogin"></user-nav>
       <search></search>
     </div>
   </div>
@@ -21,6 +21,11 @@ export default {
       return {
         name: 'join',
         query: this.$route.fullPath
+      }
+    },
+    toLogin () {
+      return{
+        name: 'login'
       }
     }
   },

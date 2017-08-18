@@ -1,7 +1,7 @@
 <template>
     <div class="home-img">
         <div class="video-container">
-            <video id="audio" autoplay="autoplay" src="http://61.155.212.115/10/b/f/t/h/bfthajjjykiqgsazoxlxhrirozvsns/hc.yinyuetai.com/D77C0155B0DAB36C3DFE9E4B6C9A10D2.flv?sc=2115fd092a436c7a&br=780&vid=2611244&aid=1402&area=US&vst=3"></video>
+            <video id="audio" src="http://61.155.212.115/10/b/f/t/h/bfthajjjykiqgsazoxlxhrirozvsns/hc.yinyuetai.com/D77C0155B0DAB36C3DFE9E4B6C9A10D2.flv?sc=2115fd092a436c7a&br=780&vid=2611244&aid=1402&area=US&vst=3"></video>
         </div>
         <div class="playToggle" :class="{'playPause':!isPlaying}" @click="playToggle">
             <img src="../../assets/img/pause.png" v-show="!isPlaying">

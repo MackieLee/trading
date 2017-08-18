@@ -3,7 +3,6 @@
     <router-link :to="{ name: 'home'}">
       <img src="../../assets/img/logo.png" class="logo" />
     </router-link>
-    <span>账号注册</span>
   </div>
 </template>
 <script>
@@ -19,12 +18,6 @@ export default {
     align-items: center;
     img{
       height: 80px;
-    }
-    span{
-      margin-left: 50px;
-      font-size: 24px;
-      color: #686868;
-      font-weight: bold;
     }
   }
 </style>

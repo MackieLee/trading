@@ -1,5 +1,6 @@
 <template>
   <ul class="user-nav">
+     <li v-if="!user"><router-link :to="toLogin">登录</router-link></li> 
     <li v-if="!user"><router-link :to="toJoin">注册</router-link></li>
     <template v-else>
       <li>
@@ -24,6 +25,10 @@ export default {
   name: 'user-nav',
   props: {
     toJoin: {
+      type: [Object, String],
+      required: true
+    },
+    toLogin: {
       type: [Object, String],
       required: true
     }

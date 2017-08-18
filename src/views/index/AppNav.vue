@@ -17,7 +17,7 @@ export default {
             { name:'账号交易',link:''},
             { name:'金币交易',link:''},
             { name:'装备交易',link:''},
-            { name:'手游交易',link:''},
+            { name:'玩家留言',link:''},
             { name:'游戏代练',link:''},
             { name:'游戏陪玩',link:''},
             { name:'点卡交易',link:''},
