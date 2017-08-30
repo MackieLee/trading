@@ -11,15 +11,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import './assets/style/reset.scss';
-
+@import './assets/style/base-conf.scss';
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
+  li{
+    display: inline-block;
+  }
+  min-width: 1100px;
 }
 </style>

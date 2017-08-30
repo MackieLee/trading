@@ -1,24 +1,35 @@
 <template>
   <div class="home">
-    <first-glance></first-glance>
-    <select-box></select-box>
-    <hot-forum></hot-forum>
+    <slider></slider>
+    <teacher-box></teacher-box>
+    <tax-box></tax-box>
+    <tax-box-sed></tax-box-sed>
+    <!-- <book-box></book-box> -->
+    <bottom-ad></bottom-ad>
   </div>
 </template>
 
 <script>
-import FirstGlance from './FirstGlance'
-import SelectBox from './SelectBox'
-import HotForum from './HotForum'
-
+import Slider from './Slider'
+import TeacherBox from './TeacherBox'
+import TaxBox from './TaxBox'
+import TaxBoxSed from './TaxBoxSed'
+// import BookBox from './BookBox'
+import BottomAd from './BottomAd'
 export default {
   name: 'home',
-  components: { FirstGlance,SelectBox,HotForum }
+  components:{
+    Slider,
+    TeacherBox,
+    TaxBox,
+    // BookBox,
+    BottomAd,
+    TaxBoxSed
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-.home {
+@import '../../assets/style/base.scss';
 
-}
 </style>
