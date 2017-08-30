@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from '../views/index/Index'
 import home from '../views/home/Home'
-import online from '../views/online/Online'
+import courses from '../views/courses/Courses'
+import online from '../views/courses/Online'
+import offline from '../views/courses/Offline'
 import login from '../views/join/Login'
 import register from '../views/join/Register'
 
@@ -22,9 +24,21 @@ const routes = [
         component: home
       },
       {
-        path: 'online',
-        name: 'online',
-        component: online
+        path: 'courses',
+        name: 'courses',
+        component: courses,
+        children: [
+          {
+            path:'online',
+            name:'online',
+            component: online
+          },
+          {
+            path:'offline',
+            name:'offline',
+            component: offline
+          }
+        ]
       }
     ]
   },

@@ -9,7 +9,7 @@
             </router-link>
           </li>
           <li v-for="item in navItems" :key="item.name" :class="{'active':item.link === activeItem }" @click=" getItem(item) ">
-            <router-link :to=" item.link ">{{ item.name }}</router-link>
+            <router-link :to="{ name:item.link }">{{ item.name }}</router-link>
           </li>
         </ul>
       </div>
@@ -47,7 +47,7 @@ export default {
     return{
       navItems:[
         { name:'首页',link:'home'},
-        { name:'线上课程',link:'online'},
+        { name:'线上课程',link:'courses/online'},
         { name:'线下课程',link:'offline'},
         { name:'讲师',link:'teacher'},
         { name:'问答',link:'ftheq'},

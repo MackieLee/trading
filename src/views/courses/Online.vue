@@ -1,17 +1,13 @@
 <template>
-  <div class="online">
 
-  </div>
 </template>
 
 <script>
-
 export default {
-  name: 'online',
-  components:{
-  }
+  name:'online'
 }
 </script>
 
 <style lang="scss" scoped>
+
 </style>
