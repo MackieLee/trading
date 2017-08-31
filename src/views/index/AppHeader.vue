@@ -47,7 +47,7 @@ export default {
     return{
       navItems:[
         { name:'首页',link:'home'},
-        { name:'线上课程',link:'courses/online'},
+        { name:'线上课程',link:'online'},
         { name:'线下课程',link:'offline'},
         { name:'讲师',link:'teacher'},
         { name:'问答',link:'ftheq'},
