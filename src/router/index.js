@@ -4,7 +4,12 @@ import index from '../views/index/Index'
 import home from '../views/home/Home'
 import courses from '../views/courses/Courses'
 import online from '../views/courses/Online'
+import video from '../views/courses/Video'
 import offline from '../views/courses/Offline'
+import teacher from '../views/team/teacher'
+import tdetail from '../views/team/TDetail'
+import faq from '../views/faq/Faq'
+import qdetail from '../views/faq/QTetail'
 import login from '../views/join/Login'
 import register from '../views/join/Register'
 
@@ -39,6 +44,31 @@ const routes = [
             component: offline
           }
         ]
+      },
+      {
+        path:'video',
+        name:'video',
+        component: video
+      },
+      {
+        path: '/teacher',
+        name: 'teacher',
+        component: teacher
+      },
+      {
+        path: '/tdetail',
+        name: 'tdetail',
+        component: tdetail
+      },
+      {
+        path: '/faq',
+        name: 'faq',
+        component: faq
+      },
+      {
+        path: '/qdetail',
+        name: 'qdetail',
+        component: qdetail
       }
     ]
   },
