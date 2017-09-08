@@ -1,0 +1,153 @@
+<template>
+  <div class="detail">
+    <div class="cur-posi">
+      <p>
+        <i></i>当前位置 : &nbsp;
+        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;图书
+      </p>
+    </div>
+    <div class="item">
+      <div class="lf-content">
+        <img src="../../assets/images/jitax_图书details_03.png" />
+        <ul>
+          <li>
+            <img src="../../assets/images/jitax_图书details_07.png" />
+          </li>
+          <li>
+            <img src="../../assets/images/jitax_图书details_07.png" />
+          </li>
+          <li>
+            <img src="../../assets/images/jitax_图书details_07.png" />
+          </li>
+        </ul>
+      </div>
+      <div class="rt-content">
+        <p class="title">【自营】土地增值税实战与案例精解</p>
+        <p class="price">￥51.00
+          <del>￥62.56</del>
+        </p>
+        <p>作 者：北京中经阳光税收筹划事务所</p>
+        <p>出 版 社：中国市场出版社</p>
+        <p>出版时间：2012年07月</p>
+        <p>适合人群：备考CPA审计的学员看官方教材云里雾里的学员</p>
+        <p class="btn">
+          <button>立即购买</button>
+          <button><i></i>加入购物车</button>
+        </p>
+      </div>
+    </div>
+    <div class="comment">
+      <p>
+        <span class="active">图书详情</span>
+        <span>图书目录</span>
+        <span>评论(189)</span>
+      </p>
+      <div class="content">
+        本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；课程总结。 本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；课程总结。 本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；课程总结。 本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；课程总结。 本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；课程总结。
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style lang="scss" scoped>
+@import '../../assets/style/base.scss';
+.detail {
+  width: $width;
+  margin: 0 auto;
+  i {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-image: url('../../assets/images/Sprite.png');
+    vertical-align: text-bottom;
+  }
+  .cur-posi {
+    padding: 26px 0;
+    i {
+      background-position: -106px -204px;
+      margin-right: 6px;
+    }
+  }
+  .item {
+    height: 460px;
+    display: flex;
+    margin: 63px 0;
+    .lf-content {
+      margin: 0 172px 0 56px;
+      li {
+        margin: 20px 30px 0 0;
+        cursor: pointer;
+      }
+    }
+    .rt-content {
+      width: 472px;
+      p {
+        margin: 15px 0;
+      }
+      .title {
+        padding-bottom: 25px;
+        font-size: 16px;
+        font-weight: bold;
+        border-bottom: 1px solid $rice;
+      }
+      .price {
+        height: 56px;
+        background-color: #ebeeee;
+        border: 1px solid $black;
+        line-height: 56px;
+        font-size: 22px;
+        color: red;
+        padding-left: 20px;
+        margin: 10px 0 25px 0;
+        del {
+          font-size: 16px;
+          color: #666;
+          margin-left: 5px;
+        }
+      }
+      button{
+        background-color: $red;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        color: $white;
+        margin-top: 45px;
+        padding: 6px 13px;
+        cursor: pointer;
+      }
+      i {
+      background-position: -53px -319px;
+      margin-right: 6px;
+    }
+    }
+  }
+  .comment {
+    p {
+      border-bottom: 1px solid $rice;
+      overflow: hidden;
+      span {
+        float: left;
+        color: $black;
+        padding: 10px 16px;
+        cursor: pointer;
+      }
+      span[class="active"] {
+        background-color: $red;
+        color: $white;
+      }
+    }
+    .content {
+      text-indent: 32px;
+      line-height: 35px;
+      font-size: 16px;
+      padding: 30px 10px;
+    }
+  }
+}
+</style>

@@ -53,10 +53,10 @@ export default {
         { name:'线下课程',link:'offline'},
         { name:'讲师',link:'teacher'},
         { name:'问答',link:'ftheq'},
-        { name:'图书',link:'books'},
-        { name:'定制课程',link:'per-class'},
-        { name:'会员中心',link:'about-us'},
-        { name:'关于我们',link:'about-us'}
+        { name:'图书',link:'book'},
+        { name:'定制课程',link:'customize'},
+        { name:'会员中心',link:'vip'},
+        { name:'关于我们',link:'about'}
       ],
       activeItem:'home'
     }

@@ -9,7 +9,11 @@ import offline from '../views/courses/Offline'
 import teacher from '../views/team/teacher'
 import tdetail from '../views/team/TDetail'
 import faq from '../views/faq/Faq'
-import qdetail from '../views/faq/QTetail'
+import qdetail from '../views/faq/QDetail'
+import book from '../views/book/Book'
+import item from '../views/book/Item'
+import about from '../views/about/About'
+import customize from '../views/customize/Customize'
 import login from '../views/join/Login'
 import register from '../views/join/Register'
 
@@ -69,6 +73,26 @@ const routes = [
         path: '/qdetail',
         name: 'qdetail',
         component: qdetail
+      },
+      {
+        path: '/book',
+        name: 'book',
+        component: book
+      },
+      {
+        path: '/item',
+        name: 'item',
+        component: item
+      },
+      {
+        path: '/about',
+        name: 'about',
+        component: about
+      },
+      {
+        path: '/customize',
+        name: 'customize',
+        component: customize
       }
     ]
   },

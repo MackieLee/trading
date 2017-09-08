@@ -20,6 +20,7 @@
 import img1 from '../../assets/images/banner1.png'
 import img2 from '../../assets/images/banner2.png'
 import img3 from '../../assets/images/banner3.png'
+import img4 from '../../assets/images/banner4.png'
 const TO_LEFT = 'slide-left'
 const TO_RIGHT = 'slide-right'
 export default {
@@ -27,7 +28,7 @@ export default {
   data () {
     return {
       transName: TO_LEFT,
-      imgs: [img1, img2, img3],
+      imgs: [img1, img2, img3,img4],
       cur: 0,
       timer: null,
     }
@@ -44,7 +45,7 @@ export default {
         this.transName = TO_LEFT
         this.timer = setInterval(() => {
           this.cur++
-          this.cur %= 3
+          this.cur %= 4
         }, 3000)
       }
     },
