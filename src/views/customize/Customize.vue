@@ -9,10 +9,11 @@
     <div class="content">
       <font>2017专属您的私人定制</font>
       <form>
-        <div class="all-in">
-          <label>听课人数：</label><input name="sum" type="text" /></div>
-        <div>
-          <label>地 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 址：</label>
+        <div class="flex">
+          <label for="sum" class="tag tag-width">听课人数：</label><input name="sum" id="sum" type="text" class="all-in" />
+        </div>
+        <div class="flex">
+          <label class="tag tag-width">地 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 址：</label>
           <select v-model="selected">
             <option v-for=" item in province" :key="item" :value=" item ">{{ item }}</option>
           </select>
@@ -20,8 +21,8 @@
             <option v-for=" item in city" :key="item">{{ item }}</option>
           </select>
         </div>
-        <div>
-          <label>时间安排：</label>
+        <div class="flex">
+          <label class="tag tag-width">时间安排：</label>
           <select v-model="selected">
             <option v-for=" item in province" :key="item" :value=" item ">{{ item }}</option>
           </select>
@@ -32,28 +33,33 @@
             <option v-for=" item in city" :key="item">{{ item }}</option>
           </select>
         </div>
-        <div>
-          <label>课 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 题：</label>
+        <div class="flex">
+          <label class="tag tag-width">课 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 题：</label>
           <select>
             <option></option>
           </select>
         </div>
-        <div>
-          <label>讲师要求：</label>
+        <div class="flex">
+          <label class="tag tag-width">讲师要求：</label>
           <select>
             <option></option>
           </select>
         </div>
-        <div class="all-in">
-          <label>声 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 明：</label><input/>
+        <div class="flex">
+          <label class="tag tag-width" for="shengming">声 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 明：</label><input class="all-in" id="shengming"/>
         </div>
-        <div>
-          <div></div>
+        <div class="msg flex">
+          <div class="tag tag-width title">企业信息：</div>
           <div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div class="tag block"><label for="danwei">单位名称</label><input name="danwei" id="danwei"/></div>
+            <div class="tag block"><label for="lianxiren">联系人</label><input name="lianxiren" id="lianxiren"/></div>
+            <div class="tag block"><label for="zhiwu">职务</label><input name="zhiwu" id="zhiwu"/></div>
+            <div class="tag block"><label for="dianhua">电话</label><input name="dianhua" id="dianhua"/></div>
+            <div class="tag block"><label for="youxiang">邮箱</label><input name="youxiang" id="youxiang"/></div>
           </div>
+        </div>
+        <div class="sub">
+          提交
         </div>
       </form>
     </div>
@@ -97,16 +103,6 @@ export default {
     }
   },
   methods: {
-    changeBirthday: function(e) {
-      let what = e.target.dataset.tar
-      if (e.target.dataset.act === 'plus') {
-        let [mon, day] = [this.birth.mon, this.birth.day]
-        this.birth[what]++
-        what === "mon" && mon === 12 ? this.birth.mon = 1 : what === "day" ? ((mon === 2 && day === 29) || (mon === (4 || 6 || 9 || 11) && day === 30) || day === 31 ? this.birth.day = 1 : "") : ""
-      } else if (e.target.dataset.act === 'decre' && this.birth[what] > 1) {
-        this.birth[what]--
-      }
-    },
     submit: function() {
 
     }
@@ -146,13 +142,20 @@ export default {
 
     form {
       margin-top: 106px;
-      div {
-        display: flex;
-        margin: 31px;
+      input,select{
+        border: 1px solid #ddd;
       }
-      label {
+      .flex {
+        display: flex;
+        margin:40px 0;
+      }
+      .tag-width{
+        width: 100px;
+      }
+      .tag {
         margin-right: 15px;
         font-weight: bold;
+        font-size: 18px;
       }
       select{
         width: 180px;
@@ -160,10 +163,42 @@ export default {
         margin-right: 30px;
       }
       .all-in{
-        input{
-          width: 725px;
-          height: 38px;
+        width: 725px;
+        height: 38px;
+      }
+      .msg{
+        margin: 30px 0 0 0;
+        .title{
+         margin:0 15px 0 0;
         }
+        .block{
+          margin:0 0 15px 0;
+          label{
+            display: inline-block;
+            width: 159px;
+            padding: 13px 0;
+            margin-right: 25px;
+            line-height: 18px;
+            background-color: #8E8D8D;
+            text-align: center;
+            color: #fff;
+          }
+          input{
+            height: 40px;
+            width: 541px;
+          }
+        }
+      }
+      .sub{
+        width: 200px;
+        padding: 10px 0;
+        margin: 120px auto 0 auto;
+        background-color: $red;
+        color: #fff;
+        text-align: center;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
       }
     }
   }

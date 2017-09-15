@@ -3,7 +3,7 @@
     <div class="items">
       <div class="item">
         <div class="col col-1">
-          <router-link to="/home">
+          <router-link to="/odetail">
             <img class="img" src="../../assets/images/jdtax_线下_01.png">
             <span class="tag tag-01">正在报名</span>
           </router-link>
@@ -127,7 +127,7 @@ export default {
   .items{
     .item {
       border: 1px solid $red;
-      margin-top: 32px;
+      margin-top: 20px;
       padding: 10px 0 10px 10px;
       display: flex;
       i{

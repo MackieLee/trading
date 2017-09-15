@@ -106,14 +106,14 @@ export default {
     }
     .item{
       width: $width;
-      height: 155px;
-      border-bottom:1px dotted $black;
       display: flex;
+      background-color: #ebebeb;
+      margin: 25px 0 38px 0;
       .hd-pic{
-        margin: 12px 34px 20px 10px;
+        margin: 19px 40px 19px 19px;
       }
       .short-msg{
-        margin: 12px 0 20px 0;
+        margin-top: 35px;
         width: 750px;
         p[class="name"]{
           font-size: $lgtitle;

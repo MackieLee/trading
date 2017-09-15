@@ -4,18 +4,16 @@
       <div class="header-nav">
         <ul>
           <li>
-            <router-link :to="{name: 'home'}" tag="span">
+            <router-link :to="{name: 'home'}" tag="span" class="no-active">
               <i class="logo"></i>
             </router-link>
           </li>
-          <li v-for="item in navItems" :key="item.name" :class="{'active':item.link === activeItem }" @click=" getItem(item) ">
-            <router-link :to="{ name:item.link }">{{ item.name }}</router-link>
-          </li>
+          <router-link v-for="item in navItems" :key="item.name" :to="{ name:item.link }" tag="li">{{ item.name }}</router-link>
         </ul>
       </div>
       <div>
         <form action="">
-          <input placeholder="请输入您要搜索的内容"/>
+          <input placeholder="请输入您要搜索的内容" />
           <i></i>
         </form>
       </div>
@@ -43,32 +41,32 @@
 
 export default {
   name: 'app-herader',
-  data(){
-    return{
-      navItems:[
-        { name:'首页',link:'home'},
-        { name:'线上课程',link:'online'},
-        { name:'线下课程',link:'offline'},
-        { name:'专家团队',link:'teacher'},
-        { name:'问答',link:'faq'},
-        { name:'图书',link:'book'},
-        { name:'定制课程',link:'customize'},
-        { name:'会员中心',link:'vip'},
-        { name:'关于我们',link:'about'}
+  data() {
+    return {
+      navItems: [
+        { name: '首页', link: 'home' },
+        { name: '线上课程', link: 'online' },
+        { name: '线下课程', link: 'offline' },
+        { name: '专家团队', link: 'teacher' },
+        { name: '问答', link: 'faq' },
+        { name: '图书', link: 'book' },
+        { name: '定制课程', link: 'customize' },
+        { name: '会员中心', link: 'vip' },
+        { name: '关于我们', link: 'about' }
       ],
-      activeItem:'home'
+      activeItem: 'home'
     }
   },
   computed: {
-    toJoin () {
+    toJoin() {
       return {
         name: 'join',
         query: this.$route.fullPath
       }
     }
   },
-  methods:{
-    getItem : function(item){
+  methods: {
+    getItem: function(item) {
       this.activeItem = item.link
     }
   }
@@ -83,29 +81,24 @@ export default {
   border-bottom: 1px solid $rice;
   height: 49px;
   margin-bottom: 27px;
-  .header-container{
+  .header-container {
     width: $width;
-    margin:50px auto;
+    margin: 50px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .logo{
+    .logo {
       padding: 18px 71px;
       background-image: url('../../assets/images/Sprite.png');
       background-position: 143px -2px;
     }
-    li{
+    li {
       margin: 0 1px;
       padding: 5px;
-      a{
-        &:hover{
-          color: $red;
-        }
-      }
     }
-    form{
+    form {
       position: relative;
-      input{
+      input {
         height: 26px;
         border: 1px solid $red;
         border-radius: 15px;
@@ -114,7 +107,7 @@ export default {
         line-height: 12px;
         font-size: 12px;
       }
-      i{
+      i {
         display: block;
         position: absolute;
         top: 4px;
@@ -125,22 +118,29 @@ export default {
         background-position: -57px -224px;
       }
     }
-    .active{
-      border-bottom: 2px solid $red;
-      a{
-        color: $red;
+    .header-nav {
+      li{
+        cursor: pointer;
+      }
+      .active {
+        border-bottom: 2px solid $red;
+        color:$red;
+      }
+      .no-active {
+        border: none;
       }
     }
-    .register,.login{
+    .register,
+    .login {
       display: inline-block;
       width: 27px;
       height: 25px;
       background-image: url('../../assets/images/Sprite.png');
     }
-    .login{
+    .login {
       background-position: -112px -30px;
     }
-    .register{
+    .register {
       background-position: -112px 3px;
     }
   }

@@ -87,7 +87,7 @@ export default {
     .item{
       border: 1px solid $red;
       padding: 5px 10px 20px 10px;
-      margin-bottom: 10px;
+      margin-bottom: 50px;
       position: relative;
       .new{
         padding: 2px 4px;
@@ -122,7 +122,6 @@ export default {
         background-color: $red;
         color: $white;
         font-size: 12px;
-        border-radius: 5px;
         position: absolute;
         right: 15px;
       }

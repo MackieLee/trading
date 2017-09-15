@@ -47,6 +47,9 @@
               <input type="number" /> ——
               <input type="number" />
             </li>
+            <li class="outer-conf">
+              <span class="confirm">确定</span>
+            </li>
           </ul>
         </p>
       </div>
@@ -62,138 +65,130 @@
     <div class="video-boxes">
       <div class="item">
         <div>
-          <a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png" />
+          <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
           </a>
         </div>
         <p class="book-name">
           <router-link to="/item">土地增值税实战与案例</router-link>
-          <span class="book-style">精解</span>
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
           <span class="grey">￥</span>
           <del class="grey origin-price">62.56</del>
-          <a class="im-buy">立即购买</a>
+          <a class="im-buy">购买</a>
         </p>
       </div>
       <div class="item">
         <div>
-          <a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png" />
+          <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
           </a>
         </div>
         <p class="book-name">
           <a>土地增值税实战与案例</a>
-          <span class="book-style">精解</span>
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
           <span class="grey">￥</span>
           <del class="grey origin-price">62.56</del>
-          <a class="im-buy">立即购买</a>
+          <a class="im-buy">购买</a>
         </p>
       </div>
       <div class="item">
         <div>
-          <a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png" />
+          <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
           </a>
         </div>
         <p class="book-name">
           <a>土地增值税实战与案例</a>
-          <span class="book-style">精解</span>
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
           <span class="grey">￥</span>
           <del class="grey origin-price">62.56</del>
-          <a class="im-buy">立即购买</a>
+          <a class="im-buy">购买</a>
         </p>
       </div>
       <div class="item">
         <div>
-          <a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png" />
+          <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
           </a>
         </div>
         <p class="book-name">
           <a>土地增值税实战与案例</a>
-          <span class="book-style">精解</span>
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
           <span class="grey">￥</span>
           <del class="grey origin-price">62.56</del>
-          <a class="im-buy">立即购买</a>
+          <a class="im-buy">购买</a>
         </p>
       </div>
       <div class="item">
         <div>
-          <a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png" />
+          <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
           </a>
         </div>
         <p class="book-name">
           <a>土地增值税实战与案例</a>
-          <span class="book-style">精解</span>
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
           <span class="grey">￥</span>
           <del class="grey origin-price">62.56</del>
-          <a class="im-buy">立即购买</a>
+          <a class="im-buy">购买</a>
         </p>
       </div>
       <div class="item">
         <div>
-          <a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png" />
+          <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
           </a>
         </div>
         <p class="book-name">
           <a>土地增值税实战与案例</a>
-          <span class="book-style">精解</span>
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
           <span class="grey">￥</span>
           <del class="grey origin-price">62.56</del>
-          <a class="im-buy">立即购买</a>
+          <a class="im-buy">购买</a>
         </p>
       </div>
       <div class="item">
         <div>
-          <a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png" />
+          <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
           </a>
         </div>
         <p class="book-name">
           <a>土地增值税实战与案例</a>
-          <span class="book-style">精解</span>
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
           <span class="grey">￥</span>
           <del class="grey origin-price">62.56</del>
-          <a class="im-buy">立即购买</a>
+          <a class="im-buy">购买</a>
         </p>
       </div>
       <div class="item">
         <div>
-          <a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png" />
+          <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
           </a>
         </div>
         <p class="book-name">
           <a>土地增值税实战与案例</a>
-          <span class="book-style">精解</span>
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
           <span class="grey">￥</span>
           <del class="grey origin-price">62.56</del>
-          <a class="im-buy">立即购买</a>
+          <a class="im-buy">购买</a>
         </p>
       </div>
     </div>
@@ -207,70 +202,70 @@
         <div class="video-boxes">
           <div class="item">
             <div>
-              <a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png" />
+              <a class="video-cover"><img src="../../assets/images/九鼎财税01_33.png" />
                 <span class="new">NEW</span>
               </a>
             </div>
             <p class="book-name">
               <a>土地增值税实战与案例</a>
-              <span class="book-style">精解</span>
+
             </p>
             <p class="buss-info">￥
               <span class="current-price">51.00</span>
               <span class="grey">￥</span>
               <del class="grey origin-price">62.56</del>
-              <a class="im-buy">立即购买</a>
+              <a class="im-buy">购买</a>
             </p>
           </div>
           <div class="item">
             <div>
-              <a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png" />
+              <a class="video-cover"><img src="../../assets/images/九鼎财税01_35.png" />
                 <span class="new">NEW</span>
               </a>
             </div>
             <p class="book-name">
               <a>土地增值税实战与案例</a>
-              <span class="book-style">精解</span>
+
             </p>
             <p class="buss-info">￥
               <span class="current-price">51.00</span>
               <span class="grey">￥</span>
               <del class="grey origin-price">62.56</del>
-              <a class="im-buy">立即购买</a>
+              <a class="im-buy">购买</a>
             </p>
           </div>
           <div class="item">
             <div>
-              <a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png" />
+              <a class="video-cover"><img src="../../assets/images/九鼎财税01_37.png" />
                 <span class="new">NEW</span>
               </a>
             </div>
             <p class="book-name">
               <a>土地增值税实战与案例</a>
-              <span class="book-style">精解</span>
+
             </p>
             <p class="buss-info">￥
               <span class="current-price">51.00</span>
               <span class="grey">￥</span>
               <del class="grey origin-price">62.56</del>
-              <a class="im-buy">立即购买</a>
+              <a class="im-buy">购买</a>
             </p>
           </div>
           <div class="item">
             <div>
-              <a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png" />
+              <a class="video-cover"><img src="../../assets/images/九鼎财税01_39.png" />
                 <span class="new">NEW</span>
               </a>
             </div>
             <p class="book-name">
               <a>土地增值税实战与案例</a>
-              <span class="book-style">精解</span>
+
             </p>
             <p class="buss-info">￥
               <span class="current-price">51.00</span>
               <span class="grey">￥</span>
               <del class="grey origin-price">62.56</del>
-              <a class="im-buy">立即购买</a>
+              <a class="im-buy">购买</a>
             </p>
           </div>
         </div>
@@ -390,6 +385,18 @@ export default {
       }
     }
   }
+  .outer-conf {
+    margin-left: 0px;
+    .confirm {
+      height: 28px;
+      width: 58px;
+      background-color: #838383;
+      color: #fff;
+      line-height: 28px;
+      text-align: center;
+      border-radius: 10px;
+    }
+  }
   .cur-posi {
     border-bottom: none;
     i {
@@ -424,6 +431,7 @@ export default {
     color: $red;
   }
 }
+
 .video-boxes {
   width: $width;
   margin: 35px auto;
@@ -436,8 +444,8 @@ export default {
   }
   .item {
     border: 1px solid #E7141A;
-    padding: 5px 10px;
-    margin-bottom: 10px;
+    padding: 10px;
+    margin-bottom: 32px;
     position: relative;
     .new {
       padding: 2px 4px;
@@ -449,23 +457,24 @@ export default {
       bottom: 4px;
     }
     .book-name {
-      margin: 5px 0 20px 0;
+      margin: 15px 0 20px 0;
       a {
         margin-right: 30px;
+        font-size: 16px;
       }
     }
     .buss-info {
-      font-size: 12px;
+      font-size: 14px;
       color: #E7141A;
       .current-price {
-        font-size: 18px;
+        font-size: 22px;
         margin-right: 10px;
       }
       .grey {
         color: #6F666E;
       }
       .im-buy {
-        padding: 3px 5px;
+        padding: 8px 12px;
         background-color: #E7141A;
         color: #fff;
         font-size: 10px;
@@ -475,6 +484,7 @@ export default {
     }
   }
 }
+
 .title {
   width: $width;
   margin: auto;
@@ -498,6 +508,7 @@ export default {
     right: 0;
   }
 }
+
 .modals {
   width: $width;
   display: flex;
@@ -530,32 +541,33 @@ export default {
     }
   }
 }
-.pgs{
+
+.pgs {
   width: 415px;
-  margin:150px auto 170px auto;
-  li{
+  margin: 150px auto 170px auto;
+  li {
     width: 33px;
     padding: 4px 0;
     line-height: 20px;
     text-align: center;
-    border:1px solid $rice;
+    border: 1px solid $rice;
     border-right: none;
     margin-right: -4px;
     cursor: pointer;
   }
-  .prev{
+  .prev {
     width: 97px;
     color: $red;
   }
-  .next{
+  .next {
     width: 96px;
     border: 1px solid $rice;
     color: $red;
   }
-  .last{
+  .last {
     width: 50px;
   }
-  .current{
+  .current {
     background-color: $red;
     color: $white;
   }

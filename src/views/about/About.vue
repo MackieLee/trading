@@ -19,8 +19,8 @@
         <p>我们愿用我们的专业知识，丰富的经验，娴熟的技能，成熟的服务模式，在遵循法律法规的前提下，为企业与企业家规避涉税风险，最大程度降低企业税负，与企业一起共同成长。</p>
       </div>
       <div class="info">
-        <p>神州九鼎财税咨询（北京）有限公司</p>
-        <p>China Jiuding Finance & taxation consulting (Beijing) Co., Ltd</p>
+        <p class="copr">神州九鼎财税咨询（北京）有限公司</p>
+        <p class="copr">China Jiuding Finance & taxation consulting (Beijing) Co., Ltd</p>
         <div class="connect">
           <div>
             <p>电　　话： 010-62311360</p>
@@ -72,12 +72,11 @@ export default {
       background-image: url('../../assets/images/about01.png');
       text-align: center;
       background-repeat: no-repeat;
-      margin: 0 auto;
+      margin: 10px auto;
       background-position: 0 5px;
     }
     .content {
       overflow: hidden;
-      margin-bottom: 135px;
       img {
         float: left;
         margin: 15px 60px 65px 30px;
@@ -88,16 +87,21 @@ export default {
         text-indent: 32px;
         font-size: 16px;
       }
+
     }
     .info {
       width: 990px;
-      margin: 0 auto;
+      margin: 20px auto 40px auto;
       p {
         line-height: 42px;
+      }
+      p[class="copr"]{
+        line-height: 26px;
       }
       .connect {
         display: flex;
         flex-direction: row;
+        justify-content:space-between;
         div {
           width: 230px;
         }

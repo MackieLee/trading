@@ -10,7 +10,9 @@
     <div class="item">
       <div class="left">
         <div class="flex">
-          <div class="head-120"></div>
+          <div class="head-128">
+            <img src="../../assets/images/jitax_问答_01.png"/>
+          </div>
           <div class="name">
             <div>
               <p>孙老师</p>
@@ -110,14 +112,10 @@ export default {
     display: flex;
     .flex {
       display: flex;
-      .head-120 {
-        width: 170px;
-        height: 120px;
-        border-radius: 50%;
-        margin: 20px 30px 10px 35px;
-        background-image: url('../../assets/images/jitax_专家团队_03.png');
-        background-repeat: no-repeat;
-        background-position: center;
+      .head-128{
+        height: 128px;
+        width: 128px;
+        margin: 10px 30px 0 37px;
       }
       .name {
         margin: 42px 0 50px 0;
@@ -173,10 +171,10 @@ export default {
               text-align: center;
               border-radius: 5px;
               margin-bottom: 20px;
-              background: -webkit-linear-gradient($white, #8CEEE0, #87C7EB);
-              background: -o-linear-gradient($white, #8CEEE0, #87C7EB);
-              background: -moz-linear-gradient($white, #8CEEE0, #87C7EB);
-              background: linear-gradient($white, #8CEEE0, #87C7EB);
+              background: -webkit-linear-gradient(#fdb483, #ff84f3);
+              background: -o-linear-gradient(#fdb483, #ff84f3);
+              background: -moz-linear-gradient(#fdb483, #ff84f3);
+              background: linear-gradient(#fdb483, #ff84f3);
             }
             font {
               display: block;
@@ -222,7 +220,7 @@ export default {
   .ques-discr {
     width: 100%;
     border: 1px solid $rice;
-    background-color: #e2fefa;
+    background-color: #dfdfdf;
     margin-bottom: 300px;
     .container {
       margin: 30px 35px;

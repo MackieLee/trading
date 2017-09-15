@@ -1,10 +1,10 @@
 <template>
   <div class="tdetail">
     <div class="cur-posi">
-      <p><i></i>当前位置 : &nbsp;<router-link to="/home">九鼎财税 &gt;</router-link><router-link to="/team">专家团队 &gt;</router-link>孙玮教授</p>
+      <p><i></i>当前位置 : &nbsp;<router-link to="/home">九鼎财税 &gt;</router-link><router-link to="/teacher">专家团队 &gt;</router-link>孙玮教授</p>
     </div>
     <div class="detail">
-      <img src="../../assets/images/jitax_专家团队_03.png" alt="孙玮教授">
+      <img src="../../assets/images/jitax_专家团队_033.png" alt="孙玮教授">
       <h1>孙玮教授</h1>
       <p>
             九鼎财税专家委员会专家；  注册会计师、注册税务师；东北财经大学财政专业硕士；
@@ -22,27 +22,27 @@
     <div class="book-box">
       <div class="title">
         <span></span>
-        <font>财经图书</font>
+        <font>主讲课程</font>
         <a>更多>></a>
       </div>
       <div class="video-boxes">
         <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
+          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_33.png"/><span class="new">NEW</span></a></div>
           <p class="book-name"><a>土地增值税实战与案例</a><span class="book-style">精解</span></p>
           <p class="buss-info">￥<span class="current-price">51.00</span><span class="grey">￥</span><del class="grey origin-price">62.56</del><a class="im-buy">立即购买</a></p>
         </div>
         <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
+          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_35.png"/><span class="new">NEW</span></a></div>
           <p class="book-name"><a>土地增值税实战与案例</a><span class="book-style">精解</span></p>
           <p class="buss-info">￥<span class="current-price">51.00</span><span class="grey">￥</span><del class="grey origin-price">62.56</del><a class="im-buy">立即购买</a></p>
         </div>
         <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
+          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_37.png"/><span class="new">NEW</span></a></div>
           <p class="book-name"><a>土地增值税实战与案例</a><span class="book-style">精解</span></p>
           <p class="buss-info">￥<span class="current-price">51.00</span><span class="grey">￥</span><del class="grey origin-price">62.56</del><a class="im-buy">立即购买</a></p>
         </div>
         <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
+          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_39.png"/><span class="new">NEW</span></a></div>
           <p class="book-name"><a>土地增值税实战与案例</a><span class="book-style">精解</span></p>
           <p class="buss-info">￥<span class="current-price">51.00</span><span class="grey">￥</span><del class="grey origin-price">62.56</del><a class="im-buy">立即购买</a></p>
         </div>
@@ -79,7 +79,7 @@ export default {
       }
     }
     .detail{
-      margin: 38px 90px 200px 100px;
+      margin: 38px 90px 100px 100px;
       h1{
         font-size: 24px;
         margin-bottom: 30px;
@@ -97,7 +97,7 @@ export default {
       }
     }
     .book-box{
-      margin-bottom: 270px;
+      margin-bottom: 80px;
       .title{
         width: $width;
         margin: auto;
@@ -109,7 +109,7 @@ export default {
           padding: 9px 19px;
           margin-right: 10px;
           background-image: url('../../assets/images/Sprite.png');
-          background-position: 12px -158px;
+          background-position: 132px -206px;
         }
         font{
           font-size: 18px;

@@ -1,11 +1,4 @@
 const validate = (validation,type, value) => {
-  //debounce ;
-  // let delta = 1000
-  // let timeoutID = null
-  // clearTimeout(timeoutID)
-  // timeoutID = setTimeout(() => {
-  //   return validation[type](value)
-  // },delta)
   return validation[type](value)
 }
 

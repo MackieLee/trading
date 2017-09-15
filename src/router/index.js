@@ -6,6 +6,7 @@ import courses from '../views/courses/Courses'
 import online from '../views/courses/Online'
 import video from '../views/courses/Video'
 import offline from '../views/courses/Offline'
+import odetail from '../views/courses/Detail'
 import teacher from '../views/team/teacher'
 import tdetail from '../views/team/TDetail'
 import faq from '../views/faq/Faq'
@@ -14,6 +15,14 @@ import book from '../views/book/Book'
 import item from '../views/book/Item'
 import about from '../views/about/About'
 import customize from '../views/customize/Customize'
+import vip from '../views/vip/Vip'
+import study from '../views/vip/Study'
+import shoucang from '../views/vip/Shoucang'
+import qa from '../views/vip/Qa'
+import qianbao from '../views/vip/Qianbao'
+import youhuiquan from '../views/vip/Youhuiquan'
+import fapiao from '../views/vip/Fapiao'
+import dingdan from '../views/vip/Dingdan'
 import login from '../views/join/Login'
 import register from '../views/join/Register'
 
@@ -55,6 +64,11 @@ const routes = [
         component: video
       },
       {
+        path:'odetail',
+        name:'odetail',
+        component: odetail
+      },
+      {
         path: '/teacher',
         name: 'teacher',
         component: teacher
@@ -93,6 +107,51 @@ const routes = [
         path: '/customize',
         name: 'customize',
         component: customize
+      },
+      {
+        path: 'vip',
+        name: 'vip',
+        component: vip,
+        redirect:{
+          name: 'study'
+        },
+        children:[
+          {
+            path: 'study',
+            name: 'study',
+            component: study
+          },
+          {
+            path: 'sc',
+            name: 'shoucang',
+            component: shoucang
+          },
+          {
+            path: 'qa',
+            name: 'qa',
+            component: qa
+          },
+          {
+            path: 'qb',
+            name: 'qianbao',
+            component: qianbao
+          },
+          {
+            path: 'yhq',
+            name: 'youhuiquan',
+            component: youhuiquan
+          },
+          {
+            path: 'fp',
+            name: 'fapiao',
+            component: fapiao
+          },
+          {
+            path: 'dd',
+            name: 'dingdan',
+            component: dingdan
+          },
+        ]
       }
     ]
   },
@@ -109,5 +168,6 @@ const routes = [
 ]
 export default new Router({
   mode: 'history',
+  linkActiveClass:'active',
   routes
 })

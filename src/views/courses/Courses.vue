@@ -2,7 +2,7 @@
   <div class="online">
     <div class="container">
       <div class="cur-posi">
-        <p><i></i>当前位置 : &nbsp;<router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;线上课程</p>
+        <p><i></i>当前位置 : &nbsp;<router-link to="/home">九鼎财税</router-link></p>
       </div>
       <div>
         <p><span>课程体系：</span><ul><li @click="getItem(item)" :class="{ 'active':t === item}" v-for="item in topics" :key="item">{{ item }}</li></ul></p>
