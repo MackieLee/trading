@@ -29,25 +29,24 @@ export default {
 @import '../../assets/style/base.scss';
   .app-footer{
     width: 100%;
-    background-color: $black;
-    color: $white;
+    color: #333;
     margin-top: 30px;
     a{
-      color: $white;
+      color: #333;
     }
     .site-info{
-      background-color: #1B1B1B;
+      background-color: #eaeaea;
       padding: 18px 0;
       .site-info-content{
         width: $width;
         margin: auto;
         li{
-          color: $white;
+          color: #333;
           font-size: 12px;
           margin: 0 10px;
         }
         p{
-          color: $white;
+          color: #333;
           text-align: center;
           margin: 10px;
           font-size: 12px;

@@ -4,7 +4,7 @@
     <teacher-box></teacher-box>
     <tax-box></tax-box>
     <tax-box-sed></tax-box-sed>
-    <!-- <book-box></book-box> -->
+    <company></company>
     <bottom-ad></bottom-ad>
   </div>
 </template>
@@ -14,7 +14,7 @@ import Slider from './Slider'
 import TeacherBox from './TeacherBox'
 import TaxBox from './TaxBox'
 import TaxBoxSed from './TaxBoxSed'
-// import BookBox from './BookBox'
+import Company from './Company'
 import BottomAd from './BottomAd'
 export default {
   name: 'home',
@@ -22,7 +22,7 @@ export default {
     Slider,
     TeacherBox,
     TaxBox,
-    // BookBox,
+    Company,
     BottomAd,
     TaxBoxSed
   }

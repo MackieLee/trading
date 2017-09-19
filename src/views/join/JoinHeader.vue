@@ -52,13 +52,13 @@ export default {
         { name:'线上课程',link:'online'},
         { name:'线下课程',link:'offline'},
         { name:'讲师',link:'teacher'},
-        { name:'问答',link:'ftheq'},
+        { name:'问答',link:'faq'},
         { name:'图书',link:'book'},
         { name:'定制课程',link:'customize'},
         { name:'会员中心',link:'vip'},
         { name:'关于我们',link:'about'}
       ],
-      activeItem:'home'
+      activeItem:''
     }
   },
   computed: {
@@ -71,7 +71,7 @@ export default {
   },
   methods:{
     getItem : function(item){
-      this.activeItem = item.link
+      // this.activeItem = item.link
     }
   }
 }

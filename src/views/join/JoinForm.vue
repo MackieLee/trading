@@ -1,32 +1,44 @@
 <template>
   <form>
-    <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
+    <div class="error"><p v-show="error">
+      <!-- <i class="iblock"></i> -->
+      <span> {{ error }}</span></p></div>
     <div class="icon user">
       <i class="iblock"></i>
-      <input type="text" name="user" placeholder="请输入用户名" />
+      <input type="text" name="user" placeholder="请输入手机号/邮箱" />
     </div>
-    <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
+    <div class="error"><p v-show="error">
+      <!-- <i class="iblock"></i> -->
+      <span> {{ error }}</span></p></div>
     <div class="icon pwd">
       <i class="iblock"></i>
       <input type="text" name="pwd" placeholder="请输入密码" />
     </div>
-    <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
+    <div class="error"><p v-show="error">
+      <!-- <i class="iblock"></i> -->
+      <span> {{ error }}</span></p></div>
     <div class="icon confirm">
       <i class="iblock"></i>
       <input type="text" name="confirm" placeholder="确认密码" />
     </div>
-    <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
+    <div class="error"><p v-show="error">
+      <!-- <i class="iblock"></i> -->
+      <span> {{ error }}</span></p></div>
     <div class="icon code ckcode">
       <i class="iblock"></i>
       <input type="text" name="ckcode" placeholder="请输入验证码" />
       <span class="ck-code"></span>
     </div>
-    <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
+    <div class="error"><p v-show="error">
+      <!-- <i class="iblock"></i> -->
+      <span> {{ error }}</span></p></div>
     <div class="icon code phcode">
       <i class="iblock"></i>
       <input type="text" name="phcode" placeholder="短信验证码" />
     </div>
-    <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
+    <div class="error"><p v-show="error">
+      <!-- <i class="iblock"></i> -->
+      <span> {{ error }}</span></p></div>
     <div class="icon code invcode">
       <i class="iblock"></i>
       <input type="text" name="invcode" placeholder="邀请码" />
@@ -92,12 +104,7 @@ export default {
       background-position: -58px 172px;
     }
   }
-  .user{
-    i{
-      background-position: -113px -35px;
-    }
-  }
-  .ckcode,.phcode,.invcode{
+  .user,.ckcode,.phcode,.invcode{
     i{
       background-position: -60px -258px;
     }
@@ -145,7 +152,7 @@ export default {
       vertical-align: text-bottom;
     }
     .unchecked{
-      background-position: -58px -18px;
+      background-position: -58px -19px;
     }
     .checked{
       background-position: -58px -38.5px;

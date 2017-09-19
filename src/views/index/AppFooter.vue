@@ -5,56 +5,80 @@
         <div class="footer-list">
           <ul>
             <li class="title">新手指南</li>
-            <li><router-link :to="{ name:'home' }">如何注册</router-link></li>
-            <li><router-link :to="{ name:'home' }">如何购课</router-link></li>
-            <li><router-link :to="{ name:'home' }">如何支付</router-link></li>
-            <li><router-link :to="{ name:'home' }">如何充值</router-link></li>
+            <li>
+              <router-link :to="{ name:'home' }">购买课程</router-link>
+            </li>
+            <li>
+              <router-link :to="{ name:'home' }">播放说明</router-link>
+            </li>
           </ul>
           <ul>
             <li class="title">使用帮助</li>
-            <li><router-link :to="{ name:'home' }">退换课程</router-link></li>
-            <li><router-link :to="{ name:'home' }">视频播放</router-link></li>
-            <li><router-link :to="{ name:'home' }">打击盗版</router-link></li>
-            <li><router-link :to="{ name:'home' }">优惠券</router-link></li>
+            <li>
+              <router-link :to="{ name:'home' }">视频播放</router-link>
+            </li>
+            <li>
+              <router-link :to="{ name:'home' }">打击盗版</router-link>
+            </li>
           </ul>
           <ul>
             <li class="title">关于我们</li>
-            <li><router-link :to="{ name:'home' }">关于我们</router-link></li>
-            <li><router-link :to="{ name:'home' }">市场合作</router-link></li>
-            <li><router-link :to="{ name:'home' }">服务条款</router-link></li>
-            <li><router-link :to="{ name:'home' }">版权声明</router-link></li>
+            <li>
+              <router-link :to="{ name:'home' }">市场合作</router-link>
+            </li>
+            <li>
+              <router-link :to="{ name:'home' }">服务条款</router-link>
+            </li>
           </ul>
         </div>
-        <div class="footer-left-bottom">
-          <span>友情链接:</span>
-          <ul>
-            <li><router-link :to="{ name:'home' }">九鼎财税</router-link></li>
-            <li><router-link :to="{ name:'home' }">九鼎财税</router-link></li>
-            <li><router-link :to="{ name:'home' }">九鼎财税</router-link></li>
-            <li><router-link :to="{ name:'home' }">九鼎财税</router-link></li>
-            <li><router-link :to="{ name:'home' }">九鼎财税</router-link></li>
-            <li><router-link :to="{ name:'home' }">九鼎财税</router-link></li>
-            <li><router-link :to="{ name:'home' }">九鼎财税</router-link></li>
-            <li><router-link :to="{ name:'home' }">更多>></router-link></li>
-          </ul>
+        <div class="bussiness">
+          <p>
+            <i class="mail"></i>liutao@jdtax.cn</p>
+          <p>
+            <i class="tel"></i>010-6231-1360</p>
+          <p class="work-day">(周一到周五08:30-18:00)</p>
         </div>
       </div>
       <div class="footer-right">
         <div class="qr-code">
           <div class="code1">
             <p>订阅号</p>
-            <p><img src="../../assets/images/订阅号.png" width="50%"/></p>
+            <p><img src="../../assets/images/订阅号.png" width="97" /></p>
           </div>
           <div class="code2">
             <p>订阅号</p>
-            <p><img src="../../assets/images/订阅号.png" width="50%"/></p>
+            <p><img src="../../assets/images/订阅号.png" width="97" /></p>
           </div>
         </div>
-        <div class="bussiness">
-          <p><i class="mail"></i>liutao@jdtax.cn</p>
-          <p><i class="tel"></i>010-62311360</p>
-          <p class="work-day">(周一到周五08:30-18:00)</p>
-        </div>
+      </div>
+      <div class="footer-left-bottom">
+        <span>友情链接:</span>
+        <ul>
+          <li>
+            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name:'home' }">更多>></router-link>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="site-info">
@@ -70,7 +94,7 @@
           <li>北京工商</li>
           <li>京公网安备88888888号</li>
         </ul>
-        <p>Copyright  © 2016-2017 九鼎财税 All Rights Reserved. </p>
+        <p>Copyright © 2016-2017 九鼎财税 All Rights Reserved. </p>
       </div>
     </div>
   </div>
@@ -84,102 +108,108 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
-  .app-footer{
-    width: 100%;
-    background-color: $black;
-    color: $white;
-    margin-top: 30px;
-    a{
-      color: $white;
+.app-footer {
+  width: 100%;
+  background-color: #eaeaea;
+  color: #333;
+  margin-top: 68px;
+  a {
+    color: #333;
+  }
+  .footer-left-bottom {
+    display: flex;
+    float: left;
+    margin: 0px 0 26px 22px;
+    li {
+      margin: 0 14px;
+      font-size: 14px;
     }
-    .footer-content{
-      width: $width;
-      margin: auto;
+  }
+  .footer-content {
+    width: $width;
+    margin: auto;
+    padding-top: 24px;
+    overflow: hidden;
+    .footer-left {
       display: flex;
-      padding-bottom: 20px;
-      justify-content: space-between;
-      .footer-list{
-        width: 480px;
-        display: flex;
-        margin: 0 auto;
-        justify-content: space-between;
-        .title{
-          font-size: 18px;
-          margin: 30px 0;
-          color: $white;
+      margin-right: 36px;
+      float: left;
+      .footer-list {
+        margin-left: 46px;
+        overflow: hidden;
+        .title {
+          font-size: 16px;
+          margin-bottom: 20px;
+          color: #333;
         }
-        ul{
-          li{
+        ul {
+          margin-right: 100px;
+          float: left;
+          li {
             display: list-item !important;
             font-size: 14px;
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
           }
         }
       }
-      .footer-left-bottom{
-        display: flex;
-        li{
-          margin: 0 10px;
+      .bussiness {
+        p {
+          color: #333;
+          margin: 10px 0;
           font-size: 14px;
         }
-      }
-      .footer-right{
-        margin:20px 120px 0 0;
-        .qr-code{
-          display: flex;
-          p{
-            color: $white;
-            text-align: center;
-            margin-bottom: 10px;
-          }
-          .code1{
-            margin-right: 14px;
-          }
+        .mail,
+        .tel {
+          padding: 2px 16px;
         }
-        .bussiness{
-          padding-left: 12px;
-          p{
-            color: $white;
-            margin: 10px 0;
-            font-size: 14px;
-          }
-          .mail,.tel{
-            padding: 2px 16px;
-          }
-          .mail{
-            background-image: url('../../assets/images/Sprite.png');
-            background-position: 5px 202px;
-          }
-          .tel{
-            background-image: url('../../assets/images/Sprite.png');
-            background-position: -53px 211px;
-          }
-          .work-day{
-            padding-left: 40px;
-          }
+        .mail {
+          background-image: url('../../assets/images/Sprite.png');
+          background-position: 5px 202px;
+        }
+        .tel {
+          background-image: url('../../assets/images/Sprite.png');
+          background-position: -53px 211px;
+        }
+        .work-day {
+          padding-left: 32px;
         }
       }
     }
-    .site-info{
-      background-color: #1B1B1B;
-      padding: 18px 0;
-      .site-info-content{
-
-        width: $width;
-        margin: auto;
-        li{
-          color: $white;
-          font-size: 12px;
-          margin: 0 10px;
-        }
-        p{
-          color: $white;
+    .footer-right {
+      float: left;
+      .qr-code {
+        display: flex;
+        p {
+          color: #333;
           text-align: center;
-          margin: 10px;
-          font-size: 12px;
+          margin-bottom: 10px;
+        }
+        .code1 {
+          margin-right: 32px;
         }
       }
     }
   }
+  .site-info {
+    background-color: #eaeaea;
+    padding: 18px 0;
+    border-top: 1px solid $black;
+    .site-info-content {
+      width: $width;
+      margin: auto;
+      li {
+        color: #333;
+        font-size: 12px;
+        margin: 0 10px;
+      }
+      p {
+        color: #333;
+        text-align: center;
+        margin: 10px;
+        font-size: 12px;
+      }
+    }
+  }
+}
 </style>

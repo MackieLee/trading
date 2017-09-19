@@ -4,17 +4,11 @@
     <div class="login-box">
       <div class="content">
         <form class="login-form">
-          <p class="title"><span>会员登录</span><router-link :to=" { name:'register'} ">会员注册</router-link></p>
+          <p class="title"><a class="mobile" @click="zhaohui()">手机找回</a><a @click="zhaohui()">邮箱找回</a></p>
           <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
           <div class="user">
             <i class="iblock"></i>
-            <input type="text" name="user" placeholder="请输入用户名" />
-          </div>
-          <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
-          <div class="pwd">
-            <span></span>
-            <i class="iblock"></i>
-            <input type="password" name="pwd" placeholder="请输入密码" />
+            <input type="text" name="user" :placeholder=" placeholder " />
           </div>
           <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
           <div class="ckcode">
@@ -22,24 +16,22 @@
             <input type="text" name="ckcode" placeholder="请输入验证码" />
             <span class="ck-code"></span>
           </div>
-          <div class="remember">
-            <span @click="toggleChecked">
-              <input type="checkbox" name="remember"/><i :class="[ { checked: checked },{ unchecked: !checked },'iblock' ]"></i><label for="remember">记住密码</label>
-            </span>
-            <router-link :to=" { name:'getpwd' } ">
-              找回密码
-            </router-link>
+          <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
+          <div class="pwd">
+            <span></span>
+            <i class="iblock"></i>
+            <input type="password" name="pwd" placeholder="6~16位密码，包含数字、字母或符号中的两种" />
+          </div>
+          <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
+          <div class="pwd">
+            <span></span>
+            <i class="iblock"></i>
+            <input type="password" name="pwd" placeholder="请输入密码" />
           </div>
           <div class="login-btn">
-            <button class="submit" type="submit">登录</button>
+            <button class="submit" type="submit">重置密码</button>
           </div>
-          <div class="others">
-            <span>合作账号登录 : </span>
-            <router-link :to=" { name:'register'} " class="wechat"></router-link>
-            <router-link :to=" { name:'register'} " class="weibo"></router-link>
-            <router-link :to=" { name:'register'} " class="qq"></router-link>
-            <router-link :to=" { name:'register'} " class="alipay"></router-link>
-          </div>
+          <P class="shensu">如您的检验方式都已无法使用，请<a>点此申诉</a>,成功后<br>可更换</P>
         </form>
       </div>
     </div>
@@ -51,16 +43,16 @@ import JoinHeader from './JoinHeader'
 import JoinFooter from './JoinFooter'
 
 export default {
-  name: 'login',
+  name: 'getpwd',
   data() {
     return {
-      checked:false,
-      error:''
+      error:'',
+      placeholder: '请输入手机号'
     }
   },
   methods:{
-    toggleChecked:function(){
-      this.checked = !this.checked
+    zhaohui:function(){
+      event.currentTarget.text === '手机找回'?this.placeholder = '请输入手机号':this.placeholder = '请输入邮箱'
     }
   },
   components:{ JoinHeader,JoinFooter }
@@ -103,11 +95,12 @@ export default {
       }
       .title{
         padding-bottom: 10px;
-        span,a{
+        a{
           display: inline-block;
           padding-bottom: 5px;
+          cursor: pointer;
         }
-        span{
+        a[class="mobile"]{
           width: 90px;
           text-align: center;
           border-bottom: 2px solid $green;
@@ -159,12 +152,21 @@ export default {
         display: flex;
         justify-content: center;
         .submit {
+          margin: 24px 0 15px 0;
           width: 160px;
           padding: 5px;
           border: none;
           border-radius: 5px;
-          color: $white;
-          background-color: $red;
+          color: $black;
+          background-color:#c7daf7;
+          cursor: pointer;
+        }
+      }
+      .shensu{
+        font-size: 12px;
+        line-height: 24px;
+        a{
+          color:#0d66e7;
           cursor: pointer;
         }
       }

@@ -17,21 +17,15 @@
           <select v-model="selected">
             <option v-for=" item in province" :key="item" :value=" item ">{{ item }}</option>
           </select>
-          <select v-if="city">
+          <select>
             <option v-for=" item in city" :key="item">{{ item }}</option>
           </select>
         </div>
         <div class="flex">
           <label class="tag tag-width">时间安排：</label>
-          <select v-model="selected">
-            <option v-for=" item in province" :key="item" :value=" item ">{{ item }}</option>
-          </select>
-          <select v-if="city">
-            <option v-for=" item in city" :key="item">{{ item }}</option>
-          </select>
-          <select v-if="city">
-            <option v-for=" item in city" :key="item">{{ item }}</option>
-          </select>
+          <date-picker></date-picker>
+          <span class="splite">至</span>
+          <date-picker></date-picker>
         </div>
         <div class="flex">
           <label class="tag tag-width">课 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 题：</label>
@@ -44,9 +38,6 @@
           <select>
             <option></option>
           </select>
-        </div>
-        <div class="flex">
-          <label class="tag tag-width" for="shengming">声 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 明：</label><input class="all-in" id="shengming"/>
         </div>
         <div class="msg flex">
           <div class="tag tag-width title">企业信息：</div>
@@ -67,6 +58,7 @@
 </template>
 
 <script>
+import DatePicker from '../datepicker/DatePicker'
 export default {
   data() {
     return {
@@ -106,6 +98,9 @@ export default {
     submit: function() {
 
     }
+  },
+  components:{
+    DatePicker
   }
 }
 </script>
@@ -132,16 +127,20 @@ export default {
   .content {
     background-color: $white;
     margin: 18px 0 0 0;
-    padding: 94px 100px 200px 134px;
+    width: 1000px;
+    overflow: hidden;
     font {
-      font-size: 36px;
+      font-size: 26px;
       color: $red;
       display: block;
       text-align: center;
+      margin: 50px 0 56px 0;
     }
 
     form {
-      margin-top: 106px;
+      margin-top: 56px;
+      width: 692px;
+      margin: 0 auto;
       input,select{
         border: 1px solid #ddd;
       }
@@ -149,13 +148,22 @@ export default {
         display: flex;
         margin:40px 0;
       }
+      .date-picker{
+        width: 178px;
+        height: 38px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+      }
+      .splite{
+        margin: 0 15px;
+        line-height: 40px;
+      }
       .tag-width{
         width: 100px;
       }
       .tag {
         margin-right: 15px;
-        font-weight: bold;
-        font-size: 18px;
+        font-size: 16px;
       }
       select{
         width: 180px;
@@ -163,7 +171,7 @@ export default {
         margin-right: 30px;
       }
       .all-in{
-        width: 725px;
+        width:180px;
         height: 38px;
       }
       .msg{
@@ -175,9 +183,9 @@ export default {
           margin:0 0 15px 0;
           label{
             display: inline-block;
-            width: 159px;
+            width: 140px;
             padding: 13px 0;
-            margin-right: 25px;
+            margin-right: 20px;
             line-height: 18px;
             background-color: #8E8D8D;
             text-align: center;
@@ -185,7 +193,7 @@ export default {
           }
           input{
             height: 40px;
-            width: 541px;
+            width: 384px;
           }
         }
       }

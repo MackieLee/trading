@@ -1,12 +1,12 @@
 <template>
   <div class="my_order_r">
     <h2>我的订单</h2>
-    <ul class="ul01">
-      <li class="li01">所有订单 </li>
-      <li>待付款1</li>
-      <li> 待发货1</li>
-      <li> 待收货4</li>
-      <li>待评价5</li>
+    <ul class="ul01" @click="toggle()">
+      <li class="li01" data-ref="1">所有订单</li>
+      <li data-ref="2">待付款1</li>
+      <li data-ref="3"> 待发货1</li>
+      <li data-ref="4"> 待收货4</li>
+      <li data-ref="5">待评价5</li>
     </ul>
     <ul class="ul02">
       <li>宝贝 </li>
@@ -18,43 +18,48 @@
     </ul>
     <ul class="ul03">
       <li class="li01">
-        <i></i>全选 </li>
+        <i></i>全选
+      </li>
       <li>合并付款</li>
       <li> 批量确认收货</li>
       <li>删除订单</li>
     </ul>
-
-    <p class="p01">
-      <i></i>2017-08-31订单号: 53196839876687913</p>
-    <ul class="ul05">
-      <li class="li01"><img src="../../assets/images/huanyuanzx02.png">土地增值税清算土地<br>增值税清算 </li>
-      <li>￥1253.77</li>
-      <li> 1</li>
-      <li>视频</li>
-      <li>￥1253.77</li>
-      <li> 交易成功<br>订单详情</li>
-    </ul>
-    <p class="p01">
-      <i></i>2017-08-31订单号: 53196839876687913</p>
-    <ul class="ul05">
-      <li class="li01"><img src="../../assets/images/huanyuanzx02.png">土地增值税清算土地<br>增值税清算 </li>
-      <li>￥1253.77</li>
-      <li> 1</li>
-      <li>视频</li>
-      <li>￥1253.77</li>
-      <li> 交易成功<br>订单详情</li>
-    </ul>
-    <p class="p01">
-      <i></i>2017-08-31订单号: 53196839876687913</p>
-    <ul class="ul05">
-      <li class="li01"><img src="../../assets/images/huanyuanzx02.png">土地增值税清算土地<br>增值税清算 </li>
-      <li>￥1253.77</li>
-      <li> 1</li>
-      <li>视频</li>
-      <li>￥1253.77</li>
-      <li> 交易成功<br>订单详情</li>
-    </ul>
-
+    <div class="container" v-if="part=='1'">
+      <p class="p01">
+        <i></i>2017-08-31订单号: 53196839876687913</p>
+      <ul class="ul05">
+        <li class="li01"><img src="../../assets/images/huanyuanzx02.png">土地增值税清算土地<br>增值税清算 </li>
+        <li>￥1253.77</li>
+        <li> 1</li>
+        <li>视频</li>
+        <li>￥1253.77</li>
+        <li> 交易成功<br>订单详情</li>
+      </ul>
+      <p class="p01">
+        <i></i>2017-08-31订单号: 53196839876687913</p>
+      <ul class="ul05">
+        <li class="li01"><img src="../../assets/images/huanyuanzx02.png">土地增值税清算土地<br>增值税清算 </li>
+        <li>￥1253.77</li>
+        <li> 1</li>
+        <li>视频</li>
+        <li>￥1253.77</li>
+        <li> 交易成功<br>订单详情</li>
+      </ul>
+      <p class="p01">
+        <i></i>2017-08-31订单号: 53196839876687913</p>
+      <ul class="ul05">
+        <li class="li01"><img src="../../assets/images/huanyuanzx02.png">土地增值税清算土地<br>增值税清算 </li>
+        <li>￥1253.77</li>
+        <li> 1</li>
+        <li>视频</li>
+        <li>￥1253.77</li>
+        <li> 交易成功<br>订单详情</li>
+      </ul>
+    </div>
+    <div class="container" v-if="part=='2'"></div>
+    <div class="container" v-if="part=='3'"></div>
+    <div class="container" v-if="part=='4'"></div>
+    <div class="container" v-if="part=='5'"></div>
     <div class="number">
       <a>1</a>
       <a>2</a>
@@ -64,7 +69,25 @@
 
 <script>
 export default {
-  name: 'dingdan'
+  name: 'dingdan',
+  data() {
+    return {
+      part: '1'
+    }
+  },
+  methods: {
+    toggle() {
+      document.getElementsByClassName('li01')[0].className = ''
+      let attr = event.target.getAttribute('class')
+      console.log(event.target)
+      console.log(attr)
+      if(attr != 'ul01'){
+         event.target.setAttribute('class', 'li01')
+      }
+      let ref = event.target.dataset.ref
+      this.part = ref
+    }
+  }
 }
 </script>
 
@@ -99,8 +122,8 @@ export default {
   font-size: 18px;
   color: #333;
   float: left;
-  margin: 20px 0 15px;
-  border-left: 1px solid #333;
+  padding: 20px 0 15px;
+  cursor: pointer;
 }
 
 .my_order_r .ul01 .li01 {
@@ -155,6 +178,9 @@ export default {
   height: 13px;
   background: url('../../assets/images/Sprite.png') -108px -307px;
 }
+
+
+
 
 
 /*   */

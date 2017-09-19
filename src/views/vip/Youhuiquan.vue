@@ -2,15 +2,15 @@
   <div class="my_qianb_r">
     <p class="p01">优惠券</p>
     <div class="my_qianb_cotainer">
-      <p class="p02">
-        <span>已使用</span>|
-        <span class="cur">未使用</span>|
-        <span>即将过期</span>|
-        <span>已过期</span>
+      <p class="p02" @click="toggle()">
+        <span data-ref='1'>已使用</span>|
+        <span data-ref='2' class="cur">未使用</span>|
+        <span data-ref='3'>即将过期</span>|
+        <span data-ref='4'>已过期</span>
       </p>
-      <div class="div01">
+      <div class="div01" v-if="part=='1'">
         <ul class="l">
-          <li>面 值： 50</li>
+          <li>面 值： 1</li>
           <li>期 限： 2017-9-29——2017-10-29</li>
           <li>限类品： 视频</li>
           <li>券编号：8792456354</li>
@@ -20,7 +20,73 @@
           <li>券编号：8792456354</li>
         </ul>
         <ul class="r">
+          <li>面 值： 2</li>
+          <li>期 限： 2017-9-29——2017-10-29</li>
+          <li>限类品： 视频</li>
+          <li>券编号：8792456354</li>
           <li>面 值： 50</li>
+          <li>期 限： 2017-9-29——2017-10-29</li>
+          <li>限类品： 视频</li>
+          <li>券编号：8792456354</li>
+        </ul>
+      </div>
+      <div class="div01" v-if="part=='2'">
+        <ul class="l">
+          <li>面 值： 3</li>
+          <li>期 限： 2017-9-29——2017-10-29</li>
+          <li>限类品： 视频</li>
+          <li>券编号：8792456354</li>
+          <li>面 值： 50</li>
+          <li>期 限： 2017-9-29——2017-10-29</li>
+          <li>限类品： 视频</li>
+          <li>券编号：8792456354</li>
+        </ul>
+        <ul class="r">
+          <li>面 值： 4</li>
+          <li>期 限： 2017-9-29——2017-10-29</li>
+          <li>限类品： 视频</li>
+          <li>券编号：8792456354</li>
+          <li>面 值： 50</li>
+          <li>期 限： 2017-9-29——2017-10-29</li>
+          <li>限类品： 视频</li>
+          <li>券编号：8792456354</li>
+        </ul>
+      </div>
+      <div class="div01" v-if="part=='3'">
+        <ul class="l">
+          <li>面 值： 5</li>
+          <li>期 限： 2017-9-29——2017-10-29</li>
+          <li>限类品： 视频</li>
+          <li>券编号：8792456354</li>
+          <li>面 值： 50</li>
+          <li>期 限： 2017-9-29——2017-10-29</li>
+          <li>限类品： 视频</li>
+          <li>券编号：8792456354</li>
+        </ul>
+        <ul class="r">
+          <li>面 值： 6</li>
+          <li>期 限： 2017-9-29——2017-10-29</li>
+          <li>限类品： 视频</li>
+          <li>券编号：8792456354</li>
+          <li>面 值： 50</li>
+          <li>期 限： 2017-9-29——2017-10-29</li>
+          <li>限类品： 视频</li>
+          <li>券编号：8792456354</li>
+        </ul>
+      </div>
+      <div class="div01" v-if="part=='4'">
+        <ul class="l">
+          <li>面 值： 7</li>
+          <li>期 限： 2017-9-29——2017-10-29</li>
+          <li>限类品： 视频</li>
+          <li>券编号：8792456354</li>
+          <li>面 值： 50</li>
+          <li>期 限： 2017-9-29——2017-10-29</li>
+          <li>限类品： 视频</li>
+          <li>券编号：8792456354</li>
+        </ul>
+        <ul class="r">
+          <li>面 值： 8</li>
           <li>期 限： 2017-9-29——2017-10-29</li>
           <li>限类品： 视频</li>
           <li>券编号：8792456354</li>
@@ -36,7 +102,20 @@
 
 <script>
 export default {
-  name: 'qianbao'
+  name: 'qianbao',
+  data(){
+    return{
+      part:'2'
+    }
+  },
+  methods:{
+    toggle(){
+      document.getElementsByClassName('cur')[0].className = ''
+      event.target.setAttribute('class','cur')
+      let ref = event.target.dataset.ref
+      this.part = ref
+    }
+  }
 }
 </script>
 

@@ -25,6 +25,7 @@ import fapiao from '../views/vip/Fapiao'
 import dingdan from '../views/vip/Dingdan'
 import login from '../views/join/Login'
 import register from '../views/join/Register'
+import getpwd from '../views/join/Getpwd'
 
 Vue.use(Router)
 
@@ -164,6 +165,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: login
+  },
+  {
+    path: '/getpwd',
+    name: 'getpwd',
+    component: getpwd
   }
 ]
 export default new Router({

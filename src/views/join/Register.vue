@@ -11,10 +11,10 @@
       <div class="login-box">
         <p>已有九鼎账户,<router-link :to="{name:'login'}">登录</router-link><span>合作账号登录</span></p>
         <ul class="others">
-          <router-link to="/home" tag="li"><i class="qq"></i>QQ账号登录</router-link>
-          <router-link to="/home" tag="li"><i class="wechat"></i>微信账号登录</router-link>
-          <router-link to="/home" tag="li"><i class="weibo"></i>微博账号登录</router-link>
-          <router-link to="/home" tag="li"><i class="alipay"></i>支付宝账号登录</router-link>
+          <router-link to="/home" tag="li"><i class="qq"></i>QQ账号</router-link>
+          <router-link to="/home" tag="li"><i class="wechat"></i>微信账号</router-link>
+          <router-link to="/home" tag="li"><i class="weibo"></i>微博账号</router-link>
+          <router-link to="/home" tag="li"><i class="alipay"></i>支付宝账号</router-link>
         </ul>
       </div>
     </div>
@@ -50,7 +50,7 @@ export default {
     .form{
       padding-right: 100px;
       border-right: 1px solid $rice;
-      margin:0 0 70px 124px;
+      margin:0 0 45px 118px;
     }
   }
   .login-box{
@@ -77,30 +77,32 @@ export default {
       color: $red;
     }
     .others{
-      width: 135px;
+      width: 139px;
       margin: 74px  auto;
       li{
         margin: 17px 0;
         cursor: pointer;
         i{
+          position: relative;
+          top: 4px;
           display: inline-block;
-          height: 25px;
-          width: 25px;
+          height: 33px;
+          width: 33px;
           background-image: url('../../assets/images/Sprite.png');
           vertical-align:text-bottom;
-          margin-right: 8px;
+          margin-right: 15px;
         }
         .wechat{
-          background-position: -55px -84px;
+          background-position: -51px -82px;
         }
         .weibo{
-          background-position: -56px -127px;
+          background-position: -51px -119px;
         }
         .qq{
-          background-position: -104px -83px;
+          background-position: -101px -79px;
         }
         .alipay{
-          background-position: -103px -125px;
+          background-position: -103px -121px;
         }
       }
     }

@@ -23,14 +23,14 @@
         <p class="copr">China Jiuding Finance & taxation consulting (Beijing) Co., Ltd</p>
         <div class="connect">
           <div>
-            <p>电　　话： 010-62311360</p>
-            <p>传　　真： 010-62311360 </p>
-            <p>邮　　编： 100083 </p>
+            <p><span class="bold-title">电　　话：</span> 010-62311360</p>
+            <p><span class="bold-title">传　　真：</span> 010-62311360 </p>
+            <p><span class="bold-title">邮　　编：</span> 100083 </p>
           </div>
           <div class="adress">
-            <p>地　　址：北京市海淀区志新东路5号鸿基世业商务酒店A座5层</p>
+            <p><span class="bold-title">地　　址：</span>北京市海淀区志新东路5号鸿基世业商务酒店A座5层</p>
             <p class="jiaotong">
-              <span class="fujin">附近交通：</span>
+              <span class="fujin bold-title">附近交通：</span>
               <span>公交志新北里站,有16路,425路,508路,635路,751路,运通109线;附近地铁15号线北沙滩站和10号线牡丹园站。</span>
             </p>
           </div>
@@ -51,12 +51,17 @@ export default {
 .about {
   width: $width;
   margin: 0 auto;
+  .bold-title{
+    font-weight: bold;
+  }
   i {
     display: inline-block;
     width: 22px;
     height: 22px;
     background-image: url('../../assets/images/Sprite.png');
     vertical-align: text-bottom;
+    background-position: -112px -34px;
+    margin-right: 11px;
   }
   .cur-posi {
     border-bottom: none;
@@ -66,13 +71,13 @@ export default {
     }
   }
   .container {
-    margin-top: 80px;
+    margin-top: 50px;
     p[class="title"] {
       width: 686px;
       background-image: url('../../assets/images/about01.png');
       text-align: center;
       background-repeat: no-repeat;
-      margin: 10px auto;
+      margin: 42px auto;
       background-position: 0 5px;
     }
     .content {
@@ -96,7 +101,7 @@ export default {
         line-height: 42px;
       }
       p[class="copr"]{
-        line-height: 26px;
+        line-height: 36px;
       }
       .connect {
         display: flex;
