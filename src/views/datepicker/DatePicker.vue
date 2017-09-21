@@ -1,9 +1,10 @@
 <template>
-  <div class="date_picker">
+  <div class="date_picker" @click="endResult()">
     <div class="date_input_box">
       <input type="text" class="date_input" readonly :value="reslt" @click="showPanel" @mouseout="hidePanel">
     </div>
     <datePanel :panelStatus="panelStatus" :clearPanelTimer="clearPanelTimer" :hidePanel="hidePanel" :choosed="choosed"></datePanel>
+    <span class="splite">-</span><input class="end-date" :value="result" readonly/>
   </div>
 </template>
 <script>
@@ -22,17 +23,28 @@ export default {
         year: '',
         month: '',
         day: ''
+      },
+      endDate: {
+        year: '',
+        month: '',
+        day: ''
       }
     }
   },
   computed: {
     //根据选择的年月计算最终显示的结果
     reslt: function() {
-      const _self = this;
-      const year = _self.choosed.year;
-      const month = _self.choosed.month;
-      const day = _self.choosed.day;
-      return !year || !month || !day ? '请选择一个日期' : (year + '-' + month + '-' + day);
+      const _self = this
+      const year = _self.choosed.year
+      const month = _self.choosed.month
+      const day = _self.choosed.day
+      return !year || !month || !day ? '日期' : (year + '.' + month + '.' + day)
+    },
+    result: function(){
+      let day = this.endDate.day
+      let month = this.endDate.month
+      let year = this.endDate.year
+      return !year || !month || !day ? '日期' : (year + '.' + month + '.' + day)
     }
   },
   methods: {
@@ -49,15 +61,39 @@ export default {
     },
     clearPanelTimer: function() {
       clearTimeout(this.panelTimer);
+    },
+    endResult: function() {
+      let day = this.choosed.day
+      let month = this.choosed.month
+      let year = this.choosed.year
+      let days = new Date(2016, month, 0).getDate()
+      if (day >= (days - 1) && month != '12') {
+        this.endDate.day = day - days + 2
+        this.endDate.month = month + 1
+        this.endDate.year = year
+      } else if (day >= (days - 1) && month == '12') {
+        this.endDate.day = day - days + 2
+        this.endDate.month = '1'
+        this.endDate.year = year + 1
+      } else {
+        this.endDate.year = year
+        this.endDate.month = month
+        this.endDate.day = day + 2
+      }
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 .date_picker {
-  width: 180px;
+  display: flex;
+  width: 205px;
   position: relative;
+  input{
+    text-indent: 1em;
+  }
 }
+
 .date_input_box {
   width: 180px;
   background: #fff;
@@ -74,14 +110,27 @@ export default {
     cursor: pointer;
   }
 }
+
+.flex {
+  display: flex;
+  .end-date {
+    width: 94px;
+    height: 33px;
+    border: 1px solid #ddd;
+  }
+  .splite {
+    margin: 0 5px;
+    line-height: 35px;
+  }
+}
+
 .date_input {
-  width: 100%;
+  width: 94px;
   box-sizing: border-box;
   height: 35px;
   line-height: 35px;
-  border: 1px solid #9D94B0;
+  border: 1px solid #ddd;
   font-size: 14px;
-  text-indent: 1em;
   cursor: pointer;
 }
 </style>

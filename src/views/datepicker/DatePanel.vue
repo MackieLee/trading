@@ -220,7 +220,7 @@ function getDayInWeek(year, month, day) {
     display: inline-block;
     width: 40px;
     height: 25px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .change_year span {
     width: 50%;
@@ -239,7 +239,7 @@ function getDayInWeek(year, month, day) {
     width: 50px;
     height: 30px;
     line-height: 30px;
-    font-size: 12px;
+    font-size: 14px;
     color: #666;
   }
   span:nth-child(7n),
@@ -249,6 +249,7 @@ function getDayInWeek(year, month, day) {
   .day_box span {
     width: 40px;
     margin: 5px;
+    text-align: center;
     border-radius: 3px;
     cursor: pointer;
   }
