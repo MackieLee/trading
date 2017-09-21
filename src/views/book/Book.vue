@@ -44,7 +44,7 @@
           <ul>
             <li data-name="fee" @click="getItem(item)" :class="{ 'active':f === item}" v-for="item in fee" :key="item">{{ item }}</li>
             <li class="price-in">
-              <input type="number" /> ——
+              <input type="number" /> &nbsp;一&nbsp;
               <input type="number" />
             </li>
             <li class="outer-conf">
@@ -56,21 +56,21 @@
       <div class="sorts">
         <p>
           <ul>
-            <li data-name="sorts" @click="getItem(item)" :class="{ 'active':s === item}" v-for="item in sorts" :key="item">{{ item }}</li>
+            <li class="sorts-items" data-name="sorts" @click="getItem(item)" :class="{ 'active':s === item}" v-for="item in sorts" :key="item">{{ item }}</li>
           </ul>
         </p>
         <p>共找到12本图书</p>
       </div>
     </div>
     <div class="video-boxes">
-      <div class="item">
+      <router-link to="/item" tag="div"  class="item">
         <div>
           <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
           </a>
         </div>
         <p class="book-name">
-          <router-link to="/item">土地增值税实战与案例</router-link>
+          <a>土地增值税实战与案例</a>
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
@@ -78,7 +78,7 @@
           <del class="grey origin-price">62.56</del>
           <a class="im-buy">购买</a>
         </p>
-      </div>
+      </router-link>
       <div class="item">
         <div>
           <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
@@ -371,17 +371,27 @@ export default {
   width: $width;
   margin: 0 auto;
   div {
-    height: 50px;
-    border-bottom: 1px dotted $black;
-    line-height: 50px;
+    height: 45px;
+    border-bottom: 1px solid #ddd;
+    line-height: 45px;
     span {
       display: inline-block;
+      background-color: #eaeaea;
+      width: 106px;
+      text-align: center;
     }
     ul {
       display: inline-block;
       li {
-        margin: 0 28px;
+        margin: 0 8px;
         cursor: pointer;
+        font-size: 12px;
+        &:hover{
+          color: $red;
+        }
+      }
+      .sorts-items{
+        font-size: 14px;
       }
     }
   }
@@ -390,11 +400,11 @@ export default {
     .confirm {
       height: 28px;
       width: 58px;
-      background-color: #838383;
+      background-color: #9e9999;
       color: #fff;
       line-height: 28px;
       text-align: center;
-      border-radius: 10px;
+      border-radius: 4px;
     }
   }
   .cur-posi {
@@ -414,9 +424,9 @@ export default {
     input {
       outline: none;
       border: 1px solid $red;
-      width: 45px;
-      padding: 0 5px;
-      border-radius: 5px;
+      width: 52px;
+      padding: 4px 4px;
+      border-radius: 3px;
     }
   }
   .sorts {
@@ -443,13 +453,13 @@ export default {
     position: relative;
   }
   .item {
-    border: 1px solid #E7141A;
-    padding: 10px;
+    border: 1px solid $red;
+    padding: 8px;
     margin-bottom: 32px;
     position: relative;
     .new {
       padding: 2px 4px;
-      background-color: #E7141A;
+      background-color: $red;
       color: #fff;
       font-size: 10px;
       position: absolute;
@@ -465,7 +475,7 @@ export default {
     }
     .buss-info {
       font-size: 14px;
-      color: #E7141A;
+      color: $red;
       .current-price {
         font-size: 22px;
         margin-right: 10px;
@@ -475,7 +485,7 @@ export default {
       }
       .im-buy {
         padding: 8px 12px;
-        background-color: #E7141A;
+        background-color: $red;
         color: #fff;
         font-size: 10px;
         position: absolute;
