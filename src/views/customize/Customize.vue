@@ -155,7 +155,7 @@ export default {
     vertical-align: text-bottom;
   }
   .cur-posi {
-    padding: 26px 0;
+    padding:0 0 26px 0;
     i {
       background-position: -106px -204px;
       margin-right: 6px;

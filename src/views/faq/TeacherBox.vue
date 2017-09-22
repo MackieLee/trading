@@ -128,88 +128,6 @@
         <p>已解决27个问题</p>
       </div>
     </div>
-        <div class="item lf">
-      <div class="flex">
-        <div>
-          <img src="../../assets/images/jitax_问答_01.png" />
-        </div>
-        <div class="name">
-          <p>孙老师</p>
-          <span>九鼎财税资深讲师</span>
-        </div>
-      </div>
-      <div class="tag-box">
-        <span>
-          <p>
-            课程
-          </p>
-          <font>10</font>
-        </span>
-        <span>
-          <p>回答</p>
-          <font>17</font>
-        </span>
-        <span>
-          <p>荣誉值</p>
-          <font>99%</font>
-        </span>
-        <span class="shanchang">
-          <i></i>擅长领域</span>
-      </div>
-      <div class="tags">
-        <ul>
-          <li>税收筹划</li>
-          <li>税收筹划</li>
-          <li class="board">税收筹划</li>
-          <li>税收筹划</li>
-        </ul>
-      </div>
-      <div class="ask">
-        <router-link :to="{ name : 'qdetail' }" tag="p" class="ask-btn">提问</router-link>
-        <p>已解决27个问题</p>
-      </div>
-    </div>
-    <div class="item lf">
-      <div class="flex">
-        <div>
-          <img src="../../assets/images/jitax_问答_01.png" />
-        </div>
-        <div class="name">
-          <p>孙老师</p>
-          <span>九鼎财税资深讲师</span>
-        </div>
-      </div>
-      <div class="tag-box">
-        <span>
-          <p>
-            课程
-          </p>
-          <font>10</font>
-        </span>
-        <span>
-          <p>回答</p>
-          <font>17</font>
-        </span>
-        <span>
-          <p>荣誉值</p>
-          <font>99%</font>
-        </span>
-        <span class="shanchang">
-          <i></i>擅长领域</span>
-      </div>
-      <div class="tags">
-        <ul>
-          <li>税收筹划</li>
-          <li>税收筹划</li>
-          <li class="board">税收筹划</li>
-          <li>税收筹划</li>
-        </ul>
-      </div>
-      <div class="ask">
-        <router-link :to="{ name : 'qdetail' }" tag="p" class="ask-btn">提问</router-link>
-        <p>已解决27个问题</p>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -234,7 +152,7 @@ i {
 }
 
 .cur-posi {
-  padding: 26px 0;
+  padding:0 0 26px 0;
   border-bottom: 1px solid $rice;
   width: 100%;
   i {
@@ -252,12 +170,12 @@ i {
 .item {
   width: 330px;
   background: $white;
-  margin: 40px 46px 53px 0;
+  margin: 36px 46px 53px 0;
   overflow: hidden;
   .flex {
     display: flex;
     height: 117px;
-    margin: 20px 35px 44px 35px;
+    margin: 20px 35px 28px 35px;
     .name {
       margin: 25px 30px 50px 28px;
       P {
@@ -271,7 +189,7 @@ i {
     display: flex;
     width: 250px;
     justify-content: space-between;
-    padding-bottom: 35px;
+    padding-bottom: 28px;
     margin: 0 auto;
     border-bottom: 1px solid $black;
     span {
@@ -313,7 +231,7 @@ i {
     li {
       padding: 3px 15px;
       border: 1px solid #ddd;
-      margin: 26px 9px 0 0;
+      margin: 10px 9px 0 0;
     }
     .board {
       margin: 0;

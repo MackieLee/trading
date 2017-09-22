@@ -4,7 +4,7 @@
     <div class="login-box">
       <div class="content">
         <form class="login-form">
-          <p class="title"><a class="mobile" @click="zhaohui()">手机找回</a><a @click="zhaohui()">邮箱找回</a></p>
+          <p class="title"><a class="mobile" @click="zhaohui()">手机找回</a><a class="mail" @click="zhaohui()">邮箱找回</a></p>
           <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
           <div class="user">
             <i class="iblock"></i>
@@ -52,7 +52,12 @@ export default {
   },
   methods:{
     zhaohui:function(){
-      event.currentTarget.text === '手机找回'?this.placeholder = '请输入手机号':this.placeholder = '请输入邮箱'
+      var mail = document.getElementsByClassName('mail')[0].className
+      var mobile = document.getElementsByClassName('mobile')[0].className
+      console.log(mail)
+      // 这地方要修改
+      event.currentTarget.text === '手机找回'?(this.placeholder = '请输入手机号',mail='mobile',mobile='mail'):(this.placeholder = '请输入邮箱',mail='mobile',mobile='mail')
+
     }
   },
   components:{ JoinHeader,JoinFooter }
@@ -105,11 +110,13 @@ export default {
           text-align: center;
           border-bottom: 2px solid $green;
         }
-        a{
+        .mail{
           width: 204px;
+          border-bottom: 1px solid $rice;
+        }
+        a{
           text-align: right;
           padding-right: 20px;
-          border-bottom: 1px solid $rice;
         }
       }
       .pwd,.user{
