@@ -13,7 +13,7 @@
         自2001年开始至今在全国巡回做财税培训讲座，是我国第一批在全国做税务公开课培训的
         老师之一，17年财税培训经历，被称为财税培训界的“常青树”。
       </p>
-      <p>
+      <p class="sec-p">
             自1997年开始至今，在企业和事务所兼职从事财税实务工作，做过国企、大型民营企业、
         跨国公司的审计工作；至今已经为多家大型民营企业、外资企业、国企、央企提供常年财税顾
         问服务，并成功运作过若干税务筹划方案，深受企业家推崇。
@@ -63,6 +63,9 @@ export default {
   .tdetail{
     width: $width;
     margin: 0 auto;
+    .sec-p{
+      margin-top: 21px;
+    }
     i{
       display: inline-block;
       width: 22px;
@@ -71,7 +74,7 @@ export default {
       vertical-align: text-bottom;
     }
     .cur-posi{
-      padding: 26px 0;
+      padding:0 0 32px 0;
       border-bottom:1px solid $rice;
       i{
         background-position: -106px -204px;
@@ -79,10 +82,10 @@ export default {
       }
     }
     .detail{
-      margin: 38px 90px 100px 100px;
+      margin: 40px 90px 90px 100px;
       h1{
         font-size: 24px;
-        margin-bottom: 30px;
+        margin-bottom: 38px;
       }
       p{
         font-size: 16px;
@@ -97,17 +100,17 @@ export default {
       }
     }
     .book-box{
-      margin-bottom: 80px;
+      margin-bottom: 170px;
       .title{
         width: $width;
         margin: auto;
-        margin-bottom: 20px;
+        margin-bottom: 28px;
         padding-bottom: 10px;
         position: relative;
         border-bottom: 1px solid $rice;
         span{
           padding: 9px 19px;
-          margin-right: 10px;
+          margin-right: 14px;
           background-image: url('../../assets/images/Sprite.png');
           background-position: 132px -206px;
         }
@@ -131,7 +134,7 @@ export default {
         }
         .item{
           border: 1px solid $red;
-          padding: 5px 10px;
+          padding: 6px 10px 12px 10px;
           margin-bottom: 10px;
           position: relative;
           .new{
@@ -160,12 +163,12 @@ export default {
               color: $black;
             }
             .im-buy{
-              padding: 3px 5px;
+              padding: 5px 19px;
               background-color: $red;
               color: $white;
               font-size: 10px;
               position: absolute;
-              right: 15px;
+              right: 36px;
             }
           }
         }

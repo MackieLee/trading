@@ -86,8 +86,8 @@ export default {
     }
     .item{
       border: 1px solid $red;
-      padding: 5px 10px 20px 10px;
-      margin-bottom: 50px;
+      padding: 5px 10px 10px 10px;
+      margin-bottom: 38px;
       position: relative;
       .new{
         padding: 2px 4px;

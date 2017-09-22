@@ -101,7 +101,7 @@ export default {
     vertical-align: text-bottom;
   }
   .cur-posi {
-    padding: 26px 0;
+    padding: 0 0 26px 0;
     border-bottom: 1px solid $rice;
     i {
       background-position: -106px -204px;
@@ -118,7 +118,7 @@ export default {
         margin: 10px 30px 0 37px;
       }
       .name {
-        margin: 42px 0 50px 0;
+        margin: 35px 0 40px 0;
         display: flex;
         justify-content: space-between;
         width: 100%;
@@ -133,7 +133,7 @@ export default {
       }
     }
     .tags {
-      margin: 20px 0 50px 44px;
+      margin: 20px 0 30px 44px;
       span {
         color: $red;
       }
@@ -155,7 +155,7 @@ export default {
       margin-left: 37px;
       width: 100%;
       .container {
-        margin: 58px 30px 53px 0;
+        margin: 34px 30px 0 0;
         padding-bottom: 5px;
         border-left: 1px solid #ddd;
         .tag-box {
@@ -199,7 +199,7 @@ export default {
         }
         .ansr-list {
           width: 335px;
-          margin: 58px 32px 35px 65px;
+          margin: 54px 32px 0 65px;
           p {
             color: $red;
             i {
@@ -208,7 +208,7 @@ export default {
             }
           }
           ul {
-            margin: 44px 0 37px 0;
+            margin: 25px 0 0 0;
             li {
               margin: 10px 0;
             }
@@ -219,9 +219,7 @@ export default {
   }
   .ques-discr {
     width: 100%;
-    border: 1px solid $rice;
-    background-color: #dfdfdf;
-    margin-bottom: 300px;
+    margin-bottom: 100px;
     .container {
       margin: 30px 35px;
       h3{
@@ -232,7 +230,7 @@ export default {
       textarea {
         resize: none;
         width: 964px;
-        height: 117px;
+        height: 90px;
         overflow: hidden;
         outline: none;
         text-indent: 32px;

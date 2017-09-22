@@ -395,14 +395,19 @@ export default {
       }
     }
   }
+  div[class="cur-posi"]{
+    height: auto;
+    line-height: 0;
+    margin-bottom: 20px;
+  }
   .outer-conf {
     margin-left: 0px;
     .confirm {
-      height: 28px;
+      height: 22px;
       width: 58px;
       background-color: #9e9999;
       color: #fff;
-      line-height: 28px;
+      line-height: 22px;
       text-align: center;
       border-radius: 4px;
     }
@@ -425,7 +430,7 @@ export default {
       outline: none;
       border: 1px solid $red;
       width: 52px;
-      padding: 4px 4px;
+      padding: 1px 0px;
       border-radius: 3px;
     }
   }
@@ -441,7 +446,6 @@ export default {
     color: $red;
   }
 }
-
 .video-boxes {
   width: $width;
   margin: 35px auto;

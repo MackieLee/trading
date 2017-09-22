@@ -6,95 +6,69 @@
       <a>更多>></a>
     </div>
     <div class="container">
-      <div class="item">
-        <div>
-          <div class="wen">问 :&nbsp;</div>
-          <div class="item-container">
-            <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
+      <div class="floor">
+        <div class="item lf">
+          <div>
+            <div class="wen lf">问 :&nbsp;</div>
+            <div class="item-container">
+              <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
+            </div>
           </div>
-        </div>
-        <div>
-          <div class="wen">答 :&nbsp;</div>
-          <div class="item-container">
-            <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
+          <div>
+            <div class="wen">答 :&nbsp;</div>
+            <div class="item-container">
+              <div class="ask ansr">一般纳税人销售自行开发的房...</div>
+            </div>
           </div>
+          <div class="more">查看更多&gt;&gt;</div>
         </div>
-        <div class="more">查看更多&gt;&gt;</div>
+        <div class="item rt">
+          <div>
+            <div class="wen lf">问 :&nbsp;</div>
+            <div class="item-container lf">
+              <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
+            </div>
+          </div>
+          <div>
+            <div class="wen">答 :&nbsp;</div>
+            <div class="item-container">
+              <div class="ask ansr">一般纳税人销售自行开发的房...</div>
+            </div>
+          </div>
+          <div class="more">查看更多&gt;&gt;</div>
+        </div>
       </div>
-      <div class="item">
-        <div>
-          <div class="wen">问 :&nbsp;</div>
-          <div class="item-container">
-            <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
+      <div class="floor">
+        <div class="item lf">
+          <div>
+            <div class="wen lf">问 :&nbsp;</div>
+            <div class="item-container">
+              <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
+            </div>
           </div>
-        </div>
-        <div>
-          <div class="wen">答 :&nbsp;</div>
-          <div class="item-container">
-            <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
+          <div>
+            <div class="wen">答 :&nbsp;</div>
+            <div class="item-container">
+              <div class="ask ansr">一般纳税人销售自行开发的房...</div>
+            </div>
           </div>
+          <div class="more">查看更多&gt;&gt;</div>
         </div>
-        <div class="more">查看更多&gt;&gt;</div>
-      </div>
-      <div class="item board">
-        <div>
-          <div class="wen">问 :&nbsp;</div>
-          <div class="item-container">
-            <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
+        <div class="item rt">
+          <div>
+            <div class="wen lf">问 :&nbsp;</div>
+            <div class="item-container lf">
+              <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
+            </div>
           </div>
-        </div>
-        <div>
-          <div class="wen">答 :&nbsp;</div>
-          <div class="item-container">
-            <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
+          <div>
+            <div class="wen">答 :&nbsp;</div>
+            <div class="item-container">
+              <div class="ask ansr">一般纳税人销售自行开发的房...</div>
+            </div>
           </div>
+          <div class="more">查看更多&gt;&gt;</div>
         </div>
-        <div class="more">查看更多&gt;&gt;</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="wen">问 :&nbsp;</div>
-          <div class="item-container">
-            <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
-          </div>
-        </div>
-        <div>
-          <div class="wen">答 :&nbsp;</div>
-          <div class="item-container">
-            <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
-          </div>
-        </div>
-        <div class="more">查看更多&gt;&gt;</div>
-      </div>
-      <div class="item">
-        <div>
-          <div class="wen">问 :&nbsp;</div>
-          <div class="item-container">
-            <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
-          </div>
-        </div>
-        <div>
-          <div class="wen">答 :&nbsp;</div>
-          <div class="item-container">
-            <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
-          </div>
-        </div>
-        <div class="more">查看更多&gt;&gt;</div>
-      </div>
-      <div class="item board">
-        <div>
-          <div class="wen">问 :&nbsp;</div>
-          <div class="item-container">
-            <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
-          </div>
-        </div>
-        <div>
-          <div class="wen">答 :&nbsp;</div>
-          <div class="item-container">
-            <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
-          </div>
-        </div>
-        <div class="more">查看更多&gt;&gt;</div>
       </div>
     </div>
     <div class="click-more">点击查看更多</div>
@@ -109,13 +83,13 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .faq-box {
-  .board{
+  .board {
     margin-right: 0 !important;
   }
   .title {
     width: $width;
     margin: auto;
-    margin-bottom: 42px;
+    margin-bottom: 10px;
     padding-bottom: 10px;
     position: relative;
     border-bottom: 1px solid $rice;
@@ -137,42 +111,59 @@ export default {
   }
   .container {
     overflow: hidden;
-    .item {
-      margin:0 100px 100px 0;
-      float: left;
+    .floor {
+      margin-top: 24px;
       overflow: hidden;
-      .wen {
-        color: $red;
-        padding-top: 3px;
-        font-size: 20px;
+      border-bottom: 1px solid #FDDDBC;
+      .lf {
         float: left;
       }
-      .item-container {
-        float: left;
-        width: 250px;
-        color: $black;
-        font-size: 16px;
-        line-height: 35px;
-        .ask {
-          margin-bottom: 15px;
+      .rt {
+        float: right;
+      }
+      .item {
+        margin-bottom: 24px;
+        div {
+          overflow: hidden;
         }
-      }
-      .more {
-        text-align: right;
-        color: $red;
-        cursor: pointer;
+        width: 478px;
+        .wen {
+          color: $red;
+          padding-top: 3px;
+          font-size: 16px;
+          float: left;
+        }
+        .item-container {
+          float: left;
+          color: $black;
+          font-size: 12px;
+          line-height: 35px;
+          width: 432px;
+          .ask {
+            margin-bottom: 10px;
+          }
+          .ansr{
+            margin-bottom: 10px;
+          }
+        }
+        .more {
+          text-align: right;
+          color: $red;
+          cursor: pointer;
+          font-size: 12px;
+        }
       }
     }
   }
   .click-more {
-    width: 230px;
+    width: 180px;
     border-radius: 10px;
     background-color: $red;
     font-size: 18px;
     color: $white;
-    padding: 13px 0;
+    padding: 10px 0;
     text-align: center;
-    margin: 50px auto 200px auto;
+    margin: 76px auto 108px auto;
     cursor: pointer;
   }
 }
