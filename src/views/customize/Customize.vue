@@ -10,10 +10,10 @@
       <font>2017专属您的私人定制</font>
       <form>
         <div class="flex">
-          <label for="danwei" class="tag tag-width">单位名称：</label><input name="danwei" id="danwei" type="text" class="lg-input" />
+          <label for="danwei" class="tag tag-width">单位名称：</label><input name="danwei" id="danwei" placeholder="请输入您的公司名称" type="text" class="lg-input" />
         </div>
         <div class="flex">
-          <label for="sum" class="tag tag-width">听课人数：</label><input name="sum" id="sum" type="text" class="mid-input" />
+          <label for="sum" class="tag tag-width">听课人数：</label><input name="sum" id="sum" placeholder="请输入您的公司名称" type="text" class="mid-input" />
         </div>
         <div class="flex">
           <label for="category" class="tag tag-width">学员类别：</label><input name="category" id="category" placeholder="管理层/财务人员/非财务人员" type="text" class="mid-input" />
@@ -55,16 +55,15 @@
         </div>
         <div class="flex">
           <label class="tag tag-width">备 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 注：</label>
-          <textarea></textarea>
+          <textarea  placeholder="请输入您的需求" ></textarea>
         </div>
         <div class="msg flex">
           <div class="tag tag-width title">联系方式：</div>
           <div>
-            <div class="tag block"><label for="lianxiren">联系人</label><input name="lianxiren" id="lianxiren"/></div>
-            <div class="tag block"><label for="zhiwu">职务</label><input name="zhiwu" id="zhiwu"/></div>
-            <div class="tag block"><label for="dianhua">电话</label><input name="dianhua" id="dianhua"/></div>
-            <div class="tag block"><label for="mobile">手机</label><input name="mobile" id="mobile"/></div>
-            <div class="tag block"><label for="youxiang">邮箱</label><input name="youxiang" id="youxiang"/></div>
+            <div class="tag block"><label for="lianxiren">联系人</label><input name="lianxiren" id="lianxiren" placeholder="申请人名称"/></div>
+            <div class="tag block"><label for="zhiwu">职务</label><input name="zhiwu" id="zhiwu" placeholder="申请人职务"/></div>
+            <div class="tag block"><label for="dianhua">电话</label><input name="dianhua" id="dianhua" placeholder="请输入11位手机号码或电话号码"/></div>
+            <div class="tag block"><label for="youxiang">邮箱</label><input name="youxiang" id="youxiang" placeholder="请输入正确的电子邮箱"/></div>
           </div>
         </div>
         <div class="sub">
@@ -134,6 +133,18 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .customize {
+  ::-webkit-input-placeholder { /* WebKit browsers */
+  color:    #aeaeae;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    #aeaeae;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    #aeaeae;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color:    #aeaeae;
+}
   width: $width;
   margin: 0 auto;
   i {
@@ -155,6 +166,7 @@ export default {
     margin: 18px 0 0 0;
     width: 890px;
     overflow: hidden;
+    margin: 0 auto;
     font {
       font-size: 26px;
       color: $red;
@@ -180,8 +192,7 @@ export default {
         display: flex;
         margin:35px 0;
         textarea{
-          padding: 10px 0;
-          font-size: 12px;
+          padding: 10px 0;          
           min-width: 280px;
           min-height: 80px;
           text-indent: 1em;

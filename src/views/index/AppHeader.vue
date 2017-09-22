@@ -13,7 +13,7 @@
       </div>
       <div>
         <form action="">
-          <input placeholder="请输入您要搜索的内容" />
+          <input placeholder="请输入您的搜索" />
           <i></i>
         </form>
       </div>
@@ -90,7 +90,7 @@ export default {
     .logo {
       padding: 18px 71px;
       background-image: url('../../assets/images/Sprite.png');
-      background-position: 143px -2px;
+      background-position: 140px 0px;
     }
     li {
       margin: 0 1px;
@@ -115,7 +115,7 @@ export default {
         width: 21px;
         height: 21px;
         background-image: url('../../assets/images/Sprite.png');
-        background-position: -57px -224px;
+        background-position: -58px 0px;
       }
     }
     .header-nav {
@@ -138,10 +138,10 @@ export default {
       background-image: url('../../assets/images/Sprite.png');
     }
     .login {
-      background-position: -112px -30px;
+      background-position: -30px 0px;
     }
     .register {
-      background-position: -112px 3px;
+      background-position: -30px -26px;
     }
   }
 }

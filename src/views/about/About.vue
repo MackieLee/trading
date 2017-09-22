@@ -52,7 +52,7 @@ export default {
   width: $width;
   margin: 0 auto;
   .bold-title{
-    font-weight: bold;
+    font-size: 16px;
   }
   i {
     display: inline-block;
@@ -60,7 +60,7 @@ export default {
     height: 22px;
     background-image: url('../../assets/images/Sprite.png');
     vertical-align: text-bottom;
-    background-position: -112px -34px;
+    background-position: 0px 30px;
     margin-right: 11px;
   }
   .cur-posi {
@@ -78,6 +78,7 @@ export default {
       text-align: center;
       background-repeat: no-repeat;
       margin: 42px auto;
+      font-size: 16px;
       background-position: 0 5px;
     }
     .content {
@@ -107,6 +108,8 @@ export default {
         display: flex;
         flex-direction: row;
         justify-content:space-between;
+        margin-top: 10px;
+        font-size: 14px;
         div {
           width: 230px;
         }
@@ -115,7 +118,7 @@ export default {
           .jiaotong {
             display: flex;
             .fujin {
-              width: 90px;
+              width:112px;
             }
           }
         }

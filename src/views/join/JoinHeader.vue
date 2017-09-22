@@ -131,6 +131,7 @@ export default {
       border-bottom: 2px solid $red;
       a{
         color: $red;
+      
       }
     }
     .user-info{
@@ -146,13 +147,13 @@ export default {
       background-image: url('../../assets/images/Sprite.png');
     }
     .tel{
-      background-position: -109px -246px;
+      background-position: -56px -108px;
     }
     .login{
-      background-position: -112px -34px;
+      background-position: -28px -28px;
     }
     .register{
-      background-position: -112px -2px;
+      background-position: -28px 0px;
     }
   }
 }

@@ -20,9 +20,14 @@
             <b>￥</b>51.00
             <del>￥62.56</del>
           </li>
+          <li>
+            <A>
+              <i></i>加入收藏</A>
+          </li>
           <li class="r">
             <A href="###">立即购买</A>
           </li>
+
         </ul>
       </div>
     </div>
@@ -43,10 +48,10 @@
         <ul>
           <li><img src="../../assets/images/jitax_线下课程_xq02.png" height="96"></li>
           <li class="li01">
-            <span> 孙炜</span><br>著名财税专家</li>
+            <span> 孙玮</span><br>著名财税专家</li>
         </ul>
         <P>
-          孙老师是国内著名税务专家； 注册会计师、注册税务师；东北财经大学财政专业硕士；现任青岛大学经济学院副教授，硕士生导师；自1993年6月至今在 青岛大学经济学院工作，讲授《中国税制》、《国际税收》、《税务检查》、《外国税制》、《税务会计》等课程； 自2001年开始至今在全国巡回做财税培训讲座，是我国第一批在全国做税务公开课培训的老师之一，17年财税培训经历，被称为财税培训界的“常青树”。
+          孙老师是国内著名税务专家； 注册会计师、注册税务师；东北财经大学财政专业硕士；现任青岛大学经济学院副教授，硕士生导师；自1993年6月至今在 青岛大学经济学院工作，讲授《中国税制》、《国际税收》、.......
         </P>
       </div>
     </div>
@@ -71,7 +76,7 @@ export default {
 
 i {
   display: inline-block;
-  width: 30px;
+  width: 26px;
   height: 25px;
   background-image: url('../../assets/images/Sprite.png');
 }
@@ -95,12 +100,13 @@ i {
 }
 
 #xxkc_xq01 {
-  width: 100%;
+  width: 94%;
   height: 356px;
 }
 
 #xxkc_xq01 img {
   float: left;
+  margin-left: 6px;
 }
 
 #xxkc_xq01 .xq01_r {
@@ -129,20 +135,17 @@ i {
 }
 
 #xxkc_xq01 .xq01_r ul {
-  padding-top: 50px;
+  padding-top: 46px;
   height: auto;
-  width: 98%;
+  width: 100%;
   overflow: hidden;
 }
 
 #xxkc_xq01 .xq01_r ul li {
   float: left;
-  color: #ff0000;
+  color: #e7141a;
   font-size: 28px;
-}
-
-#xxkc_xq01 .xq01_r ul li.r {
-  float: right;
+  margin-right: 15px;
 }
 
 #xxkc_xq01 .xq01_r ul li b {
@@ -151,25 +154,32 @@ i {
 
 #xxkc_xq01 .xq01_r ul li del {
   color: #333;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #xxkc_xq01 .xq01_r ul li a {
   height: 34px;
-  width: 110px;
-  background: #FF0000;
+  width: 100px;
+  padding: 0 10px;
+  background: #e7141a;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   display: block;
   border-radius: 3px;
   line-height: 34px;
   text-align: center;
+  line-height: 34px;
+  i {
+    background-position: -90px -190px;
+    position: relative;
+    top: 7px;
+  }
 }
 
 #xxkc_xq #xxkc_xq02 {
   width: 100%;
   height: auto;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 #xxkc_xq02 {
@@ -184,15 +194,15 @@ i {
 #xxkc_xq02 .xq02_l h2 {
   width: 100%;
   height: 32px;
-  border-bottom: 1px solid #FF0000;
+  border-bottom: 1px solid #e7141a;
 }
 
 #xxkc_xq02 .xq02_l h2 span {
   width: 100px;
-  height: 32px;
-  line-height: 32px;
+  height: 33px;
+  line-height: 33px;
   text-align: center;
-  background: #FF0000;
+  background: #e7141a;
   color: #fff;
   display: block;
   font-weight: normal;
@@ -202,7 +212,7 @@ i {
 #xxkc_xq02 .xq02_l p {
   text-indent: 2em;
   line-height: 36px;
-  padding-top: 50px;
+  padding-top: 20px;
   width: 98%;
 }
 
@@ -214,15 +224,15 @@ i {
 #xxkc_xq02 .xq02_r h2 {
   width: 100%;
   height: 32px;
-  border-bottom: 1px solid #FF0000;
+  border-bottom: 1px solid #e7141a;
 }
 
 #xxkc_xq02 .xq02_r h2 span {
   width: 100px;
-  height: 32px;
-  line-height: 32px;
+  height: 33px;
+  line-height: 33px;
   text-align: center;
-  background: #FF0000;
+  background: #e7141a;
   color: #fff;
   display: block;
   font-weight: normal;
@@ -230,19 +240,22 @@ i {
 }
 
 #xxkc_xq02 .xq02_r ul {
-  padding-top: 50px;
+  padding-top: 20px;
   height: auto;
   width: 98%;
   overflow: hidden;
-}
-
-#xxkc_xq02 .xq02_r ul li {
-  float: left;
-  font-size: 18px;
+  li {
+    float: left;
+    font-size: 14px;
+  }
 }
 
 #xxkc_xq02 .xq02_r ul .li01 {
-  margin: 30px 0 0 30px;
+  margin: 5px 0 0 30px;
+  span {
+    font-size: 18px;
+    line-height: 40px;
+  }
 }
 
 #xxkc_xq02 .xq02_r p {

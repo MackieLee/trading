@@ -156,20 +156,22 @@ export default {
       .bussiness {
         p {
           color: #333;
-          margin: 10px 0;
+          margin-bottom:15px;
           font-size: 14px;
         }
         .mail,
         .tel {
-          padding: 2px 16px;
+          padding: 2px 12px;
+          position: relative;
+          top: 4px;
         }
         .mail {
           background-image: url('../../assets/images/Sprite.png');
-          background-position: 5px 202px;
+          background-position: -30px -75px;
         }
         .tel {
           background-image: url('../../assets/images/Sprite.png');
-          background-position: -53px 211px;
+          background-position: -88px 0px;
         }
         .work-day {
           padding-left: 32px;
@@ -194,7 +196,7 @@ export default {
   .site-info {
     background-color: #eaeaea;
     padding: 18px 0;
-    border-top: 1px solid $black;
+    border-top: 1px solid #999;
     .site-info-content {
       width: $width;
       margin: auto;

@@ -23,7 +23,7 @@
       </div>
       <div class="rt-content">
         <p class="title">【自营】土地增值税实战与案例精解</p>
-        <p class="price">￥51.00
+        <p class="price"><span>￥</span>51.00
           <del>￥62.56</del>
         </p>
         <p>作 者：北京中经阳光税收筹划事务所</p>
@@ -88,18 +88,17 @@ export default {
     .rt-content {
       width: 472px;
       p {
-        margin: 15px 0;
+        margin: 18px 0;
       }
       .title {
-        padding-bottom: 25px;
+        padding-bottom: 18px;
         font-size: 16px;
         font-weight: bold;
         border-bottom: 1px solid $rice;
       }
       .price {
         height: 56px;
-        background-color: #ebeeee;
-        border: 1px solid $black;
+        background-color: #ddd;
         line-height: 56px;
         font-size: 22px;
         color: red;
@@ -110,20 +109,29 @@ export default {
           color: #666;
           margin-left: 5px;
         }
+         span {
+          font-size: 16px;
+          color: #666;
+          margin-left: 5px;
+        }
       }
       button{
         background-color: $red;
-        border-radius: 5px;
+        border-radius: 3px;
         outline: none;
         border: none;
         color: $white;
-        margin-top: 45px;
-        padding: 6px 13px;
+        margin-top: 30px;
+        padding: 0px 13px;
         cursor: pointer;
+        line-height: 34px;
+        margin-right: 10px;
       }
       i {
-      background-position: -53px -319px;
+      background-position: -88px -170px;
       margin-right: 6px;
+      position: relative;
+      top: 2px;
     }
     }
   }
