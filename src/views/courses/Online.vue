@@ -3,62 +3,62 @@
     <div class="video-boxes">
         <div class="item">
           <div><router-link to="/video" class="video-cover"><img src="../../assets/images/jitax_线上课程_03.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link><span class="free"></span></p>
+          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><router-link to="/home" class="play">进入学习</router-link></p>
         </div>
         <div class="item">
           <div><router-link to="/home" class="video-cover"><img src="../../assets/images/jitax_线上课程_05.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link><span class="free"></span></p>
+          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><router-link to="/home" class="play">进入学习</router-link></p>
         </div>
         <div class="item">
           <div><router-link to="/home" class="video-cover"><img src="../../assets/images/jitax_线上课程_07.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link><span class="free"></span></p>
+          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><router-link to="/home" class="play">进入学习</router-link></p>
         </div>
         <div class="item">
           <div><router-link to="/home" class="video-cover"><img src="../../assets/images/jitax_线上课程_09.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link><span class="free"></span></p>
+          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><router-link to="/home" class="play">进入学习</router-link></p>
         </div>
         <div class="item">
           <div><router-link to="/home" class="video-cover"><img src="../../assets/images/jitax_线上课程_15.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link><span class="free"></span></p>
+          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><router-link to="/home" class="play">进入学习</router-link></p>
         </div>
         <div class="item">
           <div><router-link to="/home" class="video-cover"><img src="../../assets/images/jitax_线上课程_16.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link><span class="free"></span></p>
+          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><router-link to="/home" class="play">进入学习</router-link></p>
         </div>
         <div class="item">
           <div><router-link to="/home" class="video-cover"><img src="../../assets/images/jitax_线上课程_17.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link><span class="free"></span></p>
+          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><router-link to="/home" class="play">进入学习</router-link></p>
         </div>
         <div class="item">
           <div><router-link to="/home" class="video-cover"><img src="../../assets/images/jitax_线上课程_18.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link><span class="free"></span></p>
+          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><router-link to="/home" class="play">进入学习</router-link></p>
         </div>
         <div class="item">
           <div><router-link to="/home" class="video-cover"><img src="../../assets/images/jitax_线上课程_23.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link><span class="free"></span></p>
+          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><router-link to="/home" class="play">进入学习</router-link></p>
         </div>
         <div class="item">
           <div><router-link to="/home" class="video-cover"><img src="../../assets/images/jitax_线上课程_24.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link><span class="free"></span></p>
+          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><router-link to="/home" class="play">进入学习</router-link></p>
         </div>
         <div class="item">
           <div><router-link to="/home" class="video-cover"><img src="../../assets/images/jitax_线上课程_25.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link><span class="free"></span></p>
+          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><router-link to="/home" class="play">进入学习</router-link></p>
         </div>
         <div class="item">
           <div><router-link to="/home" class="video-cover"><img src="../../assets/images/jitax_线上课程_27.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link><span class="free"></span></p>
+          <p class="video-title"><router-link to="/home">税收筹划案例精解-3</router-link></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><router-link to="/home" class="play">进入学习</router-link></p>
         </div>
       </div>
@@ -101,14 +101,6 @@ export default {
       .video-title{
         margin:15px 0;
         position: relative;
-        .free{
-          padding: 13px;
-          margin-left: 30px;
-          background-image: url('../../assets/images/Sprite.png');
-          background-position: -51px 279px;
-          position: absolute;
-          right: 7px;
-        }
       }
       .buss-info{
         font-size: 12px;
