@@ -138,10 +138,10 @@ export default {
       background-image: url('../../assets/images/Sprite.png');
     }
     .login {
-      background-position: -30px 0px;
+      background-position: -30px 7px;
     }
     .register {
-      background-position: -30px -26px;
+      background-position: -30px -20px;
     }
   }
 }

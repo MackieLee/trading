@@ -8,7 +8,7 @@
     </div>
     <div class="item">
       <div class="lf-content">
-        <img src="../../assets/images/jitax_图书details_03.png" />
+        <magnifier></magnifier>
         <ul>
           <li>
             <img src="../../assets/images/jitax_图书details_07.png" />
@@ -37,21 +37,36 @@
       </div>
     </div>
     <div class="comment">
-      <p>
-        <span class="active">图书详情</span>
-        <span>图书目录</span>
-        <span>评论(189)</span>
+      <p @click="toggle()">
+        <span data-ref='1' class="cur">图书详情</span>
+        <span data-ref='2'>图书目录</span>
+        <span data-ref='3'>评论(189)</span>
       </p>
-      <div class="content">
+      <div class="content" v-if="part=='1'">
         本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；课程总结。 本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；课程总结。 本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；课程总结。 本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；课程总结。 本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；课程总结。
       </div>
+      <div v-if="part=='2'">2</div>
+      <div v-if="part=='3'">3</div>
     </div>
   </div>
 </template>
-
 <script>
+import magnifier from './Magnifier'
 export default {
-
+  components:{ magnifier },
+  data(){
+    return{
+      part:'1'
+    }
+  },
+  methods:{
+    toggle(){
+      document.getElementsByClassName('cur')[0].className = ''
+      event.target.setAttribute('class','cur')
+      let ref = event.target.dataset.ref
+      this.part = ref
+    }
+  }
 }
 </script>
 
@@ -145,7 +160,7 @@ export default {
         padding: 10px 16px;
         cursor: pointer;
       }
-      span[class="active"] {
+      span[class="cur"] {
         background-color: $red;
         color: $white;
       }

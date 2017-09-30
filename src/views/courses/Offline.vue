@@ -171,7 +171,6 @@ export default {
         border: 1px solid $rice;
         border-radius: 5px;
         font-size: 14px;
-        cursor: pointer;
       }
       .col-2 {
         margin: 0 115px 0 30px;
@@ -186,7 +185,7 @@ export default {
         }
         i{
           display: inline-block;
-          background-position: -106px -167px;
+          background-position: -32px -149px;
         }
       }
       .col-3 {
@@ -197,11 +196,13 @@ export default {
         p {
           text-align: center;
           color: $border;
+          cursor: pointer;
         }
         i{
           display: block;
           margin:20px auto 5px;
-          background-position: -54px -158px;
+          background-position: -29px -189px;
+          cursor: pointer;
         }
       }
     }

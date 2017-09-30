@@ -4,7 +4,7 @@
     <div class="login-box">
       <div class="content">
         <form class="login-form">
-          <p class="title"><a class="txt-ali-lf" @click="zhaohui()">手机找回</a><a class="txt-ali-rt" @click="zhaohui()">邮箱找回</a></p>
+          <p class="title"><a class="txt-ali-ctr mobile" @click="zhaohui()">手机找回</a><a class="txt-ali-rt email" @click="zhaohui()">邮箱找回</a></p>
           <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
           <div class="user">
             <i class="iblock"></i>
@@ -55,8 +55,19 @@ export default {
       // document.getElementsByClassName('mail')[0].className = 'mobile'
       // var mobile = document.getElementsByClassName('mobile')[0].className=
       // 改变类，包含text-align，borde-bottom
-      event.currentTarget.text === '手机找回'?(this.placeholder = '请输入手机号'):(this.placeholder = '请输入邮箱')
-
+      event.currentTarget.text === '手机找回'?(this.placeholder = '请输入手机号',this.rt()):(this.placeholder = '请输入邮箱',this.lf())
+    },
+    rt:()=>{
+      if(document.getElementsByClassName('mobile')){
+        document.getElementsByClassName('mobile')[0].className = 'mobile txt-ali-ctr'
+        document.getElementsByClassName('email')[0].className = 'email txt-ali-rt'
+      }
+    },
+    lf:()=>{
+      if(document.getElementsByClassName('mobile')){
+        document.getElementsByClassName('mobile')[0].className = 'mobile txt-ali-lf'
+        document.getElementsByClassName('email')[0].className = 'email txt-ali-ctr'
+      }
     }
   },
   components:{ JoinHeader,JoinFooter }
@@ -107,10 +118,12 @@ export default {
         .txt-ali-lf{
           text-align: left;
           border-bottom: 1px solid $rice;
+          width: 224px;
         }
         .txt-ali-rt{
           text-align: right;
-          border-bottom:1px solid $rice;
+          border-bottom: 1px solid $rice;
+          width: 224px;
         }
         .txt-ali-ctr{
           text-align: center;
@@ -118,7 +131,7 @@ export default {
         }
         a{
           text-align: right;
-          padding-right: 20px;
+          padding:0 10px 5px 10px;
         }
       }
       .pwd,.user{

@@ -1,10 +1,10 @@
 <template>
   <div class="online">
-        <div class="container">
+    <div class="container">
       <div class="cur-posi">
         <p>
           <i></i>当前位置 : &nbsp;
-          <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;图书</p>
+          <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;{{ curPath }}</p>
       </div>
       <div>
         <p>
@@ -72,22 +72,33 @@
 
 export default {
   name: 'courses',
-  data(){
-    return{
-      topics:['全部','土地增值税','营改增','收并购重组','税务战略与管理'],
-      leaders:['牛鲁鹏','王志国'],
-      easy:['全部会计专员','财务经理','总监'],
+  data() {
+    return {
+      topics: ['全部', '土地增值税', '营改增', '收并购重组', '税务战略与管理'],
+      leaders: ['牛鲁鹏', '王志国'],
+      easy: ['全部会计专员', '财务经理', '总监'],
       fee: ['全部'],
-      sorts:['最新','最热','好评','免费'],
+      sorts: ['最新', '最热', '好评', '免费'],
       current: 1,
-      t:'',
-      l:'',
-      e:'',
-      s:'',
-      f:''
+      t: '',
+      l: '',
+      e: '',
+      s: '',
+      f: ''
     }
   },
-  methods:{
+  mounted() {
+  },
+  computed: {
+    curPath: function(){
+      if (this.$route.path === '/courses/online') {
+        return '线上课程'
+      } else if (this.$route.path === '/courses/offline') {
+        return '线下课程'
+      }
+    }
+  },
+  methods: {
     // getItem:function(e){
     //   this.topics.indexOf(e) > -1? this.t = e :
     //     this.leaders.indexOf(e) > -1? this.l = e :
@@ -123,16 +134,16 @@ export default {
         margin: 0 8px;
         cursor: pointer;
         font-size: 12px;
-        &:hover{
+        &:hover {
           color: $red;
         }
       }
-      .sorts-items{
+      .sorts-items {
         font-size: 14px;
       }
     }
   }
-  div[class="cur-posi"]{
+  div[class="cur-posi"] {
     height: auto;
     line-height: 0;
     margin-bottom: 20px;
@@ -156,7 +167,7 @@ export default {
       width: 22px;
       height: 22px;
       background-image: url('../../assets/images/Sprite.png');
-      background-position: -106px -204px;
+      background-position: -56px -82px;
       vertical-align: text-bottom;
       margin-right: 6px;
     }
@@ -183,32 +194,33 @@ export default {
     color: $red;
   }
 }
-.pgs{
+
+.pgs {
   width: 415px;
-  margin:70px auto 70px auto;
-  li{
+  margin: 70px auto 70px auto;
+  li {
     width: 33px;
     padding: 4px 0;
     line-height: 20px;
     text-align: center;
-    border:1px solid $rice;
+    border: 1px solid $rice;
     border-right: none;
     margin-right: -4px;
     cursor: pointer;
   }
-  .prev{
+  .prev {
     width: 97px;
     color: $red;
   }
-  .next{
+  .next {
     width: 96px;
     border: 1px solid $rice;
     color: $red;
   }
-  .last{
+  .last {
     width: 50px;
   }
-  .current{
+  .current {
     background-color: $red;
     color: $white;
   }

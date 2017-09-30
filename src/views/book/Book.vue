@@ -10,7 +10,7 @@
         <p>
           <span>出&nbsp;&nbsp;版&nbsp;&nbsp;社：</span>
           <ul>
-            <li data-name="publish" @click="getItem(item)" :class="{ 'active':p === item}" v-for="item in publish" :key="item">{{ item }}</li>
+            <li data-name="publish" @click="getItem(item)" :class="{ 'active':p === item }" v-for="item in publish" :key="item">{{ item }}</li>
           </ul>
         </p>
       </div>
@@ -18,7 +18,7 @@
         <p>
           <span>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</span>
           <ul>
-            <li data-name="topics" @click="getItem(item)" :class="{ 'active':t === item}" v-for="item in topics" :key="item">{{ item }}</li>
+            <li data-name="topics" @click="getItem(item)" :class="{ 'active':t === item }" v-for="item in topics" :key="item">{{ item }}</li>
           </ul>
         </p>
       </div>
@@ -26,7 +26,7 @@
         <p>
           <span>包&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;装：</span>
           <ul>
-            <li data-name="leaders" @click="getItem(item)" :class="{ 'active':l === item}" v-for="item in leaders" :key="item">{{ item }}</li>
+            <li data-name="leaders" @click="getItem(item)" :class="{ 'active':l === item }" v-for="item in leaders" :key="item">{{ item }}</li>
           </ul>
         </p>
       </div>
@@ -34,7 +34,7 @@
         <p>
           <span>适宜人群：</span>
           <ul>
-            <li data-name="easy" @click="getItem(item)" :class="{ 'active':e === item}" v-for="item in easy" :key="item">{{ item }}</li>
+            <li data-name="easy" @click="getItem(item)" :class="{ 'active':e === item }" v-for="item in easy" :key="item">{{ item }}</li>
           </ul>
         </p>
       </div>
@@ -42,7 +42,7 @@
         <p>
           <span>价格范围：</span>
           <ul>
-            <li data-name="fee" @click="getItem(item)" :class="{ 'active':f === item}" v-for="item in fee" :key="item">{{ item }}</li>
+            <li data-name="fee" @click="getItem(item)" :class="{ 'active':f === item }" v-for="item in fee" :key="item">{{ item }}</li>
             <li class="price-in">
               <input type="number" /> &nbsp;一&nbsp;
               <input type="number" />
@@ -259,7 +259,6 @@
             </div>
             <p class="book-name">
               <a>土地增值税实战与案例</a>
-
             </p>
             <p class="buss-info">￥
               <span class="current-price">51.00</span>
