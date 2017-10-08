@@ -156,7 +156,7 @@ i {
   border-bottom: 1px solid $rice;
   width: 100%;
   i {
-    background-position: -106px -204px;
+    background-position: -51px -82px;
     margin-right: 6px;
   }
 }
@@ -221,7 +221,7 @@ i {
       bottom: -10px;
       left: 25%;
       i {
-        background-position: 2px -209px;
+        background-position: 2px -361px;
         margin-right: 6px;
       }
     }

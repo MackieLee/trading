@@ -97,7 +97,7 @@ export default {
       padding: 9px 19px;
       margin-right: 10px;
       background-image: url('../../assets/images/Sprite.png');
-      background-position: 12px -158px;
+      background-position: 12px 37px;
     }
     font {
       font-size: 18px;

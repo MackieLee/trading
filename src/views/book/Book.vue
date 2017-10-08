@@ -418,7 +418,7 @@ export default {
       width: 22px;
       height: 22px;
       background-image: url('../../assets/images/Sprite.png');
-      background-position: -106px -204px;
+      background-position: -56px -82px;
       vertical-align: text-bottom;
       margin-right: 6px;
     }
@@ -506,10 +506,10 @@ export default {
   position: relative;
   border-bottom: 1px solid $rice;
   span {
-    padding: 9px 19px;
+    padding: 0px 19px;
     margin-right: 10px;
     background-image: url('../../assets/images/Sprite.png');
-    background-position: 12px -158px;
+    background-position: 12px -102px;
   }
   font {
     font-size: 18px;

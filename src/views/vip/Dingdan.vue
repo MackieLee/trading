@@ -176,13 +176,8 @@ export default {
   display: inline-block;
   width: 13px;
   height: 13px;
-  background: url('../../assets/images/Sprite.png') -108px -307px;
+  background: url('../../assets/images/Sprite.png') -59px -396px;
 }
-
-
-
-
-
 /*   */
 
 .my_order_r .p01 {
@@ -198,7 +193,7 @@ export default {
   display: inline-block;
   width: 13px;
   height: 13px;
-  background: url('../../assets/images/Sprite.png') -108px -344px;
+  background: url('../../assets/images/Sprite.png') -59px -396px;
 }
 
 .my_order_r .ul05 {

@@ -88,7 +88,7 @@ export default {
       padding: 0 0 26px 0;
       border-bottom:1px solid $rice;
       i{
-        background-position: -106px -204px;
+        background-position: -56px -82px;
         margin-right: 6px;
       }
     }
@@ -112,7 +112,7 @@ export default {
           line-height: 30px;
           cursor: pointer;
           i{
-            background-position: -56px -62px;
+            background-position: -56px -56px;
           }
         }
       }

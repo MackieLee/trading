@@ -12,7 +12,7 @@
           <div class="head"></div>
           <div class="name">
             <p class="p1">
-              <i></i>在树下听歌</p>
+              在树下听歌</p>
             <p class="p2">普通会员</p>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default {
   width: $width;
   margin: 0 auto;
   .active{
-    background-color: $red !important;
+    color: $red !important;
   }
   i {
     display: inline-block;
@@ -72,7 +72,7 @@ export default {
   .cur-posi {
     border-bottom: none;
     i {
-      background-position: -106px -204px;
+      background-position: -56px -82px;
       margin-right: 6px;
     }
   }
@@ -80,7 +80,6 @@ export default {
     margin-top: 45px;
     display: flex;
     .lf {
-      background-color: #fff;
       width: 224px;
       padding-bottom: 90px;
       p {
@@ -92,9 +91,9 @@ export default {
           background-position: -115px -35px;
         }
       }
-      .p2 {
-        margin-left: 32px;
-      }
+      // .p2 {
+      //   margin-left: 32px;
+      // }
       .flex {
         display: flex;
       }
@@ -113,38 +112,37 @@ export default {
           margin:15px 0;
           padding: 11px 0;
           width: 224px;
-          background-color: $silver;
-          color: #fff;
+          color: #333;
           text-align: center;
           cursor: pointer;
         }
         .t1 {
-          background-position: -142px -257px;
+          background-position: -154px -288px;
           margin-right: 6px;
         }
         .t2 {
           height: 18px;
-          background-position: -142px -296px;
+          background-position: -154px -326px;
           margin-right: 6px;
         }
         .t3 {
-          background-position: -142px -277px;
+          background-position: -154px -307px;
           margin-right: 6px;
         }
         .t4 {
-          background-position: -142px -313px;
+          background-position: -159px -343px;
           margin-right: 6px;
         }
         .t5 {
-          background-position: -142px -332px;
+          background-position: -154px -362px;
           margin-right: 6px;
         }
         .t6 {
-          background-position: -142px -349px;
+          background-position: -157px -379px;
           margin-right: 6px;
         }
         .t7 {
-          background-position: -143px -368px;
+          background-position: -154px -398px;
           margin-right: 6px;
         }
       }

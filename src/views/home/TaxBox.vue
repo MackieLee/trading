@@ -62,11 +62,11 @@ export default {
     position: relative;
     border-bottom: 1px solid $rice;
     span{
-      padding: 9px 19px;
+      padding: 2px 19px;
       margin-right: 10px;
       background-image: url('../../assets/images/Sprite.png');
       background-repeat: no-repeat;
-      background-position: 12px -74px;
+      background-position: 12px -49px;
     }
     font{
       font-size: 18px;
@@ -134,9 +134,9 @@ export default {
           }
         }
         .play{
-          padding: 10px;
+          padding: 14px;
           background-image: url('../../assets/images/Sprite.png');
-          background-position: 0 467px;
+          background-position: 0 472px;
           position: relative;
           left: 50px;
           top: 10px;

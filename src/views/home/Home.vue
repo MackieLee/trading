@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <slider></slider>
-    <teacher-box></teacher-box>
+    <!-- <teacher-box></teacher-box> -->
     <tax-box></tax-box>
     <tax-box-sed></tax-box-sed>
     <company></company>

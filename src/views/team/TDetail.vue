@@ -77,7 +77,7 @@ export default {
       padding:0 0 32px 0;
       border-bottom:1px solid $rice;
       i{
-        background-position: -106px -204px;
+        background-position: -56px -82px;
         margin-right: 6px;
       }
     }
@@ -109,10 +109,10 @@ export default {
         position: relative;
         border-bottom: 1px solid $rice;
         span{
-          padding: 9px 19px;
+          padding: 2px 19px;
           margin-right: 14px;
           background-image: url('../../assets/images/Sprite.png');
-          background-position: 132px -206px;
+          background-position: 11px -174px;
         }
         font{
           font-size: 18px;

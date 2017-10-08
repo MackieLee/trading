@@ -93,16 +93,16 @@ export default {
           margin-right: 15px;
         }
         .wechat{
-          background-position: -51px -82px;
+          background-position: -114px -56px;
         }
         .weibo{
-          background-position: -51px -119px;
+          background-position: -114px -95px;
         }
         .qq{
-          background-position: -101px -79px;
+          background-position: -114px -129px;
         }
         .alipay{
-          background-position: -103px -121px;
+          background-position: -114px -163px;
         }
       }
     }

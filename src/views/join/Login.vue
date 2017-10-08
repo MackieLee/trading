@@ -129,12 +129,12 @@ export default {
       }
       .pwd{
         i{
-          background-position: -58px 171px;
+          background-position: -29px 237px;
         }
       }
       .user{
         i{
-          background-position: -115px -35px;
+          background-position: -30px -27px;
         }
       }
       input {
@@ -202,16 +202,16 @@ export default {
           background-image: url('../../assets/images/Sprite.png');
         }
         .wechat{
-          background-position: -51px -81px;
+          background-position: -114px -56px;
         }
         .weibo{
-          background-position: -51px -124px;
+          background-position: -114px -95px;
         }
         .qq{
-          background-position: -100px -81px;
+          background-position: -114px -129px;
         }
         .alipay{
-          background-position: -100px -122.5px;
+          background-position: -114px -163px;
         }
       }
     }

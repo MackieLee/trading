@@ -144,12 +144,12 @@ export default {
       }
       .pwd{
         i{
-          background-position: -58px 171px;
+          background-position: -29px 237px;
         }
       }
       .user{
         i{
-          background-position: -115px -35px;
+          background-position: -86px -2px;
         }
       }
       input {

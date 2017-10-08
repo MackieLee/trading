@@ -129,7 +129,7 @@ export default {
 
 <style lang="scss" scoped>
 .selected {
-  background-position: -111px -365px !important;
+  background-position: -106px -364px !important;
 }
 
 i {
@@ -231,7 +231,7 @@ i {
 
 .my_order_r .ul03 .li01 i,
 .my_order_r .ul06 .li01 i {
-  background-position: -111px -344px;
+  background-position: -59px -396px;
 }
 
 .my_order_r .p01 {
@@ -244,7 +244,7 @@ i {
 
 .my_order_r .p01 i {
   margin: 0 15px 0 20px;
-  background-position: -111px -344px;
+  background-position: -59px -396px;
 }
 
 .my_order_r .p01 span {

@@ -101,12 +101,12 @@ export default {
   }
   .pwd,.confirm{
     i{
-      background-position: -58px 172px;
+      background-position: -28px 0px;
     }
   }
   .user,.ckcode,.phcode,.invcode{
     i{
-      background-position: -60px -258px;
+      background-position: -86px -2px;
     }
   }
   input {

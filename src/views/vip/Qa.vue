@@ -36,7 +36,7 @@ export default {
   overflow: hidden;
   i{
     display: inline-block;
-    height: 30px;
+    height: 16px;
     width: 30px;
     background-image: url('../../assets/images/Sprite.png');
   }
@@ -51,7 +51,7 @@ export default {
     width: 728px;
     margin: 47px auto 12px auto;
     i{
-      background-position: 118px -168px;
+      background-position: -154px -311px;
     }
     .item{
       margin-bottom: 50px;

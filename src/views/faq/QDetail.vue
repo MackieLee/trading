@@ -96,7 +96,7 @@ export default {
   i {
     display: inline-block;
     width: 30px;
-    height: 25px;
+    height: 21px;
     background-image: url('../../assets/images/Sprite.png');
     vertical-align: text-bottom;
   }
@@ -104,7 +104,7 @@ export default {
     padding: 0 0 26px 0;
     border-bottom: 1px solid $rice;
     i {
-      background-position: -106px -204px;
+      background-position: -51px -82px;
       margin-right: 6px;
     }
   }
@@ -203,7 +203,7 @@ export default {
           p {
             color: $red;
             i {
-              background-position: -174px -142px;
+              background-position: -148px -71px;
               margin-right: 6px;
             }
           }
