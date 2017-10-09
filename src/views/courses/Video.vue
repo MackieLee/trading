@@ -16,9 +16,9 @@
         <p class="title">
           <i></i>课程目录</p>
         <ul>
-          <li v-for="item in classes" :key="item.num" @click="getVideo(item)">
+          <li v-for="item in classes" :key="item.num" :class="{ active: markNum == item.num }" @click="getVideo(item)">
             <span>{{ item.title }}</span>
-            <i :class="{ active: markNum == item.num }"></i>
+            <i></i>
           </li>
         </ul>
       </div>
@@ -239,7 +239,7 @@ export default {
     font-size: 18px;
   }
   .container {
-    padding:20px 0 50px 0;
+    padding: 20px 0 50px 0;
     display: flex;
     .player {
       .video-player {
@@ -249,10 +249,9 @@ export default {
     .class-list {
       margin-left: 25px;
       padding: 36px 18px 66px 41px;
-      background-color: #807C81;
+      background-color: #989898;
       .title {
         font-size: $lgtitle;
-        text-align: center;
         color: #fff;
         margin-bottom: 25px;
         i {
@@ -267,8 +266,8 @@ export default {
         align-items: center;
       }
       li {
-        padding: 19px 0 25px 0;
-        font-size: $title;
+        padding: 22px 36px 22px 32px;
+        font-size: 14px;
         color: $white;
         cursor: pointer;
         overflow: hidden;
@@ -276,35 +275,38 @@ export default {
         border-bottom: 1px solid #B0ACAC;
         i {
           float: right;
-          background-position: -117px 24px;
+          background-position: -117px 25px;
           margin-left: 40px;
           opacity: 0;
         }
-        .active {
+      }
+      .active {
+        background-color: #898989;
+        i {
           opacity: 1;
         }
       }
     }
   }
   .comment {
-    .comment-box{
+    .comment-box {
       min-height: 180px;
-      font{
+      font {
         display: block;
         text-indent: 45px;
       }
-      .font-1{
+      .font-1 {
         margin-top: 30px;
       }
-      .font-2{
+      .font-2 {
         margin-top: 18px;
       }
-      .font-3{
+      .font-3 {
         margin-top: 32px;
         text-indent: 32px;
         line-height: 30px;
       }
-      .font-4{
+      .font-4 {
         text-indent: 32px;
         line-height: 30px;
       }
@@ -333,7 +335,7 @@ export default {
   .video-box-title {
     width: $width;
     margin: auto;
-    margin:50px 0 28px 0;
+    margin: 50px 0 28px 0;
     padding-bottom: 10px;
     position: relative;
     border-bottom: 1px solid $rice;

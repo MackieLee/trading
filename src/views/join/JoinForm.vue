@@ -5,7 +5,7 @@
       <span> {{ error }}</span></p></div>
     <div class="icon user">
       <i class="iblock"></i>
-      <input type="text" name="user" placeholder="请输入手机号/邮箱" />
+      <input type="text" name="user" @input="validate('user',$event.target.value)" placeholder="请输入手机号/邮箱" />
     </div>
     <div class="error"><p v-show="error">
       <!-- <i class="iblock"></i> -->
@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import { validateForm } from '../../util'
 export default {
   data() {
     return {
@@ -65,6 +66,12 @@ export default {
   methods:{
     toggleChecked:function(){
       this.checked = !this.checked
+    },
+    //扩充checkjs内容
+    //格式不对的输入框显示对应的文字
+    validateForm,
+    validate:function(type,value){
+      console.log(validateForm(type,value))
     }
   }
 }
