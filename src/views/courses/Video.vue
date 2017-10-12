@@ -1,5 +1,5 @@
 <template>
-  <div class="orgin-item">
+  <div class="origin-item">
     <div class="cur-posi">
       <p>
         <i></i>当前位置 : &nbsp;
@@ -42,13 +42,10 @@
       </div>
     </div>
     <div class="docs">
-      <div class="doc-item" data-cut='50' @click="jumpTo">
-        这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段
-        这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段
-        这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段
-        这是第一段这是第一段这是第一段这是第一段这是第一段这是第一段
+      <div class="doc-item" v-for="item in doc" :key="item.cutpoint" :data-cut=item.cutPoint @click="jumpTo">
+        <!-- 循环遍历出文档模块 -->
+        {{ item.content }}
       </div>
-      <div class="doc-item" data-cut='150' @click="jumpTo">这是第二段</div>
     </div>
   </div>
 </template>
@@ -56,6 +53,7 @@
 <script>
 require('video.js/dist/video-js.css')
 require('vue-video-player/src/custom-theme.css')
+const DOC = require('../../assets/doc.json')
 export default {
   name: 'video',
   data() {
@@ -97,11 +95,13 @@ export default {
         'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
         'http://7xkwa7.media1.z0.glb.clouddn.com/sample_video_L'
       ],
-      part: '1'
+      part: '1',
+      doc: DOC
     }
   },
   mounted() {
     this.player.muted(false)
+    console.log(this.doc[0].content)
   },
   computed: {
     player() {
@@ -155,6 +155,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
+.origin-item{
+  width:90%;
+  margin:0 auto;
+  overflow:hidden;
+}
 .container{
   width:500px;
   float:left;
