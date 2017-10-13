@@ -1,14 +1,29 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <div class="modal"></div>
   </div>
 </template>
 
 <script>
+import { store } from 'vuex'
 export default {
   name: 'app',
+  data(){
+    return{
+
+    }
+  },
   mounted:function(){
     document.write('<script src="\/\/assets-cdn.kf5.com\/supportbox\/main.js?' + (new Date).getDay() + '" id="kf5-provide-supportBox" kf5-domain="mackielee.kf5.com" charset="utf-8"><\/script>');
+  },
+  computed:{
+    store(){
+      user: 'getUser'
+    }
+  },
+  created(){
+    console.log(this.store)
   }
 }
 </script>

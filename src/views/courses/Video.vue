@@ -21,7 +21,7 @@
           <span class="tab-title" data-ref='5'>课程目录</span>
         </p>
         <div class="tab-content">
-          <div class="benjie" v-if="part=='1'">
+          <div class="min-650 benjie" v-if="part=='1'">
             <ul>
               <li>
                 <font class="numb">1</font>房地产老项目收入成本结转问题</li>
@@ -37,10 +37,10 @@
                 <font class="numb">6</font>房地产老项目收入成本结转问题</li>
             </ul>
           </div>
-          <div class="biji" v-if="part=='2'">
+          <div class="min-650 biji" v-if="part=='2'">
             未发现本节相关的笔记内容
           </div>
-          <div class="dayi" v-if="part=='3'">
+          <div class="min-650 dayi" v-if="part=='3'">
             <!-- 第一个问答 -->
             <div class="no.1">
               <!-- 标题 -->
@@ -63,15 +63,14 @@
               </div>
             </div>
           </div>
-          <div class="shiti" v-if="part=='4'">4</div>
-          <div class="kecheng" v-if="part=='5'">
+          <div class="min-650 shiti" v-if="part=='4'">
+            <div class="test">【本节知识点】其他知识点</div>
+          </div>
+          <div class="min-650 kecheng" v-if="part=='5'">
             <div class="class-list">
-              <p class="title">
-                <i></i>课程目录</p>
               <ul>
                 <li v-for="item in classes" :key="item.num" :class="{ active: markNum == item.num }" @click="getVideo(item)">
                   <span>{{ item.title }}</span>
-                  <i></i>
                 </li>
               </ul>
             </div>
@@ -80,10 +79,23 @@
       </div>
     </div>
     <div class="docs">
-      <div class="doc-item" v-for="item in doc" :key="item.cutpoint" :data-cut=item.cutPoint @click="jumpTo">
-        <!-- 循环遍历出文档模块 -->
-        <!-- 我建议文档内容用富文本编辑器在线编辑 -->
-        {{ item.content }}
+      <!-- 课程标题 -->
+      <span class="doc-title">{{ curClass }}</span>
+      <span class="teacher">孙玮老师</span>
+      <span class="pointer pingjia" @click="showModal">本节评价</span>
+      <span class="pointer shoucang" @click="shouCang">收藏</span>
+      <i class="red-heart" v-if="shoucang"></i>
+      <i class="grey-heart" v-if="!shoucang"></i>
+      <div class="doc-box">
+        <div class="doc-item" v-for="item in doc" :key="item.cutpoint" :data-cut=item.cutPoint @click="jumpTo">
+          <!-- 循环遍历出文档模块 -->
+          <!-- 我建议文档内容用富文本编辑器在线编辑 -->
+          {{ item.content }}
+          <div class="notes">
+            <span>播放本段</span>
+            <span>编写笔记</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -104,7 +116,7 @@ export default {
         playbackRates: [0.7, 1.0, 1.5, 2.0],
         sources: [{
           type: "video/mp4",
-          src: "http://112.253.22.163/2/z/x/a/d/zxaddmlybpqfcakgrlcmvbvzpnkdqk/he.yinyuetai.com/68DB01553913F3CAF794A41F2AB77A76.flv?sc=96b1e18fc28b7552&br=1153&vid=2592783&aid=29438&area=JP&vst=0"
+          src: ""
         }]
       },
       classes: [
@@ -135,10 +147,13 @@ export default {
         'http://7xkwa7.media1.z0.glb.clouddn.com/sample_video_L'
       ],
       part: '1',
-      doc: DOC
+      doc: DOC,
+      curClass: '土地增值税清算技巧[专题]',
+      shoucang: false
     }
   },
   mounted() {
+    this.playerOptions.sources[0].src = this.videos[0]
     this.player.muted(false)
   },
   computed: {
@@ -169,6 +184,7 @@ export default {
     },
     playerReadied(player) {
       player.currentTime(0)
+      player.volume(0.5)
     },
     //视频列表点播
     getVideo(item) {
@@ -189,8 +205,15 @@ export default {
     },
     jumpTo: function() {
       let point = event.target.dataset.cut
-      this.player.currentTime(point)
-      this.player.play()
+      console.log(this.$refs.videoPlayer.player.__proto__)
+      this.$refs.videoPlayer.player.currentTime(point)
+      this.$refs.videoPlayer.player.play()
+    },
+    shouCang: function() {
+      this.shoucang = !this.shoucang
+    },
+    showModal:function(){
+
     }
   }
 }
@@ -205,7 +228,6 @@ export default {
     margin-right: 6px;
   }
 }
-
 .origin-item {
   width: 90%;
   margin: 0 auto;
@@ -215,17 +237,60 @@ export default {
     width: 30px;
     height: 25px;
     background-image: url('../../assets/images/Sprite.png');
+    vertical-align: text-bottom;
   }
   .container {
     width: 530px;
     float: left;
   }
   .docs {
-    margin-left: 550px;
-    .doc-item {
-      &:hover {
-        background-color: $rice;
-        cursor: pointer;
+    margin-left: 620px;
+    .doc-title {
+      font-size: 16px;
+      margin-right: 48px;
+    }
+    .teacher {
+      margin-right: 70px;
+    }
+    .pingjia {
+      margin-right: 10px;
+    }
+    .shoucang {
+      margin-right: 0px;
+    }
+    .red-heart{
+      background-position: 103px -90px;
+      height: 17px;
+    }
+    .grey-heart{
+      background-position: 76px -90px;
+      height: 17px;
+    }
+    .pointer{
+      cursor: pointer;
+    }
+    .doc-box {
+      border: 1px solid #F84141;
+      margin-top: 30px;
+      .doc-item {
+        line-height: 30px;
+        padding: 20px;
+        .notes {
+          overflow: hidden;
+          span {
+            float: right;
+            width: 80px;
+            text-align: center;
+            line-height: 25px;
+            background-color: #F84141;
+            color: #fff;
+            margin-right: 10px;
+          }
+        }
+        &:hover {
+          background-color: #fff;
+          cursor: pointer;
+        }
       }
     }
   }
@@ -247,6 +312,9 @@ export default {
     }
     .tab-content {
       padding: 24px;
+      .min-650 {
+        min-height: 400px;
+      }
       .benjie {
         li {
           display: list-item !important;
@@ -272,16 +340,50 @@ export default {
           overflow: hidden;
           cursor: pointer;
         }
-        .detail{
+        .detail {
           padding: 13px;
           background-color: #fff;
-          .question-detail{
+          .question-detail {
             border-bottom: 1px solid #666;
             line-height: 25px;
           }
-          .ansr{
+          .ansr {
             line-height: 25px;
             overflow: hidden;
+            margin-top: 10px;
+            i {
+              background-position: 103px -74px;
+              height: 18px;
+            }
+          }
+        }
+      }
+      .shiti {
+        .test {
+          background-color: #D9D7D7;
+          line-height: 30px;
+          padding: 0 13px;
+          overflow: hidden;
+          cursor: pointer;
+        }
+      }
+      .kecheng {
+        .class-list {
+          padding-bottom: 36px;
+          ul {
+            display: flex;
+            flex-direction: column;
+          }
+          li {
+            padding: 22px 36px 22px 32px;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+            overflow: hidden;
+            border-bottom: 1px solid #B0ACAC;
+          }
+          .active {
+            background-color: #d8d8d8;
           }
         }
       }
