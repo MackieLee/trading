@@ -1,10 +1,8 @@
 <template>
   <div class="origin-item">
-    <div class="cur-posi">
-      <p>
-        <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>
-        <router-link :to="{ name: 'online' }">&nbsp;&gt;&nbsp;线上课程</router-link>&nbsp;&gt;&nbsp;土地增值税清算技巧[专题]</p>
+    <div class="modal-outer" v-show="modal">
+      <!-- <div class="close">X</div> -->
+      <modal @closeModal="closeModal"></modal>
     </div>
     <div class="container">
       <div class="player">
@@ -82,7 +80,7 @@
       <!-- 课程标题 -->
       <span class="doc-title">{{ curClass }}</span>
       <span class="teacher">孙玮老师</span>
-      <span class="pointer pingjia" @click="showModal">本节评价</span>
+      <span class="pointer pingjia" @click="modal=!modal">本节评价</span>
       <span class="pointer shoucang" @click="shouCang">收藏</span>
       <i class="red-heart" v-if="shoucang"></i>
       <i class="grey-heart" v-if="!shoucang"></i>
@@ -91,9 +89,10 @@
           <!-- 循环遍历出文档模块 -->
           <!-- 我建议文档内容用富文本编辑器在线编辑 -->
           {{ item.content }}
+          <!-- 将此段的文档遍历到这个地方 -->
           <div class="notes">
             <span>播放本段</span>
-            <span>编写笔记</span>
+            <span @click="noteDown">编写笔记</span>
           </div>
         </div>
       </div>
@@ -105,8 +104,10 @@
 require('video.js/dist/video-js.css')
 require('vue-video-player/src/custom-theme.css')
 const DOC = require('../../assets/doc.json')
+import Modal from './Modal'
 export default {
   name: 'video',
+  components: { Modal },
   data() {
     return {
       markNum: '1',
@@ -149,7 +150,8 @@ export default {
       part: '1',
       doc: DOC,
       curClass: '土地增值税清算技巧[专题]',
-      shoucang: false
+      shoucang: false,
+      modal: false
     }
   },
   mounted() {
@@ -205,27 +207,35 @@ export default {
     },
     jumpTo: function() {
       let point = event.target.dataset.cut
-      console.log(this.$refs.videoPlayer.player.__proto__)
       this.$refs.videoPlayer.player.currentTime(point)
       this.$refs.videoPlayer.player.play()
     },
     shouCang: function() {
       this.shoucang = !this.shoucang
     },
-    showModal:function(){
-
+    closeModal:function() {
+      this.modal=false
+    },
+    noteDown:function(){
+      this.modal = true
     }
   }
 }
 </script>
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
-.cur-posi {
-  margin: 25px 0 25px 0;
-  i {
-    background-position: -52px -80px;
-    vertical-align: text-bottom;
-    margin-right: 6px;
+.modal-outer{
+  width: 100%;
+  height:180%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index:2000;
+  .close{
+    position: absolute;
+    top: 15%;
+    left: 60%;
   }
 }
 .origin-item {
@@ -258,20 +268,21 @@ export default {
     .shoucang {
       margin-right: 0px;
     }
-    .red-heart{
+    .red-heart {
       background-position: 103px -90px;
       height: 17px;
     }
-    .grey-heart{
+    .grey-heart {
       background-position: 76px -90px;
       height: 17px;
     }
-    .pointer{
+    .pointer {
       cursor: pointer;
     }
     .doc-box {
-      border: 1px solid #F84141;
+      // border: 1px solid #F84141;
       margin-top: 30px;
+      padding: 20px 10px;
       .doc-item {
         line-height: 30px;
         padding: 20px;
@@ -288,8 +299,9 @@ export default {
           }
         }
         &:hover {
-          background-color: #fff;
+          background-color: #f9f9f9;
           cursor: pointer;
+          border: 1px dashed #F84141;
         }
       }
     }

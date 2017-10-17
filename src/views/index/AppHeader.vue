@@ -80,7 +80,7 @@ export default {
 .app-header {
   border-bottom: 1px solid $rice;
   height: 49px;
-  margin-bottom: 38px;
+  margin-bottom: 20px;
   .header-container {
     width: $width;
     margin: 50px auto;

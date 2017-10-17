@@ -63,7 +63,7 @@
       </div>
     </div>
     <div class="video-boxes">
-      <router-link to="/item" tag="div"  class="item">
+      <router-link to="/item" tag="div" class="item">
         <div>
           <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
@@ -372,12 +372,12 @@ export default {
   div {
     height: 45px;
     border-bottom: 1px solid #ddd;
-    line-height: 45px;
     span {
       display: inline-block;
       background-color: #eaeaea;
       width: 106px;
       text-align: center;
+      line-height: 45px;
     }
     ul {
       display: inline-block;
@@ -385,16 +385,16 @@ export default {
         margin: 0 8px;
         cursor: pointer;
         font-size: 12px;
-        &:hover{
+        &:hover {
           color: $red;
         }
       }
-      .sorts-items{
+      .sorts-items {
         font-size: 14px;
       }
     }
   }
-  div[class="cur-posi"]{
+  div[class="cur-posi"] {
     height: auto;
     line-height: 0;
     margin-bottom: 20px;
@@ -441,10 +441,14 @@ export default {
       margin: 0 12px;
     }
   }
+  p {
+    line-height: 45px;
+  }
   .active {
     color: $red;
   }
 }
+
 .video-boxes {
   width: $width;
   margin: 35px auto;

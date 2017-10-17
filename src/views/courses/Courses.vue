@@ -88,10 +88,14 @@ export default {
     }
   },
   mounted() {
+
+  },
+  created(){
+
   },
   computed: {
-    curPath: function(){
-      if (this.$route.path === '/courses/online') {
+    curPath: function() {
+      if (this.$route.path === '/courses/online'){
         return '线上课程'
       } else if (this.$route.path === '/courses/offline') {
         return '线下课程'
@@ -121,12 +125,12 @@ export default {
   div {
     height: 45px;
     border-bottom: 1px solid #ddd;
-    line-height: 45px;
     span {
       display: inline-block;
       background-color: #eaeaea;
       width: 106px;
       text-align: center;
+      line-height: 45px;
     }
     ul {
       display: inline-block;
@@ -186,6 +190,9 @@ export default {
     border-bottom: 1px solid $rice;
     display: flex;
     justify-content: space-between;
+    p{
+      line-height: 45px;
+    }
     li {
       margin: 0 12px;
     }

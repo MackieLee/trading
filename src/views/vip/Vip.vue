@@ -86,7 +86,7 @@ export default {
         margin: 15px 10px;
       }
       .p1{
-        margin-top: 35px;
+        margin-top: 15px;
         i{
           background-position: -115px -35px;
         }
@@ -101,11 +101,11 @@ export default {
         width: 82px;
         height: 82px;
         background-image: url('../../assets/images/huanyuanzx01.png');
+        background-size: cover;
         background-repeat: no-repeat;
-        background-position: 22px 3px;
+        background-position: 0px 0px;
         border-radius: 50%;
-        background-color: $silver;
-        margin: 20px 10px;
+        margin: 0px 10px;
       }
       .nav {
         p {

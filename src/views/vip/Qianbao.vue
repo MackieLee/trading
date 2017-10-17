@@ -96,7 +96,7 @@ export default {
 .my_qianb_r .div01 {
   height: 110px;
   width: 100%;
-  margin: 55px 0 50px;
+  margin: 0px 0 50px;
 }
 
 .my_qianb_r .div01 .p_le,
