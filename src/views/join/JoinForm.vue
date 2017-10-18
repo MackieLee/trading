@@ -1,22 +1,22 @@
 <template>
   <form>
-    <div class="error"><p v-show="error">
+    <div class="error"><p v-show="userError">
       <!-- <i class="iblock"></i> -->
-      <span> {{ error }}</span></p></div>
+      <span> {{ userError }}</span></p></div>
     <div class="icon user">
       <i class="iblock"></i>
       <input type="text" name="user" @input="validate('user',$event.target.value)" placeholder="请输入手机号/邮箱" />
     </div>
-    <div class="error"><p v-show="error">
+    <div class="error"><p v-show="pwdError">
       <!-- <i class="iblock"></i> -->
-      <span> {{ error }}</span></p></div>
+      <span> {{ pwdError }}</span></p></div>
     <div class="icon pwd">
       <i class="iblock"></i>
-      <input type="text" name="pwd" placeholder="请输入密码" />
+      <input type="text" name="pwd" @input="validate('pwd',$event.target.value)" placeholder="请输入密码" />
     </div>
-    <div class="error"><p v-show="error">
+    <div class="error"><p v-show="pwdError">
       <!-- <i class="iblock"></i> -->
-      <span> {{ error }}</span></p></div>
+      <span> {{ pwdError }}</span></p></div>
     <div class="icon confirm">
       <i class="iblock"></i>
       <input type="text" name="confirm" placeholder="确认密码" />
@@ -60,6 +60,8 @@ export default {
   data() {
     return {
       checked:false,
+      userError:'',
+      pwdError:'',
       error:''
     }
   },
@@ -71,7 +73,14 @@ export default {
     //格式不对的输入框显示对应的文字
     validateForm,
     validate:function(type,value){
-      console.log(validateForm(type,value))
+      let state = validateForm(type,value)
+      console.log(state)
+      if ((state == 'danger')&&(type == 'user')){
+        //此处查询用户名是否被占用并返回判断
+        this.userError = '手机号或邮箱格式错误'
+      }else if((state == 'danger')&&(type == 'pwd')){
+        this.pwdError = '密码格式错误'
+      }
     }
   }
 }

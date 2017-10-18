@@ -2,7 +2,8 @@
   <div class="origin-item">
     <div class="modal-outer" v-show="modal">
       <!-- <div class="close">X</div> -->
-      <modal @closeModal="closeModal"></modal>
+      <!-- v-bind传输数据到子组件(contentSeries) -->
+      <modal @closeModal="closeModal" :content-series="series"></modal>
     </div>
     <div class="container">
       <div class="player">
@@ -40,9 +41,9 @@
           </div>
           <div class="min-650 dayi" v-if="part=='3'">
             <!-- 第一个问答 -->
-            <div class="no.1">
+            <div class="item">
               <!-- 标题 -->
-              <div class="title">
+              <div class="title unfold">
                 分步计算，正确的步骤是否能得分？
                 <div class="date">2017-10-08</div>
               </div>
@@ -52,12 +53,29 @@
                   我拿中注协的机考模拟系统练习，点击主观题上面的蓝色的CH输入法按钮，无法切换输入法，怎么回事？是因为是模拟系统所以中注协没安装输入法么？考试时候怎么办？谢谢老师。
                 </div>
                 <!-- 答案 -->
+                <!-- 点击灰色标题栏下拉问题详情！-->
                 <div class="ansr">
                   <i></i>
                   王老师的回答
                   <div class="date">2017-09-29 10:32:33</div>
                   勤奋可爱的学员，你好:<br> 正常情况下，直接点击CH输入法即可切换输入法，可能是您浏览器的问题，您试着换台电脑或者浏览器试试，考试的时候是不会出现这样的问题的，祝备考顺利！ 每个努力学习的小天使都会有收获的，加油
                 </div>
+              </div>
+            </div>
+            <div class="item">
+              <!-- 标题 -->
+              <!-- class名字根据事件触发 fold:unfold-->
+              <div class="title fold">
+                分步计算，正确的步骤是否能得分？
+                <div class="date">2017-10-08</div>
+              </div>
+            </div>
+            <div class="item">
+              <!-- 标题 -->
+              <!-- class名字根据事件触发 fold:unfold-->
+              <div class="title fold">
+                分步计算，正确的步骤是否能得分？
+                <div class="date">2017-10-08</div>
               </div>
             </div>
           </div>
@@ -80,19 +98,21 @@
       <!-- 课程标题 -->
       <span class="doc-title">{{ curClass }}</span>
       <span class="teacher">孙玮老师</span>
-      <span class="pointer pingjia" @click="modal=!modal">本节评价</span>
+      <span class="pointer pingjia" @click="modal=!modal,series=true">本节评价</span>
       <span class="pointer shoucang" @click="shouCang">收藏</span>
       <i class="red-heart" v-if="shoucang"></i>
       <i class="grey-heart" v-if="!shoucang"></i>
       <div class="doc-box">
-        <div class="doc-item" v-for="item in doc" :key="item.cutpoint" :data-cut=item.cutPoint @click="jumpTo">
+        <div class="doc-item" v-for="item in doc" :key="item.cutpoint" @click="jumpTo" :data-cut=item.cutPoint>
           <!-- 循环遍历出文档模块 -->
           <!-- 我建议文档内容用富文本编辑器在线编辑 -->
-          {{ item.content }}
-          <!-- 将此段的文档遍历到这个地方 -->
-          <div class="notes">
-            <span>播放本段</span>
-            <span @click="noteDown">编写笔记</span>
+          <div class="doc-content">
+            {{ item.content }}
+            <!-- 将此段的文档遍历到这个地方 -->
+            <div class="notes">
+              <span>播放本段</span>
+              <span @click="modal=!modal,series=false">编写笔记</span>
+            </div>
           </div>
         </div>
       </div>
@@ -151,7 +171,9 @@ export default {
       doc: DOC,
       curClass: '土地增值税清算技巧[专题]',
       shoucang: false,
-      modal: false
+      modal: false,
+      // 父组件和子组件数据绑定
+      series: true
     }
   },
   mounted() {
@@ -213,10 +235,10 @@ export default {
     shouCang: function() {
       this.shoucang = !this.shoucang
     },
-    closeModal:function() {
-      this.modal=false
+    closeModal: function() {
+      this.modal = false
     },
-    noteDown:function(){
+    noteDown: function() {
       this.modal = true
     }
   }
@@ -224,20 +246,21 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
-.modal-outer{
+.modal-outer {
   width: 100%;
-  height:180%;
+  height: 180%;
   position: absolute;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.6);
-  z-index:2000;
-  .close{
+  z-index: 2000;
+  .close {
     position: absolute;
     top: 15%;
     left: 60%;
   }
 }
+
 .origin-item {
   width: 90%;
   margin: 0 auto;
@@ -284,23 +307,29 @@ export default {
       margin-top: 30px;
       padding: 20px 10px;
       .doc-item {
-        line-height: 30px;
-        padding: 20px;
-        .notes {
-          overflow: hidden;
-          span {
-            float: right;
-            width: 80px;
-            text-align: center;
-            line-height: 25px;
-            background-color: #F84141;
-            color: #fff;
-            margin-right: 10px;
+        border: 1px solid transparent;
+        .doc-content {
+          line-height: 30px;
+          margin: 15px;
+          padding: 15px;
+          .notes {
+            overflow: hidden;
+            span {
+              float: right;
+              width: 80px;
+              text-align: center;
+              line-height: 25px;
+              background-color: #F84141;
+              color: #fff;
+              margin-right: 10px;
+            }
+          }
+          &:hover {
+            background-color: #f9f9f9;
+            cursor: pointer;
           }
         }
         &:hover {
-          background-color: #f9f9f9;
-          cursor: pointer;
           border: 1px dashed #F84141;
         }
       }
@@ -342,11 +371,20 @@ export default {
         }
       }
       .dayi {
+        .item{
+          .fold{
+            &:hover{
+              background-color: #D9D7D7;
+            }
+          }
+        }
         .date {
           float: right;
         }
-        .title {
+        .unfold{
           background-color: #D9D7D7;
+        }
+        .title {
           line-height: 30px;
           padding: 0 13px;
           overflow: hidden;
@@ -355,12 +393,15 @@ export default {
         .detail {
           padding: 13px;
           background-color: #fff;
+          text-indent: 2em;
           .question-detail {
-            border-bottom: 1px solid #666;
-            line-height: 25px;
+            border-bottom: 1px solid #eee;
+            line-height: 36px;
+            padding-bottom: 20px;
+            margin-bottom: 10px;
           }
           .ansr {
-            line-height: 25px;
+            line-height: 36px;
             overflow: hidden;
             margin-top: 10px;
             i {

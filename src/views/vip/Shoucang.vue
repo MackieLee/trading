@@ -1,16 +1,56 @@
 <template>
   <div class="sc">
-    <p class="sum_of_class">共1个课程</p>
+    <div class="header">
+      <p class="fl kechengxinxi">课程信息</p>
+      <p class="fl width-154">金额</p>
+      <p class="fl width-154">操作</p>
+    </div>
     <div class="container">
-      <img src="../../assets/images/huanyuanzx02.png" />
-      <div class="middle">
-        <p>税务健康体检服务</p>
-        <font>孙玮老师</font>
+      <div class="item">
+        <img src="../../assets/images/huanyuanzx02.png" />
+        <div class="middle">
+          <p>税务健康体检服务</p>
+          <font>孙玮老师</font>
+        </div>
+        <div class="price">
+          <p class="red">￥3588.00</p>
+          <p class="res">已有277人收藏</p>
+        </div>
+        <div class="imm-stu">
+          <p>取消收藏</p>
+        </div>
       </div>
-      <div class="imm-stu">
-        <p class="price">￥3588.00</p>
-        <p class="sm-btn">马上学习</p>
-        <p>已有277人收藏</p>
+    </div>
+    <div class="container">
+      <div class="item">
+        <img src="../../assets/images/huanyuanzx02.png" />
+        <div class="middle">
+          <p>税务健康体检服务</p>
+          <font>孙玮老师</font>
+        </div>
+        <div class="price">
+          <p class="red">￥3588.00</p>
+          <p class="res">已有277人收藏</p>
+        </div>
+        <div class="imm-stu">
+          <p>取消收藏</p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="item">
+        <img src="../../assets/images/huanyuanzx02.png" />
+        <div class="middle">
+          <p>税务健康体检服务</p>
+          <font>孙玮老师</font>
+        </div>
+        <div class="price">
+          <p class="red">￥3588.00</p>
+          <p class="res">已有277人收藏</p>
+        </div>
+        <div class="imm-stu">
+          <p>取消收藏</p>
+        </div>
       </div>
     </div>
     <div class="page">1</div>
@@ -28,25 +68,44 @@ export default {
 .sc {
   background-color: #fff;
   overflow: hidden;
-  .sum_of_class {
-    background-color: $silver;
-    padding: 15px;
+  .header {
+    background-color: #Ddd;
     border-radius: 3px;
-    text-align: center;
     color: #fff;
+    overflow: hidden;
+    border: 1px solid #CBCBCB;
+    .fl {
+      float: left;
+      line-height: 46px;
+      font-size: 16px;
+    }
+    .kechengxinxi{
+      width: 501px;
+      text-align: center;
+    }
+    .width-154{
+      width: 154px;
+      text-align: center;
+    }
   }
   .container {
-    width: 710px;
-    margin: 30px auto;
-    padding: 41px 0 23px 0;
-    display: flex;
-    border-top: 1px solid $red;
+    padding: 20px 0;
+    border-bottom: 1px solid #CBCBCB;
+    &:hover{
+      background-color: #eee;
+    }
+    .item {
+      width: 710px;
+      display: flex;
+      margin: 0 auto;
+    }
     img {
       width: 128px;
       height: 82px;
+      margin-top: 8px;
     }
     .middle {
-      margin: 0 250px 0 25px;
+      margin: 0 200px 0 25px;
       p {
         font-size: 18px;
         margin: 15px 0 20px 0;
@@ -56,18 +115,21 @@ export default {
         margin-bottom: 15px;
       }
     }
-    .sm-btn {
-      width: 116px;
-      height: 40px;
-      line-height: 40px;
-      text-align: center;
-      color: #fff;
-      border-radius: 5px;
-      background-color: $silver;
-      margin: 11px 0 20px 0;
+    .price {
+      margin-right: 46px;
+      p {
+        font-size: 14px;
+        margin: 15px 0 20px 0;
+      }
+      p[class="red"] {
+        color: red;
+      }
     }
-    .price{
-      color: $red;
+    .imm-stu {
+      p {
+        line-height: 95px;
+        cursor: pointer;
+      }
     }
   }
   .page {

@@ -3,7 +3,7 @@
     <!-- stars -->
     <div class="content">
       <div class="close" @click="closeModal"></div>
-      <div class="ctr" v-show="pingjia">
+      <div class="ctr" v-show="contentSeries">
         <div class="star">
           分数:
           <input style="height:15px;width:15px" name="score" type="radio" /> 5分
@@ -17,7 +17,7 @@
           <input type="button" class="submit" @click="submitCommit" value="确定">
         </div>
       </div>
-      <div class="ctr" v-show="!pingjia">
+      <div class="ctr" v-show="!contentSeries">
         <div>
           <input class="note-title" type="text" placeholder="请输入笔记标题...">
         </div>
@@ -35,11 +35,16 @@
 export default {
   data() {
     return {
-      pingjia:true
     }
   },
   computed: {
-
+  },
+  props:{
+    // 子组件接收数据
+    contentSeries:{
+      type:Boolean,
+      default:true
+    }
   },
   methods:{
     //子组件触发父组件事件
@@ -49,6 +54,7 @@ export default {
     },
     submitCommit:function(){
       //vue-resource....
+      console.log(this.contentSeries)
       this.$emit('closeModal')
     }
   }

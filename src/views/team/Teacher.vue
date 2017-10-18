@@ -97,6 +97,10 @@ export default {
       display: flex;
       background-color: #ebebeb;
       margin: 25px 0 38px 0;
+      border: 1px solid transparent;
+      &:hover{
+        border: 1px dashed #FE7F04;
+      }
       .hd-pic{
         margin: 15px 38px 15px 15px;
       }
