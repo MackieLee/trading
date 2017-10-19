@@ -103,10 +103,10 @@
       <i class="red-heart" v-if="shoucang"></i>
       <i class="grey-heart" v-if="!shoucang"></i>
       <div class="doc-box">
-        <div class="doc-item" v-for="item in doc" :key="item.cutpoint" @click="jumpTo" :data-cut=item.cutPoint>
+        <div class="doc-item" v-for="item in doc" :key="item.cutpoint">
           <!-- 循环遍历出文档模块 -->
           <!-- 我建议文档内容用富文本编辑器在线编辑 -->
-          <div class="doc-content">
+          <div class="doc-content" :data-cut="item.cutPoint" @click="jumpTo">
             {{ item.content }}
             <!-- 将此段的文档遍历到这个地方 -->
             <div class="notes">
