@@ -75,6 +75,8 @@ export default {
 .detail {
   width: $width;
   margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #fdddbc;
   i {
     display: inline-block;
     width: 22px;
@@ -83,7 +85,7 @@ export default {
     vertical-align: text-bottom;
   }
   .cur-posi {
-    padding: 26px 0;
+    margin-bottom: 26px;
     i {
       background-position: -56px -82px;
       margin-right: 6px;
@@ -92,7 +94,6 @@ export default {
   .item {
     height: 460px;
     display: flex;
-    margin: 63px 0;
     .lf-content {
       margin: 0 172px 0 56px;
       li {

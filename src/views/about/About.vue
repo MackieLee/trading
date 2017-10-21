@@ -51,6 +51,8 @@ export default {
 .about {
   width: $width;
   margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #fdddbc;
   .bold-title{
     font-size: 16px;
   }
@@ -71,13 +73,13 @@ export default {
     }
   }
   .container {
-    margin-top: 50px;
+    margin-top: 26px;
     p[class="title"] {
       width: 686px;
       background-image: url('../../assets/images/about01.png');
       text-align: center;
       background-repeat: no-repeat;
-      margin: 42px auto;
+      margin: 26px auto;
       font-size: 16px;
       background-position: 0 5px;
     }

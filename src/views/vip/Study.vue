@@ -43,11 +43,13 @@ export default {
 @import '../../assets/style/base.scss';
 .study {
   .sum_of_class {
-    background-color: $silver;
+    background-color: #ddd;
+    border: 1px solid #cbcbcb;
     padding: 15px;
+    font-size: 16px;
     border-radius: 3px;
     text-align: center;
-    color: #fff;
+    color: #333;
   }
   .pt-1 {
     background-color: #fff;
@@ -111,7 +113,7 @@ export default {
         text-align: center;
         color: #fff;
         border-radius: 5px;
-        background-color: $silver;
+        background-color: #999;
         margin-top: 20px;
       }
     }
@@ -122,7 +124,7 @@ export default {
       line-height: 34px;
       text-align: center;
       margin: 24px auto;
-      background-color: $silver;
+      background-color: #999;
     }
   }
 }

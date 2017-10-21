@@ -39,6 +39,8 @@ export default {
 .faq {
   width: $width;
   margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #fdddbc;
   .main-srch {
     border: 1px solid #9e9e9e;
     margin-bottom: 42px;

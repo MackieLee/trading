@@ -68,7 +68,7 @@
 
 <script>
 export default {
-  name: 'qianbao',
+  name: 't-qianbao',
   data() {
     return {
       show:false
@@ -92,13 +92,11 @@ export default {
   padding: 0 50px;
   background-color: #fff;
 }
-
 .my_qianb_r .div01 {
   height: 110px;
   width: 100%;
   margin: 0px 0 50px;
 }
-
 .my_qianb_r .div01 .p_le,
 .my_qianb_r .div01 .p_ri {
   width: 188px;
@@ -108,15 +106,12 @@ export default {
   color: #333;
   float: left;
 }
-
 .my_qianb_r .div01 .p_ri {
   float: right;
 }
-
 .my_qianb_r .div01 .p_ri span {
   font-size: 14px;
 }
-
 .my_qianb_r .div01 .p_ri button {
   width: 150px;
   border-radius: 3px;
@@ -128,22 +123,18 @@ export default {
   font-size: 18px;
   background: #838383;
 }
-
 .my_qianb_r .div01 .p_le {
   padding-top: 26px;
 }
-
 .my_qianb_r .div01 .li01 {
   color: #e7151b;
   border-left: 0 none;
 }
-
 .my_qianb_r .p02 {
   height: 50px;
   width: 100%;
   border-bottom: 1px solid #ddd;
 }
-
 .my_qianb_r .p02 span {
   height: 50px;
   width: 200px;
@@ -151,12 +142,10 @@ export default {
   text-align: center;
   line-height: 50px;
 }
-
 .my_qianb_r .p02 .cur {
   border-bottom: 1px solid #e7151b;
   color: #e7151b;
 }
-
 .my_qianb_r .div02,
 .div03 {
   margin-top: 14px;
@@ -167,7 +156,6 @@ export default {
   background: #ddd;
   margin-bottom: 10px;
 }
-
 .my_qianb_r .p03 span {
   width: 128px;
   text-align: center;
@@ -177,12 +165,10 @@ export default {
   height: 46px;
   line-height: 46px;
 }
-
 .my_qianb_r .p04 {
   height: 46px;
   width: 100%;
 }
-
 .my_qianb_r .p04 span {
   width: 128px;
   text-align: center;
@@ -192,15 +178,11 @@ export default {
   height: 46px;
   line-height: 46px;
 }
-
-
-
 .my_qianb_r .number {
   height: 34px;
   width: 80px;
   margin: 40px auto 0;
 }
-
 .my_qianb_r .number a {
   height: 34px;
   width: 34px;

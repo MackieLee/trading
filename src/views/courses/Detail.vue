@@ -82,7 +82,7 @@ i {
 }
 
 .cur-posi {
-  margin: 25px 0 70px 0;
+  margin: 20px 0 26px 0;
   i {
     background-position: -56px -82px;
     vertical-align: text-bottom;
@@ -97,6 +97,8 @@ i {
   color: #333;
   font-family: "微软雅黑";
   font-size: 16px;
+  border-top: 1px solid #fdddbc;
+  padding-top: 20px;
 }
 
 #xxkc_xq01 {

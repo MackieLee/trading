@@ -150,13 +150,14 @@ i {
 
 .my_order_r h2 {
   widows: 100%;
-  background: #838383;
+  background: #ddd;
   height: 50px;
   font-weight: normal;
   line-height: 50px;
   text-align: center;
-  font-size: 20px;
-  color: #fff;
+  font-size: 16px;
+  border: 1px solid #cbcbcb;
+  color: #333;
 }
 
 .my_order_r .ul01 {
@@ -290,6 +291,7 @@ i {
   line-height: 34px;
   color: #fff;
   font-size: 14px;
-  background: #838383;
+  background: #999;
+  cursor: pointer;
 }
 </style>

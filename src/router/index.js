@@ -26,6 +26,14 @@ import dingdan from '../views/vip/Dingdan'
 import login from '../views/join/Login'
 import register from '../views/join/Register'
 import getpwd from '../views/join/Getpwd'
+import tadmin from '../views/vip/Tadmin'
+import tkecheng from '../views/vip/Tkecheng'
+import twenda from '../views/vip/Twenda'
+import tqianbao from '../views/vip/Tqianbao'
+import tdingdan from '../views/vip/Tdingdan'
+import fagui from '../views/fagui/Fagui'
+import fdetail from '../views/fagui/Detail'
+import fsearch from '../views/fagui/Search'
 
 Vue.use(Router)
 
@@ -48,25 +56,25 @@ const routes = [
         component: courses,
         children: [
           {
-            path:'online',
-            name:'online',
+            path: 'online',
+            name: 'online',
             component: online
           },
           {
-            path:'offline',
-            name:'offline',
+            path: 'offline',
+            name: 'offline',
             component: offline
           }
         ]
       },
       {
-        path:'video',
-        name:'video',
+        path: 'video',
+        name: 'video',
         component: video
       },
       {
-        path:'odetail',
-        name:'odetail',
+        path: 'odetail',
+        name: 'odetail',
         component: odetail
       },
       {
@@ -113,10 +121,10 @@ const routes = [
         path: 'vip',
         name: 'vip',
         component: vip,
-        redirect:{
+        redirect: {
           name: 'study'
         },
-        children:[
+        children: [
           {
             path: 'study',
             name: 'study',
@@ -153,6 +161,51 @@ const routes = [
             component: dingdan
           },
         ]
+      },
+      {
+        path: 'teacher-admin',
+        name: 't-admin',
+        component: tadmin,
+        redirect: {
+          name: 't-kecheng'
+        },
+        children: [
+          {
+            path: 'teacher-kecheng',
+            name: 't-kecheng',
+            component: tkecheng
+          },
+          {
+            path: 'teacher-wenda',
+            name: 't-wenda',
+            component: twenda
+          },
+          {
+            path: 'teacher-qianbao',
+            name: 't-qianbao',
+            component: tqianbao
+          },
+          {
+            path: 'teacher-dingdan',
+            name: 't-dingdan',
+            component: tdingdan
+          }
+        ]
+      },
+      {
+        path: 'fagui',
+        name: 'fagui',
+        component: fagui
+      },
+      {
+        path: 'fagui-detail',
+        name: 'fdetail',
+        component: fdetail
+      },
+      {
+        path:'fagui-search',
+        name: 'fsearch',
+        component: fsearch
       }
     ]
   },
@@ -174,6 +227,6 @@ const routes = [
 ]
 export default new Router({
   mode: 'history',
-  linkActiveClass:'active',
+  linkActiveClass: 'active',
   routes
 })

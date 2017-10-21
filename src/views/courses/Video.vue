@@ -260,11 +260,12 @@ export default {
     left: 60%;
   }
 }
-
 .origin-item {
   width: 90%;
   margin: 0 auto;
   overflow: hidden;
+  border-top: 1px solid $rice;
+  padding-top: 20px;
   i {
     display: inline-block;
     width: 30px;

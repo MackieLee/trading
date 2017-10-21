@@ -93,6 +93,8 @@ export default {
 .q-detail {
   width: $width;
   margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #fdddbc;
   i {
     display: inline-block;
     width: 30px;
@@ -102,7 +104,6 @@ export default {
   }
   .cur-posi {
     padding: 0 0 26px 0;
-    border-bottom: 1px solid $rice;
     i {
       background-position: -51px -82px;
       margin-right: 6px;

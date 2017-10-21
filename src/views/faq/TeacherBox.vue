@@ -153,14 +153,12 @@ i {
 
 .cur-posi {
   padding:0 0 26px 0;
-  border-bottom: 1px solid $rice;
   width: 100%;
   i {
     background-position: -51px -82px;
     margin-right: 6px;
   }
 }
-
 .lf {
   float: left;
 }
@@ -170,7 +168,7 @@ i {
 .item {
   width: 330px;
   background: $white;
-  margin: 36px 46px 53px 0;
+  margin: 0 46px 53px 0;
   overflow: hidden;
   .flex {
     display: flex;

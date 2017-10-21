@@ -59,7 +59,7 @@
 
 <script>
 export default {
-  name: 'shoucang'
+  name: 't-kecheng'
 }
 </script>
 
@@ -107,7 +107,7 @@ export default {
     .middle {
       margin: 0 200px 0 25px;
       p {
-        font-size: 18px;
+        font-size: 16px;
         margin: 15px 0 20px 0;
       }
       font {

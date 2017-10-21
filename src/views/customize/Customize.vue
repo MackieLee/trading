@@ -133,20 +133,22 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .customize {
-  ::-webkit-input-placeholder { /* WebKit browsers */
+  ::-webkit-input-placeholder {
   color:    #aeaeae;
 }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+:-moz-placeholder {
   color:    #aeaeae;
 }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
+::-moz-placeholder {
   color:    #aeaeae;
 }
-:-ms-input-placeholder { /* Internet Explorer 10+ */
+:-ms-input-placeholder {
   color:    #aeaeae;
 }
   width: $width;
   margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #fdddbc;
   i {
     display: inline-block;
     width: 22px;
@@ -192,7 +194,7 @@ export default {
         display: flex;
         margin:35px 0;
         textarea{
-          padding: 10px 0;          
+          padding: 10px 0;
           min-width: 280px;
           min-height: 80px;
           text-indent: 1em;

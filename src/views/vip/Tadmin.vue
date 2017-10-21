@@ -17,20 +17,14 @@
           </div>
         </div>
         <div class="nav">
-          <router-link tag="p" :to="{ name : 'study'}">
-            <i class="t1"></i>我的学习</router-link>
-          <router-link tag="p" :to="{ name : 'shoucang'}">
-            <i class="t2"></i>我的收藏</router-link>
-          <router-link tag="p" :to="{ name : 'qa'}">
-            <i class="t3"></i>我的问答</router-link>
-          <router-link tag="p" :to="{ name : 'qianbao'}">
-            <i class="t4"></i>我的钱包</router-link>
-          <router-link tag="p" :to="{ name : 'youhuiquan'}">
-            <i class="t5"></i>我的优惠券</router-link>
-          <router-link tag="p" :to="{ name : 'dingdan'}">
-            <i class="t6"></i>我的订单</router-link>
-          <router-link class="last" tag="p" :to="{ name : 'fapiao'}">
-            <i class="t7"></i>发票索取</router-link>
+          <router-link tag="p" :to="{ name : 't-kecheng'}">
+            <i class="t1"></i>我的课程</router-link>
+          <router-link tag="p" :to="{ name : 't-wenda'}">
+            <i class="t2"></i>我的问答</router-link>
+          <router-link tag="p" :to="{ name : 't-qianbao'}">
+            <i class="t3"></i>我的钱包</router-link>
+          <router-link tag="p" :to="{ name : 't-dingdan'}">
+            <i class="t4"></i>我的订单</router-link>
         </div>
       </div>
       <div class="rt">
@@ -42,15 +36,15 @@
 
 <script>
 export default {
-  name:'vip',
+  name:'t-admin',
   data(){
     return{
 
     }
   },
   methods:{
-  }
 
+  }
 }
 </script>
 

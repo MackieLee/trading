@@ -102,7 +102,7 @@
 
 <script>
 export default {
-  name: 'qianbao',
+  name: 'youhuiquan',
   data(){
     return{
       part:'2'
@@ -129,13 +129,14 @@ export default {
   padding: 0 16px 65px 44px;
 }
 .my_qianb_r .p01 {
-  color: #fff;
+  color: #333;
   height: 46px;
   line-height: 46px;
-  font-size: 20px;
+  font-size: 16px;
   width: 100%;
-  background: #838383;
+  background: #ddd;
   text-align: center;
+  border: 1px solid #cbcbcb;
 }
 
 .my_qianb_r .p02 {

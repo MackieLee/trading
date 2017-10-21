@@ -78,12 +78,12 @@ export default {
 @import '../../assets/style/base.scss';
 
 .app-header {
-  border-bottom: 1px solid $rice;
+  // border-bottom: 1px solid $rice;
   height: 49px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   .header-container {
     width: $width;
-    margin: 50px auto;
+    margin: 15px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;

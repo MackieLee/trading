@@ -63,6 +63,8 @@ export default {
   .tdetail{
     width: $width;
     margin: 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid #fdddbc;
     .sec-p{
       margin-top: 21px;
     }
@@ -74,15 +76,13 @@ export default {
       vertical-align: text-bottom;
     }
     .cur-posi{
-      padding:0 0 32px 0;
-      border-bottom:1px solid $rice;
       i{
         background-position: -56px -82px;
         margin-right: 6px;
       }
     }
     .detail{
-      margin: 40px 90px 90px 100px;
+      margin: 26px 90px 90px 100px;
       h1{
         font-size: 24px;
         margin-bottom: 38px;

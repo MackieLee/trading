@@ -69,7 +69,7 @@
 
 <script>
 export default {
-  name: 'dingdan',
+  name: 't-dingdan',
   data() {
     return {
       part: '1'
@@ -120,7 +120,7 @@ export default {
 .my_order_r .ul01 li {
   width: 128px;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   color: #333;
   float: left;
   padding: 20px 0 15px;

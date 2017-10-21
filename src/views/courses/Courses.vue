@@ -122,6 +122,8 @@ export default {
 .container {
   width: $width;
   margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid #fdddbc;
   div {
     height: 45px;
     border-bottom: 1px solid #ddd;
@@ -150,7 +152,7 @@ export default {
   div[class="cur-posi"] {
     height: auto;
     line-height: 0;
-    margin-bottom: 20px;
+    margin-bottom: 26px;
   }
   .outer-conf {
     margin-left: 0px;

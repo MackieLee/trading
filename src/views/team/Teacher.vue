@@ -77,6 +77,8 @@ export default {
   .teacher{
     width: $width;
     margin: 0 auto;
+    padding-top: 20px;
+    border-top: 1px solid #fdddbc;
     i{
       display: inline-block;
       width: 22px;
@@ -85,8 +87,6 @@ export default {
       vertical-align: text-bottom;
     }
     .cur-posi{
-      padding: 0 0 26px 0;
-      border-bottom:1px solid $rice;
       i{
         background-position: -56px -82px;
         margin-right: 6px;
@@ -96,7 +96,7 @@ export default {
       width: $width;
       display: flex;
       background-color: #ebebeb;
-      margin: 25px 0 38px 0;
+      margin: 26px 0 38px 0;
       border: 1px solid transparent;
       &:hover{
         border: 1px dashed #FE7F04;

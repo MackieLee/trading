@@ -28,7 +28,7 @@ import img15 from '../../assets/images/youqinnlianjie (15).png'
 export default {
   data(){
     return{
-      imgs:[img1,img2,img3,img4,img5]
+      imgs:[img1,img13,img10,img7,img4,img11]
     }
   },
   mounted(){
@@ -59,9 +59,10 @@ export default {
     .scroll{
       width:4000px;
       overflow: hidden;
+      margin-bottom: 30px;
       img{
         float: left;
-        margin-right: 8.7px;
+        margin-right: 36px;
       }
     }
   }
