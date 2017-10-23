@@ -233,7 +233,7 @@ export default {
   .th {
     height: 42px;
     font-weight: bold;
-    background-color: #4d9999;
+    background-color: #468EE3;
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
     table {
@@ -279,25 +279,25 @@ export default {
     color:#fff;
   }
   .custom{
-    background-color: #4d9999;
+    background-color: #468EE3;
   }
   .prev {
     width: 73px;
-    border: 1px solid #4d9999;
+    border: 1px solid #468EE3;
     color: #333;
   }
   .next {
     width: 96px;
-    border: 1px solid #4d9999;
+    border: 1px solid #468EE3;
     color: #333;
   }
   .jump {
     width: 70px;
-    border: 1px solid #4d9999;
+    border: 1px solid #468EE3;
     color: #333;
     input{
       width:30px;
-      border: 1px solid #4d9999;
+      border: 1px solid #468EE3;
       outline: none;
     }
   }

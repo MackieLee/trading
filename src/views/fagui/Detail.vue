@@ -16,9 +16,8 @@
         <span>打印本页</span>
       </div>
       <div class="clearfix" style="margin-bottom:35px;line-height:25px;">
-        <audio src="/i/horse.ogg" controls="controls">
-          Your browser does not support the audio element.
-        </audio>
+        <vue-audio>
+        </vue-audio>
         <div class="rt">
           <p>文号:税总发〔2017〕102号</p>
           <p>发文单位:国家税务总局</p>
@@ -93,8 +92,12 @@
 </template>
 
 <script>
+import VueAudio from './Audio'
 export default {
-  name: "fdetail"
+  name: "fdetail",
+  components:{
+    VueAudio
+  }
 }
 </script>
 
