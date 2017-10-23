@@ -6,10 +6,9 @@
         <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;关于我们</p>
     </div>
     <div class="container">
-      <div class="clearfix ctr">
+      <div class="clearfix main-title ctr">
         <h1>国家税务总局</h1>
-        <h3 style="display:inline-block;">关于跨省经营企业涉税事项全国通办的通知</h3>
-
+        <h3 style="">关于跨省经营企业涉税事项全国通办的通知</h3>
       </div>
       <div style="display:inline-block;position:absolute;right:0;top:0;">
         <span>收藏</span>
@@ -18,9 +17,8 @@
       <div class="clearfix" style="margin-bottom:35px;line-height:25px;">
         <vue-audio>
         </vue-audio>
-        <div class="rt">
+        <div class="second-title rt">
           <p>文号:税总发〔2017〕102号</p>
-          <p>发文单位:国家税务总局</p>
           <p>发布日期:2017-10-19 8:03</p>
         </div>
       </div>
@@ -125,6 +123,17 @@ export default {
   }
   .rt {
     float: right;
+  }
+  .main-title{
+    h1{
+      font-size: 14px;
+      color: #333;
+    }
+    h3{
+      font-size: 18px;
+      display:inline-block;
+      color:red;
+    }
   }
   .xiangguan{
     margin-left: 30px;

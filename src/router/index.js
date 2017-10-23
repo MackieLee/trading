@@ -34,6 +34,7 @@ import tdingdan from '../views/vip/Tdingdan'
 import fagui from '../views/fagui/Fagui'
 import fdetail from '../views/fagui/Detail'
 import fsearch from '../views/fagui/Search'
+import test from '../views/test/Test'
 
 Vue.use(Router)
 
@@ -206,6 +207,10 @@ const routes = [
         path:'fagui-search',
         name: 'fsearch',
         component: fsearch
+      },
+      {
+        path:'test',
+        component: test
       }
     ]
   },
