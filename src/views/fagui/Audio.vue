@@ -57,6 +57,7 @@
   height: 70px;
   border-radius: 10px;
   background-color: #cbcbcb;
+  margin: 0 auto;
   .time-bar {
     position: relative;
     margin: 10px 4px 4px 4px;

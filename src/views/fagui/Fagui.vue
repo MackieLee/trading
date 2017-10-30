@@ -266,45 +266,45 @@ export default {
     }
   }
   .pgs {
-  width: 528px;
-  margin: 70px auto 70px auto;
-  li {
-    width: 33px;
-    padding: 4px 0;
-    line-height: 20px;
-    text-align: center;
-    margin-right: 10px;
-    cursor: pointer;
-    border: 1px solid transparent;
-    color:#fff;
-  }
-  .custom{
-    background-color: #468EE3;
-  }
-  .prev {
-    width: 73px;
-    border: 1px solid #468EE3;
-    color: #333;
-  }
-  .next {
-    width: 96px;
-    border: 1px solid #468EE3;
-    color: #333;
-  }
-  .jump {
-    width: 70px;
-    border: 1px solid #468EE3;
-    color: #333;
-    input{
-      width:30px;
+    width: 528px;
+    margin: 70px auto 70px auto;
+    li {
+      width: 33px;
+      padding: 4px 0;
+      line-height: 20px;
+      text-align: center;
+      margin-right: 10px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      color: #fff;
+    }
+    .custom {
+      background-color: #468EE3;
+    }
+    .prev {
+      width: 73px;
       border: 1px solid #468EE3;
-      outline: none;
+      color: #333;
+    }
+    .next {
+      width: 96px;
+      border: 1px solid #468EE3;
+      color: #333;
+    }
+    .jump {
+      width: 70px;
+      border: 1px solid #468EE3;
+      color: #333;
+      input {
+        width: 30px;
+        border: 1px solid #468EE3;
+        outline: none;
+      }
+    }
+    .current {
+      background-color: $red;
+      color: $white;
     }
   }
-  .current {
-    background-color: $red;
-    color: $white;
-  }
-}
 }
 </style>

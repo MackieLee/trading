@@ -114,6 +114,7 @@ export default {
 }
 .my_qianb_r .div01 .p_ri button {
   width: 150px;
+  border: none;
   border-radius: 3px;
   margin-top: 50px;
   text-align: center;
@@ -121,7 +122,7 @@ export default {
   line-height: 45px;
   color: #fff;
   font-size: 18px;
-  background: #838383;
+  background: #468EE3;
 }
 .my_qianb_r .div01 .p_le {
   padding-top: 26px;
@@ -133,7 +134,7 @@ export default {
 .my_qianb_r .p02 {
   height: 50px;
   width: 100%;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #468EE3;
 }
 .my_qianb_r .p02 span {
   height: 50px;
@@ -191,6 +192,6 @@ export default {
   line-height: 34px;
   color: #fff;
   font-size: 14px;
-  background: #838383;
+  background: #468EE3;
 }
 </style>

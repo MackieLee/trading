@@ -3,7 +3,7 @@
     <div class="header">
       <p class="fl kechengxinxi">课程信息</p>
       <p class="fl width-154">金额</p>
-      <p class="fl width-154">操作</p>
+      <p class="fl width-154">上传时间</p>
     </div>
     <div class="container">
       <div class="item">
@@ -17,7 +17,7 @@
           <p class="res">已有277人收藏</p>
         </div>
         <div class="imm-stu">
-          <p>取消收藏</p>
+          <p>2017年10月30日</p>
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
           <p class="res">已有277人收藏</p>
         </div>
         <div class="imm-stu">
-          <p>取消收藏</p>
+          <p>2017年10月30日</p>
         </div>
       </div>
     </div>
@@ -49,7 +49,7 @@
           <p class="res">已有277人收藏</p>
         </div>
         <div class="imm-stu">
-          <p>取消收藏</p>
+          <p>2017年10月30日</p>
         </div>
       </div>
     </div>

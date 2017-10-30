@@ -47,13 +47,13 @@ export default {
     background-image: url('../../assets/images/Sprite.png');
   }
   .sum_of_class {
-    background-color: #ddd;
+    background-color: #468EE3;
     border: 1px solid #cbcbcb;
     padding: 15px;
     font-size: 16px;
     border-radius: 3px;
     text-align: center;
-    color: #333;
+    color: #fff;
   }
   .container {
     width: 728px;
@@ -67,7 +67,7 @@ export default {
         font-size: 16px;
       }
       .ansr {
-        border: 1px solid #999;
+        border: 1px solid #468EE3;
         padding: 15px;
         margin-top: 25px;
         overflow: hidden;
@@ -83,7 +83,7 @@ export default {
           margin-top: 37px;
           float: right;
           color: $white;
-          background-color: #999;
+          background-color: #468EE3;
           line-height: 35px;
           text-align: center;
           border-radius: 3px;
@@ -101,7 +101,7 @@ export default {
     margin: 44px;
     border-radius: 3px;
     font-size: 16px;
-    background-color: #999;
+    background-color:#468EE3;
     cursor: pointer;
   }
 }
