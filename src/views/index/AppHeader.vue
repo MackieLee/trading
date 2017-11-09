@@ -126,16 +126,18 @@ export default {
 
 .app-header {
   height: 49px;
+  border-bottom: 2px solid $border-rice;
   .header-container {
     width: $width;
     margin: 15px auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .logo {
       padding: 18px 71px;
       background-image: url("../../assets/images/Sprite.png");
-      background-position: 140px 0px;
+      background-position: 266px 61px;
     }
     li {
       margin: 0 1px;
@@ -160,7 +162,7 @@ export default {
         width: 21px;
         height: 21px;
         background-image: url("../../assets/images/Sprite.png");
-        background-position: -58px 0px;
+        background-position: -20px -140px;
       }
     }
     .header-nav {

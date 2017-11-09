@@ -148,7 +148,7 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid $border-rice;
+  // border-top: 1px solid $border-rice;
   i {
     display: inline-block;
     width: 22px;
@@ -159,7 +159,7 @@ export default {
   .cur-posi {
     padding:0 0 26px 0;
     i {
-      background-position: -56px -82px;
+      background-position: -18px -106px;
       margin-right: 6px;
     }
   }

@@ -5,7 +5,7 @@
     </div>
     <div class="title">
       <span></span>
-      <font>最新团队</font>
+      <font>最新问答</font>
       <a>更多>></a>
     </div>
     <div class="container">
@@ -129,7 +129,7 @@ export default {
       padding: 9px 19px;
       margin-right: 10px;
       background-image: url("../../assets/images/Sprite.png");
-      background-position: 12px 37px;
+      background-position: -4px 39px;
     }
     font {
       font-size: 18px;

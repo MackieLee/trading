@@ -94,18 +94,18 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid $border-rice;
+  // border-top: 1px solid $border-rice;
   i {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     background-image: url('../../assets/images/Sprite.png');
     vertical-align: text-bottom;
   }
   .cur-posi {
     padding: 0 0 26px 0;
     i {
-      background-position: -51px -82px;
+      background-position: -18px -106px;
       margin-right: 6px;
     }
   }
@@ -129,7 +129,7 @@ export default {
           display: inline-block;
         }
         .watch{
-          width: 70px;
+          width: 73px;
           border: 1px solid $blue;
           font-size: 12px;
           padding: 3px 6px;
@@ -182,7 +182,7 @@ export default {
       .container {
         margin: 34px 30px 0 0;
         padding-bottom: 5px;
-        border-left: 1px solid #ddd;
+        border-left: 1px solid $border-blue;
         .tag-box {
           display: flex;
           width: 250px;
@@ -226,7 +226,7 @@ export default {
           p {
             color: $blue;
             i {
-              background-position: -148px -71px;
+              background-position: -238px -191px;
               margin-right: 6px;
             }
           }

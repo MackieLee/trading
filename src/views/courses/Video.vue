@@ -264,7 +264,7 @@ export default {
   width: 90%;
   margin: 0 auto;
   overflow: hidden;
-  border-top: 1px solid $border-rice;
+  // border-top: 1px solid $border-rice;
   padding-top: 20px;
   i {
     display: inline-block;
@@ -293,11 +293,11 @@ export default {
       margin-right: 0px;
     }
     .red-heart {
-      background-position: 103px -90px;
+      background-position: 258px -199px;
       height: 17px;
     }
     .grey-heart {
-      background-position: 76px -90px;
+      background-position: 164px -263px;
       height: 17px;
     }
     .pointer {
@@ -407,8 +407,8 @@ export default {
             overflow: hidden;
             margin-top: 10px;
             i {
-              background-position: 103px -74px;
-              height: 18px;
+              background-position: 303px -72px;
+              height: 25px;
             }
           }
         }

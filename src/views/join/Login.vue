@@ -133,9 +133,9 @@ export default {
           top: 4px;
         }
         .cover{
-          background-position:-29px 237px;
+          background-position:-143px 300px;
           &:hover{
-            background-position: 0 0;
+            background-position: -143px 272px;
           }
         }
         .pos-rt{
@@ -145,13 +145,13 @@ export default {
       }
       .pwd{
         i[class="iblock"]{
-          background-position: -29px 237px;
+          background-position: -99px -44px;
           left:4px;
         }
       }
       .user{
         i{
-          background-position: -30px -27px;
+          background-position:-60px -41px;
           left:4px;
         }
       }
@@ -201,10 +201,10 @@ export default {
           vertical-align: text-bottom;
         }
         .unchecked{
-          background-position: -58px -22px;
+          background-position:-99px -193px;
         }
         .checked{
-          background-position: -58px -41px;
+          background-position:-99px -225px;
         }
         a{
           color: $red;
@@ -223,16 +223,16 @@ export default {
           background-image: url('../../assets/images/Sprite.png');
         }
         .wechat{
-          background-position: -114px -56px;
+          background-position: -182px -36px;
         }
         .weibo{
-          background-position: -114px -95px;
+          background-position: -182px -77px;
         }
         .qq{
-          background-position: -114px -129px;
+          background-position: -182px -113px;
         }
         .alipay{
-          background-position: -114px -163px;
+          background-position: -182px -148px;
         }
       }
     }

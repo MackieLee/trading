@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="login-box">
-        <p>已有九鼎账户,<router-link :to="{name:'login'}">登录</router-link></p>
+        <p>已有九鼎账户<router-link :to="{name:'login'}">登录</router-link></p>
         <ul class="others">
           <router-link to="/home" tag="li"><i class="qq"></i>QQ账号</router-link>
           <router-link to="/home" tag="li"><i class="wechat"></i>微信账号</router-link>
@@ -92,16 +92,16 @@ export default {
           margin-right: 15px;
         }
         .wechat{
-          background-position: -114px -56px;
+          background-position: -182px -36px;
         }
         .weibo{
-          background-position: -114px -95px;
+          background-position: -182px -77px;
         }
         .qq{
-          background-position: -114px -129px;
+          background-position: -182px -113px;
         }
         .alipay{
-          background-position: -114px -163px;
+          background-position: -182px -148px;
         }
       }
     }

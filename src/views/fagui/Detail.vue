@@ -3,7 +3,7 @@
     <div class="cur-posi" id="top">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;关于我们</p>
+        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;详细内容</p>
     </div>
     <div class="container">
       <div class="clearfix main-title ctr">
@@ -134,7 +134,7 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid $border-rice;
+  // border-top: 1px solid $border-rice;
   .green {
     color: green;
   }
@@ -192,17 +192,18 @@ export default {
   }
   i {
     display: inline-block;
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 25px;
     background-image: url('../../assets/images/Sprite.png');
     vertical-align: text-bottom;
-    background-position: 0px 30px;
-    margin-right: 11px;
+    background-position: 59px 295px;
+    margin:0 11px;
+    cursor: pointer;
   }
   .cur-posi {
     border-bottom: none;
     i {
-      background-position: -56px -82px;
+      background-position: -18px -106px;
       margin-right: 6px;
     }
   }

@@ -41,7 +41,7 @@ export default {
   margin: 0 auto;
   padding-top: 20px;
   .main-srch {
-    border: 1px solid $border-rice;
+    // border: 1px solid $border-rice;
     margin-bottom: 42px;
     .main-srch-input {
       width: 606px;

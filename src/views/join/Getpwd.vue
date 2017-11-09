@@ -153,12 +153,12 @@ export default {
       }
       .pwd {
         i {
-          background-position: -29px 237px;
+          background-position:  -99px -44px;
         }
       }
       .user {
         i {
-          background-position: -86px -2px;
+          background-position: -101px -15px;
         }
       }
       input {
@@ -216,39 +216,14 @@ export default {
         i {
           vertical-align: text-bottom;
         }
-        .unchecked {
-          background-position: -58px -22px;
+        .unchecked{
+          background-position:-99px -193px;
         }
-        .checked {
-          background-position: -58px -41px;
+        .checked{
+          background-position:-99px -225px;
         }
         a {
           color: $red;
-        }
-      }
-      .others {
-        width: 314px;
-        margin-top: 20px;
-        padding: 20px 0 15px 0;
-        border-top: 1px solid $border-rice;
-        a {
-          display: inline-block;
-          margin: 0 9px;
-          width: 33px;
-          height: 33px;
-          background-image: url("../../assets/images/Sprite.png");
-        }
-        .wechat {
-          background-position: -51px -81px;
-        }
-        .weibo {
-          background-position: -51px -124px;
-        }
-        .qq {
-          background-position: -100px -81px;
-        }
-        .alipay {
-          background-position: -100px -122.5px;
         }
       }
     }

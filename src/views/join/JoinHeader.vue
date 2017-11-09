@@ -94,7 +94,7 @@ export default {
     .logo{
       padding: 18px 71px;
       background-image: url('../../assets/images/Sprite.png');
-      background-position: 143px -2px;
+      background-position: 266px 61px;
     }
     li{
       margin: 0 1px;
@@ -128,10 +128,9 @@ export default {
       }
     }
     .active{
-      border-bottom: 2px solid $red;
       a{
         color: $red;
-      
+
       }
     }
     .user-info{
@@ -147,13 +146,13 @@ export default {
       background-image: url('../../assets/images/Sprite.png');
     }
     .tel{
-      background-position: -56px -108px;
+      background-position: -20px -78px;
     }
     .login{
-      background-position: -28px -28px;
+      background-position: -60px -41px;
     }
     .register{
-      background-position: -28px 0px;
+      background-position: -60px -74px;
     }
   }
 }

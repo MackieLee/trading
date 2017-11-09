@@ -138,7 +138,7 @@ export default {
           height: 20px;
           width:20px;
           background-image: url('../../assets/images/Sprite.png');
-          background-position: -20px -17px;
+          background-position: -20px -13px;
           position: relative;
           left: 54px;
           top: 8px;

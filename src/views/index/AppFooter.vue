@@ -167,11 +167,11 @@ export default {
         }
         .mail {
           background-image: url('../../assets/images/Sprite.png');
-          background-position: -30px -75px;
+          background-position: -62px -136px;
         }
         .tel {
           background-image: url('../../assets/images/Sprite.png');
-          background-position: -88px 0px;
+          background-position: -20px -78px;
         }
         .work-day {
           padding-left: 32px;

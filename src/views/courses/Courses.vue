@@ -117,7 +117,7 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 2px solid $border-rice;
+  // border-top: 2px solid $border-rice;
   div {
     height: 34px;
     border-bottom: 1px solid $border-dark;
@@ -171,7 +171,7 @@ export default {
       width: 22px;
       height: 22px;
       background-image: url('../../assets/images/Sprite.png');
-      background-position: -56px -82px;
+      background-position: -18px -106px;
       vertical-align: text-bottom;
       margin-right: 6px;
     }

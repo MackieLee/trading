@@ -85,7 +85,7 @@ i {
 .cur-posi {
   margin: 20px 0 26px 0;
   i {
-    background-position: -56px -82px;
+    background-position: -18px -106px;
     vertical-align: text-bottom;
     margin-right: 6px;
   }
@@ -98,7 +98,7 @@ i {
   color: $black;
   font-family: "微软雅黑";
   font-size: 16px;
-  border-top: 1px solid $border-rice;
+  // border-top: 1px solid $border-rice;
   padding-top: 20px;
 }
 
@@ -172,8 +172,9 @@ i {
   line-height: 34px;
   text-align: center;
   line-height: 34px;
+  cursor: pointer;
   i {
-    background-position: -90px -190px;
+    background-position: 209px -196px;
     position: relative;
     top: 7px;
   }

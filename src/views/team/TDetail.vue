@@ -64,7 +64,7 @@ export default {
     width: $width;
     margin: 0 auto;
     padding-top: 20px;
-    border-top: 1px solid $border-rice;
+    // border-top: 1px solid $border-rice;
     .sec-p{
       margin-top: 21px;
     }
@@ -77,7 +77,7 @@ export default {
     }
     .cur-posi{
       i{
-        background-position: -56px -82px;
+        background-position: -18px -106px;
         margin-right: 6px;
       }
     }
@@ -107,12 +107,12 @@ export default {
         margin-bottom: 28px;
         padding-bottom: 10px;
         position: relative;
-        border-bottom: 1px solid $border-rice;
+        border-bottom: 1px solid $border-red;
         span{
-          padding: 2px 19px;
+          padding: 3px 19px;
           margin-right: 14px;
           background-image: url('../../assets/images/Sprite.png');
-          background-position: 11px -174px;
+          background-position: -3px -314px;
         }
         font{
           font-size: 18px;

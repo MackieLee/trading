@@ -37,66 +37,66 @@
 
 <script>
 export default {
-  name:'online'
-}
+  name: "online"
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
-.online{
+@import "../../assets/style/base.scss";
+.online {
   width: $width;
   margin: 0 auto;
   margin-top: 20px;
-  .video-boxes{
+  .video-boxes {
     overflow: hidden;
-    .video-cover{
+    .video-cover {
       position: relative;
     }
-      .item{
-        border: 1px solid $border-red;
-        padding: 5px 10px 24px 10px;
-        float: left;
-        margin:0 13px 18px 13px;
-        position: relative;
-        .new{
-          padding: 2px 4px;
+    .item {
+      border: 1px solid $border-red;
+      padding: 5px 10px 24px 10px;
+      float: left;
+      margin: 0 13px 18px 13px;
+      position: relative;
+      .new {
+        padding: 2px 4px;
+        background-color: $red;
+        color: $white;
+        font-size: 10px;
+        position: absolute;
+        right: 0;
+        bottom: 3px;
+      }
+      .video-title {
+        margin: 15px 0;
+        .free {
+          padding: 2px 5px;
           background-color: $red;
           color: $white;
-          font-size: 10px;
-          position: absolute;
-          right: 0;
-          bottom: 3px;
-        }
-        .video-title{
-          margin:15px 0;
-          .free{
-            padding: 2px 5px;
-            background-color: $red;
-            color: $white;
-            font-size: 12px;
-            border-radius: 5px;
-            position: absolute;
-            right: 15px;
-          }
-        }
-        .buss-info{
           font-size: 12px;
-          margin-right: 10px;
-          span{
-            margin-right: 10px;
-          }
-        }
-        .play{
-          display: inline-block;
-          height: 20px;
-          width:20px;
-          background-image: url('../../assets/images/Sprite.png');
-          background-position: -20px -13px;
-          position: relative;
-          left: 54px;
-          top: 8px;
+          border-radius: 5px;
+          position: absolute;
+          right: 15px;
         }
       }
+      .buss-info {
+        font-size: 12px;
+        margin-right: 10px;
+        span {
+          margin-right: 10px;
+        }
+      }
+      .play {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        background-image: url("../../assets/images/Sprite.png");
+        background-position: -20px -13px;
+        position: relative;
+        left: 54px;
+        top: 8px;
+      }
+    }
   }
 }
 </style>

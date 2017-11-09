@@ -3,7 +3,7 @@
     <div class="cur-posi">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;关于我们</p>
+        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;法规查询</p>
     </div>
     <div class="container">
       <!-- 模块一 -->
@@ -267,7 +267,7 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid $border-rice;
+  // border-top: 1px solid $border-rice;
   .green {
     color: green;
   }
@@ -298,7 +298,7 @@ export default {
   .cur-posi {
     border-bottom: none;
     i {
-      background-position: -56px -82px;
+      background-position: -18px -106px;
       margin-right: 6px;
     }
   }

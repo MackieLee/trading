@@ -52,7 +52,6 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid $border-rice;
   .bold-title{
     font-size: 16px;
   }
@@ -62,13 +61,13 @@ export default {
     height: 22px;
     background-image: url('../../assets/images/Sprite.png');
     vertical-align: text-bottom;
-    background-position: 0px 30px;
+    background-position: -21px 36px;
     margin-right: 11px;
   }
   .cur-posi {
     border-bottom: none;
     i {
-      background-position: -56px -82px;
+      background-position: -18px -106px;
       margin-right: 6px;
     }
   }

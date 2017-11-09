@@ -155,7 +155,7 @@ i {
   padding:0 0 26px 0;
   width: 100%;
   i {
-    background-position: -51px -82px;
+    background-position: -18px -106px;
     margin-right: 6px;
   }
 }
@@ -218,7 +218,7 @@ i {
       bottom: -10px;
       left: 25%;
       i {
-        background-position: 2px -361px;
+        background-position: -15px -224px;
         margin-right: 6px;
       }
     }

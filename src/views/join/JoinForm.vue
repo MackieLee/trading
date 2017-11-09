@@ -117,12 +117,12 @@ export default {
   }
   .pwd,.confirm{
     i{
-      background-position: -28px 0px;
+      background-position: -99px -44px;
     }
   }
   .user,.ckcode,.phcode,.invcode{
     i{
-      background-position: -86px -2px;
+      background-position: -101px -15px;
     }
   }
   input {
@@ -155,10 +155,10 @@ export default {
       vertical-align: text-bottom;
     }
     .unchecked{
-      background-position: -58px -19px;
+      background-position: -99px -193px;
     }
     .checked{
-      background-position: -58px -38.5px;
+      background-position: -99px -225px;
     }
   }
   .login-btn{

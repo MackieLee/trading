@@ -188,7 +188,7 @@ export default {
         }
         i{
           display: inline-block;
-          background-position: -32px -149px;
+          background-position: -61px -253px;
         }
       }
       .col-3 {
@@ -204,7 +204,7 @@ export default {
         i{
           display: block;
           margin:20px auto 5px;
-          background-position: -29px -189px;
+          background-position: -62px -312px;
           cursor: pointer;
         }
       }

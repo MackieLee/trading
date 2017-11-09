@@ -60,7 +60,7 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid $border-rice;
+  // border-top: 1px solid $border-rice;
   .active{
     color: $red !important;
   }
@@ -74,7 +74,7 @@ export default {
   .cur-posi {
     border-bottom: none;
     i {
-      background-position: -56px -82px;
+      background-position: -18px -106px;
       margin-right: 6px;
     }
   }
@@ -119,32 +119,32 @@ export default {
           cursor: pointer;
         }
         .t1 {
-          background-position: -154px -288px;
+          background-position: -20px -222px;
           margin-right: 6px;
         }
         .t2 {
           height: 18px;
-          background-position: -154px -326px;
+          background-position: -142px -199px;
           margin-right: 6px;
         }
         .t3 {
-          background-position: -154px -307px;
+          background-position: -146px -228px;
           margin-right: 6px;
         }
         .t4 {
-          background-position: -159px -343px;
+          background-position: -144px -136px;
           margin-right: 6px;
         }
         .t5 {
-          background-position: -154px -362px;
+          background-position: -142px -164px;
           margin-right: 6px;
         }
         .t6 {
-          background-position: -157px -379px;
+          background-position: -146px -289px;
           margin-right: 6px;
         }
         .t7 {
-          background-position: -154px -398px;
+          background-position: -146px -258px;
           margin-right: 6px;
         }
       }

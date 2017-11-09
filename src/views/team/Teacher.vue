@@ -8,7 +8,7 @@
         <img src="../../assets/images/jitax_专家团队_03.png" alt="孙玮">
       </div>
       <div class="short-msg">
-        <p class="name">孙玮 教授 <i></i></p>
+        <p class="name">孙玮 教授</p>
         <p>
           九鼎财税专家委员会专家；注册会计师、注册税务师；东北财经大学财政专业硕士；现任青岛大学经济学院副教授，硕士 生导师；自1993年6月至今在青岛大学经济学院工作，讲授《中国税制》、...
           【<span>详细</span>】
@@ -20,7 +20,7 @@
         <img src="../../assets/images/jitax_专家团队_03.png" alt="孙玮">
       </div>
       <div class="short-msg">
-        <p class="name">孙玮 教授 <i></i></p>
+        <p class="name">孙玮 教授</p>
         <router-link to="/home" tag="p">
           九鼎财税专家委员会专家；注册会计师、注册税务师；东北财经大学财政专业硕士；现任青岛大学经济学院副教授，硕士 生导师；自1993年6月至今在青岛大学经济学院工作，讲授《中国税制》、...
           【<span>详细</span>】
@@ -32,7 +32,7 @@
         <img src="../../assets/images/jitax_专家团队_03.png" alt="孙玮">
       </div>
       <div class="short-msg">
-        <p class="name">孙玮 教授 <i></i></p>
+        <p class="name">孙玮 教授</p>
         <router-link to="/home" tag="p">
           九鼎财税专家委员会专家；注册会计师、注册税务师；东北财经大学财政专业硕士；现任青岛大学经济学院副教授，硕士 生导师；自1993年6月至今在青岛大学经济学院工作，讲授《中国税制》、...
           【<span>详细</span>】
@@ -44,7 +44,7 @@
         <img src="../../assets/images/jitax_专家团队_03.png" alt="孙玮">
       </div>
       <div class="short-msg">
-        <p class="name">孙玮 教授 <i></i></p>
+        <p class="name">孙玮 教授</p>
         <router-link to="/home" tag="p">
           九鼎财税专家委员会专家；注册会计师、注册税务师；东北财经大学财政专业硕士；现任青岛大学经济学院副教授，硕士 生导师；自1993年6月至今在青岛大学经济学院工作，讲授《中国税制》、...
           【<span>详细</span>】
@@ -56,7 +56,7 @@
         <img src="../../assets/images/jitax_专家团队_03.png" alt="孙玮">
       </div>
       <div class="short-msg">
-        <p class="name">孙玮 教授 <i></i></p>
+        <p class="name">孙玮 教授</p>
         <router-link to="/home" tag="p">
           九鼎财税专家委员会专家；注册会计师、注册税务师；东北财经大学财政专业硕士；现任青岛大学经济学院副教授，硕士 生导师；自1993年6月至今在青岛大学经济学院工作，讲授《中国税制》、...
           【<span>详细</span>】
@@ -78,7 +78,7 @@ export default {
     width: $width;
     margin: 0 auto;
     padding-top: 20px;
-    border-top: 2px solid $border-rice;
+    // border-top: 2px solid $border-rice;
     i{
       display: inline-block;
       width: 22px;
@@ -88,7 +88,7 @@ export default {
     }
     .cur-posi{
       i{
-        background-position: -56px -82px;
+        background-position: -18px -106px;
         margin-right: 6px;
       }
     }
