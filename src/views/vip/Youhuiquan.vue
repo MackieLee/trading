@@ -120,23 +120,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/style/base.scss';
 .my_qianb_r {
   width: 800px;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: $white;
 }
 .my_qianb_cotainer{
   padding: 0 16px 65px 44px;
 }
 .my_qianb_r .p01 {
-  color: #333;
-  height: 46px;
-  line-height: 46px;
+  color: $white;
+  height: 42px;
+  line-height: 42px;
   font-size: 16px;
   width: 100%;
-  background: #ddd;
+  background: $bg-blue;
   text-align: center;
-  border: 1px solid #cbcbcb;
 }
 
 .my_qianb_r .p02 {

@@ -170,6 +170,7 @@ i {
   background: $white;
   margin: 0 46px 53px 0;
   overflow: hidden;
+  border: 1px solid $border-rice;
   .flex {
     display: flex;
     height: 117px;
@@ -177,7 +178,7 @@ i {
     .name {
       margin: 25px 30px 50px 28px;
       P {
-        font-size: $lgtitle;
+        font-size: $lg-title;
         margin-bottom: 16px;
       }
     }
@@ -196,12 +197,10 @@ i {
         height: 25px;
         line-height: 25px;
         text-align: center;
-        border-radius: 5px;
+        border-radius: 2px;
         margin-bottom: 15px;
-        background: -webkit-linear-gradient(#fdb483, #ff84f3);
-        background: -o-linear-gradient(#fdb483, #ff84f3);
-        background: -moz-linear-gradient(#fdb483, #ff84f3);
-        background: linear-gradient(#fdb483, #ff84f3);
+        background: $bg-blue;
+        color: $white;
       }
       font {
         display: block;
@@ -228,7 +227,7 @@ i {
     margin: 17px;
     li {
       padding: 3px 15px;
-      border: 1px solid #ddd;
+      border: 1px solid $border-blue;
       margin: 10px 9px 0 0;
     }
     .board {
@@ -245,8 +244,11 @@ i {
       line-height: 33px;
       border-radius: 5px;
       color: $white;
-      background-color: $red;
+      background-color: $btn-danger;
       cursor: pointer;
+      &:hover{
+        background-color: $btn-danger-hover;
+      }
     }
   }
 }

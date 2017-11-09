@@ -15,9 +15,9 @@
         <div class="content">
           <dl>
             <dd>
-              <span class="newtitle">
+              <router-link :to="{ name : 'fagui'}" class="newtitle">
                 上海市国家税务局、上海市地方税务局内设机构（部门）主要职能
-              </span>
+              </router-link>
               <span class="date">2017-07-03</span>
             </dd>
             <dd>
@@ -177,75 +177,75 @@
         <div class="content">
           <ul class="policy">
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">税收征收管理</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">纳税服务</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">增值税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">消费税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">营业税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">企业所得税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">个人所得税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">进出口税收</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">车船税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">资源税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">城镇土地使用税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">耕地占用税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">土地增值税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">房产税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a>印花税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">契税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">车辆购置税</a>
             </li>
             <li>
-              <span class="num">1</span>
+              <span class="num"></span>
               <a target="_BLANK">综合税收政策</a>
             </li>
           </ul>
@@ -267,12 +267,12 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid #fdddbc;
+  border-top: 1px solid $border-rice;
   .green {
     color: green;
   }
   .red {
-    color: red;
+    color: $red
   }
   .clearfix {
     overflow: hidden;
@@ -312,18 +312,18 @@ export default {
       width: 528px;
       margin-bottom: 35px;
       .titcon {
-        background-color: #78c1c1;
+        background-color: $bg-blue;
         border: 1px solid #ccc;
         position: relative;
         h2 {
           font-size: 16px;
           padding: 10px 0;
           margin-left: 40px;
-          color: #fff;
+          color: $white;
         }
       }
       .content {
-        border: 1px dashed #78c1c1;
+        border: 1px solid $border-dark;
         border-top: none;
         padding: 10px 0;
         height: 342px;
@@ -345,7 +345,7 @@ export default {
             position: absolute;
             right: 12px;
             top: 10px;
-            color: #666;
+            color: $dark;
             font-size: 14px;
           }
         }
@@ -363,13 +363,11 @@ export default {
             margin-bottom: 8px;
             .num {
               display: inline-block;
-              width: 15px;
-              height: 15px;
-              line-height: 15px;
-              text-align: center;
-              color: #fff;
+              width: 6px;
+              height: 6px;
+              border-radius: 3px;
               // background: linear-gradient(#fdb483, #ff84f3)
-              background-color: #37acac;
+              background-color: $bg-blue;
             }
           }
         }
@@ -385,13 +383,13 @@ export default {
             height: 26px;
             line-height: 26px;
             outline: none;
-            border: none;
+            border: 1px solid $border-blue;
           }
           input[class="input-sm"] {
             width: 121px;
           }
           label[class="lb-md"] {
-            margin: 0 20px;
+            margin: 0 17px;
           }
           .btn-items {
             width: 373px;
@@ -402,9 +400,8 @@ export default {
               width: 176px;
               height: 40px;
               text-align: center;
-              background-image: url('../../assets/images/btn.png');
-              background-repeat: repeat-x;
-              color: #fff;
+              background-color: $btn-default;
+              color: $white;
               font-size: 14px;
               cursor: pointer;
             }

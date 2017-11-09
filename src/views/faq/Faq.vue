@@ -40,20 +40,23 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid #fdddbc;
   .main-srch {
-    border: 1px solid #9e9e9e;
+    border: 1px solid $border-rice;
     margin-bottom: 42px;
     .main-srch-input {
       width: 606px;
       height: 36px;
       margin: 24px 12px 0 28px;
       outline: none;
+      border: 1px solid $border-rice;
+      padding-left: 10px;
     }
     button{
-      width: 122px;
+      width: 100px;
       height: 40px;
-      border: 1px solid #a1a1a1;
+      background-color: $border-orange;
+      color: $white;
+      outline:none;
       border: none;
     }
     p{

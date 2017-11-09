@@ -64,7 +64,7 @@ export default {
     width: $width;
     margin: 0 auto;
     padding-top: 20px;
-    border-top: 1px solid #fdddbc;
+    border-top: 1px solid $border-rice;
     .sec-p{
       margin-top: 21px;
     }
@@ -107,7 +107,7 @@ export default {
         margin-bottom: 28px;
         padding-bottom: 10px;
         position: relative;
-        border-bottom: 1px solid $rice;
+        border-bottom: 1px solid $border-rice;
         span{
           padding: 2px 19px;
           margin-right: 14px;

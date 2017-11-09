@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="login-box">
-        <p>已有九鼎账户,<router-link :to="{name:'login'}">登录</router-link><span>合作账号登录</span></p>
+        <p>已有九鼎账户,<router-link :to="{name:'login'}">登录</router-link></p>
         <ul class="others">
           <router-link to="/home" tag="li"><i class="qq"></i>QQ账号</router-link>
           <router-link to="/home" tag="li"><i class="wechat"></i>微信账号</router-link>
@@ -49,7 +49,7 @@ export default {
     width: 544px;
     .form{
       padding-right: 100px;
-      border-right: 1px solid $rice;
+      border-right: 1px solid $border-blue;
       margin:0 0 45px 118px;
     }
   }
@@ -59,9 +59,7 @@ export default {
       position: relative;
       display: flex;
       justify-content: center;
-      padding: 30px 0 50px 0;
-      margin: 0 90px 0 90px;
-      border-bottom: 1px solid $rice;
+      padding-top: 30px;
     }
     span{
       font-size: 16px;
@@ -78,9 +76,10 @@ export default {
     }
     .others{
       width: 139px;
-      margin: 74px  auto;
+      margin: 40px  auto;
       li{
         margin: 17px 0;
+        font-size: 14px;
         cursor: pointer;
         i{
           position: relative;

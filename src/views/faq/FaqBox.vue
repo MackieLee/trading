@@ -1,5 +1,8 @@
 <template>
   <div class="faq-box">
+    <div class="modal-outer" v-show="modal">
+      <modal @closeModal="closeModal" :content-series="series"></modal>
+    </div>
     <div class="title">
       <span></span>
       <font>最新团队</font>
@@ -7,7 +10,7 @@
     </div>
     <div class="container">
       <div class="floor">
-        <div class="item lf">
+        <div class="item lf lf-part">
           <div>
             <div class="wen lf">问 :&nbsp;</div>
             <div class="item-container">
@@ -20,7 +23,7 @@
               <div class="ask ansr">一般纳税人销售自行开发的房...</div>
             </div>
           </div>
-          <div class="more">查看更多&gt;&gt;</div>
+          <div class="more" @click="showDetail">查看更多&gt;&gt;</div>
         </div>
         <div class="item rt">
           <div>
@@ -39,7 +42,7 @@
         </div>
       </div>
       <div class="floor">
-        <div class="item lf">
+        <div class="item lf lf-part">
           <div>
             <div class="wen lf">问 :&nbsp;</div>
             <div class="item-container">
@@ -76,27 +79,56 @@
 </template>
 
 <script>
+import modal from "./Modal";
 export default {
-}
+  components: { modal },
+  data() {
+    return {
+      modal: false,
+      series: true
+    };
+  },
+  methods: {
+    closeModal: function() {
+      this.modal = false;
+    },
+    showDetail: function() {
+      this.modal = true;
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .faq-box {
+  .modal-outer {
+    width: 100%;
+    height: 240%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    .close {
+      position: absolute;
+      top: 15%;
+      left: 60%;
+    }
+  }
   .board {
     margin-right: 0 !important;
   }
   .title {
     width: $width;
     margin: auto;
-    margin-bottom: 10px;
     padding-bottom: 10px;
     position: relative;
-    border-bottom: 1px solid $rice;
+    border-bottom: 1px solid $border-rice;
     span {
       padding: 9px 19px;
       margin-right: 10px;
-      background-image: url('../../assets/images/Sprite.png');
+      background-image: url("../../assets/images/Sprite.png");
       background-position: 12px 37px;
     }
     font {
@@ -112,17 +144,20 @@ export default {
   .container {
     overflow: hidden;
     .floor {
-      margin-top: 24px;
       overflow: hidden;
-      border-bottom: 1px solid #FDDDBC;
+      border-bottom: 1px dashed $border-orange;
       .lf {
         float: left;
       }
       .rt {
         float: right;
       }
+      .lf-part {
+        border-right: 1px dashed $border-orange;
+      }
       .item {
-        margin-bottom: 24px;
+        margin: 24px 0;
+        padding-right: 50px;
         div {
           overflow: hidden;
         }
@@ -142,13 +177,13 @@ export default {
           .ask {
             margin-bottom: 10px;
           }
-          .ansr{
+          .ansr {
             margin-bottom: 10px;
           }
         }
         .more {
           text-align: right;
-          color: $red;
+          color: $blue;
           cursor: pointer;
           font-size: 12px;
         }
@@ -157,14 +192,17 @@ export default {
   }
   .click-more {
     width: 180px;
-    border-radius: 10px;
-    background-color: $red;
-    font-size: 18px;
+    border-radius: 3px;
+    background-color: $btn-danger;
+    font-size: 16px;
     color: $white;
-    padding: 10px 0;
+    padding: 5px 0;
     text-align: center;
     margin: 76px auto 108px auto;
     cursor: pointer;
+    &:hover {
+      background-color: $btn-danger-hover;
+    }
   }
 }
 </style>

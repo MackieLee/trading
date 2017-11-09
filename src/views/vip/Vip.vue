@@ -9,10 +9,10 @@
     <div class="container">
       <div class="lf">
         <div class="title flex">
-          <div class="head"></div>
+          <router-link tag="div" :to="{ name:'setting' }" class="head"></router-link>
           <div class="name">
-            <p class="p1">
-              在树下听歌</p>
+            <router-link tag="p" :to="{ name: 'setting' }" class="p1">
+              在树下听歌</router-link>
             <p class="p2">普通会员</p>
           </div>
         </div>
@@ -60,7 +60,7 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid #fdddbc;
+  border-top: 1px solid $border-rice;
   .active{
     color: $red !important;
   }

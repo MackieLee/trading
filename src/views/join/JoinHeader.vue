@@ -82,7 +82,7 @@ export default {
 @import '../../assets/style/base.scss';
 
 .app-header {
-  border-bottom: 1px solid $rice;
+  border-bottom: 1px solid $border-rice;
   height: 49px;
   margin-bottom: 27px;
   .header-container{

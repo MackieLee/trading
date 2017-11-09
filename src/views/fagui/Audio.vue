@@ -52,6 +52,7 @@
 <script src="../../util/vueaudio.plugin.js"></script>
 
 <style lang="scss" scoped>
+@import '../../assets/style/base.scss';
 .audio-player {
   width: 410px;
   height: 70px;
@@ -118,7 +119,7 @@
         margin-bottom: 6px;
         width: 62px;
         height: 5px;
-        background-color: #fff;
+        background-color: $white;
         border-radius: 5px;
         box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
         position: relative;

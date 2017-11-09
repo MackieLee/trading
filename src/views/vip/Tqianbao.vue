@@ -3,8 +3,8 @@
     <div class="div01">
       <p class="p_le">我的可用余额<br>0.00 </p>
       <p class="p_ri">
-        <span>安全中心 保障账号资产安全</span>
-        <button>立即充值</button>
+        <!-- <span>安全中心 保障账号资产安全</span>
+        <button>立即提取</button> -->
       </p>
     </div>
     <p class="p02">
@@ -14,7 +14,7 @@
     <div class="div02" v-if="!show">
       <p class="p03">
         <span>时间</span>
-        <span> 充值金额</span>
+        <span> 收入金额</span>
         <span>状态</span>
         <span>备注</span>
       </p>
@@ -40,7 +40,7 @@
     <div class="div03" v-if="show">
       <p class="p03">
         <span>时间</span>
-        <span> 充值金额</span>
+        <span> 收入金额</span>
         <span>状态</span>
         <span>备注</span>
       </p>
@@ -85,12 +85,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/style/base.scss';
 .my_qianb_r {
   height: 900px;
   width: 700px;
   margin: 0 auto;
   padding: 0 50px;
-  background-color: #fff;
+  background-color: $white;
 }
 .my_qianb_r .div01 {
   height: 110px;
@@ -120,7 +121,7 @@ export default {
   text-align: center;
   height: 45px;
   line-height: 45px;
-  color: #fff;
+  color: $white;
   font-size: 18px;
   background: #468EE3;
 }
@@ -190,7 +191,7 @@ export default {
   display: inline-block;
   text-align: center;
   line-height: 34px;
-  color: #fff;
+  color: $white;
   font-size: 14px;
   background: #468EE3;
 }

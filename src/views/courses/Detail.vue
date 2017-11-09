@@ -67,6 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/style/base.scss';
 * {
   list-style: none;
   margin: 0;
@@ -94,10 +95,10 @@ i {
   height: auto;
   width: 1090px;
   margin: 0 auto;
-  color: #333;
+  color: $black;
   font-family: "微软雅黑";
   font-size: 16px;
-  border-top: 1px solid #fdddbc;
+  border-top: 1px solid $border-rice;
   padding-top: 20px;
 }
 
@@ -145,7 +146,7 @@ i {
 
 #xxkc_xq01 .xq01_r ul li {
   float: left;
-  color: #e7141a;
+  color: $red;
   font-size: 28px;
   margin-right: 15px;
 }
@@ -155,7 +156,7 @@ i {
 }
 
 #xxkc_xq01 .xq01_r ul li del {
-  color: #333;
+  color: $black;
   font-size: 14px;
 }
 
@@ -163,8 +164,8 @@ i {
   height: 34px;
   width: 100px;
   padding: 0 10px;
-  background: #e7141a;
-  color: #fff;
+  background: $red;
+  color: $white;
   font-size: 16px;
   display: block;
   border-radius: 3px;
@@ -196,7 +197,7 @@ i {
 #xxkc_xq02 .xq02_l h2 {
   width: 100%;
   height: 32px;
-  border-bottom: 1px solid #e7141a;
+  border-bottom: 1px solid $red;
 }
 
 #xxkc_xq02 .xq02_l h2 span {
@@ -204,8 +205,8 @@ i {
   height: 33px;
   line-height: 33px;
   text-align: center;
-  background: #e7141a;
-  color: #fff;
+  background: $red;
+  color: $white;
   display: block;
   font-weight: normal;
   font-size: 16px;
@@ -226,7 +227,7 @@ i {
 #xxkc_xq02 .xq02_r h2 {
   width: 100%;
   height: 32px;
-  border-bottom: 1px solid #e7141a;
+  border-bottom: 1px solid $red;
 }
 
 #xxkc_xq02 .xq02_r h2 span {
@@ -234,8 +235,8 @@ i {
   height: 33px;
   line-height: 33px;
   text-align: center;
-  background: #e7141a;
-  color: #fff;
+  background: $red;
+  color: $white;
   display: block;
   font-weight: normal;
   font-size: 16px;

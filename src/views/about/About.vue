@@ -52,7 +52,7 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid #fdddbc;
+  border-top: 1px solid $border-rice;
   .bold-title{
     font-size: 16px;
   }

@@ -158,29 +158,32 @@ export default {
       }
       .tag-02 {
         width: 70px;
-        height: 30px;
-        line-height: 30px;
-        border: 1px solid $rice;
+        height: 24px;
+        line-height: 24px;
+        border: 1px solid $border-blue;
         border-radius: 5px;
       }
       .tag-03 {
-        width: 118px;
-        height: 38px;
-        color: $black !important;
-        line-height: 38px;
-        border: 1px solid $rice;
+        width: 90px;
+        height: 30px;
+        border: 1px solid $border-blue;
+        line-height: 30px;
         border-radius: 5px;
         font-size: 14px;
+        color: $black !important;
+        // &:hover{
+        //   background-color: $btn-danger-hover;
+        // }
       }
       .col-2 {
         margin: 0 115px 0 30px;
         .title {
           margin-top: 0;
-          color: $border;
+          color: $blue;
           font-size: 16px;
         }
         p {
-          margin-top: 17px;
+          margin-top: 14px;
           font-size: 14px;
         }
         i{
@@ -195,7 +198,7 @@ export default {
         justify-content: center;
         p {
           text-align: center;
-          color: $border;
+          color: $blue;
           cursor: pointer;
         }
         i{

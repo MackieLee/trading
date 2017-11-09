@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .qa {
-  background-color: #fff;
+  background-color: $white;
   overflow: hidden;
   i{
     display: inline-block;
@@ -41,13 +41,13 @@ export default {
     background-image: url('../../assets/images/Sprite.png');
   }
   .sum_of_class {
-    background-color: #ddd;
-    border: 1px solid #cbcbcb;
-    padding: 15px;
+    background-color: $bg-blue;
+    border: none;
+    padding: 9px;
     font-size: 16px;
     border-radius: 3px;
     text-align: center;
-    color: #333;
+    color: $white;
   }
   .container {
     width: 728px;
@@ -61,7 +61,7 @@ export default {
         font-size: 18px;
       }
       .ansr{
-        border: 1px solid #999;
+        border: 1px solid $border-blue;
         padding: 15px;
         margin-top: 25px;
         overflow: hidden;
@@ -77,7 +77,7 @@ export default {
           margin-top: 37px;
           float: right;
           color: $white;
-          background-color: #999;
+          background-color: $btn-default;
           line-height: 35px;
           text-align: center;
           border-radius: 3px;
@@ -88,14 +88,14 @@ export default {
   }
   .more {
     width: 124px;
-    height: 44px;
-    color: #fff;
-    line-height: 44px;
+    height: 35px;
+    color: $white;
+    line-height: 35px;
     text-align: center;
-    margin: 44px;
+    margin: 44px auto;
     border-radius: 3px;
     font-size: 16px;
-    background-color: #999;
+    background-color: $btn-default;
     cursor: pointer;
   }
 }

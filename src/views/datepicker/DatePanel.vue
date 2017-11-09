@@ -171,6 +171,7 @@ function getDayInWeek(year, month, day) {
 //-------------------------月份数组拼接 END------------------------------------
 </script>
 <style lang="scss" scoped>
+@import '../../assets/style/base.scss';
 .date_panel {
   margin-top: 10px;
   position: absolute;
@@ -181,7 +182,7 @@ function getDayInWeek(year, month, day) {
   width: 350px;
   border: 1px solid #9D94B0;
   padding: 4px;
-  background: #fff;
+  background: $white;
 }
 
 .panel_head {
@@ -193,7 +194,7 @@ function getDayInWeek(year, month, day) {
   span {
     display: inline-block;
     font-size: 16px;
-    color: #666;
+    color: $dark;
     cursor: pointer;
     &:hover {
       background: #F0F0F0;
@@ -212,7 +213,7 @@ function getDayInWeek(year, month, day) {
   top: 45px;
   left: 175px;
   width: 120px;
-  background: #fff;
+  background: $white;
   border: 1px solid #9D94B0;
   font-size: 0;
   line-height: 25px;
@@ -240,7 +241,7 @@ function getDayInWeek(year, month, day) {
     height: 30px;
     line-height: 30px;
     font-size: 14px;
-    color: #666;
+    color: $dark;
   }
   span:nth-child(7n),
   span:nth-child(7n+1) {
@@ -260,7 +261,7 @@ function getDayInWeek(year, month, day) {
   .day_box .only_day,
   .crn_month:hover {
     background: #141414;
-    color: #fff;
+    color: $white;
   }
 }
 </style>

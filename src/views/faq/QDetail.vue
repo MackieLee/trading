@@ -15,7 +15,7 @@
           </div>
           <div class="name">
             <div>
-              <p>孙老师</p>
+              <p>孙老师</p><p class="watch"><i></i>添加关注</p><br>
               <span>已解答27个问题</span>
             </div>
             <div class="price">
@@ -74,7 +74,7 @@
     <div class="ques-discr">
       <div class="container">
         <h3>问题描述 : </h3>
-        <textarea></textarea>
+        <editor></editor>
         <router-link to="/home" tag="p">提交问题</router-link>
       </div>
     </div>
@@ -82,9 +82,9 @@
 </template>
 
 <script>
-
+import editor from '../editor/Editor'
 export default {
-
+  components:{ editor }
 }
 </script>
 
@@ -94,11 +94,11 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid #fdddbc;
+  border-top: 1px solid $border-rice;
   i {
     display: inline-block;
-    width: 30px;
-    height: 21px;
+    width: 20px;
+    height: 20px;
     background-image: url('../../assets/images/Sprite.png');
     vertical-align: text-bottom;
   }
@@ -124,11 +124,25 @@ export default {
         justify-content: space-between;
         width: 100%;
         P {
-          font-size: $lgtitle;
+          font-size: 16px;
           margin-bottom: 16px;
+          display: inline-block;
+        }
+        .watch{
+          width: 70px;
+          border: 1px solid $blue;
+          font-size: 12px;
+          padding: 3px 6px;
+          border-radius: 4px;
+          margin-left: 70px;
+          cursor: pointer;
+          i{
+            background-position: 158px 149px;
+            // 点击后换成 110px 94px 实心❤
+          }
         }
         .price {
-          color: #137584;
+          color: $blue;
           font-size: $normal;
         }
       }
@@ -137,6 +151,16 @@ export default {
       margin: 20px 0 30px 44px;
       span {
         color: $red;
+        display: inline-block;
+        line-height: 45px;
+      }
+      li{
+        width: 90px;
+        text-align: center;
+        padding: 3px;
+        border: 1px solid $border-blue;
+        border-radius: 3px;
+        margin: 10px;
       }
     }
     .content {
@@ -170,12 +194,10 @@ export default {
               height: 25px;
               line-height: 25px;
               text-align: center;
-              border-radius: 5px;
+              border-radius: 3px;
               margin-bottom: 20px;
-              background: -webkit-linear-gradient(#fdb483, #ff84f3);
-              background: -o-linear-gradient(#fdb483, #ff84f3);
-              background: -moz-linear-gradient(#fdb483, #ff84f3);
-              background: linear-gradient(#fdb483, #ff84f3);
+              background: $bg-blue;
+              color: $white;
             }
             font {
               display: block;
@@ -202,7 +224,7 @@ export default {
           width: 335px;
           margin: 54px 32px 0 65px;
           p {
-            color: $red;
+            color: $blue;
             i {
               background-position: -148px -71px;
               margin-right: 6px;
@@ -228,15 +250,8 @@ export default {
         color: $red;
         font-size: 16px;
       }
-      textarea {
-        resize: none;
-        width: 964px;
-        height: 90px;
-        overflow: hidden;
-        outline: none;
-        text-indent: 32px;
-        padding: 13px 28px;
-        margin: 23px 0;
+      .quill-editor{
+        margin: 30px 0 ;
       }
       p{
         color: $white;

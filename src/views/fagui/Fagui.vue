@@ -26,29 +26,25 @@
       <table cellspacing="0" cellpadding="0">
         <tbody>
           <router-link tag="tr" :to="{ name:'fdetail'}">
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr red">1</td>
+            <td class="xuhao pointer ctr red">·</td>
             <td class="biaoti pointer red">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr red">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr red">2017-09-07</td>
           </router-link>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr red">1</td>
+            <td class="xuhao pointer ctr red">·</td>
             <td class="biaoti pointer red">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr red">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr red">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr red">1</td>
+            <td class="xuhao pointer ctr red">·</td>
             <td class="biaoti pointer red">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr red">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr red">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知
               <i class="jingxuan"></i>
             </td>
@@ -56,122 +52,126 @@
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr separate"></td>
+            <td class="biaoti pointer separate"></td>
+            <td class="fahao pointer ctr separate"></td>
+            <td class="riqi pointer ctr separate"></td>
+          </tr>
+          <tr>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr separate"></td>
+            <td class="biaoti pointer separate"></td>
+            <td class="fahao pointer ctr separate"></td>
+            <td class="riqi pointer ctr separate"></td>
+          </tr>
+          <tr>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr separate"></td>
+            <td class="biaoti pointer separate"></td>
+            <td class="fahao pointer ctr separate"></td>
+            <td class="riqi pointer ctr separate"></td>
+          </tr>
+          <tr>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <!-- ！！！重要 不同类不同逻辑动态添加 -->
-            <td class="xuhao pointer ctr">1</td>
+            <td class="xuhao pointer ctr">·</td>
             <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
         </tbody>
       </table>
-    </div>
-    <div data-v-56d5da29="" class="pgs">
-      <li data-v-56d5da29="" class="prev">&lt;上一页</li>
-      <li data-v-56d5da29="" class="current ">1</li>
-      <li data-v-56d5da29="" class="custom">2</li>
-      <li data-v-56d5da29="" class="custom">3</li>
-      <li data-v-56d5da29="" class="custom">4</li>
-      <li data-v-56d5da29="" class="custom">...</li>
-      <li data-v-56d5da29="" class="jump"><input /> /40页</li>
-      <li data-v-56d5da29="" class="next">下一页&gt;</li>
+      <div class="pgs">
+        <li class="prev">&lt;上一页</li>
+        <li class="current ">1</li>
+        <li class="custom">2</li>
+        <li class="custom">3</li>
+        <li class="custom">4</li>
+        <li class="points">...</li>
+        <li class="jump"><input type="tel" maxlength="3"> /40页</li>
+        <li class="submit">确定</li>
+        <li class="next">下一页&gt;</li>
+      </div>
     </div>
   </div>
 </template>
@@ -179,22 +179,22 @@
 <script>
 export default {
   name: "fagui"
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .fagui {
   width: $width;
   margin: 0 auto;
   overflow: hidden;
   padding-top: 20px;
-  border-top: 1px solid #fdddbc;
+  border-top: 1px solid $border-rice;
   i {
     display: inline-block;
     width: 22px;
     height: 22px;
-    background-image: url('../../assets/images/Sprite.png');
+    background-image: url("../../assets/images/Sprite.png");
     vertical-align: text-bottom;
     background-position: 0px 30px;
     margin-right: 11px;
@@ -233,9 +233,7 @@ export default {
   .th {
     height: 42px;
     font-weight: bold;
-    background-color: #468EE3;
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc;
+    background-color: $bg-blue;
     table {
       table-layout: fixed;
       border-collapse: separate;
@@ -244,65 +242,69 @@ export default {
         display: table-cell;
         line-height: 42px;
         font-size: 14px;
-        color: #fff;
+        color: $white;
       }
     }
   }
   .td {
     font-weight: bold;
-    border: 1px solid #ccc;
-    border-top: none;
-    border-bottom: none;
+    border: 1px solid $border-blue;
     table {
       table-layout: fixed;
       border-collapse: separate;
       width: 100%;
       td {
-        border-bottom: 1px dashed #ccc;
         display: table-cell;
         line-height: 42px;
         font-size: 14px;
       }
+      .separate{
+        border-bottom: 1px solid $border-dark;
+      }
     }
   }
   .pgs {
-    width: 528px;
-    margin: 70px auto 70px auto;
+    width: 525px;
+    margin: 60px auto;
     li {
       width: 33px;
       padding: 4px 0;
       line-height: 20px;
       text-align: center;
-      margin-right: 10px;
+      margin-right: 2px;
       cursor: pointer;
-      border: 1px solid transparent;
-      color: #fff;
-    }
-    .custom {
-      background-color: #468EE3;
+      border: 1px solid $border-dark;
+      color: $black;
     }
     .prev {
       width: 73px;
-      border: 1px solid #468EE3;
-      color: #333;
+      color: $blue;
     }
     .next {
       width: 96px;
-      border: 1px solid #468EE3;
-      color: #333;
+      color: $blue;
+    }
+    .points {
+      border: none;
+    }
+    .submit {
+      background-color: $btn-default;
+      color: $white;
+      width: 44px;
+      border: none;
     }
     .jump {
-      width: 70px;
-      border: 1px solid #468EE3;
+      width: 80px;
+      border: 1px solid $border-dark;
       color: #333;
       input {
         width: 30px;
-        border: 1px solid #468EE3;
+        border: 1px solid $border-dark;
         outline: none;
       }
     }
     .current {
-      background-color: $red;
+      background-color: $btn-default;
       color: $white;
     }
   }

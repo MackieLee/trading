@@ -19,8 +19,8 @@
       <vue-audio>
       </vue-audio>
       <div class="top-bar">
-        <span>收藏</span>
-        <span>打印本页</span>
+        <span class="pointer">收藏</span>
+        <span @click="print" class="pointer">打印本页</span>
         <a href="#bottom">一键到底</a>
       </div>
       <div class="artical">
@@ -68,21 +68,22 @@
           </div>
           <div class="rt">
             <span>
-              <a href="#top">【返回顶部】</a>
+              <a href="#top" class="pointer">【返回顶部】</a>
             </span>
-            <span>【打印本页】</span>
-            <span>【关闭本页】</span>
+            <span @click="print" class="pointer">【打印本页】</span>
+            <span @click="windowClose" class="pointer">【关闭本页】</span>
           </div>
         </div>
-        <div data-v-38134039="" data-v-56d5da29="" class="pgs">
-          <li data-v-38134039="" data-v-56d5da29="" class="prev">&lt;上一页</li>
-          <li data-v-38134039="" data-v-56d5da29="" class="current ">1</li>
-          <li data-v-38134039="" data-v-56d5da29="" class="custom">2</li>
-          <li data-v-38134039="" data-v-56d5da29="" class="custom">3</li>
-          <li data-v-38134039="" data-v-56d5da29="" class="custom">4</li>
-          <li data-v-38134039="" data-v-56d5da29="" class="custom">...</li>
-          <li data-v-38134039="" data-v-56d5da29="" class="jump"><input data-v-38134039=""> /40页</li>
-          <li data-v-38134039="" data-v-56d5da29="" class="next">下一页&gt;</li>
+        <div class="pgs">
+          <li class="prev">&lt;上一页</li>
+          <li class="current ">1</li>
+          <li class="custom">2</li>
+          <li class="custom">3</li>
+          <li class="custom">4</li>
+          <li class="points">...</li>
+          <li class="jump"><input type="tel" maxlength="3"> /40页</li>
+          <li class="submit">确定</li>
+          <li class="next">下一页&gt;</li>
         </div>
         <p class="red" style="font-size:14px;padding:20px 0 10px 30px;border-top:1px solid #ccc;margin-top:10px;">相关法规</p>
         <div class="clearfix xiangguan">
@@ -110,6 +111,19 @@ export default {
   name: "fdetail",
   components: {
     VueAudio
+  },
+  data(){
+    return{
+
+    }
+  },
+  methods:{
+    print:function(){
+      window.print()
+    },
+    windowClose:function(){
+      // 关闭窗口
+    }
   }
 }
 </script>
@@ -120,12 +134,12 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid #fdddbc;
+  border-top: 1px solid $border-rice;
   .green {
     color: green;
   }
   .red {
-    color: red;
+    color: $red
   }
   .clearfix {
     overflow: hidden;
@@ -139,15 +153,18 @@ export default {
   .rt {
     float: right;
   }
+  .pointer{
+    cursor: pointer;
+  }
   .main-title {
     h1 {
-      font-size: 14px;
+      font-size: 18px;
       color: #333;
     }
     h3 {
-      font-size: 18px;
+      font-size: 22px;
       display: inline-block;
-      color: red;
+      color: $red
     }
   }
   .second-title {
@@ -157,7 +174,7 @@ export default {
     }
   }
   .artical {
-    background-color: #fff;
+    background-color: $white;
     width: 1030px;
     padding: 20px 0;
     margin: 0px auto 10px auto;
@@ -194,8 +211,10 @@ export default {
     font-size: 14px;
     line-height: 30px;
     position: relative;
-    background-color: #fff;
+    background-color: $white;
     padding-top: 35px;
+    margin-top: 20px;
+    border: 1px solid $border-rice;
     .top-bar {
       text-align: right;
       margin-right: 30px;
@@ -204,43 +223,47 @@ export default {
       }
     }
     .pgs {
-      width: 531px;
+      width: 525px;
       margin: 40px auto 5px auto;
       li {
         width: 33px;
         padding: 4px 0;
         line-height: 20px;
         text-align: center;
-        margin-right: 10px;
+        margin-right: 2px;
         cursor: pointer;
-        border: 1px solid transparent;
-        color: #fff;
-      }
-      .custom {
-        background-color: #468EE3;
+        border: 1px solid $border-dark;
+        color: $black;
       }
       .prev {
         width: 73px;
-        border: 1px solid #468EE3;
-        color: #333;
+        color: $blue;
       }
       .next {
         width: 96px;
-        border: 1px solid #468EE3;
-        color: #333;
+        color: $blue;
+      }
+      .points{
+        border:none;
+      }
+      .submit{
+        background-color: $btn-default;
+        color: $white;
+        width: 44px;
+        border: none;
       }
       .jump {
-        width: 70px;
-        border: 1px solid #468EE3;
+        width: 80px;
+        border: 1px solid $border-dark;
         color: #333;
         input {
           width: 30px;
-          border: 1px solid #468EE3;
+          border: 1px solid $border-dark;
           outline: none;
         }
       }
       .current {
-        background-color: $red;
+        background-color: $btn-default;
         color: $white;
       }
     }

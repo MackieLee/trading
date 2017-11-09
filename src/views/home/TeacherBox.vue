@@ -31,7 +31,7 @@ export default {
     padding-bottom: 15px;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid $rice;
+    border-bottom: 1px solid $border-rice;
     span{
       font-size: 18px;
       font-weight: 450;

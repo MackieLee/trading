@@ -1,9 +1,6 @@
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
   margin:0; padding:0;color:#333;font: 12px/1.5 tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
 }
-body{
-  background-color: #f0f0f0;
-}
 ::-webkit-input-placeholder { /* WebKit browsers */
   color:    #aeaeae;
 }
@@ -30,3 +27,4 @@ legend { color:#333; }
 fieldset, img { border:0; }
 // button, input, select, textarea { font-size:100%; }
 table { border-collapse:collapse; border-spacing:0; }
+button{ cursor: pointer;}

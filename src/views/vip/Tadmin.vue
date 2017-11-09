@@ -23,8 +23,8 @@
             <i class="t2"></i>我的问答</router-link>
           <router-link tag="p" :to="{ name : 't-qianbao'}">
             <i class="t3"></i>我的钱包</router-link>
-          <router-link tag="p" :to="{ name : 't-dingdan'}">
-            <i class="t4"></i>我的订单</router-link>
+          <!-- <router-link tag="p" :to="{ name : 't-dingdan'}">
+            <i class="t4"></i>我的订单</router-link> -->
         </div>
       </div>
       <div class="rt">
@@ -54,7 +54,7 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid #fdddbc;
+  border-top: 1px solid $border-rice;
   .active{
     color: $red !important;
   }

@@ -1,7 +1,6 @@
 <template>
   <div class="tax-box">
     <div class="title">
-      <span></span>
       <font>土地增值税</font>
       <a>更多>></a>
     </div>
@@ -14,22 +13,22 @@
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
         </div>
         <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
+          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_12.png"/><span class="new">NEW</span></a></div>
           <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
         </div>
         <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
+          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_14.png"/><span class="new">NEW</span></a></div>
           <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
         </div>
         <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
+          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_23.png"/><span class="new">NEW</span></a></div>
           <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
         </div>
         <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
+          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_25.png"/><span class="new">NEW</span></a></div>
           <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
           <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
         </div>
@@ -58,19 +57,22 @@ export default {
     width: $width;
     margin: auto;
     margin-bottom: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     position: relative;
-    border-bottom: 1px solid $rice;
-    span{
-      padding: 2px 19px;
-      margin-right: 10px;
-      background-image: url('../../assets/images/Sprite.png');
-      background-repeat: no-repeat;
-      background-position: 12px -49px;
-    }
+    border-bottom: 1px solid $red;
+    // span{
+    //   padding: 2px 19px;
+    //   margin-right: 10px;
+    //   background-image: url('../../assets/images/Sprite.png');
+    //   background-repeat: no-repeat;
+    //   background-position: 12px -49px;
+    // }
     font{
       font-size: 18px;
       font-weight: 450;
+      display: inline-block;
+      padding-left:5px;
+      border-left: 2px solid $red;
     }
     a{
       font-size: 14px;
@@ -86,24 +88,22 @@ export default {
     .side-ad{
       width: 259px;
       height: 506px;
-      background-image: url('../../assets/images/九鼎财税01_07.png');
+      background-image: url('../../assets/images/九鼎财税01_077.png');
       background-size: 100% auto;
       background-repeat: no-repeat;
-      margin-right: 20px;
     }
     .video-boxes{
       width: 821px;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      overflow: hidden;
       .video-cover{
         position: relative;
       }
       .item{
         border: 1px solid $red;
-        padding: 5px 10px;
-        margin-bottom: 10px;
+        padding: 5px 10px 24px 10px;
+        margin-bottom: 18px;
+        float: left;
+        margin-left: 27px;
         position: relative;
         .new{
           padding: 2px 4px;
@@ -112,16 +112,15 @@ export default {
           font-size: 10px;
           position: absolute;
           right: 0;
-          bottom: 4px;
+          bottom: 3px;
         }
         .video-title{
           margin:15px 0;
           .free{
-            padding: 2px 5px;
+            padding: 2px 8px;
             background-color: $red;
             color: $white;
             font-size: 12px;
-            border-radius: 5px;
             position: absolute;
             right: 15px;
           }
@@ -134,12 +133,14 @@ export default {
           }
         }
         .play{
-          padding: 14px;
+          display: inline-block;
+          height: 20px;
+          width:20px;
           background-image: url('../../assets/images/Sprite.png');
-          background-position: 0 472px;
+          background-position: -20px -17px;
           position: relative;
-          left: 50px;
-          top: 10px;
+          left: 54px;
+          top: 8px;
         }
       }
     }

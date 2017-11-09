@@ -66,33 +66,35 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .sc {
-  background-color: #fff;
   overflow: hidden;
+  border: 1px solid $border-dark;
   .header {
-    background-color: #Ddd;
+    background-color: $bg-blue;
     border-radius: 3px;
-    color: #fff;
+    color: $white;
     overflow: hidden;
-    border: 1px solid #CBCBCB;
+    border: none;
     .fl {
       float: left;
-      line-height: 46px;
+      line-height: 42px;
       font-size: 16px;
     }
     .kechengxinxi{
       width: 501px;
       text-align: center;
+      color: $white;
     }
     .width-154{
       width: 154px;
       text-align: center;
+      color: $white;
     }
   }
   .container {
     padding: 20px 0;
-    border-bottom: 1px solid #CBCBCB;
+    border-bottom: 1px solid $border-dark;
     &:hover{
-      background-color: #eee;
+      background-color: $bg-nav;
     }
     .item {
       width: 710px;
@@ -122,7 +124,7 @@ export default {
         margin: 15px 0 20px 0;
       }
       p[class="red"] {
-        color: red;
+        color: $red
       }
     }
     .imm-stu {
@@ -135,11 +137,11 @@ export default {
   .page {
     width: 34px;
     height: 34px;
-    color: #fff;
+    color: $white;
     line-height: 34px;
     text-align: center;
     margin: 24px auto;
-    background-color: #999;
+    background-color: $btn-default;
     cursor: pointer;
   }
 }

@@ -4,34 +4,36 @@
     <div class="login-box">
       <div class="content">
         <form class="login-form">
-          <p class="title"><a class="txt-ali-ctr mobile" @click="zhaohui()">手机找回</a><a class="txt-ali-rt email" @click="zhaohui()">邮箱找回</a></p>
-          <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
-          <div class="user">
-            <i class="iblock"></i>
-            <input type="text" name="user" :placeholder=" placeholder " />
+          <div>
+            <p class="title"><a class="txt-ali-ctr mobile" @click="zhaohui()">手机找回</a><a class="txt-ali-rt email" @click="zhaohui()">邮箱找回</a></p>
+            <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
+            <div class="user">
+              <i class="iblock"></i>
+              <input type="text" name="user" :placeholder=" placeholder " />
+            </div>
+            <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
+            <div class="ckcode">
+              <span></span>
+              <input type="text" name="ckcode" placeholder="请输入验证码" />
+              <span class="ck-code"></span>
+            </div>
+            <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
+            <div class="pwd">
+              <span></span>
+              <i class="iblock"></i>
+              <input type="password" name="pwd" placeholder="6~16位密码，包含数字、字母或符号中的两种" />
+            </div>
+            <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
+            <div class="pwd">
+              <span></span>
+              <i class="iblock"></i>
+              <input type="password" name="pwd" placeholder="请输入密码" />
+            </div>
+            <div class="login-btn">
+              <button class="submit" type="submit">重置密码</button>
+            </div>
+            <P class="shensu">如您的检验方式都已无法使用，请<a>点此申诉</a>,成功后<br>可更换</P>
           </div>
-          <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
-          <div class="ckcode">
-            <span></span>
-            <input type="text" name="ckcode" placeholder="请输入验证码" />
-            <span class="ck-code"></span>
-          </div>
-          <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
-          <div class="pwd">
-            <span></span>
-            <i class="iblock"></i>
-            <input type="password" name="pwd" placeholder="6~16位密码，包含数字、字母或符号中的两种" />
-          </div>
-          <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
-          <div class="pwd">
-            <span></span>
-            <i class="iblock"></i>
-            <input type="password" name="pwd" placeholder="请输入密码" />
-          </div>
-          <div class="login-btn">
-            <button class="submit" type="submit">重置密码</button>
-          </div>
-          <P class="shensu">如您的检验方式都已无法使用，请<a>点此申诉</a>,成功后<br>可更换</P>
         </form>
       </div>
     </div>
@@ -39,46 +41,52 @@
   </div>
 </template>
 <script>
-import JoinHeader from './JoinHeader'
-import JoinFooter from './JoinFooter'
+import JoinHeader from "./JoinHeader";
+import JoinFooter from "./JoinFooter";
 
 export default {
-  name: 'getpwd',
+  name: "getpwd",
   data() {
     return {
-      error:'',
-      placeholder: '请输入手机号'
-    }
+      error: "",
+      placeholder: "请输入手机号"
+    };
   },
-  methods:{
-    zhaohui:function(){
+  methods: {
+    zhaohui: function() {
       // document.getElementsByClassName('mail')[0].className = 'mobile'
       // var mobile = document.getElementsByClassName('mobile')[0].className=
       // 改变类，包含text-align，borde-bottom
-      event.currentTarget.text === '手机找回'?(this.placeholder = '请输入手机号',this.rt()):(this.placeholder = '请输入邮箱',this.lf())
+      event.currentTarget.text === "手机找回"
+        ? ((this.placeholder = "请输入手机号"), this.rt())
+        : ((this.placeholder = "请输入邮箱"), this.lf());
     },
-    rt:()=>{
-      if(document.getElementsByClassName('mobile')){
-        document.getElementsByClassName('mobile')[0].className = 'mobile txt-ali-ctr'
-        document.getElementsByClassName('email')[0].className = 'email txt-ali-rt'
+    rt: () => {
+      if (document.getElementsByClassName("mobile")) {
+        document.getElementsByClassName("mobile")[0].className =
+          "mobile txt-ali-ctr";
+        document.getElementsByClassName("email")[0].className =
+          "email txt-ali-rt";
       }
     },
-    lf:()=>{
-      if(document.getElementsByClassName('mobile')){
-        document.getElementsByClassName('mobile')[0].className = 'mobile txt-ali-lf'
-        document.getElementsByClassName('email')[0].className = 'email txt-ali-ctr'
+    lf: () => {
+      if (document.getElementsByClassName("mobile")) {
+        document.getElementsByClassName("mobile")[0].className =
+          "mobile txt-ali-lf";
+        document.getElementsByClassName("email")[0].className =
+          "email txt-ali-ctr";
       }
     }
   },
-  components:{ JoinHeader,JoinFooter }
-}
+  components: { JoinHeader, JoinFooter }
+};
 </script>
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .login-box {
-  background: url('../../assets/images/登录.png') center center no-repeat;
+  background: url("../../assets/images/登录.png") center center no-repeat;
   background-size: 100% 100%;
-  .content{
+  .content {
     width: $width;
     margin: 0 auto;
     display: flex;
@@ -86,69 +94,70 @@ export default {
     .login-form {
       border-radius: 10px;
       margin: 50px 90px;
-      width: 337px;
-      padding: 35px 0 20px 23px;
+      width: 314px;
+      padding: 25px;
       background-color: $white;
-      .iblock{
+      .iblock {
         display: inline-block;
         height: 18px;
         width: 18px;
-        background-image: url('../../assets/images/Sprite.png');
+        background-image: url("../../assets/images/Sprite.png");
       }
-      .error{
+      .error {
         height: 20px;
-        p{
+        p {
           line-height: 14px;
-          i{
+          i {
             background-position: -55px 0;
           }
-          span{
+          span {
             vertical-align: text-top;
-            color:$red;
+            color: $red;
           }
         }
       }
-      .title{
+      .title {
         padding-bottom: 10px;
-        a{
+        a {
           display: inline-block;
           padding-bottom: 5px;
           cursor: pointer;
         }
-        .txt-ali-lf{
+        .txt-ali-lf {
           text-align: left;
-          border-bottom: 1px solid $rice;
+          border-bottom: 2px solid $border-rice;
           width: 224px;
         }
-        .txt-ali-rt{
+        .txt-ali-rt {
           text-align: right;
-          border-bottom: 1px solid $rice;
+          border-bottom: 2px solid $border-rice;
           width: 224px;
         }
-        .txt-ali-ctr{
+        .txt-ali-ctr {
           text-align: center;
-          border-bottom: 2px solid $green;
+          border-bottom: 2px solid $border-blue;
         }
-        a{
+        a {
           text-align: right;
-          padding:0 10px 5px 10px;
+          padding: 0 10px 5px 10px;
         }
       }
-      .pwd,.user{
+      .pwd,
+      .user {
         position: relative;
-        i{
+        i {
           position: absolute;
           top: 4px;
-          left:4px;
+          left: 4px;
         }
       }
-      .pwd{
-        i{
+      .pwd {
+        i {
           background-position: -29px 237px;
         }
       }
-      .user{
-        i{
+      .user {
+        i {
           background-position: -86px -2px;
         }
       }
@@ -158,10 +167,10 @@ export default {
         font-size: 12px;
         line-height: 1.5;
         border-radius: 3px;
-        border: 1px solid $border;
+        border: 1px solid $border-blue;
         width: 267px;
         margin-bottom: 10px;
-        &:focus{
+        &:focus {
           border-color: $red;
           outline: none;
         }
@@ -170,7 +179,7 @@ export default {
         width: 30%;
         padding: 5px 10px;
       }
-      .login-btn{
+      .login-btn {
         display: flex;
         justify-content: center;
         .submit {
@@ -180,61 +189,65 @@ export default {
           border: none;
           border-radius: 5px;
           color: $black;
-          background-color:#c7daf7;
+          background-color: $btn-default;
+          color: $white;
           cursor: pointer;
+          &:hover{
+            background-color: $btn-default-hover;
+          }
         }
       }
-      .shensu{
+      .shensu {
         font-size: 12px;
         line-height: 24px;
-        a{
-          color:#0d66e7;
+        a {
+          color: $blue;
           cursor: pointer;
         }
       }
-      .remember{
+      .remember {
         display: flex;
         justify-content: space-between;
         padding-right: 28px;
         margin-bottom: 40px;
-        input{
+        input {
           display: none;
         }
-        i{
+        i {
           vertical-align: text-bottom;
         }
-        .unchecked{
+        .unchecked {
           background-position: -58px -22px;
         }
-        .checked{
+        .checked {
           background-position: -58px -41px;
         }
-        a{
+        a {
           color: $red;
         }
       }
       .others {
         width: 314px;
-        margin-top:20px;
+        margin-top: 20px;
         padding: 20px 0 15px 0;
-        border-top: 1px solid $rice;
-        a{
+        border-top: 1px solid $border-rice;
+        a {
           display: inline-block;
           margin: 0 9px;
           width: 33px;
           height: 33px;
-          background-image: url('../../assets/images/Sprite.png');
+          background-image: url("../../assets/images/Sprite.png");
         }
-        .wechat{
+        .wechat {
           background-position: -51px -81px;
         }
-        .weibo{
+        .weibo {
           background-position: -51px -124px;
         }
-        .qq{
+        .qq {
           background-position: -100px -81px;
         }
-        .alipay{
+        .alipay {
           background-position: -100px -122.5px;
         }
       }

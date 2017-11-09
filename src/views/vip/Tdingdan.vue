@@ -92,11 +92,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/style/base.scss';
 .my_order_r {
   height: 900px;
   width: 800px;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: $white;
 }
 
 .my_order_r h2 {
@@ -239,7 +240,7 @@ export default {
   display: inline-block;
   text-align: center;
   line-height: 34px;
-  color: #fff;
+  color: $white;
   font-size: 14px;
   background: #999;
 }

@@ -36,8 +36,8 @@
           <ul>
             <li data-name="fee" @click="getItem(item)" :class="{ 'active':f === item}" v-for="item in fee" :key="item">{{ item }}</li>
             <li class="price-in">
-              <input type="number" /> &nbsp;一&nbsp;
-              <input type="number" />
+              <input type="tel" maxlength="6" placeholder="￥"/> &nbsp;一&nbsp;
+              <input type="tel" maxlength="6" placeholder="￥"/>
             </li>
             <li class="outer-conf">
               <span class="confirm">确定</span>
@@ -103,12 +103,6 @@ export default {
     }
   },
   methods: {
-    // getItem:function(e){
-    //   this.topics.indexOf(e) > -1? this.t = e :
-    //     this.leaders.indexOf(e) > -1? this.l = e :
-    //       this.easy.indexOf(e) > -1? this.es = e :
-    //         this.sorts.indexOf(e) > -1 ? this.s = e : ''
-    // }
     getItem: function(item) {
       let name = event.target.dataset.name
       this[name.slice(0, 1)] = item
@@ -123,16 +117,16 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid #fdddbc;
+  border-top: 2px solid $border-rice;
   div {
-    height: 45px;
-    border-bottom: 1px solid #ddd;
+    height: 34px;
+    border-bottom: 1px solid $border-dark;
     span {
       display: inline-block;
-      background-color: #eaeaea;
+      background-color: $bg-nav;
       width: 106px;
       text-align: center;
-      line-height: 45px;
+      line-height: 34px;
     }
     ul {
       display: inline-block;
@@ -140,6 +134,7 @@ export default {
         margin: 0 8px;
         cursor: pointer;
         font-size: 12px;
+        color: $dark-blue;
         &:hover {
           color: $red;
         }
@@ -157,13 +152,16 @@ export default {
   .outer-conf {
     margin-left: 0px;
     .confirm {
-      height: 22px;
+      height: 20px;
       width: 58px;
-      background-color: #9e9999;
-      color: #fff;
-      line-height: 22px;
+      background-color: $btn-default;
+      color: $white;
+      line-height: 20px;
       text-align: center;
       border-radius: 4px;
+      &:hover{
+        background-color: $btn-default-hover;
+      }
     }
   }
   .cur-posi {
@@ -179,17 +177,19 @@ export default {
     }
   }
   .price-in {
-    color: $red;
+    color: $border-blue;
     input {
       outline: none;
-      border: 1px solid $red;
+      border: 1px solid $border-blue;
       width: 52px;
-      padding: 1px 0px;
       border-radius: 3px;
+    }
+    &:hover{
+      color: $border-blue;
     }
   }
   .sorts {
-    border-bottom: 1px solid $rice;
+    border-bottom: 1px solid $border-orange;
     display: flex;
     justify-content: space-between;
     p{
@@ -212,7 +212,7 @@ export default {
     padding: 4px 0;
     line-height: 20px;
     text-align: center;
-    border: 1px solid $rice;
+    border: 1px solid $border-dark;
     border-right: none;
     margin-right: -4px;
     cursor: pointer;
@@ -223,7 +223,7 @@ export default {
   }
   .next {
     width: 96px;
-    border: 1px solid $rice;
+    border: 1px solid $border-dark;
     color: $red;
   }
   .last {

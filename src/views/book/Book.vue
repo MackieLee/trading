@@ -370,16 +370,16 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid #fdddbc;
+  border-top: 1px solid $border-rice;
   div {
-    height: 45px;
-    border-bottom: 1px solid #ddd;
+    height: 34px;
+    border-bottom: 1px solid $border-dark;
     span {
       display: inline-block;
-      background-color: #eaeaea;
+      background-color: $bg-nav;
       width: 106px;
       text-align: center;
-      line-height: 45px;
+      line-height: 34px;
     }
     ul {
       display: inline-block;
@@ -407,8 +407,8 @@ export default {
     .confirm {
       height: 22px;
       width: 58px;
-      background-color: #9e9999;
-      color: #fff;
+      background-color: $btn-default;
+      color: $white;
       line-height: 22px;
       text-align: center;
       border-radius: 4px;
@@ -427,17 +427,20 @@ export default {
     }
   }
   .price-in {
-    color: $red;
+    color: $blue;
     input {
       outline: none;
-      border: 1px solid $red;
+      border: 1px solid $border-blue;
       width: 52px;
       padding: 1px 0px;
       border-radius: 3px;
     }
+    &:hover{
+      color: $blue;
+    }
   }
   .sorts {
-    border-bottom: 1px solid $rice;
+    border-bottom: 1px solid $red;
     display: flex;
     justify-content: space-between;
     li {
@@ -469,7 +472,7 @@ export default {
     .new {
       padding: 2px 4px;
       background-color: $red;
-      color: #fff;
+      color: $white;
       font-size: 10px;
       position: absolute;
       right: 0;
@@ -490,12 +493,12 @@ export default {
         margin-right: 10px;
       }
       .grey {
-        color: #6F666E;
+        color: $dark;
       }
       .im-buy {
         padding: 8px 12px;
         background-color: $red;
-        color: #fff;
+        color: $white;
         font-size: 10px;
         position: absolute;
         right: 15px;
@@ -510,7 +513,7 @@ export default {
   margin-bottom: 20px;
   padding-bottom: 10px;
   position: relative;
-  border-bottom: 1px solid $rice;
+  border-bottom: 1px solid $border-rice;
   span {
     padding: 0px 19px;
     margin-right: 10px;
@@ -548,7 +551,7 @@ export default {
     justify-content: center;
     span,
     p {
-      color: #fff;
+      color: $white;
       text-align: center;
     }
     span {
@@ -569,7 +572,7 @@ export default {
     padding: 4px 0;
     line-height: 20px;
     text-align: center;
-    border: 1px solid $rice;
+    border: 1px solid $border-rice;
     border-right: none;
     margin-right: -4px;
     cursor: pointer;
@@ -580,7 +583,7 @@ export default {
   }
   .next {
     width: 96px;
-    border: 1px solid $rice;
+    border: 1px solid $border-rice;
     color: $red;
   }
   .last {

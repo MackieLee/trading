@@ -58,27 +58,28 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '../../assets/style/base.scss';
 #divcss5 {
   width: 300px;
   height: 300px;
   padding: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid $dark;
   position: relative;
 }
 
 #divcss5 .small_pic {
   width: 120px;
   height: 90px;
-  background: #eee;
+  background: $dark;
   position: relative;
 }
 
 #divcss5 .float_layer {
   width: 50px;
   height: 50px;
-  border: 1px solid #000;
-  background: #fff;
+  border: 1px solid $black;
+  background: $white;
   opacity: 0.3;
   position: absolute;
   top: 0;
@@ -93,7 +94,7 @@ export default {
   width: 350px;
   height: 350px;
   overflow: hidden;
-  border: 2px solid #CCC;
+  border: 2px solid $dark;
   display: none;
 }
 

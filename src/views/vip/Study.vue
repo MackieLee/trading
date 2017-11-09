@@ -24,9 +24,12 @@
         <img src="../../assets/images/huanyuanzx02.png" />
         <div class="middle">
           <p>税务健康体检服务</p>
-          <font>孙玮老师</font>
+          <font>孙玮</font>
         </div>
-        <span class="sm-btn">马上学习</span>
+        <div class="sm-btn">
+          <span>马上学习</span>
+          <p class="jindu">学习 ：2%</p>
+        </div>
       </div>
       <div class="page">1</div>
     </div>
@@ -43,16 +46,17 @@ export default {
 @import '../../assets/style/base.scss';
 .study {
   .sum_of_class {
-    background-color: #ddd;
-    border: 1px solid #cbcbcb;
-    padding: 15px;
+    background-color: $bg-blue;
+    border: none;
+    padding: 9px;
     font-size: 16px;
     border-radius: 3px;
     text-align: center;
-    color: #333;
+    color: $white;
   }
   .pt-1 {
-    background-color: #fff;
+    border: 1px solid $border-dark;
+    border-radius: 3px;
     .container {
       width: 710px;
       margin: 30px auto;
@@ -86,14 +90,17 @@ export default {
     }
   }
   .pt-2 {
-    background-color: #fff;
     padding: 25px 50px;
+    border: 1px solid $border-dark;
+    margin-top: 30px;
     .container {
       width: 728px;
       display: flex;
+      border-bottom: 1px solid $border-dark;
       img{
         width: 128px;
         height: 82px;
+        margin-bottom: 10px;
       }
       .middle{
         margin: 0 250px 0 25px;
@@ -108,23 +115,27 @@ export default {
       }
       .sm-btn{
         width: 116px;
-        height: 40px;
-        line-height: 40px;
+        height: 30px;
+        line-height: 30px;
         text-align: center;
-        color: #fff;
+        color: $white;
         border-radius: 5px;
-        background-color: #999;
+        background-color: $btn-default;
         margin-top: 20px;
+        .jindu{
+          color: $light-blue;
+          margin-top: 10px;
+        }
       }
     }
     .page{
       width: 34px;
       height: 34px;
-      color: #fff;
+      color: $white;
       line-height: 34px;
       text-align: center;
       margin: 24px auto;
-      background-color: #999;
+      background-color: $btn-default;
     }
   }
 }

@@ -112,7 +112,7 @@ export default {
   width: 100%;
   background-color: #eaeaea;
   color: #333;
-  margin-top: 68px;
+  margin-top: 35px;
   a {
     color: #333;
   }

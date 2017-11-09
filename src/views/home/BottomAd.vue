@@ -1,7 +1,7 @@
 <template>
   <div class="bottom-ad">
     <div class="bottom-warp">
-      <img src="../../assets/images/haibao (2).png"/>
+      <img src="../../assets/images/底部海报.png"/>
     </div>
   </div>
 </template>
@@ -18,14 +18,9 @@ export default {
     overflow: hidden;
     .bottom-warp{
       position: relative;
-      height: 485px;
-      background: url('../../assets/images/haibao (1).png') center center;
-      background-size: 100% 100%;
-      img{
-        position: absolute;
-        top: 30px;
-        right: 475px;
-      }
+      height: 477px;
+      // background: url('../../assets/images/haibao (1).png') center center;
+      // background-size: 100% 100%;
     }
   }
 </style>

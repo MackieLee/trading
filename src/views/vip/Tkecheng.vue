@@ -66,12 +66,12 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .sc {
-  background-color: #fff;
+  background-color: $white;
   overflow: hidden;
   .header {
     background-color: #Ddd;
     border-radius: 3px;
-    color: #fff;
+    color: $white;
     overflow: hidden;
     border: 1px solid #CBCBCB;
     .fl {
@@ -122,7 +122,7 @@ export default {
         margin: 15px 0 20px 0;
       }
       p[class="red"] {
-        color: red;
+        color: $red
       }
     }
     .imm-stu {
@@ -135,7 +135,7 @@ export default {
   .page {
     width: 34px;
     height: 34px;
-    color: #fff;
+    color: $white;
     line-height: 34px;
     text-align: center;
     margin: 24px auto;

@@ -1,28 +1,18 @@
 <template>
   <div class="my_order_r">
     <h2>发票索取</h2>
-    <ul class="ul01" @click="toggle()">
-      <li class="li01">所有订单 </li>
-      <li>待付款1</li>
-      <li> 待发货1</li>
-      <li> 待收货4</li>
-      <li>待评价5</li>
-    </ul>
-    <ul class="ul02">
-      <li>宝贝 </li>
-      <li>单价</li>
-      <li> 数量</li>
-      <li>商品</li>
-      <li>实付款</li>
-      <li>交易状态</li>
-    </ul>
     <div class="22">
       <ul class="ul03">
         <li class="li01">
           <i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选 </li>
-        <li>合并付款</li>
-        <li> 批量确认收货</li>
+        <li>合并发票</li>
         <li>删除订单</li>
+      </ul>
+      <ul class="ul02">
+        <li class="li01">订单详情</li>
+        <li>状态</li>
+        <li>发票类型</li>
+        <li>操作</li>
       </ul>
       <p class="p01">
         <i @click="change()" data-ref='0' :class="{ selected: num1}"></i>2017-08-31订单号: 53196839876687913
@@ -79,55 +69,56 @@
 
 <script>
 export default {
-  name: 'fapiao',
+  name: "fapiao",
   data() {
     return {
       num1: false,
       num2: false,
       num3: false,
       all: false,
-      part: '1'
-    }
+      part: "1"
+    };
   },
   methods: {
     change: function() {
-      let ref = event.target.dataset.ref
-      if (ref === 'all') {
-        if ((this.num1 == this.num2) && (this.num2 == this.num3)) {
-          this.num1 = !this.num1
-          this.num2 = !this.num2
-          this.num3 = !this.num3
-          this.all = !this.all
+      let ref = event.target.dataset.ref;
+      if (ref === "all") {
+        if (this.num1 == this.num2 && this.num2 == this.num3) {
+          this.num1 = !this.num1;
+          this.num2 = !this.num2;
+          this.num3 = !this.num3;
+          this.all = !this.all;
         } else {
-          this.num1 = true
-          this.num2 = true
-          this.num3 = true
-          this.all = true
+          this.num1 = true;
+          this.num2 = true;
+          this.num3 = true;
+          this.all = true;
         }
-      } else if (ref === '0') {
-        this.num1 = !this.num1
-      } else if (ref === '1') {
-        this.num2 = !this.num2
+      } else if (ref === "0") {
+        this.num1 = !this.num1;
+      } else if (ref === "1") {
+        this.num2 = !this.num2;
       } else {
-        this.num3 = !this.num3
+        this.num3 = !this.num3;
       }
     },
     toggle() {
-      document.getElementsByClassName('li01')[0].className = ''
-      let attr = event.target.getAttribute('class')
-      console.log(event.target)
-      console.log(attr)
-      if (attr != 'ul03') {
-        event.target.setAttribute('class', 'li01')
+      document.getElementsByClassName("li01")[0].className = "";
+      let attr = event.target.getAttribute("class");
+      console.log(event.target);
+      console.log(attr);
+      if (attr != "ul03") {
+        event.target.setAttribute("class", "li01");
       }
-      let ref = event.target.dataset.ref
-      this.part = ref
+      let ref = event.target.dataset.ref;
+      this.part = ref;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
+@import "../../assets/style/base.scss";
 .selected {
   background-position: -106px -364px !important;
 }
@@ -137,65 +128,64 @@ i {
   display: inline-block;
   width: 13px;
   height: 13px;
-  border: 1px solid #232323;
-  background: url('../../assets/images/Sprite.png');
+  border: 1px solid $border-dark;
+  background: url("../../assets/images/Sprite.png");
 }
 
 .my_order_r {
   height: 900px;
   width: 800px;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: $white;
 }
 
 .my_order_r h2 {
   widows: 100%;
-  background: #ddd;
-  height: 50px;
+  background: $bg-blue;
+  height:42px;
   font-weight: normal;
-  line-height: 50px;
+  line-height: 42px;
   text-align: center;
   font-size: 16px;
-  border: 1px solid #cbcbcb;
-  color: #333;
+  border: none;
+  color: $white;
 }
 
 .my_order_r .ul01 {
   height: 60px;
   width: 100%;
-  border-bottom: 1px solid #e7151b;
+  border-bottom: 1px solid $red;
 }
 
 .my_order_r .ul01 li {
   width: 128px;
   text-align: center;
   font-size: 18px;
-  color: #333;
+  color: $black;
   float: left;
   padding: 20px 0 15px;
   cursor: pointer;
 }
 
 .my_order_r .ul01 .li01 {
-  color: #e7151b;
+  color: $red;
   border-left: 0 none;
 }
 
 .my_order_r .ul02 {
-  height: 46px;
+  height: 35px;
   width: 100%;
-  background: #ddd;
-  margin-top: 14px;
+  background: $bg-blue;
+  margin: 14px 0 ;
 }
 
 .my_order_r .ul02 li {
-  width: 128px;
+  width: 175px;
   text-align: center;
   font-size: 14px;
-  color: #333;
+  color: $white;
   float: left;
-  height: 46px;
-  line-height: 46px;
+  line-height: 35px;
 }
 
 .my_order_r .ul03,
@@ -210,10 +200,10 @@ i {
   padding: 0 15px;
   border-radius: 3px;
   margin: 0 20px;
-  border: 1px #ddd solid;
+  border: 1px $border-blue solid;
   text-align: center;
   font-size: 14px;
-  color: #333;
+  color: $blue;
   float: left;
   line-height: 35px;
 }
@@ -225,7 +215,7 @@ i {
 }
 
 .my_order_r .ul06 .li03 {
-  color: #e7151b;
+  color: $red;
   border: 0 none;
   padding: 0 0 0 290px;
 }
@@ -236,11 +226,11 @@ i {
 }
 
 .my_order_r .p01 {
-  height: 42px;
   width: 100%;
-  background: #ddd;
-  line-height: 46px;
+  background: $bg-blue;
+  line-height: 35px;
   font-size: 14px;
+  color: $white;
 }
 
 .my_order_r .p01 i {
@@ -256,10 +246,9 @@ i {
 .my_order_r .ul05 {
   height: 100px;
   width: 100%;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $border-dark;
   margin-bottom: 10px;
 }
-
 .my_order_r .ul05 li {
   width: 150px;
   height: 70px;
@@ -267,9 +256,9 @@ i {
   padding-top: 30px;
   text-align: center;
   font-size: 14px;
-  color: #333;
+  color: $black;
   float: left;
-  border-left: 1px solid #ddd;
+  border-left: 1px solid $border-dark;
 }
 
 .my_order_r .ul05 .li01 {
@@ -289,9 +278,9 @@ i {
   display: inline-block;
   text-align: center;
   line-height: 34px;
-  color: #fff;
+  color: $white;
   font-size: 14px;
-  background: #999;
+  background: $btn-default;
   cursor: pointer;
 }
 </style>

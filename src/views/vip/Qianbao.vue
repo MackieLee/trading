@@ -3,8 +3,8 @@
     <div class="div01">
       <p class="p_le">我的可用余额<br>0.00 </p>
       <p class="p_ri">
-        <span>安全中心 保障账号资产安全</span>
-        <button>立即充值</button>
+        <button>充值</button>
+        <button>提现</button>
       </p>
     </div>
     <p class="p02">
@@ -85,12 +85,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/style/base.scss';
 .my_qianb_r {
   height: 900px;
   width: 700px;
   margin: 0 auto;
   padding: 0 50px;
-  background-color: #fff;
+  background-color: $white;
 }
 
 .my_qianb_r .div01 {
@@ -106,27 +107,31 @@ export default {
   height: 110px;
   font-size: 20px;
   color: #333;
+}
+.p_le{
   float: left;
 }
-
-.my_qianb_r .div01 .p_ri {
+.p_ri{
   float: right;
+  margin-right: 200px;
 }
-
-.my_qianb_r .div01 .p_ri span {
-  font-size: 14px;
-}
-
 .my_qianb_r .div01 .p_ri button {
-  width: 150px;
+  width: 100px;
   border-radius: 3px;
-  margin-top: 50px;
+  margin-top: 20px;
   text-align: center;
-  height: 45px;
-  line-height: 45px;
-  color: #fff;
-  font-size: 18px;
-  background: #838383;
+  height: 30px;
+  line-height: 30px;
+  color: $white;
+  font-size: 14px;
+  background: $btn-default;
+  border: none;
+  outline: none;
+  &:hover{
+    background-color: $white;
+    color: $black;
+    border: 1px solid $border-blue;
+  }
 }
 
 .my_qianb_r .div01 .p_le {
@@ -134,14 +139,14 @@ export default {
 }
 
 .my_qianb_r .div01 .li01 {
-  color: #e7151b;
+  color: $red;
   border-left: 0 none;
 }
 
 .my_qianb_r .p02 {
   height: 50px;
   width: 100%;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $border-blue;
 }
 
 .my_qianb_r .p02 span {
@@ -153,8 +158,8 @@ export default {
 }
 
 .my_qianb_r .p02 .cur {
-  border-bottom: 1px solid #e7151b;
-  color: #e7151b;
+  border-bottom: 1px solid $red;
+  color: $red;
 }
 
 .my_qianb_r .div02,
@@ -162,9 +167,9 @@ export default {
   margin-top: 14px;
 }
 .my_qianb_r .p03 {
-  height: 46px;
+  height: 42px;
   width: 100%;
-  background: #ddd;
+  background: $bg-blue;
   margin-bottom: 10px;
 }
 
@@ -173,9 +178,9 @@ export default {
   text-align: center;
   font-size: 14px;
   display: inline-block;
-  color: #333;
-  height: 46px;
-  line-height: 46px;
+  color: $white;
+  height: 42px;
+  line-height: 42px;
 }
 
 .my_qianb_r .p04 {
@@ -207,7 +212,7 @@ export default {
   display: inline-block;
   text-align: center;
   line-height: 34px;
-  color: #fff;
+  color: $white;
   font-size: 14px;
   background: #838383;
 }

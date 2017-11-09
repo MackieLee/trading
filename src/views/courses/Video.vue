@@ -264,7 +264,7 @@ export default {
   width: 90%;
   margin: 0 auto;
   overflow: hidden;
-  border-top: 1px solid $rice;
+  border-top: 1px solid $border-rice;
   padding-top: 20px;
   i {
     display: inline-block;
@@ -304,7 +304,7 @@ export default {
       cursor: pointer;
     }
     .doc-box {
-      // border: 1px solid #F84141;
+      // border: 1px solid $border-red;
       margin-top: 30px;
       padding: 20px 10px;
       .doc-item {
@@ -315,13 +315,14 @@ export default {
           padding: 15px;
           .notes {
             overflow: hidden;
+            margin-top: 25px;
             span {
               float: right;
               width: 80px;
               text-align: center;
               line-height: 25px;
-              background-color: #F84141;
-              color: #fff;
+              background-color: $border-red;
+              color: $white;
               margin-right: 10px;
             }
           }
@@ -331,7 +332,7 @@ export default {
           }
         }
         &:hover {
-          border: 1px dashed #F84141;
+          border: 1px dashed $border-red;
         }
       }
     }
@@ -343,7 +344,7 @@ export default {
     .tab-title-container {
       padding: 24px;
       padding-bottom: 0px;
-      border-bottom: 1px solid #F84141;
+      border-bottom: 1px solid $border-red;
       display: flex;
       justify-content: space-between;
       .tab-title {
@@ -361,8 +362,8 @@ export default {
         li {
           display: list-item !important;
           .numb {
-            color: #fff;
-            background-color: #F38E1A;
+            color: $white;
+            background-color: $orange;
             display: inline-block;
             width: 18px;
             line-height: 18px;
@@ -393,7 +394,7 @@ export default {
         }
         .detail {
           padding: 13px;
-          background-color: #fff;
+          background-color: $white;
           text-indent: 2em;
           .question-detail {
             border-bottom: 1px solid #eee;
@@ -443,8 +444,8 @@ export default {
       }
     }
     .cur {
-      background-color: #F84141;
-      color: #fff;
+      background-color: $border-red;
+      color: $white;
     }
   }
 }

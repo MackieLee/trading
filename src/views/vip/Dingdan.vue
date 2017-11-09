@@ -92,48 +92,48 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/style/base.scss';
 .my_order_r {
   height: 900px;
   width: 800px;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: $white;
 }
 
 .my_order_r h2 {
   widows: 100%;
-  background: #ddd;
-  height: 50px;
+  background: $bg-blue;
+  height: 42px;
   font-weight: normal;
-  line-height: 50px;
+  line-height: 42px;
   text-align: center;
   font-size: 16px;
-  color: #333;
-  border: 1px solid #cbcbcb;
+  color: $white;
 }
 
 .my_order_r .ul01 {
-  height: 60px;
+  height: 42px;
   width: 100%;
-  border-bottom: 1px solid #e7151b;
+  border-bottom: 1px solid $red;
 }
 
 .my_order_r .ul01 li {
   width: 128px;
   text-align: center;
-  font-size: 18px;
-  color: #333;
+  font-size: 16px;
+  color: $black;
   float: left;
-  padding: 20px 0 15px;
+  padding: 10px 0 15px;
   cursor: pointer;
 }
 
 .my_order_r .ul01 .li01 {
-  color: #e7151b;
+  color: $red;
   border-left: 0 none;
 }
 
 .my_order_r .ul02 {
-  height: 46px;
+  height: 35px;
   width: 100%;
   background: #ddd;
   margin-top: 14px;
@@ -145,14 +145,13 @@ export default {
   font-size: 14px;
   color: #333;
   float: left;
-  height: 46px;
-  line-height: 46px;
+  line-height: 35px;
 }
 
 .my_order_r .ul03 {
-  height: 35px;
+  height: 25px;
   width: 100%;
-  margin: 26px 0 20px;
+  margin: 15px 0;
 }
 
 .my_order_r .ul03 li {
@@ -161,10 +160,10 @@ export default {
   margin: 0 20px;
   border: 1px #ddd solid;
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
   color: #333;
   float: left;
-  line-height: 35px;
+  line-height: 25px;
 }
 
 .my_order_r .ul03 .li01 {
@@ -180,13 +179,12 @@ export default {
   background: url('../../assets/images/Sprite.png') -59px -396px;
 }
 /*   */
-
 .my_order_r .p01 {
-  height: 42px;
+  height: 30px;
   width: 100%;
   background: #ddd;
-  line-height: 46px;
-  font-size: 14px;
+  line-height: 30px;
+  font-size: 12px;
 }
 
 .my_order_r .p01 i {
@@ -239,8 +237,8 @@ export default {
   display: inline-block;
   text-align: center;
   line-height: 34px;
-  color: #fff;
+  color: $white;
   font-size: 14px;
-  background: #999;
+  background: $btn-default;
 }
 </style>

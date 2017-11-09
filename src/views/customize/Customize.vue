@@ -148,7 +148,7 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid #fdddbc;
+  border-top: 1px solid $border-rice;
   i {
     display: inline-block;
     width: 22px;
@@ -164,7 +164,7 @@ export default {
     }
   }
   .content {
-    background-color: $white;
+    border: 1px solid $border-orange;
     margin: 18px 0 0 0;
     width: 890px;
     overflow: hidden;
@@ -206,14 +206,14 @@ export default {
         display: flex;
         p{
           font-size: 12px;
-          color:#666;
+          color:$dark;
         }
       }
       .up{
         margin-bottom: 9px;
         span{
           font-size: 12px;
-          color: #666;
+          color: $dark;
           line-height: 35px;
           margin: 0 15px;
         }
@@ -266,7 +266,7 @@ export default {
             line-height: 11px;
             background-color: #F3F3F3;
             text-align: center;
-            color: #666;
+            color: $dark;
             font-size: 14px;
           }
           input{
@@ -280,7 +280,7 @@ export default {
         padding: 10px 0;
         margin: 30px auto 60px auto;
         background-color: $red;
-        color: #fff;
+        color: $white;
         text-align: center;
         font-size: 16px;
         border-radius: 5px;

@@ -14,7 +14,8 @@
           <div class="pwd">
             <span></span>
             <i class="iblock"></i>
-            <input type="password" name="pwd" placeholder="请输入密码" />
+            <input type="password" id="pwd" name="pwd" placeholder="请输入密码" />
+            <i class="cover pos-rt" @mouseenter="discover" @mouseout="cover"></i>
           </div>
           <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
           <div class="ckcode">
@@ -61,6 +62,12 @@ export default {
   methods:{
     toggleChecked:function(){
       this.checked = !this.checked
+    },
+    discover:function(){
+      document.getElementById('pwd').type = 'text'
+    },
+    cover:function(){
+      document.getElementById('pwd').type = 'password'
     }
   },
   components:{ JoinHeader,JoinFooter }
@@ -79,10 +86,10 @@ export default {
     .login-form {
       border-radius: 10px;
       margin: 50px 90px;
-      width: 337px;
-      padding: 35px 0 20px 23px;
+      width: 314px;
+      padding: 25px;
       background-color: $white;
-      .iblock{
+      .iblock,.cover,.discover{
         display: inline-block;
         height: 18px;
         width: 18px;
@@ -110,13 +117,13 @@ export default {
         span{
           width: 90px;
           text-align: center;
-          border-bottom: 2px solid $green;
+          border-bottom: 2px solid $border-blue;
         }
         a{
           width: 204px;
           text-align: right;
           padding-right: 20px;
-          border-bottom: 1px solid $rice;
+          border-bottom: 2px solid $border-rice;
         }
       }
       .pwd,.user{
@@ -124,17 +131,28 @@ export default {
         i{
           position: absolute;
           top: 4px;
-          left:4px;
+        }
+        .cover{
+          background-position:-29px 237px;
+          &:hover{
+            background-position: 0 0;
+          }
+        }
+        .pos-rt{
+          top:6px;
+          right: 30px;
         }
       }
       .pwd{
-        i{
+        i[class="iblock"]{
           background-position: -29px 237px;
+          left:4px;
         }
       }
       .user{
         i{
           background-position: -30px -27px;
+          left:4px;
         }
       }
       input {
@@ -143,7 +161,7 @@ export default {
         font-size: 12px;
         line-height: 1.5;
         border-radius: 3px;
-        border: 1px solid $border;
+        border: 1px solid $border-blue;
         width: 267px;
         margin-bottom: 10px;
         &:focus{
@@ -164,8 +182,11 @@ export default {
           border: none;
           border-radius: 5px;
           color: $white;
-          background-color: $red;
+          background-color: $btn-danger;
           cursor: pointer;
+          &:hover{
+            background-color: $btn-danger-hover;
+          }
         }
       }
       .remember{
@@ -193,7 +214,7 @@ export default {
         width: 314px;
         margin-top:20px;
         padding: 20px 0 15px 0;
-        border-top: 1px solid $rice;
+        border-top: 1px solid $border-rice;
         a{
           display: inline-block;
           margin: 0 9px;

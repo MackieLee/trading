@@ -62,10 +62,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../../assets/style/base.scss';
 .content {
   width: 700px;
   height: 450px;
-  background-color: #fff;
+  background-color: $white;
   margin: auto;
   margin-top: 10%;
   display: flex;
@@ -82,7 +83,7 @@ export default {
     background-image: url('../../assets/images/close.png');
   }
   .ctr {
-    // border: 1px solid red;
+    // border: 1px solid $red
     margin-left: 50px;
     .star{
       margin-bottom: 30px;

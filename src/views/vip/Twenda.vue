@@ -38,7 +38,7 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .qa {
-  background-color: #fff;
+  background-color: $white;
   overflow: hidden;
   i {
     display: inline-block;
@@ -53,7 +53,7 @@ export default {
     font-size: 16px;
     border-radius: 3px;
     text-align: center;
-    color: #fff;
+    color: $white;
   }
   .container {
     width: 728px;
@@ -95,7 +95,7 @@ export default {
   .more {
     width: 124px;
     height: 44px;
-    color: #fff;
+    color: $white;
     line-height: 44px;
     text-align: center;
     margin: 44px;

@@ -85,6 +85,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+@import '../../assets/style/base.scss';
 .date_picker {
   display: flex;
   width: 205px;
@@ -96,7 +97,7 @@ export default {
 
 .date_input_box {
   width: 180px;
-  background: #fff;
+  background: $white;
   span {
     display: inline-block;
     float: right;

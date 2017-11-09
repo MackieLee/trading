@@ -131,7 +131,7 @@ export default {
     font-size: 12px;
     line-height: 1.5;
     border-radius: 3px;
-    border: 1px solid $border;
+    border: 1px solid $border-blue;
     width: 267px;
     margin-bottom: 7px;
     &:focus{
@@ -142,19 +142,6 @@ export default {
   .ckcode input {
     width: 30%;
     margin-right: 12px;
-  }
-  .login-btn{
-    display: flex;
-    justify-content: center;
-    .submit {
-      width: 160px;
-      padding: 5px;
-      border: none;
-      border-radius: 5px;
-      color: $white;
-      background-color: $red;
-      cursor: pointer;
-    }
   }
   .read{
     display: flex;
@@ -183,8 +170,11 @@ export default {
       border: none;
       border-radius: 5px;
       color: $white;
-      background-color: $red;
+      background-color: $btn-danger;
       cursor: pointer;
+      &:hover{
+        background-color: $btn-danger-hover;
+      }
     }
   }
 </style>

@@ -51,23 +51,23 @@
   </div>
 </template>
 <script>
-import magnifier from './Magnifier'
+import magnifier from "./Magnifier";
 export default {
-  components:{ magnifier },
-  data(){
-    return{
-      part:'1'
-    }
+  components: { magnifier },
+  data() {
+    return {
+      part: "1"
+    };
   },
-  methods:{
-    toggle(){
-      document.getElementsByClassName('cur')[0].className = ''
-      event.target.setAttribute('class','cur')
-      let ref = event.target.dataset.ref
-      this.part = ref
+  methods: {
+    toggle() {
+      document.getElementsByClassName("cur")[0].className = "";
+      event.target.setAttribute("class", "cur");
+      let ref = event.target.dataset.ref;
+      this.part = ref;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -76,7 +76,7 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  border-top: 1px solid #fdddbc;
+  border-top: 1px solid $border-rice;
   i {
     display: inline-block;
     width: 22px;
@@ -110,24 +110,24 @@ export default {
         padding-bottom: 18px;
         font-size: 16px;
         font-weight: bold;
-        border-bottom: 1px solid $rice;
+        border-bottom: 1px solid $border-rice;
       }
       .price {
         height: 56px;
-        background-color: #ddd;
+        background-color: $bg-nav;
         line-height: 56px;
         font-size: 22px;
-        color: red;
+        color: $red;
         padding-left: 20px;
         margin: 10px 0 25px 0;
         del {
           font-size: 16px;
-          color: #666;
+          color: $dark;
           margin-left: 5px;
         }
-         span {
+        span {
           font-size: 16px;
-          color: #666;
+          color: $dark;
           margin-left: 5px;
         }
       }
@@ -144,16 +144,16 @@ export default {
         margin-right: 10px;
       }
       i {
-      background-position: -88px -170px;
-      margin-right: 6px;
-      position: relative;
-      top: 2px;
-    }
+        background-position: -88px -170px;
+        margin-right: 6px;
+        position: relative;
+        top: 2px;
+      }
     }
   }
   .comment {
     p {
-      border-bottom: 1px solid $rice;
+      border-bottom: 1px solid $red;
       overflow: hidden;
       span {
         float: left;
@@ -169,8 +169,10 @@ export default {
     .content {
       text-indent: 32px;
       line-height: 35px;
-      font-size: 16px;
-      padding: 30px 10px;
+      font-size: 14px;
+      padding: 15px 10px 20px;
+      border: 1px solid $border-rice;
+      margin-top: 15px;
     }
   }
 }

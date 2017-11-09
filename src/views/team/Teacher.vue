@@ -78,7 +78,7 @@ export default {
     width: $width;
     margin: 0 auto;
     padding-top: 20px;
-    border-top: 1px solid #fdddbc;
+    border-top: 2px solid $border-rice;
     i{
       display: inline-block;
       width: 22px;
@@ -95,11 +95,11 @@ export default {
     .item{
       width: $width;
       display: flex;
-      background-color: #ebebeb;
+      background-color:$bg-light-dark;
       margin: 26px 0 38px 0;
-      border: 1px solid transparent;
+      border: 1px solid $border-rice;
       &:hover{
-        border: 1px dashed #FE7F04;
+        background-color: #fff;
       }
       .hd-pic{
         margin: 15px 38px 15px 15px;
@@ -108,7 +108,7 @@ export default {
         margin-top: 29px;
         width: 750px;
         p[class="name"]{
-          font-size: $lgtitle;
+          font-size: $lg-title;
           margin-bottom:32px;
         }
         p{
