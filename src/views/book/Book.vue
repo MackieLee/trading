@@ -317,55 +317,56 @@
       </div>
     </div>
     <div class="pgs">
-      <router-link tag="li" to="/home" class="prev">上一页&gt;</router-link>
-      <router-link tag="li" to="/home" :class="{ 'current ': current === 1}">1</router-link>
-      <router-link tag="li" to="/home">2</router-link>
-      <router-link tag="li" to="/home">3</router-link>
-      <router-link tag="li" to="/home">4</router-link>
-      <router-link tag="li" to="/">...</router-link>
-      <router-link tag="li" to="/home" class="last">末尾</router-link>
-      <router-link tag="li" to="/home" class="next">下一页&gt;</router-link>
+      <li class="prev">&lt;上一页</li>
+      <li class="current ">1</li>
+      <li class="custom">2</li>
+      <li class="custom">3</li>
+      <li class="custom">4</li>
+      <li class="points">...</li>
+      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
+      <li class="submit">确定</li>
+      <li class="next">下一页&gt;</li>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'book',
+  name: "book",
   data() {
     return {
-      publish: ['全部', '中国市场出版社', '中国税务出版社', '中国财政经济出版社', '机械工业出版社'],
-      topics: ['全部', '土增税', '增值税'],
-      leaders: ['全部', '平装', '精装', '简装'],
-      easy: ['全部', '会计专员', '财务经理', '总监'],
-      fee: ['全部'],
-      sorts: ['综合', '最新', '最热', '好评', '免费'],
+      publish: ["全部", "中国市场出版社", "中国税务出版社", "中国财政经济出版社", "机械工业出版社"],
+      topics: ["全部", "土增税", "增值税"],
+      leaders: ["全部", "平装", "精装", "简装"],
+      easy: ["全部", "会计专员", "财务经理", "总监"],
+      fee: ["全部"],
+      sorts: ["综合", "最新", "最热", "好评", "免费"],
       current: 1,
-      p: '',
-      t: '',
-      l: '',
-      e: '',
-      f: '',
-      s: ''
-    }
+      p: "",
+      t: "",
+      l: "",
+      e: "",
+      f: "",
+      s: ""
+    };
   },
   methods: {
     getItem: function(item) {
-      let name = event.target.dataset.name
-      this[name.slice(0, 1)] = item
+      let name = event.target.dataset.name;
+      this[name.slice(0, 1)] = item;
     },
     modalBlock(e) {
-      e.target.firstChild.style.display = 'none'
+      e.target.firstChild.style.display = "none";
     },
     modalHide(e) {
-      e.target.firstChild.style.display = 'flex'
+      e.target.firstChild.style.display = "flex";
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .container {
   width: $width;
   margin: 0 auto;
@@ -420,7 +421,7 @@ export default {
       display: inline-block;
       width: 22px;
       height: 22px;
-      background-image: url('../../assets/images/Sprite.png');
+      background-image: url("../../assets/images/Sprite.png");
       background-position: -18px -106px;
       vertical-align: text-bottom;
       margin-right: 6px;
@@ -435,7 +436,7 @@ export default {
       padding: 1px 0px;
       border-radius: 3px;
     }
-    &:hover{
+    &:hover {
       color: $blue;
     }
   }
@@ -517,7 +518,7 @@ export default {
   span {
     padding: 4px 19px;
     margin-right: 10px;
-    background-image: url('../../assets/images/Sprite.png');
+    background-image: url("../../assets/images/Sprite.png");
     background-position: -5px -253px;
   }
   font {
@@ -563,34 +564,48 @@ export default {
     }
   }
 }
-
 .pgs {
-  width: 415px;
-  margin: 150px auto 170px auto;
+  width: 525px;
+  margin: 60px auto;
   li {
     width: 33px;
     padding: 4px 0;
     line-height: 20px;
     text-align: center;
-    border: 1px solid $border-rice;
-    border-right: none;
-    margin-right: -4px;
+    margin-right: 2px;
     cursor: pointer;
+    border: 1px solid $border-dark;
+    color: $black;
   }
   .prev {
-    width: 97px;
-    color: $red;
+    width: 73px;
+    color: $blue;
   }
   .next {
     width: 96px;
-    border: 1px solid $border-rice;
-    color: $red;
+    color: $blue;
   }
-  .last {
-    width: 50px;
+  .points {
+    border: none;
+  }
+  .submit {
+    background-color: $btn-default;
+    color: $white;
+    width: 44px;
+    border: none;
+  }
+  .jump {
+    width: 80px;
+    border: 1px solid $border-dark;
+    color: #333;
+    input {
+      width: 30px;
+      border: 1px solid $border-dark;
+      outline: none;
+    }
   }
   .current {
-    background-color: $red;
+    background-color: $btn-default;
     color: $white;
   }
 }

@@ -170,7 +170,6 @@ export default {
         cursor: pointer;
       }
       .active {
-        border-bottom: 2px solid $red;
         color: $red;
       }
       .no-active {

@@ -15,7 +15,7 @@
         <tbody>
           <tr>
             <td class="xuhao ctr">序号</td>
-            <td class="biaoti">标题</td>
+            <td class="biaoti" style="text-align:center;">标题</td>
             <td class="fahao ctr">文号发文</td>
             <td class="riqi ctr">日期</td>
           </tr>
@@ -198,6 +198,11 @@ export default {
     vertical-align: text-bottom;
     background-position: 0px 30px;
     margin-right: 11px;
+  }
+  .jingxuan{
+    width: 60px;
+    height: 22px;
+    background-position: 177px -12px;
   }
   .cur-posi {
     border-bottom: none;

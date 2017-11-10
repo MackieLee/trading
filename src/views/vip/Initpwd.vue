@@ -1,5 +1,5 @@
 <template>
-  <div class="init-data">
+  <div class="init-pwd">
     <div class="container">
       <p class="title">为了保证您的账号安全，修改密码前请先进行安全验证:</p>
       <label>验证方式</label><select><option>手机号码 173****9220</option><option>手机号码 156****0227</option></select><br>
@@ -23,8 +23,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
-  .init-data{
+  .init-pwd{
     border: 1px solid $border-dark;
+    margin-bottom: 100px;
     .container{
       width: 390px;
       margin: 57px auto;

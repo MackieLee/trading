@@ -107,6 +107,7 @@ export default {
   .bind{
     border: 1px solid $border-dark;
     padding: 30px;
+    margin-bottom: 100px;
     input[type="button"]{
       width: 100px;
       height: 34px;

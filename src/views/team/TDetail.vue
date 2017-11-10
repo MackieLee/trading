@@ -65,9 +65,6 @@ export default {
     margin: 0 auto;
     padding-top: 20px;
     // border-top: 1px solid $border-rice;
-    .sec-p{
-      margin-top: 21px;
-    }
     i{
       display: inline-block;
       width: 22px;
@@ -82,14 +79,14 @@ export default {
       }
     }
     .detail{
-      margin: 26px 90px 90px 100px;
+      margin: 26px 90px 45px 0;
       h1{
-        font-size: 24px;
-        margin-bottom: 38px;
+        font-size: 18px;
+        margin-bottom: 8px;
       }
       p{
-        font-size: 16px;
-        line-height: 40px;
+        font-size: 14px;
+        line-height: 35px;
         text-indent: 32px;;
       }
       img{
@@ -100,7 +97,6 @@ export default {
       }
     }
     .book-box{
-      margin-bottom: 170px;
       .title{
         width: $width;
         margin: auto;

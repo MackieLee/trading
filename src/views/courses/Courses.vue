@@ -55,15 +55,17 @@
       </div>
     </div>
     <router-view></router-view>
+    <!-- 触发子组件的数据刷新，传递页码给子组件 -->
     <div class="pgs">
-      <router-link tag="li" to="/home" class="prev">上一页&gt;</router-link>
-      <router-link tag="li" to="/home" :class="{ 'current ': current === 1}">1</router-link>
-      <router-link tag="li" to="/home">2</router-link>
-      <router-link tag="li" to="/home">3</router-link>
-      <router-link tag="li" to="/home">4</router-link>
-      <router-link tag="li" to="/">...</router-link>
-      <router-link tag="li" to="/home" class="last">末尾</router-link>
-      <router-link tag="li" to="/home" class="next">下一页&gt;</router-link>
+      <li class="prev">&lt;上一页</li>
+      <li class="current ">1</li>
+      <li class="custom">2</li>
+      <li class="custom">3</li>
+      <li class="custom">4</li>
+      <li class="points">...</li>
+      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
+      <li class="submit">确定</li>
+      <li class="next">下一页&gt;</li>
     </div>
   </div>
 </template>
@@ -203,35 +205,49 @@ export default {
     color: $red;
   }
 }
-
 .pgs {
-  width: 415px;
-  margin: 70px auto 70px auto;
-  li {
-    width: 33px;
-    padding: 4px 0;
-    line-height: 20px;
-    text-align: center;
-    border: 1px solid $border-dark;
-    border-right: none;
-    margin-right: -4px;
-    cursor: pointer;
+    width: 525px;
+    margin: 60px auto;
+    li {
+      width: 33px;
+      padding: 4px 0;
+      line-height: 20px;
+      text-align: center;
+      margin-right: 2px;
+      cursor: pointer;
+      border: 1px solid $border-dark;
+      color: $black;
+    }
+    .prev {
+      width: 73px;
+      color: $blue;
+    }
+    .next {
+      width: 96px;
+      color: $blue;
+    }
+    .points {
+      border: none;
+    }
+    .submit {
+      background-color: $btn-default;
+      color: $white;
+      width: 44px;
+      border: none;
+    }
+    .jump {
+      width: 80px;
+      border: 1px solid $border-dark;
+      color: #333;
+      input {
+        width: 30px;
+        border: 1px solid $border-dark;
+        outline: none;
+      }
+    }
+    .current {
+      background-color: $btn-default;
+      color: $white;
+    }
   }
-  .prev {
-    width: 97px;
-    color: $red;
-  }
-  .next {
-    width: 96px;
-    border: 1px solid $border-dark;
-    color: $red;
-  }
-  .last {
-    width: 50px;
-  }
-  .current {
-    background-color: $red;
-    color: $white;
-  }
-}
 </style>

@@ -124,9 +124,9 @@ export default {
   float: left;
 }
 .init-data {
-  background-color: $white;
   overflow: hidden;
   padding: 40px;
+  border: 1px solid $border-dark;
   .info-data{
     .item{
       margin-bottom: 40px;

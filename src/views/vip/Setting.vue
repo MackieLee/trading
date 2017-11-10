@@ -1,5 +1,5 @@
 <template>
-  <div class="vip">
+  <div class="setting">
     <div class="cur-posi">
       <p>
         <i></i>当前位置 : &nbsp;
@@ -9,9 +9,9 @@
     <div class="container">
       <div class="lf">
         <div class="nav">
-          <p @click="toggle('initdata')">个人资料</p>
-          <p @click="toggle('initpwd')">账号安全</p>
-          <p @click="toggle('bind')">账号绑定</p>
+          <p @click="toggle('initdata')" :class="{ 'active': curItem == 'initdata'}">个人资料</p>
+          <p @click="toggle('initpwd')" :class="{ 'active': curItem == 'initpwd'}">账号安全</p>
+          <p @click="toggle('bind')" :class="{ 'active': curItem == 'bind'}">账号绑定</p>
         </div>
       </div>
       <div class="rt">
@@ -47,12 +47,12 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
-.vip {
+.setting {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
   border-top: 1px solid $border-rice;
-  .active {
+  .active{
     color: $red !important;
   }
   i {

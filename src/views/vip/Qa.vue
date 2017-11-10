@@ -39,6 +39,7 @@ export default {
     height: 24px;
     width: 30px;
     background-image: url('../../assets/images/Sprite.png');
+    vertical-align: text-bottom;
   }
   .sum_of_class {
     background-color: $bg-blue;
@@ -54,11 +55,12 @@ export default {
     margin: 47px auto 12px auto;
     i{
       background-position: -98px -100px;
+      margin-right: 15px;
     }
     .item{
       margin-bottom: 50px;
       .title{
-        font-size: 18px;
+        font-size: 16px;
       }
       .ansr{
         border: 1px solid $border-blue;
@@ -67,9 +69,12 @@ export default {
         overflow: hidden;
         .rd{
           color:$red;
+          float: left;
         }
         .content{
           text-indent: 32px;
+          float: left;
+          width: 670px;
         }
         .more-sm{
           width: 94px;

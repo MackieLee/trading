@@ -222,7 +222,7 @@ i {
 
 .my_order_r .ul03 .li01 i,
 .my_order_r .ul06 .li01 i {
-  background-position: -59px -396px;
+  background-position: 0 0;
 }
 
 .my_order_r .p01 {

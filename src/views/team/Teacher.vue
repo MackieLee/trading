@@ -118,6 +118,9 @@ export default {
           i{
             background-position: -56px -56px;
           }
+          span{
+            color: $red;
+          }
         }
       }
     }

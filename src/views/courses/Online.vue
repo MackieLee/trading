@@ -1,37 +1,47 @@
 <template>
   <div class="online">
-      <div class="video-boxes">
-        <div class="item">
-          <div><router-link :to="{ name:'video'}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
-          <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-          <i></i><p class="buss-info"><span class="person-current"><i></i><font>1500</font>人</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-        </div>
-        <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_12.png"/><span class="new">NEW</span></a></div>
-          <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-          <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-        </div>
-        <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_14.png"/><span class="new">NEW</span></a></div>
-          <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-          <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-        </div>
-        <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_23.png"/><span class="new">NEW</span></a></div>
-          <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-          <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-        </div>
-        <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_25.png"/><span class="new">NEW</span></a></div>
-          <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-          <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-        </div>
-        <div class="item">
-          <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
-          <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-          <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-        </div>
+    <div class="video-boxes">
+      <div class="item">
+        <div><router-link :to="{ name:'video'}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
+        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
+        <i></i><p class="buss-info"><span class="person-current"><i></i><font>1500</font>人</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
       </div>
+      <div class="item">
+        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_12.png"/><span class="new">NEW</span></a></div>
+        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
+        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
+      </div>
+      <div class="item">
+        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_14.png"/><span class="new">NEW</span></a></div>
+        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
+        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
+      </div>
+      <div class="item">
+        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_23.png"/><span class="new">NEW</span></a></div>
+        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
+        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
+      </div>
+      <div class="item">
+        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_25.png"/><span class="new">NEW</span></a></div>
+        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
+        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
+      </div>
+      <div class="item">
+        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
+        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
+        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
+      </div>
+      <div class="item">
+        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_25.png"/><span class="new">NEW</span></a></div>
+        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
+        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
+      </div>
+      <div class="item">
+        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
+        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
+        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -74,7 +84,6 @@ export default {
           background-color: $red;
           color: $white;
           font-size: 12px;
-          border-radius: 5px;
           position: absolute;
           right: 15px;
         }

@@ -1,142 +1,87 @@
 <template>
-  <div class="slider" @mouseover="onmouseover" @mouseleave="onmouseleave">
-    <transition-group class="wrapper" tag="ul" :name="transName">
-      <li v-for="(img, index) in imgs" :key="img" v-if="index===cur" ref="container">
-        <router-link :to="{ name : 'home' }"><img width="" :src="img" alt="" ref="img"></router-link>
-      </li>
-    </transition-group>
-    <div class="arrow"></div>
-    <ul class="dots">
-      <li
-        v-for="(img, index) in imgs"
-        :key="img"
-        :class="['dot', index===cur?'active':'']"
-        @click="clickDot(index)"></li>
-    </ul>
-  </div>
-</template>
+  <div class="vue-slider">
+    <slider
+    :pagination-visible="true"
+    :slides="slides"
+    :repeating="true"
+    :auto="5000"
+    @slide-change-start="onSlideChangeStart"
+    @slide-change-end="onSlideChangeEnd"
+    @slide-revert-start="onSlideRevertStart"
+    @slide-revert-end="onSlideRevertEnd"
+    @slider-move="onSliderMove">
 
+    <div v-for="(slide,index) in slides" :key="index">
+      <a :href="slide.value">
+        <img width="100%" height="100%" :src="slide.image" />
+      </a>
+    </div>
+  </slider>
+</div>
+</template>
 <script>
-import img1 from "../../assets/images/banner1.png";
-import img2 from "../../assets/images/banner2.png";
-import img3 from "../../assets/images/banner3.png";
-import img4 from "../../assets/images/banner4.png";
-const TO_LEFT = "slide-left";
-const TO_RIGHT = "slide-right";
-export default {
-  name: "slider",
-  data() {
-    return {
-      transName: TO_LEFT,
-      imgs: [img1, img2, img3, img4],
-      cur: 0,
-      timer: null
-    };
-  },
-  mounted() {
-    this.start();
-  },
-  computed: {},
-  methods: {
-    start() {
-      if (!this.timer) {
-        this.transName = TO_LEFT;
-        this.timer = setInterval(() => {
-          this.cur++;
-          this.cur %= 4;
-        }, 5000);
+  import slider from './vue-slider'
+  import img1 from '../../assets/images/banner1.png'
+  import img2 from '../../assets/images/banner2.png'
+  import img3 from '../../assets/images/banner3.png'
+  import img4 from '../../assets/images/banner4.png'
+  export default {
+    components: {
+      slider
+    },
+    data(){
+      return {
+        slides: [{
+          "title": "",
+          "value": "",
+          "image": img1
+        },
+        {
+          "title": "",
+          "value": "",
+          "image": img2
+        },
+        {
+          "title": "",
+          "value": "#",
+          "image": img3
+        },
+        {
+          "title": "",
+          "value": "#",
+          "image": img4
+        }]
       }
     },
-    stop() {
-      if (this.timer) {
-        clearInterval(this.timer);
-        this.timer = null;
-      }
-    },
-    onmouseover() {
-      this.stop();
-    },
-    onmouseleave() {
-      this.start();
-    },
-    clickDot(index) {
-      const lis = this.$refs.container;
-      for (let i = 0; i < lis.length; i++) {
-        if (lis[i].classList.length !== 0) {
-          return;
-        }
-      }
-      if (index > this.cur) {
-        this.transName = TO_LEFT;
-        this.cur = index;
-      } else if (index < this.cur) {
-        this.transName = TO_RIGHT;
-        this.cur = index;
+    methods: {
+      onSlideChangeStart: function (currentPage) {
+        // console.log('onSlideChangeStart', currentPage);
+      },
+      onSlideChangeEnd: function (currentPage) {
+        // console.log('onSlideChangeEnd', currentPage);
+      },
+      onSlideRevertStart: function (currentPage) {
+        // console.log('onSlideRevertStart', currentPage);
+      },
+      onSlideRevertEnd: function (currentPage) {
+        // console.log('onSlideRevertEnd', currentPage);
+      },
+      onSliderMove: function (offset) {
+        // console.log('onSliderMove', offset);
+      },
+      prev: function () {
+        // console.log('prev click');
+        window.t=this;
+        this.$refs.test_prev_next.prev();
+      },
+      next: function () {
+        console.log('next click');
+        window.t=this;
+        this.$refs.test_prev_next.next();
       }
     }
   }
-};
 </script>
 
-<style lang="scss" scoped>
-@import "../../assets/style/base.scss";
-$width: 100%;
-.slider {
-  width: 100%;
-  // overflow: hidden;
-  position: relative;
-  .wrapper {
-    display: flex;
-    a {
-      overflow: hidden;
-      display: inline-block;
-      img {
-        width: 100%;
-      }
-    }
-  }
-  .dots {
-    position: absolute;
-    border-radius: 5px;
-    left: 50%;
-    bottom: 24px;
-    transform: translateX(-50%);
-    .dot {
-      display: inline-block;
-      width: 30px;
-      height: 5px;
-      border-radius: 5%;
-      background-color: #fff;
-      margin: 5px 6px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      &.active {
-        background: $red;
-      }
-    }
-  }
-  .slide-left-enter-to {
-    transform: translateX(-$width);
-  }
-  .slide-left-enter-active,
-  .slide-left-leave-active {
-    transition: transform 1s ease-in-out;
-  }
-  .slide-left-leave-to {
-    transform: translateX(-$width);
-  }
-  .slide-right-enter {
-    transform: translateX(-2*$width);
-  }
-  .slide-right-enter-to {
-    transform: translateX(-$width);
-  }
-  .slide-right-enter-active,
-  .slide-right-leave-active {
-    transition: transform 1s ease-in-out;
-  }
-  .slide-right-leave-to {
-    transform: translateX($width);
-  }
-}
+<style>
 </style>
