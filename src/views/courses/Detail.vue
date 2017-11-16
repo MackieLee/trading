@@ -10,16 +10,16 @@
       <img src="../../assets/images/jitax_线下课程_xq01.png" height="300">
       <div class="xq01_r">
         <h2>【自营】土地增值税实战与案例精解</h2>
-        <P>课程状态 ： 正在报名
-          <span></span>出 版 社：中国市场出版社</P>
-        <P>所属类别：公开课
-          <strong></strong> 出版时间：2017年12月</P>
-        <P>适合人群：备考CPA审计的学员看官方教材云里雾里的学员</P>
+        <P class="share-in">课程状态：正在报名
+          <span></span>所属类别：公开课<span></span><a @click="share"><i></i>分享</a><div class="share-box" v-show="showShare"><i class="arrow"></i><i class="weibo"></i><i class="wechat"></i><i class="qq"></i></div></P>
+        <P>举办时间：2017年-11月17日 08:30-17:00</P>
+        <P>举办地点：北京，北京工人体育馆</P>
+        <p>参会价格：2800元/人 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIP会员参会价格请参考<a style="color:red;cursor:pointer;">会员权益</a></p>
         <ul>
-          <li>
+          <!-- <li>
             <b>￥</b>51.00
             <del>￥62.56</del>
-          </li>
+          </li> -->
           <li>
             <A>
               <i></i>加入收藏</A>
@@ -61,13 +61,22 @@
 
 <script>
 export default {
-  name: 'odetail',
-
-}
+  name: "odetail",
+  data(){
+    return{
+      showShare:false
+    }
+  },
+  methods:{
+    share:function(){
+      this.showShare = !this.showShare
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 * {
   list-style: none;
   margin: 0;
@@ -79,7 +88,7 @@ i {
   display: inline-block;
   width: 26px;
   height: 25px;
-  background-image: url('../../assets/images/Sprite.png');
+  background-image: url("../../assets/images/Sprite.png");
 }
 
 .cur-posi {
@@ -90,7 +99,48 @@ i {
     margin-right: 6px;
   }
 }
-
+.share-in{
+  position: relative;
+  .share-box{
+    position: absolute;
+    bottom:-20px;
+    right:0;
+    width: 108px;
+    height: 40px;
+    background-color: #989898;
+    border-radius: 3px;
+    cursor: pointer;
+    .arrow{
+      width: 15px;
+      height: 13px;
+      position: absolute;
+      top:-14.5px;
+      left:37%;
+      background-position: -105px -130px;
+    }
+    i{
+      margin: 5px 5px;
+    }
+    .weibo{
+      background-position: -339px -13px;
+      &:hover{
+        background-position: -184px -88px;
+      }
+    }
+    .wechat{
+      background-position:  -339px -46px;
+      &:hover{
+        background-position: -184px -120px;
+      }
+    }
+    .qq{
+      background-position:  -339px -83px;
+      &:hover{
+        background-position: -182px -46px;
+      }
+    }
+  }
+}
 #xxkc_xq {
   height: auto;
   width: 1090px;
@@ -101,9 +151,8 @@ i {
   // border-top: 1px solid $border-rice;
   padding-top: 20px;
 }
-
 #xxkc_xq01 {
-  width: 94%;
+  width: 88%;
   height: 356px;
 }
 
@@ -117,18 +166,35 @@ i {
 }
 
 #xxkc_xq01 .xq01_r h2 {
-  font-size: 16px;
+  font-size: 18px;
   padding-bottom: 45px;
 }
 
 #xxkc_xq01 .xq01_r p {
   padding-bottom: 26px;
+  font-size: 14px;
 }
 
-#xxkc_xq01 .xq01_r p span {
-  width: 100px;
-  height: 20px;
-  display: inline-block;
+#xxkc_xq01 .xq01_r p {
+  span {
+    width: 15px;
+    height: 20px;
+    display: inline-block;
+  }
+  a{
+    color: $dark;
+    cursor: pointer;
+    &:hover{
+      color: $red;
+    }
+    i{
+      background-position: -385px -6px;
+      vertical-align: text-bottom;
+      &:hover{
+        background-position: -385px -42px;
+      }
+    }
+  }
 }
 
 #xxkc_xq01 .xq01_r p strong {
@@ -138,7 +204,6 @@ i {
 }
 
 #xxkc_xq01 .xq01_r ul {
-  padding-top: 46px;
   height: auto;
   width: 100%;
   overflow: hidden;
@@ -174,7 +239,7 @@ i {
   line-height: 34px;
   cursor: pointer;
   i {
-    background-position: 209px -196px;
+    background-position: -185px -195px;
     position: relative;
     top: 7px;
   }

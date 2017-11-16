@@ -1,45 +1,11 @@
 <template>
   <div class="online">
     <div class="video-boxes">
-      <div class="item">
-        <div><router-link :to="{ name:'video'}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
-        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-        <i></i><p class="buss-info"><span class="person-current"><i></i><font>1500</font>人</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-      </div>
-      <div class="item">
-        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_12.png"/><span class="new">NEW</span></a></div>
-        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-      </div>
-      <div class="item">
-        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_14.png"/><span class="new">NEW</span></a></div>
-        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-      </div>
-      <div class="item">
-        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_23.png"/><span class="new">NEW</span></a></div>
-        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-      </div>
-      <div class="item">
-        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_25.png"/><span class="new">NEW</span></a></div>
-        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-      </div>
-      <div class="item">
-        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
-        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-      </div>
-      <div class="item">
-        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_25.png"/><span class="new">NEW</span></a></div>
-        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
-      </div>
-      <div class="item">
-        <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></a></div>
-        <p class="video-title"><a>税收筹划案例精解-3</a><span class="free">免费</span></p>
-        <p class="buss-info"><span class="person-current"><font>31</font>人在学</span><span class="classes">课时</span><font>25</font><span>MIN</span><a class="play"></a></p>
+      <div class="item" v-for="item in classes" :key="item.title">
+        <div><router-link :to="{name:'video'}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
+        <p class="video-title"><a>{{ item.title }}</a></p>
+        <p class="buss-info"><span class="score"><i></i><font>{{ item.score }}</font>分</span><span class="person-current"><i></i><font>{{ item.person }}</font>人</span><span class="classes">课时</span><font>{{ item.class }}</font><span>MIN</span></p>
+        <p class="price"><span>课程:<font class="rd">￥{{ item.price }}</font></span><span class="free">试 听</span></p>
       </div>
     </div>
   </div>
@@ -47,7 +13,21 @@
 
 <script>
 export default {
-  name: "online"
+  name: "online",
+  data(){
+    return{
+      classes:[
+        { title:"税收筹划案例精解-3",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-4",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-5",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-6",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-3",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-3",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-3",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-3",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"}
+      ]
+    }
+  }
 };
 </script>
 
@@ -59,12 +39,18 @@ export default {
   margin-top: 20px;
   .video-boxes {
     overflow: hidden;
+    i{
+      background-image: url('../../assets/images/Sprite.png');
+    }
+    .rd{
+      color: $red;
+    }
     .video-cover {
       position: relative;
     }
     .item {
       border: 1px solid $border-red;
-      padding: 5px 10px 24px 10px;
+      padding: 5px 10px 10px 10px;
       float: left;
       margin: 0 13px 18px 13px;
       position: relative;
@@ -78,32 +64,44 @@ export default {
         bottom: 3px;
       }
       .video-title {
-        margin: 15px 0;
+        margin: 5px 0;
+        font-size: 14px;
+      }
+      .buss-info {
+        font-size: 12px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        span {
+          margin-right: 10px;
+        }
+        .score i{
+          display: inline-block;
+          height: 20px;
+          width: 20px;
+          background-position: -240px -287px;
+          vertical-align: text-bottom;
+        }
+        .person-current i{
+          display: inline-block;
+          height: 20px;
+          width: 20px;
+          background-position: -346px -285px;
+          vertical-align: text-bottom;
+        }
+      }
+      .price{
         .free {
-          padding: 2px 5px;
+          padding: 2px 15px;
           background-color: $red;
           color: $white;
           font-size: 12px;
           position: absolute;
           right: 15px;
+          cursor: pointer;
         }
-      }
-      .buss-info {
-        font-size: 12px;
-        margin-right: 10px;
-        span {
-          margin-right: 10px;
+        font{
+          font-size: 14px;
         }
-      }
-      .play {
-        display: inline-block;
-        height: 20px;
-        width: 20px;
-        background-image: url("../../assets/images/Sprite.png");
-        background-position: -20px -13px;
-        position: relative;
-        left: 54px;
-        top: 8px;
       }
     }
   }

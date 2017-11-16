@@ -36,7 +36,7 @@
       <div class="logined">
         <div class="rt_part">
           <a class="a-broadcast" @mouseover="dropSet('left')">
-            <i class="broadcast"></i>通知
+            <i class="broadcast"></i>
           </a>
           <router-link :to="{ name:'setting'}" class="menu">
             <img @mouseover="dropSet('right')" src="../../assets/images/thumb-test.jpg"/>
@@ -137,7 +137,7 @@ export default {
     .logo {
       padding: 18px 71px;
       background-image: url("../../assets/images/Sprite.png");
-      background-position: 266px 61px;
+      background-position: 428px 57px;
     }
     li {
       margin: 0 1px;
@@ -199,11 +199,14 @@ export default {
         }
         .broadcast {
           display: inline-block;
-          width: 20px;
-          height: 20px;
+          width: 25px;
+          height: 25px;
           background-image: url("../../assets/images/Sprite.png");
-          background-position: 106px 137px;
+          background-position: -286px -250px;
           vertical-align: text-bottom;
+          &:hover{
+            background-position: -335px -250px;
+          }
         }
         .menu {
           color: #666;
@@ -270,10 +273,10 @@ export default {
           margin-right: 10px;
         }
         .set{
-          background-position: 83px 35px;
+          background-position: 253px 31px;
         }
         .quit{
-          background-position: 83px 62px;
+          background-position: 253px 64px;
         }
       }
     }

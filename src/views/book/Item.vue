@@ -144,7 +144,7 @@ export default {
         margin-right: 10px;
       }
       i {
-        background-position: -88px -170px;
+        background-position: -185px -195px;
         margin-right: 6px;
         position: relative;
         top: 2px;

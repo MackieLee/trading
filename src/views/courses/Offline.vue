@@ -27,84 +27,6 @@
           </p>
         </div>
       </div>
-      <div class="item">
-        <div class="col col-1">
-          <router-link to="/home">
-            <img class="img" src="../../assets/images/jdtax_线下_01.png">
-            <span class="tag tag-01">正在报名</span>
-          </router-link>
-        </div>
-        <div class="col col-2">
-          <p class="title">
-            税收筹划案例精解-3
-          </p>
-          <p>金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）</p>
-          <p>2017-09-07 至 09-08 地点: 具体位置待定
-            <i></i>
-          </p>
-          <p class="tag tag-02">公开课</p>
-          <p>讲师：孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；</p>
-        </div>
-        <div class="col col-3">
-          <router-link class="tag tag-03" to="/home" tag="p">立即报名</router-link>
-          <i></i>
-          <p>
-            资料下载
-          </p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="col col-1">
-          <router-link to="/home">
-            <img class="img" src="../../assets/images/jdtax_线下_01.png">
-            <span class="tag tag-01">正在报名</span>
-          </router-link>
-        </div>
-        <div class="col col-2">
-          <p class="title">
-            税收筹划案例精解-3
-          </p>
-          <p>金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）</p>
-          <p>2017-09-07 至 09-08 地点: 具体位置待定
-            <i></i>
-          </p>
-          <p class="tag tag-02">公开课</p>
-          <p>讲师：孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；</p>
-        </div>
-        <div class="col col-3">
-          <router-link class="tag tag-03" to="/home" tag="p">立即报名</router-link>
-          <i></i>
-          <p>
-            资料下载
-          </p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="col col-1">
-          <router-link to="/home">
-            <img class="img" src="../../assets/images/jdtax_线下_01.png">
-            <span class="tag tag-01">正在报名</span>
-          </router-link>
-        </div>
-        <div class="col col-2">
-          <p class="title">
-            税收筹划案例精解-3
-          </p>
-          <p>金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）</p>
-          <p>2017-09-07 至 09-08 地点: 具体位置待定
-            <i></i>
-          </p>
-          <p class="tag tag-02">公开课</p>
-          <p>讲师：孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；</p>
-        </div>
-        <div class="col col-3">
-          <router-link class="tag tag-03" to="/home" tag="p">立即报名</router-link>
-          <i></i>
-          <p>
-            资料下载
-          </p>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -204,7 +126,7 @@ export default {
         i{
           display: block;
           margin:20px auto 5px;
-          background-position: -62px -312px;
+          background-position: -59px -315px;
           cursor: pointer;
         }
       }

@@ -145,7 +145,7 @@ export default {
       }
       .pwd{
         i[class="iblock"]{
-          background-position: -99px -44px;
+          background-position: -99px -49px;
           left:4px;
         }
       }
@@ -218,21 +218,21 @@ export default {
         a{
           display: inline-block;
           margin: 0 9px;
-          width: 33px;
-          height: 33px;
+          width: 25px;
+          height: 22px;
           background-image: url('../../assets/images/Sprite.png');
         }
         .wechat{
-          background-position: -182px -36px;
+          background-position: -182px -49px;
         }
         .weibo{
-          background-position: -182px -77px;
+          background-position: -184px -92px;
         }
         .qq{
-          background-position: -182px -113px;
+          background-position: -186px -122px;
         }
         .alipay{
-          background-position: -182px -148px;
+          background-position: -185px -162px;
         }
       }
     }

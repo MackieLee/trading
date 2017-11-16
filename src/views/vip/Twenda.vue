@@ -42,9 +42,10 @@ export default {
   overflow: hidden;
   i {
     display: inline-block;
-    height: 16px;
+    height: 24px;
     width: 30px;
     background-image: url('../../assets/images/Sprite.png');
+    vertical-align: text-bottom;
   }
   .sum_of_class {
     background-color: #468EE3;
@@ -59,7 +60,7 @@ export default {
     width: 728px;
     margin: 47px auto 12px auto;
     i {
-      background-position: -154px -311px;
+      background-position: -93px -89px;
     }
     .item {
       margin-bottom: 50px;

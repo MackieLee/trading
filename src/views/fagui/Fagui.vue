@@ -202,7 +202,7 @@ export default {
   .jingxuan{
     width: 60px;
     height: 22px;
-    background-position: 177px -12px;
+    background-position: 339px -12px;
   }
   .cur-posi {
     border-bottom: none;

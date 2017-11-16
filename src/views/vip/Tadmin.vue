@@ -113,32 +113,16 @@ export default {
           cursor: pointer;
         }
         .t1 {
-          background-position: -154px -288px;
+          background-position: -58px -222px;
           margin-right: 6px;
         }
         .t2 {
           height: 18px;
-          background-position: -154px -326px;
+          background-position: -146px -230px;
           margin-right: 6px;
         }
         .t3 {
-          background-position: -154px -307px;
-          margin-right: 6px;
-        }
-        .t4 {
-          background-position: -159px -343px;
-          margin-right: 6px;
-        }
-        .t5 {
-          background-position: -154px -362px;
-          margin-right: 6px;
-        }
-        .t6 {
-          background-position: -157px -379px;
-          margin-right: 6px;
-        }
-        .t7 {
-          background-position: -154px -398px;
+          background-position: -144px -136px;
           margin-right: 6px;
         }
       }

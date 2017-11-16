@@ -20,10 +20,9 @@
           <div>
             <div class="wen">答 :&nbsp;</div>
             <div class="item-container">
-              <div class="ask ansr">一般纳税人销售自行开发的房...</div>
+              <div class="ask ansr">一般纳税人销售自行开发的房...<span class="more">查看更多&gt;&gt;</span></div>
             </div>
           </div>
-          <div class="more" @click="showDetail">查看更多&gt;&gt;</div>
         </div>
         <div class="item rt">
           <div>
@@ -35,10 +34,9 @@
           <div>
             <div class="wen">答 :&nbsp;</div>
             <div class="item-container">
-              <div class="ask ansr">一般纳税人销售自行开发的房...</div>
+              <div class="ask ansr">一般纳税人销售自行开发的房...<span class="more">查看更多&gt;&gt;</span></div>
             </div>
           </div>
-          <div class="more">查看更多&gt;&gt;</div>
         </div>
       </div>
       <div class="floor">
@@ -52,10 +50,9 @@
           <div>
             <div class="wen">答 :&nbsp;</div>
             <div class="item-container">
-              <div class="ask ansr">一般纳税人销售自行开发的房...</div>
+              <div class="ask ansr">一般纳税人销售自行开发的房...<span class="more">查看更多&gt;&gt;</span></div>
             </div>
           </div>
-          <div class="more">查看更多&gt;&gt;</div>
         </div>
         <div class="item rt">
           <div>
@@ -67,10 +64,9 @@
           <div>
             <div class="wen">答 :&nbsp;</div>
             <div class="item-container">
-              <div class="ask ansr">一般纳税人销售自行开发的房...</div>
+              <div class="ansr">一般纳税人销售自行开发的房...<span class="more">查看更多&gt;&gt;</span></div>
             </div>
           </div>
-          <div class="more">查看更多&gt;&gt;</div>
         </div>
       </div>
     </div>
@@ -177,15 +173,13 @@ export default {
           .ask {
             margin-bottom: 10px;
           }
-          .ansr {
-            margin-bottom: 10px;
-          }
         }
         .more {
           text-align: right;
           color: $blue;
           cursor: pointer;
           font-size: 12px;
+          margin-left: 10px;
         }
       }
     }

@@ -90,7 +90,7 @@ export default {
 @import '../../assets/style/base.scss';
   .iblock{
     display: inline-block;
-    height: 20px;
+    height: 22px;
     width: 20px;
     background-image: url('../../assets/images/Sprite.png');
   }
@@ -117,7 +117,7 @@ export default {
   }
   .pwd,.confirm{
     i{
-      background-position: -99px -44px;
+      background-position: -99px -49px;
     }
   }
   .user,.ckcode,.phcode,.invcode{

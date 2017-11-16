@@ -54,7 +54,7 @@ export default {
     width: 728px;
     margin: 47px auto 12px auto;
     i{
-      background-position: -98px -100px;
+      background-position: -93px -89px;
       margin-right: 15px;
     }
     .item{

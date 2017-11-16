@@ -407,7 +407,7 @@ export default {
             overflow: hidden;
             margin-top: 10px;
             i {
-              background-position: 303px -72px;
+              background-position: -93px -89px;
               height: 25px;
             }
           }

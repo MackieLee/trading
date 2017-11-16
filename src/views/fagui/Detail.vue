@@ -63,8 +63,9 @@
         </div>
         <div class="clearfix" style="margin:20px 0 25px 0;">
           <div class="lf">分享到:
-            <i></i>
-            <i></i>
+            <i class="qq"></i>
+            <i class="wechat"></i>
+            <i class="weibo"></i>
           </div>
           <div class="rt">
             <span>
@@ -196,9 +197,17 @@ export default {
     height: 25px;
     background-image: url('../../assets/images/Sprite.png');
     vertical-align: text-bottom;
-    background-position: 59px 295px;
     margin:0 11px;
     cursor: pointer;
+  }
+  .qq{
+    background-position: -183px -118px;
+  }
+  .wechat{
+    background-position: -183px -44px;
+  }
+  .weibo{
+    background-position: -185px -89px;
   }
   .cur-posi {
     border-bottom: none;

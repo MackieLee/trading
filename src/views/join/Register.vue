@@ -85,23 +85,23 @@ export default {
           position: relative;
           top: 4px;
           display: inline-block;
-          height: 33px;
-          width: 33px;
+          height: 22px;
+          width: 25px;
           background-image: url('../../assets/images/Sprite.png');
           vertical-align:text-bottom;
           margin-right: 15px;
         }
         .wechat{
-          background-position: -182px -36px;
+          background-position: -182px -49px;
         }
         .weibo{
-          background-position: -182px -77px;
+          background-position: -185px -92px;
         }
         .qq{
-          background-position: -182px -113px;
+          background-position: -186px -122px;
         }
         .alipay{
-          background-position: -182px -148px;
+          background-position: -185px -162px;
         }
       }
     }

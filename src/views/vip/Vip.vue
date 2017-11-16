@@ -119,7 +119,7 @@ export default {
           cursor: pointer;
         }
         .t1 {
-          background-position: -20px -222px;
+          background-position: -58px -222px;
           margin-right: 6px;
         }
         .t2 {

@@ -12,9 +12,9 @@
           <input style="height:15px;width:15px" name="score" type="radio" /> 2分
           <input style="height:15px;width:15px" name="score" type="radio" /> 1分
         </div>
-        <textarea placeholder="评价留言..."/>
+        <textarea placeholder="随便夸夸我吧..."/>
         <div class="sub-btn">
-          <input type="button" class="submit" @click="submitCommit" value="确定">
+          <input type="button" class="submit" @click="submitCommit" value="确   定">
         </div>
       </div>
       <div class="ctr" v-show="!contentSeries">
@@ -23,7 +23,7 @@
         </div>
         <textarea placeholder="评价留言..."/>
         <div class="sub-btn">
-          <input type="button" class="submit" @click="submitCommit" value="确定">
+          <input type="button" class="submit" @click="submitCommit" value="确   定">
           <!-- vue-resource 传递事件给父组件，然后在文档中添加笔记标题 -->
         </div>
       </div>
@@ -119,6 +119,9 @@ export default {
         cursor: pointer;
         outline: none;
         margin-top: 25px;
+        color: $white;
+        background-color: $btn-default;
+        border: none;
       }
     }
   }

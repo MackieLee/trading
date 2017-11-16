@@ -51,7 +51,7 @@
             <li class="sorts-items" data-name="sorts" @click="getItem(item)" :class="{ 'active':s === item}" v-for="item in sorts" :key="item">{{ item }}</li>
           </ul>
         </p>
-        <p>共找到12本图书</p>
+        <p>共找到12门课程</p>
       </div>
     </div>
     <router-view></router-view>

@@ -99,8 +99,8 @@ export default {
       background-color: $white;
       .iblock {
         display: inline-block;
-        height: 18px;
-        width: 18px;
+        height: 22px;
+        width: 20px;
         background-image: url("../../assets/images/Sprite.png");
       }
       .error {
@@ -153,12 +153,12 @@ export default {
       }
       .pwd {
         i {
-          background-position:  -99px -44px;
+          background-position:  -99px -49px;
         }
       }
       .user {
         i {
-          background-position: -101px -15px;
+          background-position: -101px -14px;
         }
       }
       input {
