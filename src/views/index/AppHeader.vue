@@ -17,7 +17,8 @@
           <i></i>
         </form>
       </div>
-      <div class="user-info" style="display:none">
+      <a @click="testState" style="position:relative;cursor:pointer">测试</a>
+      <div class="user-info" v-show="test">
         <ul>
           <li>
             <router-link :to="{name:'login'}">
@@ -33,7 +34,7 @@
           </li>
         </ul>
       </div>
-      <div class="logined">
+      <div class="logined" v-show="!test">
         <div class="rt_part">
           <a class="a-broadcast" @mouseover="dropSet('left')">
             <i class="broadcast"></i>
@@ -66,6 +67,7 @@
               <li><i class="quit"></i><span>安全退出</span></li>
             </ul>
           </div>
+
         </div>
       </div>
     </div>
@@ -81,17 +83,18 @@ export default {
       navItems: [
         { name: "首页", link: "home" },
         { name: "线上课程", link: "online" },
-        { name: "线下课程", link: "offline" },
-        { name: "专家团队", link: "teacher" },
         { name: "问答", link: "faq" },
+        { name: "专家团队", link: "teacher" },
+        { name: "线下课程", link: "offline" },
+        { name: "法律法规", link: "fsearch" },
         { name: "图书", link: "book" },
         { name: "定制课程", link: "customize" },
         { name: "会员中心", link: "vip" },
-        { name: "关于我们", link: "about" },
-        { name: "法律法规", link: "fsearch" }
+        { name: "关于我们", link: "about" }
       ],
       activeItem: "home",
-      drop:''
+      drop:'',
+      test:false
     };
   },
   computed: {
@@ -111,6 +114,10 @@ export default {
     },
     clearDrop:function(){
       this.drop = ''
+    },
+
+    testState:function(){
+      this.test = !this.test
     }
   },
 // Vuex state manager
@@ -184,10 +191,10 @@ export default {
       background-image: url("../../assets/images/Sprite.png");
     }
     .login {
-      background-position: -30px 7px;
+      background-position: -56px -36px;
     }
     .register {
-      background-position: -30px -20px;
+      background-position: -52px -9px;
     }
     .logined {
       position: relative;
@@ -205,7 +212,7 @@ export default {
           background-position: -286px -250px;
           vertical-align: text-bottom;
           &:hover{
-            background-position: -335px -250px;
+            background-position: -342px -251px;
           }
         }
         .menu {

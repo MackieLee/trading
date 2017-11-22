@@ -29,8 +29,10 @@
             <i class="t5"></i>我的优惠券</router-link>
           <router-link tag="p" :to="{ name : 'dingdan'}">
             <i class="t6"></i>我的订单</router-link>
-          <router-link class="last" tag="p" :to="{ name : 'fapiao'}">
+          <router-link tag="p" :to="{ name : 'fapiao'}">
             <i class="t7"></i>发票索取</router-link>
+          <router-link tag="p" :to="{ name : 'shopping-cart'}">
+            <i class="t7"></i>我的购物车</router-link>
         </div>
       </div>
       <div class="rt">
@@ -112,10 +114,10 @@ export default {
       .nav {
         p {
           margin:15px 0;
-          padding: 11px 0;
+          padding: 5px 30px;
           width: 224px;
           color: #333;
-          text-align: center;
+          text-align: left;
           cursor: pointer;
         }
         .t1 {

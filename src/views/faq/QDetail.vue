@@ -15,7 +15,7 @@
           </div>
           <div class="name">
             <div>
-              <p>孙老师</p><p class="watch"><i></i>添加关注</p><br>
+              <p>孙老师</p><p class="watch" v-if="guanzhu" @click="onWatch('watch')"><i></i>取消关注</p><p class="cancel-watch" v-if="!guanzhu" @click="onWatch('cancel')"><i></i>添加关注</p><br>
               <span>已解答27个问题</span>
             </div>
             <div class="price">
@@ -74,22 +74,64 @@
     <div class="ques-discr">
       <div class="container">
         <h3>问题描述 : </h3>
-        <editor></editor>
-        <router-link to="/home" tag="p">提交问题</router-link>
+        <quill-editor v-model="content"
+          ref="myQuillEditor"
+          :options="editorOption"
+          @blur="onEditorBlur($event)"
+          @focus="onEditorFocus($event)"
+          @ready="onEditorReady($event)">
+        </quill-editor>
+        <p>提交问题</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import editor from '../editor/Editor'
+import { quillEditor } from "vue-quill-editor"
 export default {
-  components:{ editor }
-}
+  components: { quillEditor },
+  data() {
+    return {
+      guanzhu: false,
+      content: "",
+      editorOption: {
+        placeholder:'规则'
+      }
+    };
+  },
+  methods: {
+    onEditorBlur(editor) {
+
+    },
+    onEditorFocus(editor) {
+
+    },
+    onEditorReady(editor) {
+
+    },
+    onEditorChange({ editor, html, text }) {
+
+      this.content = html;
+    },
+    onWatch: function(state) {
+      state === "watch" ? (this.guanzhu = false) : (this.guanzhu = true);
+
+    }
+  },
+  computed: {
+    editor() {
+      return this.$refs.myQuillEditor.quill;
+    }
+  },
+  mounted() {
+
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .q-detail {
   width: $width;
   margin: 0 auto;
@@ -99,7 +141,7 @@ export default {
     display: inline-block;
     width: 24px;
     height: 24px;
-    background-image: url('../../assets/images/Sprite.png');
+    background-image: url("../../assets/images/Sprite.png");
     vertical-align: text-bottom;
   }
   .cur-posi {
@@ -113,7 +155,7 @@ export default {
     display: flex;
     .flex {
       display: flex;
-      .head-128{
+      .head-128 {
         height: 128px;
         width: 128px;
         margin: 10px 30px 0 37px;
@@ -123,21 +165,36 @@ export default {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        P {
+        p {
           font-size: 16px;
           margin-bottom: 16px;
           display: inline-block;
         }
-        .watch{
+        .watch {
           width: 73px;
           border: 1px solid $blue;
           font-size: 12px;
-          padding: 3px 6px;
           border-radius: 4px;
           margin-left: 70px;
           cursor: pointer;
-          i{
-            background-position: 158px 149px;
+          line-height: 26px;
+          padding: 0 7px;
+          i {
+            background-position: -239px -255px;
+            // 点击后换成 110px 94px 实心❤
+          }
+        }
+        .cancel-watch {
+          width: 73px;
+          border: 1px solid $blue;
+          font-size: 12px;
+          border-radius: 4px;
+          margin-left: 70px;
+          cursor: pointer;
+          line-height: 26px;
+          padding: 0 7px;
+          i {
+            background-position: -143px -192px;
             // 点击后换成 110px 94px 实心❤
           }
         }
@@ -154,7 +211,7 @@ export default {
         display: inline-block;
         line-height: 45px;
       }
-      li{
+      li {
         width: 90px;
         text-align: center;
         padding: 3px;
@@ -204,7 +261,7 @@ export default {
               text-align: center;
             }
           }
-          span[class='shanchang'] {
+          span[class="shanchang"] {
             font-size: 16px;
             display: block;
             width: 120px;
@@ -226,7 +283,7 @@ export default {
           p {
             color: $blue;
             i {
-              background-position: -238px -191px;
+              background-position: -238px -194px;
               margin-right: 6px;
             }
           }
@@ -245,15 +302,16 @@ export default {
     margin-bottom: 100px;
     .container {
       margin: 30px 35px;
-      h3{
+      h3 {
         margin-left: 23px;
         color: $red;
         font-size: 16px;
       }
-      .quill-editor{
-        margin: 30px 0 ;
+      .quill-editor {
+        margin: 30px 0 80px 0;
+        height: 150px;
       }
-      p{
+      p {
         color: $white;
         margin: 0 0 26px 23px;
         background-color: $red;

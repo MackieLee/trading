@@ -201,10 +201,10 @@ export default {
           vertical-align: text-bottom;
         }
         .unchecked{
-          background-position:-99px -193px;
+          background-position:-101px -282px;
         }
         .checked{
-          background-position:-99px -225px;
+          background-position:-101px -253px;
         }
         a{
           color: $red;

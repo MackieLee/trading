@@ -133,6 +133,9 @@ export default {
           padding: 6px 10px 12px 10px;
           margin-bottom: 10px;
           position: relative;
+          &:hover{
+            box-shadow: 1px 1px 3px 5px #eee;
+          }
           .new{
             padding: 2px 4px;
             background-color: $red;

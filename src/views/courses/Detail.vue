@@ -239,7 +239,7 @@ i {
   line-height: 34px;
   cursor: pointer;
   i {
-    background-position: -185px -195px;
+    background-position: -99px -156px;
     position: relative;
     top: 7px;
   }

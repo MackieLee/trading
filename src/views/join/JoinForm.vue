@@ -55,126 +55,132 @@
 </template>
 
 <script>
-import { validateForm } from '../../util'
+import { validateForm } from "../../util";
 export default {
   data() {
     return {
-      checked:false,
-      userError:'',
-      pwdError:'',
-      error:''
-    }
+      checked: false,
+      userError: "",
+      pwdError: "",
+      error: ""
+    };
   },
-  methods:{
-    toggleChecked:function(){
-      this.checked = !this.checked
+  methods: {
+    toggleChecked: function() {
+      this.checked = !this.checked;
     },
     //扩充checkjs内容
     //格式不对的输入框显示对应的文字
     validateForm,
-    validate:function(type,value){
-      let state = validateForm(type,value)
-      console.log(state)
-      if ((state == 'danger')&&(type == 'user')){
+    validate: function(type, value) {
+      let state = validateForm(type, value);
+      console.log(state);
+      if (state == "danger" && type == "user") {
         //此处查询用户名是否被占用并返回判断
-        this.userError = '手机号或邮箱格式错误'
-      }else if((state == 'danger')&&(type == 'pwd')){
-        this.pwdError = '密码格式错误'
+        this.userError = "手机号或邮箱格式错误";
+      } else if (state == "danger" && type == "pwd") {
+        this.pwdError = "密码格式错误";
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
-  .iblock{
-    display: inline-block;
-    height: 22px;
-    width: 20px;
-    background-image: url('../../assets/images/Sprite.png');
-  }
-  .error{
-    height: 20px;
-    p{
-      line-height: 14px;
-      i{
-        background-position: -55px 0;
-      }
-      span{
-        vertical-align: text-top;
-        color:$red;
-      }
+@import "../../assets/style/base.scss";
+.iblock {
+  display: inline-block;
+  height: 22px;
+  width: 20px;
+  background-image: url("../../assets/images/Sprite.png");
+}
+.error {
+  height: 20px;
+  p {
+    line-height: 14px;
+    i {
+      background-position: -55px 0;
+    }
+    span {
+      vertical-align: text-top;
+      color: $red;
     }
   }
-  .icon{
-    position: relative;
-    i{
-      position: absolute;
-      top: 4px;
-      left:4px;
-    }
+}
+.icon {
+  position: relative;
+  i {
+    position: absolute;
+    top: 4px;
+    left: 4px;
   }
-  .pwd,.confirm{
-    i{
-      background-position: -99px -49px;
-    }
+}
+.pwd,
+.confirm {
+  i {
+    background-position: -99px -49px;
   }
-  .user,.ckcode,.phcode,.invcode{
-    i{
-      background-position: -101px -15px;
-    }
+}
+.user,
+.ckcode,
+.phcode,
+.invcode {
+  i {
+    background-position: -101px -15px;
   }
-  input {
-    height: 20px;
-    padding: 5px 10px 5px 35px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px;
-    border: 1px solid $border-blue;
-    width: 267px;
-    margin-bottom: 7px;
-    &:focus{
-      border-color: $red;
-      outline: none;
-    }
+}
+input {
+  height: 20px;
+  padding: 5px 10px 5px 35px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+  border: 1px solid $border-blue;
+  width: 267px;
+  margin-bottom: 7px;
+  &:focus {
+    border-color: $red;
+    outline: none;
   }
-  .ckcode input {
-    width: 30%;
-    margin-right: 12px;
-  }
-  .read{
-    display: flex;
+}
+.ckcode input {
+  width: 30%;
+  margin-right: 12px;
+}
+.read {
+  display: flex;
 
-    padding-right: 28px;
-    margin: 10px 0 38px 0;
-    input{
-      display: none;
-    }
-    i{
-      vertical-align: text-bottom;
-    }
-    .unchecked{
-      background-position: -99px -193px;
-    }
-    .checked{
-      background-position: -99px -225px;
+  padding-right: 28px;
+  margin: 10px 0 38px 0;
+  input {
+    display: none;
+  }
+  i {
+    vertical-align: text-bottom;
+    height: 18px;
+    width: 18px;
+  }
+  .unchecked {
+    background-position: -101px -282px;
+  }
+  .checked {
+    background-position: -101px -253px;
+  }
+}
+.login-btn {
+  display: flex;
+  justify-content: center;
+  .submit {
+    width: 162px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    color: $white;
+    background-color: $btn-danger;
+    cursor: pointer;
+    &:hover {
+      background-color: $btn-danger-hover;
     }
   }
-  .login-btn{
-    display: flex;
-    justify-content: center;
-    .submit {
-      width: 162px;
-      padding: 5px;
-      border: none;
-      border-radius: 5px;
-      color: $white;
-      background-color: $btn-danger;
-      cursor: pointer;
-      &:hover{
-        background-color: $btn-danger-hover;
-      }
-    }
-  }
+}
 </style>

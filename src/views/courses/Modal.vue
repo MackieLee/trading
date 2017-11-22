@@ -4,13 +4,10 @@
     <div class="content">
       <div class="close" @click="closeModal"></div>
       <div class="ctr" v-show="contentSeries">
+        <!-- 修改为star -->
         <div class="star">
           分数:
-          <input style="height:15px;width:15px" name="score" type="radio" /> 5分
-          <input style="height:15px;width:15px" name="score" type="radio" /> 4分
-          <input style="height:15px;width:15px" name="score" type="radio" /> 3分
-          <input style="height:15px;width:15px" name="score" type="radio" /> 2分
-          <input style="height:15px;width:15px" name="score" type="radio" /> 1分
+          <stars></stars>
         </div>
         <textarea placeholder="随便夸夸我吧..."/>
         <div class="sub-btn">
@@ -32,10 +29,15 @@
 </template>
 
 <script>
+import Stars from '../stars/Stars'
 export default {
   data() {
     return {
+
     }
+  },
+  components:{
+    Stars
   },
   computed: {
   },
@@ -54,7 +56,6 @@ export default {
     },
     submitCommit:function(){
       //vue-resource....
-      console.log(this.contentSeries)
       this.$emit('closeModal')
     }
   }

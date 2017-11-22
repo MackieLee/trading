@@ -1,41 +1,61 @@
 <template>
   <div class="faq">
     <teacher-box></teacher-box>
-    <div class="main-srch">
-      <input class="main-srch-input" />
-      <button>搜一下</button>
-      <p>
-        <span>
-          全部
-        </span>
-        <span>
-          财务
-        </span>
-        <span>
-          税收
-        </span>
-        <span>
-          会计
-        </span>
-      </p>
-    </div>
+      <quill-editor v-model="content"
+        ref="myQuillEditor"
+        :options="editorOption"
+        @blur="onEditorBlur($event)"
+        @focus="onEditorFocus($event)"
+        @ready="onEditorReady($event)">
+      </quill-editor>
+      <button>提交</button>
     <faq-box></faq-box>
   </div>
 </template>
 
 <script>
-import TeacherBox from './TeacherBox'
-import FaqBox from './FaqBox'
+import TeacherBox from "./TeacherBox";
+import FaqBox from "./FaqBox";
+import { quillEditor } from "vue-quill-editor";
 export default {
-  name: 'faq',
+  name: "faq",
   components: {
-    TeacherBox, FaqBox
+    TeacherBox,
+    FaqBox,
+    quillEditor
+  },
+  data() {
+    return {
+      content:'',
+      editorOption: {
+        placeholder: "insert insert insert"
+      }
+    };
+  },
+  methods: {
+    onEditorBlur(editor) {
+
+    },
+    onEditorFocus(editor) {
+
+    },
+    onEditorReady(editor) {
+
+    },
+    onEditorChange({ editor, html, text }) {
+
+      this.content = html;
+    },
+    onWatch: function(state) {
+      state === "watch" ? (this.guanzhu = false) : (this.guanzhu = true);
+
+    }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .faq {
   width: $width;
   margin: 0 auto;
@@ -51,17 +71,17 @@ export default {
       border: 1px solid $border-rice;
       padding-left: 10px;
     }
-    button{
+    button {
       width: 100px;
       height: 40px;
       background-color: $border-orange;
       color: $white;
-      outline:none;
+      outline: none;
       border: none;
     }
-    p{
+    p {
       margin-left: 28px;
-      span{
+      span {
         line-height: 50px;
         margin-right: 20px;
       }

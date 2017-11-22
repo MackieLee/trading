@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from '../views/index/Index'
 import home from '../views/home/Home'
-import courses from '../views/courses/Courses'
 import online from '../views/courses/Online'
 import video from '../views/courses/Video'
 import offline from '../views/courses/Offline'
@@ -35,7 +34,7 @@ import fagui from '../views/fagui/Fagui'
 import fdetail from '../views/fagui/Detail'
 import fsearch from '../views/fagui/Search'
 import setting from '../views/vip/Setting'
-import test from '../views/test/Test'
+import cart from '../views/vip/ShoppingCart'
 
 Vue.use(Router)
 
@@ -53,21 +52,14 @@ const routes = [
         component: home
       },
       {
-        path: 'courses',
-        name: 'courses',
-        component: courses,
-        children: [
-          {
-            path: 'online',
-            name: 'online',
-            component: online
-          },
-          {
-            path: 'offline',
-            name: 'offline',
-            component: offline
-          }
-        ]
+        path: 'online',
+        name: 'online',
+        component: online
+      },
+      {
+        path: 'offline',
+        name: 'offline',
+        component: offline
       },
       {
         path: 'video',
@@ -162,6 +154,11 @@ const routes = [
             name: 'dingdan',
             component: dingdan
           },
+          {
+            path: 'cart',
+            name: 'shopping-cart',
+            component: cart
+          }
         ]
       },
       {
@@ -194,7 +191,7 @@ const routes = [
           }
         ]
       },
-      { path: 'setting',name:'setting', component: setting },
+      { path: 'setting', name: 'setting', component: setting },
       {
         path: 'fagui',
         name: 'fagui',
@@ -209,10 +206,6 @@ const routes = [
         path: 'fagui-search',
         name: 'fsearch',
         component: fsearch
-      },
-      {
-        path: 'test',
-        component: test
       }
     ]
   },

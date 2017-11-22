@@ -1,41 +1,128 @@
 <template>
   <div class="offline">
-    <div class="items">
-      <div class="item">
-        <div class="col col-1">
-          <router-link to="/odetail">
-            <img class="img" src="../../assets/images/jdtax_线下_01.png">
-            <span class="tag tag-01">正在报名</span>
-          </router-link>
-        </div>
-        <div class="col col-2">
-          <p class="title">
-            税收筹划案例精解-3
-          </p>
-          <p>金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）</p>
-          <p>2017-09-07 至 09-08 地点: 具体位置待定
-            <i></i>
-          </p>
-          <p class="tag tag-02">公开课</p>
-          <p>讲师：孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；</p>
-        </div>
-        <div class="col col-3">
-          <router-link class="tag tag-03" to="/home" tag="p">立即报名</router-link>
-          <i></i>
-          <p>
-            资料下载
-          </p>
-        </div>
+    <div class="container">
+      <div class="cur-posi">
+        <p>
+          <i></i>当前位置 : &nbsp;
+          <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;线下课程</p>
       </div>
+      <div>
+        <p>
+          <span>适用行业：</span>
+          <ul>
+            <li data-name="industry" @click="getItem(item)" :class="{ 'active':i === item}" v-for="item in industry" :key="item">{{ item }}</li>
+          </ul>
+        </p>
+      </div>
+      <div>
+        <p>
+          <span>课程体系：</span>
+          <ul>
+            <li data-name="topics" @click="getItem(item)" :class="{ 'active':t === item}" v-for="item in topics" :key="item">{{ item }}</li>
+          </ul>
+        </p>
+      </div>
+      <div>
+        <p>
+          <span>讲&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;师：</span>
+          <ul>
+            <li data-name="leaders" @click="getItem(item)" :class="{ 'active':l === item}" v-for="item in leaders" :key="item">{{ item }}</li>
+          </ul>
+        </p>
+      </div>
+      <div>
+        <p>
+          <span>开课城市：</span>
+          <ul>
+            <li :data-name="cities" @click="getItem(item)" :class="{ 'active':c === item}" v-for="item in cities" :key="item">{{ item }}</li>
+          </ul>
+        </p>
+      </div>
+      <div>
+        <p>
+          <span>适宜人群：</span>
+          <ul>
+            <li data-name="easy" @click="getItem(item)" :class="{ 'active':e === item}" v-for="item in easy" :key="item">{{ item }}</li>
+          </ul>
+        </p>
+      </div>
+      <div>
+        <p>
+          <span>价格范围：</span>
+          <ul>
+            <li data-name="fee" @click="getItem(item)" :class="{ 'active':f === item}" v-for="item in fee" :key="item">{{ item }}</li>
+            <li class="price-in">
+              <input type="tel" maxlength="6" placeholder="￥"/> &nbsp;一&nbsp;
+              <input type="tel" maxlength="6" placeholder="￥"/>
+            </li>
+            <li class="outer-conf">
+              <span class="confirm">确定</span>
+            </li>
+          </ul>
+        </p>
+      </div>
+      <div class="sorts">
+        <p>
+          <ul>
+            <li class="sorts-items" data-name="sorts" @click="getItem(item)" :class="{ 'active':s === item}" v-for="item in sorts" :key="item">{{ item }}</li>
+          </ul>
+        </p>
+        <p>共找到12门课程</p>
+      </div>
+    </div>
+    <offline-courses></offline-courses>
+    <!-- 触发子组件的数据刷新，传递页码给子组件 -->
+    <div class="pgs">
+      <li class="prev">&lt;上一页</li>
+      <li class="current ">1</li>
+      <li class="custom">2</li>
+      <li class="custom">3</li>
+      <li class="custom">4</li>
+      <li class="points">...</li>
+      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
+      <li class="submit">确定</li>
+      <li class="next">下一页&gt;</li>
     </div>
   </div>
 </template>
 
 <script>
+import OfflineCourses from './OfflineCourses'
 export default {
-  name:'offline',
-  data(){
-    return{
+  name: 'offline',
+  components:{ OfflineCourses },
+  data() {
+    return {
+      industry:['房地产','建筑安装'],
+      topics: ['全部', '土地增值税', '营改增', '收并购重组', '税务战略与管理'],
+      leaders: ['牛鲁鹏', '王志国'],
+      cities: ['北京','上海','广州','深圳'],
+      easy: ['全部会计专员', '财务经理', '总监'],
+      fee: ['全部'],
+      sorts: ['热招中', '免费', '已下线'],
+      current: 1,
+      c: '',
+      i: '',
+      t: '',
+      l: '',
+      e: '',
+      s: '',
+      f: ''
+    }
+  },
+  mounted() {
+
+  },
+  created(){
+
+  },
+  computed: {
+
+  },
+  methods: {
+    getItem: function(item) {
+      let name = event.target.dataset.name
+      this[name.slice(0, 1)] = item
     }
   }
 }
@@ -43,94 +130,139 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
-.offline {
+.container {
   width: $width;
   margin: 0 auto;
-  .items{
-    .item {
-      border: 1px solid $red;
-      margin-top: 20px;
-      padding: 10px 0 10px 10px;
-      display: flex;
-      i{
-        width: 20px;
-        height: 20px;
-        background-image: url('../../assets/images/Sprite.png');
-        vertical-align: text-bottom;
+  padding-top: 20px;
+  // border-top: 2px solid $border-rice;
+  div {
+    height: 34px;
+    border-bottom: 1px solid $border-dark;
+    span {
+      display: inline-block;
+      background-color: $bg-nav;
+      width: 106px;
+      text-align: center;
+      line-height: 34px;
+    }
+    ul {
+      display: inline-block;
+      li {
+        margin: 0 8px;
+        cursor: pointer;
+        font-size: 12px;
+        color: $dark-blue;
+        &:hover {
+          color: $red;
+        }
       }
-      a {
-        display: block;
-        position: relative;
-        overflow: hidden;
-      }
-      .tag {
-        display: block;
-        text-align: center
-      }
-      .tag-01 {
-        width: 80px;
-        height: 27px;
-        line-height: 27px;
-        color: $white;
-        text-align: center;
-        background-color: $red;
-        position: absolute;
-        bottom: 5px;
-        left: 0;
-      }
-      .tag-02 {
-        width: 70px;
-        height: 24px;
-        line-height: 24px;
-        border: 1px solid $border-blue;
-        border-radius: 5px;
-      }
-      .tag-03 {
-        width: 90px;
-        height: 30px;
-        border: 1px solid $border-blue;
-        line-height: 30px;
-        border-radius: 5px;
+      .sorts-items {
         font-size: 14px;
-        color: $black !important;
-        // &:hover{
-        //   background-color: $btn-danger-hover;
-        // }
-      }
-      .col-2 {
-        margin: 0 115px 0 30px;
-        .title {
-          margin-top: 0;
-          color: $blue;
-          font-size: 16px;
-        }
-        p {
-          margin-top: 14px;
-          font-size: 14px;
-        }
-        i{
-          display: inline-block;
-          background-position: -61px -253px;
-        }
-      }
-      .col-3 {
-        margin: 0 50px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        p {
-          text-align: center;
-          color: $blue;
-          cursor: pointer;
-        }
-        i{
-          display: block;
-          margin:20px auto 5px;
-          background-position: -59px -315px;
-          cursor: pointer;
-        }
       }
     }
   }
+  div[class="cur-posi"] {
+    height: auto;
+    line-height: 0;
+    margin-bottom: 26px;
+  }
+  .outer-conf {
+    margin-left: 0px;
+    .confirm {
+      height: 20px;
+      width: 58px;
+      background-color: $btn-default;
+      color: $white;
+      line-height: 20px;
+      text-align: center;
+      border-radius: 4px;
+      &:hover{
+        background-color: $btn-default-hover;
+      }
+    }
+  }
+  .cur-posi {
+    border-bottom: none;
+    i {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      background-image: url('../../assets/images/Sprite.png');
+      background-position: -18px -106px;
+      vertical-align: text-bottom;
+      margin-right: 6px;
+    }
+  }
+  .price-in {
+    color: $border-blue;
+    input {
+      outline: none;
+      border: 1px solid $border-blue;
+      width: 52px;
+      border-radius: 3px;
+    }
+    &:hover{
+      color: $border-blue;
+    }
+  }
+  .sorts {
+    border-bottom: 1px solid $border-orange;
+    display: flex;
+    justify-content: space-between;
+    p{
+      line-height: 45px;
+    }
+    li {
+      margin: 0 12px;
+    }
+  }
+  .active {
+    color: $red;
+  }
 }
+.pgs {
+    width: 525px;
+    margin: 60px auto;
+    li {
+      width: 33px;
+      padding: 4px 0;
+      line-height: 20px;
+      text-align: center;
+      margin-right: 2px;
+      cursor: pointer;
+      border: 1px solid $border-dark;
+      color: $black;
+    }
+    .prev {
+      width: 73px;
+      color: $blue;
+    }
+    .next {
+      width: 96px;
+      color: $blue;
+    }
+    .points {
+      border: none;
+    }
+    .submit {
+      background-color: $btn-default;
+      color: $white;
+      width: 44px;
+      border: none;
+    }
+    .jump {
+      width: 80px;
+      border: 1px solid $border-dark;
+      color: #333;
+      input {
+        width: 30px;
+        border: 1px solid $border-dark;
+        outline: none;
+      }
+    }
+    .current {
+      background-color: $btn-default;
+      color: $white;
+    }
+  }
 </style>

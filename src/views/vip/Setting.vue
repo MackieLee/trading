@@ -9,9 +9,9 @@
     <div class="container">
       <div class="lf">
         <div class="nav">
-          <p @click="toggle('initdata')" :class="{ 'active': curItem == 'initdata'}">个人资料</p>
-          <p @click="toggle('initpwd')" :class="{ 'active': curItem == 'initpwd'}">账号安全</p>
-          <p @click="toggle('bind')" :class="{ 'active': curItem == 'bind'}">账号绑定</p>
+          <p @click="toggle('initdata')" :class="{ 'active': curItem == 'initdata'}"><i class="t1"></i>个人资料</p>
+          <p @click="toggle('initpwd')" :class="{ 'active': curItem == 'initpwd'}"><i class="t2"></i>账号安全</p>
+          <p @click="toggle('bind')" :class="{ 'active': curItem == 'bind'}"><i class="t3"></i>账号绑定</p>
         </div>
       </div>
       <div class="rt">
@@ -65,7 +65,7 @@ export default {
   .cur-posi {
     border-bottom: none;
     i {
-      background-position: -56px -82px;
+      background-position: -18px -106px;
       margin-right: 6px;
     }
   }
@@ -85,16 +85,16 @@ export default {
           cursor: pointer;
         }
         .t1 {
-          background-position: -154px -288px;
+          background-position: -139px -288px;
           margin-right: 6px;
         }
         .t2 {
           height: 18px;
-          background-position: -154px -326px;
+          background-position: -232px -156px;
           margin-right: 6px;
         }
         .t3 {
-          background-position: -154px -307px;
+          background-position: -232px -83px;
           margin-right: 6px;
         }
       }

@@ -49,7 +49,7 @@ export default {
     },
     submitCommit:function(){
       //vue-resource....
-      console.log(this.contentSeries)
+      // console.log(this.contentSeries)
       this.$emit('closeModal')
     }
   }

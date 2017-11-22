@@ -36,9 +36,11 @@
                 <font class="numb">6</font>房地产老项目收入成本结转问题</li>
             </ul>
           </div>
+          <!-- 笔记模块！！！！ -->
           <div class="min-650 biji" v-if="part=='2'">
             未发现本节相关的笔记内容
           </div>
+          <!-- 问答模块！！！！ -->
           <div class="min-650 dayi" v-if="part=='3'">
             <!-- 第一个问答 -->
             <div class="item">
@@ -79,9 +81,11 @@
               </div>
             </div>
           </div>
+          <!-- 试题模块！！！！！！ -->
           <div class="min-650 shiti" v-if="part=='4'">
             <div class="test">【本节知识点】其他知识点</div>
           </div>
+          <!-- 视频列表模块！！！不分离！！！ -->
           <div class="min-650 kecheng" v-if="part=='5'">
             <div class="class-list">
               <ul>
@@ -97,7 +101,7 @@
     <div class="docs">
       <!-- 课程标题 -->
       <span class="doc-title">{{ curClass }}</span>
-      <span class="teacher">孙玮老师</span>
+      <span class="teacher">主讲：孙玮老师</span>
       <span class="pointer pingjia" @click="modal=!modal,series=true">本节评价</span>
       <span class="pointer shoucang" @click="shouCang">收藏</span>
       <i class="red-heart" v-if="shoucang"></i>
@@ -293,11 +297,11 @@ export default {
       margin-right: 0px;
     }
     .red-heart {
-      background-position: 258px -199px;
+      background-position: -236px -262px;
       height: 17px;
     }
     .grey-heart {
-      background-position: 164px -263px;
+      background-position: -140px -199px;
       height: 17px;
     }
     .pointer {

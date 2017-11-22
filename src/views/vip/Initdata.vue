@@ -27,7 +27,7 @@
       </div>
       <div class="item">
         <label>行业</label>
-        <select>
+        <select class="lg-sel">
           <option v-for="(item,index) in industry" :key="item">
             {{ item }}
           </option>
@@ -35,7 +35,7 @@
       </div>
       <div class="item">
         <label>职位</label>
-        <select>
+        <select class="lg-sel">
           <option v-for="(item,index) in position" :key="item">
             {{ item }}
           </option>
@@ -46,7 +46,7 @@
       </div>
       <div class="item">
         <label>公司规模</label>
-        <select>
+        <select class="lg-sel">
           <option v-for="(item,index) in size" :key="item">
             {{ item }}
           </option>
@@ -123,6 +123,9 @@ export default {
 .lf{
   float: left;
 }
+.lg-sel{
+  width: 306px !important;
+}
 .init-data {
   overflow: hidden;
   padding: 40px;
@@ -153,6 +156,7 @@ export default {
         height: 40px;
         outline: none;
         border-radius: 3px;
+        border: 1px solid $border-dark;
       }
     }
   }
