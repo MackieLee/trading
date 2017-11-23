@@ -2,7 +2,6 @@
   <div class="faq">
     <teacher-box></teacher-box>
       <quill-editor v-model="content"
-        ref="myQuillEditor"
         :options="editorOption"
         @blur="onEditorBlur($event)"
         @focus="onEditorFocus($event)"
@@ -14,9 +13,9 @@
 </template>
 
 <script>
-import TeacherBox from "./TeacherBox";
-import FaqBox from "./FaqBox";
-import { quillEditor } from "vue-quill-editor";
+import TeacherBox from "./TeacherBox"
+import FaqBox from "./FaqBox"
+import { quillEditor } from "vue-quill-editor"
 export default {
   name: "faq",
   components: {
@@ -41,10 +40,6 @@ export default {
     },
     onEditorReady(editor) {
 
-    },
-    onEditorChange({ editor, html, text }) {
-
-      this.content = html;
     },
     onWatch: function(state) {
       state === "watch" ? (this.guanzhu = false) : (this.guanzhu = true);

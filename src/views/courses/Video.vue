@@ -41,51 +41,13 @@
             未发现本节相关的笔记内容
           </div>
           <!-- 问答模块！！！！ -->
-          <div class="min-650 dayi" v-if="part=='3'">
-            <!-- 第一个问答 -->
-            <div class="item">
-              <!-- 标题 -->
-              <div class="title unfold">
-                分步计算，正确的步骤是否能得分？
-                <div class="date">2017-10-08</div>
-              </div>
-              <div class="detail">
-                <!-- 问题详情 -->
-                <div class="question-detail">
-                  我拿中注协的机考模拟系统练习，点击主观题上面的蓝色的CH输入法按钮，无法切换输入法，怎么回事？是因为是模拟系统所以中注协没安装输入法么？考试时候怎么办？谢谢老师。
-                </div>
-                <!-- 答案 -->
-                <!-- 点击灰色标题栏下拉问题详情！-->
-                <div class="ansr">
-                  <i></i>
-                  王老师的回答
-                  <div class="date">2017-09-29 10:32:33</div>
-                  勤奋可爱的学员，你好:<br> 正常情况下，直接点击CH输入法即可切换输入法，可能是您浏览器的问题，您试着换台电脑或者浏览器试试，考试的时候是不会出现这样的问题的，祝备考顺利！ 每个努力学习的小天使都会有收获的，加油
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <!-- 标题 -->
-              <!-- class名字根据事件触发 fold:unfold-->
-              <div class="title fold">
-                分步计算，正确的步骤是否能得分？
-                <div class="date">2017-10-08</div>
-              </div>
-            </div>
-            <div class="item">
-              <!-- 标题 -->
-              <!-- class名字根据事件触发 fold:unfold-->
-              <div class="title fold">
-                分步计算，正确的步骤是否能得分？
-                <div class="date">2017-10-08</div>
-              </div>
-            </div>
-          </div>
+          <dayi class="min-650" v-if="part=='3'">
+          </dayi>
           <!-- 试题模块！！！！！！ -->
           <div class="min-650 shiti" v-if="part=='4'">
             <div class="test">【本节知识点】其他知识点</div>
           </div>
-          <!-- 视频列表模块！！！不分离！！！ -->
+          <!-- 视频列表模块！！！ -->
           <div class="min-650 kecheng" v-if="part=='5'">
             <div class="class-list">
               <ul>
@@ -125,131 +87,126 @@
 </template>
 
 <script>
-require('video.js/dist/video-js.css')
-require('vue-video-player/src/custom-theme.css')
-const DOC = require('../../assets/doc.json')
-import Modal from './Modal'
+require("video.js/dist/video-js.css")
+require("vue-video-player/src/custom-theme.css")
+const DOC = require("../../assets/doc.json")
+import Modal from "./Modal"
+import Dayi from './Dayi'
 export default {
-  name: 'video',
-  components: { Modal },
+  name: "video",
+  components: { Modal,Dayi },
   data() {
     return {
-      markNum: '1',
+      markNum: "1",
       playerOptions: {
         muted: true,
-        language: 'en',
+        language: "en",
         playbackRates: [0.7, 1.0, 1.5, 2.0],
-        sources: [{
-          type: "video/mp4",
-          src: ""
-        }]
+        sources: [
+          {
+            type: "video/mp4",
+            src: ""
+          }
+        ]
       },
       classes: [
         {
-          num: '1',
-          title: '1. 课程目录课程目录课程目录'
+          num: "1",
+          title: "1. 课程目录课程目录课程目录"
         },
         {
-          num: '2',
-          title: '2. 课程目录课程目录课程目录'
+          num: "2",
+          title: "2. 课程目录课程目录课程目录"
         },
         {
-          num: '3',
-          title: '3. 课程目录课程目录课程目录'
+          num: "3",
+          title: "3. 课程目录课程目录课程目录"
         },
         {
-          num: '4',
-          title: '4. 课程目录课程目录课程目录'
+          num: "4",
+          title: "4. 课程目录课程目录课程目录"
         },
         {
-          num: '5',
-          title: '5. 课程目录课程目录课程目录'
+          num: "5",
+          title: "5. 课程目录课程目录课程目录"
         }
       ],
       videos: [
-        'http://112.253.22.163/2/z/x/a/d/zxaddmlybpqfcakgrlcmvbvzpnkdqk/he.yinyuetai.com/68DB01553913F3CAF794A41F2AB77A76.flv?sc=96b1e18fc28b7552&br=1153&vid=2592783&aid=29438&area=JP&vst=0',
-        'https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm',
-        'http://7xkwa7.media1.z0.glb.clouddn.com/sample_video_L'
+        "http://112.253.22.163/2/z/x/a/d/zxaddmlybpqfcakgrlcmvbvzpnkdqk/he.yinyuetai.com/68DB01553913F3CAF794A41F2AB77A76.flv?sc=96b1e18fc28b7552&br=1153&vid=2592783&aid=29438&area=JP&vst=0",
+        "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm",
+        "http://7xkwa7.media1.z0.glb.clouddn.com/sample_video_L"
       ],
-      part: '1',
+      part: "1",
       doc: DOC,
-      curClass: '土地增值税清算技巧[专题]',
+      curClass: "土地增值税清算技巧[专题]",
       shoucang: false,
       modal: false,
       // 父组件和子组件数据绑定
       series: true
-    }
+    };
   },
   mounted() {
-    this.playerOptions.sources[0].src = this.videos[0]
-    this.player.muted(false)
+    this.playerOptions.sources[0].src = this.videos[0];
+    this.player.muted(false);
   },
   computed: {
     player() {
-      return this.$refs.videoPlayer.player
+      return this.$refs.videoPlayer.player;
     }
   },
   methods: {
-    onPlayerPlay(player) {
-    },
-    onPlayerPause(player) {
-    },
-    onPlayerEnded(player) {
-    },
-    onPlayerLoadeddata(player) {
-    },
-    onPlayerWaiting(player) {
-    },
-    onPlayerPlaying(player) {
-    },
-    onPlayerTimeupdate(player) {
-    },
-    onPlayerCanplay(player) {
-    },
-    onPlayerCanplaythrough(player) {
-    },
-    playerStateChanged(playerCurrentState) {
-    },
+    onPlayerPlay(player) {},
+    onPlayerPause(player) {},
+    onPlayerEnded(player) {},
+    onPlayerLoadeddata(player) {},
+    onPlayerWaiting(player) {},
+    onPlayerPlaying(player) {},
+    onPlayerTimeupdate(player) {},
+    onPlayerCanplay(player) {},
+    onPlayerCanplaythrough(player) {},
+    playerStateChanged(playerCurrentState) {},
     playerReadied(player) {
-      player.currentTime(0)
-      player.volume(0.5)
+      player.currentTime(0);
+      player.volume(0.5);
     },
     //视频列表点播
     getVideo(item) {
-      this.playerOptions.sources[0].src = this.videos[item.num - 1]
-      this.markNum = item.num
+      this.playerOptions.sources[0].src = this.videos[item.num - 1];
+      this.markNum = item.num;
     },
     //卡片切换
     toggle() {
-      let ev = event.target
-      if (ev.tagName === 'SPAN') {
-        document.getElementsByClassName('cur')[0].setAttribute('class', 'tab-title')
-        ev.setAttribute('class', 'tab-title cur')
+      let ev = event.target;
+      if (ev.tagName === "SPAN") {
+        document
+          .getElementsByClassName("cur")[0]
+          .setAttribute("class", "tab-title");
+        ev.setAttribute("class", "tab-title cur");
       } else {
-        return
+        return;
       }
-      let ref = event.target.dataset.ref
-      this.part = ref
+      let ref = event.target.dataset.ref;
+      this.part = ref;
     },
     jumpTo: function() {
-      let point = event.target.dataset.cut
-      this.$refs.videoPlayer.player.currentTime(point)
-      this.$refs.videoPlayer.player.play()
+      let point = event.target.dataset.cut;
+      this.$refs.videoPlayer.player.currentTime(point);
+      this.$refs.videoPlayer.player.play();
     },
     shouCang: function() {
-      this.shoucang = !this.shoucang
+      this.shoucang = !this.shoucang;
     },
     closeModal: function() {
-      this.modal = false
+      this.modal = false;
     },
     noteDown: function() {
-      this.modal = true
+      this.modal = true;
     }
   }
-}
+};
 </script>
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .modal-outer {
   width: 100%;
   height: 180%;
@@ -274,7 +231,7 @@ export default {
     display: inline-block;
     width: 30px;
     height: 25px;
-    background-image: url('../../assets/images/Sprite.png');
+    background-image: url("../../assets/images/Sprite.png");
     vertical-align: text-bottom;
   }
   .container {
@@ -376,50 +333,9 @@ export default {
           }
         }
       }
-      .dayi {
-        .item{
-          .fold{
-            &:hover{
-              background-color: #D9D7D7;
-            }
-          }
-        }
-        .date {
-          float: right;
-        }
-        .unfold{
-          background-color: #D9D7D7;
-        }
-        .title {
-          line-height: 30px;
-          padding: 0 13px;
-          overflow: hidden;
-          cursor: pointer;
-        }
-        .detail {
-          padding: 13px;
-          background-color: $white;
-          text-indent: 2em;
-          .question-detail {
-            border-bottom: 1px solid #eee;
-            line-height: 36px;
-            padding-bottom: 20px;
-            margin-bottom: 10px;
-          }
-          .ansr {
-            line-height: 36px;
-            overflow: hidden;
-            margin-top: 10px;
-            i {
-              background-position: -93px -89px;
-              height: 25px;
-            }
-          }
-        }
-      }
       .shiti {
         .test {
-          background-color: #D9D7D7;
+          background-color: #d9d7d7;
           line-height: 30px;
           padding: 0 13px;
           overflow: hidden;
@@ -439,7 +355,7 @@ export default {
             color: #333;
             cursor: pointer;
             overflow: hidden;
-            border-bottom: 1px solid #B0ACAC;
+            border-bottom: 1px solid #b0acac;
           }
           .active {
             background-color: #d8d8d8;
