@@ -44,9 +44,9 @@
           <dayi class="min-650" v-if="part=='3'">
           </dayi>
           <!-- 试题模块！！！！！！ -->
-          <div class="min-650 shiti" v-if="part=='4'">
-            <div class="test">【本节知识点】其他知识点</div>
-          </div>
+          <exam v-if="part=='4'">
+
+          </exam>
           <!-- 视频列表模块！！！ -->
           <div class="min-650 kecheng" v-if="part=='5'">
             <div class="class-list">
@@ -90,11 +90,12 @@
 require("video.js/dist/video-js.css")
 require("vue-video-player/src/custom-theme.css")
 const DOC = require("../../assets/doc.json")
+import Exam from './Exam'
 import Modal from "./Modal"
 import Dayi from './Dayi'
 export default {
   name: "video",
-  components: { Modal,Dayi },
+  components: { Modal,Dayi,Exam },
   data() {
     return {
       markNum: "1",
@@ -146,12 +147,12 @@ export default {
     };
   },
   mounted() {
-    this.playerOptions.sources[0].src = this.videos[0];
-    this.player.muted(false);
+    this.playerOptions.sources[0].src = this.videos[0]
+    this.player.muted(false)
   },
   computed: {
     player() {
-      return this.$refs.videoPlayer.player;
+      return this.$refs.videoPlayer.player
     }
   },
   methods: {
@@ -166,13 +167,13 @@ export default {
     onPlayerCanplaythrough(player) {},
     playerStateChanged(playerCurrentState) {},
     playerReadied(player) {
-      player.currentTime(0);
-      player.volume(0.5);
+      player.currentTime(0)
+      player.volume(0.5)
     },
     //视频列表点播
     getVideo(item) {
-      this.playerOptions.sources[0].src = this.videos[item.num - 1];
-      this.markNum = item.num;
+      this.playerOptions.sources[0].src = this.videos[item.num - 1]
+      this.markNum = item.num
     },
     //卡片切换
     toggle() {
@@ -180,27 +181,27 @@ export default {
       if (ev.tagName === "SPAN") {
         document
           .getElementsByClassName("cur")[0]
-          .setAttribute("class", "tab-title");
-        ev.setAttribute("class", "tab-title cur");
+          .setAttribute("class", "tab-title")
+        ev.setAttribute("class", "tab-title cur")
       } else {
         return;
       }
-      let ref = event.target.dataset.ref;
-      this.part = ref;
+      let ref = event.target.dataset.ref
+      this.part = ref
     },
     jumpTo: function() {
       let point = event.target.dataset.cut;
-      this.$refs.videoPlayer.player.currentTime(point);
-      this.$refs.videoPlayer.player.play();
+      this.$refs.videoPlayer.player.currentTime(point)
+      this.$refs.videoPlayer.player.play()
     },
     shouCang: function() {
-      this.shoucang = !this.shoucang;
+      this.shoucang = !this.shoucang
     },
     closeModal: function() {
-      this.modal = false;
+      this.modal = false
     },
     noteDown: function() {
-      this.modal = true;
+      this.modal = true
     }
   }
 };
@@ -331,15 +332,6 @@ export default {
             text-align: center;
             margin: 0 10px 17px 0;
           }
-        }
-      }
-      .shiti {
-        .test {
-          background-color: #d9d7d7;
-          line-height: 30px;
-          padding: 0 13px;
-          overflow: hidden;
-          cursor: pointer;
         }
       }
       .kecheng {

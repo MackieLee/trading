@@ -1,0 +1,124 @@
+[
+  {
+    "single": [
+      {
+        "title": "营改增个人出租房屋&小额定额发票处理？",
+        "content": [
+          {
+            "id": "single11",
+            "name": "1",
+            "option": "A",
+            "value": "处理？"
+          },
+          {
+            "id": "single12",
+            "name": "1",
+            "option": "B",
+            "value": "不处理？"
+          },
+          {
+            "id": "single13",
+            "name": "1",
+            "option": "C",
+            "value": "都处理？"
+          },
+          {
+            "id": "single14",
+            "name": "1",
+            "option": "D",
+            "value": "都不处理？"
+          }
+        ]
+      },
+      {
+        "title": "营改增个人出租房屋&小额定额发票处理？",
+        "content": [
+          {
+            "id": "single21",
+            "name": "1",
+            "option": "A",
+            "value": "处理？"
+          },
+          {
+            "id": "single22",
+            "name": "1",
+            "option": "B",
+            "value": "不处理？"
+          },
+          {
+            "id": "single23",
+            "name": "1",
+            "option": "C",
+            "value": "都处理？"
+          },
+          {
+            "id": "single24",
+            "name": "1",
+            "option": "D",
+            "value": "都不处理？"
+          }
+        ]
+      }
+    ],
+    "muilti": [
+      {
+        "title": "营改增个人出租房屋&小额定额发票处理？",
+        "content": [
+          {
+            "id": "muilti11",
+            "name": "1",
+            "option": "A",
+            "value": "处理？"
+          },
+          {
+            "id": "muilti12",
+            "name": "1",
+            "option": "B",
+            "value": "不处理？"
+          },
+          {
+            "id": "muilti13",
+            "name": "1",
+            "option": "C",
+            "value": "都处理？"
+          },
+          {
+            "id": "muilti14",
+            "name": "1",
+            "option": "D",
+            "value": "都不处理？"
+          }
+        ]
+      },
+      {
+        "title": "营改增个人出租房屋&小额定额发票处理？",
+        "content": [
+          {
+            "id": "muilti21",
+            "name": "1",
+            "option": "A",
+            "value": "处理？"
+          },
+          {
+            "id": "muilti22",
+            "name": "1",
+            "option": "B",
+            "value": "不处理？"
+          },
+          {
+            "id": "muilti23",
+            "name": "1",
+            "option": "C",
+            "value": "都处理？"
+          },
+          {
+            "id": "muilti24",
+            "name": "1",
+            "option": "D",
+            "value": "都不处理？"
+          }
+        ]
+      }
+    ]
+  }
+]

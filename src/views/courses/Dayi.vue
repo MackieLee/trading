@@ -28,7 +28,7 @@
       <!-- 标题 -->
       <div class="thumb-nail fl">
         <router-link :to="{name: 'vip'}">
-          <img class="user-thumb-nail" src="../../assets/images/huanyuanzx01.png"/>
+          <img class="user-thumb-nail" src="../../assets/images/xiugaizl.png"/>
         </router-link>
       </div>
       <div class="content fl">
@@ -82,6 +82,7 @@ export default {
     border-bottom: 1px solid $border-dark;
     .user-thumb-nail {
       width: 40px;
+      border-radius: 50%;
     }
     .content {
       width: 420px;
@@ -101,6 +102,7 @@ export default {
       }
       .date {
         color: $dark;
+        float: right;
       }
       .ansr {
         text-indent: 2em;
