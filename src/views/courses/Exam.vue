@@ -6,15 +6,15 @@
         <div v-for="question in exam[0].muilti" :key="question.title">
           <p>{{ question.title }}(多选)</p>
           <p v-for="(item,index) in question.content " :key="item.id">
-            <label :for="item.id"><span class="option">{{ item.option }}</span><span>{{item.value}}</span></label>
-            <input :id="item.id" type="checkbox" :value="item.option" :name="item.name"/>
+            <label :for="item.id"><span :class="{'checked':muiltiChecks.indexOf(item.id) !== -1}" class="option">{{ item.option }}</span><span>{{item.value}}</span></label>
+            <input :id="item.id" v-model="muiltiChecks" type="checkbox" :value="item.id" :name="item.name"/>
           </p>
         </div>
-        <div v-for="question in exam[0].single" :key="question.title">
-          <p>{{ question.title }}(单选)</p>
+        <div v-for="(question,index) in exam[0].single" :key="question.title">
+          <p>{{ question.title }}(单选){{ arr[index] }}</p>
           <p v-for="(item,index) in question.content " :key="item.id">
-            <label :for="item.id"><span class="option">{{ item.option }}</span><span>{{item.value}}</span></label>
-            <input :id="item.id" type="radio" :value="item.option" :name="item.name"/>
+            <label :for="item.id"><span :class="{'checked':arr.indexOf(item.id) !== -1}" class="option">{{ item.option }}</span><span>{{item.value}}</span></label>
+            <input :id="item.id" type="radio" v-model="checked" :value="item.id " :name="item.name"/>
           </p>
         </div>
         <div>
@@ -30,8 +30,21 @@ const EXAM = require("../../assets/exam.json");
 export default {
   data() {
     return {
-      exam: EXAM
+      exam: EXAM,
+      muiltiChecks:[],
+      arr:[],
+      checked:''
     };
+  },
+  computed: {
+  },
+  methods:{
+  },
+  watch:{
+    checked:function(){
+      let num = parseInt(this.checked.substr(6,1))
+      this.arr[num-1] = this.checked
+    }
   }
 };
 </script>
@@ -51,6 +64,10 @@ export default {
   }
   p{
     line-height: 20px;
+    margin: 10px 0;
+  }
+  label{
+    cursor: pointer;
   }
   .option{
     display: inline-block;
@@ -59,10 +76,21 @@ export default {
     border-radius: 50%;
     text-align: center;
     border: 1px solid $border-dark;
-    cursor: pointer;
+    margin: 0 10px;
   }
   .submit{
     display: block;
+    width: 80px;
+    line-height: 25px;
+    outline:none;
+    border: none;
+    color: $white;
+    background-color: $btn-danger;
+    cursor: pointer;
+  }
+  .checked{
+    background-color: $btn-default;
+    color: $white;
   }
 }
 </style>

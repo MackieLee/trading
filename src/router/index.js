@@ -33,8 +33,11 @@ import tdingdan from '../views/vip/Tdingdan'
 import fagui from '../views/fagui/Fagui'
 import fdetail from '../views/fagui/Detail'
 import fsearch from '../views/fagui/Search'
-import setting from '../views/vip/Setting'
 import cart from '../views/vip/ShoppingCart'
+import initpwd from '../views/vip/Initpwd'
+import initdata from '../views/vip/Initdata'
+import bind from '../views/vip/Bind'
+import fapiaodetail from '../views/vip/FapiaoDetail'
 
 Vue.use(Router)
 
@@ -158,6 +161,25 @@ const routes = [
             path: 'cart',
             name: 'shopping-cart',
             component: cart
+          },
+          { path: 'initdata',
+            name: 'initdata',
+            component: initdata
+          },
+          {
+            path: 'initpwd',
+            name: 'initpwd',
+            component: initpwd
+          },
+          {
+            path: 'bind',
+            name: 'bind',
+            component: bind
+          },
+          {
+            path: 'fapiao-detail',
+            name: 'fapiao-detail',
+            component: fapiaodetail
           }
         ]
       },
@@ -191,7 +213,6 @@ const routes = [
           }
         ]
       },
-      { path: 'setting', name: 'setting', component: setting },
       {
         path: 'fagui',
         name: 'fagui',

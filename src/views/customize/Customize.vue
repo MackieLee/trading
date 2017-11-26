@@ -8,7 +8,7 @@
     </div>
     <div class="content">
       <font>2017专属您的私人定制</font>
-      <form>
+      <form @submit.prevent="submit">
         <div class="flex">
           <label for="danwei" class="tag tag-width">单位名称：</label><input name="danwei" id="danwei" placeholder="请输入您的公司名称" type="text" class="lg-input" />
         </div>
@@ -66,9 +66,7 @@
             <div class="tag block"><label for="youxiang">邮箱</label><input name="youxiang" id="youxiang" placeholder="请输入正确的电子邮箱"/></div>
           </div>
         </div>
-        <div class="sub">
-          提交
-        </div>
+        <input type="submit" class="sub" value="提     交"/>
       </form>
     </div>
   </div>
@@ -113,7 +111,7 @@ export default {
   },
   methods: {
     submit: function() {
-
+      console.log('submit')
     },
     selectProvince:function(value){
       this.area = this.province[value].sub
@@ -276,15 +274,15 @@ export default {
         }
       }
       .sub{
-        width: 200px;
-        padding: 10px 0;
-        margin: 30px auto 60px auto;
+        width: 150px;
+        line-height: 30px;
         background-color: $red;
+        outline: none;
+        border: none;
         color: $white;
-        text-align: center;
-        font-size: 16px;
-        border-radius: 5px;
         cursor: pointer;
+        margin: 30px auto;
+        display: block;
       }
     }
   }

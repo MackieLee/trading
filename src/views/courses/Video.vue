@@ -45,7 +45,6 @@
           </dayi>
           <!-- 试题模块！！！！！！ -->
           <exam v-if="part=='4'">
-
           </exam>
           <!-- 视频列表模块！！！ -->
           <div class="min-650 kecheng" v-if="part=='5'">
@@ -53,6 +52,7 @@
               <ul>
                 <li v-for="item in classes" :key="item.num" :class="{ active: markNum == item.num }" @click="getVideo(item)">
                   <span>{{ item.title }}</span>
+                  <span></span>
                 </li>
               </ul>
             </div>

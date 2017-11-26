@@ -2,16 +2,14 @@
   <div class="my_order_r">
     <h2>我的订单</h2>
     <ul class="ul02">
-      <li class="block-hori block-1">报名信息 </li>
+      <li class="li01">
+        <i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选
+      </li>
+      <li class="block-hori block-nav-1">报名信息 </li>
       <li class="block-hori block-2">单价</li>
       <li class="block-hori block-3">商品</li>
       <li class="block-hori block-4">实付款</li>
       <li class="block-hori block-5">操作</li>
-    </ul>
-    <ul class="ul03">
-      <li class="li01">
-        <i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选 </li>
-      <li>删除订单</li>
     </ul>
     <div class="container">
       <div class="item">
@@ -40,7 +38,6 @@
     <ul class="ul03">
       <li class="li01">
         <i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选 </li>
-      <li>删除订单</li>
       <button class="btn-danger rt right-cut">去结算</button>
     </ul>
     <div class="number">
@@ -122,13 +119,16 @@ i {
   height: 18px;
 }
 .container{
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   .item{
     margin-bottom: 20px;
   }
 }
 .block-hori {
   padding: 0 15px;
+}
+.block-nav-1{
+  width: 300px;
 }
 .block-1 {
   width: 370px;
@@ -181,33 +181,28 @@ i {
   height: 35px;
   width: 100%;
   background: #ddd;
-  margin-top: 14px;
+  margin: 14px 0;
+  .li01{
+    margin-left: 13px;
+    i{
+      background-position: -101px -284px;
+      margin-right: 10px;
+    }
+  }
 }
-
+.ul03 .li01{
+  font-size: 14px;
+  margin-left: 13px;
+  i{
+    background-position:-101px -350px;
+  }
+}
 .my_order_r .ul02 li {
   text-align: center;
   font-size: 14px;
   color: #333;
   float: left;
   line-height: 35px;
-}
-
-.my_order_r .ul03 {
-  width: 100%;
-  margin: 15px 0;
-  overflow: hidden;
-}
-
-.my_order_r .ul03 li {
-  border-radius: 3px;
-  padding: 0 15px;
-  margin-right: 20px;
-  border: 1px #ddd solid;
-  text-align: center;
-  font-size: 12px;
-  color: #333;
-  float: left;
-  line-height: 25px;
 }
 
 .my_order_r .ul03 .li01 {
@@ -274,9 +269,5 @@ i {
 .my_order_r .p01 i {
   margin: 0 5px 0 13px;
   background-position: -101px -284px;
-}
-.my_order_r .ul03 .li01 i,
-.my_order_r .ul06 .li01 i {
-  background-position: -101px -285px;
 }
 </style>

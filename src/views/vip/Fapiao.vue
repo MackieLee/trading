@@ -3,14 +3,17 @@
     <h2>我的发票</h2>
     <div class="22">
       <ul class="ul02">
-        <li class="li01">订单详情</li>
+        <li class="li01">
+
+        </li>
+        <li class="head"><i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选<select v-model="type" class="sel"><option>商品类型</option><option>线上课</option><option>答疑</option><option>图书</option><option>线下课</option></select></li>
         <li>状态</li>
-        <li>发票类型</li>
+        <li><select v-model="taxType" class="sel"><option>发票类型</option><option>普通发票</option><option>电子发票</option><option>专用发票</option></select></li>
         <li>操作</li>
       </ul>
       <p class="p01">
         <!-- <i @click="change()" data-ref='0' :class="{ selected: num1}"></i> -->
-        <span class="span01">2017-08-31</span><span>53196839876687913</span>
+        <i @click="change()" data-ref="1" :class="{ selected: num2}"></i><span class="span01">2017-08-31</span><span>53196839876687913</span>
       </p>
       <ul class="ul05">
         <li class="li01"><img src="../../assets/images/huanyuanzx02.png"/><p>企业所得税年度纳税申报表中隐藏的稽查陷阱</p></li>
@@ -18,11 +21,11 @@
         <li>
           <span>专用发票</span>
         </li>
-        <li>申请发票</li>
+        <router-link tag="li" :to="{ name:'fapiao-detail' }">发票信息</router-link>
       </ul>
       <p class="p01">
         <!-- <i @click="change()" data-ref='1' :class="{ selected: num2}"></i> -->
-        <span class="span01">2017-08-31</span><span>53196839876687913</span>
+        <i @click="change()" data-ref="1" :class="{ selected: num2}"></i><span class="span01">2017-08-31</span><span>53196839876687913</span>
       </p>
       <ul class="ul05">
         <li class="li01"><img src="../../assets/images/huanyuanzx02.png"/><p>企业所得税年度纳税申报表中隐藏的稽查陷阱</p></li>
@@ -33,7 +36,7 @@
       </ul>
       <p class="p01">
         <!-- <i @click="change()" data-ref='2' :class="{ selected: num3}"></i> -->
-        <span class="span01">2017-08-31</span><span>53196839876687913</span>
+        <i @click="change()" data-ref="1" :class="{ selected: num2}"></i><span class="span01">2017-08-31</span><span>53196839876687913</span>
       </p>
       <ul class="ul05">
         <li class="li01"><img src="../../assets/images/huanyuanzx02.png"/><p>企业所得税年度纳税申报表中隐藏的稽查陷阱</p></li>
@@ -42,13 +45,9 @@
         </li>
         <li>申请发票</li>
       </ul>
-      <ul class="ul06">
-        <!-- <li class="li01">
-          <i @click="change()" data-ref='all' :class="{ selected: all}"></i>
-          全选 </li>
-        <li>申请发票</li>
-        <li class="li03"> 发票总额：0 元</li> -->
-      </ul>
+      <i @click="change()" data-ref="1" :class="{ selected: num2}"></i>全选
+      <input type="button" class="btn btn-1" value="删除订单"/>
+      <input type="button" class="btn btn-2" value="去结算"/>
       <div class="number">
         <a>1</a>
         <a>2</a>
@@ -62,9 +61,37 @@ export default {
   name: "fapiao",
   data() {
     return {
+      type: "",
+      taxType: "",
+      num2: '',
+      all:'false'
     };
   },
+  // 全选逻辑重新布局
+  // 发票详情页面，带参(发票类型)跳转
   methods: {
+    change: function() {
+      let ref = event.target.dataset.ref;
+      if (ref === "all") {
+        if (this.num1 == this.num2 && this.num2 == this.num3) {
+          this.num1 = !this.num1;
+          this.num2 = !this.num2;
+          this.num3 = !this.num3;
+          this.all = !this.all;
+        } else {
+          this.num1 = true;
+          this.num2 = true;
+          this.num3 = true;
+          this.all = true;
+        }
+      } else if (ref === "0") {
+        this.num1 = !this.num1;
+      } else if (ref === "1") {
+        this.num2 = !this.num2;
+      } else {
+        this.num3 = !this.num3;
+      }
+    }
   }
 };
 </script>
@@ -74,7 +101,13 @@ export default {
 .selected {
   background-position: -101px -254px !important;
 }
-
+.sel {
+  outline: none;
+  border: 1px solid $border-dark;
+  width: 100px;
+  height: 30px;
+  margin-left: 20px;
+}
 i {
   margin-right: 5px;
   display: inline-block;
@@ -83,7 +116,26 @@ i {
   background: url("../../assets/images/Sprite.png");
   vertical-align: text-bottom;
 }
-
+.btn{
+  outline:none;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+}
+.btn-1{
+  border: 1px solid $border-dark;
+  margin-left: 20px;
+  background-color: $white;
+}
+.btn-2{
+  border: none;
+  float: right;
+  background-color: $btn-danger;
+  color: $white;
+  &:hover{
+    background-color: $btn-danger-hover;
+  }
+}
 .my_order_r {
   height: 900px;
   width: 800px;
@@ -94,7 +146,7 @@ i {
 .my_order_r h2 {
   widows: 100%;
   background: $bg-blue;
-  height:42px;
+  height: 42px;
   font-weight: normal;
   line-height: 42px;
   text-align: center;
@@ -128,9 +180,11 @@ i {
   height: 35px;
   width: 100%;
   background: $bgcolor;
-  margin: 14px 0 ;
-  .li01{
+  margin: 14px 0;
+  .head {
     width: 400px;
+    text-align: left;
+    margin-left: 10px;
   }
 }
 
@@ -184,19 +238,17 @@ i {
   background: $bg-blue;
   line-height: 31px;
   color: $white;
-}
-
-.my_order_r .p01 i {
-  margin: 0 5px 0 20px;
-  background-position: -101px -284px;
+  i{
+    margin-left: 10px;
+  }
 }
 
 .my_order_r .p01 {
-  span{
+  span {
     margin-left: 30px;
   }
-  span.span01{
-    margin-left: 20px;
+  span.span01 {
+    margin-left: 10px;
     color: $grey-white;
   }
 }
@@ -223,12 +275,12 @@ i {
   text-align: left;
   margin-left: 20px;
   padding-top: 10px;
-  img{
+  img {
     float: left;
     padding: 5px;
     border: 1px solid $border-dark;
   }
-  p{
+  p {
     float: left;
     margin-left: 10px;
   }

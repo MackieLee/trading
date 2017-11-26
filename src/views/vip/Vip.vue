@@ -9,30 +9,17 @@
     <div class="container">
       <div class="lf">
         <div class="title flex">
-          <router-link tag="div" :to="{ name:'setting' }" class="head"></router-link>
+          <div class="head"></div>
           <div class="name">
-            <router-link tag="p" :to="{ name: 'setting' }" class="p1">
-              在树下听歌</router-link>
+            <p class="p1">
+              在树下听歌</p>
             <p class="p2">普通会员</p>
           </div>
         </div>
         <div class="nav">
-          <router-link tag="p" :to="{ name : 'study'}">
-            <i class="t1"></i>我的学习</router-link>
-          <router-link tag="p" :to="{ name : 'shoucang'}">
-            <i class="t2"></i>我的收藏</router-link>
-          <router-link tag="p" :to="{ name : 'qa'}">
-            <i class="t3"></i>我的问答</router-link>
-          <router-link tag="p" :to="{ name : 'qianbao'}">
-            <i class="t4"></i>我的钱包</router-link>
-          <router-link tag="p" :to="{ name : 'youhuiquan'}">
-            <i class="t5"></i>我的优惠券</router-link>
-          <router-link tag="p" :to="{ name : 'dingdan'}">
-            <i class="t6"></i>我的订单</router-link>
-          <router-link tag="p" :to="{ name : 'fapiao'}">
-            <i class="t7"></i>发票索取</router-link>
-          <router-link tag="p" :to="{ name : 'shopping-cart'}">
-            <i class="t7"></i>我的购物车</router-link>
+          <router-link tag="p" v-for="(item,index) in tags" :key="item.name" :to="{ name : item.router }">
+            <i :class="item.router"></i>{{ item.name }}
+          </router-link>
         </div>
       </div>
       <div class="rt">
@@ -47,7 +34,52 @@ export default {
   name:'vip',
   data(){
     return{
-
+      tags:[
+        {
+          name:'我的学习',
+          router:'study'
+        },
+        {
+          name:'我的收藏',
+          router:'shoucang'
+        },
+        {
+          name:'我的问答',
+          router:'qa'
+        },
+        {
+          name:'我的购物车',
+          router:'shopping-cart'
+        },
+        {
+          name:'我的订单',
+          router:'dingdan'
+        },
+        {
+          name:'我的钱包',
+          router:'qianbao'
+        },
+        {
+          name:'我的优惠券',
+          router:'youhuiquan'
+        },
+        {
+          name:'发票索取',
+          router:'fapiao'
+        },
+        {
+          name:'个人资料',
+          router:'initdata'
+        },
+        {
+          name:'账号安全',
+          router:'initpwd'
+        },
+        {
+          name:'账号绑定',
+          router:'bind'
+        }
+      ]
     }
   },
   methods:{
@@ -95,9 +127,6 @@ export default {
           background-position: -115px -35px;
         }
       }
-      // .p2 {
-      //   margin-left: 32px;
-      // }
       .flex {
         display: flex;
       }
@@ -120,33 +149,50 @@ export default {
           text-align: left;
           cursor: pointer;
         }
-        .t1 {
+        .study {
           background-position: -58px -222px;
           margin-right: 6px;
         }
-        .t2 {
+        .shoucang {
           height: 18px;
           background-position: -142px -199px;
           margin-right: 6px;
         }
-        .t3 {
+        .qa {
           background-position: -146px -228px;
           margin-right: 6px;
         }
-        .t4 {
-          background-position: -144px -136px;
+        .shopping-cart {
+          background-position: -298px -10px;
           margin-right: 6px;
         }
-        .t5 {
-          background-position: -142px -164px;
-          margin-right: 6px;
-        }
-        .t6 {
+        .dingdan {
           background-position: -146px -289px;
           margin-right: 6px;
         }
-        .t7 {
+        .qianbao {
+          background-position: -144px -136px;
+          margin-right: 6px;
+        }
+        .youhuiquan {
+          background-position: -142px -164px;
+          margin-right: 6px;
+        }
+        .fapiao {
           background-position: -146px -258px;
+          margin-right: 6px;
+        }
+        .initdata {
+          height: 18px;
+          background-position: -145px -292px;
+          margin-right: 6px;
+        }
+        .initpwd {
+          background-position: -238px -156px;
+          margin-right: 6px;
+        }
+        .bind {
+          background-position: -235px -83px;
           margin-right: 6px;
         }
       }
