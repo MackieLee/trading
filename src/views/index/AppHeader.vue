@@ -132,15 +132,15 @@ export default {
 @import "../../assets/style/base.scss";
 
 .app-header {
-  height: 49px;
+  height: 65px;
   border-bottom: 2px solid $border-rice;
   .header-container {
     width: $width;
-    margin: 15px auto;
+    margin: 0px auto;
+    padding-top: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     .logo {
       padding: 18px 71px;
       background-image: url("../../assets/images/Sprite.png");

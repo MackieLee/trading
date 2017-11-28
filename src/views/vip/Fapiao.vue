@@ -3,9 +3,6 @@
     <h2>我的发票</h2>
     <div class="22">
       <ul class="ul02">
-        <li class="li01">
-
-        </li>
         <li class="head"><i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选<select v-model="type" class="sel"><option>商品类型</option><option>线上课</option><option>答疑</option><option>图书</option><option>线下课</option></select></li>
         <li>状态</li>
         <li><select v-model="taxType" class="sel"><option>发票类型</option><option>普通发票</option><option>电子发票</option><option>专用发票</option></select></li>
@@ -21,7 +18,7 @@
         <li>
           <span>专用发票</span>
         </li>
-        <router-link tag="li" :to="{ name:'fapiao-detail' }">发票信息</router-link>
+        <li><router-link :to="{ name:'fapiao-detail' }">发票信息</router-link></li>
       </ul>
       <p class="p01">
         <!-- <i @click="change()" data-ref='1' :class="{ selected: num2}"></i> -->
@@ -32,18 +29,7 @@
         <li>已开</li>
         <li><span>专用发票</span>
         </li>
-        <li>申请发票</li>
-      </ul>
-      <p class="p01">
-        <!-- <i @click="change()" data-ref='2' :class="{ selected: num3}"></i> -->
-        <i @click="change()" data-ref="1" :class="{ selected: num2}"></i><span class="span01">2017-08-31</span><span>53196839876687913</span>
-      </p>
-      <ul class="ul05">
-        <li class="li01"><img src="../../assets/images/huanyuanzx02.png"/><p>企业所得税年度纳税申报表中隐藏的稽查陷阱</p></li>
-        <li>未开</li>
-        <li><span>专用发票</span>
-        </li>
-        <li>申请发票</li>
+        <li><router-link :to="{ name:'fapiaoapp' }">申请发票</router-link></li>
       </ul>
       <i @click="change()" data-ref="1" :class="{ selected: num2}"></i>全选
       <input type="button" class="btn btn-1" value="删除订单"/>

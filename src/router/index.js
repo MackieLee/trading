@@ -38,6 +38,7 @@ import initpwd from '../views/vip/Initpwd'
 import initdata from '../views/vip/Initdata'
 import bind from '../views/vip/Bind'
 import fapiaodetail from '../views/vip/FapiaoDetail'
+import fapiaoapp from '../views/vip/FapiaoApp'
 
 Vue.use(Router)
 
@@ -180,6 +181,11 @@ const routes = [
             path: 'fapiao-detail',
             name: 'fapiao-detail',
             component: fapiaodetail
+          },
+          {
+            path:'f-application',
+            name: 'fapiaoapp',
+            component: fapiaoapp
           }
         ]
       },

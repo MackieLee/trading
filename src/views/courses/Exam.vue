@@ -2,7 +2,7 @@
   <div class="shiti min-650">
     <div class="title">1/3单(多)选  【本节知识点】</div>
     <div>
-      <form>
+      <form @submit.prevent="submit">
         <div v-for="question in exam[0].muilti" :key="question.title">
           <p>{{ question.title }}(多选)</p>
           <p v-for="(item,index) in question.content " :key="item.id">
@@ -39,6 +39,7 @@ export default {
   computed: {
   },
   methods:{
+    submit:()=>{}
   },
   watch:{
     checked:function(){
