@@ -210,12 +210,14 @@ export default {
 @import "../../assets/style/base.scss";
 .modal-outer {
   width: 100%;
-  height: 180%;
+  height: 173%;
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.6);
   z-index: 2000;
+  .modal{
+    height: 100%;
+  }
   .close {
     position: absolute;
     top: 15%;

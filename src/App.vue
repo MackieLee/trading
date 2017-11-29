@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <!-- <div class="modal"></div> -->
   </div>
 </template>
 
@@ -11,7 +10,6 @@ export default {
   name: 'app',
   data(){
     return{
-
     }
   },
   mounted:function(){
@@ -37,7 +35,6 @@ export default {
   min-width: 1100px;
   .modal{
     width: 100%;
-    height: 100%;
     background-color: rgba(0,0,0,0.6);
     position: absolute;
     top: 0;

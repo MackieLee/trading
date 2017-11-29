@@ -5,45 +5,14 @@
         <i></i>当前位置 : &nbsp;
         <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;问答</p>
     </div>
-    <div class="item lf">
-      <div class="flex">
-        <div>
-          <img src="../../assets/images/jitax_问答_01.png" />
-        </div>
-        <div class="name">
-          <p>孙老师</p>
-          <span>九鼎财税资深讲师</span>
-        </div>
+    <div class="head-content lf">
+      <div class="search lf">
+        <input type="text"/><input class="search-btn" type="button" value="搜一下"/><br>
+        <span>全部</span><span>房地产</span><span>个税</span><span>咨询</span><span>会计</span>
       </div>
-      <div class="tag-box">
-        <span>
-          <p>
-            课程
-          </p>
-          <font>10</font>
-        </span>
-        <span>
-          <p>回答</p>
-          <font>17</font>
-        </span>
-        <span>
-          <p>荣誉值</p>
-          <font>99%</font>
-        </span>
-        <span class="shanchang">
-          <i></i>擅长领域</span>
-      </div>
-      <div class="tags">
-        <ul>
-          <li>税收筹划</li>
-          <li>税收筹划</li>
-          <li class="board">税收筹划</li>
-          <li>税收筹划</li>
-        </ul>
-      </div>
-      <div class="ask">
-        <router-link :to="{ name : 'qdetail' }" tag="p" class="ask-btn">提问</router-link>
-        <p>已解决27个问题</p>
+      <div class="btn-group rt">
+        <i class="ask-icon"></i><input class="ask-input" type="button" value="点我提问" /><br>
+        <span>没有找到问题？点击上方直接提问</span>
       </div>
     </div>
     <div class="item lf">
@@ -83,48 +52,7 @@
         </ul>
       </div>
       <div class="ask">
-        <router-link :to="{ name : 'qdetail' }" tag="p" class="ask-btn">提问</router-link>
-        <p>已解决27个问题</p>
-      </div>
-    </div>
-    <div class="item lf board">
-      <div class="flex">
-        <div>
-          <img src="../../assets/images/jitax_问答_01.png" />
-        </div>
-        <div class="name">
-          <p>孙老师</p>
-          <span>九鼎财税资深讲师</span>
-        </div>
-      </div>
-      <div class="tag-box">
-        <span>
-          <p>
-            课程
-          </p>
-          <font>10</font>
-        </span>
-        <span>
-          <p>回答</p>
-          <font>17</font>
-        </span>
-        <span>
-          <p>荣誉值</p>
-          <font>99%</font>
-        </span>
-        <span class="shanchang">
-          <i></i>擅长领域</span>
-      </div>
-      <div class="tags">
-        <ul>
-          <li>税收筹划</li>
-          <li>税收筹划</li>
-          <li class="board">税收筹划</li>
-          <li>税收筹划</li>
-        </ul>
-      </div>
-      <div class="ask">
-        <router-link :to="{ name : 'qdetail' }" tag="p" class="ask-btn">提问</router-link>
+        <router-link :to="{ name : 'qdetail' }" tag="p" class="ask-btn">我要提问</router-link>
         <p>已解决27个问题</p>
       </div>
     </div>
@@ -142,7 +70,43 @@ export default {
 .teacher-box {
   overflow: hidden;
 }
-
+.head-content{
+  width: 100%;
+  overflow: hidden;
+  input[type="text"]{
+    width: 500px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid $border-orange;
+    outline: none;
+    padding-left: 10px;
+    margin-left: 10px;
+  }
+  .search-btn{
+    height: 32px;
+    line-height: 32px;
+    border: none;
+    background-color: $border-orange;
+    width: 100px;
+    color: $white;
+  }
+  span{
+    display: inline-block;
+    margin: 20px 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .ask-input{
+    height: 30px;
+    line-height: 30px;
+    width: 150px;
+    border: none;
+    background-color: $btn-danger;
+    color: $white;
+    outline: none;
+    cursor: pointer;
+  }
+}
 i {
   display: inline-block;
   width: 30px;
@@ -162,8 +126,8 @@ i {
 .lf {
   float: left;
 }
-.board{
-  margin-right: 0 !important;
+.rt{
+  float: right;
 }
 .item {
   width: 330px;

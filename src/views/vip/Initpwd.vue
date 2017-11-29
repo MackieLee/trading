@@ -1,45 +1,54 @@
 <template>
   <div class="init-pwd">
     <div class="container">
-      <!-- <p class="title">为了保证您的账号安全，修改密码前请先进行安全验证:</p>
-      <label>验证方式</label><select><option>手机号码 173****9220</option><option>手机号码 156****0227</option></select><br>
-      <label>验证码</label><input class="getCode" type="text"/><input class="btn-get-code" type="button" value="获取验证码"/><br>
-      <input class="submit" type="button" value="确定"/>
-      <p>如您的验证方式都已无法使用，请<a style="color:#21A6BE;cursor:pointer;text-decoration:underline;">点击申诉</a>成功后可更换。</p> -->
+      <!-- 如果未绑定邮箱或手机，显示绑定邮箱/手机状态，前面用黄色感叹号。利用事件驱动改变类名和文本内容 -->
       <table>
         <tr>
-          <th width="100" class="passed"><i></i>登录密码</th>
+          <th width="100" class="passed"><i class="passed"></i>登录密码</th>
           <td width="400">互联网账号存在风险，建议您定期修改密码以保护账号安全。</td>
-          <td width="100" class="manager">修改</td>
+          <td @click="showModal('pwd')" width="100" class="manager">修改</td>
         </tr>
         <tr>
           <th><i class="stay"></i>邮箱验证</th>
           <td>验证后，可用于快速找回登录密码，接收账户余额变动提醒。</td>
-          <td class="manager">验证</td>
+          <td @click="showModal('email')" class="manager">绑定邮箱</td>
         </tr>
         <tr>
           <th><i class="passed"></i>手机验证</th>
           <td>您验证的手机:<span style="font-weight:bold;margin: 0 10px;">177*****234</span>若已丢失或停用，请立即更换。</td>
-          <td class="manager">修改</td>
+          <td @click="showModal('phone')" class="manager">修改</td>
         </tr>
         <tr>
           <th><i class="passed"></i>支付密码</th>
           <td>建议您定期更换新的支付密码，提高安全性。</td>
-          <td class="manager">支付密码管理</td>
+          <td @click="showModal('payword')" class="manager">支付密码管理</td>
         </tr>
       </table>
+      <div class="modal-outer" v-show="modal">
+        <modal @closeModal="closeModal" :content-series="series"></modal>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Modal from './Modal'
 export default {
+  components:{ Modal },
   data() {
     return {
-
+      modal:false,
+      series:''
     }
   },
   methods: {
+    closeModal: function() {
+      this.modal = false
+    },
+    showModal:function(what){
+      this.modal = true
+      this.series = what
+    }
   }
 }
 </script>
@@ -67,15 +76,18 @@ export default {
         display: inline-block;
         vertical-align: text-bottom;
         height: 20px;
-        width: 20px;
+        width: 22px;
         margin-right: 10px;
       }
       .passed{
-        background-position: 0 0;
+        background-position: 41px 176px;
       }
       .stay{
-        background-position: 44px -13px;
+        background-position: 41px 124px;
       }
+    }
+    .modal{
+      height: 162%;
     }
   }
 }

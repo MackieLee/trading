@@ -1,13 +1,6 @@
 <template>
   <div class="faq">
     <teacher-box></teacher-box>
-      <quill-editor v-model="content"
-        :options="editorOption"
-        @blur="onEditorBlur($event)"
-        @focus="onEditorFocus($event)"
-        @ready="onEditorReady($event)">
-      </quill-editor>
-      <button>提交</button>
     <faq-box></faq-box>
   </div>
 </template>
@@ -25,22 +18,10 @@ export default {
   },
   data() {
     return {
-      content:'',
-      editorOption: {
-        placeholder: "insert insert insert"
-      }
+      content:''
     };
   },
   methods: {
-    onEditorBlur(editor) {
-
-    },
-    onEditorFocus(editor) {
-
-    },
-    onEditorReady(editor) {
-
-    },
     onWatch: function(state) {
       state === "watch" ? (this.guanzhu = false) : (this.guanzhu = true);
 

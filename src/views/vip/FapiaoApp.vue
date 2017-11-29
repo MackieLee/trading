@@ -269,7 +269,6 @@ table {
   .border {
     display: inline-block;
     border: 1px solid $border-dark;
-    box-sizing: border-box;
     height: 30px;
     line-height: 30px;
     text-align: center;

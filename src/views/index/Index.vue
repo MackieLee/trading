@@ -8,19 +8,20 @@
   </div>
 </template>
 <script>
-import AppHeader from './AppHeader'
-import AppFooter from './AppFooter'
+import AppHeader from "./AppHeader";
+import AppFooter from "./AppFooter";
 
 export default {
-  name: 'index',
+  name: "index",
   components: {
-    AppHeader,AppFooter
+    AppHeader,
+    AppFooter
   }
-}
+};
 </script>
 <style lang="scss" scoped>
-@import '../../assets/style/base-conf.scss';
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base-conf.scss";
+@import "../../assets/style/base.scss";
 
 .index {
   .content {
