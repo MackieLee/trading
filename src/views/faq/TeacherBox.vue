@@ -60,20 +60,18 @@
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .teacher-box {
   overflow: hidden;
 }
-.head-content{
+.head-content {
   width: 100%;
   overflow: hidden;
-  input[type="text"]{
+  input[type="text"] {
     width: 500px;
     height: 30px;
     line-height: 30px;
@@ -82,7 +80,7 @@ export default {
     padding-left: 10px;
     margin-left: 10px;
   }
-  .search-btn{
+  .search-btn {
     height: 32px;
     line-height: 32px;
     border: none;
@@ -90,13 +88,32 @@ export default {
     width: 100px;
     color: $white;
   }
-  span{
+  span {
     display: inline-block;
     margin: 20px 10px;
     font-weight: bold;
     cursor: pointer;
   }
-  .ask-input{
+  .btn-group {
+    position: relative;
+    .ask-icon{
+      position: absolute;
+      background-position: -388px -83px;
+      left: 27px;
+      top: 2px;
+    }
+    .ask-input {
+      height: 30px;
+      line-height: 30px;
+      width: 150px;
+      border: none;
+      background-color: $btn-danger;
+      color: $white;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+  .ask-input {
     height: 30px;
     line-height: 30px;
     width: 150px;
@@ -111,12 +128,12 @@ i {
   display: inline-block;
   width: 30px;
   height: 22px;
-  background-image: url('../../assets/images/Sprite.png');
+  background-image: url("../../assets/images/Sprite.png");
   vertical-align: text-bottom;
 }
 
 .cur-posi {
-  padding:0 0 26px 0;
+  padding: 0 0 26px 0;
   width: 100%;
   i {
     background-position: -18px -106px;
@@ -126,7 +143,7 @@ i {
 .lf {
   float: left;
 }
-.rt{
+.rt {
   float: right;
 }
 .item {
@@ -141,7 +158,7 @@ i {
     margin: 20px 35px 28px 35px;
     .name {
       margin: 25px 30px 50px 28px;
-      P {
+      p {
         font-size: $lg-title;
         margin-bottom: 16px;
       }
@@ -171,7 +188,7 @@ i {
         text-align: center;
       }
     }
-    span[class='shanchang'] {
+    span[class="shanchang"] {
       font-size: 16px;
       display: block;
       width: 120px;
@@ -210,7 +227,7 @@ i {
       color: $white;
       background-color: $btn-danger;
       cursor: pointer;
-      &:hover{
+      &:hover {
         background-color: $btn-danger-hover;
       }
     }

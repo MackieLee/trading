@@ -8,7 +8,7 @@
           <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
           <div class="user">
             <i class="iblock"></i>
-            <input type="text" name="user" placeholder="请输入用户名" />
+            <input type="text" name="user" placeholder="请输入用户名"/>
           </div>
           <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
           <div class="pwd">

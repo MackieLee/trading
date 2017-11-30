@@ -1,47 +1,54 @@
 <template>
   <form>
-    <div class="error"><p v-show="userError">
-      <!-- <i class="iblock"></i> -->
-      <span> {{ userError }}</span></p></div>
+    <!-- 用户名 -->
+    <div class="error"><p v-show="error.userError">
+      <span> {{ error.userNameError }}</span></p></div>
     <div class="icon user">
       <i class="iblock"></i>
-      <input type="text" name="user" @input="validate('user',$event.target.value)" placeholder="请输入手机号/邮箱" />
+      <input type="text" name="user" v-model="formData.userName" @input="validate('userName',$event.target.value)" placeholder="请输入用户名" />
     </div>
-    <div class="error"><p v-show="pwdError">
-      <!-- <i class="iblock"></i> -->
-      <span> {{ pwdError }}</span></p></div>
+    <!-- 手机号/邮箱 -->
+    <div class="error"><p v-show="error.userError">
+      <span> {{ error.userError }}</span></p></div>
+    <div class="icon user">
+      <i class="iblock"></i>
+      <input type="text" name="user" v-model="formData.phoneNum" @input="validate('user',$event.target.value)" placeholder="请输入手机号/邮箱" />
+    </div>
+    <!-- 密码 -->
+    <div class="error"><p v-show="error.pwdError">
+      <span> {{ error.pwdError }}</span></p></div>
     <div class="icon pwd">
       <i class="iblock"></i>
-      <input type="text" name="pwd" @input="validate('pwd',$event.target.value)" placeholder="请输入密码" />
+      <input type="text" v-model="formData.pwd" name="pwd" @input="validate('pwd',$event.target.value)" placeholder="请输入密码" />
     </div>
-    <div class="error"><p v-show="pwdError">
-      <!-- <i class="iblock"></i> -->
-      <span> {{ pwdError }}</span></p></div>
+    <!-- 确认密码 -->
+    <div class="error"><p v-show="error.pwdError">
+      <span> {{ error.confirmError }}</span></p></div>
     <div class="icon confirm">
       <i class="iblock"></i>
-      <input type="text" name="confirm" placeholder="确认密码" />
+      <input type="text" v-model="formData.confirmPwd" @blur="checkPwd" @input="validate('pwd',$event.target.value)" name="confirm" placeholder="确认密码" />
     </div>
-    <div class="error"><p v-show="error">
-      <!-- <i class="iblock"></i> -->
-      <span> {{ error }}</span></p></div>
+    <!-- 验证码 -->
+    <div class="error"><p v-show="error.ckCodeError">
+      <span> {{ error.ckCodeError }}</span></p></div>
     <div class="icon code ckcode">
       <i class="iblock"></i>
-      <input type="text" name="ckcode" placeholder="请输入验证码" />
+      <input type="text" v-model="formData.ckcode" name="ckcode" placeholder="请输入验证码" />
       <span class="ck-code"></span>
     </div>
-    <div class="error"><p v-show="error">
-      <!-- <i class="iblock"></i> -->
-      <span> {{ error }}</span></p></div>
+    <!-- 短信/邮件验证码 -->
+    <div class="error"><p v-show="error.phoneCodeError">
+      <span> {{ error.phoneCodeError }}</span></p></div>
     <div class="icon code phcode">
       <i class="iblock"></i>
-      <input type="text" name="phcode" placeholder="短信验证码" />
+      <input type="text" v-model="formData.phoneCode" name="phcode" placeholder="短信验证码" />
     </div>
-    <div class="error"><p v-show="error">
-      <!-- <i class="iblock"></i> -->
-      <span> {{ error }}</span></p></div>
+    <!-- 邀请码 -->
+    <div class="error"><p v-show="error.invCodeError">
+      <span> {{ error.invCodeError }}</span></p></div>
     <div class="icon code invcode">
       <i class="iblock"></i>
-      <input type="text" name="invcode" placeholder="邀请码" />
+      <input type="text" v-model="formData.invCode" name="invcode" placeholder="邀请码" />
     </div>
     <div class="read">
       <span @click="toggleChecked">
@@ -60,9 +67,24 @@ export default {
   data() {
     return {
       checked: false,
-      userError: "",
-      pwdError: "",
-      error: ""
+      error:{
+        userError: "",
+        userNameError:"",
+        pwdError: "",
+        confirmError:"",
+        phoneCodeError:"",
+        ckCodeError:"",
+        invCodeError:""
+      },
+      formData:{
+        userName:"",
+        phoneNum:"",
+        pwd:"",
+        confirmPwd:"",
+        ckCode:"",
+        phoneCode:"",
+        invCode:""
+      },
     };
   },
   methods: {
@@ -71,16 +93,14 @@ export default {
     },
     //扩充checkjs内容
     //格式不对的输入框显示对应的文字
+    // 类型 和 状态，成功状态 或者是 失败状态，失败状态返回失败原因
     validateForm,
     validate: function(type, value) {
       let state = validateForm(type, value);
-      console.log(state);
-      if (state == "danger" && type == "user") {
-        //此处查询用户名是否被占用并返回判断
-        this.userError = "手机号或邮箱格式错误";
-      } else if (state == "danger" && type == "pwd") {
-        this.pwdError = "密码格式错误";
-      }
+      console.log(state+"---"+type)
+    },
+    checkPwd:function(){
+      (this.confirmPwd === this.pwd)?this.pwdError = "":null
     }
   }
 };

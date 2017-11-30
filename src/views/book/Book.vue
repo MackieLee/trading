@@ -477,7 +477,7 @@ export default {
       font-size: 10px;
       position: absolute;
       right: 0;
-      bottom: 4px;
+      bottom: 3px;
     }
     .book-name {
       margin: 15px 0 20px 0;
