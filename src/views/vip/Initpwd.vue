@@ -33,68 +33,72 @@
 </template>
 
 <script>
-import Modal from './Modal'
+import Modal from "./Modal";
 export default {
-  components:{ Modal },
+  components: { Modal },
   data() {
     return {
-      modal:false,
-      series:''
-    }
+      modal: false,
+      series: ""
+    };
   },
   methods: {
     closeModal: function() {
-      this.modal = false
+      this.modal = false;
     },
-    showModal:function(what){
-      this.modal = true
-      this.series = what
+    showModal: function(what) {
+      this.modal = true;
+      this.series = what;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
-.init-pwd{
-  .container{
-.sum_of_class{background-color: #468ee3; margin:0 0px 30px;
-    border: none;
-    height: 40px;
-    line-height: 40px;
-    font-size: 16px;
-    text-align: center;
-    color: #fff;}
-    table{
-      th,td{
+.init-pwd {
+  .container {
+    .sum_of_class {
+      background-color: #468ee3;
+      margin: 0 0px 30px;
+      border: none;
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+      text-align: center;
+      color: #fff;
+    }
+    table {
+      th,
+      td {
         height: 60px;
         border: 1px solid $border-dark;
         padding: 0 20px;
       }
-      th{
+      th {
         font-weight: bold;
         text-align: right;
       }
-      .manager{
+      .manager {
         color: $blue;
         cursor: pointer;
       }
-      i{
-        background-image: url('../../assets/images/Sprite.png');
+      i {
+        background-image: url("../../assets/images/Sprite.png");
         display: inline-block;
         vertical-align: text-bottom;
         height: 20px;
         width: 22px;
         margin-right: 10px;
       }
-      .passed{
+      .passed {
         background-position: 41px 176px;
       }
-      .stay{
+      .stay {
         background-position: 41px 124px;
       }
     }
-    .modal{
+    .modal {
       height: 162%;
     }
   }

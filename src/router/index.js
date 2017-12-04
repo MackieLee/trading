@@ -41,6 +41,7 @@ import fapiaodetail from '../views/vip/FapiaoDetail'
 import fapiaoapp from '../views/vip/FapiaoApp'
 import upload from '../views/vip/Upload'
 import bindcredit from '../views/vip/BindCredit'
+import videolist from '../views/vip/VideoList'
 
 Vue.use(Router)
 
@@ -204,14 +205,19 @@ const routes = [
             path: 'teacher-kecheng',
             name: 't-kecheng',
             component: tkecheng,
+            redirect: {
+              name: 'upload'
+            },
             children: [
               {
                 path: 'upload',
                 name: 'upload',
-                component: upload,
-                // redirect: {
-                //   name: 'upload'
-                // }
+                component: upload
+              },
+              {
+                path: 'video-list',
+                name: 'videolist',
+                component: videolist
               }
             ]
           },

@@ -96,6 +96,7 @@ export default {
   overflow: hidden;
   border: 2px solid $dark;
   display: none;
+  z-index: 1;
 }
 
 #divcss5 .big_pic img {

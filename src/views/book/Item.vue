@@ -6,7 +6,7 @@
         <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;图书
       </p>
     </div>
-    <div class="item">
+    <div class="product-msg">
       <div class="lf-content">
         <magnifier></magnifier>
         <ul>
@@ -34,6 +34,83 @@
           <button>立即购买</button>
           <button><i></i>加入购物车</button>
         </p>
+      </div>
+    </div>
+    <div class="book-box">
+      <div class="title">
+        <span></span>
+        <font>财经图书</font>
+        <a>更多>></a>
+      </div>
+      <div class="book-container">
+        <div class="video-boxes">
+          <div class="item">
+            <div>
+              <a class="video-cover"><img src="../../assets/images/九鼎财税01_33.png" />
+                <span class="new">NEW</span>
+              </a>
+            </div>
+            <p class="book-name">
+              <a>土地增值税实战与案例</a>
+            </p>
+            <p class="buss-info">￥
+              <span class="current-price">51.00</span>
+              <span class="grey">￥</span>
+              <del class="grey origin-price">62.56</del>
+              <a class="im-buy">购买</a>
+            </p>
+          </div>
+          <div class="item">
+            <div>
+              <a class="video-cover"><img src="../../assets/images/九鼎财税01_35.png" />
+                <span class="new">NEW</span>
+              </a>
+            </div>
+            <p class="book-name">
+              <a>土地增值税实战与案例</a>
+
+            </p>
+            <p class="buss-info">￥
+              <span class="current-price">51.00</span>
+              <span class="grey">￥</span>
+              <del class="grey origin-price">62.56</del>
+              <a class="im-buy">购买</a>
+            </p>
+          </div>
+          <div class="item">
+            <div>
+              <a class="video-cover"><img src="../../assets/images/九鼎财税01_37.png" />
+                <span class="new">NEW</span>
+              </a>
+            </div>
+            <p class="book-name">
+              <a>土地增值税实战与案例</a>
+
+            </p>
+            <p class="buss-info">￥
+              <span class="current-price">51.00</span>
+              <span class="grey">￥</span>
+              <del class="grey origin-price">62.56</del>
+              <a class="im-buy">购买</a>
+            </p>
+          </div>
+          <div class="item">
+            <div>
+              <a class="video-cover"><img src="../../assets/images/九鼎财税01_39.png" />
+                <span class="new">NEW</span>
+              </a>
+            </div>
+            <p class="book-name">
+              <a>土地增值税实战与案例</a>
+            </p>
+            <p class="buss-info">￥
+              <span class="current-price">51.00</span>
+              <span class="grey">￥</span>
+              <del class="grey origin-price">62.56</del>
+              <a class="im-buy">购买</a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="comment">
@@ -71,7 +148,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .detail {
   width: $width;
   margin: 0 auto;
@@ -81,7 +158,7 @@ export default {
     display: inline-block;
     width: 22px;
     height: 22px;
-    background-image: url('../../assets/images/Sprite.png');
+    background-image: url("../../assets/images/Sprite.png");
     vertical-align: text-bottom;
   }
   .cur-posi {
@@ -91,7 +168,7 @@ export default {
       margin-right: 6px;
     }
   }
-  .item {
+  .product-msg {
     height: 460px;
     display: flex;
     .lf-content {
@@ -131,7 +208,7 @@ export default {
           margin-left: 5px;
         }
       }
-      button{
+      button {
         background-color: $red;
         border-radius: 3px;
         outline: none;
@@ -148,6 +225,81 @@ export default {
         margin-right: 6px;
         position: relative;
         top: 2px;
+      }
+    }
+  }
+  .title {
+    width: $width;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    position: relative;
+    border-bottom: 1px solid $border-rice;
+    span {
+      padding: 4px 19px;
+      margin-right: 10px;
+      background-image: url("../../assets/images/Sprite.png");
+      background-position: -5px -253px;
+    }
+    font {
+      font-size: 18px;
+      font-weight: 450;
+    }
+    a {
+      font-size: 14px;
+      position: absolute;
+      right: 0;
+    }
+  }
+  .video-boxes {
+    width: $width;
+    margin: 35px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .video-cover {
+      position: relative;
+    }
+    .item {
+      border: 1px solid $red;
+      padding: 8px;
+      margin-bottom: 32px;
+      position: relative;
+      .new {
+        padding: 2px 4px;
+        background-color: $red;
+        color: $white;
+        font-size: 10px;
+        position: absolute;
+        right: 0;
+        bottom: 3px;
+      }
+      .book-name {
+        margin: 15px 0 20px 0;
+        a {
+          margin-right: 30px;
+          font-size: 16px;
+        }
+      }
+      .buss-info {
+        font-size: 14px;
+        color: $red;
+        .current-price {
+          font-size: 22px;
+          margin-right: 10px;
+        }
+        .grey {
+          color: $dark;
+        }
+        .im-buy {
+          padding: 8px 12px;
+          background-color: $red;
+          color: $white;
+          font-size: 10px;
+          position: absolute;
+          right: 15px;
+        }
       }
     }
   }

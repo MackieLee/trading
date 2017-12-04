@@ -4,6 +4,10 @@
       <div class="title">我的主页</div>
       <p>
         <router-link tag="span":to="{ name : 'upload' }">主页</router-link>
+        <span class="splite">&nbsp;</span>
+        <router-link tag="span":to="{ name : 'videolist' }">视频</router-link>
+        <span class="splite">&nbsp;</span>
+        <router-link tag="span":to="{ name : 'home' }">播单</router-link>
       </p>
     </div>
     <router-view></router-view>
@@ -27,18 +31,27 @@ export default {
       color: $white;
       text-align: center;
     }
+    .splite{
+      line-height: 15px;
+      border-right: 1px solid $black;
+      width: 1px;
+    }
     p{
-      height: 40px;
+      margin: 10px 0 20px 0;
+      border-bottom: 1px solid $border-dark;
+      box-sizing: border-box;
       span{
         display: inline-block;
-        line-height: 15px;
+        line-height: 30px;
         width: 50px;
-        margin-top: 15px;
-        border-right: 1px solid $black;
         text-align: center;
         cursor: pointer;
       }
     }
+  }
+  .active{
+    color: $red;
+    border-bottom: 1px solid $red;
   }
 }
 </style>

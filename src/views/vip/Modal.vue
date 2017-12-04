@@ -1,11 +1,10 @@
 <template>
-	 
   <div class="modal">
     <div class="content">
       <div class="close" @click="closeModal"></div>
       <div class="title">支付密码管理</div>
        <div class="sum_of_class">账号安全</div>
-      <div class="container" v-show="contentSeries === 'pwd'">      	
+      <div class="container" v-show="contentSeries === 'pwd'">
         <table>
           <tr>
             <th>新登录密码</th>
