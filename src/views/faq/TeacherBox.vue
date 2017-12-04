@@ -15,7 +15,7 @@
         <span>全部</span><span>房地产</span><span>个税</span><span>咨询</span><span>会计</span>
       </div>
       <div class="btn-group rt">
-        <i class="ask-icon"></i><input class="ask-input" @click="showModal" type="button" value="点我提问" /><br>
+        <i @click="showModal" class="ask-icon"></i><input class="ask-input" @click="showModal" type="button" value="点我提问" /><br>
         <span>没有找到问题？点击上方直接提问</span>
       </div>
     </div>
@@ -60,6 +60,89 @@
         <p>已解决27个问题</p>
       </div>
     </div>
+    <div class="item lf">
+      <div class="flex">
+        <div>
+          <img src="../../assets/images/jitax_问答_01.png" />
+        </div>
+        <div class="name">
+          <p>孙老师</p>
+          <span>九鼎财税资深讲师</span>
+        </div>
+      </div>
+      <div class="tag-box">
+        <span>
+          <p>
+            课程
+          </p>
+          <font>10</font>
+        </span>
+        <span>
+          <p>回答</p>
+          <font>17</font>
+        </span>
+        <span>
+          <p>荣誉值</p>
+          <font>99%</font>
+        </span>
+        <span class="shanchang">
+          <i></i>擅长领域</span>
+      </div>
+      <div class="tags">
+        <ul>
+          <li>税收筹划</li>
+          <li>税收筹划</li>
+          <li class="board">税收筹划</li>
+          <li>税收筹划</li>
+        </ul>
+      </div>
+      <div class="ask">
+        <router-link :to="{ name : 'qdetail' }" tag="p" class="ask-btn">我要提问</router-link>
+        <p>已解决27个问题</p>
+      </div>
+    </div>
+    <div class="item lf m_r">
+      <div class="flex">
+        <div>
+          <img src="../../assets/images/jitax_问答_01.png" />
+        </div>
+        <div class="name">
+          <p>孙老师</p>
+          <span>九鼎财税资深讲师</span>
+        </div>
+      </div>
+      <div class="tag-box">
+        <span>
+          <p>
+            课程
+          </p>
+          <font>10</font>
+        </span>
+        <span>
+          <p>回答</p>
+          <font>17</font>
+        </span>
+        <span>
+          <p>荣誉值</p>
+          <font>99%</font>
+        </span>
+        <span class="shanchang">
+          <i></i>擅长领域</span>
+      </div>
+      <div class="tags">
+        <ul>
+          <li>税收筹划</li>
+          <li>税收筹划</li>
+          <li class="board">税收筹划</li>
+          <li>税收筹划</li>
+        </ul>
+      </div>
+      <div class="ask">
+        <router-link :to="{ name : 'qdetail' }" tag="p" class="ask-btn">我要提问</router-link>
+        <p>已解决27个问题</p>
+      </div>
+    </div>
+ 
   </div>
 </template>
 
@@ -169,13 +252,14 @@ i {
 .rt {
   float: right;
 }
+.m_r{margin:0 !important;}
 .item {
   width: 330px;
   background: $white;
   margin: 0 46px 53px 0;
   overflow: hidden;
   border: 1px solid $border-rice;
-  .flex {
+   .flex {
     display: flex;
     height: 117px;
     margin: 20px 35px 28px 35px;

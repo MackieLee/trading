@@ -5,7 +5,7 @@
         <div><router-link :to="{name:'video'}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
         <p class="video-title"><a>{{ item.title }}</a></p>
         <p class="buss-info"><span class="score"><i></i><font>{{ item.score }}</font>分</span><span class="person-current"><i></i><font>{{ item.person }}</font>人</span><span class="classes">课时</span><font>{{ item.class }}</font><span>MIN</span></p>
-        <p class="price"><span>课程:<font class="rd">￥{{ item.price }}</font></span><span class="free">试 听</span></p>
+        <p class="price"><span>课程:<font class="rd">￥{{ item.price }}</font></span><router-link :to="{name:'video'}" class="free">试 听</router-link></p>
       </div>
     </div>
   </div>

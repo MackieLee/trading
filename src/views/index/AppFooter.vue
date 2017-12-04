@@ -33,10 +33,11 @@
         </div>
         <div class="bussiness">
           <p>
-            <i class="mail"></i>liutao@jdtax.cn</p>
+            <i class="mail"></i>jdtax@jdtax.cn</p>
           <p>
-            <i class="tel"></i>010-6231-1360</p>
-          <p class="work-day">(周一到周五08:30-18:00)</p>
+            <i class="tel"></i>010-6231-1360
+            <span>(周一到周五9:00-17:30)</span>
+          </p>          
         </div>
       </div>
       <div class="footer-right">
@@ -143,7 +144,7 @@ export default {
           color: #333;
         }
         ul {
-          margin-right: 100px;
+          margin-right:70px;
           float: left;
           li {
             display: list-item !important;
@@ -156,7 +157,7 @@ export default {
       .bussiness {
         p {
           color: #333;
-          margin-bottom:15px;
+          margin:25px 0;
           font-size: 14px;
         }
         .mail,
@@ -173,7 +174,7 @@ export default {
           background-image: url('../../assets/images/Sprite.png');
           background-position: -20px -78px;
         }
-        .work-day {
+        spna{
           padding-left: 32px;
         }
       }
