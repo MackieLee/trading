@@ -5,20 +5,18 @@
         <div class="title">我要提问</div>
         <div class="img-btn close" @click="closeModal"></div>
         <div class="ctr">
-          <input type="text" class="biaoti">
+          <input type="text" placeholder="写下您的问题" class="biaoti">
           <div style="margin:10px 0;font-size:14px;">问题描述（选填）：</div>
           <textarea placeholder="仅回答正常内容，涉及咨询、税务筹划等内容，老师有权不作答"/>
           <div>
             指定老师 <select><option>请选择</option></select>
             <div class="inline-block" v-show="wait == 'wait'">
-              <label for="not-wait">24小时后继续等待</label>
+              <label for="not-wait">24小时后是否继续等待<i class="img-btn img-not-wait" v-show="wait === 'wait'"></i></label>
               <input v-show="false" id="wait" v-model="wait" value="wait" name="wait" type="radio"/>
-              <i class="img-btn img-not-wait" v-show="wait === 'wait'"></i>
             </div>
             <div class="inline-block" v-show="wait == 'not-wait'">
-              <label for="wait">24小时后继续等待</label>
+              <label for="wait">24小时后是否继续等待<i class="img-btn img-wait" v-show="wait === 'not-wait'"></i></label>
               <input v-show="false" id="not-wait" v-model="wait" value="not-wait" name="wait" type="radio"/>
-              <i class="img-btn img-wait" v-show="wait === 'not-wait'"></i>
             </div>
           </div>
           <div style="color:grey;">指定老师回答，若老师24小时内未回答，自动转入专家团问答，差额退回，不转入可勾选继续等待</div>
@@ -87,8 +85,10 @@ export default {
     background-color: $btn-default;
     color: $white;
   }
-  .img-btn{
+  label{
     cursor: pointer;
+  }
+  .img-btn{
     height: 20px;
     width: 20px;
     background-image: url('../../assets/images/Sprite.png');
