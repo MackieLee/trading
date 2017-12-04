@@ -14,7 +14,7 @@
       </p>
       <ul class="ul05">
         <li class="li01"><img src="../../assets/images/huanyuanzx02.png"/><p>企业所得税年度纳税申报表中隐藏的稽查陷阱</p></li>
-        <li>已开</li>
+        <li class="li02">已开</li>
         <li>
           <span>专用发票</span>
         </li>
@@ -26,7 +26,7 @@
       </p>
       <ul class="ul05">
         <li class="li01"><img src="../../assets/images/huanyuanzx02.png"/><p>企业所得税年度纳税申报表中隐藏的稽查陷阱</p></li>
-        <li>已开</li>
+        <li>未开</li>
         <li><span>专用发票</span>
         </li>
         <li><router-link :to="{ name:'fapiaoapp' }">申请发票</router-link></li>
@@ -85,7 +85,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .selected {
-  background-position: -101px -254px !important;
+ background-position: -103px -320px;
 }
 .sel {
   outline: none;
@@ -94,7 +94,7 @@ export default {
   height: 30px;
   margin-left: 20px;
 }
-i {
+i {background-position: -103px -353px;
   margin-right: 5px;
   display: inline-block;
   width: 18px;
@@ -104,7 +104,7 @@ i {
 }
 .btn{
   outline:none;
-  width: 100px;
+  width: 80px;
   height: 30px;
   cursor: pointer;
 }
@@ -127,27 +127,24 @@ i {
   width: 800px;
   margin: 0 auto;
   background-color: $white;
-}
-
-.my_order_r h2 {
-  widows: 100%;
+  h2 {
+  width: 100%;
   background: $bg-blue;
-  height: 42px;
+  height: 40px;
   font-weight: normal;
-  line-height: 42px;
+  line-height: 40px;
   text-align: center;
   font-size: 16px;
   border: none;
   color: $white;
+}
 }
 
 .my_order_r .ul01 {
   height: 60px;
   width: 100%;
   border-bottom: 1px solid $red;
-}
-
-.my_order_r .ul01 li {
+  li {
   width: 128px;
   text-align: center;
   font-size: 18px;
@@ -156,12 +153,11 @@ i {
   padding: 20px 0 15px;
   cursor: pointer;
 }
-
-.my_order_r .ul01 .li01 {
+.li01 {
   color: $red;
   border-left: 0 none;
 }
-
+}
 .my_order_r .ul02 {
   height: 35px;
   width: 100%;
@@ -172,16 +168,14 @@ i {
     text-align: left;
     margin-left: 10px;
   }
-}
-
-.my_order_r .ul02 li {
+  li {
   width: 120px;
   text-align: center;
   font-size: 14px;
   float: left;
   line-height: 35px;
 }
-
+}
 .my_order_r .ul03,
 .my_order_r .ul06 {
   height: 35px;
@@ -216,7 +210,7 @@ i {
 
 .my_order_r .ul03 .li01 i,
 .my_order_r .ul06 .li01 i {
-  background-position: -101px -282px;
+ background-position: -103px -353px;
 }
 
 .my_order_r .p01 {
@@ -225,51 +219,49 @@ i {
   line-height: 31px;
   color: $white;
   i{
-    margin-left: 10px;
+    margin-left: 10px; background-position: -103px -353px;
   }
-}
-
-.my_order_r .p01 {
-  span {
+    span {
     margin-left: 30px;
-  }
-  span.span01 {
+    .span01 {
     margin-left: 10px;
     color: $grey-white;
   }
+  }
 }
-
-.my_order_r .ul05 {
+ .my_order_r .ul05 {
   height: 95px;
   width: 100%;
   border: 1px solid $border-dark;
   margin-bottom: 10px;
   box-sizing: border-box;
+ .li02{ color: red;}
+  .li01 {
+  border-left: 0 none;
+  width: 400px;
+  text-align: left;
+  margin-left:10px;
+  padding: 10px 0;
+   img {float: left;
+    padding: 5px; border: 1px solid $border-dark;
+    float: left;width: 92px;height: 62px;
+  }
+  p {
+     float: left;width: 270px;
+    font-size: 14px;
+    margin-left: 15px;
+    display:inline-block;font-weight: bold;
+  }
 }
-.my_order_r .ul05 li {
+   li {
   width: 120px;
   line-height: 95px;
   text-align: center;
   color: $black;
   float: left;
   border-left: 1px solid $border-dark;
+    a:hover{color: red;}
 }
-
-.my_order_r .ul05 .li01 {
-  border-left: 0 none;
-  width: 400px;
-  text-align: left;
-  margin-left: 20px;
-  padding-top: 10px;
-  img {
-    float: left;
-    padding: 5px;
-    border: 1px solid $border-dark;
-  }
-  p {
-    float: left;
-    margin-left: 10px;
-  }
 }
 
 .my_order_r .number {

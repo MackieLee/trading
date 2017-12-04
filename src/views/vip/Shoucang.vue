@@ -1,148 +1,165 @@
 <template>
-  <div class="sc">
-    <div class="header">
-      <p class="fl kechengxinxi">课程信息</p>
-      <p class="fl width-154">金额</p>
-      <p class="fl width-154">操作</p>
-    </div>
-    <div class="container">
-      <div class="item">
-        <img src="../../assets/images/huanyuanzx02.png" />
-        <div class="middle">
-          <p>税务健康体检服务</p>
-          <font>孙玮老师</font>
-        </div>
-        <div class="price">
-          <p class="red">￥3588.00</p>
-          <p class="res">已有277人收藏</p>
-        </div>
-        <div class="imm-stu">
-          <p>取消收藏</p>
-        </div>
+  <div class="study">
+    <div class="pt-1">
+      <p class="sum_of_class">我的收藏</p>
+      <div class="container">
+				<p class="p-line1">商品信息</p>
+        <p class="p-line2">商品类型</p>
+        <p class="p-line3">操作</p>
       </div>
     </div>
-    <div class="container">
+    <div class="pt-2">
+  <div class="container">
+  	
       <div class="item">
-        <img src="../../assets/images/huanyuanzx02.png" />
-        <div class="middle">
-          <p>税务健康体检服务</p>
-          <font>孙玮老师</font>
-        </div>
-        <div class="price">
-          <p class="red">￥3588.00</p>
-          <p class="res">已有277人收藏</p>
-        </div>
-        <div class="imm-stu">
-          <p>取消收藏</p>
-        </div>
+        <p class="p01">
+      		   订单号: 53196839876687913 <i >2017-08-31</i></p>
+        <ul>
+          <li class="li01">
+          	<img src="../../assets/images/huanyuanzx02.png">  
+          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+          	 	<span>孙炜</span>
+          	 </strong>
+         </li>
+         <li class="li02">视频</li>
+         <li class="li03">          
+         	<span class="zcgm">再次购买</span>
+          <p class="jindu">学习完成 </p>
+         </li>
+         
+         
+        
+        </ul>
       </div>
-    </div>
-    <div class="container">
       <div class="item">
-        <img src="../../assets/images/huanyuanzx02.png" />
-        <div class="middle">
-          <p>税务健康体检服务</p>
-          <font>孙玮老师</font>
-        </div>
-        <div class="price">
-          <p class="red">￥3588.00</p>
-          <p class="res">已有277人收藏</p>
-        </div>
-        <div class="imm-stu">
-          <p>取消收藏</p>
-        </div>
+        <p class="p01">
+      		   订单号: 53196839876687913 <i >2017-08-31</i></p>
+        <ul>
+          <li class="li01">
+          	<img src="../../assets/images/huanyuanzx02.png">  
+          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+          	 	<span>孙炜</span>
+          	 </strong>
+         </li>
+         <li class="li02">视频</li>
+         <li class="li03">          
+         	<span class="zcgm">再次购买</span>
+          <p class="jindu">学习完成 </p>
+         </li>
+         
+         
+        
+        </ul>
       </div>
+      <div class="item">
+        <p class="p01">
+      		   订单号: 53196839876687913 <i >2017-08-31</i></p>
+        <ul>
+          <li class="li01">
+          	<img src="../../assets/images/huanyuanzx02.png">  
+          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+          	 	<span>孙炜</span>
+          	 </strong>
+         </li>
+         <li class="li02">视频</li>
+         <li class="li03">          
+         	<span class="zcgm">再次购买</span>
+          <p class="jindu">学习完成 </p>
+         </li>
+         
+         
+        
+        </ul>
+      </div>
+
+  </div>
+         
     </div>
-    <div class="page">1</div>
+   <div class="page">1</div>  
   </div>
 </template>
 
 <script>
 export default {
-  name: 'shoucang'
+  name: 'study'
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
-.sc {
-  overflow: hidden;
-  border: 1px solid $border-dark;
-  .header {
+.study {
+    .sum_of_class {
     background-color: $bg-blue;
-    border-radius: 3px;
-    color: $white;
-    overflow: hidden;
-    border: none;
-    .fl {
-      float: left;
-      line-height: 42px;
-      font-size: 16px;
-    }
-    .kechengxinxi{
-      width: 501px;
-      text-align: center;
-      color: $white;
-    }
-    .width-154{
-      width: 154px;
-      text-align: center;
-      color: $white;
-    }
-  }
-  .container {
-    padding: 20px 0;
-    border-bottom: 1px solid $border-dark;
-    &:hover{
-      background-color: $bg-nav;
-    }
-    .item {
-      width: 710px;
-      display: flex;
-      margin: 0 auto;
-    }
-    img {
-      width: 128px;
-      height: 82px;
-      margin-top: 8px;
-    }
-    .middle {
-      margin: 0 200px 0 25px;
-      p {
-        font-size: 18px;
-        margin: 15px 0 20px 0;
-      }
-      font {
-        font-size: 14px;
-        margin-bottom: 15px;
-      }
-    }
-    .price {
-      margin-right: 46px;
-      p {
-        font-size: 14px;
-        margin: 15px 0 20px 0;
-      }
-      p[class="red"] {
-        color: $red
-      }
-    }
-    .imm-stu {
-      p {
-        line-height: 95px;
-        cursor: pointer;
-      }
-    }
-  }
-  .page {
-    width: 34px;
-    height: 34px;
-    color: $white;
-    line-height: 34px;
+    border: none; height: 40px;line-height: 40px;
+    font-size: 16px;
     text-align: center;
-    margin: 24px auto;
-    background-color: $btn-default;
-    cursor: pointer;
+    color: $white;
   }
+  .pt-1 {
+    .container {
+      width: 100%;
+      margin: 10px auto 15px;
+			background-color:#f5f5f5;
+			height: 36px;  
+      p{      	
+          text-align: center;float: left;
+          font-size: 16px;  line-height: 36px;           
+      }
+      .p-line1 {      	
+       width:68%;           
+      }
+      .p-line2 {      	
+       width:15%;             
+      }         
+      .p-line3 {      	
+       width:15%;             
+      }    
+    }
+  }
+ 	.container{
+  		margin-bottom: 20px;
+		  .item{
+		    margin-bottom: 20px;
+			  .p01{
+			background-color: $bg-blue;
+	    border: none; height: 36px;line-height: 36px;
+	    font-size: 12px;
+	    text-indent:1em;
+	    color: $white;
+		i{color: #e8e8e8; font-style: normal; padding-left: 10px;}
+			    	
+			    }
+			  ul{
+			 overflow: hidden;border: 1px solid #ddd;
+    			 li{float: left; border-right: 1px solid #ddd;height:76px; padding:10px 10px; }
+			  	.li01{
+			  		 width:65%;
+			  		  img{float: left;width: 92px;padding: 5px;
+    height: 62px; border: 1px solid #ddd;
+					 }
+     		 strong{ width:65%;display: block;
+     		 	float: left;font-size: 14px;margin-left:15px;
+     		 		 span{font-weight: normal; margin-top: 6px;display: block;}
+ 					}
+			  	}				  	
+			  	.li02{width:14%; line-height: 80px; text-align: center;}  
+			  	.li03{ border: 0 none;text-align: center;height: 30px;
+        line-height: 30px;
+			  			  .zcgm{
+					        display: block; margin: 5px 0 15px;
+					        color:#fff;width: 90px;
+					        border-radius: 3px;
+					       background-color:#f84141;cursor: pointer;
+				        	}
+				        	span:hover{ background-color:#e7141a; }
+				        .jindu{
+				        		 color: $light-blue; 
+				        }
+			  }  
+			    
+		  	}}
+		}
+		
+		
 }
 </style>

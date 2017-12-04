@@ -1,11 +1,15 @@
 <template>
   <div class="init-data">
+  	<div class="sum_of_class">个人资料</div>
     <div class="info-data lf">
       <div class="item">
         <label for="name">昵称</label><input id="name" />
       </div>
       <div class="item">
         <label for="real-name">真实姓名</label><input id="real-name" />
+      </div>
+      <div class="item">
+        <label for="company">公司名称</label><input id="company" />
       </div>
       <div class="item">
         <label>地区</label>
@@ -25,6 +29,9 @@
             </option>
           </select>
       </div>
+       <div class="item">
+        <label for="company">街道</label><input id="company" />
+      </div>           
       <div class="item">
         <label>行业</label>
         <select class="lg-sel">
@@ -41,9 +48,7 @@
           </option>
         </select>
       </div>
-      <div class="item">
-        <label for="company">公司名称</label><input id="company" />
-      </div>
+
       <div class="item">
         <label>公司规模</label>
         <select class="lg-sel">
@@ -52,12 +57,15 @@
           </option>
         </select>
       </div>
+      <div class="item_bc">保 存</div>
     </div>
-    <div class="cropper rt">
+
+<div class="cropper rt">
       <img class="preview" :src="newavatar">
       <upload v-show="avataredit" :server="upload.server" :limit="upload.limit" :api="upload.api" :filename="upload.filename" :params="upload.params" @success="upsuccess" v-model="newavatar" :crop="upload.crop" :width="upload.width" :height="upload.height" :ok="upload.ok" :cancel="upload.cancel">
           <button class="upavatar">上传头像</button>
       </upload>
+      <p>仅支持jpg、png格式，不要超过1M</p>
     </div>
   </div>
 </template>
@@ -118,21 +126,39 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .rt{
-  float: right;
+  float: left; 
+  .sum_of_class{background-color: #468ee3; margin:0 0px 30px;
+    border: none;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;}
 }
-.lf{
-  float: left;
+.lf{ 
+  float: left; margin:0 70px 20px 40px;
 }
 .lg-sel{
   width: 306px !important;
 }
 .init-data {
   overflow: hidden;
-  padding: 40px;
   border: 1px solid $border-dark;
   .info-data{
+  	.item_bc{
+  		      width: 80px;
+      height: 38px;
+      background-color:#e7141a;
+      text-align: center;
+      line-height: 38px;
+      color: $white;
+      border: none;
+      outline: none;
+      border-radius: 3px;
+      margin: 20px auto;
+  	}
     .item{
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       label{
         display: inline-block;
         width: 70px;
@@ -142,7 +168,7 @@ export default {
       }
       input{
         width: 300px;
-        height: 38px;
+        height: 36px;
         outline: none;
         border-radius: 3px;
         border: 1px solid $border-dark;
@@ -160,22 +186,22 @@ export default {
       }
     }
   }
-  .cropper {
+  .cropper {text-align: center;
     .preview {
       width: 230px;
       height: 230px;
     }
     .upavatar {
-      width: 230px;
+      width: 150px;
       height: 38px;
-      background-color: $btn-default;
+      background-color:#e7141a;
       text-align: center;
       line-height: 38px;
       color: $white;
       border: none;
       outline: none;
-      border-radius: 5px;
-      margin-top: 20px;
+      border-radius: 3px;
+      margin: 20px auto;
     }
   }
 }

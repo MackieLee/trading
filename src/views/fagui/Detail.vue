@@ -13,7 +13,7 @@
       <div class="clearfix" style="margin-bottom:35px;line-height:25px;">
         <div class="second-title">
           <p>文号:税总发〔2017〕102号</p>
-          <p>发布日期:2017-10-19 8:03</p>
+          <p>发布日期:2017-10-19</p>
         </div>
       </div>
       <vue-audio>

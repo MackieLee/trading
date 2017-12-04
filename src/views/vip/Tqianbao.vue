@@ -45,7 +45,7 @@
         <span>备注</span>
       </p>
       <p class="p04">
-        <span>2018.1.1</span>
+        <span>2018.3.1</span>
         <span> 500</span>
         <span>收入</span>
         <span>无</span>
@@ -87,11 +87,11 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .my_qianb_r {
-  height: 900px;
+  height: auto;
   width: 700px;
   margin: 0 auto;
   padding: 0 50px;
-  background-color: $white;
+ border: 1px solid #ddd;
 }
 .my_qianb_r .div01 {
   height: 110px;

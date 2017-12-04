@@ -1,107 +1,282 @@
 <template>
-  <div class="qa">
-    <p class="sum_of_class">共1个课程</p>
-    <div class="container">
-      <div class="item">
-        <div class="title"><i></i><span>房地产开发企业销售精装修房所含装饰、设备是否视同销售？</span></div>
-        <div class="ansr">
-          <p class="rd">答：</p>
-          <p class="content">《营业税改征增值税试点实施办法》第十四条第二款规定，视同销售不动产的范围是：“单位或者个人向其他单位或者个人无偿转让无形资产或者不动产，但用于公益事业或者以社会公众为对象的除外。”</p>
-          <p class="more-sm">更多&gt;&gt;</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="title"><i></i><span>房地产开发企业预收款范围是什么以及开票申报问题如何处理？</span></div>
-        <div class="ansr">
-          <p class="rd">答：</p>
-          <p class="content">预收款包括分期取得的预收款（首付+按揭+尾款）、全款取得的预收款。定金属于预收款；诚意金、认筹金和订金不属于预收款。房地产开发企业收到预收款时，未达到纳税义务发生时间，不开具发票，应按照销售额的3%预缴增值税，填报《增值税预缴税款表》。</p>
-          <p class="more-sm">更多&gt;&gt;</p>
-        </div>
+  <div class="my_qianb_r">
+    <p class="p01">共7个回答</p>
+    <div class="my_qianb_cotainer">
+      <p class="p02" @click="toggle()">
+        <span data-ref='1'>全部</span>|
+        <span data-ref='2' class="cur">待回答</span>|
+        <span data-ref='3'>已回答</span>
+      </p>
+      <ul class="div01" v-if="part=='1'">
+        <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        		<p class="phui">指定回答者：孙炜老师</p>
+						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>							
+						</p> 
+						<img src="../../assets/images/wendavip.png">
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red">立即评价</p>
+	        </div>
+	       </li> 
+	      <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p>还没有答案！</p>
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red">指定回答</p>
+	        </div>
+	       </li> 
+	      <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p>还没有答案！</p>
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red">指定回答</p>
+	        </div>
+	       </li> 
+	      <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p>还没有答案！</p>
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red">指定回答</p>
+	        </div>
+	       </li> 
+	      <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        		<p class="phui">指定回答者：孙炜老师</p>
+						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>							
+						</p> 
+						<img src="../../assets/images/wendavip.png">
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="hui">已评价</p>
+	        </div>
+	       </li> 
+	      <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p>还没有答案！</p>
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red">指定回答</p>
+	        </div>
+	       </li> 
+	      <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p class="phui">指定回答者：孙炜老师</p>
+						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>							
+						</p> 
+						<img src="../../assets/images/wendavip.png">
+
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p>立即评价</p>
+	        </div>
+	       </li> 
+	       
+      </ul>
+
+      
+      <ul class="div01" v-if="part=='2'">
+        <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p>还没有答案！</p>
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red">指定回答</p>
+	        </div>
+	       </li> 
+	      <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p>还没有答案！</p>
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red">指定回答</p>
+	        </div>
+	       </li> 
+	      <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p>还没有答案！</p>
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red">指定回答</p>
+	        </div>
+	       </li> 
+	      <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p>还没有答案！</p>
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red">指定回答</p>
+	        </div>
+	       </li> 
+	      
+	      <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p>还没有答案！</p>
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red">指定回答</p>
+	        </div>
+	       </li> 
+	      
+      </ul>
+      
+      <ul class="div01" v-if="part=='3'">
+        <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        		<p class="phui">指定回答者：孙炜老师</p>
+						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>							
+						</p> 
+						<img src="../../assets/images/wendavip.png">
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red">立即评价</p>
+	        </div>
+	       </li> 
+	       <li>
+	        <div class="l">       
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        		<p class="phui">指定回答者：孙炜老师</p>
+						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>							
+						</p> 
+						<img src="../../assets/images/wendavip.png">
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red">立即评价</p>
+	        </div>
+	       </li> 
+	     
+      </ul>
+      
+     
       </div>
     </div>
-    <div class="more">更多&gt;&gt;</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'qa'
+  name: 'youhuiquan',
+  data(){
+    return{
+      part:'2'
+    }
+  },
+  methods:{
+    toggle(){
+      document.getElementsByClassName('cur')[0].className = ''
+      event.target.setAttribute('class','cur')
+      let ref = event.target.dataset.ref
+      this.part = ref
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
-.qa {
+.my_qianb_r {
+  width: 810px;
+  margin: 0 auto;
   background-color: $white;
-  overflow: hidden;
-  i{
-    display: inline-block;
-    height: 24px;
-    width: 30px;
-    background-image: url('../../assets/images/Sprite.png');
-    vertical-align: text-bottom;
-  }
-  .sum_of_class {
-    background-color: $bg-blue;
-    border: none;
-    padding: 9px;
-    font-size: 16px;
-    border-radius: 3px;
-    text-align: center;
-    color: $white;
-  }
-  .container {
-    width: 728px;
-    margin: 47px auto 12px auto;
-    i{
-      background-position: -93px -89px;
-      margin-right: 15px;
-    }
-    .item{
-      margin-bottom: 50px;
-      .title{
-        font-size: 16px;
-      }
-      .ansr{
-        border: 1px solid $border-blue;
-        padding: 15px;
-        margin-top: 25px;
-        overflow: hidden;
-        .rd{
-          color:$red;
-          float: left;
-        }
-        .content{
-          text-indent: 32px;
-          float: left;
-          width: 670px;
-        }
-        .more-sm{
-          width: 94px;
-          height: 35px;
-          margin-top: 37px;
-          float: right;
-          color: $white;
-          background-color: $btn-default;
-          line-height: 35px;
-          text-align: center;
-          border-radius: 3px;
-          cursor: pointer;
-        }
-      }
-    }
-  }
-  .more {
-    width: 124px;
-    height: 35px;
-    color: $white;
-    line-height: 35px;
-    text-align: center;
-    margin: 44px auto;
-    border-radius: 3px;
-    font-size: 16px;
-    background-color: $btn-default;
-    cursor: pointer;
-  }
 }
+.my_qianb_cotainer{
+  padding-bottom: 65px;
+}
+.my_qianb_r .p01 {
+  color: $white;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  width: 100%;
+  background: $bg-blue;
+  text-align: center;
+}
+.my_qianb_r .p02 {
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}
+.my_qianb_r .p02 span {
+  height: 50px;
+  width: 110px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+  line-height: 55px;
+}
+.my_qianb_r .p02 .cur {
+  border-bottom: 1px solid #e7151b;
+  color: #e7151b;
+}
+.my_qianb_r .div01 {
+  height: auto;
+  width:100%;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  padding-bottom: 10px
+}
+.my_qianb_r .div01 li{width: 96%; border-bottom: 1px solid #eee;
+    padding: 10px 15px;
+}
+.my_qianb_r .div01 .l,.my_qianb_r .div01 .r{
+	font-size: 16px;
+  color: #333;
+  float: left;
+}
+.my_qianb_r .div01 .l {
+  width: 85%;position: relative;
+}
+.my_qianb_r .div01 .r {
+  width: 15%;
+}
+.my_qianb_r .div01 .l h2,.my_qianb_r .div01 .r h3{
+font-size: 14px;line-height: 30px;
+}
+.my_qianb_r .div01 li p{line-height: 30px;}
+.my_qianb_r .div01 .r p.red{
+color: red;cursor: pointer;
+}
+
+.my_qianb_r .div01 .r .phui,.my_qianb_r .div01 .r h3{
+color: #999;
+}
+.my_qianb_r .div01 .l p .more{
+	color: #468ee3;
+}
+.my_qianb_r .div01 .l .pshui,.my_qianb_r .div01 .l .phui{
+padding-left: 50px;
+}
+.my_qianb_r .div01 .l img{ position: absolute; left: 0px;top:40px}
+
+
 </style>

@@ -4,61 +4,89 @@
     <ul class="ul01" @click="toggle()">
       <li class="li01" data-ref="1">所有订单</li>
       <li data-ref="2">待付款1</li>
-      <li data-ref="3"> 待发货1</li>
-      <li data-ref="4"> 待收货4</li>
-      <li data-ref="5">待评价5</li>
+      <li data-ref="3"> 已完成</li>
+      <li data-ref="4"> 待评价5</li>
     </ul>
     <ul class="ul02">
-      <li>宝贝 </li>
-      <li>单价</li>
-      <li> 数量</li>
-      <li>商品</li>
-      <li>实付款</li>
-      <li>交易状态</li>
+      <li class="li01">报名信息 </li>
+      <li class="li02">单价</li>
+      <li class="li03">类型</li>
+      <li class="li04">实付款</li>
+      <li class="li05">交易状态</li>
+      <li class="li06">操作</li>
     </ul>
-    <ul class="ul03">
-      <li class="li01">
-        <i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选 </li>
-      <li>合并付款</li>
-      <li> 批量确认收货</li>
-      <li>删除订单</li>
-    </ul>
-    <div class="container" v-if="part=='1'">
-      <p class="p01">
-        <i @click="change()" data-ref='0' :class="{ selected: num1}"></i>2017-08-31订单号: 53196839876687913</p>
-      <ul class="ul05">
-        <li class="li01"><img src="../../assets/images/huanyuanzx02.png">土地增值税清算土地<br>增值税清算 </li>
-        <li>￥1253.77</li>
-        <li> 1</li>
-        <li>视频</li>
-        <li>￥1253.77</li>
-        <li> 交易成功<br>订单详情</li>
-      </ul>
-      <p class="p01">
-        <i @click="change()" data-ref='1' :class="{ selected: num2}"></i>2017-08-31订单号: 53196839876687913</p>
-      <ul class="ul05">
-        <li class="li01"><img src="../../assets/images/huanyuanzx02.png">土地增值税清算土地<br>增值税清算 </li>
-        <li>￥1253.77</li>
-        <li> 1</li>
-        <li>视频</li>
-        <li>￥1253.77</li>
-        <li> 交易成功<br>订单详情</li>
-      </ul>
-      <p class="p01">
-        <i @click="change()" data-ref='2' :class="{ selected: num3}"></i>2017-08-31订单号: 53196839876687913</p>
-      <ul class="ul05">
-        <li class="li01"><img src="../../assets/images/huanyuanzx02.png">土地增值税清算土地<br>增值税清算 </li>
-        <li>￥1253.77</li>
-        <li> 1</li>
-        <li>视频</li>
-        <li>￥1253.77</li>
-        <li> 交易成功<br>订单详情</li>
-      </ul>
-    </div>
-    <div class="container" v-if="part=='2'"></div>
+    
+     
+   <div class="container" v-if="part=='1'">
+   	<div class="item">
+        <p class="p01">订单号: 53196839876687913<i >2017-08-31</i></p>
+        <ul>
+          <li class="li01">
+          	<img src="../../assets/images/huanyuanzx02.png">  
+          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+          	 </strong>
+         </li>
+         <li class="li02">¥988.00</li>
+         <li class="li03">视频</li>
+         <li class="li04">¥588.00</li>
+         <li class="li05">          
+         	<span class="zcgm">等待付款</span>
+          <p class="jindu">订单详情 </p>
+         </li>
+         <li class="li06">          
+         	<span class="zcgm">付款</span>
+          <p class="jindu">取消订单 </p>
+         </li>    
+        </ul>
+      </div>
+   	<div class="item">
+        <p class="p01">订单号: 53196839876687913<i >2017-08-31</i></p>
+        <ul>
+          <li class="li01">
+          	<img src="../../assets/images/huanyuanzx02.png">  
+          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+          	 </strong>
+         </li>
+         <li class="li02">¥988.00</li>
+         <li class="li03">视频</li>
+         <li class="li04">¥588.00</li>
+         <li class="li05">          
+         	<span class="zcgm">等待付款</span>
+          <p class="jindu">订单详情 </p>
+         </li>
+         <li class="li06">          
+         	<span class="zcgm">付款</span>
+          <p class="jindu">取消订单 </p>
+         </li>    
+        </ul>
+      </div>
+   	<div class="item">
+        <p class="p01">订单号: 53196839876687913<i >2017-08-31</i></p>
+        <ul>
+          <li class="li01">
+          	<img src="../../assets/images/huanyuanzx02.png">  
+          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+          	 </strong>
+         </li>
+         <li class="li02">¥988.00</li>
+         <li class="li03">视频</li>
+         <li class="li04">¥588.00</li>
+         <li class="li05">          
+         	<span class="zcgm">等待付款</span>
+          <p class="jindu">订单详情 </p>
+         </li>
+         <li class="li06">          
+         	<span class="zcgm">付款</span>
+          <p class="jindu">取消订单 </p>
+         </li>    
+        </ul>
+      </div>
+      
+   </div>
+   <div class="container" v-if="part=='2'"></div>
     <div class="container" v-if="part=='3'"></div>
     <div class="container" v-if="part=='4'"></div>
-    <div class="container" v-if="part=='5'"></div>
+
     <div class="number">
       <a>1</a>
       <a>2</a>
@@ -118,11 +146,8 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
-.selected {
-  background-position: -101px -254px !important;
-}
 .my_order_r {
-  height: 900px;
+  height: auto;
   width: 800px;
   margin: 0 auto;
   background-color: $white;
@@ -133,151 +158,99 @@ i{
 .my_order_r h2 {
   widows: 100%;
   background: $bg-blue;
-  height: 42px;
+  height: 40px;
   font-weight: normal;
-  line-height: 42px;
+  line-height: 40px;
   text-align: center;
   font-size: 16px;
   color: $white;
 }
 
 .my_order_r .ul01 {
-  height: 42px;
+  height:20px;
   width: 100%;
-  border-bottom: 1px solid $red;
+  border-bottom: 1px solid $red;  padding: 20px 0 15px;
 }
 
-.my_order_r .ul01 li {
-  width: 128px;
-  text-align: center;
+.my_order_r .ul01 li{
+  width: 100px; 
+  text-align: center;border-right: 1.5px solid #999;
   font-size: 16px;
   color: $black;
   float: left;
-  padding: 10px 0 15px;
   cursor: pointer;
 }
-
 .my_order_r .ul01 .li01 {
-  color: $red;
-  border-left: 0 none;
+  color: $red;  
 }
-
 .my_order_r .ul02 {
-  height: 35px;
+  height: 36px;
   width: 100%;
   background: #ddd;
-  margin-top: 14px;
-}
-
-.my_order_r .ul02 li {
-  width: 128px;
+  margin: 14px 0;
+  li{width:12%;
   text-align: center;
   font-size: 14px;
   color: #333;
   float: left;
-  line-height: 35px;
-}
-
-.my_order_r .ul03 {
-  height: 25px;
-  width: 100%;
-  margin: 15px 0;
-}
-
-.my_order_r .ul03 li {
-  border-radius: 3px;
-  padding: 0 15px;
-  margin: 0 20px;
-  border: 1px #ddd solid;
-  text-align: center;
-  font-size: 12px;
-  color: #333;
-  float: left;
-  line-height: 25px;
-}
-
-.my_order_r .ul03 .li01 {
-  border: 0 none;
-  padding: 0 15px 0 0;
-}
-
-.my_order_r .ul03 .li01 i {
-  margin-right: 5px;
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  background: url('../../assets/images/Sprite.png') -59px -396px;
+  line-height: 36px;
+  }
+  .li01{width: 46%;}
+  .li02{width: 11%;}
+  .li03{width: 8%;}
+  .li05{width: 10%;}
 }
 /*   */
-.my_order_r .p01 {
-  height: 30px;
-  width: 100%;
-  background: $bg-blue;
-  line-height: 30px;
-  font-size: 12px;
-  color: $white;
-}
+.container{
+  		margin-bottom: 20px;
+		  .item{
+		    margin-bottom: 20px;
+			  .p01{
+			background-color: $bg-blue;
+	    border: none; height: 36px;line-height: 26px;
+	    font-size: 12px;
+	    text-indent:1em;
+	    color: $white;
+		i{color: #e8e8e8; font-style: normal; padding-left: 10px;
+		}
+		}
+			  ul{overflow: hidden;border: 1px solid #ddd;
+    			 li{float: left; border-right: 1px solid #ddd;height:76px; padding:10px 10px; }
+			  	.li01{
+			  		 width:44%;
+			  		  img{
+			  		 	float: left;width: 92px;padding: 5px;
+    height: 62px; border: 1px solid #ddd;
+					 }
+     		 strong{width:56%;line-height: 30px;
+     		 	float: left;font-size: 14px;margin:5px 10px 0; display: block;
+     		 		 span{display: block; font-weight: normal;}
+ 					}
 
-.my_order_r .p01 i {
-  margin: 0 20px;
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  background: url('../../assets/images/Sprite.png') -59px -396px;
-}
+			  	}				  	
+			  	.li02,.li03,.li04{width:8%; line-height: 80px; text-align: center;} 
+			  	 .li03{width: 6%;}
+			  	.li05{line-height: 30px;text-align: center;width:8%;
+			  		   .zcgm{
+					        display: block; margin: 10px 0;
+					        color:#e7141a;					       					     
+				        	}
+				     .jindu{
+				        		 color: $light-blue;
+				        }
+			  	}
+			  	.li06{border: 0 none;
+			  			   .zcgm{
+					        display: block; margin: 5px 0 15px;
+					        color:#fff;width:80px;text-align: center;
+					        border-radius: 3px;height: 30px;line-height: 30px;
+					       background-color:#f84141;cursor: pointer;
+				        	}
+				        	span:hover{ background-color:#e7141a; }
+				        .jindu{color: $light-blue;text-indent: 1em;}
+			  }  
+			    
+		  	}}
+		}
 
-.my_order_r .ul05 {
-  height: 110px;
-  width: 100%;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 10px;
-}
-
-.my_order_r .ul05 li {
-  width: 90px;
-  height: 80px;
-  line-height: 24px;
-  padding-top: 30px;
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-  float: left;
-  border-left: 1px solid #ddd;
-}
-
-.my_order_r .ul05 .li01 {
-  border-left: 0 none;
-  width: 300px;
-  text-align: left;
-}
-
-.my_order_r .ul05 .li01 img {
-  margin: -18px 18px 11px 5px;
-  float: left;
-}
-
-.my_order_r .number {
-  height: 34px;
-  width: 80px;
-  margin: 40px auto 0;
-}
-
-.my_order_r .number a {
-  height: 34px;
-  width: 34px;
-  display: inline-block;
-  text-align: center;
-  line-height: 34px;
-  color: $white;
-  font-size: 14px;
-  background: $btn-default;
-}
-.my_order_r .p01 i {
-  margin: 0 5px 0 20px;
-  background-position: -101px -284px;
-}
-.my_order_r .ul03 .li01 i,
-.my_order_r .ul06 .li01 i {
-  background-position: -101px -282px;
-}
 </style>
