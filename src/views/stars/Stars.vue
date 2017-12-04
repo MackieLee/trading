@@ -32,7 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 .star_bg {
-  width: 120px;
+  width: 89px;
   height: 20px;
   background: url('../../assets/images/star.png') repeat-x;
   position: relative;
@@ -40,7 +40,7 @@ export default {
 }
 .star {
   height: 100%;
-  width: 24px;
+  width: 18px;
   line-height: 6em;
   position: absolute;
   z-index: 3;
@@ -54,31 +54,31 @@ export default {
   left: 0;
 }
 .star_2 {
-  left: 24px;
+  left: 18px;
 }
 .star_3 {
-  left: 48px;
+  left: 36px;
 }
 .star_4 {
-  left: 72px;
+  left: 54px;
 }
 .star_5 {
-  left: 96px;
+  left: 72px;
 }
 .star_1:hover {
-  width: 24px;
+  width: 18px;
 }
 .star_2:hover {
-  width: 48px;
+  width: 36px;
 }
 .star_3:hover {
-  width: 72px;
+  width: 54px;
 }
 .star_4:hover {
-  width: 96px;
+  width: 72px;
 }
 .star_5:hover {
-  width: 120px;
+  width: 90px;
 }
 label {
   display: block;
@@ -98,19 +98,19 @@ label {
   z-index: 1;
 }
 .score_1:checked ~ .star_1 {
-  width: 24px;
+  width: 18px;
 }
 .score_2:checked ~ .star_2 {
-  width: 48px;
+  width: 36px;
 }
 .score_3:checked ~ .star_3 {
-  width: 72px;
+  width: 54px;
 }
 .score_4:checked ~ .star_4 {
-  width: 96px;
+  width: 72px;
 }
 .score_5:checked ~ .star_5 {
-  width: 120px;
+  width: 90px;
 }
 .star_bg:hover .star {
   background-image: none;
