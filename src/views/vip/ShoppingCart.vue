@@ -1,6 +1,6 @@
 <template>
   <div class="my_order_r">
-    <h2>我的订单</h2>
+    <h2>购物车</h2>
     <ul class="ul02">
       <li class="li01">
         <i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选
@@ -34,7 +34,11 @@
           <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br>加到我的收藏</div>
         </div>
       </div>
+   
+    
     </div>
+    
+    
     <ul class="ul03">
       <li class="li01">
         <i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选 </li>
@@ -115,8 +119,8 @@ i {
   vertical-align: text-bottom;
   background: url("../../assets/images/Sprite.png");
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
 }
 .container{
   margin-bottom: 20px;
@@ -134,7 +138,7 @@ i {
   width: 370px;
   overflow: hidden;
   border-right: 1px solid $border-dark;
-  .img {
+   .img {
     margin-right: 20px;
   }
   .header {
@@ -168,24 +172,24 @@ i {
   margin-right: 60px;
 }
 .my_order_r h2 {
-  widows: 100%;
+  width: 100%;
   background: $bg-blue;
-  height: 42px;
+  height: 40px;
   font-weight: normal;
-  line-height: 42px;
+  line-height: 40px;
   text-align: center;
   font-size: 16px;
   color: $white;
 }
 .my_order_r .ul02 {
-  height: 35px;
+  height: 36px;
   width: 100%;
   background: #ddd;
-  margin: 14px 0;
-  .li01{
+  margin: 10px 0 15px;
+    .li01{
     margin-left: 13px;
-    i{
-      background-position: -101px -284px;
+      i{
+      background-position: -103px -353px;
       margin-right: 10px;
     }
   }
@@ -193,8 +197,8 @@ i {
 .ul03 .li01{
   font-size: 14px;
   margin-left: 13px;
-  i{
-    background-position:-101px -350px;
+   i{
+    background-position:-103px -353px;
   }
 }
 .my_order_r .ul02 li {
@@ -202,7 +206,7 @@ i {
   font-size: 14px;
   color: #333;
   float: left;
-  line-height: 35px;
+  line-height: 36px;
 }
 
 .my_order_r .ul03 .li01 {
@@ -214,17 +218,17 @@ i {
 }
 /*   */
 .my_order_r .p01 {
-  height: 30px;
+  height: 36px;
   width: 100%;
   background: $bg-blue;
-  line-height: 30px;
+  line-height: 36px;
   font-size: 12px;
   color: $white;
 }
 .ul {
   border: 1px solid $border-dark;
   overflow: hidden;
-  .lf {
+    .lf {
     float: left;
   }
   .block {
@@ -251,23 +255,23 @@ i {
 }
 
 .my_order_r .number {
-  height: 34px;
+  height: 36px;
   width: 80px;
   margin: 40px auto 0;
 }
 
 .my_order_r .number a {
-  height: 34px;
+  height: 36px;
   width: 34px;
   display: inline-block;
   text-align: center;
-  line-height: 34px;
+  line-height: 36px;
   color: $white;
   font-size: 14px;
   background: $btn-default;
 }
 .my_order_r .p01 i {
   margin: 0 5px 0 13px;
-  background-position: -101px -284px;
+  background-position: -103px -321px;
 }
 </style>

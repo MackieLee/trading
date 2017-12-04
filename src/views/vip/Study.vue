@@ -1,38 +1,81 @@
 <template>
   <div class="study">
-    <div class="pt-1">
-      <p class="sum_of_class">共1个课程</p>
-      <div class="container">
-        <div class="item item1">
-          <p class="f-line">今天上课</p>
-          <p>0分钟</p>
-        </div>
-        <div class="item item2">
-          <p class="f-line">今天上课</p>
-          <p>0分
-            <span>再上100分钟可获得100积分</span>
-          </p>
-        </div>
-        <div class="item item3">
-          <p class="f-line">高于平台</p>
-          <p>0%学员</p>
-        </div>
-      </div>
-    </div>
+   		<div class="pt-1">
+	      <p class="sum_of_class">我的学习</p>
+	  	<div class="div-1">      
+	      <div class="container">
+	        <div class="item item1">
+	          <p class="f-line">已看</p>
+	          <p>100分钟</p>
+	        </div>
+	        <div class="item item2">
+	          <p class="f-line">今天上课</p>
+	          <p>0分
+	            <span>再上100分钟可获得100积分</span>
+	          </p>
+	        </div>
+	        <div class="item item3">
+	          <p class="f-line">高于平台</p>
+	          <p>0%学员</p>
+	        </div>
+	      </div>
+	    
+   		</div>
+   	</div> 
+    
     <div class="pt-2">
       <div class="container">
         <img src="../../assets/images/huanyuanzx02.png" />
         <div class="middle">
-          <p>税务健康体检服务</p>
+          <p>企业所得税年度纳税申报表中隐藏的稽查陷阱
+藏的稽查陷</p>
           <font>孙玮</font>
         </div>
         <div class="sm-btn">
-          <span>马上学习</span>
-          <p class="jindu">学习 ：2%</p>
+          <span>开始学习</span>
+          <p class="jindu">学习进度：0% </p>
         </div>
       </div>
-      <div class="page">1</div>
+      <div class="container">
+        <img src="../../assets/images/huanyuanzx02.png" />
+        <div class="middle">
+          <p>企业所得税年度纳税申报表中隐藏的稽查陷阱
+藏的稽查陷</p>
+          <font>孙玮</font>
+        </div>
+        <div class="sm-btn">
+          <span>开始学习</span>
+          <p class="jindu">学习进度：0% </p>
+        </div>
+      </div>
+      <div class="container">
+        <img src="../../assets/images/huanyuanzx02.png" />
+        <div class="middle">
+          <p>企业所得税年度纳税申报表中隐藏的稽查陷阱
+藏的稽查陷</p>
+          <font>孙玮</font>
+        </div>
+        <div class="sm-btn">
+          <span>继续观看</span>
+          <p class="jindu">学习进度：2% </p>
+        </div>
+      </div>
+      <div class="container">
+        <img src="../../assets/images/huanyuanzx02.png" />
+        <div class="middle">
+          <p>企业所得税年度纳税申报表中隐藏的稽查陷阱
+藏的稽查陷</p>
+          <font>孙玮</font>
+        </div>
+        <div class="sm-btn">
+          <span class="zcgm">再次购买</span>
+          <p class="jindu">学习完成 </p>
+        </div>
+      </div>
+      
+         
     </div>
+   <div class="page">1</div>  
   </div>
 </template>
 
@@ -47,27 +90,25 @@ export default {
 .study {
   .sum_of_class {
     background-color: $bg-blue;
-    border: none;
-    padding: 9px;
+    border: none; height: 40px;line-height: 40px;
     font-size: 16px;
-    border-radius: 3px;
     text-align: center;
     color: $white;
   }
   .pt-1 {
-    border: 1px solid $border-dark;
-    border-radius: 3px;
+   .div-1{
+  	  border: 1px solid $border-dark;
+			    margin: 10px 0;
     .container {
-      width: 710px;
-      margin: 30px auto;
+      width: 95%;
+      margin: 10px auto;
       display: flex;
       border-top: 1px solid $red;
       .item {
-        margin: 30px 0;
+        margin: 20px 0 5px;
         p {
           text-align: center;
-          margin-bottom: 15px;
-          font-size: 18px;
+          font-size: 16px;
         }
         .f-line {
           margin-bottom: 30px;
@@ -75,68 +116,72 @@ export default {
       }
       .item1 {
         border-right: 1px solid $red;
-        padding: 0 60px 0 25px;
+        width: 30%;
       }
       .item2 {
         border-right: 1px solid $red;
-        padding: 0 84px 0 64px;
+      width: 40%;
         span {
           font-size: 14px;
         }
       }
       .item3 {
-        padding-left: 86px;
+      width: 30%;
       }
     }
-  }
+  } }
   .pt-2 {
-    padding: 25px 50px;
+    padding:0px 10px;margin-top: 15px;
     border: 1px solid $border-dark;
-    margin-top: 30px;
     .container {
-      width: 728px;
-      display: flex;
+      width:100%;
+      display: flex;    padding:10px 5px 10px;
       border-bottom: 1px solid $border-dark;
       img{
-        width: 128px;
-        height: 82px;
-        margin-bottom: 10px;
+       width: 92px;
+    height: 62px;
+ 		padding: 5px;
+        border: 1px solid #ddd;
       }
       .middle{
-        margin: 0 250px 0 25px;
+        margin:0 10px;
+        width:70%;
         p{
-          font-size: 18px;
-          margin: 15px 0 20px 0;
+          font-size: 14px;
+          margin:  0;
         }
         font{
           font-size: 14px;
-          margin-bottom: 15px;
+           line-height: 36px;height: 36px;
         }
       }
       .sm-btn{
-        width: 116px;
-        height: 30px;
+        width: 20%;margin:0 10px;
+        span{
+        display: block;	 height: 30px;
         line-height: 30px;
         text-align: center;
-        color: $white;
-        border-radius: 5px;
-        background-color: $btn-default;
-        margin-top: 20px;
+        color:#fff;width: 90px;
+        border-radius: 3px;
+        background-color:#f84141;cursor: pointer;
+        }
+         span:hover{ background-color:#e7141a; }
+        
+        .zcgm{
+        	color:#333;
+        	 border:1px solid #ddd;
+        	background-color:#fff;
+        	}
         .jindu{
-          color: $light-blue;
-          margin-top: 10px;
+        	line-height: 36px;height: 36px;
+          color: $light-blue;    text-indent: 0.5em;
         }
       }
     }
+    
     .page{
-      width: 34px;
-      height: 34px;
-      color: $white;
-      line-height: 34px;
-      text-align: center;
-      margin: 24px auto;
-      background-color: $btn-default;
-    }
+    
+      }
   }
 }
 </style>

@@ -9,7 +9,7 @@
       <!-- 模块一 -->
       <div class="global-overview-left lf">
         <div class="titcon">
-          <h2 class="ctr">最新提示</h2>
+          <h2 class="ctr">最新文件</h2>
         </div>
         <div class="clearfix"></div>
         <div class="content">
@@ -80,7 +80,7 @@
       <!-- 模块二 -->
       <div class="global-overview-left rt">
         <div class="titcon">
-          <h2 class="ctr">法律法规</h2>
+          <h2 class="ctr">法规库</h2>
         </div>
         <div class="clearfix"></div>
         <div class="content">
@@ -112,7 +112,7 @@
       <!-- 模块三 -->
       <div class="global-overview-left second-line lf">
         <div class="titcon">
-          <h2 class="ctr">热点内容</h2>
+          <h2 class="ctr">政策解读</h2>
         </div>
         <div class="clearfix"></div>
         <div class="content">
@@ -331,7 +331,6 @@ export default {
           position: relative;
           padding: 10px 5px 4px 15px;
           .newtitle {
-            padding-right: 110px;
             display: inline-block;
             color: #333;
             font-size: 14px;
@@ -350,30 +349,28 @@ export default {
           }
         }
         .policy {
-          height: 165px;
+          height: 240px;
           padding: 4px 15px;
           li {
-            float: left;
+            float: left;font-size: 14px;
             text-align: left;
-            width: 150px;
+            width: 33%;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            line-height: 26px;
-            margin-bottom: 8px;
+            line-height: 38px;
             .num {
               display: inline-block;
-              width: 6px;
+              width: 6px; margin-right: 5px;
               height: 6px;
-              border-radius: 3px;
-              // background: linear-gradient(#fdb483, #ff84f3)
+           // background: linear-gradient(#fdb483, #ff84f3)
               background-color: $bg-blue;
             }
           }
         }
         .search {
           width: 400px;
-          margin: 30px auto 0 auto;
+          margin:20px auto 0 auto;
           label {
             margin-right: 20px;
             font-size: 14px;

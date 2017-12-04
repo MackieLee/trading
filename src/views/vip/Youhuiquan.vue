@@ -3,99 +3,345 @@
     <p class="p01">优惠券</p>
     <div class="my_qianb_cotainer">
       <p class="p02" @click="toggle()">
-        <span data-ref='1'>已使用</span>|
-        <span data-ref='2' class="cur">未使用</span>|
+        <span data-ref='1'>未使用</span>|
+        <span data-ref='2' class="cur">已使用</span>|
         <span data-ref='3'>即将过期</span>|
         <span data-ref='4'>已过期</span>
       </p>
       <div class="div01" v-if="part=='1'">
-        <ul class="l">
-          <li>面 值： 1</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-          <li>面 值： 50</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-        </ul>
-        <ul class="r">
-          <li>面 值： 2</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-          <li>面 值： 50</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-        </ul>
+					<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>50</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							<div class="div01_gm"><span>立即使用</span></div> 
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							<div class="div01_gm"><span>立即使用</span></div> 
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							<div class="div01_gm"><span>立即使用</span></div> 
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							<div class="div01_gm"><span>立即使用</span></div> 
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							<div class="div01_gm"><span>立即使用</span></div> 
+					</div>   	
+					
       </div>
-      <div class="div01" v-if="part=='2'">
-        <ul class="l">
-          <li>面 值： 3</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-          <li>面 值： 50</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-        </ul>
-        <ul class="r">
-          <li>面 值： 4</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-          <li>面 值： 50</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-        </ul>
+     <div class="div02" v-if="part=='2'">
+					<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+						
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+						
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+						
+					</div>   	
+					
       </div>
-      <div class="div01" v-if="part=='3'">
-        <ul class="l">
-          <li>面 值： 5</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-          <li>面 值： 50</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-        </ul>
-        <ul class="r">
-          <li>面 值： 6</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-          <li>面 值： 50</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-        </ul>
+
+      <div class="div03" v-if="part=='3'">
+					<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>50</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							<div class="div01_gm"><span>立即使用</span></div> 
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							<div class="div01_gm"><span>立即使用</span></div> 
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							<div class="div01_gm"><span>立即使用</span></div> 
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							<div class="div01_gm"><span>立即使用</span></div> 
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							<div class="div01_gm"><span>立即使用</span></div> 
+					</div>   	
+					
       </div>
-      <div class="div01" v-if="part=='4'">
-        <ul class="l">
-          <li>面 值： 7</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-          <li>面 值： 50</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-        </ul>
-        <ul class="r">
-          <li>面 值： 8</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-          <li>面 值： 50</li>
-          <li>期 限： 2017-9-29——2017-10-29</li>
-          <li>限类品： 视频</li>
-          <li>券编号：8792456354</li>
-        </ul>
+     <div class="div04" v-if="part=='4'">
+					<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+						
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+						
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+							
+					</div>   	
+						<div class="yhj">
+						<div class="div01_type">
+							<div class="hover"></div>
+							<div class="xshover"></div>
+						    <div class="div01_price">
+						        <em>¥</em>
+						        <strong>30</strong>元券
+						    </div>
+							<div class="div01_limit">满3000可用</div>
+							<div class="div01_p">
+								<span>只限视频类</span>编号：8792456354
+							</div>
+							    <div class="div01_time">2017.12.01-2017.12.20</div>       		    				
+						</div>
+						
+					</div>   	
+					
       </div>
+
     </div>
   </div>
 </template>
@@ -127,7 +373,7 @@ export default {
   background-color: $white;
 }
 .my_qianb_cotainer{
-  padding: 0 16px 65px 44px;
+
 }
 .my_qianb_r .p01 {
   color: $white;
@@ -141,7 +387,7 @@ export default {
 
 .my_qianb_r .p02 {
   height: 50px;
-  width: 100%;
+  width: 90%; margin: 0 auto;
   border-bottom: 1px solid #ddd;
 }
 
@@ -152,32 +398,91 @@ export default {
   text-align: center;
   line-height: 50px;
 }
-
 .my_qianb_r .p02 .cur {
   border-bottom: 1px solid #e7151b;
   color: #e7151b;
 }
 
-.my_qianb_r .div01 {
+.div01,.div02,.div03,.div04{
+.yhj{float: left;height:auto;width: 246px;margin:20px 10px}
+ } 
+ 
+ /*特别*/
+ .div01{
+.xshover{ background: url('../../assets/images/Sprite.png') -430px -269px !important;}
+ 
+ }
+ .div02{
+.xshover{ background: url('../../assets/images/Sprite.png') -430px -183px !important;}
+ 
+ } 
+ .div04{
+.xshover{ background: url('../../assets/images/Sprite.png') -430px -15px !important;}
+ 
+ }
+
+   /*公共*/
+ .div01,.div02,.div03,.div04{
+	.yhj{float: left;height:auto;width: 246px;margin:15px 10px}
   height: auto;
-  width: 100%;
-  overflow: hidden;
+  width: 100%;overflow: hidden;
+   .div01_type:hover { 
+   .hover{ display: block;}   
+  	}  
+   .div01_type {position: relative;
+    background-color: #74d2d4;float: left;
+    width:246px;
+    height:165px;
+    padding: 20px 0 0;
+    color: #fff;
+    text-align: center;  	
+   	.xshover{
+  		position: absolute;
+    width: 65px;
+    height: 65px;
+    left:0px;
+    top: 0px;
+    overflow: hidden;
+   background: url('../../assets/images/Sprite.png') -430px -98px; 
+    cursor: pointer;}
+    .hover{display: none;
+  		position: absolute;
+    width: 35px;
+    height: 35px;
+    right: -5px;
+    top: -3px;
+    overflow: hidden;
+   background: url('../../assets/images/Sprite.png') -510px -159px; 
+    cursor: pointer;
+			}
+			  .div01_price {
+			    margin: 0 0 10px;text-align: center;
+			    font-weight:700;
+			    em{
+			    	font-family: verdana;
+			    font-size: 24px;
+			    position: relative;
+			    top: -11px;}
+			    strong{line-height: 45px;
+			    font-size: 40px;
+			    font-family: Arial;}
+			}
+			.div01_time{
+				color: #197f81;
+				}
+				.div01_p{margin: 15px 0;
+					span{font-size: 14px; margin-right:20px;}
+					}    
+    }
+   .div01_gm{
+   	width: 246px;text-align: center;
+   	span{height: 30px;width: 110px; margin-top:20px;border-radius:30px;text-align: center;line-height: 30px;
+   	border: 1px solid #74d2d4;color: #333;display: inline-block;}
+   }
+    
+    
+    
 }
 
-.my_qianb_r .div01 .l,
-.my_qianb_r .div01 .r {
-  width: 370px;
-  font-size: 14px;
-  color: #333;
-  float: left;
-}
 
-.my_qianb_r .div01 .r {
-  float: right;
-}
-
-.my_qianb_r .div01 .l li,
-.my_qianb_r .div01 .r li {
-  margin-top: 30px;
-}
 </style>

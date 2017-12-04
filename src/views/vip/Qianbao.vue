@@ -13,55 +13,83 @@
     </p>
     <div class="div02" v-if="!show">
       <p class="p03">
-        <span>时间</span>
-        <span> 充值金额</span>
-        <span>状态</span>
-        <span>备注</span>
+        <span class="span01">时间</span>
+        <span class="span02"> 充值金额</span>
+        <span class="span03">状态</span>
+        <span class="span04">备注</span>
       </p>
       <p class="p04">
-        <span>2017.12.18</span>
-        <span> 100</span>
-        <span>收入</span>
-        <span>无</span>
+        <span class="span01">2017-10-18 18:35:11</span>
+        <span class="span02"> 100</span>
+        <span class="span03">收入</span>
+        <span class="span04">退货返款:订单号:62437427989</span>
       </p>
+
       <p class="p04">
-        <span>2017.12.18</span>
-        <span> 100</span>
-        <span>收入</span>
-        <span>无</span>
+        <span class="span01">2017-10-18 18:35:11</span>
+        <span class="span02"> 100</span>
+        <span class="span03">收入</span>
+        <span class="span04">退货返款:订单号:62437427989</span>
       </p>
+
       <p class="p04">
-        <span>2017.12.18</span>
-        <span> 100</span>
-        <span>收入</span>
-        <span>无</span>
+        <span class="span01">2017-10-18 18:35:11</span>
+        <span class="span02"> 100</span>
+        <span class="span03">收入</span>
+        <span class="span04">退货返款:订单号:62437427989</span>
       </p>
+
+      <p class="p04">
+        <span class="span01">2017-10-18 18:35:11</span>
+        <span class="span02"> 100</span>
+        <span class="span03">收入</span>
+        <span class="span04">退货返款:订单号:62437427989</span>
+      </p>
+
+      <p class="p04">
+        <span class="span01">2017-10-18 18:35:11</span>
+        <span class="span02"> 100</span>
+        <span class="span03">收入</span>
+        <span class="span04">退货返款:订单号:62437427989</span>
+      </p>
+
     </div>
     <div class="div03" v-if="show">
       <p class="p03">
-        <span>时间</span>
-        <span> 充值金额</span>
-        <span>状态</span>
-        <span>备注</span>
+        <span class="span01">时间</span>
+        <span class="span02"> 充值金额</span>
+        <span class="span03">状态</span>
+        <span class="span04">备注</span>
+ 
       </p>
       <p class="p04">
-        <span>2018.1.1</span>
-        <span> 500</span>
-        <span>收入</span>
-        <span>无</span>
+        <span class="span01">2017-10-18 18:35:11</span>
+        <span class="span02"> 102.00</span>
+        <span class="span03">收入</span>
+        <span class="span04">退货返款:订单号:62437427989</span>
       </p>
+
       <p class="p04">
-        <span>2018.1.1</span>
-        <span> 500</span>
-        <span>收入</span>
-        <span>无</span>
+        <span class="span01">2017-10-18 18:35:11</span>
+        <span class="span02"> 100</span>
+        <span class="span03">收入</span>
+        <span class="span04">退货返款:订单号:62437427989</span>
       </p>
+
       <p class="p04">
-        <span>2018.1.1</span>
-        <span> 500</span>
-        <span>收入</span>
-        <span>无</span>
+        <span class="span01">2017-10-18 18:35:11</span>
+        <span class="span02"> 10200</span>
+        <span class="span03">收入</span>
+        <span class="span04">退货返款:订单号:62437427989</span>
       </p>
+
+      <p class="p04">
+        <span class="span01">2017-10-18 18:35:11</span>
+        <span class="span02"> 10</span>
+        <span class="span03">收入</span>
+        <span class="span04">退货返款:订单号:退货返款:订单号:62437427989</span>
+      </p>
+
     </div>
   </div>
 </template>
@@ -87,38 +115,25 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .my_qianb_r {
-  height: 900px;
+  height: auto;
   width: 700px;
   margin: 0 auto;
-  padding: 0 50px;
-  background-color: $white;
+  padding:30px 20px;
+ border: 1px solid #ddd;
 }
-
 .my_qianb_r .div01 {
   height: 110px;
   width: 100%;
   margin: 0px 0 50px;
-}
-
-.my_qianb_r .div01 .p_le,
-.my_qianb_r .div01 .p_ri {
+   p{
   width: 188px;
   text-align: center;
   height: 110px;
   font-size: 20px;
-  color: #333;
-}
-.p_le{
-  float: left;
-}
-.p_ri{
-  float: right;
-  margin-right: 200px;
-}
-.my_qianb_r .div01 .p_ri button {
-  width: 100px;
+  color: #333; float: left;
+  button {
+  width: 80px;
   border-radius: 3px;
-  margin-top: 20px;
   text-align: center;
   height: 30px;
   line-height: 30px;
@@ -133,7 +148,12 @@ export default {
     border: 1px solid $border-blue;
   }
 }
-
+}
+.p_ri{
+  float: right;
+  margin-right: 200px;
+}
+}
 .my_qianb_r .div01 .p_le {
   padding-top: 26px;
 }
@@ -144,68 +164,60 @@ export default {
 }
 
 .my_qianb_r .p02 {
-  height: 50px;
+  height: 50px; font-size: 14px;
   width: 100%;
-  border-bottom: 1px solid $border-blue;
-}
-
-.my_qianb_r .p02 span {
+  border-bottom:1px solid #ddd;
+  span {
   height: 50px;
   width: 200px;
   display: inline-block;
   text-align: center;
-  line-height: 50px;
-}
+  line-height: 50px;}
+.cur {border-bottom: 1px solid $red;color: $red;}
 
-.my_qianb_r .p02 .cur {
-  border-bottom: 1px solid $red;
-  color: $red;
 }
-
 .my_qianb_r .div02,
 .div03 {
   margin-top: 14px;
-}
-.my_qianb_r .p03 {
-  height: 42px;
+   .p03 {
+  height: 40px;
   width: 100%;
   background: $bg-blue;
   margin-bottom: 10px;
-}
-
-.my_qianb_r .p03 span {
-  width: 128px;
+.span01{  width:28%;text-align: left; margin-left:2%; }
+.span02{  width:12%; }
+.span03{  width:12%;  }
+.span04{  width:40%;margin-left:2%;}
+  span {
   text-align: center;
   font-size: 14px;
   display: inline-block;
   color: $white;
-  height: 42px;
-  line-height: 42px;
+  height: 40px;
+  line-height: 40px;  
 }
-
-.my_qianb_r .p04 {
+}
+.p04 {
   height: 46px;
   width: 100%;
-}
-
-.my_qianb_r .p04 span {
-  width: 128px;
-  text-align: center;
+.span01{  width:28%;text-align: left; margin-left:2%; }
+.span02{  width:12%; }
+.span03{  width:12%;  }
+.span04{  width:40%;margin-left:2%;}
+  span {
   font-size: 14px;
-  display: inline-block;
+  display: inline-block;text-align: center;
   color: #333;
   height: 46px;
   line-height: 46px;
 }
-
-
-
+}
+}
 .my_qianb_r .number {
   height: 34px;
   width: 80px;
   margin: 40px auto 0;
 }
-
 .my_qianb_r .number a {
   height: 34px;
   width: 34px;

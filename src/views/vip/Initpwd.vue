@@ -2,6 +2,7 @@
   <div class="init-pwd">
     <div class="container">
       <!-- 如果未绑定邮箱或手机，显示绑定邮箱/手机状态，前面用黄色感叹号。利用事件驱动改变类名和文本内容 -->
+     <div class="sum_of_class">账号安全</div>
       <table>
         <tr>
           <th width="100" class="passed"><i class="passed"></i>登录密码</th>
@@ -57,6 +58,13 @@ export default {
 @import "../../assets/style/base.scss";
 .init-pwd{
   .container{
+.sum_of_class{background-color: #468ee3; margin:0 0px 30px;
+    border: none;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;}
     table{
       th,td{
         height: 60px;
