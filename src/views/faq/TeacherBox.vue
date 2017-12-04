@@ -1,17 +1,21 @@
 <template>
   <div class="teacher-box">
+    <div class="modal-outer" v-show="modal">
+      <modal @closeModal="closeModal"></modal>
+    </div>
     <div class="cur-posi lf">
       <p>
         <i></i>当前位置 : &nbsp;
         <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;问答</p>
     </div>
+
     <div class="head-content lf">
       <div class="search lf">
         <input type="text"/><input class="search-btn" type="button" value="搜一下"/><br>
         <span>全部</span><span>房地产</span><span>个税</span><span>咨询</span><span>会计</span>
       </div>
       <div class="btn-group rt">
-        <i class="ask-icon"></i><input class="ask-input" type="button" value="点我提问" /><br>
+        <i class="ask-icon"></i><input class="ask-input" @click="showModal" type="button" value="点我提问" /><br>
         <span>没有找到问题？点击上方直接提问</span>
       </div>
     </div>
@@ -60,13 +64,32 @@
 </template>
 
 <script>
-export default {};
+import Modal from "./Modal"
+export default {
+  components: { Modal },
+  data() {
+    return {
+      modal: false
+    };
+  },
+  methods: {
+    closeModal: function() {
+      this.modal = false;
+    },
+    showModal:function(){
+      this.modal = true;
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .teacher-box {
   overflow: hidden;
+}
+.modal {
+  height: 224%;
 }
 .head-content {
   width: 100%;
@@ -96,7 +119,7 @@ export default {};
   }
   .btn-group {
     position: relative;
-    .ask-icon{
+    .ask-icon {
       position: absolute;
       background-position: -388px -83px;
       left: 27px;

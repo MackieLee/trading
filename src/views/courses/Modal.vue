@@ -1,27 +1,29 @@
 <template>
   <div class="modal">
     <!-- stars -->
-    <div class="content">
-      <div class="close" @click="closeModal"></div>
-      <div class="ctr" v-show="contentSeries">
-        <!-- 修改为star -->
-        <div class="star">
-          分数:
-          <stars></stars>
+    <div class="fixed">
+      <div class="content">
+        <div class="close" @click="closeModal"></div>
+        <div class="ctr" v-show="contentSeries">
+          <!-- 修改为star -->
+          <div class="star">
+            分数:
+            <stars></stars>
+          </div>
+          <textarea placeholder="随便夸夸我吧..."/>
+          <div class="sub-btn">
+            <input type="button" class="submit" @click="submitCommit" value="确   定">
+          </div>
         </div>
-        <textarea placeholder="随便夸夸我吧..."/>
-        <div class="sub-btn">
-          <input type="button" class="submit" @click="submitCommit" value="确   定">
-        </div>
-      </div>
-      <div class="ctr" v-show="!contentSeries">
-        <div>
-          <input class="note-title" type="text" placeholder="请输入笔记标题...">
-        </div>
-        <textarea placeholder="评价留言..."/>
-        <div class="sub-btn">
-          <input type="button" class="submit" @click="submitCommit" value="确   定">
-          <!-- vue-resource 传递事件给父组件，然后在文档中添加笔记标题 -->
+        <div class="ctr" v-show="!contentSeries">
+          <div>
+            <input class="note-title" type="text" placeholder="请输入笔记标题...">
+          </div>
+          <textarea placeholder="评价留言..."/>
+          <div class="sub-btn">
+            <input type="button" class="submit" @click="submitCommit" value="确   定">
+            <!-- vue-resource 传递事件给父组件，然后在文档中添加笔记标题 -->
+          </div>
         </div>
       </div>
     </div>
@@ -64,16 +66,19 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
+.fixed{
+  overflow: hidden;
+  position: fixed;
+  top:20%;
+  width: 100%;
+}
 .content {
   width: 700px;
   height: 450px;
   background-color: $white;
-  margin: auto;
-  margin-top: 10%;
-  display: flex;
-  // justify-content: center;
-  align-items: center;
+  margin: 0 auto;
   position: relative;
+  overflow: hidden;
   .close{
     position: absolute;
     top: 30px;
@@ -85,7 +90,7 @@ export default {
   }
   .ctr {
     // border: 1px solid $red
-    margin-left: 50px;
+    margin:60px 0 0 50px;
     .star{
       margin-bottom: 30px;
       font-size: 14px;

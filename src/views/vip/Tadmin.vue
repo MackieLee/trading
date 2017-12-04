@@ -8,7 +8,7 @@
     </div>
     <div class="container">
       <div class="lf">
-        <div class="title flex">
+        <div class="flex">
           <div class="head"></div>
           <div class="name">
             <p class="p1">
@@ -18,13 +18,17 @@
         </div>
         <div class="nav">
           <router-link tag="p" :to="{ name : 't-kecheng'}">
-            <i class="t1"></i>我的课程</router-link>
-          <router-link tag="p" :to="{ name : 't-wenda'}">
-            <i class="t2"></i>我的问答</router-link>
+            <i class="t1"></i>我的课程
+          </router-link>
           <router-link tag="p" :to="{ name : 't-qianbao'}">
-            <i class="t3"></i>我的钱包</router-link>
-          <!-- <router-link tag="p" :to="{ name : 't-dingdan'}">
-            <i class="t4"></i>我的订单</router-link> -->
+            <i class="t2"></i>我的钱包
+          </router-link>
+          <router-link tag="p" :to="{ name : 't-kecheng'}">
+            <i class="t1"></i>我的课程
+          </router-link>
+          <router-link tag="p" :to="{ name : 't-kecheng'}">
+            <i class="t1"></i>我的课程
+          </router-link>
         </div>
       </div>
       <div class="rt">

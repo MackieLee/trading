@@ -1,146 +1,44 @@
 <template>
   <div class="sc">
-    <div class="header">
-      <p class="fl kechengxinxi">课程信息</p>
-      <p class="fl width-154">金额</p>
-      <p class="fl width-154">上传时间</p>
+    <div class="head">
+      <div class="title">我的主页</div>
+      <p>
+        <router-link tag="span":to="{ name : 'upload' }">主页</router-link>
+      </p>
     </div>
-    <div class="container">
-      <div class="item">
-        <img src="../../assets/images/huanyuanzx02.png" />
-        <div class="middle">
-          <p>税务健康体检服务</p>
-          <font>孙玮老师</font>
-        </div>
-        <div class="price">
-          <p class="red">￥3588.00</p>
-          <p class="res">已有277人收藏</p>
-        </div>
-        <div class="imm-stu">
-          <p>2017年10月30日</p>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="item">
-        <img src="../../assets/images/huanyuanzx02.png" />
-        <div class="middle">
-          <p>税务健康体检服务</p>
-          <font>孙玮老师</font>
-        </div>
-        <div class="price">
-          <p class="red">￥3588.00</p>
-          <p class="res">已有277人收藏</p>
-        </div>
-        <div class="imm-stu">
-          <p>2017年10月30日</p>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="item">
-        <img src="../../assets/images/huanyuanzx02.png" />
-        <div class="middle">
-          <p>税务健康体检服务</p>
-          <font>孙玮老师</font>
-        </div>
-        <div class="price">
-          <p class="red">￥3588.00</p>
-          <p class="res">已有277人收藏</p>
-        </div>
-        <div class="imm-stu">
-          <p>2017年10月30日</p>
-        </div>
-      </div>
-    </div>
-    <div class="page">1</div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 't-kecheng'
-}
+  name: "t-kecheng"
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .sc {
-  background-color: $white;
-  overflow: hidden;
-  .header {
-    background-color: #Ddd;
-    border-radius: 3px;
-    color: $white;
-    overflow: hidden;
-    border: 1px solid #CBCBCB;
-    .fl {
-      float: left;
-      line-height: 46px;
-      font-size: 16px;
-    }
-    .kechengxinxi{
-      width: 501px;
+  .head {
+    .title {
+      background-color: $btn-default;
+      line-height: 35px;
+      font-size: 14px;
+      color: $white;
       text-align: center;
     }
-    .width-154{
-      width: 154px;
-      text-align: center;
-    }
-  }
-  .container {
-    padding: 20px 0;
-    border-bottom: 1px solid #CBCBCB;
-    &:hover{
-      background-color: #eee;
-    }
-    .item {
-      width: 710px;
-      display: flex;
-      margin: 0 auto;
-    }
-    img {
-      width: 128px;
-      height: 82px;
-      margin-top: 8px;
-    }
-    .middle {
-      margin: 0 200px 0 25px;
-      p {
-        font-size: 16px;
-        margin: 15px 0 20px 0;
-      }
-      font {
-        font-size: 14px;
-        margin-bottom: 15px;
-      }
-    }
-    .price {
-      margin-right: 46px;
-      p {
-        font-size: 14px;
-        margin: 15px 0 20px 0;
-      }
-      p[class="red"] {
-        color: $red
-      }
-    }
-    .imm-stu {
-      p {
-        line-height: 95px;
+    p{
+      height: 40px;
+      span{
+        display: inline-block;
+        line-height: 15px;
+        width: 50px;
+        margin-top: 15px;
+        border-right: 1px solid $black;
+        text-align: center;
         cursor: pointer;
       }
     }
-  }
-  .page {
-    width: 34px;
-    height: 34px;
-    color: $white;
-    line-height: 34px;
-    text-align: center;
-    margin: 24px auto;
-    background-color: #999;
-    cursor: pointer;
   }
 }
 </style>

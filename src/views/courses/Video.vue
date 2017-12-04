@@ -216,7 +216,7 @@ export default {
   left: 0;
   z-index: 2000;
   .modal{
-    height: 100%;
+    height: 110%;
   }
   .close {
     position: absolute;

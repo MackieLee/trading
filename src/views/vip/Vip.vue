@@ -8,7 +8,7 @@
     </div>
     <div class="container">
       <div class="lf">
-        <div class="title flex">
+        <div class="flex">
           <div class="head"></div>
           <div class="name">
             <p class="p1">

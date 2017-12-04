@@ -7,116 +7,110 @@
         &nbsp;&gt;&nbsp;问答
       </p>
     </div>
+    <div class="modal-outer" v-show="modal">
+      <modal @closeModal="closeModal"></modal>
+    </div>
     <div class="item">
-      <div class="left">
-        <div class="flex">
-          <div class="head-128">
-            <img src="../../assets/images/jitax_问答_01.png"/>
+      <div class="container">
+        <div class="left lf">
+          <div class="head lf">
+            <img src="../../assets/images/jitax_问答_01.png" />
           </div>
-          <div class="name">
-            <div>
-              <p>孙老师</p><p class="watch" v-if="guanzhu" @click="onWatch('watch')"><i></i>取消关注</p><p class="cancel-watch" v-if="!guanzhu" @click="onWatch('cancel')"><i></i>添加关注</p><br>
-              <span>已解答27个问题</span>
-            </div>
-            <div class="price">
-              ￥50.00元/次
-            </div>
-          </div>
-        </div>
-        <div class="flex tags">
-          <span>擅长回答：</span>
-          <ul>
-            <li>税收筹划</li>
-            <li>土地税清算</li>
-            <li>营改增</li>
-            <li>税务健康体检</li>
-          </ul>
-        </div>
-        <div class="flex content">
-          <div class="jianjie">讲师简介 : </div>
-          <div class="info">
-            九鼎财税专家委员会专家； 注册会计师、注册税务师；东北财经大学财政专业硕士； 现任青岛大学经济学院副教授，硕士生导师；自1993年6月至今在青岛大学经济学院工作， 讲授《中国税制》、《国际税收》、《税务检查》、《外国税制》、《税务会计》等课程； 自2001年开始至今在全国巡回做财税培训讲座，是我国第一批在全国做税务公开课培训的 老师之一，17年财税培训经历，被称为财税培训界的“常青树”。
-          </div>
-        </div>
-      </div>
-      <div class="right">
-        <div class="container">
-          <div class="tag-box">
-            <span>
-              <p>
-                课程
+          <div class="content lf">
+            <div class="first-glance">
+              <span class="name">孙老师</span>
+              <p class="watch default" v-if="guanzhu" @click="onWatch('watch')">
+                <i></i>取消关注
               </p>
-              <font>10</font>
-            </span>
-            <span>
-              <p>回答</p>
-              <font>17</font>
-            </span>
-            <span>
-              <p>荣誉值</p>
-              <font>99%</font>
-            </span>
+              <p class="cancel-watch default" v-if="!guanzhu" @click="onWatch('cancel')">
+                <i></i>添加关注
+              </p>
+              <span class="price">￥50.00/次</span>
+            </div>
+            <div class="tag-box">
+              <span class="shanchang">
+                <i></i>擅长领域
+              </span>
+            </div>
+            <div class="tags">
+              <ul>
+                <li>税收筹划</li>
+                <li>税收筹划</li>
+                <li>税收筹划</li>
+                <li>税收筹划</li>
+              </ul>
+            </div>
           </div>
-          <div class="ansr-list">
-            <p>
-              <i></i>他回答过的问题</p>
-            <ul>
-              <li>• 请问营改增后装饰公司营业额大，但不想成为一般...</li>
-              <li>• 首先，个人所得税法中规定，在中国境内有住所而在</li>
-              <li>• 您好！根据描述，看起来是个海外工程的EPC（设计</li>
-              <li>• 管理费主要指其他企业分摊的管理费用，这部分费用</li>
-              <li>• 请问营改增后装饰公司营业额大，但不想成为一般</li>
-            </ul>
+        </div>
+        <div class="right rt">
+          <div>
+            <div class="tag-box">
+              <span>
+                <p>
+                  课程
+                </p>
+                <font>10</font>
+              </span>
+              <span>
+                <p>回答</p>
+                <font>17</font>
+              </span>
+              <span class="last">
+                <p>荣誉值</p>
+                <font>99%</font>
+              </span>
+            </div>
+          </div>
+          <div class="btn-group">
+            <i class="ask-icon"></i><input @click="showModal" class="ask-input" type="button" value="点我提问" />
+            <p>没有找到问题？点击上方直接提问</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="ques-discr">
-      <div class="container">
-        <h3>问题描述 : </h3>
-        <quill-editor v-model="content"
-          ref="myQuillEditor"
-          :options="editorOption"
-          @blur="onEditorBlur($event)"
-          @focus="onEditorFocus($event)"
-          @ready="onEditorReady($event)">
-        </quill-editor>
-        <p>提交问题</p>
+    <div class="all">
+      <p class="title"><span>所有回答</span></p>
+      <div class="list">
+        <div class="list-item">
+          <p><span class="question">您好孙老师您好孙老师您好孙老师您好孙老师您好根据贵公司的资料</span><span class="date rt">4天前</span></p>
+          <p class="indent tchr">回答者：孙玮老师</p>
+          <p class="indent">根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料....<span class="more">查看全部&gt;&gt;</span></p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { quillEditor } from "vue-quill-editor"
+import { quillEditor } from "vue-quill-editor";
+import Modal from "./Modal";
 export default {
-  components: { quillEditor },
+  components: { quillEditor, Modal },
   data() {
     return {
       guanzhu: false,
       content: "",
       editorOption: {
-        placeholder:'规则'
-      }
+        placeholder: "规则"
+      },
+      modal: false
     };
   },
   methods: {
-    onEditorBlur(editor) {
-
-    },
-    onEditorFocus(editor) {
-
-    },
-    onEditorReady(editor) {
-
-    },
+    onEditorBlur(editor) {},
+    onEditorFocus(editor) {},
+    onEditorReady(editor) {},
     onEditorChange({ editor, html, text }) {
-
       this.content = html;
     },
     onWatch: function(state) {
       state === "watch" ? (this.guanzhu = false) : (this.guanzhu = true);
-
+    },
+    closeModal: function() {
+      this.modal = false;
+    },
+    showModal: function() {
+      this.modal = true;
     }
   },
   computed: {
@@ -124,9 +118,7 @@ export default {
       return this.$refs.myQuillEditor.quill;
     }
   },
-  mounted() {
-
-  }
+  mounted() {}
 };
 </script>
 
@@ -136,13 +128,21 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
-  // border-top: 1px solid $border-rice;
   i {
     display: inline-block;
     width: 24px;
     height: 24px;
     background-image: url("../../assets/images/Sprite.png");
     vertical-align: text-bottom;
+  }
+  .modal {
+    height: 128%;
+  }
+  .lf {
+    float: left;
+  }
+  .rt {
+    float: right;
   }
   .cur-posi {
     padding: 0 0 26px 0;
@@ -152,107 +152,93 @@ export default {
     }
   }
   .item {
-    display: flex;
-    .flex {
-      display: flex;
-      .head-128 {
-        height: 128px;
-        width: 128px;
-        margin: 10px 30px 0 37px;
-      }
-      .name {
-        margin: 35px 0 40px 0;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        p {
-          font-size: 16px;
-          margin-bottom: 16px;
-          display: inline-block;
-        }
-        .watch {
-          width: 73px;
-          border: 1px solid $blue;
-          font-size: 12px;
-          border-radius: 4px;
-          margin-left: 70px;
-          cursor: pointer;
-          line-height: 26px;
-          padding: 0 7px;
-          i {
+    .container {
+      border: 1px solid $border-dark;
+      padding: 20px;
+      overflow: hidden;
+      .left {
+        .content {
+          margin-left: 50px;
+          .first-glance {
+            padding-left: 20px;
+            .name {
+              font-size: 14px;
+              font-weight: bold;
+            }
+            .price {
+              color: $blue;
+              margin-left: 70px;
+              font-size: 14px;
+            }
+          }
+          .default {
+            width: 73px;
+            border: 1px solid $blue;
+            font-size: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            line-height: 26px;
+            padding: 0 7px;
+            display: inline-block;
+            margin-left: 50px;
+          }
+          .watch i {
             background-position: -239px -255px;
-            // 点击后换成 110px 94px 实心❤
           }
-        }
-        .cancel-watch {
-          width: 73px;
-          border: 1px solid $blue;
-          font-size: 12px;
-          border-radius: 4px;
-          margin-left: 70px;
-          cursor: pointer;
-          line-height: 26px;
-          padding: 0 7px;
-          i {
+          .cancel-watch i {
             background-position: -143px -192px;
-            // 点击后换成 110px 94px 实心❤
+          }
+          .tags {
+            margin: 17px;
+            li {
+              padding: 3px 15px;
+              border: 1px solid $border-blue;
+              margin: 10px 9px 0 0;
+            }
+          }
+          .tag-box {
+            position: relative;
+            width: 200px;
+            padding-bottom: 28px;
+            margin: 0 auto;
+            border-bottom: 1px solid $black;
+            span[class="shanchang"] {
+              font-size: 16px;
+              display: block;
+              width: 120px;
+              height: 20px;
+              text-align: center;
+              background-color: $white;
+              position: absolute;
+              bottom: -7px;
+              left: 21%;
+              i {
+                background-position: -18px -224px;
+                margin-right: 6px;
+              }
+            }
           }
         }
-        .price {
-          color: $blue;
-          font-size: $normal;
-        }
       }
-    }
-    .tags {
-      margin: 20px 0 30px 44px;
-      span {
-        color: $red;
-        display: inline-block;
-        line-height: 45px;
-      }
-      li {
-        width: 90px;
-        text-align: center;
-        padding: 3px;
-        border: 1px solid $border-blue;
-        border-radius: 3px;
-        margin: 10px;
-      }
-    }
-    .content {
-      margin-left: 44px;
-      .info {
-        line-height: 35px;
-        width: 500px;
-        text-indent: 32px;
-      }
-      .jianjie {
-        color: $red;
-        width: 70px;
-        padding-top: 6px;
-      }
-    }
-    .right {
-      margin-left: 37px;
-      width: 100%;
-      .container {
-        margin: 34px 30px 0 0;
-        padding-bottom: 5px;
-        border-left: 1px solid $border-blue;
+      .right {
+        float: right;
+        margin-right: 30px;
         .tag-box {
-          display: flex;
-          width: 250px;
-          justify-content: space-between;
-          margin: 0 auto;
+          overflow: hidden;
+          margin-bottom: 10px;
+          .last {
+            margin: 0;
+          }
           span {
+            float: left;
+            margin-right: 25px;
             p {
-              width: 50px;
+              width: 80px;
               height: 25px;
               line-height: 25px;
               text-align: center;
-              border-radius: 3px;
-              margin-bottom: 20px;
+              border-radius: 2px;
+              margin-bottom: 15px;
               background: $bg-blue;
               color: $white;
             }
@@ -261,64 +247,75 @@ export default {
               text-align: center;
             }
           }
-          span[class="shanchang"] {
-            font-size: 16px;
-            display: block;
-            width: 120px;
-            height: 20px;
-            text-align: center;
-            background-color: $white;
-            position: absolute;
-            bottom: -10px;
-            left: 25%;
-            i {
-              background-position: 2px -209px;
-              margin-right: 6px;
-            }
-          }
         }
-        .ansr-list {
-          width: 335px;
-          margin: 54px 32px 0 65px;
-          p {
-            color: $blue;
-            i {
-              background-position: -238px -194px;
-              margin-right: 6px;
-            }
+        .btn-group {
+          position: relative;
+          .ask-icon {
+            position: absolute;
+            background-position: -388px -83px;
+            left: 97px;
+            top: 0px;
           }
-          ul {
-            margin: 25px 0 0 0;
-            li {
-              margin: 10px 0;
-            }
+          .ask-input {
+            display: block;
+            margin: 0 auto;
+            height: 25px;
+            line-height: 25px;
+            width: 150px;
+            border: none;
+            background-color: $btn-danger;
+            color: $white;
+            outline: none;
+            cursor: pointer;
+            margin-bottom: 10px;
+          }
+          p {
+            text-align: center;
           }
         }
       }
     }
   }
-  .ques-discr {
-    width: 100%;
-    margin-bottom: 100px;
-    .container {
-      margin: 30px 35px;
-      h3 {
-        margin-left: 23px;
-        color: $red;
-        font-size: 16px;
-      }
-      .quill-editor {
-        margin: 30px 0 80px 0;
-        height: 150px;
-      }
-      p {
-        color: $white;
-        margin: 0 0 26px 23px;
+  .all {
+    margin-top: 50px;
+    .title {
+      border-bottom: 1px solid $red;
+      span {
+        display: inline-block;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
         background-color: $red;
-        width: 126px;
-        padding: 8px 0;
+        color: $white;
         text-align: center;
-        border-radius: 5px;
+      }
+    }
+    .list {
+      border: 1px solid $border-dark;
+      padding: 20px;
+      min-height: 150px;
+      margin-top: 20px;
+      .list-item {
+        border-bottom: 1px solid $border-dark;
+        p,
+        span {
+          line-height: 30px;
+        }
+        .question {
+          display: inline-block;
+          width: 95%;
+        }
+        .indent {
+          text-indent: 2em;
+        }
+        .tchr {
+          color: $dark;
+        }
+        .more {
+          color: $blue;
+          margin-left: 20px;
+          cursor: pointer;
+        }
       }
     }
   }

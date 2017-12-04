@@ -39,6 +39,8 @@ import initdata from '../views/vip/Initdata'
 import bind from '../views/vip/Bind'
 import fapiaodetail from '../views/vip/FapiaoDetail'
 import fapiaoapp from '../views/vip/FapiaoApp'
+import upload from '../views/vip/Upload'
+import bindcredit from '../views/vip/BindCredit'
 
 Vue.use(Router)
 
@@ -163,7 +165,8 @@ const routes = [
             name: 'shopping-cart',
             component: cart
           },
-          { path: 'initdata',
+          {
+            path: 'initdata',
             name: 'initdata',
             component: initdata
           },
@@ -183,7 +186,7 @@ const routes = [
             component: fapiaodetail
           },
           {
-            path:'f-application',
+            path: 'f-application',
             name: 'fapiaoapp',
             component: fapiaoapp
           }
@@ -200,7 +203,17 @@ const routes = [
           {
             path: 'teacher-kecheng',
             name: 't-kecheng',
-            component: tkecheng
+            component: tkecheng,
+            children: [
+              {
+                path: 'upload',
+                name: 'upload',
+                component: upload,
+                // redirect: {
+                //   name: 'upload'
+                // }
+              }
+            ]
           },
           {
             path: 'teacher-wenda',
@@ -216,6 +229,11 @@ const routes = [
             path: 'teacher-dingdan',
             name: 't-dingdan',
             component: tdingdan
+          },
+          {
+            path:'bindcredit',
+            name:'bindcredit',
+            component:bindcredit
           }
         ]
       },

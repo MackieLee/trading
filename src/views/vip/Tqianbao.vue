@@ -3,9 +3,13 @@
     <div class="div01">
       <p class="p_le">我的可用余额<br>0.00 </p>
       <p class="p_ri">
-        <!-- <span>安全中心 保障账号资产安全</span>
-        <button>立即提取</button> -->
+        <button>立即提取</button>
       </p>
+      <div class="fr">
+        <h2 style="font-size:18px;line-height:40px;">绑定银行卡哦~</h2>
+        <p style="font-size:12px;line-height:30px;color:#666;">绑定一张银行卡用于随时提现，课程交易便捷。</p>
+        <router-link :to="{ name:'bindcredit' }" style="font-size:14px;line-height:40px;color:#117cee;">立即绑定银行卡></router-link>
+      </div>
     </div>
     <p class="p02">
       <span class="cur" data-ref='1' @click="toggle()">近三个月收支明细</span>|
@@ -86,6 +90,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
+.fr{
+  float: right;
+}
 .my_qianb_r {
   height: 900px;
   width: 700px;
@@ -107,23 +114,18 @@ export default {
   color: #333;
   float: left;
 }
-.my_qianb_r .div01 .p_ri {
-  float: right;
-}
-.my_qianb_r .div01 .p_ri span {
-  font-size: 14px;
-}
 .my_qianb_r .div01 .p_ri button {
-  width: 150px;
+  width: 100px;
   border: none;
   border-radius: 3px;
   margin-top: 50px;
   text-align: center;
-  height: 45px;
-  line-height: 45px;
+  height: 35px;
+  line-height: 35px;
   color: $white;
-  font-size: 18px;
+  font-size: 16px;
   background: #468EE3;
+  outline: none;
 }
 .my_qianb_r .div01 .p_le {
   padding-top: 26px;

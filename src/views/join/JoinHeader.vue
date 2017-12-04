@@ -37,7 +37,7 @@
           <a class="a-broadcast" @mouseover="dropSet('left')">
             <i class="broadcast"></i>
           </a>
-          <router-link :to="{ name:'setting'}" class="menu">
+          <router-link :to="{ name:'initdata'}" class="menu">
             <img @mouseover="dropSet('right')" src="../../assets/images/thumb-test.jpg"/>
           </router-link>
         </div>
@@ -59,7 +59,7 @@
         <div class="drop-list drop-right" v-if="drop === 'right'" @mouseleave="clearDrop">
           <div>
             <ul>
-              <router-link :to="{ name: 'setting'}" tag="li">
+              <router-link :to="{ name: 'initdata'}" tag="li">
                 <i class="set"></i><span>账号设置</span>
               </router-link>
               <li><i class="quit"></i><span>安全退出</span></li>
