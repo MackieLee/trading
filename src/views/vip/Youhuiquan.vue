@@ -449,7 +449,7 @@ export default {
   		position: absolute;
     width: 35px;
     height: 35px;
-    right: -5px;
+    right: -4px;
     top: -3px;
     overflow: hidden;
    background: url('../../assets/images/Sprite.png') -510px -159px; 

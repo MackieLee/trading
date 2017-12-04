@@ -62,9 +62,10 @@
             </div>
           </div>
           <div class="btn-group">
-            <i class="ask-icon"></i><input @click="showModal" class="ask-input" type="button" value="点我提问" />
+            <i @click="showModal" class="ask-icon"></i><input @click="showModal" class="ask-input" type="button" value="点我提问" />
             <p>没有找到问题？点击上方直接提问</p>
           </div>
+       
         </div>
       </div>
     </div>

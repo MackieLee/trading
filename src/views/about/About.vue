@@ -101,9 +101,10 @@ export default {
       margin: 20px auto 40px auto;
       p {
         line-height: 42px;
+         font-size: 14px;
       }
       p[class="copr"]{
-        line-height: 36px;
+        line-height: 36px; font-size: 14px;
       }
       .connect {
         display: flex;

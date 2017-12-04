@@ -1,10 +1,19 @@
+
 <template>
-  <div class="my_qianb_r">
+ <div class="my_qianb_r">      
+  	<div class="modal-outer" v-show="modal">
+      <!-- <div class="close">X</div> -->
+      <!-- v-bind传输数据到子组件(contentSeries) -->
+      <modal @closeModal="closeModal" :content-series="series"></modal>
+    	</div>
+
+    
+  	
     <p class="p01">共7个回答</p>
     <div class="my_qianb_cotainer">
       <p class="p02" @click="toggle()">
-        <span data-ref='1'>全部</span>|
-        <span data-ref='2' class="cur">待回答</span>|
+        <span data-ref='1' class="cur">全部</span>|
+        <span data-ref='2'>待回答</span>|
         <span data-ref='3'>已回答</span>
       </p>
       <ul class="div01" v-if="part=='1'">
@@ -18,7 +27,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">立即评价</p>
+	        	<p class="red" @click="modal=!modal,series=true">立即评价</p>
 	        </div>
 	       </li> 
 	      <li>
@@ -28,7 +37,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">指定回答</p>
+	        	<p>指定回答</p>
 	        </div>
 	       </li> 
 	      <li>
@@ -38,7 +47,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">指定回答</p>
+	        	<p>指定回答</p>
 	        </div>
 	       </li> 
 	      <li>
@@ -48,7 +57,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">指定回答</p>
+	        	<p>指定回答</p>
 	        </div>
 	       </li> 
 	      <li>
@@ -71,21 +80,20 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">指定回答</p>
+	        	<p>指定回答</p>
 	        </div>
 	       </li> 
-	      <li>
+       <li>
 	        <div class="l">       
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p class="phui">指定回答者：孙炜老师</p>
+	        		<p class="phui">指定回答者：孙炜老师</p>
 						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>							
 						</p> 
 						<img src="../../assets/images/wendavip.png">
-
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p>立即评价</p>
+	        	<p class="red" @click="modal=!modal,series=true">立即评价</p>
 	        </div>
 	       </li> 
 	       
@@ -100,7 +108,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">指定回答</p>
+	        	<p>指定回答</p>
 	        </div>
 	       </li> 
 	      <li>
@@ -110,7 +118,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">指定回答</p>
+	        	<p>指定回答</p>
 	        </div>
 	       </li> 
 	      <li>
@@ -120,7 +128,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">指定回答</p>
+	        	<p>指定回答</p>
 	        </div>
 	       </li> 
 	      <li>
@@ -130,7 +138,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">指定回答</p>
+	        	<p>指定回答</p>
 	        </div>
 	       </li> 
 	      
@@ -141,7 +149,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">指定回答</p>
+	        	<p>指定回答</p>
 	        </div>
 	       </li> 
 	      
@@ -158,7 +166,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">立即评价</p>
+	        	<p class="red" @click="modal=!modal,series=true">立即评价</p>
 	        </div>
 	       </li> 
 	       <li>
@@ -171,7 +179,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">立即评价</p>
+	        	<p class="red" @click="modal=!modal,series=true">立即评价</p>
 	        </div>
 	       </li> 
 	     
@@ -184,11 +192,16 @@
 </template>
 
 <script>
+
+import Modal from "./Qa_Modal"
 export default {
   name: 'youhuiquan',
+    components: { Modal},
   data(){
     return{
-      part:'2'
+      part:'1',
+      modal:false,
+      series: true
     }
   },
   methods:{
@@ -197,13 +210,33 @@ export default {
       event.target.setAttribute('class','cur')
       let ref = event.target.dataset.ref
       this.part = ref
-    }
+    },
+    closeModal: function() {
+      this.modal = false
+    },
   }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
+.modal-outer {
+  width: 100%;
+  height: 173%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  .modal{
+    height: 110%;
+  }
+  .close {
+    position: absolute;
+    top: 15%;
+    left: 60%;
+  }
+}
+
 .my_qianb_r {
   width: 810px;
   margin: 0 auto;
@@ -256,17 +289,18 @@ export default {
 .my_qianb_r .div01 .l {
   width: 85%;position: relative;
 }
-.my_qianb_r .div01 .r {
-  width: 15%;
-}
 .my_qianb_r .div01 .l h2,.my_qianb_r .div01 .r h3{
 font-size: 14px;line-height: 30px;
 }
 .my_qianb_r .div01 li p{line-height: 30px;}
-.my_qianb_r .div01 .r p.red{
-color: red;cursor: pointer;
+.div01{
+.r {
+  width: 15%;
 }
-
+.red{
+ color:#e7141a;cursor: pointer;
+}
+}
 .my_qianb_r .div01 .r .phui,.my_qianb_r .div01 .r h3{
 color: #999;
 }
