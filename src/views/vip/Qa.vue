@@ -300,6 +300,7 @@ font-size: 14px;line-height: 30px;
 .red{
  color:#e7141a;cursor: pointer;
 }
+.phui{color: #999;}
 }
 .my_qianb_r .div01 .r .phui,.my_qianb_r .div01 .r h3{
 color: #999;

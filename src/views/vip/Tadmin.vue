@@ -18,17 +18,33 @@
         </div>
         <div class="nav">
           <router-link tag="p" :to="{ name : 't-kecheng'}">
-            <i class="t1"></i>我的课程
+            <i class="t2"></i>我的主页
+          </router-link>          
+          <router-link tag="p" :to="{ name : 't-qianbao'}">
+            <i class="t2"></i>内容管理
+          </router-link>
+           <router-link tag="p" :to="{ name : 't-wenda'}">
+            <i class="t2"></i>学员问答
           </router-link>
           <router-link tag="p" :to="{ name : 't-qianbao'}">
             <i class="t2"></i>我的钱包
           </router-link>
-          <router-link tag="p" :to="{ name : 't-kecheng'}">
-            <i class="t1"></i>我的课程
+                    <router-link tag="p" :to="{ name : 't-qianbao'}">
+            <i class="t2"></i>老师认证
           </router-link>
-          <router-link tag="p" :to="{ name : 't-kecheng'}">
-            <i class="t1"></i>我的课程
+                    <router-link tag="p" :to="{ name : 't-qianbao'}">
+            <i class="t2"></i>学员评价
           </router-link>
+          <router-link tag="p" :to="{ name : 't-initdata'}">
+            <i class="t2"></i>个人资料
+          </router-link>
+          <router-link tag="p" :to="{ name : 't-initpwd'}">
+            <i class="t2"></i>账号安全
+          </router-link>
+          <router-link tag="p" :to="{ name : 't-bind'}">
+            <i class="t2"></i>账号绑定
+          </router-link>
+
         </div>
       </div>
       <div class="rt">
@@ -43,6 +59,26 @@ export default {
   name:'t-admin',
   data(){
     return{
+    	 tags:[
+        {
+          name:'主页',
+          router:'kecheng'
+        },{
+          name:'学员问答',
+          router:'wenda'
+        },{
+          name:'个人资料',
+          router:'initdata'
+        },
+        {
+          name:'账号安全',
+          router:'initpwd'
+        },
+        {
+          name:'账号绑定',
+          router:'bind'
+        }
+    	 ]
 
     }
   },
@@ -50,6 +86,8 @@ export default {
 
   }
 }
+
+
 </script>
 
 <style lang="scss" scoped>
