@@ -2,10 +2,10 @@
   <div class="online">
     <div class="video-boxes">
       <div class="item" v-for="item in classes" :key="item.title">
-        <div><router-link :to="{name:'video'}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
+        <div><router-link :to="{name: item.link}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
         <p class="video-title"><a>{{ item.title }}</a></p>
         <p class="buss-info"><span class="score"><i></i><font>{{ item.score }}</font>分</span><span class="person-current"><i></i><font>{{ item.person }}</font>人</span><span class="classes">课时</span><font>{{ item.class }}</font><span>MIN</span></p>
-        <p class="price"><span>课程:<font class="rd">￥{{ item.price }}</font></span><router-link :to="{name:'video'}" class="free">试 听</router-link></p>
+        <p class="price"><span>课程:<font class="rd">￥{{ item.price }}</font></span><router-link :to="{name:item.link}" class="free">试 听</router-link></p>
       </div>
     </div>
   </div>
@@ -16,8 +16,8 @@ export default {
   data(){
     return{
       classes:[
-        { title:"税收筹划案例精解-3",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-4",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-3",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-4",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
         { title:"税收筹划案例精解-5",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
         { title:"税收筹划案例精解-6",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
         { title:"税收筹划案例精解-3",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},

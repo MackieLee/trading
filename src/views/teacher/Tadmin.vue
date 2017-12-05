@@ -17,34 +17,9 @@
           </div>
         </div>
         <div class="nav">
-          <router-link tag="p" :to="{ name : 't-kecheng'}">
-            <i class="t2"></i>我的主页
-          </router-link>          
-          <router-link tag="p" :to="{ name : 't-qianbao'}">
-            <i class="t2"></i>内容管理
+          <router-link v-for="item in tags" :key="item.router" tag="p" :to="{ name : item.router }">
+            <i class="t2"></i>{{ item.name }}
           </router-link>
-           <router-link tag="p" :to="{ name : 't-wenda'}">
-            <i class="t2"></i>学员问答
-          </router-link>
-          <router-link tag="p" :to="{ name : 't-qianbao'}">
-            <i class="t2"></i>我的钱包
-          </router-link>
-                    <router-link tag="p" :to="{ name : 't-qianbao'}">
-            <i class="t2"></i>老师认证
-          </router-link>
-                    <router-link tag="p" :to="{ name : 't-qianbao'}">
-            <i class="t2"></i>学员评价
-          </router-link>
-          <router-link tag="p" :to="{ name : 't-initdata'}">
-            <i class="t2"></i>个人资料
-          </router-link>
-          <router-link tag="p" :to="{ name : 't-initpwd'}">
-            <i class="t2"></i>账号安全
-          </router-link>
-          <router-link tag="p" :to="{ name : 't-bind'}">
-            <i class="t2"></i>账号绑定
-          </router-link>
-
         </div>
       </div>
       <div class="rt">
@@ -56,55 +31,41 @@
 
 <script>
 export default {
-  name:'t-admin',
-  data(){
-    return{
-    	 tags:[
-        {
-          name:'主页',
-          router:'kecheng'
-        },{
-          name:'学员问答',
-          router:'wenda'
-        },{
-          name:'个人资料',
-          router:'initdata'
-        },
-        {
-          name:'账号安全',
-          router:'initpwd'
-        },
-        {
-          name:'账号绑定',
-          router:'bind'
-        }
-    	 ]
-
-    }
+  name: "t-admin",
+  data() {
+    return {
+      tags: [
+        { name: "我的课程", router: "t-kecheng" },
+        { name: "我的问答", router: "t-wenda" },
+        { name: "视频管理", router: "t-video" },
+        { name: "老师认证", router: "identify" },
+        { name: "我的钱包", router: "t-qianbao" },
+        { name: "学员评价", router: "valuate" },
+        { name: "个人资料", router: "t-initdata" },
+        { name: "账号安全", router: "t-initpwd" },
+        { name: "账号绑定", router: "t-bind" }
+      ]
+    };
   },
-  methods:{
-
-  }
-}
-
-
+  methods: {}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .vip {
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
   border-top: 1px solid $border-rice;
-  .active{
+  .active {
     color: $red !important;
   }
   i {
     display: inline-block;
     width: 22px;
     height: 22px;
-    background-image: url('../../assets/images/Sprite.png');
+    background-image: url("../../assets/images/Sprite.png");
     vertical-align: text-bottom;
   }
   .cur-posi {
@@ -123,9 +84,9 @@ export default {
       p {
         margin: 15px 10px;
       }
-      .p1{
+      .p1 {
         margin-top: 15px;
-        i{
+        i {
           background-position: -115px -35px;
         }
       }
@@ -138,7 +99,7 @@ export default {
       .head {
         width: 82px;
         height: 82px;
-        background-image: url('../../assets/images/huanyuanzx01.png');
+        background-image: url("../../assets/images/huanyuanzx01.png");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 0px 0px;
@@ -147,7 +108,7 @@ export default {
       }
       .nav {
         p {
-          margin:15px 0;
+          margin: 15px 0;
           padding: 11px 0;
           width: 224px;
           color: #333;
@@ -169,7 +130,7 @@ export default {
         }
       }
     }
-    .rt{
+    .rt {
       width: 811px;
       margin-left: 55px;
     }

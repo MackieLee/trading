@@ -1,14 +1,14 @@
 
 <template>
- <div class="my_qianb_r">      
+ <div class="my_qianb_r">
   	<div class="modal-outer" v-show="modal">
       <!-- <div class="close">X</div> -->
       <!-- v-bind传输数据到子组件(contentSeries) -->
       <modal @closeModal="closeModal" :content-series="series"></modal>
     	</div>
 
-    
-  	
+
+
     <p class="p01">共7个回答</p>
     <div class="my_qianb_cotainer">
       <p class="p02" @click="toggle()">
@@ -18,20 +18,20 @@
       </p>
       <ul class="div01" v-if="part=='1'">
         <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企……  <span class="more">查看全部>></span>							
-						</p> 
+						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企……  <span class="more">查看全部>></span>
+						</p>
 						<img src="../../assets/images/wendavip.png">
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
 	        	<p class="hui" @click="modal=!modal,series=true">查看评价</p>
 	        </div>
-	       </li> 
+	       </li>
 	      <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        	<p>还没有答案！</p>
 	        </div>
@@ -39,9 +39,9 @@
 	         	<h3> 2018-2-12</h3>
 	        	<p class="red">回答</p>
 	        </div>
-	       </li> 
+	       </li>
 	      <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        	<p>还没有答案！</p>
 	        </div>
@@ -49,9 +49,9 @@
 	         	<h3> 2018-2-12</h3>
 	        	<p class="red">回答</p>
 	        </div>
-	       </li> 
+	       </li>
 	      <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        	<p>还没有答案！</p>
 	        </div>
@@ -59,22 +59,22 @@
 	         	<h3> 2018-2-12</h3>
 	        	<p class="red">回答</p>
 	        </div>
-	       </li> 
+	       </li>
 	      <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>							
-						</p> 
+						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
+						</p>
 						<img src="../../assets/images/wendavip.png">
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
 	        	<p class="hui" @click="modal=!modal,series=true">查看评价</p>
 	        </div>
-	       </li> 
+	       </li>
 	      <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        	<p>还没有答案！</p>
 	        </div>
@@ -82,26 +82,26 @@
 	         	<h3> 2018-2-12</h3>
 	        	<p class="red">回答</p>
 	        </div>
-	       </li> 
+	       </li>
        <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>							
-						</p> 
+						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
+						</p>
 						<img src="../../assets/images/wendavip.png">
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
 	        	<p class="hui" @click="modal=!modal,series=true">查看评价</p>
 	        </div>
-	       </li> 
-	       
+	       </li>
+
       </ul>
-      
+
       <ul class="div01" v-if="part=='2'">
         <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        	<p>还没有答案！</p>
 	        </div>
@@ -109,9 +109,9 @@
 	         	<h3> 2018-2-12</h3>
 	        	<p class="red">回答</p>
 	        </div>
-	       </li> 
+	       </li>
 	      <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        	<p>还没有答案！</p>
 	        </div>
@@ -119,9 +119,9 @@
 	         	<h3> 2018-2-12</h3>
 	        	<p class="red">回答</p>
 	        </div>
-	       </li> 
+	       </li>
 	      <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        	<p>还没有答案！</p>
 	        </div>
@@ -129,9 +129,9 @@
 	         	<h3> 2018-2-12</h3>
 	        	<p class="red">回答</p>
 	        </div>
-	       </li> 
+	       </li>
 	      <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        	<p>还没有答案！</p>
 	        </div>
@@ -139,10 +139,10 @@
 	         	<h3> 2018-2-12</h3>
 	        	<p class="red">回答</p>
 	        </div>
-	       </li> 
-	      
+	       </li>
+
 	      <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        	<p>还没有答案！</p>
 	        </div>
@@ -150,41 +150,39 @@
 	         	<h3> 2018-2-12</h3>
 	        	<p class="red">回答</p>
 	        </div>
-	       </li> 
-	      
+	       </li>
+
       </ul>
-      
+
       <ul class="div01" v-if="part=='3'">
         <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>							
-						</p> 
+						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
+						</p>
 						<img src="../../assets/images/wendavip.png">
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
 	        	<p class="hui" @click="modal=!modal,series=true">查看评价</p>
 	        </div>
-	       </li> 
+	       </li>
 	       <li>
-	        <div class="l">       
+	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>							
-						</p> 
+						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
+						</p>
 						<img src="../../assets/images/wendavip.png">
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
 	        	<p class="hui" @click="modal=!modal,series=true">查看评价</p>
 	        </div>
-	       </li> 
-	     
+	       </li>
+
       </ul>
-      
-     
       </div>
     </div>
   </div>
@@ -192,10 +190,10 @@
 
 <script>
 
-import Modal from "./Qa_Modal"
+import Modal from "../vip/Qa_Modal"
 export default {
   name: 'youhuiquan',
-    components: { Modal},
+    components: { Modal },
   data(){
     return{
       part:'1',
