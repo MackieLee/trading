@@ -192,127 +192,49 @@
         </p>
       </div>
     </div>
-    <div class="book-box">
-      <div class="title">
-        <span></span>
-        <font>财经图书</font>
-        <a>更多>></a>
-      </div>
-      <div class="book-container">
-        <div class="video-boxes">
-          <div class="item">
-            <div>
-              <a class="video-cover"><img src="../../assets/images/九鼎财税01_33.png" />
-                <span class="new">NEW</span>
-              </a>
-            </div>
-            <p class="book-name">
-              <a>土地增值税实战与案例</a>
-
-            </p>
-            <p class="buss-info">￥
-              <span class="current-price">51.00</span>
-              <span class="grey">￥</span>
-              <del class="grey origin-price">62.56</del>
-              <a class="im-buy">购买</a>
-            </p>
-          </div>
-          <div class="item">
-            <div>
-              <a class="video-cover"><img src="../../assets/images/九鼎财税01_35.png" />
-                <span class="new">NEW</span>
-              </a>
-            </div>
-            <p class="book-name">
-              <a>土地增值税实战与案例</a>
-
-            </p>
-            <p class="buss-info">￥
-              <span class="current-price">51.00</span>
-              <span class="grey">￥</span>
-              <del class="grey origin-price">62.56</del>
-              <a class="im-buy">购买</a>
-            </p>
-          </div>
-          <div class="item">
-            <div>
-              <a class="video-cover"><img src="../../assets/images/九鼎财税01_37.png" />
-                <span class="new">NEW</span>
-              </a>
-            </div>
-            <p class="book-name">
-              <a>土地增值税实战与案例</a>
-
-            </p>
-            <p class="buss-info">￥
-              <span class="current-price">51.00</span>
-              <span class="grey">￥</span>
-              <del class="grey origin-price">62.56</del>
-              <a class="im-buy">购买</a>
-            </p>
-          </div>
-          <div class="item">
-            <div>
-              <a class="video-cover"><img src="../../assets/images/九鼎财税01_39.png" />
-                <span class="new">NEW</span>
-              </a>
-            </div>
-            <p class="book-name">
-              <a>土地增值税实战与案例</a>
-            </p>
-            <p class="buss-info">￥
-              <span class="current-price">51.00</span>
-              <span class="grey">￥</span>
-              <del class="grey origin-price">62.56</del>
-              <a class="im-buy">购买</a>
-            </p>
+    <div class="modals">
+      <div class="item" @mouseenter="modalBlock" @mouseleave="modalHide">
+        <div class="modal-cover">
+          <div>
+            <p>税务咨询师是怎么炼成的？</p>
+            <span>How did the tax consultant make it?</span>
           </div>
         </div>
-        <div class="modals">
-          <div class="item" @mouseenter="modalBlock" @mouseleave="modalHide">
-            <div class="modal-cover">
-              <div>
-                <p>税务咨询师是怎么炼成的？</p>
-                <span>How did the tax consultant make it?</span>
-              </div>
-            </div>
-            <div>
-              <router-link :to="{ name:'home'}" class="video-cover"><img src="../../assets/images/九鼎财税01_45.png" /></router-link>
-            </div>
+        <div>
+          <router-link :to="{ name:'home'}" class="video-cover"><img src="../../assets/images/九鼎财税01_45.png" /></router-link>
+        </div>
+      </div>
+      <div class="item" @mouseenter="modalBlock" @mouseleave="modalHide">
+        <div class="modal-cover">
+          <div>
+            <p>会计师成长之路</p>
+            <span>The path of Accountant's growth</span>
           </div>
-          <div class="item" @mouseenter="modalBlock" @mouseleave="modalHide">
-            <div class="modal-cover">
-              <div>
-                <p>会计师成长之路</p>
-                <span>The path of Accountant's growth</span>
-              </div>
-            </div>
-            <div>
-              <router-link :to="{ name:'home'}" class="video-cover"><img src="../../assets/images/九鼎财税01_47.png" /></router-link>
-            </div>
+        </div>
+        <div>
+          <router-link :to="{ name:'home'}" class="video-cover"><img src="../../assets/images/九鼎财税01_47.png" /></router-link>
+        </div>
+      </div>
+      <div class="item" @mouseenter="modalBlock" @mouseleave="modalHide">
+        <div class="modal-cover">
+          <div>
+            <p>公司财务大杂烩</p>
+            <span>A Hodgepodge of corporate finace</span>
           </div>
-          <div class="item" @mouseenter="modalBlock" @mouseleave="modalHide">
-            <div class="modal-cover">
-              <div>
-                <p>公司财务大杂烩</p>
-                <span>A Hodgepodge of corporate finace</span>
-              </div>
-            </div>
-            <div>
-              <router-link :to="{ name:'home'}" class="video-cover"><img src="../../assets/images/九鼎财税01_50.png" /></router-link>
-            </div>
+        </div>
+        <div>
+          <router-link :to="{ name:'home'}" class="video-cover"><img src="../../assets/images/九鼎财税01_50.png" /></router-link>
+        </div>
+      </div>
+      <div class="item" @mouseenter="modalBlock" @mouseleave="modalHide">
+        <div class="modal-cover">
+          <div>
+            <p>企业应避免哪些陷阱？</p>
+            <span>What traps should be avoided in enterprise finace</span>
           </div>
-          <div class="item" @mouseenter="modalBlock" @mouseleave="modalHide">
-            <div class="modal-cover">
-              <div>
-                <p>企业应避免哪些陷阱？</p>
-                <span>What traps should be avoided in enterprise finace</span>
-              </div>
-            </div>
-            <div>
-              <router-link :to="{ name:'home'}" class="video-cover"><img src="../../assets/images/九鼎财税01_52.png" /></router-link>
-            </div>
-          </div>
+        </div>
+        <div>
+          <router-link :to="{ name:'home'}" class="video-cover"><img src="../../assets/images/九鼎财税01_52.png" /></router-link>
         </div>
       </div>
     </div>

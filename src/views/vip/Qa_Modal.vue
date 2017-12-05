@@ -7,69 +7,60 @@
         <div class="ctr" v-show="contentSeries">
           <!-- 修改为star -->
           <h2>答疑评分</h2>
-          <div class="da_box">          	
+          <div class="da_box">
           	<div class="da_box_t">
           		<div class="div_l">
-          		<p class="p">答疑评分</p>
-          		<h3>5.0</h3>
-          	</div>
-          	<ul>          		       
+                <p class="p">答疑评分</p>
+                <h3>5.0</h3>
+              </div>
+              <ul>
                 <li>
                   <p class="p">回答是否准确</p>
-		          <div class="star">
-		            <stars></stars>
-		            <p>5</p>
-		          </div>                	
+                  <div class="star">
+                    <stars sequence = '0'></stars>
+                    <p>5</p>
+                  </div>
                 </li>
-            
+
                 <li>
                   <p class="p">回答是否完整</p>
-		          <div class="star">
-		            <stars></stars>
-		            <p>5</p>
-		          </div>                	                	
+                  <div class="star">
+                    <stars sequence = '1'></stars>
+                    <p>5</p>
+                  </div>
                 </li>
-
                 <li>
                   <p class="p">答案是否实用</p>
-		          <div class="star">
-		            <stars></stars>
-		            <p>5</p>
-		          </div>                	                	
+                  <div class="star">
+                    <stars sequence = '2'></stars>
+                    <p>5</p>
+                  </div>
                 </li>
-
                 <li>
                   <p class="p">政策是否过时</p>
-		          <div class="star">
-		            <stars></stars>
-		            <p>5</p>
-		          </div>                	                	
+                  <div class="star">
+                    <stars sequence = '3'></stars>
+                    <p>5</p>
+                  </div>
                 </li>
-
                 <li>
                   <p class="p">对您是否有用</p>
-		          <div class="star">
-		            <stars></stars>
-		            <p>5</p>
-		          </div>                	                	
+                  <div class="star">
+                    <stars sequence = '4'></stars>
+                    <p>5</p>
+                  </div>
                 </li>
-
-          	</ul>
+              </ul>
           	</div>
           	<div class="da_box_c">
           		<h3>综合满意度 :</h3>
-          		<stars></stars>
+          		<stars sequence = '5'></stars>
           	</div>
-          	
 	          <textarea placeholder="那么善良的您，夸夸我吧！"/>
 	          <div class="sub-btn">
 	            <input type="button" class="submit" @click="submitCommit" value="提 交">
 	          </div>
-        
-          	
           </div>
-
-     
         </div>
         <div class="ctr" v-show="!contentSeries">
           <div>
@@ -158,8 +149,8 @@ export default {
    	.da_box_c{
    		h3,.stars{ float: left;margin:20px 0;}
    		h3{ font-size: 16px; margin-right: 20px;}
-   		
-   		
+
+
    	}
    	.da_box_t{ border-bottom: 1px solid #ddd; overflow: hidden; }
    	padding: 20px;
@@ -177,7 +168,7 @@ export default {
     font-size: 12px;
     color: #999;
     position: relative;
-    
+
     }
    		}
    	}
@@ -226,8 +217,8 @@ export default {
         text-align:center;border-radius: 3px;height: 36px;
         cursor: pointer;width: 80px;line-height: 36px;
         outline: none; color: $white; background-color:#e7141a;
-        margin:15px 0;border: none;    
-        
+        margin:15px 0;border: none;
+
       }
     }
   }
