@@ -18,7 +18,7 @@ import fdetail from '../views/fagui/Detail'//法规详情
 import fsearch from '../views/fagui/Search'//法规查询
 // ---------------------线上课程---------------------------------
 import online from '../views/courses/Online'//线上课程
-import video from '../views/courses/Video'//视频播放器
+import video from '../views/courses/Video'//视频播放
 import videoinfo from '../views/courses/VideoInfo'//视频详情、试听、购买页面
 // ---------------------登录注册----------------------------------
 import login from '../views/join/Login'//登录

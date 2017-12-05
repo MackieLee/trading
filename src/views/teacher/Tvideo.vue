@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import Modal from "../vip/Qa_Modal"
 export default {
   name: "t-kecheng"
 };
