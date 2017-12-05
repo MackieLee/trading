@@ -255,7 +255,7 @@ export default {
   text-align: center;
 }
 .my_qianb_r .p02 {
-  height: 50px;
+  height: 50px;margin-bottom: 20px;
   width: 100%;
   border-bottom: 1px solid #ddd;
 }
