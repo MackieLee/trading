@@ -8,10 +8,9 @@
         <li v-for="item in items" :key="item.src" :class="item.last">
           <div class="abs">
             <img src="../../assets/images/huanyuanzx02.png" alt="" />
-            <span class="length">{{ item.length }}</span>
           </div>
           <p class="video-title">{{ item.title }}</p>
-          <span class="date">{{ item.date }}</span>
+          <span class="date">课程: {{ item.date }}</span>
         </li>
       </ul>
     </div>
@@ -37,57 +36,57 @@ export default {
         {
           src: "",
           length: "01:05",
-          title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
-          date: "2017-12-5 15:00",
+          title: "房地产系列课程房地产系列课程",
+          date: "2",
           last: ""
         },
         {
           src: "",
           length: "01:05",
-          title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
-          date: "2017-12-5 15:00",
+          title: "房地产系列课程房地产系列课程",
+          date: "2",
           last: ""
         },
         {
           src: "",
           length: "01:05",
-          title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
-          date: "2017-12-5 15:00",
+          title: "房地产系列课程房地产系列课程",
+          date: "2",
           last: ""
         },
         {
           src: "",
           length: "01:05",
-          title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
-          date: "2017-12-5 15:00",
+          title: "房地产系列课程房地产系列课程",
+          date: "2",
           last: "last"
         },
         {
           src: "",
           length: "01:05",
-          title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
-          date: "2017-12-5 15:00",
+          title: "房地产系列课程房地产系列课程",
+          date: "2",
           last: ""
         },
         {
           src: "",
           length: "01:05",
-          title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
-          date: "2017-12-5 15:00",
+          title: "房地产系列课程房地产系列课程",
+          date: "2",
           last: ""
         },
         {
           src: "",
           length: "01:05",
-          title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
-          date: "2017-12-5 15:00",
+          title: "房地产系列课程房地产系列课程",
+          date: "2",
           last: ""
         },
         {
           src: "",
           length: "01:05",
-          title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
-          date: "2017-12-5 15:00",
+          title: "房地产系列课程房地产系列课程",
+          date: "2",
           last: "last"
         }
       ]
@@ -138,17 +137,6 @@ export default {
         display: block;
         width: 180px;
         height: 96px;
-      }
-      .length {
-        position: absolute;
-        right: 5px;
-        bottom: 5px;
-        width: 40px;
-        height: 17px;
-        background-color: rgba(0, 0, 0, 0.6);
-        border-radius: 3px;
-        text-align: center;
-        color: $white;
       }
     }
     p {

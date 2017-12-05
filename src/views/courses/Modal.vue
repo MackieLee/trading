@@ -6,13 +6,60 @@
         <div class="close" @click="closeModal"></div>
         <div class="ctr" v-show="contentSeries">
           <!-- 修改为star -->
-          <div class="star">
-            分数:
-            <stars></stars>
-          </div>
-          <textarea placeholder="随便夸夸我吧..."/>
-          <div class="sub-btn">
-            <input type="button" class="submit" @click="submitCommit" value="确   定">
+          <h2>答疑评分</h2>
+          <div class="da_box">
+          	<div class="da_box_t">
+          		<div class="div_l">
+                <p class="p">答疑评分</p>
+                <h3>5.0</h3>
+              </div>
+              <ul>
+                <li>
+                  <p class="p">回答是否准确</p>
+                  <div class="star">
+                    <stars sequence = '0'></stars>
+                    <p>5</p>
+                  </div>
+                </li>
+
+                <li>
+                  <p class="p">回答是否完整</p>
+                  <div class="star">
+                    <stars sequence = '1'></stars>
+                    <p>5</p>
+                  </div>
+                </li>
+                <li>
+                  <p class="p">答案是否实用</p>
+                  <div class="star">
+                    <stars sequence = '2'></stars>
+                    <p>5</p>
+                  </div>
+                </li>
+                <li>
+                  <p class="p">政策是否过时</p>
+                  <div class="star">
+                    <stars sequence = '3'></stars>
+                    <p>5</p>
+                  </div>
+                </li>
+                <li>
+                  <p class="p">对您是否有用</p>
+                  <div class="star">
+                    <stars sequence = '4'></stars>
+                    <p>5</p>
+                  </div>
+                </li>
+              </ul>
+          	</div>
+          	<div class="da_box_c">
+          		<h3>综合满意度 :</h3>
+          		<stars sequence = '5'></stars>
+          	</div>
+	          <textarea placeholder="那么善良的您，夸夸我吧！"/>
+	          <div class="sub-btn">
+	            <input type="button" class="submit" @click="submitCommit" value="提 交">
+	          </div>
           </div>
         </div>
         <div class="ctr" v-show="!contentSeries">
@@ -31,76 +78,135 @@
 </template>
 
 <script>
-import Stars from '../stars/Stars'
+import Stars from "../stars/Stars";
 export default {
   data() {
-    return {
-
-    }
+    return {};
   },
-  components:{
+  components: {
     Stars
   },
-  computed: {
-  },
-  props:{
+  computed: {},
+  props: {
     // 子组件接收数据
-    contentSeries:{
-      type:Boolean,
-      default:true
+    contentSeries: {
+      type: Boolean,
+      default: true
     }
   },
-  methods:{
+  methods: {
     //子组件触发父组件事件
-    closeModal:function(){
+    closeModal: function() {
       //将自定义事件通过this.$emit传递给父组件,然后在父组件用v-on监听子组件的事件触发
-      this.$emit('closeModal')
+      this.$emit("closeModal");
     },
-    submitCommit:function(){
+    submitCommit: function() {
       //vue-resource....
-      this.$emit('closeModal')
+      this.$emit("closeModal");
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
-.fixed{
+@import "../../assets/style/base.scss";
+.fixed {
   overflow: hidden;
   position: fixed;
-  top:20%;
+  top: 20%;
   width: 100%;
 }
 .content {
   width: 700px;
-  height: 450px;
   background-color: $white;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  .close{
+  .close {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 15px;
+    right: 10px;
     cursor: pointer;
     height: 16px;
     width: 16px;
-    background-image: url('../../assets/images/close.png');
+    background-image: url('../../assets/images/Sprite.png');
+    background-position: -522px -126px;
   }
   .ctr {
-    // border: 1px solid $red
-    margin:60px 0 0 50px;
-    .star{
-      margin-bottom: 30px;
+    h2 {
+      background-color: #468ee3;
+      border: none;
+      height: 40px;
+      line-height: 40px;
+      font-size: 16px;
+      text-align: center;
+      color: #fff;
+    }
+    .da_box {
+      .da_box_c {
+        h3,
+        .stars {
+          float: left;
+          margin: 20px 0;
+        }
+        h3 {
+          font-size: 16px;
+          margin-right: 20px;
+        }
+      }
+      .da_box_t {
+        border-bottom: 1px solid #ddd;
+        overflow: hidden;
+      }
+      padding: 20px;
+      ul {
+        float: left;
+        width: 86%;
+        padding-left: 20px;
+        li {
+          p {
+            text-align: center;
+          }
+          width: 19%;
+          .p {
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border: 1px solid #ddd;
+            margin: 10px 5px;
+            font-size: 12px;
+            color: #999;
+            position: relative;
+          }
+        }
+      }
+      .div_l {
+        float: left;
+        border-right: 1px solid #eee;
+        width: 10%;
+        p {
+          font-size: 14px;
+          line-height: 28px;
+          vertical-align: top;
+        }
+        h3 {
+          font-size: 30px;
+          font-family: "Microsoft YaHei";
+          font-weight: 700;
+          color: #468ee3;
+        }
+      }
+    }
+    .star {
+      margin-bottom: 15px;
       font-size: 14px;
-      input{
+      input {
         margin-left: 15px;
         outline: none;
       }
     }
-    .note-title{
-      margin-bottom: 30px;
+    .note-title {
+      margin: 30px auto;
       font-size: 14px;
       height: 35px;
       width: 560px;
@@ -108,8 +214,10 @@ export default {
       border-radius: 5px;
       border: 1px solid silver;
       padding-left: 10px;
+      display: block;
     }
     textarea {
+      margin-left: 64px;
       resize: none;
       width: 550px;
       height: 120px;
@@ -118,16 +226,22 @@ export default {
       padding: 10px;
       font-size: 14px;
       border: 1px solid silver;
+      margin: 0 atuo;
     }
-    .sub-btn{
-      .submit{
-        padding: 7px 40px;
+    .sub-btn {
+      .submit {
+        text-align: center;
+        border-radius: 3px;
+        height: 36px;
         cursor: pointer;
+        width: 80px;
+        line-height: 36px;
         outline: none;
-        margin-top: 25px;
         color: $white;
-        background-color: $btn-default;
+        background-color: #e7141a;
+        margin: 15px auto;
         border: none;
+        display: block;
       }
     }
   }
