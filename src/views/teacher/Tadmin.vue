@@ -36,8 +36,8 @@ export default {
     return {
       tags: [
         { name: "我的课程", router: "t-kecheng" },
+        { name: "内容管理", router: "t-video" },
         { name: "我的问答", router: "t-wenda" },
-        { name: "视频管理", router: "t-video" },
         { name: "老师认证", router: "identify" },
         { name: "我的钱包", router: "t-qianbao" },
         { name: "学员评价", router: "valuate" },

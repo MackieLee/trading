@@ -33,21 +33,21 @@ export default {
 
 <style lang="scss" scoped>
 .star_bg {
-  width: 89px;
-  height: 20px;
-  background: url('../../assets/images/star.png') repeat-x;
+  width: 72px;
+  height: 16px;
+  background: url('../../assets/images/star.png') 0 -20px repeat-x;
   position: relative;
   overflow: hidden;
 }
 .star {
   height: 100%;
-  width: 18px;
+  width: 14px;
   line-height: 6em;
   position: absolute;
   z-index: 3;
 }
 .star:hover {
-  background: url('../../assets/images/star.png') repeat-x 0 -20px !important;
+  background: url('../../assets/images/star.png') repeat-x !important;
   left: 0;
   z-index: 2;
 }
@@ -55,31 +55,31 @@ export default {
   left: 0;
 }
 .star_2 {
-  left: 18px;
+  left: 14px;
 }
 .star_3 {
-  left: 36px;
+  left: 28px;
 }
 .star_4 {
-  left: 54px;
+  left: 42px;
 }
 .star_5 {
-  left: 72px;
+  left: 56px;
 }
 .star_1:hover {
-  width: 18px;
+  width: 14px;
 }
 .star_2:hover {
-  width: 36px;
+  width: 28px;
 }
 .star_3:hover {
-  width: 53px;
+  width: 42px;
 }
 .star_4:hover {
-  width: 72px;
+  width: 57px;
 }
 .star_5:hover {
-  width: 89px;
+  width: 72px;
 }
 label {
   display: block;
@@ -94,31 +94,31 @@ label {
   clip: rect(0 0 0 0);
 }
 .score:checked + .star {
-  background: url('../../assets/images/star.png') repeat-x 0 -20px;
+  background: url('../../assets/images/star.png') repeat-x;
   left: 0;
   z-index: 1;
 }
 .score_1:checked ~ .star_1 {
-  width: 18px;
+  width: 14px;
 }
 .score_2:checked ~ .star_2 {
-  width: 36px;
+  width: 28px;
 }
 .score_3:checked ~ .star_3 {
-  width: 53px;
+  width: 42px;
 }
 .score_4:checked ~ .star_4 {
-  width: 72px;
+  width: 57px;
 }
 .score_5:checked ~ .star_5 {
-  width: 89px;
+  width: 72px;
 }
 .star_bg:hover .star {
   background-image: none;
 }
 /* for IE6-IE8 JS 交互 */
 .star_checked {
-  background: url('../../assets/images/star.png') repeat-x 0 -20px;
+  background: url('../../assets/images/star.png') repeat-x;
   left: 0;
   z-index: 1;
 }

@@ -45,6 +45,7 @@ import tkecheng from '../views/teacher/Tkecheng'//老师端我的课程
 import twenda from '../views/teacher/Twenda'//老师端我的问答
 import tqianbao from '../views/teacher/Tqianbao'//老师端我的钱包
 import upload from '../views/teacher/Upload'//视频上传
+import bodan from '../views/teacher/Bodan'//播单管理
 import bindcredit from '../views/teacher/BindCredit'//绑定银行卡
 import videolist from '../views/teacher/VideoList'//视频列表
 import valuate from '../views/teacher/Tevaluate'//老师端我的评价
@@ -243,6 +244,11 @@ const routes = [
                 path: 'video-list',
                 name: 'videolist',
                 component: videolist
+              },
+              {
+                path: 'bodan',
+                name: 'bodan',
+                component: bodan
               }
             ]
           },
@@ -279,7 +285,7 @@ const routes = [
           {
           	path: 'tinitpwd',
           	name: 't-initpwd',
-          	conponent: tinitpwd
+          	component: tinitpwd
           },
           {
           	path: 'tbind',
