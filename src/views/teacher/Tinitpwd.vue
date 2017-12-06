@@ -6,7 +6,7 @@
       <table>
         <tr>
           <th width="100" class="passed"><i class="passed"></i>登录密码</th>
-          <td width="400">互联网账号存在风险，建议您定期修改密码以保护账号安全。</td>
+          <td width="500">互联网账号存在风险，建议您定期修改密码以保护账号安全。</td>
           <td @click="showModal('pwd')" width="100" class="manager">修改</td>
         </tr>
         <tr>

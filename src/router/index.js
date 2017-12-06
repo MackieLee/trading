@@ -45,7 +45,6 @@ import tkecheng from '../views/teacher/Tkecheng'//老师端我的课程
 import twenda from '../views/teacher/Twenda'//老师端我的问答
 import tqianbao from '../views/teacher/Tqianbao'//老师端我的钱包
 import upload from '../views/teacher/Upload'//视频上传
-import bodan from '../views/teacher/Bodan'//播单管理
 import bindcredit from '../views/teacher/BindCredit'//绑定银行卡
 import videolist from '../views/teacher/VideoList'//视频列表
 import valuate from '../views/teacher/Tevaluate'//老师端我的评价
@@ -55,6 +54,8 @@ import tbind from '../views/teacher/Tbind'//老师端账号绑定
 import tinitpwd from '../views/teacher/Tinitpwd'//老师端账号安全
 import tvideo from '../views/teacher/Tvideo'//老师端视频管理
 import bodanlist from '../views/teacher/BodanList'//播单列表
+import bodanmanger from '../views/teacher/BodanManger'//播单管理
+import videomanger from '../views/teacher/videomanger'//视频管理
 // ----------------------支付页面----------------------------------
 import pay from '../views/account/Pay'//支付页面
 
@@ -81,7 +82,7 @@ const routes = [
       {
         path:'video-info',
         name:'videoinfo',
-        coponent:videoinfo
+        component:videoinfo
       },
       {
         path: 'offline',
@@ -245,11 +246,6 @@ const routes = [
                 path: 'video-list',
                 name: 'videolist',
                 component: videolist
-              },
-              {
-                path: 'bodan',
-                name: 'bodan',
-                component: bodan
               }
             ]
           },
@@ -297,11 +293,30 @@ const routes = [
           	path: 'tvideo',
           	name: 't-video',
             component: tvideo,
+            redirect: {
+              name:'bodanlist'
+            },
             children:[
               {
                 path: 'bodanlist',
                 name: 'bodanlist',
                 component: bodanlist
+              },
+              // 视频列表
+              {
+                path: 'videolist',
+                name: 'videos',
+                component: videolist
+              },
+              {
+                path: 'bodanmanger',
+                name: 'bodanmanger',
+                component: bodanmanger
+              },
+              {
+                path: 'videomanger',
+                name: 'videomanger',
+                component: videomanger
               }
             ]
           }

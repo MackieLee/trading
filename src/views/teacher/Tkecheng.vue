@@ -6,8 +6,6 @@
         <router-link tag="span":to="{ name : 'upload' }">上传</router-link>
         <span class="splite">&nbsp;</span>
         <router-link tag="span":to="{ name : 'videolist' }">视频</router-link>
-        <span class="splite">&nbsp;</span>
-        <router-link tag="span":to="{ name : 'bodan' }">播单</router-link>
       </p>
     </div>
     <router-view></router-view>

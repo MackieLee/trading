@@ -1,11 +1,11 @@
 <template>
   <div class="sc">
     <div class="head">
-      <div class="title">我的主页</div>
+      <div class="title">内容管理</div>
       <p>
-        <router-link tag="span":to="{ name : 'upload' }">上传</router-link>
+        <router-link tag="span":to="{ name : 'bodanlist' }">播单管理</router-link>
         <span class="splite">&nbsp;</span>
-        <router-link tag="span":to="{ name : 'videolist' }">视频</router-link>
+        <router-link tag="span":to="{ name : 'videos' }">视频管理</router-link>
       </p>
     </div>
     <router-view></router-view>
@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import Modal from "../vip/Qa_Modal"
 export default {
   name: "t-kecheng"
 };

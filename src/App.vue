@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    <div class="toolbar-tabs">
+      <div class="bar">1</div>
+      <div class="bar">2</div>
+      <div class="bar">3</div>
+    </div>
     <router-view></router-view>
   </div>
 </template>
@@ -40,6 +45,20 @@ export default {
     top: 0;
     left: 0;
     z-index: 2000;
+  }
+  .toolbar-tabs{
+    position: fixed;
+    right: 0;
+    top:40%;
+    z-index: 1500;
+    .bar{
+      height: 35px;
+      width:35px;
+      background-color: #7a6e6e;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 2px;
+    }
   }
 }
 </style>

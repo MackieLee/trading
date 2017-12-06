@@ -4,7 +4,7 @@
       <div class="fixed">
         <div class="content">
           <div class="close" @click="closeModal"></div>
-          <table>
+          <table v-if="contentSeries === 'bodan'">
             <tr>
               <th>创建播单</th>
             </tr>
@@ -32,11 +32,11 @@
               <td width="100"></td>
             </tr>
           </table>
-          <div class="identify">
+          <div v-else class="identify">
             <img src="../../assets/images/336438490428669734.png"/>
             <h2>未实名认证</h2>
             <p>尊敬的用户，为了保证您的内容安全，请先对账号做实名信息认证。</p>
-            <input type="button" class="btn" value="立即实名认证" />
+            <router-link tag="input" class="btn" value="立即实名认证" :to="{ name : 'identify'}" type="button"></router-link>
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@ export default {
   props:{
     // 子组件接收数据
     contentSeries:{
-      default:true
+      default:''
     }
   },
   methods:{

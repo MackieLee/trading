@@ -7,7 +7,7 @@
       <div class="video-loader">
         <div class="center">
           <p>您还没有上传过视频！</p>
-          <input type="button" value="立即上传" class="btn main-btn"/>
+          <input type="button" @click="showModal('upload')" value="立即上传" class="btn main-btn"/>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
       <div class="video-loader">
         <div class="center">
           <p>这个播单内容不多哦 快丰富一下吧~</p>
-          <input type="button" value="创建播单" @click="showModal" class="btn main-btn"/>
+          <input type="button" @click="showModal('bodan')" value="创建播单" class="btn main-btn"/>
         </div>
       </div>
     </div>
@@ -35,16 +35,16 @@ export default {
   data() {
     return {
       modal: false,
-      series: true
+      series: ''
     };
   },
   methods: {
-    showModal: function() {
-      console.log("show");
-      this.modal = true;
+    showModal: function(series) {
+      this.modal = true
+      this.series = series
     },
     closeModal: function() {
-      this.modal = false;
+      this.modal = false
     }
   }
 };

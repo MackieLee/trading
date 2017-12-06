@@ -3,9 +3,9 @@
     <h2>我的订单</h2>
     <ul class="ul01" @click="toggle()">
       <li class="li01" data-ref="1">所有订单</li>
-      <li data-ref="2">待付款1</li>
+      <li data-ref="2">待付款(1)</li>
       <li data-ref="3"> 已完成</li>
-      <li data-ref="4"> 待评价5</li>
+      <li data-ref="4"> 待评价(5)</li>
     </ul>
     <ul class="ul02">
       <li class="li01">报名信息 </li>
@@ -23,8 +23,8 @@
         <ul>
           <li class="li01">
           	<img src="../../assets/images/huanyuanzx02.png">
-          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
-          	 </strong>
+          	 <span>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+          	 </span>
          </li>
          <li class="li02">¥988.00</li>
          <li class="li03">视频</li>
@@ -44,8 +44,8 @@
         <ul>
           <li class="li01">
           	<img src="../../assets/images/huanyuanzx02.png">
-          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
-          	 </strong>
+          	 <span>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+          	 </span>
          </li>
          <li class="li02">¥988.00</li>
          <li class="li03">视频</li>
@@ -65,8 +65,8 @@
         <ul>
           <li class="li01">
           	<img src="../../assets/images/huanyuanzx02.png">
-          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
-          	 </strong>
+          	 <span>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+          	 </span>
          </li>
          <li class="li02">¥988.00</li>
          <li class="li03">视频</li>
@@ -243,7 +243,7 @@ export default {
           height: 62px;
           border: 1px solid #ddd;
         }
-        strong {
+        span {
           width: 56%;
           line-height: 30px;
           float: left;
