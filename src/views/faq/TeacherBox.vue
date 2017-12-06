@@ -196,24 +196,23 @@ export default {
   }
   span {
     display: inline-block;
-    margin: 20px 10px;
+    margin:10px 5px 20px;
     font-weight: bold;
     cursor: pointer;
   }
   .btn-group {
-    position: relative;
+    position: relative;margin-left: 20%;
     .ask-icon {
       position: absolute;
       background-position: -388px -83px;
-      left: 27px;
-      top: 2px;
-    }
+      left: 35px;top: 8px;}
+    .ask-input:hover{background-color: #e7141a;}
     .ask-input {
-      height: 30px;
-      line-height: 30px;
-      width: 150px;
+      height: 40px;
+      line-height: 40px;
+      width:100%;font-size: 14px;
       border: none;
-      background-color: $btn-danger;
+      background-color:#f84141;
       color: $white;
       outline: none;
       cursor: pointer;
@@ -227,8 +226,7 @@ export default {
     background-color: $btn-danger;
     color: $white;
     outline: none;
-    cursor: pointer;
-  }
+    cursor: pointer;}
 }
 i {
   display: inline-block;
@@ -246,12 +244,10 @@ i {
     margin-right: 6px;
   }
 }
-.lf {
+.lf,.rt{
   float: left;
 }
-.rt {
-  float: right;
-}
+
 .m_r{margin:0 !important;}
 .item {
   width: 330px;

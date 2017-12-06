@@ -145,11 +145,10 @@ export default {
   overflow: hidden;
   border: 1px solid $border-dark;
   .info-data{
-  	.item_bc{
-  		      width: 80px;
+  	.item_bc{width: 80px;
       height: 38px;
       background-color:#e7141a;
-      text-align: center;
+      text-align: center; cursor: pointer;
       line-height: 38px;
       color: $white;
       border: none;

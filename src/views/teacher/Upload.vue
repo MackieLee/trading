@@ -77,7 +77,7 @@ export default {
     }
   }
   .video-loader {
-    height: 300px;
+    height:200px;
   }
 }
 .btn {
@@ -92,7 +92,7 @@ export default {
 }
 .center {
   position: relative;
-  top: 40%;
+  top: 20%;
   p {
     text-align: center;
     margin-bottom: 10px;

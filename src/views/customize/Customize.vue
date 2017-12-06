@@ -66,7 +66,7 @@
             <div class="tag block"><label for="youxiang">邮箱</label><input name="youxiang" id="youxiang" placeholder="请输入正确的电子邮箱"/></div>
           </div>
         </div>
-        <input type="submit" class="sub" value="提     交"/>
+        <input type="submit" class="sub" value="提 交"/>
       </form>
     </div>
   </div>
@@ -274,15 +274,14 @@ export default {
         }
       }
       .sub{
-        width: 150px;
-        line-height: 30px;
+         padding-left: 10px; padding-right: 20px; margin:30px 0 50px 50%;
+        line-height: 36px;height: 36px;
         background-color: $red;
-        outline: none;
+        outline: none; border-radius: 3px;
         border: none;
         color: $white;
         cursor: pointer;
-        margin: 30px auto;
-        display: block;
+
       }
     }
   }

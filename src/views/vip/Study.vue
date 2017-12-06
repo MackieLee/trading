@@ -172,6 +172,8 @@ export default {
         	 border:1px solid #ddd;
         	background-color:#fff;
         	}
+        	.zcgm:hover{color:#fff;
+        	background-color:#e7141a;}
         .jindu{
         	line-height: 36px;height: 36px;
           color: $light-blue;    text-indent: 0.5em;

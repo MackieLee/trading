@@ -77,6 +77,14 @@
           <p class="indent tchr">回答者：孙玮老师</p>
           <p class="indent">根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料....<span class="more">查看全部&gt;&gt;</span></p>
         </div>
+     
+             <div class="list-item">
+          <p><span class="question">您好孙老师您好孙老师您好孙老师您好孙老师您好根据贵公司的资料</span><span class="date rt">4天前</span></p>
+          <p class="indent tchr">回答者：孙玮老师</p>
+          <p class="indent">根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料....<span class="more">查看全部&gt;&gt;</span></p>
+        </div>
+     
+      
       </div>
     </div>
   </div>
@@ -202,17 +210,17 @@ export default {
             width: 200px;
             padding-bottom: 28px;
             margin: 0 auto;
-            border-bottom: 1px solid $black;
+            border-bottom: 1px solid $black; 
             span[class="shanchang"] {
               font-size: 16px;
               display: block;
               width: 120px;
               height: 20px;
               text-align: center;
-              background-color: $white;
+              background-color:#fff;
               position: absolute;
               bottom: -7px;
-              left: 21%;
+              left: 20%;
               i {
                 background-position: -18px -224px;
                 margin-right: 6px;
@@ -255,13 +263,14 @@ export default {
             position: absolute;
             background-position: -388px -83px;
             left: 97px;
-            top: 0px;
+            top: 5px;
           }
+          .ask-input:hover{background-color: #e7141a;}
           .ask-input {
             display: block;
             margin: 0 auto;
-            height: 25px;
-            line-height: 25px;
+            height: 36px;
+            line-height: 36px;
             width: 150px;
             border: none;
             background-color: $btn-danger;

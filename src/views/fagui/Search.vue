@@ -85,6 +85,10 @@
         <div class="clearfix"></div>
         <div class="content">
           <dl class="search">
+          	  <dd>
+   							<span>中央法规</span>
+   							<span>地方法规</span>
+            </dd>
             <dd>
               <label>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label><input/>
             </dd>
@@ -370,7 +374,7 @@ export default {
         }
         .search {
           width: 400px;
-          margin:20px auto 0 auto;
+          margin:0 auto;
           label {
             margin-right: 20px;
             font-size: 14px;

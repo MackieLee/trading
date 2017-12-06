@@ -64,7 +64,6 @@ export default {
   width: 300px;
   height: 300px;
   padding: 5px;
-  border: 1px solid $dark;
   position: relative;
 }
 
