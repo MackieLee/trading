@@ -54,6 +54,7 @@ import identify from '../views/teacher/Identify' //老师认证
 import tbind from '../views/teacher/Tbind'//老师端账号绑定
 import tinitpwd from '../views/teacher/Tinitpwd'//老师端账号安全
 import tvideo from '../views/teacher/Tvideo'//老师端视频管理
+import bodanlist from '../views/teacher/BodanList'//播单列表
 // ----------------------支付页面----------------------------------
 import pay from '../views/account/Pay'//支付页面
 
@@ -295,7 +296,14 @@ const routes = [
           {
           	path: 'tvideo',
           	name: 't-video',
-          	component: tvideo
+            component: tvideo,
+            children:[
+              {
+                path: 'bodanlist',
+                name: 'bodanlist',
+                component: bodanlist
+              }
+            ]
           }
         ]
       },
