@@ -59,7 +59,7 @@
             <li class="sorts-items" data-name="sorts" @click="getItem(item)" :class="{ 'active':s === item}" v-for="item in sorts" :key="item">{{ item }}</li>
           </ul>
         </p>
-        <p>共找到12门课程</p>
+        <p class="p">共找到12门课程</p>
       </div>
     </div>
     <online-courses></online-courses>
@@ -199,9 +199,8 @@ export default {
     border-bottom: 1px solid $border-orange;
     display: flex;
     justify-content: space-between;
-    p{
-      line-height: 45px;
-    }
+   p{line-height: 45px;}
+   .p{ padding-right: 20px;}
     li {
       margin: 0 12px;
     }

@@ -186,7 +186,6 @@ export default {
       .title {
         padding-bottom: 18px;
         font-size: 16px;
-        font-weight: bold;
         border-bottom: 1px solid $border-rice;
       }
       .price {
@@ -197,16 +196,12 @@ export default {
         color: $red;
         padding-left: 20px;
         margin: 10px 0 25px 0;
-        del {
+        del, span {
           font-size: 16px;
-          color: $dark;
+          color:#999;
           margin-left: 5px;
         }
-        span {
-          font-size: 16px;
-          color: $dark;
-          margin-left: 5px;
-        }
+       
       }
       button {
         background-color: $red;
@@ -229,7 +224,7 @@ export default {
     }
   }
   .title {
-    width: $width;
+    width: 100%;
     margin: auto;
     margin-bottom: 20px;
     padding-bottom: 10px;

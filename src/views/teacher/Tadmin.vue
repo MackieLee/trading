@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       tags: [
-        { name: "我的课程", router: "t-kecheng" },
+        { name: "我的主页", router: "t-kecheng" },
         { name: "内容管理", router: "t-video" },
         { name: "我的问答", router: "t-wenda" },
         { name: "老师认证", router: "identify" },

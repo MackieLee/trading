@@ -18,12 +18,12 @@ export default {
       classes:[
         { title:"税收筹划案例精解-3",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
         { title:"税收筹划案例精解-4",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-5",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-6",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-3",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-3",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-3",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-3",link:"video",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"}
+        { title:"税收筹划案例精解-5",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-6",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-3",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-3",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-3",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
+        { title:"税收筹划案例精解-3",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"}
       ]
     }
   }

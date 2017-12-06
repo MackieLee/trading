@@ -12,7 +12,7 @@
       <span data-ref='2' class="" @click="toggle()">三个月前收支明细</span>
     </p>
     <table v-if="!show">
-      <tr height="42">
+      <tr height="38">
         <th width="160" class="span01">时间</th>
         <th width="100" class="span02"> 金额</th>
         <th width="100" class="span03">操作</th>
@@ -56,7 +56,7 @@
       </tr>
     </table>
     <table v-if="show">
-      <tr height="42">
+      <tr height="38">
         <th width="160" class="span01">时间</th>
         <th width="100" class="span02"> 金额</th>
         <th width="100" class="span03">操作</th>
@@ -139,14 +139,10 @@ export default {
       line-height: 30px;
       color: $white;
       font-size: 14px;
-      background: $btn-default;
+      background: #f84141;
       border: none;
       outline: none;
-      &:hover {
-        background-color: $white;
-        color: $black;
-        border: 1px solid $border-blue;
-      }
+      &:hover {background: #e7141a;}
     }
   }
   .p_ri {

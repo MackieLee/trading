@@ -122,9 +122,9 @@ export default {
     }
   }
   ul {
-    padding: 10px 20px;
+    padding: 10px 20px; overflow: hidden;
     li {
-      width: 180px;
+      width: 180px;float: left;
       border-bottom: 1px dashed $border-dark;
       margin-bottom: 15px;
       padding-right: 15px;
@@ -152,7 +152,7 @@ export default {
       }
     }
     p {
-      font-size: 14px;
+      font-size: 14px;height: 40px; 
       line-height: 30px;
       margin-top: 15px;
     }
@@ -167,7 +167,7 @@ export default {
   width: 525px;
   margin: 60px auto;
   li {
-    width: 33px;
+    width: 33px; 
     padding: 4px 0;
     line-height: 20px;
     text-align: center;

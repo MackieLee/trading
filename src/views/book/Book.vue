@@ -56,7 +56,10 @@
       <div class="sorts">
         <p>
           <ul>
-            <li class="sorts-items" data-name="sorts" @click="getItem(item)" :class="{ 'active':s === item}" v-for="item in sorts" :key="item">{{ item }}</li>
+            <li class="sorts-items" data-name="sorts"
+            	 @click="getItem(item)" :class="{ 'active':s === item}"
+            	  v-for="item in sorts" 
+            	 :key="item">{{ item }}</li>
           </ul>
         </p>
         <p>共找到12本图书</p>
@@ -356,37 +359,27 @@ export default {
       border: 1px solid $border-blue;
       width: 52px;
       padding: 1px 0px;
-      border-radius: 3px;
-    }
-    &:hover {
-      color: $blue;
-    }
-  }
+      border-radius: 3px;}
+    &:hover {color: $blue;}}
   .sorts {
-    border-bottom: 1px solid $red;
+    border-bottom: 1px solid $red; 
     display: flex;
     justify-content: space-between;
-    li {
+      p {float: left;line-height: 44px;
+          li {
       margin: 0 12px;
     }
-  }
-  p {
-  }
-  .active {
-    color: $red;
-  }
+ }}
+  .active {color: $red;}
 }
-
 .video-boxes {
   width: $width;
-  margin: 35px auto;
+  margin: 20px auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  .video-cover {
-    position: relative;
-  }
+  .video-cover {position: relative;}
   .item {
     border: 1px solid $red;
     padding: 8px;
@@ -403,10 +396,8 @@ export default {
     }
     .book-name {
       margin: 15px 0 20px 0;
-      a {
-        margin-right: 30px;
-        font-size: 16px;
-      }
+      a { margin-right: 30px;
+        font-size: 16px;}
     }
     .buss-info {
       font-size: 14px;
@@ -429,7 +420,6 @@ export default {
     }
   }
 }
-
 .title {
   width: $width;
   margin: auto;
@@ -437,23 +427,16 @@ export default {
   padding-bottom: 10px;
   position: relative;
   border-bottom: 1px solid $border-rice;
-  span {
-    padding: 4px 19px;
+  span {padding: 4px 19px;
     margin-right: 10px;
     background-image: url("../../assets/images/Sprite.png");
-    background-position: -5px -253px;
-  }
-  font {
-    font-size: 18px;
-    font-weight: 450;
-  }
-  a {
-    font-size: 14px;
+    background-position: -5px -253px;}
+  font {font-size: 18px;
+    font-weight: 450;}
+  a {font-size: 14px;
     position: absolute;
-    right: 0;
-  }
+    right: 0;}
 }
-
 .modals {
   width: $width;
   display: flex;

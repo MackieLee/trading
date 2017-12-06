@@ -80,7 +80,7 @@ const routes = [
       {
         path:'video-info',
         name:'videoinfo',
-        coponent:videoinfo
+        component:videoinfo
       },
       {
         path: 'offline',

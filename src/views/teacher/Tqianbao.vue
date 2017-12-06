@@ -91,7 +91,7 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .fr{
-  float: right;
+  float: right; margin-top: 50px;
 }
 .my_qianb_r {
   height: auto;

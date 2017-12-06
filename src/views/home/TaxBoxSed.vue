@@ -9,7 +9,7 @@
       <div class="side-ad"></div>
       <div class="video-boxes">
         <div class="item" v-for="item in classes" :key="item.title" title="zhe s sssss">
-          <div><router-link :to="{name:'video'}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
+          <div><router-link :to="{name:item.link}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
           <p class="video-title"><a>{{ item.title }}</a></p>
           <p class="buss-info"><span class="score"><i></i><font>{{ item.score }}</font>分</span><span class="person-current"><i></i><font>{{ item.person }}</font>人</span><span class="classes">课时</span><font>{{ item.class }}</font><span>MIN</span></p>
           <p class="price"><span>课程:<font class="rd">￥{{ item.price }}</font></span><span class="free">试 听</span></p>
@@ -26,7 +26,7 @@ export default {
       classes: [
         {
           title: "税收筹划案例精解-3",
-          link: "video",
+          link: "videoinfo",
           src: "../../assets/images/九鼎财税01_10.png",
           score: "100",
           class: "25",
@@ -35,7 +35,7 @@ export default {
         },
         {
           title: "税收筹划案例精解-4",
-          link: "video",
+          link: "videoinfo",
           src: "../../assets/images/九鼎财税01_10.png",
           score: "100",
           class: "25",
@@ -44,7 +44,7 @@ export default {
         },
         {
           title: "税收筹划案例精解-5",
-          link: "video",
+          link: "videoinfo",
           src: "../../assets/images/九鼎财税01_10.png",
           score: "100",
           class: "25",
@@ -53,7 +53,7 @@ export default {
         },
         {
           title: "税收筹划案例精解-6",
-          link: "video",
+          link: "videoinfo",
           src: "../../assets/images/九鼎财税01_10.png",
           score: "100",
           class: "25",
@@ -62,7 +62,7 @@ export default {
         },
         {
           title: "税收筹划案例精解-3",
-          link: "video",
+          link: "videoinfo",
           src: "../../assets/images/九鼎财税01_10.png",
           score: "100",
           class: "25",
@@ -71,7 +71,7 @@ export default {
         },
         {
           title: "税收筹划案例精解-3",
-          link: "video",
+          link: "videoinfo",
           src: "../../assets/images/九鼎财税01_10.png",
           score: "100",
           class: "25",
@@ -125,7 +125,7 @@ export default {
     height: 506px;
     background-image: url("../../assets/images/九鼎财税01_07.png");
     background-size: 100% auto;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;margin-right: 15px;
   }
   .video-boxes {
     width: 821px;

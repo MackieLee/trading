@@ -1,6 +1,8 @@
 <template>
-  <div class="bind">
-    <div class="container">
+	
+  <div class="bind"> 
+    <div class="container">    
+    	
       <table>
         <tr height="50">
           <td width="60">

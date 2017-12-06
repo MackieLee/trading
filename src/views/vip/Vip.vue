@@ -107,6 +107,7 @@ export default {
   }
   .cur-posi {
     border-bottom: none;
+    p{font-size: 14px;}
     i {
       background-position: -18px -106px;
       margin-right: 6px;
@@ -118,21 +119,19 @@ export default {
     .lf {
       width: 224px;
       padding-bottom: 90px;
-      p {
-        margin: 15px 10px;
+			.name{margin-left: 10px;
+				      p {
+        margin: 5px 0 10px 0;
       }
       .p1{
-        margin-top: 15px;
+        font-size: 14px;
         i{
-          background-position: -115px -35px;
-        }
-      }
-      .flex {
-        display: flex;
-      }
+          background-position: -115px -35px;}}
+			}
+      .flex {display: flex;}
       .head {
-        width: 82px;
-        height: 82px;
+        width: 60px;
+        height: 60px;
         background-image: url('../../assets/images/huanyuanzx01.png');
         background-size: cover;
         background-repeat: no-repeat;
@@ -148,52 +147,42 @@ export default {
           color: #333;
           text-align: left;
           cursor: pointer;
+          i{margin-right:20px;}
         }
         .study {
-          background-position: -58px -222px;
-          margin-right: 6px;
+          background-position: -58px -222px;  
         }
         .shoucang {
           height: 18px;
           background-position: -142px -199px;
-          margin-right: 6px;
         }
         .qa {
           background-position: -146px -228px;
-          margin-right: 6px;
         }
         .shopping-cart {
           background-position: -298px -10px;
-          margin-right: 6px;
         }
         .dingdan {
           background-position: -146px -289px;
-          margin-right: 6px;
         }
         .qianbao {
           background-position: -144px -136px;
-          margin-right: 6px;
         }
         .youhuiquan {
           background-position: -142px -164px;
-          margin-right: 6px;
         }
         .fapiao {
           background-position: -146px -258px;
-          margin-right: 6px;
         }
         .initdata {
           height: 18px;
           background-position: -145px -292px;
-          margin-right: 6px;
         }
         .initpwd {
           background-position: -238px -156px;
-          margin-right: 6px;
         }
         .bind {
           background-position: -235px -83px;
-          margin-right: 6px;
         }
       }
     }
