@@ -4,6 +4,7 @@ import index from '../views/index/Index'//网站总容器
 import home from '../views/home/Home'//主页
 import offline from '../views/courses/Offline'//线下课程
 import odetail from '../views/courses/Detail'//线下课程详情
+import detailbd from '../views/courses/detailbd'//线下课程报名表单
 import teacher from '../views/team/teacher'//专家团队
 import tdetail from '../views/team/TDetail'//专家团队详情页
 import faq from '../views/faq/Faq'//问答
@@ -163,6 +164,11 @@ const routes = [
         name: 'payok',
         component: payok
       },
+      {
+			    path: 'detailbd',
+			    name: 'detailbd',
+			    component: detailbd
+			  },
       // 普通用户端----------------
       {
         path: 'vip',
@@ -206,7 +212,7 @@ const routes = [
             path: 'fp',
             name: 'fapiao',
             component: fapiao
-          },
+          },			    
           {
             path: 'dd',
             name: 'dingdan',

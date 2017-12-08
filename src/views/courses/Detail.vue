@@ -25,7 +25,7 @@
               <i></i>加入收藏</A>
           </li>
           <li class="r">
-            <A href="###">立即购买</A>
+             <router-link :to="{name:'detailbd'}" >立即报名</router-link>
           </li>
 
         </ul>
