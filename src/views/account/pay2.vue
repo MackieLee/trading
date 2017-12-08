@@ -9,8 +9,8 @@
 
   		<ul class="ul02">
     		<li class="li01">
-    			 <img src="../../assets/images/huanyuanzx02.png">
-	         <p>您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</p>
+	         <p class="p">订单提交成功  订单号： 35873707168</p>
+	          <p>限时购买、请于24小时完成付款</p>
     		</li>
     		<li class="li02">
     			产品类型<span>专题课</span>
@@ -19,10 +19,18 @@
     			总金额(元)<span>￥2,800.00</span>
     		</li>
     	</ul>
-    	<ul class="ul03"><li>总金额:<span> ¥ 4,000.00</span></li></ul>
-      
+    	<ul class="ul03">
+    		<li class="li01">支付宝支付</li>
+    		<li class="li02">
+    		<p>
+    		<img data-v-c0be5632="" src="/static/img/订阅号.e8ca73d.png" width="240">
+    		<span>打开微信，用微信扫一扫即可付款。</span></p>
+    		<img src="../../assets/images/ddzf7.png">
+    		</li>   
+    		<li class="li01">其他付款方式></li>
+    	</ul>      
       <div class="btn">
-      	 <router-link tag="div" :to="{name:'pay1'}" class="a" >立即购买</router-link>
+      	 <router-link tag="div" :to="{name:'payok'}" class="a" >立即支付</router-link>
       </div>
       
     </div>
@@ -55,28 +63,36 @@ export default {
     i{ height: 21px;width: 21px; display: inline-block; vertical-align: text-bottom;
     margin-right:5px;} 	
     }
-    .li01{background: url(../../assets/images/ddzf.png) no-repeat right top #e7141a;
+    .li01{background: url(../../assets/images/ddzf1.png) no-repeat right top #e7141a;
     color: #fff;
     i{background: url(../../assets/images/ddzf3.png) no-repeat center center;}}
-    .li02{background: url(../../assets/images/ddzf2.png) no-repeat right top #e5e5e5;
-    i{background: url(../../assets/images/ddzf4.png) no-repeat center center;}}   
-    .li03{i{background: url(../../assets/images/ddzf5.png) no-repeat center center;}} 
-  	}
+    .li02{background: url(../../assets/images/ddzf.png) no-repeat right top #e7141a;
+    color: #fff;
+    i{background: url(../../assets/images/ddzf3.png) no-repeat center center;}}   
+    .li03{
+    	i{background: url(../../assets/images/ddzf5.png) no-repeat center center;}} 
+  	}	
 		.ul02{ margin:30px 0;background: #e5e5e5;overflow: hidden;
-		li{float: left;width: 15%; font-size: 14px;line-height: 40px;margin: 20px 0 20px 10px;
-		span{margin-right: 60px; display: block;  color: #000;}
+		li{float: left;width: 15%;margin: 20px 0 20px 10px;font-size: 14px;line-height: 40px;
+		span{margin-right: 60px; display: block; color: #000;}
 		p{font-size: 14px;float: left; width: 60%;line-height: 40px;}
 		}
-		.li01{width: 60%;
-		img{height: 80px;width: 110px;float: left; margin-right: 10px;}
+		.li01{width:55%;padding-left: 40px;
+	 .p{color: #000;font-size: 16px;}
 		}
+		.li03{
+	   span{color: #E7141A;font-size: 18px;}}
 		}
-		.ul03{
-			li{font-size: 14px;background: #e5e5e5;line-height: 34px; height: 34px;width: 100%;text-align: right;
-			span{
-				font-size: 18px; color: #E7141A;margin-right:20px;
-			}}
-		}
+	.ul03{ border: 1px #ddd solid; padding: 20px 30px;
+		.li02{overflow: hidden; padding: 0px 30px;
+		p{margin-right: 50px;float: left;font-size: 14px;width: 300px;height: 300px; padding-top: 20px;
+		span{margin-top: 40px;}}
+		img{float: left; margin: 0 30px;}
+			}
+	   .li01{font-size: 18px; text-align: left;} 
+		li{font-size: 14px;width: 90%;text-align: center;}
+		
+	}
 		.btn{width: 100%;text-align: right;overflow: hidden;}
 	 .a:hover{background: #E7141A;}
    .a{

@@ -35,6 +35,7 @@ import study from '../views/vip/Study'//我的学习
 import shoucang from '../views/vip/Shoucang'//我的收藏
 import qa from '../views/vip/Qa'//我的问答
 import qianbao from '../views/vip/Qianbao'//我的钱包
+import jifenmall from '../views/vip/jifenmall'//积分商城
 import youhuiquan from '../views/vip/Youhuiquan'//我的优惠券
 import fapiao from '../views/vip/Fapiao'//发票索取
 import dingdan from '../views/vip/Dingdan'//我的订单
@@ -57,6 +58,9 @@ import tvideo from '../views/teacher/Tvideo'//老师端视频管理
 import bodanlist from '../views/teacher/BodanList'//播单列表
 // ----------------------支付页面----------------------------------
 import pay from '../views/account/Pay'//支付页面
+import pay1 from '../views/account/Pay1'//支付页面
+import pay2 from '../views/account/Pay2'//支付页面
+import payok from '../views/account/payok'//支付页面
 
 Vue.use(Router)
 
@@ -143,6 +147,21 @@ const routes = [
         name: 'pay',
         component: pay
       },
+      {
+        path: '/pay1',
+        name: 'pay1',
+        component: pay1
+      },
+      {
+        path: '/pay2',
+        name: 'pay2',
+        component: pay2
+      },
+      {
+        path: '/payok',
+        name: 'payok',
+        component: payok
+      },
       // 普通用户端----------------
       {
         path: 'vip',
@@ -171,6 +190,11 @@ const routes = [
             path: 'qb',
             name: 'qianbao',
             component: qianbao
+          },
+          {
+            path: 'jfsc',
+            name: 'jifenmall',
+            component: jifenmall
           },
           {
             path: 'yhq',
