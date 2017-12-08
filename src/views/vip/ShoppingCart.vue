@@ -34,11 +34,7 @@
           <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br>加到我的收藏</div>
         </div>
       </div>
-   
-    
     </div>
-    
-    
     <ul class="ul03">
       <li class="li01">
         <i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选 </li>

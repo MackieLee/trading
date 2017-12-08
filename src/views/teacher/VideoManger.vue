@@ -1,5 +1,36 @@
 <template>
-  <div class="video-list">
+  <div class="bodan-mager">
+    <div>
+      <div class="clearfix">
+        <div class="fl">
+          <img src="../../assets/images/huanyuanzx02.png" alt="" />
+        </div>
+        <div class="fl h-100">
+          <div class="title">
+            <p>企业所得税年度纳税申报表中隐藏的稽查陷阱</p>
+          </div>
+          <p>简介</p>
+          <p class="date">2017-12-5 17:09:51</p>
+        </div>
+        <div class="fr">
+          <p>编辑播单信息</p>
+        </div>
+      </div>
+      <ul>
+        <li></li>
+        <li>添加视频</li>
+        <li>移除视频</li>
+        <li>移动到播单</li>
+        <li>删除</li>
+      </ul>
+    </div>
+    <div class="head">
+      <p>
+        <router-link tag="span":to="{ name : 'bodanlist' }">播单管理</router-link>
+        <span class="splite">&nbsp;</span>
+        <router-link tag="span":to="{ name : 'videos' }">视频管理</router-link>
+      </p>
+    </div>
     <div class="head">
       <div class="title"><span class="fl">视频</span><span class="fr">视频上传</span></div>
     </div>
@@ -21,11 +52,11 @@
             </div>
           </th>
           <td width='100'>
-            视频:2
+            {{ item.state }}
           </td>
           <td width='100'>
             <p>添加视频</p>
-            <router-link tag="p" :to="{ name:item.link }">管理播单</router-link>
+            <router-link tag="p" :to="{ name:item.link }">管理视频</router-link>
             <p>删除</p>
           </td>
         </tr>
@@ -54,22 +85,22 @@ export default {
           src: "",
           title: "企业所得税年度纳税申报表中隐企业所得税年度纳税申报表中隐藏的稽查陷阱企业所得税",
           date: "2017-12-5 15:00",
-          counts: "2",
-          link: "bodanmanger"
+          state:"上传完成",
+          link: "videomanger"
         },
         {
           src: "",
           title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
           date: "2017-12-5 15:00",
-          counts: "2",
-          link: "bodanmanger"
+          state:"上传完成",
+          link: "videomanger"
         },
         {
           src: "",
           title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
           date: "2017-12-5 15:00",
-          counts: "2",
-          link: "bodanmanger"
+          state:"上传完成",
+          link: "videomanger"
         }
       ]
     };
@@ -88,6 +119,9 @@ export default {
 .fr {
   float: right;
 }
+.clearfix {
+  overflow: hidden;
+}
 .head {
   .title {
     background-color: $bg-nav;
@@ -103,7 +137,6 @@ export default {
   border: 1px solid $border-dark;
   margin-bottom: 20px;
   padding: 10px;
-
   table {
     th,
     td {
@@ -114,7 +147,7 @@ export default {
     th {
       font-weight: bold;
       text-align: left;
-      .h-100{
+      .h-100 {
         height: 100px;
         width: 360px;
       }
