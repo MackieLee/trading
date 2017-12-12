@@ -149,11 +149,11 @@ export default {
           i{margin-right:20px;}
         }
         .study {
-          background-position: -58px -222px;  
+          background-position: -58px -220px;  
         }
         .shoucang {
           height: 18px;
-          background-position: -142px -199px;
+          background-position: -142px -198px;
         }
         .qa {
           background-position: -143px -228px;
