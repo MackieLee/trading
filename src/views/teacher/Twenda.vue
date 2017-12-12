@@ -284,7 +284,7 @@ export default {
   float: left;
 }
 .my_qianb_r .div01 .l {
-  width: 85%;position: relative;
+  width: 80%;position: relative;margin-right: 5%;
 }
 .my_qianb_r .div01 .l h2,.my_qianb_r .div01 .r h3{
 font-size: 14px;line-height: 33px;

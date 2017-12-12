@@ -230,7 +230,7 @@ export default {
 }
 i {
   display: inline-block;
-  width: 30px;
+  width: 20px;
   height: 22px;
   background-image: url("../../assets/images/Sprite.png");
   vertical-align: text-bottom;
@@ -240,7 +240,7 @@ i {
   padding: 0 0 26px 0;
   width: 100%;
   i {
-    background-position: -18px -106px;
+    background-position: -18px -100px;
     margin-right: 6px;
   }
 }
@@ -302,7 +302,7 @@ i {
       bottom: -10px;
       left: 25%;
       i {
-        background-position: -15px -224px;
+        background-position: -15px -224px;width: 26px;
         margin-right: 6px;
       }
     }

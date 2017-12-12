@@ -11,14 +11,13 @@
         <div class="flex">
           <div class="head"></div>
           <div class="name">
-            <p class="p1">
-              在树下听歌</p>
-            <p class="p2">普通会员</p>
+            <p class="p1">孙老师</p>
+            <p class="p2">财税专家</p>
           </div>
         </div>
         <div class="nav">
           <router-link v-for="item in tags" :key="item.router" tag="p" :to="{ name : item.router }">
-            <i class="t2"></i>{{ item.name }}
+             <i :class="item.router"></i>{{ item.name }}
           </router-link>
         </div>
       </div>
@@ -71,7 +70,7 @@ export default {
   .cur-posi {
     border-bottom: none;
     i {
-      background-position: -56px -82px;
+      background-position: -18px -100px;
       margin-right: 6px;
     }
   }
@@ -84,12 +83,9 @@ export default {
       p {
         margin: 15px 10px;
       }
-      .p1 {
-        margin-top: 15px;
-        i {
-          background-position: -115px -35px;
-        }
-      }
+      .name{margin-left: 10px;}
+      .p1{font-size: 14px;}
+      .p1,.p2 {margin: 5px 0 10px 0;}
       // .p2 {
       //   margin-left: 32px;
       // }
@@ -97,8 +93,8 @@ export default {
         display: flex;
       }
       .head {
-        width: 82px;
-        height: 82px;
+        width:60px;
+        height: 60px;
         background-image: url("../../assets/images/huanyuanzx01.png");
         background-size: cover;
         background-repeat: no-repeat;
@@ -109,26 +105,24 @@ export default {
       .nav {
         p {
           margin: 15px 0;
-          padding: 11px 0;
+          padding: 5px 30px;
           width: 224px;
           color: #333;
-          text-align: center;
+          text-align: left;
           cursor: pointer;
-        }
-        .t1 {
-          background-position: -58px -222px;
-          margin-right: 6px;
-        }
-        .t2 {
-          height: 18px;
-          background-position: -146px -230px;
-          margin-right: 6px;
-        }
-        .t3 {
-          background-position: -144px -136px;
-          margin-right: 6px;
-        }
+          i{margin-right: 6px;}
+       
+        .t-kecheng { background-position: -58px -221px;}
+        .t-video{ background-position: -15px -388px;}
+        .t-wenda { background-position: -143px -228px;}
+        .identify{ background-position: -57px -388px;}
+        .t-qianbao { background-position: -142px -136px;}
+        .valuate{ background-position: -143px -385px;}
+        .t-initdata {background-position: -145px -287px;}
+        .t-initpwd { background-position: -236px -151px;}
+        .t-bind { background-position: -233px -79px;}
       }
+       }
     }
     .rt {
       width: 811px;

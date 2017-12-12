@@ -118,7 +118,7 @@ i {
 .cur-posi {
   margin: 20px 0 26px 0;
   i {
-    background-position: -18px -106px;
+    background-position: -18px -100px;
     vertical-align: text-bottom;
     margin-right: 6px;
   }

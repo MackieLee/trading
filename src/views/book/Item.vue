@@ -31,7 +31,7 @@
         <p>出版时间：2012年07月</p>
         <p>适合人群：备考CPA审计的学员看官方教材云里雾里的学员</p>
         <p class="btn">
-          <button>立即购买</button>
+          <router-link tag="button" :to="{name:'pay'}" class="a" >立即购买</router-link>
           <button><i></i>加入购物车</button>
         </p>
       </div>
@@ -164,7 +164,7 @@ export default {
   .cur-posi {
     margin-bottom: 26px;
     i {
-      background-position: -56px -82px;
+      background-position: -18px -100px;
       margin-right: 6px;
     }
   }

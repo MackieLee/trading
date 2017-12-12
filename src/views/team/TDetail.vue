@@ -74,7 +74,7 @@ export default {
     }
     .cur-posi{
       i{
-        background-position: -18px -106px;
+        background-position: -18px -100px;
         margin-right: 6px;
       }
     }
