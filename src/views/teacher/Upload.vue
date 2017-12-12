@@ -2,7 +2,7 @@
   <div class="upload">
     <div class="upload-box">
       <div class="head">
-        <div class="title"><span class="lf">视频</span><span class="rt">视频上传</span></div>
+        <div class="title"><span class="lf">视频</span><span class="rt">视频管理</span></div>
       </div>
       <div class="video-loader">
         <div class="center">
@@ -13,7 +13,7 @@
     </div>
     <div class="bodan">
       <div class="head">
-        <div class="title"><span class="lf">播单</span><span class="rt">创建播单</span></div>
+        <div class="title"><span class="lf">播单</span><span class="rt">播单管理</span></div>
       </div>
       <div class="video-loader">
         <div class="center">

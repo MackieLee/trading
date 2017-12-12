@@ -52,6 +52,7 @@
             </div>
             <p class="book-name">
               <a>土地增值税实战与案例</a>
+              <span></span>
             </p>
             <p class="buss-info">￥
               <span class="current-price">51.00</span>

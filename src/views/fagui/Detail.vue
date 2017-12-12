@@ -134,7 +134,7 @@ export default {
 .about {
   width: $width;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top:15px;
   // border-top: 1px solid $border-rice;
   .green {
     color: green;
@@ -211,7 +211,7 @@ export default {
   }
   .cur-posi {
     border-bottom: none;
-    p{line-height: 30px;}
+    p{line-height: 20px;}
     i {
       background-position: -18px -96px;
       margin:0 6px 0 0;

@@ -116,9 +116,10 @@ i {
   background-image: url("../../assets/images/Sprite.png");
 }
 .cur-posi {
-  margin: 20px 0 26px 0;
+  margin: 0px 0 26px 0;
+  p{height: 20px; line-height: 20px;}
   i {
-    background-position: -18px -100px;
+    background-position: -18px -97px;
     vertical-align: text-bottom;
     margin-right: 6px;
   }
