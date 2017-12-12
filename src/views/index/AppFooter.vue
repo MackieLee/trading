@@ -168,7 +168,7 @@ export default {
         }
         .mail {
           background-image: url('../../assets/images/Sprite.png');
-          background-position: -62px -136px;
+          background-position: -61px -136px;
         }
         .tel {
           background-image: url('../../assets/images/Sprite.png');

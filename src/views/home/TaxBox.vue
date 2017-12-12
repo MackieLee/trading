@@ -177,15 +177,15 @@ export default {
         .score i {
           display: inline-block;
           height: 20px;
-          width: 20px;
+          width: 15px;
           background-position: -240px -287px;
           vertical-align: text-bottom;
         }
         .person-current i {
           display: inline-block;
           height: 20px;
-          width: 20px;
-          background-position: -346px -285px;
+          width: 25px;
+          background-position: -344px -285px;
           vertical-align: text-bottom;
         }
       }

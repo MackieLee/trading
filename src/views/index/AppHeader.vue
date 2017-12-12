@@ -144,7 +144,7 @@ export default {
     .logo {
       padding: 18px 71px;
       background-image: url("../../assets/images/Sprite.png");
-      background-position: 428px 57px;
+      background-position: -138px -319px;
     }
     li {
       margin: 0 1px;

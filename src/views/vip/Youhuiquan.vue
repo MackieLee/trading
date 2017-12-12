@@ -385,7 +385,7 @@ export default {
 }
 
 .my_qianb_r .p02 {
-  width: 90%;
+  width: 99%;
   margin: 10px auto;
   border-bottom: 1px solid #ddd;
 }

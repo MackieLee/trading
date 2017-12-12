@@ -4,7 +4,8 @@
       <p>
         <i></i>当前位置 : &nbsp;
         <router-link to="/home">九鼎财税</router-link>
-        <router-link :to="{ name: 'offline' }">&nbsp;&gt;&nbsp;线下课程</router-link>&nbsp;&gt;&nbsp;土地增值税清算技巧[专题]</p>
+        <router-link :to="{ name: 'offline' }">&nbsp;&gt;&nbsp;线下课程</router-link>
+        &nbsp;&gt;&nbsp;土地增值税清算技巧[专题]</p>
     </div>
     <div id="xxkc_xq01">
       <img src="../../assets/images/jitax_线下课程_xq01.png" height="300">
@@ -94,7 +95,7 @@ i {
 .cur-posi {
   margin: 20px 0 26px 0;
   i {
-    background-position: -18px -106px;
+    background-position: -18px -100px;
     vertical-align: text-bottom;
     margin-right: 6px;
   }

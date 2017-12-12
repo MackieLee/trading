@@ -91,13 +91,13 @@
         background-image: url('../../assets/images/Sprite.png');
       }
       .play{
-        background-position:114px -54px;
+        background-position:-286px -44px;
       }
       .stop{
-        background-position: 111px -104px;
+        background-position: -286px -92px;
       }
       .pause{
-        background-position: 112px -142px;
+        background-position: -286px -132px;
       }
     }
     .vol{
@@ -112,7 +112,7 @@
         background-image: url('../../assets/images/Sprite.png');
       }
       .dec{
-        background-position: 110px 192px;
+        background-position:-291px -213px;
       }
       .vol-bar{
         display: inline-block;

@@ -57,17 +57,17 @@ export default {
   }
   i {
     display: inline-block;
-    width: 23px;
+    width: 26px;
     height: 22px;
     background-image: url('../../assets/images/Sprite.png');
     vertical-align: text-bottom;
-    background-position: -16px 32px;
+    background-position: -13px -350px;
     margin-right: 11px;
   }
   .cur-posi {
     border-bottom: none;
     i {
-      background-position: -18px -106px;
+      background-position: -18px -100px;
       margin-right: 6px;
     }
   }

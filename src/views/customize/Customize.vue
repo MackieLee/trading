@@ -157,7 +157,7 @@ export default {
   .cur-posi {
     padding:0 0 26px 0;
     i {
-      background-position: -18px -106px;
+      background-position: -18px -100px;
       margin-right: 6px;
     }
   }

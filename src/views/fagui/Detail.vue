@@ -193,7 +193,7 @@ export default {
   }
   i {
     display: inline-block;
-    width: 25px;
+    width: 27px;
     height: 25px;
     background-image: url('../../assets/images/Sprite.png');
     vertical-align: text-bottom;
@@ -204,16 +204,17 @@ export default {
     background-position: -183px -118px;
   }
   .wechat{
-    background-position: -183px -44px;
+    background-position: -181px -44px;
   }
   .weibo{
-    background-position: -185px -89px;
+    background-position: -183px -89px;
   }
   .cur-posi {
     border-bottom: none;
+    p{line-height: 30px;}
     i {
-      background-position: -18px -106px;
-      margin-right: 6px;
+      background-position: -18px -96px;
+      margin:0 6px 0 0;
     }
   }
   .container {
@@ -234,7 +235,7 @@ export default {
     }
     .pgs {
       width: 525px;
-      margin: 40px auto 5px auto;
+      margin: 30px auto;
       li {
         width: 33px;
         padding: 4px 0;

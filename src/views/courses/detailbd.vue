@@ -2,7 +2,8 @@
   <div class="customize">
     <div class="cur-posi">
         <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;定制课程
+        <router-link to="/home">九鼎财税></router-link>
+        <router-link to="/odetail">线下课程</router-link>&nbsp;&gt;&nbsp;线下课程报名
     </div>
     <div class="content">
       <font>线下课程报名</font>

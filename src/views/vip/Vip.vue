@@ -107,9 +107,8 @@ export default {
   }
   .cur-posi {
     border-bottom: none;
-    p{font-size: 14px;}
     i {
-      background-position: -18px -106px;
+      background-position: -18px -100px;
       margin-right: 6px;
     }
   }
@@ -150,23 +149,23 @@ export default {
           i{margin-right:20px;}
         }
         .study {
-          background-position: -58px -222px;  
+          background-position: -58px -220px;  
         }
         .shoucang {
           height: 18px;
-          background-position: -142px -199px;
+          background-position: -142px -198px;
         }
         .qa {
-          background-position: -146px -228px;
+          background-position: -143px -228px;
         }
         .shopping-cart {
-          background-position: -298px -10px;
+          background-position: -288px -10px;
         }
         .dingdan {
-          background-position: -146px -289px;
+          background-position: -144px -289px;
         }
         .qianbao {
-          background-position: -144px -136px;
+          background-position: -142px -136px;
         }
         .youhuiquan {
           background-position: -142px -164px;
@@ -179,10 +178,10 @@ export default {
           background-position: -145px -292px;
         }
         .initpwd {
-          background-position: -238px -156px;
+          background-position: -236px -156px;
         }
         .bind {
-          background-position: -235px -83px;
+          background-position: -233px -83px;
         }
       }
     }

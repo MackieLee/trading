@@ -159,7 +159,7 @@ export default {
 }
 
 .my_order_r .ul01 {
-  height: 20px;
+  height: 30px;line-height: 30px;
   width: 100%;
   border-bottom: 1px solid $red;
   padding-top: 10px;

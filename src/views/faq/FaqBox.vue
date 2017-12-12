@@ -6,7 +6,7 @@
     <div class="title">
       <span></span>
       <font>最新问答</font>
-      <a>更多>></a>
+    <!--  <a>更多>></a>-->
     </div>
     <div class="container">
       <div class="floor">
@@ -122,10 +122,10 @@ export default {
     position: relative;
     border-bottom: 1px solid $border-rice;
     span {
-      padding: 9px 19px;
+      padding: 9px 14px;
       margin-right: 10px;
       background-image: url("../../assets/images/Sprite.png");
-      background-position: -4px 39px;
+      background-position: -98px -84px;
     }
     font {
       font-size: 18px;
