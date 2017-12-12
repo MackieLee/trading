@@ -108,7 +108,7 @@ export default {
 }
 .content {
   width: 700px;
-  height: 470px;
+  height: 400px;
   background-color: $white;
   margin: 0 auto;
   position: relative;

@@ -4,8 +4,13 @@
   	<div class="modal-outer" v-show="modal">
       <!-- <div class="close">X</div> -->
       <!-- v-bind传输数据到子组件(contentSeries) -->
-      <modal @closeModal="closeModal" :content-series="series"></modal>
-    	</div>
+      <modal @closeModal="closeModal"></modal>
+    </div>
+		<div class="modal-outer" v-show="wendaModal">
+      <!-- <div class="close">X</div> -->
+      <!-- v-bind传输数据到子组件(contentSeries) -->
+      <wenda-modal @closeWendaModal="closeWendaModal"></wenda-modal>
+    </div>
     <p class="p01">共7个回答</p>
     <div class="my_qianb_cotainer">
       <p class="p02">
@@ -24,7 +29,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="hui" @click="modal=!modal,series=true">查看评价</p>
+	        	<p class="hui" @click="modal=!modal">查看评价</p>
 	        </div>
 	       </li>
 	      <li>
@@ -34,7 +39,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">回答</p>
+	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
 	        </div>
 	       </li>
 	      <li>
@@ -44,7 +49,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">回答</p>
+	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
 	        </div>
 	       </li>
 	      <li>
@@ -54,7 +59,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">回答</p>
+	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
 	        </div>
 	       </li>
 	      <li>
@@ -67,7 +72,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="hui" @click="modal=!modal,series=true">查看评价</p>
+	        	<p class="hui" @click="modal=!modal">查看评价</p>
 	        </div>
 	       </li>
 	      <li>
@@ -77,7 +82,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">回答</p>
+	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
 	        </div>
 	       </li>
        <li>
@@ -90,7 +95,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="hui" @click="modal=!modal,series=true">查看评价</p>
+	        	<p class="hui" @click="modal=!modal">查看评价</p>
 	        </div>
 	       </li>
 
@@ -104,7 +109,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">回答</p>
+	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
 	        </div>
 	       </li>
 	      <li>
@@ -114,7 +119,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">回答</p>
+	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
 	        </div>
 	       </li>
 	      <li>
@@ -124,7 +129,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">回答</p>
+	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
 	        </div>
 	       </li>
 	      <li>
@@ -134,7 +139,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">回答</p>
+	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
 	        </div>
 	       </li>
 
@@ -145,7 +150,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="red">回答</p>
+	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
 	        </div>
 	       </li>
 
@@ -162,7 +167,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="hui" @click="modal=!modal,series=true">查看评价</p>
+	        	<p class="hui" @click="modal=!modal">查看评价</p>
 	        </div>
 	       </li>
 	       <li>
@@ -175,7 +180,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
-	        	<p class="hui" @click="modal=!modal,series=true">查看评价</p>
+	        	<p class="hui" @click="modal=!modal">查看评价</p>
 	        </div>
 	      </li>
       </ul>
@@ -185,27 +190,25 @@
 </template>
 
 <script>
-import Modal from "../teacher/Qa_Modal"
+import Modal from "../modal/Qa_Modal"
+import WendaModal from '../modal/Twenda_Modal'
 export default {
   name: 'youhuiquan',
-    components: { Modal },
+    components: { Modal,WendaModal },
   data(){
     return{
-      part:'1',
+			part:'1',
       modal:false,
-      series: true
+			wendaModal:false
     }
   },
   methods:{
-    toggle(){
-      document.getElementsByClassName('cur')[0].className = ''
-      event.currentTarget.setAttribute('class','cur')
-      let ref = event.currentTarget.dataset.ref
-      this.part = ref
-    },
     closeModal: function() {
       this.modal = false
     },
+		closeWendaModal: function(){
+			this.wendaModal = false
+		}
   }
 }
 </script>
