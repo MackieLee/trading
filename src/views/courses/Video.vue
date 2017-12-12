@@ -68,6 +68,7 @@
       <span class="pointer shoucang" @click="shouCang">收藏</span>
       <i class="red-heart" v-if="shoucang"></i>
       <i class="grey-heart" v-if="!shoucang"></i>
+      <span>下载本节视频</span>
       <div class="doc-box">
         <div class="doc-item" v-for="item in doc" :key="item.cutpoint">
           <!-- 循环遍历出文档模块 -->

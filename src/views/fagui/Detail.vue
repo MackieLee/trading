@@ -50,9 +50,9 @@
         <br> 　　2017年11月1日后报关出口的货物，如生产企业在2017年11月1日前已向综服企业开具增值税专用发票（除代办退税专用发票外）的，仍按照国家税务总局公告2014年第13号的规定办理出口退税。
         <br> 　　特此公告。
         <br>
-        <h3 class="ctr">查看更多内容</h3>
-        <a class="ctr" style="display:block;line-height:0;margin-top:10px;">∨</a>
-        <a class="ctr" style="display:block;line-height:15px;">∨</a>
+        <h3 class="ctr" style="color:red;">查看更多内容</h3>
+        <a class="ctr" style="display:block;line-height:0;margin-top:10px;color:red;">∨</a>
+        <a class="ctr" style="display:block;line-height:15px;color:red;">∨</a>
         <div class="clearfix">
           <div class="lf">附件：</div>
           <div class="lf green">1.代办退税情况备案表<br> 2.外贸综合服务企业代办税申报表

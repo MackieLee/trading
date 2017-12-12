@@ -47,8 +47,8 @@ export default {
   name: "fapiao",
   data() {
     return {
-      type: "",
-      taxType: "",
+      type: "商品类型",
+      taxType: "发票类型",
       num2: '',
       all:'false'
     };
@@ -250,7 +250,7 @@ i {background-position: -103px -353px;
      float: left;width: 270px;
     font-size: 14px;
     margin-left: 15px;
-    display:inline-block;font-weight: bold;
+    display:inline-block;
   }
 }
    li {

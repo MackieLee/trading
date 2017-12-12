@@ -110,9 +110,9 @@ export default {
   },
   methods: {
     toggle: function() {
-      document.getElementsByClassName("cur")[0].className = "";
-      event.target.setAttribute("class", "cur");
-      this.show = !this.show;
+      document.getElementsByClassName("cur")[0].className = ""
+      event.target.setAttribute("class", "cur")
+      this.show = !this.show
     }
   }
 };

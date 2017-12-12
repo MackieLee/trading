@@ -57,7 +57,7 @@ import tinitpwd from '../views/teacher/Tinitpwd'//老师端账号安全
 import tvideo from '../views/teacher/Tvideo'//老师端视频管理
 import bodanlist from '../views/teacher/BodanList'//播单列表
 import bodanmanger from '../views/teacher/BodanManger'//播单管理
-import videomanger from '../views/teacher/videomanger'//视频管理
+import videomanger from '../views/teacher/Videomanger'//视频管理
 // ----------------------支付页面----------------------------------
 import pay from '../views/account/Pay'//支付页面
 import pay1 from '../views/account/Pay1'//支付页面

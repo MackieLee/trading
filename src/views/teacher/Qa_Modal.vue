@@ -4,9 +4,6 @@
     <div class="fixed">
       <div class="content">
         <div class="close" @click="closeModal"></div>
-        <div v-show="tip" class="tip">
-          {{ tipMsg }}
-        </div>
         <div class="ctr">
           <!-- 修改为star -->
           <h2>答疑评分</h2>
@@ -20,35 +17,35 @@
                 <li>
                   <p class="p">回答是否准确</p>
                   <div class="star">
-                    <stars @check = "check" sequence = '0'></stars>
+                    <stars sequence = '0'></stars>
                     <p></p>
                   </div>
                 </li>
                 <li>
                   <p class="p">回答是否完整</p>
                   <div class="star">
-                    <stars @check = "check" sequence = '1'></stars>
+                    <stars sequence = '1'></stars>
                     <p></p>
                   </div>
                 </li>
                 <li>
                   <p class="p">答案是否实用</p>
                   <div class="star">
-                    <stars @check = "check" sequence = '2'></stars>
+                    <stars sequence = '2'></stars>
                     <p></p>
                   </div>
                 </li>
                 <li>
                   <p class="p">政策是否过时</p>
                   <div class="star">
-                    <stars @check = "check" sequence = '3'></stars>
+                    <stars sequence = '3'></stars>
                     <p></p>
                   </div>
                 </li>
                 <li>
                   <p class="p">对您是否有用</p>
                   <div class="star">
-                    <stars @check = "check" sequence = '4'></stars>
+                    <stars sequence = '4'></stars>
                     <p></p>
                   </div>
                 </li>
@@ -56,12 +53,9 @@
           	</div>
           	<div class="da_box_c">
           		<h3>综合满意度 :</h3>
-          		<stars @check = "check" sequence = '5'></stars>
+          		<stars sequence = '5'></stars>
           	</div>
-	          <textarea v-model="msg" placeholder="那么善良的您，夸夸我吧！"/>
-	          <div class="sub-btn">
-	            <input type="button" class="submit" @click="submitCommit" value="提 交">
-	          </div>
+	          <textarea :value="msg" disabled/>
           </div>
         </div>
       </div>
@@ -70,14 +64,12 @@
 </template>
 
 <script>
-import Stars from "../stars/Stars";
+import Stars from "../stars/Stars.1";
 export default {
   data() {
     return {
       score: [],
-      msg: "",
-      tip: false,
-      tipMsg: "请完善你的评论"
+      msg: "老师真棒"
     };
   },
   components: {
@@ -90,20 +82,6 @@ export default {
     closeModal: function() {
       //将自定义事件通过this.$emit传递给父组件,然后在父组件用v-on监听子组件的事件触发
       this.$emit("closeModal");
-    },
-    submitCommit: function() {
-      if (this.score.length !== 0 || this.msg !== "") {
-        //vue-resource....
-        this.$emit("showTip");
-      } else {
-        this.tip = true;
-        setTimeout(() => {
-          this.tip = false;
-        }, 1500);
-      }
-    },
-    check: function(sequence, score) {
-      this.score[sequence] = score;
     }
   }
 };
@@ -112,7 +90,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .tip {
-  width:100px;
+  width: 100px;
   height: 60px;
   line-height: 60px;
   background-color: rgba(0, 0, 0, 0.9);

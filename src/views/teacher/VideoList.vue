@@ -137,7 +137,7 @@ export default {
       img {
         display: block;
         width: 180px;
-        height: 96px;
+        height: 100px;
       }
       .length {
         position: absolute;

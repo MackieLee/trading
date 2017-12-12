@@ -27,7 +27,7 @@
     		<span>打开微信，用微信扫一扫即可付款。</span></p>
     		<img src="../../assets/images/ddzf7.png">
     		</li>   
-    		<li class="li01">其他付款方式></li>
+    		<router-link tag="li" style="cursor:pointer;" :to="{ name: 'pay1'}" class="li01">其他付款方式></router-link>
     	</ul>      
       <div class="btn">
       	 <router-link tag="div" :to="{name:'payok'}" class="a" >立即支付</router-link>

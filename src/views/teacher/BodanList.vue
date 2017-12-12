@@ -140,7 +140,7 @@ export default {
     }
     img {
       width: 180px;
-      height: 96px;
+      height: 100px;
     }
   }
 }

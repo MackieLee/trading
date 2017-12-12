@@ -41,7 +41,7 @@ export default {
       span {
         display: inline-block;
         line-height: 30px;
-        width: 50px;
+        width: 80px;
         text-align: center;
         cursor: pointer;
       }

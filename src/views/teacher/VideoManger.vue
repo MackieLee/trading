@@ -12,56 +12,110 @@
           <p>简介</p>
           <p class="date">2017-12-5 17:09:51</p>
         </div>
-        <div class="fr">
-          <p>编辑播单信息</p>
-        </div>
       </div>
-      <ul>
-        <li></li>
-        <li>添加视频</li>
-        <li>移除视频</li>
-        <li>移动到播单</li>
+      <ul class="sm-tags">
+        <li>添加课件</li>
+        <li>添加试题</li>
         <li>删除</li>
       </ul>
     </div>
     <div class="head">
       <p>
-        <router-link tag="span":to="{ name : 'bodanlist' }">播单管理</router-link>
+        <span @click="cur = 'shiti'" :class="{'red': cur === 'shiti'}">试题管理</span>
         <span class="splite">&nbsp;</span>
-        <router-link tag="span":to="{ name : 'videos' }">视频管理</router-link>
+        <span @click="cur = 'kejian'" :class="{'red': cur === 'kejian'}">课件管理</span>
       </p>
     </div>
-    <div class="head">
-      <div class="title"><span class="fl">视频</span><span class="fr">视频上传</span></div>
-    </div>
-    <div class="upload-box">
-      <table>
-        <tr height="120" v-for="item in items" :key="item.src">
-          <td width='50'>
-            <input type="checkbox" />
-          </td>
-          <th width='550'>
-            <div class="fl">
-              <img src="../../assets/images/huanyuanzx02.png" alt="" />
-            </div>
-            <div class="fl h-100">
-              <div class="title">
-                <p>{{ item.title }}</p>
-              </div>
-              <p class="date">2017-12-5 17:09:51</p>
-            </div>
-          </th>
-          <td width='100'>
-            {{ item.state }}
-          </td>
-          <td width='100'>
-            <p>添加视频</p>
-            <router-link tag="p" :to="{ name:item.link }">管理视频</router-link>
-            <p>删除</p>
-          </td>
-        </tr>
-      </table>
-    </div>
+    <table v-show=" cur === 'shiti'">
+      <tr>
+        <th></th>
+        <th>附件</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+      <tr>
+        <td width="50"><input type="checkbox" value="all" /></td>
+        <td class="left" width="550">
+          <p>下面哪一项的电子邮件链接是正确的？答案：D</p>
+          <p>A.xxx.com.cn B.xxx@.net C.xxx@.com D.xxx@xxx.com</p>
+          <p class="red">【解析】:因为电子邮件后缀是.com</p>
+        </td>
+        <td width="100">
+          上传中
+        </td>
+        <td width="100">
+          <p>编辑信息</p>
+          <p>删除</p>
+        </td>
+      </tr>
+      <tr>
+        <td width="50"><input type="checkbox" value="all" /></td>
+        <td class="left" width="550">
+          <p>下面哪一项的电子邮件链接是正确的？答案：D</p>
+          <p>A.xxx.com.cn B.xxx@.net C.xxx@.com D.xxx@xxx.com</p>
+          <p class="red">【解析】:因为电子邮件后缀是.com</p>
+        </td>
+        <td width="100">
+          上传中
+        </td>
+        <td width="100">
+          <p>编辑信息</p>
+          <p>删除</p>
+        </td>
+      </tr>
+      <tr>
+        <td width="50"><input type="checkbox" value="all" /></td>
+        <td class="left" width="550">
+          <p>下面哪一项的电子邮件链接是正确的？答案：D</p>
+          <p>A.xxx.com.cn B.xxx@.net C.xxx@.com D.xxx@xxx.com</p>
+          <p class="red">【解析】:因为电子邮件后缀是.com</p>
+        </td>
+        <td width="100">
+          上传中
+        </td>
+        <td width="100">
+          <p>编辑信息</p>
+          <p>删除</p>
+        </td>
+      </tr>
+    </table>
+    <table v-show="cur === 'kejian'">
+      <tr>
+        <th></th>
+        <th>附件</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+      <tr>
+        <td width="50"><input type="checkbox" value="all" /></td>
+        <td class="left" width="550">
+          <p>模块一:2017智能征管时代下汇算清缴主要风险点处理</p>
+          <p>(一)在企业财务上未反映的“视同销售”，而在汇算清缴被忽略不计。</p>
+        </td>
+        <td width="100">
+          上传中
+        </td>
+        <td width="100">
+          <p>编辑信息</p>
+          <p>删除</p>
+        </td>
+      </tr>
+      <tr>
+        <td width="50"><input type="checkbox" value="all" /></td>
+        <td class="left" width="550">
+          <p>模块一:2017智能征管时代下汇算清缴主要风险点处理</p>
+          <p>(一)在企业财务上未反映的“视同销售”，而在汇算清缴被忽略不计。</p>
+        </td>
+        <td width="100">
+          上传中
+        </td>
+        <td width="100">
+          <p>编辑信息</p>
+          <p>删除</p>
+        </td>
+      </tr>
+    </table>
+    <router-view></router-view>
     <div class="pgs">
       <li class="prev">&lt;上一页</li>
       <li class="current">1</li>
@@ -80,29 +134,7 @@
 export default {
   data() {
     return {
-      items: [
-        {
-          src: "",
-          title: "企业所得税年度纳税申报表中隐企业所得税年度纳税申报表中隐藏的稽查陷阱企业所得税",
-          date: "2017-12-5 15:00",
-          state:"上传完成",
-          link: "videomanger"
-        },
-        {
-          src: "",
-          title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
-          date: "2017-12-5 15:00",
-          state:"上传完成",
-          link: "videomanger"
-        },
-        {
-          src: "",
-          title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
-          date: "2017-12-5 15:00",
-          state:"上传完成",
-          link: "videomanger"
-        }
-      ]
+      cur:"shiti"
     };
   }
 };
@@ -113,6 +145,9 @@ export default {
 .active {
   border-bottom: 1px solid $red;
 }
+.left{
+  text-align: left;
+}
 .fl {
   float: left;
 }
@@ -121,6 +156,26 @@ export default {
 }
 .clearfix {
   overflow: hidden;
+}
+.red{
+  color: $red;
+}
+.h-100{
+  margin-left: 10px;
+  p{
+    line-height: 22px;
+  }
+}
+.sm-tags{
+  li{
+    display: inline-block;
+    width: 80px;
+    padding: 0px 0;
+    text-align: center;
+    border: 1px solid $border-dark;
+    margin: 10px 5px;
+    cursor: pointer;
+  }
 }
 .head {
   .title {
@@ -132,49 +187,61 @@ export default {
       text-align: center;
     }
   }
-}
-.upload-box {
-  border: 1px solid $border-dark;
-  margin-bottom: 20px;
-  padding: 10px;
-  table {
-    th,
-    td {
-      height: 60px;
-      // border: 1px solid $border-dark;
-      border-bottom: 1px dashed $border-dark;
-    }
-    th {
-      font-weight: bold;
-      text-align: left;
-      .h-100 {
-        height: 100px;
-        width: 360px;
-      }
-      .title {
-        height: 40px;
-        p {
-          line-height: 30px;
-          font-size: 14px;
-          margin-left: 20px;
-        }
-      }
-      .date {
-        color: $dark;
-        margin: 36px 20px;
-      }
-    }
-    td {
+  .splite {
+    line-height: 15px;
+    border-right: 1px solid $black;
+    width: 1px;
+  }
+  p {
+    margin: 10px 0 20px 0;
+    border-bottom: 1px solid $border-dark;
+    box-sizing: border-box;
+    span {
+      display: inline-block;
+      line-height: 30px;
+      width: 50px;
       text-align: center;
+      cursor: pointer;
+    }
+  }
+}
+table {
+  border: 1px solid $bg-nav;
+  th {
+    font-weight: bold;
+    text-align: center;
+    background-color: $bg-nav;
+    line-height: 30px;
+    .h-100 {
+      height: 100px;
+      width: 360px;
+    }
+    .title {
+      height: 40px;
       p {
         line-height: 30px;
-        cursor: pointer;
+        font-size: 14px;
+        margin-left: 20px;
       }
     }
-    img {
-      width: 180px;
-      height: 96px;
+    .date {
+      color: $dark;
+      margin: 36px 20px;
     }
+  }
+  td {
+    text-align: center;
+    height: 60px;
+    // border: 1px solid $border-dark;
+    border-bottom: 1px dashed $border-dark;
+    p {
+      line-height: 30px;
+      cursor: pointer;
+    }
+  }
+  img {
+    width: 180px;
+    height: 100px;
   }
 }
 .pgs {
