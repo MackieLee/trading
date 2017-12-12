@@ -4,17 +4,17 @@
   	<div class="modal-outer" v-show="modal">
       <!-- <div class="close">X</div> -->
       <!-- v-bind传输数据到子组件(contentSeries) -->
-      <modal @closeModal="closeModal" :content-series="series"></modal>
-    	</div>
-
-
-
+      <modal @showTip="showTip" @closeModal="closeModal" :content-series="series"></modal>
+    </div>
+		<div v-show="tip" class="tip">
+			{{ tipMsg }}
+		</div>
     <p class="p01">共7个回答</p>
     <div class="my_qianb_cotainer">
-      <p class="p02" @click="toggle()">
-        <span data-ref='1' class="cur">全部</span>|
-        <span data-ref='2'>待回答</span>|
-        <span data-ref='3'>已回答</span>
+      <p class="p02">
+        <span @click="toggle()" data-ref='1' class="cur">全部</span>|
+        <span @click="toggle()" data-ref='2'>待回答</span>|
+        <span @click="toggle()" data-ref='3'>已回答</span>
       </p>
       <ul class="div01" v-if="part=='1'">
         <li>
@@ -182,10 +182,7 @@
 	        	<p class="red" @click="modal=!modal,series=true">立即评价</p>
 	        </div>
 	       </li>
-
       </ul>
-
-
       </div>
     </div>
   </div>
@@ -201,7 +198,9 @@ export default {
     return{
       part:'1',
       modal:false,
-      series: true
+			series: true,
+			tip: false,
+			tipMsg: ''
     }
   },
   methods:{
@@ -212,8 +211,16 @@ export default {
       this.part = ref
     },
     closeModal: function() {
-      this.modal = false
-    },
+			this.modal = false
+		},
+		showTip:function(){
+			this.closeModal()
+			this.tipMsg = '谢谢您的评价'
+			this.tip = true
+			setTimeout(()=>{
+				this.tip = false
+			},1500)
+		}
   }
 }
 </script>
@@ -242,6 +249,18 @@ export default {
   margin: 0 auto;
   background-color: $white;
 }
+.tip{
+	width:100px;
+  height: 60px;
+  line-height: 60px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: $white;
+  position: fixed;
+  text-align: center;
+  top: 40%;
+  left: 50%;
+	z-index: 10;
+}
 .my_qianb_cotainer{
   padding-bottom: 65px;
 }
@@ -255,17 +274,16 @@ export default {
   text-align: center;
 }
 .my_qianb_r .p02 {
-  height: 50px;margin-bottom: 20px;
+  margin:10px 0 20px;
   width: 100%;
   border-bottom: 1px solid #ddd;
 }
 .my_qianb_r .p02 span {
-  height: 50px;
-  width: 110px;
-  font-size: 14px;
+  width: 80px;
   display: inline-block;
   text-align: center;
-  line-height: 55px;
+  line-height: 30px;
+	cursor: pointer;
 }
 .my_qianb_r .p02 .cur {
   border-bottom: 1px solid #e7151b;

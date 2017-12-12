@@ -20,7 +20,7 @@
           <div class=" block block-2 lf">￥4588.00</div>
           <div class=" block block-3 lf">视频</div>
           <div class=" block block-4 lf"><p>应付</p><p>￥4588.00</p></div>
-          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br>加到我的收藏</div>
+          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br><span @click="shoucang">{{ shoucangMsg }}</span></div>
         </div>
       </div>
       <div class="item">
@@ -31,7 +31,7 @@
           <div class=" block block-2 lf">￥4588.00</div>
           <div class=" block block-3 lf">视频</div>
           <div class=" block block-4 lf"><p>应付</p><p>￥4588.00</p></div>
-          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br>加到我的收藏</div>
+          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br><span>已收藏</span></div>
         </div>
       </div>
     </div>
@@ -56,45 +56,53 @@ export default {
       num2: false,
       num3: false,
       all: false,
-      part: "1"
+      part: "1",
+      shoucangMsg: "点击收藏"
     };
   },
   methods: {
     toggle() {
-      document.getElementsByClassName("li01")[0].className = "";
-      let attr = event.target.getAttribute("class");
-      console.log(event.target);
-      console.log(attr);
+      document.getElementsByClassName("li01")[0].className = ""
+      let attr = event.target.getAttribute("class")
+      console.log(event.target)
+      console.log(attr)
       if (attr != "ul01") {
-        event.target.setAttribute("class", "li01");
+        event.target.setAttribute("class", "li01")
       }
-      let ref = event.target.dataset.ref;
-      this.part = ref;
+      let ref = event.target.dataset.ref
+      this.part = ref
     },
     change: function() {
-      let ref = event.target.dataset.ref;
+      let ref = event.target.dataset.ref
       if (ref === "all") {
         if (this.num1 == this.num2 && this.num2 == this.num3) {
-          this.num1 = !this.num1;
-          this.num2 = !this.num2;
-          this.num3 = !this.num3;
-          this.all = !this.all;
+          this.num1 = !this.num1
+          this.num2 = !this.num2
+          this.num3 = !this.num3
+          this.all = !this.all
         } else {
-          this.num1 = true;
-          this.num2 = true;
-          this.num3 = true;
-          this.all = true;
+          this.num1 = true
+          this.num2 = true
+          this.num3 = true
+          this.all = true
         }
       } else if (ref === "0") {
-        this.num1 = !this.num1;
+        this.num1 = !this.num1
       } else if (ref === "1") {
-        this.num2 = !this.num2;
+        this.num2 = !this.num2
       } else {
-        this.num3 = !this.num3;
+        this.num3 = !this.num3
       }
+    },
+    shoucang:function(){
+      // axios 获取收藏状态
+      this.shoucangMsg = '已收藏'
     }
+  },
+  filters: {
+    
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -108,7 +116,7 @@ export default {
   margin: 0 auto;
   background-color: $white;
 }
-.rt{
+.rt {
   float: right;
 }
 i {
@@ -118,23 +126,23 @@ i {
   width: 15px;
   height: 15px;
 }
-.container{
+.container {
   margin-bottom: 20px;
-  .item{
+  .item {
     margin-bottom: 20px;
   }
 }
 .block-hori {
   padding: 0 15px;
 }
-.block-nav-1{
+.block-nav-1 {
   width: 300px;
 }
 .block-1 {
   width: 370px;
   overflow: hidden;
   border-right: 1px solid $border-dark;
-   .img {
+  .img {
     margin-right: 20px;
   }
   .header {
@@ -164,7 +172,7 @@ i {
     background-color: $btn-danger-hover;
   }
 }
-.right-cut{
+.right-cut {
   margin-right: 60px;
 }
 .my_order_r h2 {
@@ -182,19 +190,19 @@ i {
   width: 100%;
   background: #ddd;
   margin: 10px 0 15px;
-    .li01{
+  .li01 {
     margin-left: 13px;
-      i{
+    i {
       background-position: -103px -353px;
       margin-right: 10px;
     }
   }
 }
-.ul03 .li01{
+.ul03 .li01 {
   font-size: 14px;
   margin-left: 13px;
-   i{
-    background-position:-103px -353px;
+  i {
+    background-position: -103px -353px;
   }
 }
 .my_order_r .ul02 li {
@@ -224,7 +232,7 @@ i {
 .ul {
   border: 1px solid $border-dark;
   overflow: hidden;
-    .lf {
+  .lf {
     float: left;
   }
   .block {
@@ -237,10 +245,12 @@ i {
     border-right: 1px solid $border-dark;
     height: 68px;
   }
-  .block-1,.block-2,.block-3{
+  .block-1,
+  .block-2,
+  .block-3 {
     line-height: 65px;
   }
-  .block-4 p{
+  .block-4 p {
     text-align: center;
     line-height: 25px;
   }

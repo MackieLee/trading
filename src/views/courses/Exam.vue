@@ -14,7 +14,7 @@
           <p>{{ question.title }}(单选){{ arr[index] }}</p>
           <p v-for="(item,index) in question.content " :key="item.id">
             <label :for="item.id"><span :class="{'checked':arr.indexOf(item.id) !== -1}" class="option">{{ item.option }}</span><span>{{item.value}}</span></label>
-            <input :id="item.id" type="radio" v-model="checked" :value="item.id " :name="item.name"/>
+            <input :id="item.id" type="radio" v-model="checked" :value="item.id" :name="item.name"/>
           </p>
         </div>
         <div>

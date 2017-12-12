@@ -26,6 +26,7 @@ export default {
   methods:{
     check:function(){
       this.score = parseInt(event.currentTarget.innerText)
+      this.$emit('check',this.sequence,this.score)
     }
   }
 };

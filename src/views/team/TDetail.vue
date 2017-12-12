@@ -23,7 +23,6 @@
       <div class="title">
         <span></span>
         <font>主讲课程</font>
-        <a>更多>></a>
       </div>
       <div class="video-boxes">
         <div class="item">

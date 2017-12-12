@@ -1,11 +1,11 @@
 <template>
 	<div class="my_order_r">
 		<div class="sum_of_class">学员评价</div>
-			<p class="p02" @click="toggle()">
-        <span data-ref='1' class="cur">综合评价</span>|
-        <span data-ref='2'>课程评分</span>|
-        <span data-ref='3'>答疑评分</span>|
-        <span data-ref='4'>订单评分</span>
+			<p class="p02">
+        <span @click="toggle()" data-ref='1' class="cur">综合评价</span>|
+        <span @click="toggle()" data-ref='2'>课程评分</span>|
+        <span @click="toggle()" data-ref='3'>答疑评分</span>|
+        <span @click="toggle()" data-ref='4'>订单评分</span>
       </p>
 		<div class="container div01" v-if="part=='1'">
 			<ul class="ul01">
@@ -326,7 +326,7 @@ export default {
   margin: 0 auto;
   background-color: $white;
   .p02 {
-    height: 50px;
+		margin: 10px 0 20px;
     width: 100%;
     border-bottom: 1px solid #ddd;
     .cur {
@@ -334,12 +334,11 @@ export default {
       color: #e7151b;
     }
     span {
-      height: 50px;
-      width: 110px;
-      font-size: 14px;
+      width: 80px;
       display: inline-block;
       text-align: center;
-      line-height: 55px;
+      line-height: 30px;
+			cursor: pointer;
     }
   }
   .sum_of_class {

@@ -39,7 +39,7 @@
     <div class="book-box">
       <div class="title">
         <span></span>
-        <font>财经图书</font>
+        <font>相关视频</font>
         <a>更多>></a>
       </div>
       <div class="book-container">

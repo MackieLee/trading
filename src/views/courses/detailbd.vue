@@ -41,20 +41,20 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .customize {
   ::-webkit-input-placeholder {
-  color:    #aeaeae;
-}
-:-moz-placeholder {
-  color:    #aeaeae;
-}
-::-moz-placeholder {
-  color:    #aeaeae;
-}
-:-ms-input-placeholder {
-  color:    #aeaeae;
-}
+    color: #aeaeae;
+  }
+  :-moz-placeholder {
+    color: #aeaeae;
+  }
+  ::-moz-placeholder {
+    color: #aeaeae;
+  }
+  :-ms-input-placeholder {
+    color: #aeaeae;
+  }
   width: $width;
   margin: 0 auto;
   padding-top: 20px;
@@ -63,46 +63,83 @@
     display: inline-block;
     width: 9px;
     height: 22px;
-    background-image: url('../../assets/images/Sprite.png');
-    vertical-align: text-bottom;}
+    background-image: url("../../assets/images/Sprite.png");
+    vertical-align: text-bottom;
+  }
   .cur-posi {
-    padding:0 0 26px 0; 
-    i {background-position: -18px -106px; vertical-align:middle;
-      margin-right:10px;}
+    padding: 0 0 26px 0;
+    i {
+      background-position: -18px -106px;
+      vertical-align: middle;
+      margin-right: 10px;
     }
-  .content {margin: 18px 0 0 0;
+  }
+  .content {
+    margin: 18px 0 0 0;
     width: 80%;
     overflow: hidden;
     margin: 0 auto;
-    font { font-size: 26px; display: block;margin: 0px 0 20px;
-    height: 40px;background-color: #468ee3;
-    line-height: 40px;
-    font-size: 16px;
-    text-align: center;
-    color: #fff;}
-    form {border: 1px solid #ddd;
+    font {
+      font-size: 26px;
+      display: block;
+      margin: 0px 0 20px;
+      height: 40px;
+      background-color: #468ee3;
+      line-height: 40px;
+      font-size: 16px;
+      text-align: center;
+      color: #fff;
+    }
+    form {
+      border: 1px solid #ddd;
       width: 80%;
-      margin: 0 auto;padding: 15px 30px;
-       .flex {display: flex; margin:15px 100px; 
-        i{ margin-right:6px; color: #E7141A; }
-       .danwei{margin-right:10px;font-size: 16px; width: 20%; line-height: 38px;}
-        input{width: 70%;height:38px; text-indent: 1em; border: 1px solid #ddd;}     
-      }              
+      margin: 0 auto;
+      padding: 15px 30px;
+      .flex {
+        display: flex;
+        margin: 15px 100px;
+        i {
+          margin-right: 6px;
+          color: #e7141a;
         }
-	.div{ width: 80%; margin: 30px;text-align: center;
-		.sub{ width: 80px;
-        line-height: 36px;height: 36px;
-        background-color: $red; 
-        outline: none; border-radius: 3px;
+        .danwei {
+          margin-right: 10px;
+          font-size: 16px;
+          width: 20%;
+          line-height: 38px;
+          text-align: right;
+        }
+        input {
+          width: 70%;
+          height: 38px;
+          text-indent: 1em;
+          border: 1px solid #ddd;
+        }
+      }
+    }
+    .div {
+      width: 80%;
+      margin: 30px;
+      text-align: center;
+      .sub {
+        width: 80px;
+        line-height: 36px;
+        height: 36px;
+        background-color: $red;
+        outline: none;
+        border-radius: 3px;
         border: none;
         color: $white;
-        cursor: pointer;}
-        .p{ margin: 20px 0px; cursor: pointer;
-        	span{color: #117CEE;}
+        cursor: pointer;
+      }
+      .p {
+        margin: 20px 0px;
+        cursor: pointer;
+        span {
+          color: #117cee;
         }
-		}
+      }
     }
-     }
-     
-
+  }
+}
 </style>

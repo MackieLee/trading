@@ -6,15 +6,12 @@
       <!-- v-bind传输数据到子组件(contentSeries) -->
       <modal @closeModal="closeModal" :content-series="series"></modal>
     	</div>
-
-
-
     <p class="p01">共7个回答</p>
     <div class="my_qianb_cotainer">
-      <p class="p02" @click="toggle()">
-        <span data-ref='1' class="cur">全部</span>|
-        <span data-ref='2'>待回答</span>|
-        <span data-ref='3'>已回答</span>
+      <p class="p02">
+        <span data-ref='1' @click="toggle()" class="cur">全部</span>|
+        <span data-ref='2' @click="toggle()">待回答</span>|
+        <span data-ref='3' @click="toggle()">已回答</span>
       </p>
       <ul class="div01" v-if="part=='1'">
         <li>
@@ -180,8 +177,7 @@
 	         	<h3> 2018-2-12</h3>
 	        	<p class="hui" @click="modal=!modal,series=true">查看评价</p>
 	        </div>
-	       </li>
-
+	      </li>
       </ul>
       </div>
     </div>
@@ -189,8 +185,7 @@
 </template>
 
 <script>
-
-import Modal from "../vip/Qa_Modal"
+import Modal from "../teacher/Qa_Modal"
 export default {
   name: 'youhuiquan',
     components: { Modal },
@@ -204,8 +199,8 @@ export default {
   methods:{
     toggle(){
       document.getElementsByClassName('cur')[0].className = ''
-      event.target.setAttribute('class','cur')
-      let ref = event.target.dataset.ref
+      event.currentTarget.setAttribute('class','cur')
+      let ref = event.currentTarget.dataset.ref
       this.part = ref
     },
     closeModal: function() {
@@ -252,17 +247,16 @@ export default {
   text-align: center;
 }
 .my_qianb_r .p02 {
-  height: 50px;margin-bottom: 20px;
+	margin: 10px 0 20px;
   width: 100%;
   border-bottom: 1px solid #ddd;
 }
 .my_qianb_r .p02 span {
-  height: 50px;
-  width: 110px;
-  font-size: 14px;
+  width: 80px;
   display: inline-block;
   text-align: center;
-  line-height: 55px;
+	line-height: 30px;
+	cursor: pointer;
 }
 .my_qianb_r .p02 .cur {
   border-bottom: 1px solid #e7151b;
