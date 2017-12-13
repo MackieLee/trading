@@ -1,5 +1,10 @@
 <template>
   <div class="bodan-mager">
+    <div class="modal-outer" v-show="modal">
+      <!-- <div class="close">X</div> -->
+      <!-- v-bind传输数据到子组件(contentSeries) -->
+      <modal @closeModal="closeModal" :content-series="series"></modal>
+    </div>
     <div>
       <div class="clearfix">
         <div class="fl">
@@ -14,8 +19,8 @@
         </div>
       </div>
       <ul class="sm-tags">
-        <li>添加课件</li>
-        <li>添加试题</li>
+        <li @click="modal = true;series = false">添加课件</li>
+        <li @click="modal = true;series = true">添加试题</li>
         <li>删除</li>
       </ul>
     </div>
@@ -131,21 +136,46 @@
 </template>
 
 <script>
+import Modal from "../modal/VideoMangerModal";
 export default {
+  components: { Modal },
   data() {
     return {
-      cur:"shiti"
+      cur: "shiti",
+      modal: false,
+      series: ""
     };
+  },
+  methods: {
+    closeModal: function() {
+      this.modal = false;
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
+.modal-outer {
+  width: 100%;
+  height: 173%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  .modal {
+    height: 110%;
+  }
+  .close {
+    position: absolute;
+    top: 15%;
+    left: 60%;
+  }
+}
 .active {
   border-bottom: 1px solid $red;
 }
-.left{
+.left {
   text-align: left;
 }
 .fl {
@@ -157,17 +187,17 @@ export default {
 .clearfix {
   overflow: hidden;
 }
-.red{
+.red {
   color: $red;
 }
-.h-100{
+.h-100 {
   margin-left: 10px;
-  p{
+  p {
     line-height: 22px;
   }
 }
-.sm-tags{
-  li{
+.sm-tags {
+  li {
     display: inline-block;
     width: 80px;
     padding: 0px 0;

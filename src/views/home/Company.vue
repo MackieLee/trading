@@ -47,7 +47,7 @@
 export default {
   data(){
     return{
-      imgs:[img1,img13,img10,img7,img4,img11]
+      // imgs:[img1,img13,img10,img7,img4,img11]
     }
   },
   mounted(){

@@ -6,10 +6,10 @@
       </div>
       <ul>
         <li v-for="item in items" :key="item.src" :class="item.last">
-          <div class="abs">
+          <router-link :to="{name : 'videomanger'}" tag='div' style="cursor:pointer" class="abs">
             <img src="../../assets/images/huanyuanzx02.png" alt="" />
             <span class="length">{{ item.length }}</span>
-          </div>
+          </router-link>
           <p class="video-title">{{ item.title }}</p>
           <span class="date">{{ item.date }}</span>
         </li>

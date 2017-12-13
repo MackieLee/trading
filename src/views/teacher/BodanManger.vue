@@ -1,5 +1,10 @@
 <template>
-  <div class="bodan-mager">
+  <div class="bodan-manger">
+    <div class="modal-outer" v-show="modal">
+      <!-- <div class="close">X</div> -->
+      <!-- v-bind传输数据到子组件(contentSeries) -->
+      <modal @closeModal="closeModal"></modal>
+    </div>
     <div>
       <div class="clearfix">
         <div class="fl">
@@ -17,10 +22,9 @@
         </div>
       </div>
       <ul class="sm-tags">
-        <li>添加视频</li>
+        <router-link tag="li" :to="{ name:'upload'}">添加视频</router-link>
         <li>移除视频</li>
-        <li>移动到播单</li>
-        <li>删除</li>
+        <li @click="modal = true">移动到播单</li>
       </ul>
     </div>
     <div class="upload-box">
@@ -46,11 +50,11 @@
               <p class="date">2017-12-5 17:09:51</p>
             </div>
           </td>
-          <td width='100'>
+          <td class="ctr" width='100'>
             视频:2
           </td>
-          <td width='100'>
-            <p>添加视频</p>
+          <td class="ctr" width='100'>
+            <p>编辑信息</p>
             <router-link tag="p" :to="{ name:item.link }">管理视频</router-link>
             <p>删除</p>
           </td>
@@ -72,7 +76,9 @@
 </template>
 
 <script>
+import Modal from '../modal/BodanTransform'
 export default {
+  components:{ Modal },
   data() {
     return {
       items: [
@@ -97,14 +103,36 @@ export default {
           state: "上传完成",
           link: "videomanger"
         }
-      ]
+      ],
+      modal: false
     };
+  },
+  methods: {
+    closeModal: function() {
+      this.modal = false;
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
+.modal-outer {
+  width: 100%;
+  height: 173%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  .modal {
+    height: 110%;
+  }
+  .close {
+    position: absolute;
+    top: 15%;
+    left: 60%;
+  }
+}
 .active {
   border-bottom: 1px solid $red;
 }

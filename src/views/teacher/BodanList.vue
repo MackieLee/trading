@@ -1,7 +1,11 @@
 <template>
   <div class="video-list">
     <div class="head">
-      <div class="title"><span class="fl">视频</span><span class="fr">视频上传</span></div>
+      <div class="title">
+        <span class="fl">播单</span>
+        <span>视频数</span>
+        <span class="fr">操作</span>
+      </div>
     </div>
     <div class="upload-box">
       <table>
@@ -24,7 +28,7 @@
             视频:2
           </td>
           <td width='100'>
-            <p>添加视频</p>
+            <p>编辑信息</p>
             <router-link tag="p" :to="{ name:item.link }">管理播单</router-link>
             <p>删除</p>
           </td>

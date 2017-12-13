@@ -40,9 +40,16 @@
         <i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选 </li>
       <button class="btn-danger rt right-cut">去结算</button>
     </ul>
-    <div class="number">
-      <a>1</a>
-      <a>2</a>
+    <div class="pgs">
+      <li class="prev">&lt;上一页</li>
+      <li class="current">1</li>
+      <li class="custom">2</li>
+      <li class="custom">3</li>
+      <li class="custom">4</li>
+      <li class="points">...</li>
+      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
+      <li class="submit">确定</li>
+      <li class="next">下一页&gt;</li>
     </div>
   </div>
 </template>
@@ -108,7 +115,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .selected {
-  background-position: -101px -254px !important;
+  background-position: -101px -288px !important;
 }
 .my_order_r {
   height: 900px;
@@ -193,7 +200,7 @@ i {
   .li01 {
     margin-left: 13px;
     i {
-      background-position: -103px -353px;
+      background-position: -101px -256px;
       margin-right: 10px;
     }
   }
@@ -202,7 +209,7 @@ i {
   font-size: 14px;
   margin-left: 13px;
   i {
-    background-position: -103px -353px;
+    background-position: -101px -256px;
   }
 }
 .my_order_r .ul02 li {
@@ -260,24 +267,53 @@ i {
   float: left;
 }
 
-.my_order_r .number {
-  height: 36px;
-  width: 80px;
-  margin: 40px auto 0;
-}
-
-.my_order_r .number a {
-  height: 36px;
-  width: 34px;
-  display: inline-block;
-  text-align: center;
-  line-height: 36px;
-  color: $white;
-  font-size: 14px;
-  background: $btn-default;
-}
+.pgs {
+    width: 525px;
+    margin: 60px auto;
+    li {
+      width: 33px;
+      padding: 4px 0;
+      line-height: 20px;
+      text-align: center;
+      margin-right: 2px;
+      cursor: pointer;
+      border: 1px solid $border-dark;
+      color: $black;
+    }
+    .prev {
+      width: 73px;
+      color: $blue;
+    }
+    .next {
+      width: 96px;
+      color: $blue;
+    }
+    .points {
+      border: none;
+    }
+    .submit {
+      background-color: $btn-default;
+      color: $white;
+      width: 44px;
+      border: none;
+    }
+    .jump {
+      width: 80px;
+      border: 1px solid $border-dark;
+      color: #333;
+      input {
+        width: 30px;
+        border: 1px solid $border-dark;
+        outline: none;
+      }
+    }
+    .current {
+      background-color: $btn-default;
+      color: $white;
+    }
+  }
 .my_order_r .p01 i {
   margin: 0 5px 0 13px;
-  background-position: -103px -321px;
+  background-position: -101px -256px;
 }
 </style>

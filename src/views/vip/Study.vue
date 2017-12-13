@@ -75,115 +75,182 @@
       
          
     </div>
-   <div class="page">1</div>  
+   <div class="pgs">
+      <li class="prev">&lt;上一页</li>
+      <li class="current">1</li>
+      <li class="custom">2</li>
+      <li class="custom">3</li>
+      <li class="custom">4</li>
+      <li class="points">...</li>
+      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
+      <li class="submit">确定</li>
+      <li class="next">下一页&gt;</li>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'study'
-}
+  name: "study"
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .study {
   .sum_of_class {
     background-color: $bg-blue;
-    border: none; height: 40px;line-height: 40px;
+    border: none;
+    height: 40px;
+    line-height: 40px;
     font-size: 16px;
     text-align: center;
     color: $white;
   }
   .pt-1 {
-   .div-1{
-  	  border: 1px solid $border-dark;
-			    margin: 10px 0;
-    .container {
-      width: 95%;
-      margin: 10px auto;
-      display: flex;
-      border-top: 1px solid $red;
-      .item {
-        margin: 20px 0 5px;
-        p {
-          text-align: center;
-          font-size: 16px;
+    .div-1 {
+      border: 1px solid $border-dark;
+      margin: 10px 0;
+      .container {
+        width: 95%;
+        margin: 10px auto;
+        display: flex;
+        border-top: 1px solid $red;
+        .item {
+          margin: 20px 0 5px;
+          p {
+            text-align: center;
+            font-size: 16px;
+          }
+          .f-line {
+            margin-bottom: 30px;
+          }
         }
-        .f-line {
-          margin-bottom: 30px;
+        .item1 {
+          border-right: 1px solid $red;
+          width: 30%;
         }
-      }
-      .item1 {
-        border-right: 1px solid $red;
-        width: 30%;
-      }
-      .item2 {
-        border-right: 1px solid $red;
-      width: 40%;
-        span {
-          font-size: 14px;
+        .item2 {
+          border-right: 1px solid $red;
+          width: 40%;
+          span {
+            font-size: 14px;
+          }
         }
-      }
-      .item3 {
-      width: 30%;
+        .item3 {
+          width: 30%;
+        }
       }
     }
-  } }
+  }
   .pt-2 {
-    padding:0px 10px;margin-top: 15px;
+    padding: 0px 10px;
+    margin-top: 15px;
     border: 1px solid $border-dark;
     .container {
-      width:100%;
-      display: flex;    padding:10px 5px 10px;
+      width: 100%;
+      display: flex;
+      padding: 10px 5px 10px;
       border-bottom: 1px solid $border-dark;
-      img{
-       width: 92px;
-    height: 62px;
- 		padding: 5px;
+      img {
+        width: 92px;
+        height: 62px;
+        padding: 5px;
         border: 1px solid #ddd;
       }
-      .middle{
-        margin:0 10px;
-        width:70%;
-        p{
+      .middle {
+        margin: 0 10px;
+        width: 70%;
+        p {
           font-size: 14px;
-          margin:  0;
+          margin: 0;
         }
-        font{
+        font {
           font-size: 14px;
-           line-height: 36px;height: 36px;
+          line-height: 36px;
+          height: 36px;
         }
       }
-      .sm-btn{
-        width: 20%;margin:0 10px;
-        span{
-        display: block;	 height: 30px;
-        line-height: 30px;
-        text-align: center;
-        color:#fff;width: 90px;
-        border-radius: 3px;
-        background-color:#f84141;cursor: pointer;
+      .sm-btn {
+        width: 20%;
+        margin: 0 10px;
+        span {
+          display: block;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          color: #fff;
+          width: 90px;
+          border-radius: 3px;
+          background-color: #f84141;
+          cursor: pointer;
         }
-         span:hover{ background-color:#e7141a; }
-        
-        .zcgm{
-        	color:#333;
-        	 border:1px solid #ddd;
-        	background-color:#fff;
-        	}
-        	.zcgm:hover{color:#fff;
-        	background-color:#e7141a;}
-        .jindu{
-        	line-height: 36px;height: 36px;
-          color: $light-blue;    text-indent: 0.5em;
+        span:hover {
+          background-color: #e7141a;
+        }
+
+        .zcgm {
+          color: #333;
+          border: 1px solid #ddd;
+          background-color: #fff;
+        }
+        .zcgm:hover {
+          color: #fff;
+          background-color: #e7141a;
+        }
+        .jindu {
+          line-height: 36px;
+          height: 36px;
+          color: $light-blue;
+          text-indent: 0.5em;
         }
       }
     }
-    
-    .page{
-    
+  }
+  .pgs {
+    width: 525px;
+    margin: 60px auto;
+    li {
+      width: 33px;
+      padding: 4px 0;
+      line-height: 20px;
+      text-align: center;
+      margin-right: 2px;
+      cursor: pointer;
+      border: 1px solid $border-dark;
+      color: $black;
+    }
+    .prev {
+      width: 73px;
+      color: $blue;
+    }
+    .next {
+      width: 96px;
+      color: $blue;
+    }
+    .points {
+      border: none;
+    }
+    .submit {
+      background-color: $btn-default;
+      color: $white;
+      width: 44px;
+      border: none;
+    }
+    .jump {
+      width: 80px;
+      border: 1px solid $border-dark;
+      color: #333;
+      input {
+        width: 30px;
+        border: 1px solid $border-dark;
+        outline: none;
       }
+    }
+    .current {
+      background-color: $btn-default;
+      color: $white;
+    }
   }
 }
 </style>

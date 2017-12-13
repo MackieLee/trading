@@ -58,6 +58,8 @@ import tvideo from '../views/teacher/Tvideo'//老师端视频管理
 import bodanlist from '../views/teacher/BodanList'//播单列表
 import bodanmanger from '../views/teacher/BodanManger'//播单管理
 import videomanger from '../views/teacher/Videomanger'//视频管理
+import bodan from '../views/teacher/Bodan'//播单中转页面
+import videos from '../views/teacher/Videos'//视频列表中转
 // ----------------------支付页面----------------------------------
 import pay from '../views/account/Pay'//支付页面
 import pay1 from '../views/account/Pay1'//支付页面
@@ -244,7 +246,7 @@ const routes = [
             component: fapiaodetail
           },
           {
-            path: 'f-application',
+            path: 'f-application', 
             name: 'fapiaoapp',
             component: fapiaoapp
           }
@@ -274,7 +276,7 @@ const routes = [
               },
               {
                 path: 'video-list',
-                name: 'videolist',
+                name: 'video-list',
                 component: videolist
               }
             ]
@@ -324,29 +326,48 @@ const routes = [
           	name: 't-video',
             component: tvideo,
             redirect: {
-              name:'bodanlist'
+              name:'bodan'
             },
             children:[
               {
-                path: 'bodanlist',
-                name: 'bodanlist',
-                component: bodanlist
+                path: 'bodan',
+                name: 'bodan',
+                component: bodan,
+                redirect: {
+                  name:'bodanlist'
+                },
+                children:[
+                  {
+                    path: 'bodanlist',
+                    name: 'bodanlist',
+                    component: bodanlist
+                  },
+                  {
+                    path: 'bodanmanger',
+                    name: 'bodanmanger',
+                    component: bodanmanger
+                  }
+                ]
               },
-              // 视频列表
               {
-                path: 'videolist',
+                path: 'videos',
                 name: 'videos',
-                component: videolist
-              },
-              {
-                path: 'bodanmanger',
-                name: 'bodanmanger',
-                component: bodanmanger
-              },
-              {
-                path: 'videomanger',
-                name: 'videomanger',
-                component: videomanger
+                component: videos,
+                redirect: {
+                  name:'videolist'
+                },
+                children:[
+                  {
+                    path: 'videolist',
+                    name: 'videolist',
+                    component: videolist
+                  },
+                  {
+                    path: 'videomanger',
+                    name: 'videomanger',
+                    component: videomanger
+                  }
+                ]
               }
             ]
           }
