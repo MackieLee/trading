@@ -9,7 +9,7 @@
        <p class="fr">
         <span>可用积分<br/><i>40</i></span>
         <span>即将过期<br/><i>0</i></span>
-        <span>快去兑换<br/> <router-link :to="{ name:'jifenmall' }" class="fr_" >兑换</router-link></span>
+        <span>快去兑换<br/><router-link :to="{ name:'jifenmall' }" class="fr_" >兑换</router-link></span>
        
       </p>
      

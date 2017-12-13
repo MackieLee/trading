@@ -19,7 +19,8 @@
     			总金额(元)<span>￥2,800.00</span>
     		</li>
     	</ul>
-    	<ul class="ul03"><li>总金额:<span> ¥ 4,000.00</span></li></ul>
+    	
+    	<ul class="ul03"><li>总金额:<span>￥2,800.00</span></li></ul>
       
       <div class="btn">
       	 <router-link tag="div" :to="{name:'pay1'}" class="a" >立即购买</router-link>
@@ -62,7 +63,7 @@ export default {
     i{background: url(../../assets/images/ddzf4.png) no-repeat center center;}}   
     .li03{i{background: url(../../assets/images/ddzf5.png) no-repeat center center;}} 
   	}
-		.ul02{ margin:30px 0;background: #e5e5e5;overflow: hidden;
+		.ul02{ margin:30px 0;background: #f0f0f0;overflow: hidden;
 		li{float: left;width: 15%; font-size: 14px;line-height: 40px;margin: 20px 0 20px 10px;
 		span{margin-right: 60px; display: block;  color: #000;}
 		p{font-size: 14px;float: left; width: 60%;line-height: 40px;}
@@ -72,7 +73,7 @@ export default {
 		}
 		}
 		.ul03{
-			li{font-size: 14px;background: #e5e5e5;line-height: 34px; height: 34px;width: 100%;text-align: right;
+			li{font-size: 14px;background: #f0f0f0;line-height: 34px; height: 34px;width: 100%;text-align: right;
 			span{
 				font-size: 18px; color: #E7141A;margin-right:20px;
 			}}

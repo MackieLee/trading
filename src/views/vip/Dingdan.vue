@@ -1,5 +1,13 @@
 <template>
   <div class="my_order_r">
+  	<div class="modal-outer" v-show="pingjia">
+      <!-- <div class="close">X</div> -->
+      <!-- v-bind传输数据到子组件(contentSeries) -->
+      <modal @showTip="showTip" @closeModal="closeModal"></modal>
+    </div>
+    <div v-show="tip" class="tip">
+                谢谢你的评价
+    </div>
     <h2>我的订单</h2>
     <ul class="ul01">
       <li @click="toggle()" class="li01" data-ref="1">所有订单</li>
@@ -29,7 +37,7 @@
          <li class="li04">¥588.00</li>
          <li class="li05">
          	<span class="zcgm">等待付款</span>
-          <p class="jindu">订单详情 </p>
+          <router-link :to="{ name:'dingdanxq' }" git="p" class="jindu">订单详情 </router-link>
          </li>
          <li class="li06">
          	<span class="zcgm">付款</span>
@@ -50,7 +58,7 @@
          <li class="li04">¥588.00</li>
          <li class="li05">
          	<span class="zcgm">已取消</span>
-          <p class="jindu">订单详情 </p>
+          <router-link :to="{ name:'dingdanxq' }" git="p" class="jindu">订单详情 </router-link>
          </li>
          <li class="li06">
          	<span class="zcgm">立即购买</span>
@@ -71,11 +79,11 @@
          <li class="li04">¥588.00</li>
          <li class="li05">
          	<span class="zcgm">已付款</span>
-          <p class="jindu">订单详情 </p>
+          <router-link :to="{ name:'dingdanxq' }" git="p" class="jindu">订单详情 </router-link>
          </li>
          <li class="li06">
-         	<span class="zcgm">立即购买</span>
-          <p class="jindu">立即评价</p>
+         	<span class="zcgm">已付款</span>
+          <p class="jindu" @click="pingjia=!pingjia">立即评价</p>
          </li>
         </ul>
       </div>
@@ -99,15 +107,21 @@
 </template>
 
 <script>
+import Modal from "./dingd_modal"
 export default {
   name: "dingdan",
+  components: { Modal },
   data() {
     return {
       num1: false,
       num2: false,
       num3: false,
       all: false,
-      part: "1"
+      part: "1",
+     pingjia:false,
+			series: true,
+			tip: false,
+			tipMsg: ''
     };
   },
   methods: {
@@ -141,6 +155,16 @@ export default {
       } else {
         this.num3 = !this.num3;
       }
+    },
+    showTip:function(){
+    	this.pingjia = false
+    	this.tip = true
+    	setTimeout(()=>{
+    		this.tip = false
+    	},1500)
+    },
+    closeModal:function(){
+    	this.pingjia=false
     }
   }
 };
@@ -148,6 +172,40 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
+.tip {
+  width:100px;
+  height: 60px;
+  line-height: 60px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: $white;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  left: 36%;
+}
+.fixed {
+  overflow: hidden;
+  position: fixed;
+  top: 20%;
+  width: 100%;
+}
+.modal-outer {
+  width: 100%;
+  height: 173%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  .modal{
+    height: 110%;
+  }
+  .close {
+    position: absolute;
+    top: 15%;
+    left: 60%;
+  }
+}
+
 .my_order_r {
   height: auto;
   width: 800px;
@@ -363,7 +421,7 @@ export default {
         }
         .jindu {
           color: $light-blue;
-          text-indent: 1em;
+          text-indent: 1em;cursor: pointer;
         }
       }
     }
