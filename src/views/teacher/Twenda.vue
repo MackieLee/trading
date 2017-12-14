@@ -14,9 +14,9 @@
     <p class="p01">共7个回答</p>
     <div class="my_qianb_cotainer">
       <p class="p02">
-        <span data-ref='1' @click="toggle()" class="cur">全部</span>|
-        <span data-ref='2' @click="toggle()">待回答</span>|
-        <span data-ref='3' @click="toggle()">已回答</span>
+        <span data-ref='1' @click="toggle()" :class="{ 'cur': part === '1' }">全部</span>|
+        <span data-ref='2' @click="toggle()" :class="{ 'cur': part === '2' }">待回答</span>|
+        <span data-ref='3' @click="toggle()" :class="{ 'cur': part === '3' }">已回答</span>
       </p>
       <ul class="div01" v-if="part=='1'">
         <li>
@@ -220,6 +220,9 @@ export default {
     },
     closeWendaModal: function() {
       this.wendaModal = false;
+    },
+    toggle: function(){
+      this.part = event.currentTarget.dataset.ref
     }
   }
 };

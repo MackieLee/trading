@@ -2,11 +2,7 @@
   <div class="upload">
     <div class="upload-box">
       <div class="head">
-<<<<<<< HEAD
         <div class="title"><span class="lf">视频</span><router-link :to="{ name: 'videos'}" style="cursor:pointer" tag="span" class="rt">视频管理</router-link></div>
-=======
-        <div class="title"><span class="lf">视频</span><span class="rt">视频管理</span></div>
->>>>>>> 044ad90aecf8888f2ab97334d629b3da1c988227
       </div>
       <div class="video-loader">
         <div class="center">
@@ -17,11 +13,7 @@
     </div>
     <div class="bodan">
       <div class="head">
-<<<<<<< HEAD
         <div class="title"><span class="lf">播单</span><router-link :to="{ name: 'bodanlist'}" style="cursor:pointer" tag="span" class="rt">播单管理</router-link></div>
-=======
-        <div class="title"><span class="lf">播单</span><span class="rt">播单管理</span></div>
->>>>>>> 044ad90aecf8888f2ab97334d629b3da1c988227
       </div>
       <div class="video-loader">
         <div class="center">

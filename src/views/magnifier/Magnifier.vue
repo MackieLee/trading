@@ -63,7 +63,6 @@ export default {
 #divcss5 {
   width: 300px;
   height: 300px;
-  padding: 5px;
   position: relative;
 }
 

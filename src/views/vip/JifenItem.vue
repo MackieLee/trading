@@ -1,11 +1,5 @@
 <template>
   <div class="detail">
-    <div class="cur-posi">
-      <p>
-        <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;图书
-      </p>
-    </div>
     <div class="product-msg">
       <div class="lf-content">
         <magnifier></magnifier>
@@ -22,103 +16,55 @@
         </ul>
       </div>
       <div class="rt-content">
-        <p class="title">【自营】土地增值税实战与案例精解</p>
-        <p class="price"><span>￥</span>51.00
-          <del>￥62.56</del>
+        <p class="title">美的Midea电饼铛JHN30F家用双面加热煎饼机</p>
+        <p class="tip">重要提示：产品如有质量问题或使用咨询，请拨打售后服务热线：4000 359 159</span></p>
+        <p>积 &nbsp;&nbsp;&nbsp;  分：<span class="price">5000</span></p>
+        <p>配 送 至：
+          <select v-model="provId" @click="selectProvince(provId)">
+            <option v-for="(item,index) in province" :key="item.name" :value="index">
+              {{ item.name }}
+            </option>
+          </select>
+          <select v-model="areaId" @click="selectArea(areaId)">
+            <option v-for="(item,index) in area" :key="item.name" :value="index">
+              {{ item.name }}
+            </option>
+          </select>
+          <select>
+            <option v-for="item in city" :key="item.name">
+              {{ item.name }}
+            </option>
+          </select>
         </p>
-        <p>作 &nbsp;&nbsp;&nbsp;  者：北京中经阳光税收筹划事务所</p>
-        <p>出 版 社：中国市场出版社</p>
-        <p>出版时间：2012年07月</p>
-        <p>适合人群：备考CPA审计的学员看官方教材云里雾里的学员</p>
+        <p>
+          选择型号：
+          <label :class="{'rd-border':mingxi === 'mingxi' }" class="mingxi border" for="mingxi">
+            厉害了我的煎饼机
+            <i></i>
+          </label>
+          <input v-show="false" id="mingxi" v-model="mingxi" value="mingxi" type="radio"/>
+        </p>
+        <p>选择颜色：
+          <label :class="{'rd-border':mingxi === 'mingxi' }" class="mingxi border" for="mingxi">
+            黑色
+            <i></i>
+          </label>
+          <label :class="{'rd-border':mingxi === 'baise' }" class="mingxi border" for="mingxi">
+            白色
+            <i></i>
+          </label>
+        </p>
         <p>数 &nbsp;&nbsp;&nbsp;&nbsp;  量：<span class="block" @click="count>1?count--:count">-</span><span class="block ctr">{{ count }}</span><span @click="count++" class="block">+</span></p>
         <p class="btn">
           <router-link tag="button" :to="{name:'pay'}" class="a" >立即购买</router-link>
-          <button><i></i>加入购物车</button>
+          <button><i class="shopping"></i>加入购物车</button>
         </p>
-      </div>
-    </div>
-    <div class="book-box">
-      <div class="title">
-        <span></span>
-        <font>相关视频</font>
-        <a>更多>></a>
-      </div>
-      <div class="book-container">
-        <div class="video-boxes">
-          <div class="item">
-            <div>
-              <a class="video-cover"><img src="../../assets/images/九鼎财税01_33.png" />
-                <span class="new">NEW</span>
-              </a>
-            </div>
-            <p class="book-name">
-              <a>土地增值税实战与案例</a>
-              <span></span>
-            </p>
-            <p class="buss-info">￥
-              <span class="current-price">51.00</span>
-              <span class="grey">￥</span>
-              <del class="grey origin-price">62.56</del>
-              <a class="im-buy">购买</a>
-            </p>
-          </div>
-          <div class="item">
-            <div>
-              <a class="video-cover"><img src="../../assets/images/九鼎财税01_35.png" />
-                <span class="new">NEW</span>
-              </a>
-            </div>
-            <p class="book-name">
-              <a>土地增值税实战与案例</a>
-
-            </p>
-            <p class="buss-info">￥
-              <span class="current-price">51.00</span>
-              <span class="grey">￥</span>
-              <del class="grey origin-price">62.56</del>
-              <a class="im-buy">购买</a>
-            </p>
-          </div>
-          <div class="item">
-            <div>
-              <a class="video-cover"><img src="../../assets/images/九鼎财税01_37.png" />
-                <span class="new">NEW</span>
-              </a>
-            </div>
-            <p class="book-name">
-              <a>土地增值税实战与案例</a>
-
-            </p>
-            <p class="buss-info">￥
-              <span class="current-price">51.00</span>
-              <span class="grey">￥</span>
-              <del class="grey origin-price">62.56</del>
-              <a class="im-buy">购买</a>
-            </p>
-          </div>
-          <div class="item">
-            <div>
-              <a class="video-cover"><img src="../../assets/images/九鼎财税01_39.png" />
-                <span class="new">NEW</span>
-              </a>
-            </div>
-            <p class="book-name">
-              <a>土地增值税实战与案例</a>
-            </p>
-            <p class="buss-info">￥
-              <span class="current-price">51.00</span>
-              <span class="grey">￥</span>
-              <del class="grey origin-price">62.56</del>
-              <a class="im-buy">购买</a>
-            </p>
-          </div>
-        </div>
       </div>
     </div>
     <div class="comment">
       <p @click="toggle()">
-        <span data-ref='1' class="cur">图书详情</span>
-        <span data-ref='2'>图书目录</span>
+        <span data-ref='1' class="cur">商品介绍</span>
+        <span data-ref='2'>规格参数</span>
         <span data-ref='3'>评论(189)</span>
       </p>
       <div class="content" v-if="part=='1'">
@@ -131,12 +77,19 @@
 </template>
 <script>
 import magnifier from "../magnifier/Magnifier";
+const PROVINCE = require("../../assets/全国省市.json");
 export default {
   components: { magnifier },
   data() {
     return {
       part: "1",
-      count: 1
+      count: 1,
+      mingxi: "mingxi",
+      province: PROVINCE,
+      provId: "0",
+      areaId: "0",
+      area: [{ name: "请选择" }],
+      city: [{ name: "请选择" }]
     };
   },
   methods: {
@@ -145,6 +98,14 @@ export default {
       event.target.setAttribute("class", "cur");
       let ref = event.target.dataset.ref;
       this.part = ref;
+    },
+    selectProvince: function(value) {
+      this.area = this.province[value].sub;
+    },
+    selectArea: function(value) {
+      if (this.area[value]) {
+        this.city = this.area[value].sub;
+      }
     }
   }
 };
@@ -153,23 +114,23 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .detail {
-  width: $width;
   margin: 0 auto;
   padding-top: 20px;
   // border-top: 1px solid $border-rice;
+  .border {
+    display: inline-block;
+    border: 1px solid $border-dark;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    position: relative;
+  }
   i {
     display: inline-block;
     width: 22px;
     height: 22px;
     background-image: url("../../assets/images/Sprite.png");
     vertical-align: text-bottom;
-  }
-  .cur-posi {
-    margin-bottom: 26px;
-    i {
-      background-position: -18px -100px;
-      margin-right: 6px;
-    }
   }
   .product-msg {
     height: 460px;
@@ -184,14 +145,14 @@ export default {
     }
     .rt-content {
       width: 472px;
-      .block{
+      .block {
         display: inline-block;
         width: 25px;
         line-height: 25px;
         border: 1px solid $border-dark;
         text-align: center;
         cursor: pointer;
-        &+.ctr{
+        & + .ctr {
           border-left: none;
           border-right: none;
           cursor: auto;
@@ -200,25 +161,9 @@ export default {
       p {
         margin-bottom: 18px;
       }
-      .title {
-        padding-bottom: 18px;
-        font-size: 16px;
-        border-bottom: 1px solid $border-rice;
-      }
       .price {
-        height: 56px;
-        background-color: $bg-nav;
-        line-height: 56px;
         font-size: 22px;
-        color: $red;
-        padding-left: 20px;
-        margin: 10px 0 25px 0;
-        del, span {
-          font-size: 16px;
-          color:#999;
-          margin-left: 5px;
-        }
-       
+        color: #e40077;
       }
       button {
         background-color: $red;
@@ -232,21 +177,50 @@ export default {
         line-height: 34px;
         margin-right: 10px;
       }
-      i {
+      i[class="shopping"] {
         background-position: -185px -195px;
         margin-right: 6px;
         position: relative;
-        top: 2px;
+      }
+      .mingxi {
+        padding: 0 10px;
+        cursor: pointer;
+        margin-right: 5px;
+        i {
+          display: none;
+        }
+      }
+      .rd-border {
+        border: 1px solid $red;
+        i {
+          display: block;
+          position: absolute;
+          height: 20px;
+          width: 20px;
+          background-image: url("../../assets/images/Sprite.png");
+          background-position: 45px -82px;
+          bottom: -1px;
+          right: -1px;
+        }
       }
     }
+  }
+  .tip {
+    color: #e40077;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  select {
+    width: 70px;
+    height: 25px;
+    margin-right: 14px;
   }
   .title {
     width: 100%;
     margin: auto;
     margin-bottom: 20px;
-    padding-bottom: 10px;
     position: relative;
-    border-bottom: 1px solid $border-rice;
+    font-size: 16px;
     span {
       padding: 4px 19px;
       margin-right: 10px;
@@ -335,8 +309,7 @@ export default {
       line-height: 35px;
       font-size: 14px;
       padding: 15px 10px 20px;
-      border: 1px solid $border-rice;
-      margin-top: 15px;
+      border: 1px solid $red;
     }
   }
 }
