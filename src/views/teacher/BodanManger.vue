@@ -3,7 +3,12 @@
     <div class="modal-outer" v-show="modal">
       <!-- <div class="close">X</div> -->
       <!-- v-bind传输数据到子组件(contentSeries) -->
-      <modal @closeModal="closeModal"></modal>
+      <modal @closeModal="closeModal('modal')"></modal>
+    </div>
+    <div class="modal-outer" v-show="modal2">
+      <!-- <div class="close">X</div> -->
+      <!-- v-bind传输数据到子组件(contentSeries) -->
+      <video-upload :contentSeries = "contentSeries" @closeModal="closeModal('modal2')"></video-upload>
     </div>
     <div>
       <div class="clearfix">
@@ -18,11 +23,11 @@
           <p class="date">2017-12-5 17:09:51</p>
         </div>
         <div class="fr">
-          <p>编辑播单信息</p>
+          <p @click="modal2 = true;contentSeries = false">编辑播单信息</p>
         </div>
       </div>
       <ul class="sm-tags">
-        <router-link tag="li" :to="{ name:'upload'}">添加视频</router-link>
+        <li @click="modal2 = true;contentSeries = true">添加视频</li>
         <li>移除视频</li>
         <li @click="modal = true">移动到播单</li>
       </ul>
@@ -77,8 +82,9 @@
 
 <script>
 import Modal from '../modal/BodanTransform'
+import VideoUpload from '../modal/VideoUpload'
 export default {
-  components:{ Modal },
+  components:{ Modal,VideoUpload },
   data() {
     return {
       items: [
@@ -104,12 +110,14 @@ export default {
           link: "videomanger"
         }
       ],
-      modal: false
+      modal: false,
+      modal2:false,
+      contentSeries:true
     };
   },
   methods: {
-    closeModal: function() {
-      this.modal = false;
+    closeModal: function(modal) {
+      this[modal] = false;
     }
   }
 };
