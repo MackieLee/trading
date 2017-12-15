@@ -27,8 +27,7 @@
           <del>￥62.56</del>
         </p>
         <p>作 &nbsp;&nbsp;&nbsp;  者：北京中经阳光税收筹划事务所</p>
-        <p>出 版 社：中国市场出版社</p>
-        <p>出版时间：2012年07月</p>
+        <p><span>出 版 社：中国市场出版社</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>出版时间：2012年07月</span></p>
         <p>适合人群：备考CPA审计的学员看官方教材云里雾里的学员</p>
         <p>数 &nbsp;&nbsp;&nbsp;&nbsp;  量：<span class="block" @click="count>1?count--:count">-</span><span class="block ctr">{{ count }}</span><span @click="count++" class="block">+</span></p>
         <p class="btn">
@@ -175,8 +174,7 @@ export default {
     height: 460px;
     display: flex;
     .lf-content {
-      // margin: 0 172px 0 56px;
-      margin-right: 20px;
+      margin: 0 172px 0 56px;
       li {
         margin-top: 10px;
         cursor: pointer;

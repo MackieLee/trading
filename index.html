@@ -18,5 +18,13 @@
     <!--[if lt IE 9]><div class="alert alert-danger topframe" role="alert">你的浏览器实在<strong>太太太太太太旧了</strong>，放学别走，升级完浏览器再说 <a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div><![endif]-->
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+      document.write('<script src="\/\/assets-cdn.kf5.com\/supportbox\/main.js?' + (new Date).getDay() + '" id="kf5-provide-supportBox" kf5-domain="mackielee.kf5.com" charset="utf-8"><\/script>');
+    </script>
+    <script>
+      window.KF5SupportBoxAPI.ready(function(){
+        window.KF5SupportBoxAPI.removeButton();
+      })
+    </script>
   </body>
 </html>

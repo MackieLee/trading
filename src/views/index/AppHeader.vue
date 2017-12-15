@@ -35,15 +35,15 @@
         </ul>
       </div>
       <div class="logined" v-show="!test">
-        <div class="rt_part">
-          <a class="a-broadcast" @mouseover="dropSet('left')">
+        <div class="rt_part" @mouseleave="drop = ''">
+          <a class="a-broadcast" @mouseenter="drop = 'left'">
             <i class="broadcast"></i>
           </a>
           <router-link :to="{ name:'initdata'}" class="menu">
-            <img @mouseover="dropSet('right')" src="../../assets/images/thumb-test.jpg"/>
+            <img @mouseover="drop = 'right'" src="../../assets/images/thumb-test.jpg"/>
           </router-link>
         </div>
-        <div class="drop-list drop-left" v-if="drop === 'left'" @mouseleave="clearDrop">
+        <div class="drop-list drop-left" v-if="drop === 'left'" @mouseenter = "drop = 'left'" @mouseleave="drop = ''">
           <i></i>
           <div>
             <ul>
@@ -58,7 +58,7 @@
             </ul>
           </div>
         </div>
-        <div class="drop-list drop-right" v-if="drop === 'right'" @mouseleave="clearDrop">
+        <div class="drop-list drop-right" v-if="drop === 'right'" @mouseenter = "drop = 'right'" @mouseleave="drop = ''">
           <div>
             <ul>
               <router-link :to="{ name: 'initdata'}" tag="li">
@@ -109,13 +109,6 @@ export default {
     getItem: function(item) {
       this.activeItem = item.link;
     },
-    dropSet:function(dir){
-      this.drop = dir
-    },
-    clearDrop:function(){
-      this.drop = ''
-    },
-
     testState:function(){
       this.test = !this.test
     }
@@ -280,10 +273,10 @@ export default {
           margin-right: 10px;
         }
         .set{
-          background-position: 253px 31px;
+          background-position: -307px -314px;
         }
         .quit{
-          background-position: 253px 64px;
+          background-position:-305px -348px;
         }
       }
     }

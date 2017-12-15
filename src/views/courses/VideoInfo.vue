@@ -34,68 +34,69 @@
     <div id="xxkc_xq02">
       <div class="xq02_l">
         <h2>
-          <span>课程介绍</span>
+          <!-- .............................. -->
+          <span @click="cur = true" :class="{'cur-active' : cur}">课程介绍</span>
+          <span @click="cur = false" :class="{'cur-active' : !cur}">课程目录</span>
         </h2>
-        <P>
-本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析
-本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；
-课程总及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析。</P>
-<p>课程内容</P>
-<p>企业所得税年度纳税申报表中隐藏的稽查陷阱
--	基础信息表的稽查信息
--	期间费用明细表中的稽查信息
--	收入、成本费用表中的稽查指标
--	纳税调整项目明细表中的稽查信息
--	所得减免优惠明细表</p>        <P>
-本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析
-本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；
-课程总及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析。</P>
-<p>课程内容</P>
-<p>企业所得税年度纳税申报表中隐藏的稽查陷阱
--	基础信息表的稽查信息
--	期间费用明细表中的稽查信息
--	收入、成本费用表中的稽查指标
--	纳税调整项目明细表中的稽查信息
--	所得减免优惠明细表</p>        <P>
-本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析
-本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；
-课程总及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析。</P>
-<p>课程内容</P>
-
-        
+        <div v-if="cur">
+          <P>
+            本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析
+            本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；
+            课程总及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析。
+          </P>
+          <p>课程内容</P>
+          <p>企业所得税年度纳税申报表中隐藏的稽查陷阱
+          -	基础信息表的稽查信息
+          -	期间费用明细表中的稽查信息
+          -	收入、成本费用表中的稽查指标
+          -	纳税调整项目明细表中的稽查信息
+          -	所得减免优惠明细表</p>        <P>
+          本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析
+          本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；
+          课程总及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析。</P>
+          <p>课程内容</P>
+          <p>企业所得税年度纳税申报表中隐藏的稽查陷阱
+          -	基础信息表的稽查信息
+          -	期间费用明细表中的稽查信息
+          -	收入、成本费用表中的稽查指标
+          -	纳税调整项目明细表中的稽查信息
+          -	所得减免优惠明细表</p>        <P>
+          本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析
+          本报告讲解：财务分析方法简要介绍及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析；
+          课程总及财务分析案例剖析；销售收入和销售费用分析思路案例分析；生产成本分析思路分析。</P>
+          <p>课程内容</P>
+        </div>
+        <div v-else class="xq02_r">
+          <P>模块一： 2017智能征管时代下汇算清缴主要风险点梳理</P>
+          <P>（一）在企业财务上未反映的“视同销售”，而在汇算清缴被忽略不计。</P>
+          <P>（二）对“股权捐赠收益确认”新政不理解，而在汇算清缴被忽略不计。</P>
+          <P>（三）企业（2009）98号通知与税总（2012）15号公告理解不全面、执行不准确，隐含纳税风险。</P>
+          <P>（四）因向“非金融企业借贷资金利息”扣除缺乏合规合法的证据支持，被税务稽查作纳税调增处理。</P>
+          <P>（五）因“固定资产发生改扩建后”的折旧年限和计税基础确定不准确，被税务稽查作纳税调增处理。</P>
+          <P>（六）对“资产损失扣除”中净损失的确认、实际损失扣除时点的确定、实条件等不合规不合法；被税务稽查作纳税调增处理。</P>
+          <P>（七）企业认定为高新技术企业后，为满足研发费用税前扣增加汇算年度的研发费用。但是在金税三期上线后，所有报表的改动税务机关都有信息，不会把原信息覆盖掉，很难向税务机关解释清楚。为税务稽查埋下了风险。</P>
+          <P>（八）税务机关在征管中发现纳税人对研有的陷入了“人员工资费用、固定资产折旧、财政资金收入、预缴加计扣除”四项误区，隐含纳税风险。</P>
+          <P>（九）汇算清缴时忽视了营改增对应纳税所得额的影响，被税务稽查作纳税调增处理。</P>
+          <P>（十）有的企业财务对全面营改增后增值税与企业所得税纳税义务确认的差异不清楚，被税务稽查作纳税调增处理。</P>
+          <P>（十一）有的企业财务对新会计准则实施后税会差异不清楚，被税务稽查作纳税调增处理。</P>        
+        </div>
       </div>
-      <div class="xq02_r">
-        <h2>
-          <span>课程目录</span>
-        </h2>
-<P>模块一： 2017智能征管时代下汇算清缴主要风险点梳理</P>
-<P>（一）在企业财务上未反映的“视同销售”，而在汇算清缴被忽略不计。</P>
-<P>（二）对“股权捐赠收益确认”新政不理解，而在汇算清缴被忽略不计。</P>
-<P>（三）企业（2009）98号通知与税总（2012）15号公告理解不全面、执行不准确，隐含纳税风险。</P>
-<P>（四）因向“非金融企业借贷资金利息”扣除缺乏合规合法的证据支持，被税务稽查作纳税调增处理。</P>
-<P>（五）因“固定资产发生改扩建后”的折旧年限和计税基础确定不准确，被税务稽查作纳税调增处理。</P>
-<P>（六）对“资产损失扣除”中净损失的确认、实际损失扣除时点的确定、实条件等不合规不合法；被税务稽查作纳税调增处理。</P>
-<P>（七）企业认定为高新技术企业后，为满足研发费用税前扣增加汇算年度的研发费用。但是在金税三期上线后，所有报表的改动税务机关都有信息，不会把原信息覆盖掉，很难向税务机关解释清楚。为税务稽查埋下了风险。</P>
-<P>（八）税务机关在征管中发现纳税人对研有的陷入了“人员工资费用、固定资产折旧、财政资金收入、预缴加计扣除”四项误区，隐含纳税风险。</P>
-<P>（九）汇算清缴时忽视了营改增对应纳税所得额的影响，被税务稽查作纳税调增处理。</P>
-<P>（十）有的企业财务对全面营改增后增值税与企业所得税纳税义务确认的差异不清楚，被税务稽查作纳税调增处理。</P>
-<P>（十一）有的企业财务对新会计准则实施后税会差异不清楚，被税务稽查作纳税调增处理。</P>        
-      </div>
-  </div>
+    </div>
   </div>         
 </template>
 
 <script>
 export default {
   name: "odetail",
-  data(){
-    return{
-      showShare:false
-    }
+  data() {
+    return {
+      showShare: false,
+      cur:true
+    };
   },
-  methods:{
-    share:function(){
-      this.showShare = !this.showShare
+  methods: {
+    share: function() {
+      this.showShare = !this.showShare;
     }
   }
 };
@@ -112,55 +113,58 @@ export default {
 i {
   display: inline-block;
   width: 26px;
-  height: 25px;
+  height: 23px;
   background-image: url("../../assets/images/Sprite.png");
 }
 .cur-posi {
   margin: 0px 0 26px 0;
-  p{height: 20px; line-height: 20px;}
+  p {
+    height: 20px;
+    line-height: 20px;
+  }
   i {
     background-position: -18px -97px;
     vertical-align: text-bottom;
     margin-right: 6px;
   }
 }
-.share-in{
+.share-in {
   position: relative;
-  .share-box{
+  .share-box {
     position: absolute;
-    bottom:-20px;
-   left: 200px;
+    bottom: -20px;
+    left: 200px;
     width: 108px;
     height: 40px;
     background-color: #ddd;
     border-radius: 3px;
     cursor: pointer;
- .arrow{
-  width: 15px;
-  height: 13px;
-  position: absolute;
-  top:-14.5px;
-  left:37%;
-  background-position: -105px -130px;
-}
-i{
-  margin: 5px 5px;
-}
-.weibo{
-  background-position: -339px -13px;
-  &:hover{
-    background-position: -184px -88px;
-  }
-}
-    .wechat{
-      background-position:  -339px -46px;
-      &:hover{
+    .arrow {
+      width: 15px;
+      height: 13px;
+      position: absolute;
+      top: -14.5px;
+      left: 37%;
+      background-position: -105px -130px;
+    }
+    i {
+      margin: 5px 5px;
+    }
+    .weibo {
+      background-position: -339px -13px;
+      &:hover {
+        background-position: -184px -88px;
+      }
+    }
+    .wechat {
+      background-position: -339px -46px;
+      &:hover {
         background-position: -184px -120px;
       }
     }
-    .qq{
-      background-position:  -339px -83px;
-      &:hover{
+    .qq {
+      background-position: -339px -83px;
+      &:hover {
         background-position: -182px -46px;
       }
     }
@@ -178,122 +182,172 @@ i{
 }
 #xxkc_xq01 {
   width: 98%;
-  height:auto;  margin-bottom: 50px; overflow: hidden;
-  .xq01_shit{width:40%;float: left;position: relative;
-  	img{ width:100%;}
-  	.shit:hover{ background-image: url(../../assets/images/hovershit_12_6.png);}
-  .shit{position: absolute;  background-image: url(../../assets/images/shit_12_6.png);
-    left: 50%;
-    top: 50%;
-    cursor: pointer;
-    width: 132px;
-    height: 44px;
-    line-height: 44px;
-    text-align: right;
-    padding-right: 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    box-sizing: border-box;
-    margin-top: -22px;
-    margin-left: -66px;}  	
+  height: auto;
+  margin-bottom: 50px;
+  overflow: hidden;
+  .xq01_shit {
+    width: 40%;
+    float: left;
+    position: relative;
+    img {
+      width: 100%;
+    }
+    .shit:hover {
+      background-image: url(../../assets/images/hovershit_12_6.png);
+    }
+    .shit {
+      position: absolute;
+      background-image: url(../../assets/images/shit_12_6.png);
+      left: 50%;
+      top: 50%;
+      cursor: pointer;
+      width: 132px;
+      height: 44px;
+      line-height: 44px;
+      text-align: right;
+      padding-right: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      box-sizing: border-box;
+      margin-top: -22px;
+      margin-left: -66px;
+    }
   }
-  .xq01_r {width:50%;float: right;
-  h2 {
-  font-size: 18px;
-  padding-bottom:20px; border-bottom: 1px solid #fbc081;
+  .xq01_r {
+    width: 50%;
+    float: right;
+    h2 {
+      font-size: 18px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #fbc081;
+    }
+    .p {
+      height: 56px;
+      background-color: #eaeaea;
+      line-height: 56px;
+      padding-bottom: 0px;
+      font-size: 22px;
+      color: #e7141a;
+      padding-left: 20px;
+      margin: 10px 0;
+      b,
+      del {
+        font-size: 16px;
+        color: #999;
+        margin-left: 5px;
+      }
+    }
+    p {
+      padding-bottom: 26px;
+      font-size: 14px;
+      span {
+        width: 15px;
+        height: 20px;
+        display: inline-block;
+      }
+      a {
+        color: $dark;
+        cursor: pointer;
+        margin-left: 30px;
+        &:hover {
+          color: $red;
+        }
+        i {
+          background-position: -385px -6px;
+          vertical-align: text-bottom;
+          &:hover {
+            background-position: -385px -42px;
+          }
+        }
+      }
+    }
+  }
 }
-.p{
-	  height:56px;
-    background-color: #eaeaea;
-    line-height: 56px;padding-bottom: 0px;
-    font-size: 22px;
-    color: #e7141a;
-    padding-left: 20px;
-    margin:10px 0;
-	b,del{ font-size: 16px;
-    color: #999;
-    margin-left: 5px;}
-}
-p {
-  padding-bottom: 26px;
-  font-size: 14px;
-  span {width: 15px;
-    height: 20px;
-    display: inline-block; }
-  a{color: $dark;
-    cursor: pointer;  margin-left:30px;
-    &:hover{color: $red;}
-    i{
-      background-position: -385px -6px;
-      vertical-align: text-bottom;
-      &:hover{
-        background-position: -385px -42px;
-      }    }  }}  }  }
 #xxkc_xq01 .xq01_r p strong {
   width: 116px;
   height: 20px;
-  display: inline-block;}
+  display: inline-block;
+}
 #xxkc_xq01 .xq01_r ul {
   height: auto;
   width: 100%;
   overflow: hidden;
-  li{
-  float: left;
-  color: $red;
-  margin-right: 15px;
-  .a:hover{background:#e7141a;}
-  .a{
-  height: 34px;
-  width: 100px;
-  padding: 0 10px;
-  background: #f84141;
-  color: $white;
-  font-size: 14px;
-  display: block;
-  border-radius: 3px;
-  text-align: center;
-  line-height: 34px;
-  cursor: pointer;
-  i {
-    background-position:-185px -195px;
-    position: relative;
-    top: 7px;}}
-   b {
-  font-size: 16px;}
-del {
-  color: $black;
-  font-size: 14px;}
-}
+  li {
+    float: left;
+    color: $red;
+    margin-right: 15px;
+    .a:hover {
+      background: #e7141a;
+    }
+    .a {
+      height: 34px;
+      width: 100px;
+      padding: 0 10px;
+      background: #f84141;
+      color: $white;
+      font-size: 14px;
+      display: block;
+      border-radius: 3px;
+      text-align: center;
+      line-height: 34px;
+      cursor: pointer;
+      i {
+        background-position: -185px -200px;
+        position: relative;
+        top: 7px;
+      }
+    }
+    b {
+      font-size: 16px;
+    }
+    del {
+      color: $black;
+      font-size: 14px;
+    }
+  }
 }
 /*课程目录有简介*/
 #xxkc_xq02 {
   width: 100%;
   height: auto;
-  margin-top: 20px;overflow: hidden;
-  .xq02_r{width: 45%;
-  float: right;}
-  .xq02_l {
-  width: 45%;
-  float: left;
+  margin-top: 20px;
+  overflow: hidden;
+  // .xq02_r {
+  //   width: 45%;
+  //   float: right;
+  // }
+  // .xq02_l {
+  //   width: 100%;
+  //   float: left;
+  // }
+  h2 {
+    width: 100%;
+    height: 32px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid $red;
+    span {
+      width: 100px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      box-sizing: border-box;
+      display: inline-block;
+      font-weight: normal;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .cur-active{
+      background-color: $red;
+      color: $white;
+    }
   }
-   h2 {
-  width: 100%;
-  height: 32px; margin-bottom: 15px;
-  border-bottom: 1px solid $red;
-  span {
-  width: 100px;
-  height: 34px;
-  line-height: 34px;
-  text-align: center;
-  background: $red;
-  color: $white;
-  display: block;
-  font-weight: normal;
-  font-size: 14px;}
+  .txt {
+    padding-top: 20px;
+    text-indent: 2em;
+  }
+  p {
+    line-height: 36px;
+  }
 }
-.txt{   padding-top: 20px; text-indent: 2em;}
- p {line-height: 36px;}
-}
-
 </style>

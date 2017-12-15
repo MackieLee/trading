@@ -212,7 +212,7 @@ export default {
   }
   select {
     width: 70px;
-    height: 25px;
+    height: 25px; 
     margin-right: 14px;
   }
   .title {
