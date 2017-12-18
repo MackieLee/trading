@@ -4,6 +4,7 @@ import index from '../views/index/Index'//网站总容器
 import home from '../views/home/Home'//主页
 import offline from '../views/courses/Offline'//线下课程
 import odetail from '../views/courses/Detail'//线下课程详情
+import detailbd from '../views/courses/detailbd'//线下课程报名表单
 import teacher from '../views/team/teacher'//专家团队
 import tdetail from '../views/team/TDetail'//专家团队详情页
 import faq from '../views/faq/Faq'//问答
@@ -35,10 +36,14 @@ import study from '../views/vip/Study'//我的学习
 import shoucang from '../views/vip/Shoucang'//我的收藏
 import qa from '../views/vip/Qa'//我的问答
 import qianbao from '../views/vip/Qianbao'//我的钱包
+import jifenmall from '../views/vip/jifenmall'//积分商城
 import youhuiquan from '../views/vip/Youhuiquan'//我的优惠券
 import fapiao from '../views/vip/Fapiao'//发票索取
 import dingdan from '../views/vip/Dingdan'//我的订单
+import dingdanxq from '../views/vip/dingdanxq'//订单详情
 import cart from '../views/vip/ShoppingCart'//购物车
+import jfsc from '../views/vip/jifenmall'//积分商城
+import jfitem from '../views/vip/JifenItem'//积分商城商品详情
 // ---------------------老师端------------------------------------
 import tadmin from '../views/teacher/Tadmin'//老师端
 import tkecheng from '../views/teacher/Tkecheng'//老师端我的课程
@@ -55,9 +60,14 @@ import tinitpwd from '../views/teacher/Tinitpwd'//老师端账号安全
 import tvideo from '../views/teacher/Tvideo'//老师端视频管理
 import bodanlist from '../views/teacher/BodanList'//播单列表
 import bodanmanger from '../views/teacher/BodanManger'//播单管理
-import videomanger from '../views/teacher/videomanger'//视频管理
+import videomanger from '../views/teacher/Videomanger'//视频管理
+import bodan from '../views/teacher/Bodan'//播单中转页面
+import videos from '../views/teacher/Videos'//视频列表中转
 // ----------------------支付页面----------------------------------
 import pay from '../views/account/Pay'//支付页面
+import pay1 from '../views/account/Pay1'//支付页面
+import pay2 from '../views/account/Pay2'//支付页面
+import payok from '../views/account/payok'//支付页面
 
 Vue.use(Router)
 
@@ -144,6 +154,26 @@ const routes = [
         name: 'pay',
         component: pay
       },
+      {
+        path: '/pay1',
+        name: 'pay1',
+        component: pay1
+      },
+      {
+        path: '/pay2',
+        name: 'pay2',
+        component: pay2
+      },
+      {
+        path: '/payok',
+        name: 'payok',
+        component: payok
+      },
+      {
+			    path: 'detailbd',
+			    name: 'detailbd',
+			    component: detailbd
+			  },
       // 普通用户端----------------
       {
         path: 'vip',
@@ -174,6 +204,11 @@ const routes = [
             component: qianbao
           },
           {
+            path: 'jfsc',
+            name: 'jifenmall',
+            component: jifenmall
+          },
+          {
             path: 'yhq',
             name: 'youhuiquan',
             component: youhuiquan
@@ -182,11 +217,16 @@ const routes = [
             path: 'fp',
             name: 'fapiao',
             component: fapiao
-          },
+          },			    
           {
             path: 'dd',
             name: 'dingdan',
             component: dingdan
+          },
+          {
+            path: 'ddxq',
+            name: 'dingdanxq',
+            component: dingdanxq
           },
           {
             path: 'cart',
@@ -214,9 +254,14 @@ const routes = [
             component: fapiaodetail
           },
           {
-            path: 'f-application',
+            path: 'fapiaoapp', 
             name: 'fapiaoapp',
             component: fapiaoapp
+          },
+          {
+            path: 'jfitem',
+            name: 'jfitem',
+            component: jfitem
           }
         ]
       },
@@ -244,7 +289,7 @@ const routes = [
               },
               {
                 path: 'video-list',
-                name: 'videolist',
+                name: 'video-list',
                 component: videolist
               }
             ]
@@ -294,29 +339,48 @@ const routes = [
           	name: 't-video',
             component: tvideo,
             redirect: {
-              name:'bodanlist'
+              name:'bodan'
             },
             children:[
               {
-                path: 'bodanlist',
-                name: 'bodanlist',
-                component: bodanlist
+                path: 'bodan',
+                name: 'bodan',
+                component: bodan,
+                redirect: {
+                  name:'bodanlist'
+                },
+                children:[
+                  {
+                    path: 'bodanlist',
+                    name: 'bodanlist',
+                    component: bodanlist
+                  },
+                  {
+                    path: 'bodanmanger',
+                    name: 'bodanmanger',
+                    component: bodanmanger
+                  }
+                ]
               },
-              // 视频列表
               {
-                path: 'videolist',
+                path: 'videos',
                 name: 'videos',
-                component: videolist
-              },
-              {
-                path: 'bodanmanger',
-                name: 'bodanmanger',
-                component: bodanmanger
-              },
-              {
-                path: 'videomanger',
-                name: 'videomanger',
-                component: videomanger
+                component: videos,
+                redirect: {
+                  name:'videolist'
+                },
+                children:[
+                  {
+                    path: 'videolist',
+                    name: 'videolist',
+                    component: videolist
+                  },
+                  {
+                    path: 'videomanger',
+                    name: 'videomanger',
+                    component: videomanger
+                  }
+                ]
               }
             ]
           }

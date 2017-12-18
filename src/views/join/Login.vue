@@ -3,7 +3,7 @@
     <join-header></join-header>
     <div class="login-box">
       <div class="content">
-        <form class="login-form">
+        <form class="login-form" submit.privent = 'submit'>
           <p class="title"><span>会员登录</span><router-link :to=" { name:'register'} ">会员注册</router-link></p>
           <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
           <div class="user">
@@ -68,6 +68,9 @@ export default {
     },
     cover:function(){
       document.getElementById('pwd').type = 'password'
+    },
+    submit:function(){
+
     }
   },
   components:{ JoinHeader,JoinFooter }

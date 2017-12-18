@@ -34,9 +34,16 @@
       <i @click="change()" data-ref="1" :class="{ selected: num2}"></i>全选
       <input type="button" class="btn btn-1" value="删除订单"/>
       <input type="button" class="btn btn-2" value="去结算"/>
-      <div class="number">
-        <a>1</a>
-        <a>2</a>
+      <div class="pgs">
+        <li class="prev">&lt;上一页</li>
+        <li class="current">1</li>
+        <li class="custom">2</li>
+        <li class="custom">3</li>
+        <li class="custom">4</li>
+        <li class="points">...</li>
+        <li class="jump"><input type="tel" maxlength="3"> /40页</li>
+        <li class="submit">确定</li>
+        <li class="next">下一页&gt;</li>
       </div>
     </div>
   </div>
@@ -47,10 +54,10 @@ export default {
   name: "fapiao",
   data() {
     return {
-      type: "",
-      taxType: "",
-      num2: '',
-      all:'false'
+      type: "商品类型",
+      taxType: "发票类型",
+      num2: "",
+      all: "false"
     };
   },
   // 全选逻辑重新布局
@@ -85,16 +92,18 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .selected {
- background-position: -103px -320px;
+  background-position: -103px -320px;
 }
 .sel {
   outline: none;
-  border: 1px solid $border-dark;
+  border: none;
   width: 100px;
   height: 30px;
-  margin-left: 20px;
+  margin-left: 20px;  
+  background-color: #f0f0f0;
 }
-i {background-position: -103px -353px;
+i {
+  background-position: -103px -353px;
   margin-right: 5px;
   display: inline-block;
   width: 18px;
@@ -102,23 +111,23 @@ i {background-position: -103px -353px;
   background: url("../../assets/images/Sprite.png");
   vertical-align: text-bottom;
 }
-.btn{
-  outline:none;
+.btn {
+  outline: none;
   width: 80px;
   height: 30px;
   cursor: pointer;
 }
-.btn-1{
+.btn-1 {
   border: 1px solid $border-dark;
   margin-left: 20px;
   background-color: $white;
 }
-.btn-2{
+.btn-2 {
   border: none;
   float: right;
   background-color: $btn-danger;
   color: $white;
-  &:hover{
+  &:hover {
     background-color: $btn-danger-hover;
   }
 }
@@ -128,16 +137,16 @@ i {background-position: -103px -353px;
   margin: 0 auto;
   background-color: $white;
   h2 {
-  width: 100%;
-  background: $bg-blue;
-  height: 40px;
-  font-weight: normal;
-  line-height: 40px;
-  text-align: center;
-  font-size: 16px;
-  border: none;
-  color: $white;
-}
+    width: 100%;
+    background: $bg-blue;
+    height: 40px;
+    font-weight: normal;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    color: $white;
+  }
 }
 
 .my_order_r .ul01 {
@@ -145,18 +154,18 @@ i {background-position: -103px -353px;
   width: 100%;
   border-bottom: 1px solid $red;
   li {
-  width: 128px;
-  text-align: center;
-  font-size: 18px;
-  color: $black;
-  float: left;
-  padding: 20px 0 15px;
-  cursor: pointer;
-}
-.li01 {
-  color: $red;
-  border-left: 0 none;
-}
+    width: 128px;
+    text-align: center;
+    font-size: 18px;
+    color: $black;
+    float: left;
+    padding: 20px 0 15px;
+    cursor: pointer;
+  }
+  .li01 {
+    color: $red;
+    border-left: 0 none;
+  }
 }
 .my_order_r .ul02 {
   height: 35px;
@@ -169,12 +178,12 @@ i {background-position: -103px -353px;
     margin-left: 10px;
   }
   li {
-  width: 120px;
-  text-align: center;
-  font-size: 14px;
-  float: left;
-  line-height: 35px;
-}
+    width: 120px;
+    text-align: center;
+    font-size: 14px;
+    float: left;
+    line-height: 35px;
+  }
 }
 .my_order_r .ul03,
 .my_order_r .ul06 {
@@ -210,7 +219,7 @@ i {background-position: -103px -353px;
 
 .my_order_r .ul03 .li01 i,
 .my_order_r .ul06 .li01 i {
- background-position: -103px -353px;
+  background-position: -103px -353px;
 }
 
 .my_order_r .p01 {
@@ -218,50 +227,60 @@ i {background-position: -103px -353px;
   background: $bg-blue;
   line-height: 31px;
   color: $white;
-  i{
-    margin-left: 10px; background-position: -103px -353px;
+  i {
+    margin-left: 10px;
+    background-position: -103px -353px;
   }
-    span {
+  span {
     margin-left: 30px;
     .span01 {
-    margin-left: 10px;
-    color: $grey-white;
-  }
+      margin-left: 10px;
+      color: $grey-white;
+    }
   }
 }
- .my_order_r .ul05 {
+.my_order_r .ul05 {
   height: 95px;
   width: 100%;
   border: 1px solid $border-dark;
   margin-bottom: 10px;
   box-sizing: border-box;
- .li02{ color: red;}
+  .li02 {
+    color: red;
+  }
   .li01 {
-  border-left: 0 none;
-  width: 400px;
-  text-align: left;
-  margin-left:10px;
-  padding: 10px 0;
-   img {float: left;
-    padding: 5px; border: 1px solid $border-dark;
-    float: left;width: 92px;height: 62px;
+    border-left: 0 none;
+    width: 400px;
+    text-align: left;
+    margin-left: 10px;
+    padding: 10px 0;
+    img {
+      float: left;
+      padding: 5px;
+      border: 1px solid $border-dark;
+      float: left;
+      width: 92px;
+      height: 62px;
+    }
+    p {
+      float: left;
+      width: 270px;
+      font-size: 14px;
+      margin-left: 15px;
+      display: inline-block;
+    }
   }
-  p {
-     float: left;width: 270px;
-    font-size: 14px;
-    margin-left: 15px;
-    display:inline-block;font-weight: bold;
+  li {
+    width: 120px;
+    line-height: 95px;
+    text-align: center;
+    color: $black;
+    float: left;
+    border-left: 1px solid $border-dark;
+    a:hover {
+      color: red;
+    }
   }
-}
-   li {
-  width: 120px;
-  line-height: 95px;
-  text-align: center;
-  color: $black;
-  float: left;
-  border-left: 1px solid $border-dark;
-    a:hover{color: red;}
-}
 }
 
 .my_order_r .number {
@@ -280,5 +299,50 @@ i {background-position: -103px -353px;
   font-size: 14px;
   background: $btn-default;
   cursor: pointer;
+}
+.pgs {
+  width: 525px;
+  margin: 60px auto;
+  li {
+    width: 33px;
+    padding: 4px 0;
+    line-height: 20px;
+    text-align: center;
+    margin-right: 2px;
+    cursor: pointer;
+    border: 1px solid $border-dark;
+    color: $black;
+  }
+  .prev {
+    width: 73px;
+    color: $blue;
+  }
+  .next {
+    width: 96px;
+    color: $blue;
+  }
+  .points {
+    border: none;
+  }
+  .submit {
+    background-color: $btn-default;
+    color: $white;
+    width: 44px;
+    border: none;
+  }
+  .jump {
+    width: 80px;
+    border: 1px solid $border-dark;
+    color: #333;
+    input {
+      width: 30px;
+      border: 1px solid $border-dark;
+      outline: none;
+    }
+  }
+  .current {
+    background-color: $btn-default;
+    color: $white;
+  }
 }
 </style>

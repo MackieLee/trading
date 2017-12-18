@@ -28,7 +28,7 @@ const formValidation = {
     let reg2 = /^1[345789]\d{9}$/
     return (reg1.test(value) || reg2.test(value)) ? 'success':'danger'
     // if(reg.test(value)){
-      // 在此处进行数据验证，返回正确 或者是 用户名 重复
+    // 在此处进行数据验证，返回正确 或者是 用户名 重复
     //   if('success'){
     //     return 'success'
     //   }else{

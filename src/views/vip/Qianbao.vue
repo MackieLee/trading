@@ -6,11 +6,18 @@
         <button>充值</button>
         <button>提现</button>
       </p>
+       <p class="fr">
+        <span>可用积分<br/><i>40</i></span>
+        <span>即将过期<br/><i>0</i></span>
+        <span>快去兑换<br/><router-link :to="{ name:'jifenmall' }" class="fr_" >兑换</router-link></span>
+       
+      </p>
+     
     </div>
     <p class="p02">
       <span class="cur" data-ref='1' @click="toggle()">近三个月收支明细</span>|
       <span data-ref='2' class="" @click="toggle()">三个月前收支明细</span>
-    </p>
+    </p>   
     <table v-if="!show">
       <tr height="38">
         <th width="160" class="span01">时间</th>
@@ -103,9 +110,9 @@ export default {
   },
   methods: {
     toggle: function() {
-      document.getElementsByClassName("cur")[0].className = "";
-      event.target.setAttribute("class", "cur");
-      this.show = !this.show;
+      document.getElementsByClassName("cur")[0].className = ""
+      event.target.setAttribute("class", "cur")
+      this.show = !this.show
     }
   }
 };
@@ -123,16 +130,28 @@ export default {
 .my_qianb_r .div01 {
   height: 110px;
   width: 100%;
-  margin: 0px 0 50px;
+  margin: 0px 0px 30px;
+ .fr{ width: 45%;margin-right:0px;
+  	span{font-size:18px;line-height:40px; float: left; margin:0px 15px;}
+  	i{font-style: normal;margin-top: 10px; color: #117cee;}
+  		.fr_:hover{background: #E7141A;}
+  	.fr_{font-size:14px; display: block;margin-top: 10px;width: 80px;
+    border-radius: 3px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    background: #f84141;}
+
+  }
   p {
-    width: 188px;
+    width:20%;
     text-align: center;
     height: 110px;
     font-size: 20px;
     color: #333;
-    float: left;
+    float: left;margin-right:40px;
     button {
-      width: 80px;
+      width: 80px;margin-bottom: 10px;
       border-radius: 3px;
       text-align: center;
       height: 30px;
@@ -145,20 +164,13 @@ export default {
       &:hover {background: #e7141a;}
     }
   }
-  .p_ri {
-    float: right;
-    margin-right: 200px;
-  }
-}
-.my_qianb_r .div01 .p_le {
-  padding-top: 26px;
+  .p_ri {float: left;}
 }
 
 .my_qianb_r .div01 .li01 {
   color: $red;
   border-left: 0 none;
 }
-
 .my_qianb_r .p02 {
   height: 50px;
   font-size: 14px;
@@ -171,10 +183,7 @@ export default {
     text-align: center;
     line-height: 50px;
   }
-  .cur {
-    border-bottom: 1px solid $red;
-    color: $red;
-  }
+  .cur {border-bottom: 1px solid $red;color: $red;}
 }
 .my_qianb_r .number {
   height: 34px;

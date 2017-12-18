@@ -347,7 +347,7 @@ export default {
       width: 22px;
       height: 22px;
       background-image: url("../../assets/images/Sprite.png");
-      background-position: -18px -106px;
+      background-position: -18px -100px;
       vertical-align: text-bottom;
       margin-right: 6px;
     }

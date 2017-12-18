@@ -28,7 +28,7 @@ export default {
           title: "税收筹划案例精解-3",
           link: "videoinfo",
           src: "../../assets/images/九鼎财税01_10.png",
-          score: "100",
+      score: "100",
           class: "25",
           person: "1500",
           price: "1000"
@@ -101,7 +101,7 @@ export default {
     margin-right: 10px;
     background-image: url("../../assets/images/Sprite.png");
     background-repeat: no-repeat;
-    background-position: -13px -166px;
+    background-position: -13px -163px;
   }
   font {
     font-size: 18px;
@@ -171,15 +171,15 @@ export default {
         .score i {
           display: inline-block;
           height: 20px;
-          width: 20px;
+          width: 15px;
           background-position: -240px -287px;
           vertical-align: text-bottom;
         }
         .person-current i {
           display: inline-block;
           height: 20px;
-          width: 20px;
-          background-position: -346px -285px;
+          width: 25px;
+          background-position: -344px -285px;
           vertical-align: text-bottom;
         }
       }

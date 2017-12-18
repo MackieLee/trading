@@ -20,7 +20,7 @@
           <div class=" block block-2 lf">￥4588.00</div>
           <div class=" block block-3 lf">视频</div>
           <div class=" block block-4 lf"><p>应付</p><p>￥4588.00</p></div>
-          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br>加到我的收藏</div>
+          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br><span @click="shoucang">{{ shoucangMsg }}</span></div>
         </div>
       </div>
       <div class="item">
@@ -31,7 +31,7 @@
           <div class=" block block-2 lf">￥4588.00</div>
           <div class=" block block-3 lf">视频</div>
           <div class=" block block-4 lf"><p>应付</p><p>￥4588.00</p></div>
-          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br>加到我的收藏</div>
+          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br><span>已收藏</span></div>
         </div>
       </div>
     </div>
@@ -40,9 +40,16 @@
         <i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选 </li>
       <button class="btn-danger rt right-cut">去结算</button>
     </ul>
-    <div class="number">
-      <a>1</a>
-      <a>2</a>
+    <div class="pgs">
+      <li class="prev">&lt;上一页</li>
+      <li class="current">1</li>
+      <li class="custom">2</li>
+      <li class="custom">3</li>
+      <li class="custom">4</li>
+      <li class="points">...</li>
+      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
+      <li class="submit">确定</li>
+      <li class="next">下一页&gt;</li>
     </div>
   </div>
 </template>
@@ -56,51 +63,59 @@ export default {
       num2: false,
       num3: false,
       all: false,
-      part: "1"
+      part: "1",
+      shoucangMsg: "点击收藏"
     };
   },
   methods: {
     toggle() {
-      document.getElementsByClassName("li01")[0].className = "";
-      let attr = event.target.getAttribute("class");
-      console.log(event.target);
-      console.log(attr);
+      document.getElementsByClassName("li01")[0].className = ""
+      let attr = event.target.getAttribute("class")
+      console.log(event.target)
+      console.log(attr)
       if (attr != "ul01") {
-        event.target.setAttribute("class", "li01");
+        event.target.setAttribute("class", "li01")
       }
-      let ref = event.target.dataset.ref;
-      this.part = ref;
+      let ref = event.target.dataset.ref
+      this.part = ref
     },
     change: function() {
-      let ref = event.target.dataset.ref;
+      let ref = event.target.dataset.ref
       if (ref === "all") {
         if (this.num1 == this.num2 && this.num2 == this.num3) {
-          this.num1 = !this.num1;
-          this.num2 = !this.num2;
-          this.num3 = !this.num3;
-          this.all = !this.all;
+          this.num1 = !this.num1
+          this.num2 = !this.num2
+          this.num3 = !this.num3
+          this.all = !this.all
         } else {
-          this.num1 = true;
-          this.num2 = true;
-          this.num3 = true;
-          this.all = true;
+          this.num1 = true
+          this.num2 = true
+          this.num3 = true
+          this.all = true
         }
       } else if (ref === "0") {
-        this.num1 = !this.num1;
+        this.num1 = !this.num1
       } else if (ref === "1") {
-        this.num2 = !this.num2;
+        this.num2 = !this.num2
       } else {
-        this.num3 = !this.num3;
+        this.num3 = !this.num3
       }
+    },
+    shoucang:function(){
+      // axios 获取收藏状态
+      this.shoucangMsg = '已收藏'
     }
+  },
+  filters: {
+    
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .selected {
-  background-position: -101px -254px !important;
+  background-position: -101px -288px !important;
 }
 .my_order_r {
   height: 900px;
@@ -108,7 +123,7 @@ export default {
   margin: 0 auto;
   background-color: $white;
 }
-.rt{
+.rt {
   float: right;
 }
 i {
@@ -118,23 +133,23 @@ i {
   width: 15px;
   height: 15px;
 }
-.container{
+.container {
   margin-bottom: 20px;
-  .item{
+  .item {
     margin-bottom: 20px;
   }
 }
 .block-hori {
   padding: 0 15px;
 }
-.block-nav-1{
+.block-nav-1 {
   width: 300px;
 }
 .block-1 {
   width: 370px;
   overflow: hidden;
   border-right: 1px solid $border-dark;
-   .img {
+  .img {
     margin-right: 20px;
   }
   .header {
@@ -164,7 +179,7 @@ i {
     background-color: $btn-danger-hover;
   }
 }
-.right-cut{
+.right-cut {
   margin-right: 60px;
 }
 .my_order_r h2 {
@@ -182,19 +197,19 @@ i {
   width: 100%;
   background: #ddd;
   margin: 10px 0 15px;
-    .li01{
+  .li01 {
     margin-left: 13px;
-      i{
-      background-position: -103px -353px;
+    i {
+      background-position: -101px -256px;
       margin-right: 10px;
     }
   }
 }
-.ul03 .li01{
+.ul03 .li01 {
   font-size: 14px;
   margin-left: 13px;
-   i{
-    background-position:-103px -353px;
+  i {
+    background-position: -101px -256px;
   }
 }
 .my_order_r .ul02 li {
@@ -224,7 +239,7 @@ i {
 .ul {
   border: 1px solid $border-dark;
   overflow: hidden;
-    .lf {
+  .lf {
     float: left;
   }
   .block {
@@ -237,10 +252,12 @@ i {
     border-right: 1px solid $border-dark;
     height: 68px;
   }
-  .block-1,.block-2,.block-3{
+  .block-1,
+  .block-2,
+  .block-3 {
     line-height: 65px;
   }
-  .block-4 p{
+  .block-4 p {
     text-align: center;
     line-height: 25px;
   }
@@ -250,24 +267,53 @@ i {
   float: left;
 }
 
-.my_order_r .number {
-  height: 36px;
-  width: 80px;
-  margin: 40px auto 0;
-}
-
-.my_order_r .number a {
-  height: 36px;
-  width: 34px;
-  display: inline-block;
-  text-align: center;
-  line-height: 36px;
-  color: $white;
-  font-size: 14px;
-  background: $btn-default;
-}
+.pgs {
+    width: 525px;
+    margin: 60px auto;
+    li {
+      width: 33px;
+      padding: 4px 0;
+      line-height: 20px;
+      text-align: center;
+      margin-right: 2px;
+      cursor: pointer;
+      border: 1px solid $border-dark;
+      color: $black;
+    }
+    .prev {
+      width: 73px;
+      color: $blue;
+    }
+    .next {
+      width: 96px;
+      color: $blue;
+    }
+    .points {
+      border: none;
+    }
+    .submit {
+      background-color: $btn-default;
+      color: $white;
+      width: 44px;
+      border: none;
+    }
+    .jump {
+      width: 80px;
+      border: 1px solid $border-dark;
+      color: #333;
+      input {
+        width: 30px;
+        border: 1px solid $border-dark;
+        outline: none;
+      }
+    }
+    .current {
+      background-color: $btn-default;
+      color: $white;
+    }
+  }
 .my_order_r .p01 i {
   margin: 0 5px 0 13px;
-  background-position: -103px -321px;
+  background-position: -101px -256px;
 }
 </style>

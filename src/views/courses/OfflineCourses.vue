@@ -20,7 +20,7 @@
           <p>讲师：孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；</p>
         </div>
         <div class="col col-3">
-          <router-link class="tag tag-03" to="/home" tag="p">立即报名</router-link>
+<router-link to="/odetail" tag="p" class="tag tag-03">立即报名</router-link>
           <i></i>
           <p>
             资料下载
@@ -47,7 +47,7 @@
           <p>讲师：孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；</p>
         </div>
         <div class="col col-3">
-          <router-link class="tag tag-03" to="/home" tag="p">立即报名</router-link>
+         <router-link to="/odetail" tag="p" class="tag tag-03">立即报名</router-link>
           <i></i>
           <p>
             资料下载

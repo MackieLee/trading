@@ -26,12 +26,12 @@
         <p class="price"><span>￥</span>51.00
           <del>￥62.56</del>
         </p>
-        <p>作 者：北京中经阳光税收筹划事务所</p>
-        <p>出 版 社：中国市场出版社</p>
-        <p>出版时间：2012年07月</p>
+        <p>作 &nbsp;&nbsp;&nbsp;  者：北京中经阳光税收筹划事务所</p>
+        <p><span>出 版 社：中国市场出版社</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>出版时间：2012年07月</span></p>
         <p>适合人群：备考CPA审计的学员看官方教材云里雾里的学员</p>
+        <p>数 &nbsp;&nbsp;&nbsp;&nbsp;  量：<span class="block" @click="count>1?count--:count">-</span><span class="block ctr">{{ count }}</span><span @click="count++" class="block">+</span></p>
         <p class="btn">
-          <button>立即购买</button>
+          <router-link tag="button" :to="{name:'pay'}" class="a" >立即购买</router-link>
           <button><i></i>加入购物车</button>
         </p>
       </div>
@@ -39,7 +39,7 @@
     <div class="book-box">
       <div class="title">
         <span></span>
-        <font>财经图书</font>
+        <font>相关视频</font>
         <a>更多>></a>
       </div>
       <div class="book-container">
@@ -52,6 +52,7 @@
             </div>
             <p class="book-name">
               <a>土地增值税实战与案例</a>
+              <span></span>
             </p>
             <p class="buss-info">￥
               <span class="current-price">51.00</span>
@@ -128,12 +129,13 @@
   </div>
 </template>
 <script>
-import magnifier from "./Magnifier";
+import magnifier from "../magnifier/Magnifier";
 export default {
   components: { magnifier },
   data() {
     return {
-      part: "1"
+      part: "1",
+      count: 1
     };
   },
   methods: {
@@ -164,7 +166,7 @@ export default {
   .cur-posi {
     margin-bottom: 26px;
     i {
-      background-position: -56px -82px;
+      background-position: -18px -100px;
       margin-right: 6px;
     }
   }
@@ -174,14 +176,27 @@ export default {
     .lf-content {
       margin: 0 172px 0 56px;
       li {
-        margin: 20px 30px 0 0;
+        margin-top: 10px;
         cursor: pointer;
       }
     }
     .rt-content {
       width: 472px;
+      .block{
+        display: inline-block;
+        width: 25px;
+        line-height: 25px;
+        border: 1px solid $border-dark;
+        text-align: center;
+        cursor: pointer;
+        &+.ctr{
+          border-left: none;
+          border-right: none;
+          cursor: auto;
+        }
+      }
       p {
-        margin: 18px 0;
+        margin-bottom: 18px;
       }
       .title {
         padding-bottom: 18px;

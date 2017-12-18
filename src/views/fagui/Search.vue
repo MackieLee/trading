@@ -80,14 +80,40 @@
       <!-- 模块二 -->
       <div class="global-overview-left rt">
         <div class="titcon">
-          <h2 class="ctr">法规库</h2>
+          <span @click="center = true" :class="{ 'tab-cur': center }">中央法规</span>
+          <span @click="center = false" :class="{ 'tab-cur': !center }">地方法规</span>
         </div>
         <div class="clearfix"></div>
         <div class="content">
-          <dl class="search">
-          	  <dd>
-   							<span>中央法规</span>
-   							<span>地方法规</span>
+          <dl v-if="center" class="search">
+            <dd>
+              <label>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label><input/>
+            </dd>
+            <dd>
+              <label>字&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label><input/>
+            </dd>
+            <dd>
+              <label>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度</label><input/>
+            </dd>
+            <dd>
+              <label>发文单位</label><input/>
+            </dd>
+            <dd>
+              <label>发文日期</label><input class="input-sm" type="text" />
+              <label class="lb-md">至</label><input class="input-sm" type="text" />
+            </dd>
+            <dd>
+              <div class="btn-items top-30">
+                <input type="button" class="search-btn" value="检      索" /><input type="button" class="reset" value="重     置" />
+              </div>
+            </dd>
+          </dl>
+          <dl v-else class="search">
+            <dd class="clearfix">
+              <label class="lf">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区</label>
+              <select class="lf">
+                <option></option>
+              </select>
             </dd>
             <dd>
               <label>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label><input/>
@@ -261,12 +287,17 @@
 
 <script>
 export default {
-  name: "fsearch"
-}
+  name: "fsearch",
+  data() {
+    return {
+      center: true
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .about {
   width: $width;
   margin: 0 auto;
@@ -276,7 +307,7 @@ export default {
     color: green;
   }
   .red {
-    color: $red
+    color: $red;
   }
   .clearfix {
     overflow: hidden;
@@ -294,7 +325,7 @@ export default {
     display: inline-block;
     width: 22px;
     height: 22px;
-    background-image: url('../../assets/images/Sprite.png');
+    background-image: url("../../assets/images/Sprite.png");
     vertical-align: text-bottom;
     background-position: 0px 30px;
     margin-right: 11px;
@@ -302,7 +333,7 @@ export default {
   .cur-posi {
     border-bottom: none;
     i {
-      background-position: -18px -106px;
+      background-position: -18px -100px;
       margin-right: 6px;
     }
   }
@@ -317,19 +348,29 @@ export default {
       margin-bottom: 35px;
       .titcon {
         background-color: $bg-blue;
-        border: 1px solid #ccc;
         position: relative;
+        height: 44px;
         h2 {
           font-size: 16px;
           padding: 10px 0;
           margin-left: 40px;
           color: $white;
         }
+        span {
+          line-height: 44px;
+          padding: 10px 10px 15px 10px;
+          color: $white;
+          margin-left: 3px;
+          cursor: pointer;
+        }
+        .tab-cur {
+          background-color: $white;
+          color: $black;
+        }
       }
       .content {
         border: 1px solid $border-dark;
         border-top: none;
-        padding: 10px 0;
         height: 342px;
         dd {
           position: relative;
@@ -352,11 +393,20 @@ export default {
             font-size: 14px;
           }
         }
+        select {
+          width: 98px;
+          height: 28px;
+          margin-right: 14px;
+          outline: none;
+          border: 1px solid $border-blue;
+          display: inline-block;
+        }
         .policy {
           height: 240px;
           padding: 4px 15px;
           li {
-            float: left;font-size: 14px;
+            float: left;
+            font-size: 14px;
             text-align: left;
             width: 33%;
             overflow: hidden;
@@ -365,16 +415,18 @@ export default {
             line-height: 38px;
             .num {
               display: inline-block;
-              width: 6px; margin-right: 5px;
+              width: 6px;
+              margin-right: 5px;
               height: 6px;
-           // background: linear-gradient(#fdb483, #ff84f3)
+              // background: linear-gradient(#fdb483, #ff84f3)
               background-color: $bg-blue;
             }
           }
         }
         .search {
           width: 400px;
-          margin:0 auto;
+          margin: 0 auto;
+          padding-top: 20px;
           label {
             margin-right: 20px;
             font-size: 14px;
@@ -392,11 +444,13 @@ export default {
           label[class="lb-md"] {
             margin: 0 17px;
           }
+          .top-30{
+            margin-top: 30px;
+          }
           .btn-items {
             width: 373px;
             display: flex;
             justify-content: space-between;
-            margin-top: 30px;
             input {
               width: 176px;
               height: 40px;
@@ -410,9 +464,9 @@ export default {
         }
       }
     }
-    .second-line{
-      .content{
-        height:235px;
+    .second-line {
+      .content {
+        height: 235px;
       }
     }
   }

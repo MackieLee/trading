@@ -1,11 +1,19 @@
 <template>
   <div class="my_order_r">
+  	<div class="modal-outer" v-show="pingjia">
+      <!-- <div class="close">X</div> -->
+      <!-- v-bind传输数据到子组件(contentSeries) -->
+      <modal @showTip="showTip" @closeModal="closeModal"></modal>
+    </div>
+    <div v-show="tip" class="tip">
+                谢谢你的评价
+    </div>
     <h2>我的订单</h2>
-    <ul class="ul01" @click="toggle()">
-      <li class="li01" data-ref="1">所有订单</li>
-      <li data-ref="2">待付款(1)</li>
-      <li data-ref="3"> 已完成</li>
-      <li data-ref="4"> 待评价(5)</li>
+    <ul class="ul01">
+      <li @click="toggle()" class="li01" data-ref="1">所有订单</li>
+      <li @click="toggle()" data-ref="2">待付款(1)</li>
+      <li @click="toggle()" data-ref="3"> 已完成</li>
+      <li @click="toggle()" data-ref="4"> 待评价(5)</li>
     </ul>
     <ul class="ul02">
       <li class="li01">报名信息 </li>
@@ -15,8 +23,6 @@
       <li class="li05">交易状态</li>
       <li class="li06">操作</li>
     </ul>
-
-
    <div class="container" v-if="part=='1'">
    	<div class="item">
         <p class="p01">订单号: 53196839876687913<i >2017-08-31</i></p>
@@ -31,7 +37,7 @@
          <li class="li04">¥588.00</li>
          <li class="li05">
          	<span class="zcgm">等待付款</span>
-          <p class="jindu">订单详情 </p>
+          <router-link :to="{ name:'dingdanxq' }" git="p" class="jindu">订单详情 </router-link>
          </li>
          <li class="li06">
          	<span class="zcgm">付款</span>
@@ -39,7 +45,7 @@
          </li>
         </ul>
       </div>
-   	<div class="item">
+   	  <div class="item">
         <p class="p01">订单号: 53196839876687913<i>2017-08-31</i></p>
         <ul>
           <li class="li01">
@@ -51,16 +57,16 @@
          <li class="li03">视频</li>
          <li class="li04">¥588.00</li>
          <li class="li05">
-         	<span class="zcgm">等待付款</span>
-          <p class="jindu">订单详情 </p>
+         	<span class="zcgm">已取消</span>
+          <router-link :to="{ name:'dingdanxq' }" git="p" class="jindu">订单详情 </router-link>
          </li>
          <li class="li06">
-         	<span class="zcgm">付款</span>
-          <p class="jindu">取消订单 </p>
+         	<span class="zcgm">立即购买</span>
+          <p class="jindu"> </p>
          </li>
         </ul>
       </div>
-   	<div class="item">
+   	  <div class="item">
         <p class="p01">订单号: 53196839876687913<i >2017-08-31</i></p>
         <ul>
           <li class="li01">
@@ -72,71 +78,93 @@
          <li class="li03">视频</li>
          <li class="li04">¥588.00</li>
          <li class="li05">
-         	<span class="zcgm">等待付款</span>
-          <p class="jindu">订单详情 </p>
+         	<span class="zcgm">已付款</span>
+          <router-link :to="{ name:'dingdanxq' }" git="p" class="jindu">订单详情 </router-link>
          </li>
          <li class="li06">
-         	<span class="zcgm">付款</span>
-          <p class="jindu">取消订单 </p>
+         	<span class="zcgm">已付款</span>
+          <p class="jindu" @click="pingjia=!pingjia">立即评价</p>
          </li>
         </ul>
       </div>
-
    </div>
    <div class="container" v-if="part=='2'"></div>
     <div class="container" v-if="part=='3'"></div>
     <div class="container" v-if="part=='4'"></div>
 
-    <div class="number">
-      <a>1</a>
-      <a>2</a>
+    <div class="pgs">
+      <li class="prev">&lt;上一页</li>
+      <li class="current">1</li>
+      <li class="custom">2</li>
+      <li class="custom">3</li>
+      <li class="custom">4</li>
+      <li class="points">...</li>
+      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
+      <li class="submit">确定</li>
+      <li class="next">下一页&gt;</li>
     </div>
   </div>
 </template>
 
 <script>
+import Modal from "./dingd_modal"
 export default {
   name: "dingdan",
+  components: { Modal },
   data() {
     return {
       num1: false,
       num2: false,
       num3: false,
       all: false,
-      part: "1"
+      part: "1",
+     pingjia:false,
+			series: true,
+			tip: false,
+			tipMsg: ''
     };
   },
   methods: {
     toggle() {
-      document.getElementsByClassName("li01")[0].className = ""
-      let attr = event.target.getAttribute("class")
+      document.getElementsByClassName("li01")[0].className = "";
+      let attr = event.target.getAttribute("class");
       if (attr != "ul01") {
-        event.target.setAttribute("class", "li01")
+        event.target.setAttribute("class", "li01");
       }
-      let ref = event.target.dataset.ref
-      this.part = ref
+      let ref = event.target.dataset.ref;
+      this.part = ref;
     },
     change: function() {
-      let ref = event.target.dataset.ref
+      let ref = event.target.dataset.ref;
       if (ref === "all") {
         if (this.num1 == this.num2 && this.num2 == this.num3) {
-          this.num1 = !this.num1
-          this.num2 = !this.num2
-          this.num3 = !this.num3
-          this.all = !this.all
+          this.num1 = !this.num1;
+          this.num2 = !this.num2;
+          this.num3 = !this.num3;
+          this.all = !this.all;
         } else {
-          this.num1 = true
-          this.num2 = true
-          this.num3 = true
-          this.all = true
+          this.num1 = true;
+          this.num2 = true;
+          this.num3 = true;
+          this.all = true;
         }
       } else if (ref === "0") {
-        this.num1 = !this.num1
+        this.num1 = !this.num1;
       } else if (ref === "1") {
-        this.num2 = !this.num2
+        this.num2 = !this.num2;
       } else {
-        this.num3 = !this.num3
+        this.num3 = !this.num3;
       }
+    },
+    showTip:function(){
+    	this.pingjia = false
+    	this.tip = true
+    	setTimeout(()=>{
+    		this.tip = false
+    	},1500)
+    },
+    closeModal:function(){
+    	this.pingjia=false
     }
   }
 };
@@ -144,11 +172,90 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
+.tip {
+  width:100px;
+  height: 60px;
+  line-height: 60px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: $white;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  left: 36%;
+}
+.fixed {
+  overflow: hidden;
+  position: fixed;
+  top: 20%;
+  width: 100%;
+}
+.modal-outer {
+  width: 100%;
+  height: 173%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  .modal{
+    height: 110%;
+  }
+  .close {
+    position: absolute;
+    top: 15%;
+    left: 60%;
+  }
+}
+
 .my_order_r {
   height: auto;
   width: 800px;
   margin: 0 auto;
   background-color: $white;
+}
+.pgs {
+  width: 525px;
+  margin: 60px auto;
+  li {
+    width: 33px;
+    padding: 4px 0;
+    line-height: 20px;
+    text-align: center;
+    margin-right: 2px;
+    cursor: pointer;
+    border: 1px solid $border-dark;
+    color: $black;
+  }
+  .prev {
+    width: 73px;
+    color: $blue;
+  }
+  .next {
+    width: 96px;
+    color: $blue;
+  }
+  .points {
+    border: none;
+  }
+  .submit {
+    background-color: $btn-default;
+    color: $white;
+    width: 44px;
+    border: none;
+  }
+  .jump {
+    width: 80px;
+    border: 1px solid $border-dark;
+    color: #333;
+    input {
+      width: 30px;
+      border: 1px solid $border-dark;
+      outline: none;
+    }
+  }
+  .current {
+    background-color: $btn-default;
+    color: $white;
+  }
 }
 .my_order_r h2 {
   widows: 100%;
@@ -162,17 +269,17 @@ export default {
 }
 
 .my_order_r .ul01 {
-  height: 20px;
+  height: 30px;
+  line-height: 30px;
   width: 100%;
   border-bottom: 1px solid $red;
-  padding: 20px 0 15px;
+  padding-top: 10px;
 }
 
 .my_order_r .ul01 li {
   width: 100px;
   text-align: center;
   border-right: 1.5px solid #999;
-  font-size: 16px;
   color: $black;
   float: left;
   cursor: pointer;
@@ -205,6 +312,22 @@ export default {
   .li05 {
     width: 10%;
   }
+}
+.my_order_r .number {
+  height: 36px;
+  width: 80px;
+  margin: 40px auto 0;
+}
+
+.my_order_r .number a {
+  height: 36px;
+  width: 34px;
+  display: inline-block;
+  text-align: center;
+  line-height: 36px;
+  color: $white;
+  font-size: 14px;
+  background: $btn-default;
 }
 /*   */
 .container {
@@ -298,7 +421,7 @@ export default {
         }
         .jindu {
           color: $light-blue;
-          text-indent: 1em;
+          text-indent: 1em;cursor: pointer;
         }
       }
     }

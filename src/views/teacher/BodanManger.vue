@@ -1,11 +1,21 @@
 <template>
-  <div class="bodan-mager">
+  <div class="bodan-manger">
+    <div class="modal-outer" v-show="modal">
+      <!-- <div class="close">X</div> -->
+      <!-- v-bind传输数据到子组件(contentSeries) -->
+      <modal @closeModal="closeModal('modal')"></modal>
+    </div>
+    <div class="modal-outer" v-show="modal2">
+      <!-- <div class="close">X</div> -->
+      <!-- v-bind传输数据到子组件(contentSeries) -->
+      <video-upload :contentSeries = "contentSeries" @closeModal="closeModal('modal2')"></video-upload>
+    </div>
     <div>
       <div class="clearfix">
         <div class="fl">
           <img src="../../assets/images/huanyuanzx02.png" alt="" />
         </div>
-        <div class="fl h-100">
+        <div class="fl h-100 top">
           <div class="title">
             <p>企业所得税年度纳税申报表中隐藏的稽查陷阱</p>
           </div>
@@ -13,27 +23,28 @@
           <p class="date">2017-12-5 17:09:51</p>
         </div>
         <div class="fr">
-          <p>编辑播单信息</p>
+          <p @click="modal2 = true;contentSeries = false">编辑播单信息</p>
         </div>
       </div>
-      <ul>
-        <li></li>
-        <li>添加视频</li>
+      <ul class="sm-tags">
+        <li @click="modal2 = true;contentSeries = true">添加视频</li>
         <li>移除视频</li>
-        <li>移动到播单</li>
-        <li>删除</li>
+        <li @click="modal = true">移动到播单</li>
       </ul>
-    </div>
-    <div class="head">
-      <div class="title"><span class="fl">视频</span><span class="fr">视频上传</span></div>
     </div>
     <div class="upload-box">
       <table>
+        <tr>
+          <th></th>
+          <th>附件</th>
+          <th>状态</th>
+          <th>操作</th>
+        </tr>
         <tr height="120" v-for="item in items" :key="item.src">
-          <td width='50'>
+          <td class="ctr" width='50'>
             <input type="checkbox" />
           </td>
-          <th width='550'>
+          <td width='550'>
             <div class="fl">
               <img src="../../assets/images/huanyuanzx02.png" alt="" />
             </div>
@@ -43,12 +54,12 @@
               </div>
               <p class="date">2017-12-5 17:09:51</p>
             </div>
-          </th>
-          <td width='100'>
-            {{ item.state }}
           </td>
-          <td width='100'>
-            <p>添加视频</p>
+          <td class="ctr" width='100'>
+            视频:2
+          </td>
+          <td class="ctr" width='100'>
+            <p>编辑信息</p>
             <router-link tag="p" :to="{ name:item.link }">管理视频</router-link>
             <p>删除</p>
           </td>
@@ -70,7 +81,10 @@
 </template>
 
 <script>
+import Modal from '../modal/BodanTransform'
+import VideoUpload from '../modal/VideoUpload'
 export default {
+  components:{ Modal,VideoUpload },
   data() {
     return {
       items: [
@@ -78,31 +92,55 @@ export default {
           src: "",
           title: "企业所得税年度纳税申报表中隐企业所得税年度纳税申报表中隐藏的稽查陷阱企业所得税",
           date: "2017-12-5 15:00",
-          state:"上传完成",
+          state: "上传完成",
           link: "videomanger"
         },
         {
           src: "",
           title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
           date: "2017-12-5 15:00",
-          state:"上传完成",
+          state: "上传完成",
           link: "videomanger"
         },
         {
           src: "",
           title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
           date: "2017-12-5 15:00",
-          state:"上传完成",
+          state: "上传完成",
           link: "videomanger"
         }
-      ]
+      ],
+      modal: false,
+      modal2:false,
+      contentSeries:true
     };
+  },
+  methods: {
+    closeModal: function(modal) {
+      this[modal] = false;
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
+.modal-outer {
+  width: 100%;
+  height: 173%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  .modal {
+    height: 110%;
+  }
+  .close {
+    position: absolute;
+    top: 15%;
+    left: 60%;
+  }
+}
 .active {
   border-bottom: 1px solid $red;
 }
@@ -111,6 +149,9 @@ export default {
 }
 .fr {
   float: right;
+}
+.ctr {
+  text-align: center;
 }
 .clearfix {
   overflow: hidden;
@@ -126,49 +167,61 @@ export default {
     }
   }
 }
-.upload-box {
-  border: 1px solid $border-dark;
-  margin-bottom: 20px;
-  padding: 10px;
-
-  table {
-    th,
-    td {
-      height: 60px;
-      // border: 1px solid $border-dark;
-      border-bottom: 1px dashed $border-dark;
+.top {
+  margin-left: 10px;
+  p {
+    line-height: 22px;
+  }
+}
+.sm-tags {
+  margin: 15px 0;
+  li {
+    display: inline-block;
+    width: 80px;
+    padding: 0px 0;
+    text-align: center;
+    border: 1px solid $border-dark;
+    cursor: pointer;
+    margin: 5px;
+  }
+}
+table {
+  border: 1px solid $bg-nav;
+  th {
+    font-weight: bold;
+    text-align: center;
+    background-color: $bg-nav;
+    line-height: 30px;
+  }
+  td {
+    text-align: left;
+    height: 60px;
+    // border: 1px solid $border-dark;
+    border-bottom: 1px dashed $border-dark;
+    p {
+      line-height: 30px;
+      cursor: pointer;
     }
-    th {
-      font-weight: bold;
-      text-align: left;
-      .h-100 {
-        height: 100px;
-        width: 360px;
-      }
-      .title {
-        height: 40px;
-        p {
-          line-height: 30px;
-          font-size: 14px;
-          margin-left: 20px;
-        }
-      }
-      .date {
-        color: $dark;
-        margin: 36px 20px;
-      }
+    .h-100 {
+      height: 100px;
+      width: 360px;
     }
-    td {
-      text-align: center;
+    .title {
+      height: 40px;
       p {
         line-height: 30px;
-        cursor: pointer;
+        font-size: 14px;
+        margin-left: 20px;
       }
     }
-    img {
-      width: 180px;
-      height: 96px;
+    .date {
+      color: $dark;
+      margin: 36px 20px;
     }
+  }
+  img {
+    width: 180px;
+    height: 100px;
   }
 }
 .pgs {

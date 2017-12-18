@@ -50,9 +50,9 @@
         <br> 　　2017年11月1日后报关出口的货物，如生产企业在2017年11月1日前已向综服企业开具增值税专用发票（除代办退税专用发票外）的，仍按照国家税务总局公告2014年第13号的规定办理出口退税。
         <br> 　　特此公告。
         <br>
-        <h3 class="ctr">查看更多内容</h3>
-        <a class="ctr" style="display:block;line-height:0;margin-top:10px;">∨</a>
-        <a class="ctr" style="display:block;line-height:15px;">∨</a>
+        <h3 class="ctr" style="color:red;">查看更多内容</h3>
+        <a class="ctr" style="display:block;line-height:0;margin-top:10px;color:red;">∨</a>
+        <a class="ctr" style="display:block;line-height:15px;color:red;">∨</a>
         <div class="clearfix">
           <div class="lf">附件：</div>
           <div class="lf green">1.代办退税情况备案表<br> 2.外贸综合服务企业代办税申报表
@@ -134,7 +134,7 @@ export default {
 .about {
   width: $width;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top:15px;
   // border-top: 1px solid $border-rice;
   .green {
     color: green;
@@ -193,7 +193,7 @@ export default {
   }
   i {
     display: inline-block;
-    width: 25px;
+    width: 27px;
     height: 25px;
     background-image: url('../../assets/images/Sprite.png');
     vertical-align: text-bottom;
@@ -204,16 +204,17 @@ export default {
     background-position: -183px -118px;
   }
   .wechat{
-    background-position: -183px -44px;
+    background-position: -181px -44px;
   }
   .weibo{
-    background-position: -185px -89px;
+    background-position: -183px -89px;
   }
   .cur-posi {
     border-bottom: none;
+    p{line-height: 20px;}
     i {
-      background-position: -18px -106px;
-      margin-right: 6px;
+      background-position: -18px -96px;
+      margin:0 6px 0 0;
     }
   }
   .container {
@@ -234,7 +235,7 @@ export default {
     }
     .pgs {
       width: 525px;
-      margin: 40px auto 5px auto;
+      margin: 30px auto;
       li {
         width: 33px;
         padding: 4px 0;

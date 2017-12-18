@@ -100,7 +100,7 @@ export default {};
   background-color: $white;
   margin: auto;
   .title {
-    height: 40px;
+    height: 40px;font-size: 16px;
     width: 100%;
     text-align: center;
     line-height: 40px;
@@ -116,7 +116,7 @@ export default {};
       border-bottom: 1px dashed $border-dark;
       margin: 20px;
       span {
-        font-size: 12px;
+        font-size: 14px;
         display: inline-block;
         color: $dark;
         margin-left: 20px;

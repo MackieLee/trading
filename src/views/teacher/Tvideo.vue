@@ -3,7 +3,7 @@
     <div class="head">
       <div class="title">内容管理</div>
       <p>
-        <router-link tag="span":to="{ name : 'bodanlist' }">播单管理</router-link>
+        <router-link tag="span":to="{ name : 'bodan' }">播单管理</router-link>
         <span class="splite">&nbsp;</span>
         <router-link tag="span":to="{ name : 'videos' }">视频管理</router-link>
       </p>
@@ -41,7 +41,7 @@ export default {
       span {
         display: inline-block;
         line-height: 30px;
-        width: 50px;
+        width: 80px;
         text-align: center;
         cursor: pointer;
       }

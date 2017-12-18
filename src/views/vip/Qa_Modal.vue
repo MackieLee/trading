@@ -4,6 +4,9 @@
     <div class="fixed">
       <div class="content">
         <div class="close" @click="closeModal"></div>
+        <div v-show="tip" class="tip">
+          {{ tipMsg }}
+        </div>
         <div class="ctr">
           <!-- 修改为star -->
           <h2>答疑评分</h2>
@@ -17,45 +20,45 @@
                 <li>
                   <p class="p">回答是否准确</p>
                   <div class="star">
-                    <stars sequence = '0'></stars>
-                    <p>5</p>
+                    <stars @check = "check" sequence = '0'></stars>
+                    <p></p>
                   </div>
                 </li>
                 <li>
                   <p class="p">回答是否完整</p>
                   <div class="star">
-                    <stars sequence = '1'></stars>
-                    <p>5</p>
+                    <stars @check = "check" sequence = '1'></stars>
+                    <p></p>
                   </div>
                 </li>
                 <li>
                   <p class="p">答案是否实用</p>
                   <div class="star">
-                    <stars sequence = '2'></stars>
-                    <p>5</p>
+                    <stars @check = "check" sequence = '2'></stars>
+                    <p></p>
                   </div>
                 </li>
                 <li>
                   <p class="p">政策是否过时</p>
                   <div class="star">
-                    <stars sequence = '3'></stars>
-                    <p>5</p>
+                    <stars @check = "check" sequence = '3'></stars>
+                    <p></p>
                   </div>
                 </li>
                 <li>
                   <p class="p">对您是否有用</p>
                   <div class="star">
-                    <stars sequence = '4'></stars>
-                    <p>5</p>
+                    <stars @check = "check" sequence = '4'></stars>
+                    <p></p>
                   </div>
                 </li>
               </ul>
           	</div>
           	<div class="da_box_c">
           		<h3>综合满意度 :</h3>
-          		<stars sequence = '5'></stars>
+          		<stars @check = "check" sequence = '5'></stars>
           	</div>
-	          <textarea placeholder="那么善良的您，夸夸我吧！"/>
+	          <textarea v-model="msg" placeholder="那么善良的您，夸夸我吧！"/>
 	          <div class="sub-btn">
 	            <input type="button" class="submit" @click="submitCommit" value="提 交">
 	          </div>
@@ -70,7 +73,12 @@
 import Stars from "../stars/Stars";
 export default {
   data() {
-    return {};
+    return {
+      score: [],
+      msg: "",
+      tip: false,
+      tipMsg: "请完善你的评论"
+    };
   },
   components: {
     Stars
@@ -84,8 +92,18 @@ export default {
       this.$emit("closeModal");
     },
     submitCommit: function() {
-      //vue-resource....
-      this.$emit("closeModal");
+      if (this.score.length !== 0 || this.msg !== "") {
+        //vue-resource....
+        this.$emit("showTip");
+      } else {
+        this.tip = true;
+        setTimeout(() => {
+          this.tip = false;
+        }, 1500);
+      }
+    },
+    check: function(sequence, score) {
+      this.score[sequence] = score;
     }
   }
 };
@@ -93,6 +111,17 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
+.tip {
+  width:100px;
+  height: 60px;
+  line-height: 60px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: $white;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  left: 36%;
+}
 .fixed {
   overflow: hidden;
   position: fixed;

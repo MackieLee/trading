@@ -92,10 +92,10 @@ export default {
         margin-right: 10px;
       }
       .passed {
-        background-position: 41px 176px;
+        background-position: -518px -203px;
       }
       .stay {
-        background-position: 41px 124px;
+        background-position: -518px -256px;
       }
     }
     .modal {

@@ -23,27 +23,26 @@
       <div class="title">
         <span></span>
         <font>主讲课程</font>
-        <a>更多>></a>
       </div>
       <div class="video-boxes">
         <div class="item">
           <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_33.png"/><span class="new">NEW</span></a></div>
-          <p class="book-name"><a>土地增值税实战与案例</a><span class="book-style">精解</span></p>
+          <p class="book-name"><a>土地增值税实战与案例</a><span>精解</span></p>
           <p class="buss-info">￥<span class="current-price">51.00</span><span class="grey">￥</span><del class="grey origin-price">62.56</del><a class="im-buy">立即购买</a></p>
         </div>
         <div class="item">
           <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_35.png"/><span class="new">NEW</span></a></div>
-          <p class="book-name"><a>土地增值税实战与案例</a><span class="book-style">精解</span></p>
+          <p class="book-name"><a>土地增值税实战与案例</a><span>精解</span></p>
           <p class="buss-info">￥<span class="current-price">51.00</span><span class="grey">￥</span><del class="grey origin-price">62.56</del><a class="im-buy">立即购买</a></p>
         </div>
         <div class="item">
           <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_37.png"/><span class="new">NEW</span></a></div>
-          <p class="book-name"><a>土地增值税实战与案例</a><span class="book-style">精解</span></p>
+          <p class="book-name"><a>土地增值税实战与案例</a><span>精解</span></p>
           <p class="buss-info">￥<span class="current-price">51.00</span><span class="grey">￥</span><del class="grey origin-price">62.56</del><a class="im-buy">立即购买</a></p>
         </div>
         <div class="item">
           <div><a class="video-cover"><img src="../../assets/images/九鼎财税01_39.png"/><span class="new">NEW</span></a></div>
-          <p class="book-name"><a>土地增值税实战与案例</a><span class="book-style">精解</span></p>
+          <p class="book-name"><a>土地增值税实战与案例</a><span>精解</span></p>
           <p class="buss-info">￥<span class="current-price">51.00</span><span class="grey">￥</span><del class="grey origin-price">62.56</del><a class="im-buy">立即购买</a></p>
         </div>
       </div>
@@ -74,7 +73,7 @@ export default {
     }
     .cur-posi{
       i{
-        background-position: -18px -106px;
+        background-position: -18px -100px;
         margin-right: 6px;
       }
     }
@@ -146,9 +145,10 @@ export default {
             bottom: 4px;
           }
           .book-name{
-            margin: 5px 0 20px 0;
+            margin: 5px 0 20px 0; 
+            span{color: #e7141a;}
             a{
-              margin-right: 30px;
+              margin-right: 15px;
             }
           }
           .buss-info{
