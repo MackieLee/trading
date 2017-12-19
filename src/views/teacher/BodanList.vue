@@ -1,11 +1,20 @@
 <template>
   <div class="video-list">
     <div class="head">
+      <div class="all">
+        <input id="all" type="checkbox" /><label for="all">全部</label><span>创建播单</span><span>删除</span>
+      </div>
+      <div class="modal-outer" v-show="modal2">
+        <!-- <div class="close">X</div> -->
+        <!-- v-bind传输数据到子组件(contentSeries) -->
+        <video-upload :contentSeries = "contentSeries" @closeModal="closeModal('modal2')"></video-upload>
+      </div>
       <div class="title">
         <span class="fl">播单</span>
-        <span>视频数</span>
+        <span class="fr" style="text-align:center">视频数</span>
         <span class="fr">操作</span>
       </div>
+      <div style="height:20px;"></div>
     </div>
     <div class="upload-box">
       <table>
@@ -28,7 +37,7 @@
             视频:2
           </td>
           <td width='100'>
-            <p>编辑信息</p>
+            <p @click="modal2 = true;contentSeries = false">编辑信息</p>
             <router-link tag="p" :to="{ name:item.link }">管理播单</router-link>
             <p>删除</p>
           </td>
@@ -50,7 +59,9 @@
 </template>
 
 <script>
+import VideoUpload from '../modal/VideoUpload'
 export default {
+  components:{ VideoUpload },
   data() {
     return {
       items: [
@@ -75,14 +86,37 @@ export default {
           counts: "2",
           link: "bodanmanger"
         }
-      ]
-    };
+      ],
+      modal2:false,
+      contentSeries:true
+    }
+  },
+  methods: {
+    closeModal: function(modal) {
+      this[modal] = false;
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
+.modal-outer {
+  width: 100%;
+  height: 173%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  .modal {
+    height: 110%;
+  }
+  .close {
+    position: absolute;
+    top: 15%;
+    left: 60%;
+  }
+}
 .active {
   border-bottom: 1px solid $red;
 }
@@ -101,6 +135,18 @@ export default {
       width: 70px;
       text-align: center;
     }
+  }
+}
+.all{
+  line-height:35px;
+  margin: 15px 0;
+  label{
+    margin:0 15px 0 10px;
+  }
+  span{
+    padding: 5px 15px;
+    margin-left: 10px;
+    border: 1px solid $border-dark;
   }
 }
 .upload-box {

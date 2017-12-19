@@ -57,7 +57,7 @@
 							<tr class="splite"></tr>
 							<tr>
 								<th>
-									<font class="star">*</font><label for="pro-registed-phone">简介：</label>								
+									<font class="star">*</font><label for="pro-registed-phone">简介：</label>
 								</th>
 								<td colspan="4">
 									<textarea placeholder="请填写简介，简单介绍一下你的视频"></textarea>
@@ -78,11 +78,11 @@
 					</div>
         </div>
         <div class="ctr" v-show="!contentSeries">
-					<h2>编辑播单信息</h2>
+					<h2>编辑信息</h2>
           <div class="tab-container">
             <table>
               <tr>
-                <th>创建播单</th>
+                <th> </th>
               </tr>
               <tr>
                 <th>标题</th>

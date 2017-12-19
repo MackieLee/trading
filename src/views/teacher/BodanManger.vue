@@ -23,10 +23,11 @@
           <p class="date">2017-12-5 17:09:51</p>
         </div>
         <div class="fr">
-          <p @click="modal2 = true;contentSeries = false">编辑播单信息</p>
+          <p style="color:#4683ee;cursor:pointer" @click="modal2 = true;contentSeries = false">编辑播单信息</p>
         </div>
       </div>
       <ul class="sm-tags">
+        <li style="border:none"><input type="checkbox" id="all"><label for="all" style="margin-left:10px">全部</label></li>
         <li @click="modal2 = true;contentSeries = true">添加视频</li>
         <li>移除视频</li>
         <li @click="modal = true">移动到播单</li>
@@ -46,7 +47,7 @@
           </td>
           <td width='550'>
             <div class="fl">
-              <img src="../../assets/images/huanyuanzx02.png" alt="" />
+              <img src="../../assets/images/video-cover.png" alt="" />
             </div>
             <div class="fl h-100">
               <div class="title">
@@ -56,10 +57,10 @@
             </div>
           </td>
           <td class="ctr" width='100'>
-            视频:2
+            {{ item.state }}
           </td>
           <td class="ctr" width='100'>
-            <p>编辑信息</p>
+            <p @click="modal2 = true;contentSeries = false">编辑信息</p>
             <router-link tag="p" :to="{ name:item.link }">管理视频</router-link>
             <p>删除</p>
           </td>
@@ -178,11 +179,11 @@ export default {
   li {
     display: inline-block;
     width: 80px;
-    padding: 0px 0;
+    padding: 4px 0;
     text-align: center;
     border: 1px solid $border-dark;
     cursor: pointer;
-    margin: 5px;
+    margin-right: 5px;
   }
 }
 table {

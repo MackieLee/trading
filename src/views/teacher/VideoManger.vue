@@ -19,6 +19,7 @@
         </div>
       </div>
       <ul class="sm-tags">
+        <li style="border:none"><input type="checkbox" id="all"><label for="all" style="margin-left:10px">全部</label></li>
         <li @click="modal = true;series = false">添加课件</li>
         <li @click="modal = true;series = true">添加试题</li>
         <li>删除</li>
@@ -49,7 +50,6 @@
           上传中
         </td>
         <td width="100">
-          <p>编辑信息</p>
           <p>删除</p>
         </td>
       </tr>
@@ -64,7 +64,6 @@
           上传中
         </td>
         <td width="100">
-          <p>编辑信息</p>
           <p>删除</p>
         </td>
       </tr>
@@ -79,7 +78,6 @@
           上传中
         </td>
         <td width="100">
-          <p>编辑信息</p>
           <p>删除</p>
         </td>
       </tr>
@@ -200,10 +198,10 @@ export default {
   li {
     display: inline-block;
     width: 80px;
-    padding: 0px 0;
+    padding: 4px 0;
     text-align: center;
     border: 1px solid $border-dark;
-    margin: 10px 5px;
+    margin: 10px 10px 10px 0;
     cursor: pointer;
   }
 }
