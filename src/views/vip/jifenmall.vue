@@ -1,11 +1,17 @@
 <template>
   <div class="bind-credit">
+    <div class="cur-posi">
+      <p>
+        <i></i>当前位置 : &nbsp;
+        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;积分商城
+      </p>
+    </div>
     <div class="content">
       <div class="title">积分兑换商城</div>
       <div class="form-container">
         <ul class="ul01">
-          <li>可用积分<br/><i>40</i></li>
-          <li>即将过期<br/><i>0</i></li>		
+          <li>可用积分<br/><span>40</span></li>
+          <li>即将过期<br/><span>0</span></li>
         </ul>
         <ul class="goods">
           <router-link tag="li" :to="{ name :'jfitem'}">
@@ -103,6 +109,20 @@ export default {};
 .bind-credit {
   overflow: hidden;
 }
+i {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-image: url("../../assets/images/Sprite.png");
+  vertical-align: text-bottom;
+}
+.cur-posi {
+  border-bottom: none;
+  i {
+    background-position: -18px -100px;
+    margin-right: 6px;
+  }
+}
 .content {
   background-color: $white;
   margin: auto;
@@ -128,7 +148,7 @@ export default {};
         padding: 15px 0;
         width: 44%;
         text-align: center;
-        i {
+        span {
           font-style: normal;
           margin-top: 10px;
           color: #117cee;
@@ -136,14 +156,14 @@ export default {};
       }
     }
     .goods {
-      .rd{
+      .rd {
         color: red;
       }
       li {
         float: left;
         width: 200px;
         height: 259px;
-        border:1px solid $border-dark;
+        border: 1px solid $border-dark;
         position: relative;
         overflow: hidden;
         text-align: center;

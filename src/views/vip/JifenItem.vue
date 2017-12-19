@@ -1,5 +1,11 @@
 <template>
   <div class="detail">
+    <div class="cur-posi">
+      <p>
+        <i></i>当前位置 : &nbsp;
+        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;积分商城
+      </p>
+    </div>
     <div class="product-msg">
       <div class="lf-content">
         <magnifier></magnifier>
@@ -117,6 +123,20 @@ export default {
   margin: 0 auto;
   padding-top: 20px;
   // border-top: 1px solid $border-rice;
+  i {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-image: url("../../assets/images/Sprite.png");
+    vertical-align: text-bottom;
+  }
+  .cur-posi {
+    border-bottom: none;
+    i {
+      background-position: -18px -100px;
+      margin-right: 6px;
+    }
+  }
   .border {
     display: inline-block;
     border: 1px solid $border-dark;
@@ -212,7 +232,7 @@ export default {
   }
   select {
     width: 70px;
-    height: 25px; 
+    height: 25px;
     margin-right: 14px;
   }
   .title {

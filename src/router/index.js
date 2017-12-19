@@ -42,7 +42,6 @@ import fapiao from '../views/vip/Fapiao'//发票索取
 import dingdan from '../views/vip/Dingdan'//我的订单
 import dingdanxq from '../views/vip/dingdanxq'//订单详情
 import cart from '../views/vip/ShoppingCart'//购物车
-import jfsc from '../views/vip/jifenmall'//积分商城
 import jfitem from '../views/vip/JifenItem'//积分商城商品详情
 // ---------------------老师端------------------------------------
 import tadmin from '../views/teacher/Tadmin'//老师端
@@ -204,11 +203,6 @@ const routes = [
             component: qianbao
           },
           {
-            path: 'jfsc',
-            name: 'jifenmall',
-            component: jifenmall
-          },
-          {
             path: 'yhq',
             name: 'youhuiquan',
             component: youhuiquan
@@ -217,7 +211,7 @@ const routes = [
             path: 'fp',
             name: 'fapiao',
             component: fapiao
-          },			    
+          },
           {
             path: 'dd',
             name: 'dingdan',
@@ -254,16 +248,21 @@ const routes = [
             component: fapiaodetail
           },
           {
-            path: 'fapiaoapp', 
+            path: 'fapiaoapp',
             name: 'fapiaoapp',
             component: fapiaoapp
-          },
-          {
-            path: 'jfitem',
-            name: 'jfitem',
-            component: jfitem
           }
         ]
+      },
+      {
+        path: 'jfsc',
+        name: 'jifenmall',
+        component: jifenmall
+      },
+      {
+        path: 'jfitem',
+        name: 'jfitem',
+        component: jfitem
       },
       //老师端-----------------------
       {

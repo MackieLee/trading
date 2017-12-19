@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="nav">
-          <router-link tag="p" v-for="(item,index) in tags" :key="item.name" :to="{ name : item.router }">
+          <router-link tag="p" v-for="item in tags" :key="item.name" :to="{ name : item.router }">
             <i :class="item.router"></i>{{ item.name }}
           </router-link>
         </div>
@@ -149,7 +149,7 @@ export default {
           i{margin-right:20px;}
         }
         .study {
-          background-position: -58px -220px;  
+          background-position: -58px -220px;
         }
         .shoucang {
           height: 18px;

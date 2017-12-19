@@ -1,7 +1,7 @@
 <template>
   <div class="my_qianb_r">
     <div class="div01">
-      <p class="p_le">我的可用余额<br>0.00 </p>
+      <p class="p_le">我的可用余额<br>0.00</p>
       <p class="p_ri">
         <button>充值</button>
         <button>提现</button>
@@ -9,15 +9,13 @@
        <p class="fr">
         <span>可用积分<br/><i>40</i></span>
         <span>即将过期<br/><i>0</i></span>
-        <span>快去兑换<br/><router-link :to="{ name:'jifenmall' }" class="fr_" >兑换</router-link></span>
-       
+        <span>快去兑换<br/><router-link :to="{ name:'jifenmall' }" class="fr_">兑换</router-link></span>
       </p>
-     
     </div>
     <p class="p02">
       <span class="cur" data-ref='1' @click="toggle()">近三个月收支明细</span>|
       <span data-ref='2' class="" @click="toggle()">三个月前收支明细</span>
-    </p>   
+    </p>
     <table v-if="!show">
       <tr height="38">
         <th width="160" class="span01">时间</th>
