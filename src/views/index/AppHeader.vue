@@ -141,7 +141,7 @@ export default {
     }
     li {
       margin: 0 1px;
-      padding: 5px;
+      padding: 4px;font-size: 14px;
     }
     form {
       position: relative;

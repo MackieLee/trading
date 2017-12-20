@@ -126,7 +126,7 @@ export default {
   padding-top: 20px;
   // border-top: 2px solid $border-rice;
   div {
-    height: 34px;
+    height: 36px;
     border-bottom: 1px solid $border-dark;
     span {
       display: inline-block;
@@ -199,7 +199,7 @@ export default {
     border-bottom: 1px solid $border-orange;
     display: flex;
     justify-content: space-between;
-   p{line-height: 45px;}
+   p{line-height: 37px;}
    .p{ padding-right: 20px;}
     li {
       margin: 0 12px;
