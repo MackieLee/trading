@@ -297,6 +297,7 @@ export default {
   margin: 0 auto;
   padding-top: 20px;
   // border-top: 1px solid $border-rice;
+   .sorts{ height: 40px;}
   div {
     height: 34px;
     border-bottom: 1px solid $border-dark;
@@ -306,7 +307,7 @@ export default {
       width: 106px;
       text-align: center;
       line-height: 34px;
-    }
+    }  
     ul {
       display: inline-block;
       li {
@@ -317,9 +318,10 @@ export default {
           color: $red;
         }
       }
+     
       .sorts-items {
         font-size: 14px;
-        line-height: 45px;
+        line-height: 40px;
       }
     }
   }

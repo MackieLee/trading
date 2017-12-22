@@ -50,7 +50,7 @@
 <script>
 import JoinHeader from './JoinHeader'
 import JoinFooter from './JoinFooter'
-import { loginUserUrl } from '@/api/api'
+// import { loginUserUrl } from '@/api/api'
 
 export default {
   name: 'login',

@@ -126,20 +126,16 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     .logo {
-      padding: 18px 71px;
+      padding: 18px 66px;
       background-image: url("../../assets/images/Sprite.png");
-      background-position: 428px 57px;
+      background-position:-138px -319px;;
     }
-    li {
+    li{
       margin: 0 1px;
-      padding: 5px;
+      padding: 4px;font-size: 14px;
     }
-    .header-nav {
-      li {
-        cursor: pointer;
-      }
+    .header-nav { 
       .active {
         color: $red;
       }
