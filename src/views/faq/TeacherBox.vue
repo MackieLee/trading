@@ -196,7 +196,7 @@ export default {
   }
   span {
     display: inline-block;
-    margin:10px 5px 20px;
+    margin:10px 5px 10px;
     font-weight: bold;
     cursor: pointer;
   }
@@ -257,12 +257,12 @@ i {
   border: 1px solid $border-rice;
    .flex {
     display: flex;
-    height: 117px;
-    margin: 20px 35px 28px 35px;
+    height: auto;
+    margin: 10px 35px 28px 15px;
+    img{width: 80px;}
     .name {
-      margin: 25px 30px 50px 28px;
-      p {
-        font-size: $lg-title;
+      margin: 10px 38px 28px;
+      p {font-size: $lg-title;
         margin-bottom: 16px;
       }
     }

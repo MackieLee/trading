@@ -8,26 +8,47 @@
     <div class="content">
       <font>线下课程报名</font>
       <form @submit.prevent="submit">
-        <div class="flex">
-  <label for="sum" class="danwei"><i>*</i>姓 名：</label><input placeholder="请输入您的名称" type="text" class="lg-input" />
-        </div>
-        <div class="flex">
-  <label for="sum" class="danwei"><i>*</i>手机号码：</label><input placeholder="请输入您的手机号码" type="text" class="mid-input" />
-        </div>
-        <div class="flex">
+      	<div class="flex">
   <label for="sum" class="danwei"><i>*</i>公司名称：</label><input placeholder="请输入您的公司名称" type="text" class="lg-input" />
-        </div>
-        <div class="flex">
-  <label for="sum" class="danwei">电子邮箱：</label><input placeholder="请输入您的电子邮箱" type="text" class="mid-input" />
         </div>
         <div class="flex">
   <label for="sum" class="danwei"><i>*</i>职 位：</label><input placeholder="请输入您的职位" type="text" class="lg-input" />
         </div>
         <div class="flex">
-  <label for="sum" class="danwei">固定电话：</label><input placeholder="请输入您的电话" type="text" class="mid-input" />
+  <label for="sum" class="danwei"><i>*</i>姓 名：</label><input placeholder="请输入您的名称" type="text" class="lg-input" />
+        </div>
+        <div class="flex">
+  <label for="sum" class="danwei"><i>*</i>性 别：</label><input placeholder="请输入您的性别" type="text" class="lg-input" />
+        </div>
+        <div class="flex">
+  <label for="sum" class="danwei"><i>*</i>手机号码：</label><input placeholder="请输入您的手机号码" type="text" class="mid-input" />
+        </div>
+        <div class="flex">
+  <label for="sum" class="danwei"><i>*</i>电子邮箱：</label><input placeholder="请输入您的电子邮箱" type="text" class="mid-input" />
+        </div>
+        <div class="flex">
+  <label for="sum" class="danwei"><i>*</i>固定电话：</label><input placeholder="请输入您的电话" type="text" class="mid-input" />
         </div>
         <div class="flex">
   <label for="sum" class="danwei"><i>*</i>听课人数：</label><input placeholder="请输入您的听课人数" type="text" class="mid-input" />
+        </div>
+        <div class="flex">
+  <label for="sum" class="danwei"><i>*</i>课程单价：</label><input placeholder="请输入课程单价" type="text" class="lg-input" />
+        </div>
+        <div class="flex">
+  <label for="sum" class="danwei"><i>*</i>课程名称：</label><input placeholder="请输入课程名称" type="text" class="lg-input" />
+        </div>
+        <div class="flex">
+  <label for="sum" class="danwei"><i>*</i>开课城市：</label><input placeholder="请输入开课城市" type="text" class="lg-input" />
+        </div>
+        <div class="flex">
+  <label for="sum" class="danwei"><i>*</i>培训时间：</label><input placeholder="请输入培训时间" type="text" class="lg-input" />
+        </div>
+        <div class="flex">
+  <label for="sum" class="danwei"><i>*</i>是否住宿：</label><input placeholder="请输入是否住宿" type="text" class="lg-input" />
+        </div>
+        <div class="flex">
+  <label for="sum" class="danwei"><i>*</i>付款方式：</label><input placeholder="请输入付款方式" type="text" class="lg-input" />
         </div>
         
       </form>
@@ -76,8 +97,8 @@
     }
   }
   .content {
-    margin: 18px 0 0 0;
-    width: 80%;
+    margin: 18px auto;
+    width: 98%;
     overflow: hidden;
     margin: 0 auto;
     font {
@@ -91,27 +112,25 @@
       text-align: center;
       color: #fff;
     }
-    form {
-      border: 1px solid #ddd;
-      width: 80%;
-      margin: 0 auto;
-      padding: 15px 30px;
-      .flex {
-        display: flex;
-        margin: 15px 100px;
+    form{
+      border: 1px solid #ddd; 
+      width: 94%;
+      margin: 20px auto; padding:20px 30px;
+      .flex {display: inline-block;
+        margin: 15px 10px;
         i {
           margin-right: 6px;
           color: #e7141a;
         }
         .danwei {
-          margin-right: 10px;
+          margin-right: 10px;display: inline-block;
           font-size: 16px;
-          width: 20%;
+          width: 130px;
           line-height: 38px;
           text-align: right;
         }
         input {
-          width: 70%;
+          width: 320px;
           height: 38px;
           text-indent: 1em;
           border: 1px solid #ddd;
@@ -119,7 +138,7 @@
       }
     }
     .div {
-      width: 80%;
+      width: 99%;
       margin: 30px;
       text-align: center;
       .sub {
