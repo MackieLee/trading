@@ -11,12 +11,11 @@
           <router-link v-for="item in navItems" :key="item.name" :to="{ name:item.link }" tag="li">{{ item.name }}</router-link>
         </ul>
       </div>
-      <a @click="testState" style="position:relative;cursor:pointer">测试</a>
       <a>
         <i class="tel"></i>
         <font>010-62311360</font>
       </a>
-      <div class="user-info" v-show="test">
+      <!-- <div class="user-info">
         <ul>
           <li>
             <router-link :to="{name:'login'}">
@@ -31,8 +30,8 @@
             </router-link>
           </li>
         </ul>
-      </div>
-      <div class="logined" v-show="!test">
+      </div> -->
+      <!-- <div class="logined" v-show="!test">
         <div class="rt_part">
           <a class="a-broadcast" @mouseover="dropSet('left')">
             <i class="broadcast"></i>
@@ -67,7 +66,7 @@
           </div>
 
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -91,8 +90,7 @@ export default {
         { name: "关于我们", link: "about" }
       ],
       activeItem: "home",
-      drop: "",
-      test: false
+      drop: ""
     };
   },
   computed: {
@@ -107,20 +105,10 @@ export default {
     getItem: function(item) {
       this.activeItem = item.link;
     },
-    dropSet: function(dir) {
-      this.drop = dir;
-    },
-    clearDrop: function() {
-      this.drop = "";
-    },
-
-    testState: function() {
-      this.test = !this.test;
-    }
   },
   // Vuex state manager
   mounted() {
-    console.log("get state direct from store:", store.state);
+
   }
 };
 </script>

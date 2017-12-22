@@ -17,8 +17,7 @@
           <i></i>
         </form>
       </div>
-      <a @click="testState" style="position:relative;cursor:pointer">测试</a>
-      <div class="user-info" v-show="test">
+      <div class="user-info">
         <ul>
           <li>
             <router-link :to="{name:'login'}">
@@ -34,7 +33,7 @@
           </li>
         </ul>
       </div>
-      <div class="logined" v-show="!test">
+      <div class="logined" v-show="false">
         <div class="rt_part" @mouseleave="drop = ''">
           <a class="a-broadcast" @mouseenter="drop = 'left'">
             <i class="broadcast"></i>
@@ -93,8 +92,7 @@ export default {
         { name: "关于我们", link: "about" }
       ],
       activeItem: "home",
-      drop:'',
-      test:false
+      drop:''
     };
   },
   computed: {
@@ -108,14 +106,11 @@ export default {
   methods: {
     getItem: function(item) {
       this.activeItem = item.link;
-    },
-    testState:function(){
-      this.test = !this.test
     }
   },
 // Vuex state manager
   mounted () {
-    console.log('get state direct from store:',store.state)
+
   }
 };
 </script>

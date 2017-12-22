@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="submit">
     <!-- 用户名 -->
     <div class="error"><p v-show="error.userError">
       <span> {{ error.userNameError }}</span></p></div>
@@ -101,6 +101,18 @@ export default {
     },
     checkPwd:function(){
       (this.confirmPwd === this.pwd)?this.pwdError = "":null
+    },
+    submit:function(){
+      this.axios({
+        method:'post',
+        url:'/execute/getuser',
+        data:{
+          'username':'12154545',
+          'password':'yan77'
+        }
+      }).then((response)=>{
+        console.log(response)
+      })
     }
   }
 };
