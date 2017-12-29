@@ -29,7 +29,6 @@ export default {
     mag: function() {
       this.bigPic[0].style.display = 'block'
       this.floatLayer[0].style.display = 'block'
-      console.log()
       var offX = event.pageX - this.container.offsetLeft - this.smPic[0].offsetLeft - this.floatLayer[0].offsetWidth / 2
       var offY = event.pageY - this.container.offsetTop - this.smPic[0].offsetTop - this.floatLayer[0].offsetHeight / 2
       if (offX < 0) {

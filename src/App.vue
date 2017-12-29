@@ -44,9 +44,9 @@ export default {
   name: "app",
   data() {
     return {
-      qrCode:false,
-      kefu:false
-    }
+      qrCode: false,
+      kefu: false
+    };
   },
   mounted: function() {},
   created() {},
@@ -70,6 +70,10 @@ export default {
   li {
     display: inline-block;
   }
+  .amap-box {
+    width: 500px;
+    height: 500px;
+  }
   min-width: 1100px;
   .modal {
     width: 100%;
@@ -79,17 +83,17 @@ export default {
     left: 0;
     z-index: 2000;
   }
-  .kefu-gif{
+  .kefu-gif {
     position: fixed;
-    right:40px;
-    top:100px;
-    width:70px;
-    z-index:500;
+    right: 40px;
+    top: 100px;
+    width: 70px;
+    z-index: 500;
     cursor: pointer;
   }
   .toolbar-tabs {
     position: fixed;
-    right:40px;
+    right: 40px;
     top: 40%;
     z-index: 1500;
     .to-top {
@@ -148,33 +152,33 @@ export default {
       }
       .app-code {
         float: left;
-        padding:20px;
+        padding: 20px;
         background-color: #fff;
         box-shadow: 2px 2px 8px #ddd;
       }
     }
-    .lianxifangshi{
+    .lianxifangshi {
       position: absolute;
       right: 50px;
       bottom: 17px;
       width: 170px;
       box-shadow: 2px 2px 8px #ddd;
-      .content{
-        border:1px solid #ddd;
+      .content {
+        border: 1px solid #ddd;
         box-sizing: border-box;
         border-bottom: none;
         padding-top: 10px;
         background-color: #fff;
-        p{
+        p {
           text-align: center;
           line-height: 30px;
           color: #468ee3;
         }
-        p[class="title"]{
+        p[class="title"] {
           color: #333;
         }
-        .kf{
-          background-color:#468ee3;
+        .kf {
+          background-color: #468ee3;
           color: #fff;
           margin-top: 10px;
           line-height: 40px;

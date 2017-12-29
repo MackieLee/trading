@@ -1,142 +1,280 @@
-<!--
 <template>
-    <div class="vue-sound-wrapper">
-        <div class="vue-sound__player">
-            <div class="btn-group btn-group-xs" role="group">
-                <a @click="stop()" title="Stop" class="btn btn-default"><i class="icon-white glyphicon glyphicon-stop"></i></a>
-                <a @click="play()" title="Play" v-bind:class="playStyle"><i class="icon-white glyphicon glyphicon-play"></i></a>
-                <a @click="pause()" title="Pause" v-bind:class="pauseStyle"><i class="icon-white glyphicon glyphicon-pause"></i></a>
-                <a v-on:click="setPosition" class="btn btn-default vue-sound__playback-time-wrapper" title="Time played : Total time">
-                    <div v-bind:style="progressStyle" class="vue-sound__playback-time-indicator"></div>
-                    <span class="vue-sound__playback-time-current">{{currentTime}}</span>
-                    <span class="vue-sound__playback-time-separator"></span>
-                    <span class="vue-sound__playback-time-total">{{duration}}</span>
-                </a>
-                <a @click="download()" class="btn btn-default"><i class="glyphicon glyphicon-floppy-disk"></i></a>
-                <a @click="mute()" v-bind:class="mutedStyle" title="Mute"><i class="icon-white glyphicon glyphicon-volume-off"></i></a>
-                <a v-on:mouseover="toggleVolume()" class="btn btn-default" title="Volume"><i class="icon-white glyphicon glyphicon-equalizer"></i></a>
-            </div>
-            <input orient="vertical" v-model.lazy="volumeValue" v-on:change="updateVolume()" v-show="hideVolumeSlider" type="range" min="0" max="100" class="volume-slider"/>
-        </div>
-        <audio v-bind:id="playerId" ref="audiofile" :src="file" preload="auto" style="display:none;"></audio>
-    </div>
-</template>
--->
-<template>
-  <div class="vue-sound-wrapper">
-    <div class="audio-player">
-      <!-- 时间流进度条 -->
-      <div v-on:click="setPosition" class="time-bar" title="Time played : Total time">
-        <div class="time-stream" v-bind:style="progressStyle"></div>
+  <div class="audio">
+    <div class="di main-wrap" v-loading="audio.waiting">
+      <!-- 这里设置了ref属性后，在vue组件中，就可以用this.$refs.audio来访问该dom元素 -->
+      <audio ref="audio" class="dn"
+      :src="url" :preload="audio.preload"
+      @play="onPlay"
+      @error="onError"
+      @waiting="onWaiting"
+      @pause="onPause"
+      @timeupdate="onTimeupdate"
+      @loadedmetadata="onLoadedmetadata"
+      ></audio>
+      <div>
+        <el-slider v-show="!controlList.noProcess" v-model="sliderTime" :format-tooltip="formatProcessToolTip" @change="changeCurrentTime" class="slider current-slider"></el-slider>
       </div>
-      <!-- 按钮组 -->
-      <div class="btns">
-        <div class="control">
-          <a class="btn play" @click="play" title="Play"></a>
-          <a class="btn stop" @click="stop" title="Stop"></a>
-          <a class="btn pause" @click="pause" title="Pause"></a>
-        </div>
-        <div class="vol">
-          <i class="vol-btn dec" @click="mute"></i>
-          <p class="vol-bar">
-            <span class="vol-stream"></span>
-          </p>
-          <i class="vol-btn incr"></i>
-        </div>
+      <div>
+        <!-- <span @click="startPlayOrPause">{{audio.playing | transPlayPause}}</span> -->
+        <p @click="startPlayOrPause" style="display:inline-block;"><span :class="{ 'play':audio.playing ,'pause':!audio.playing}"></span></p>
+        <p @click="audioStop" style="display:inline-block;"><span class="stop"></span></p>
+        <!-- <span v-show="!controlList.noSpeed" @click="changeSpeed">{{audio.speed | transSpeed}}</span> -->
+        <i>{{ audio.currentTime | formatSecond}}</i>
+        <i>{{ audio.maxTime | formatSecond }}</i>
+        <span v-show="!controlList.noMuted" @click="startMutedOrNot"><span :class="{ 'silence':audio.muted ,'volume':!audio.muted}"></span></span>
+        <el-slider v-show="!controlList.noVolume" v-model="volume" :format-tooltip="formatVolumeToolTip" @change="changeVolume" class="slider volume-slider"></el-slider>
       </div>
     </div>
-    <audio :src="file"></audio>
   </div>
 </template>
 
-<script src="../../util/vueaudio.plugin.js"></script>
+<script>
+  function realFormatSecond(second) {
+    var secondType = typeof second
 
-<style lang="scss" scoped>
-@import '../../assets/style/base.scss';
-.audio-player {
-  width: 410px;
-  height: 70px;
-  border-radius: 10px;
-  background-color: #cbcbcb;
-  margin: 0 auto;
-  .time-bar {
-    position: relative;
-    margin: 10px 4px 4px 4px;
-    background-color: #f3f3f3;
-    display: inline-block;
-    width: 400px;
-    height: 10px;
-    border-radius: 10px;
-    box-shadow:inset 0 1px 2px rgba(0,0,0,.1);
-    .time-stream{
-      display: inline-block;
-      height: 10px;
-      background-color: #468EE3;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-radius: 10px;
+    if (secondType === 'number' || secondType === 'string') {
+      second = parseInt(second)
+
+      var hours = Math.floor(second / 3600)
+      second = second - hours * 3600
+      var mimute = Math.floor(second / 60)
+      second = second - mimute * 60
+
+      return hours + ':' + ('0' + mimute).slice(-2) + ':' + ('0' + second).slice(-2)
+    } else {
+      return '0:00:00'
     }
   }
-  .btns{
-    overflow: hidden;
-    margin-left: 4px;
-    .control{
-      float: left;
-      cursor: pointer;
-      .btn{
-        display: inline-block;
-        height: 33px;
-        width: 33px;
-        background-image: url('../../assets/images/Sprite.png');
+
+  export default {
+    props: {
+      theSpeeds: {
+        type: Array,
+        default () {
+          return [1, 1.5, 2]
+        }
+      },
+      theControlList: {
+        type: String,
+        default: ''
       }
-      .play{
-        background-position:-286px -44px;
-      }
-      .stop{
-        background-position: -286px -92px;
-      }
-      .pause{
-        background-position: -286px -132px;
-      }
-    }
-    .vol{
-      float: right;
-      margin-right: 13px;
-      margin-top: 8px;
-      cursor: pointer;
-      .vol-btn{
-        display: inline-block;
-        width: 19px;
-        height: 19px;
-        background-image: url('../../assets/images/Sprite.png');
-      }
-      .dec{
-        background-position:-291px -213px;
-      }
-      .vol-bar{
-        display: inline-block;
-        margin-bottom: 6px;
-        width: 62px;
-        height: 5px;
-        background-color: $white;
-        border-radius: 5px;
-        box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
-        position: relative;
-        .vol-stream{
-          display: inline-block;
-          height: 5px;
-          position: absolute;
-          top: 0;
-          left: 0;
-          border-radius:5px;
-          background-color: #468EE3;
+    },
+    name: 'VueAudio',
+    data() {
+      return {
+        url: 'http://61.129.89.249:10080/mp3/mp3/_tax/a5/a5ad9158a8ba1f5ff37145ad0128e16f.mp3',
+        audio: {
+          currentTime: 0,
+          maxTime: 0,
+          playing: false,
+          muted: false,
+          speed: 1,
+          waiting: true,
+          preload: 'auto'
+        },
+
+        sliderTime: 0,
+        volume: 100,
+        speeds: this.theSpeeds,
+
+        controlList: {
+          // 不显示下载
+          noDownload: false,
+          // 不显示静音
+          noMuted: false,
+          // 不显示音量条
+          noVolume: false,
+          // 不显示进度条
+          noProcess: false,
+          // 只能播放一个
+          onlyOnePlaying: false,
+          // 不要快进按钮
+          noSpeed: false
         }
       }
-      .incr{
-        background-position: 106px 160px;
+    },
+    methods: {
+      setControlList () {
+        let controlList = this.theControlList.split(' ')
+        controlList.forEach((item) => {
+          if(this.controlList[item] !== undefined){
+            this.controlList[item] = true
+          }
+        })
+      },
+      changeSpeed() {
+        let index = this.speeds.indexOf(this.audio.speed) + 1
+        this.audio.speed = this.speeds[index % this.speeds.length]
+        this.$refs.audio.playbackRate = this.audio.speed
+      },
+      startMutedOrNot() {
+        this.$refs.audio.muted = !this.$refs.audio.muted
+        this.audio.muted = this.$refs.audio.muted
+      },
+      // 音量条toolTip
+      formatVolumeToolTip(index) {
+        return '音量条: ' + index
+      },
+      // 进度条toolTip
+      formatProcessToolTip(index = 0) {
+        index = parseInt(this.audio.maxTime / 100 * index)
+        return '进度条: ' + realFormatSecond(index)
+      },
+      // 音量改变
+      changeVolume(index = 0) {
+        this.$refs.audio.volume = index / 100
+        this.volume = index
+      },
+      // 播放跳转
+      changeCurrentTime(index) {
+        this.$refs.audio.currentTime = parseInt(index / 100 * this.audio.maxTime)
+      },
+      startPlayOrPause() {
+        return this.audio.playing ? this.pausePlay() : this.startPlay()
+      },
+      // 开始播放
+      startPlay() {
+        this.$refs.audio.play()
+      },
+      // 暂停
+      pausePlay() {
+        this.$refs.audio.pause()
+      },
+      // 当音频暂停
+      onPause () {
+        this.audio.playing = false
+      },
+      // 当发生错误, 就出现loading状态
+      onError () {
+        this.audio.waiting = true
+      },
+      // 当音频开始等待
+      onWaiting (res) {
+      },
+      // 当音频开始播放
+      onPlay (res) {
+        this.audio.playing = true
+        this.audio.loading = false
+
+        if(!this.controlList.onlyOnePlaying){
+          return
+        }
+
+        let target = res.target
+
+        let audios = document.getElementsByTagName('audio');
+
+        [...audios].forEach((item) => {
+          if(item !== target){
+            item.pause()
+          }
+        })
+      },
+      // 当timeupdate事件大概每秒一次，用来更新音频流的当前播放时间
+      onTimeupdate(res) {
+        // console.log('timeupdate')
+        // console.log(res)
+        this.audio.currentTime = res.target.currentTime
+        this.sliderTime = parseInt(this.audio.currentTime / this.audio.maxTime * 100)
+      },
+      // 当加载语音流元数据完成后，会触发该事件的回调函数
+      // 语音元数据主要是语音的长度之类的数据
+      onLoadedmetadata(res) {
+        this.audio.waiting = false
+        this.audio.maxTime = parseInt(res.target.duration)
+      },
+      audioStop(){
+        this.audio.currentTime = 0
+        this.$refs.audio.currentTime = 0
+        this.$refs.audio.pause()
+        this.audio.playing = false
       }
+    },
+    filters: {
+      formatSecond(second = 0) {
+        return realFormatSecond(second)
+      },
+      transPlayPause(value) {
+        return value ? 'pause' : 'play'
+      },
+      transMutedOrNot(value) {
+        return value ? '放音' : '静音'
+      },
+      transSpeed(value) {
+        return '快进: x' + value
+      }
+    },
+    created() {
+      this.setControlList()
     }
   }
-}
+
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss">
+  .main-wrap{
+    background-color: #eee;
+    background-image: linear-gradient(to bottom,#f4f4f4,#d3d3d3);
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 360px;
+    padding: 5px 15px;
+    span{
+      color:#333;
+    }
+  }
+  .slider {
+    display: inline-block;
+    position: relative;
+    top: 7px;
+    margin-left: 15px;
+  }
+  .current-slider{
+    width: 340px;
+  }
+  .volume-slider{
+    width:70px;
+  }
+  .download {
+    color: #409EFF;
+  }
+  .dn{
+    display: none;
+  }
+  .play{
+    background: url('../../assets/images/Sprite.png') -289px -133px;
+    vertical-align: text-bottom;
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+  }
+  .pause{
+    background: url('../../assets/images/Sprite.png') -288px -45px;
+    vertical-align: text-bottom;
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+  }
+  .silence{
+    background: url('../../assets/images/Sprite.png') -280px -176px;
+    vertical-align: text-bottom;
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+  }
+  .volume{
+    background: url('../../assets/images/Sprite.png') -283px -208px;
+    vertical-align: text-bottom;
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+  }
+  .stop{
+    background: url('../../assets/images/Sprite.png') -289px -93px;
+    vertical-align: text-bottom;
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+  }
 </style>

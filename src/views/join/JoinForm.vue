@@ -97,22 +97,12 @@ export default {
     validateForm,
     validate: function(type, value) {
       let state = validateForm(type, value);
-      console.log(state+"---"+type)
     },
     checkPwd:function(){
       (this.confirmPwd === this.pwd)?this.pwdError = "":null
     },
     submit:function(){
-      this.axios({
-        method:'post',
-        url:'/execute/getuser',
-        data:{
-          'username':'12154545',
-          'password':'yan77'
-        }
-      }).then((response)=>{
-        console.log(response)
-      })
+
     }
   }
 };

@@ -1,0 +1,178 @@
+<template>
+  <div>
+    <audio ref="audio"
+    @pause="onPause"
+    @play="onPlay"
+    @timeupdate="onTimeupdate"
+    @loadedmetadata="onLoadedmetadata"
+    src="http://61.129.89.249:10080/mp3/mp3/_tax/a5/a5ad9158a8ba1f5ff37145ad0128e16f.mp3" controlsList="nodownload" controls="controls"></audio>
+    <div>
+      <div class="slider-block" style="width: 500px;">
+        <div class="slider" id="slider">
+          <div class="slider-runway">
+            <div class="slider-bar" id="slider-bar"></div>
+            <div class="slider-btn-wrapper" id="slider-btn-wrapper">
+              <div class="slider-btn" @mousedown="slide"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span type="info">{{ audio.currentTime | formatSecond}}</span>
+      <span type="info">{{ audio.maxTime | formatSecond}}</span>
+    </div>
+  </div>
+</template>
+
+<script>
+
+function realFormatSecond(second) {
+  var secondType = typeof second;
+
+  if (secondType === "number" || secondType === "string") {
+    second = parseInt(second);
+
+    var hours = Math.floor(second / 3600);
+    second = second - hours * 3600;
+    var mimute = Math.floor(second / 60);
+    second = second - mimute * 60;
+
+    return (
+      hours + ":" + ("0" + mimute).slice(-2) + ":" + ("0" + second).slice(-2)
+    );
+  } else {
+    return "0:00:00";
+  }
+}
+document.onmouseup = function(){
+  window.onmousemove = null;
+}
+export default {
+  data() {
+    return {
+      audio: {
+
+        playing: false,
+
+        currentTime: 0,
+
+        maxTime: 0
+      },
+      value1: 0,
+      barleft:0
+    };
+  },
+  methods: {
+    startPlayOrPause() {
+      return this.audio.playing ? this.pause() : this.play();
+    },
+    play() {
+      this.$refs.audio.play();
+    },
+    pause() {
+      this.$refs.audio.pause();
+    },
+
+    onPlay() {
+      this.audio.playing = true;
+    },
+
+    onPause() {
+      this.audio.playing = false;
+    },
+    onTimeupdate(res) {
+      this.audio.currentTime = res.target.currentTime;
+    },
+    onLoadedmetadata(res) {
+      this.audio.maxTime = parseInt(res.target.duration);
+    },
+    formatTooltip(val) {
+      return val / 100;
+    },
+    change: function() {
+      console.log(this.value1);
+    },
+    slide:function(){
+      let bar = document.getElementById('slider-btn-wrapper')
+      let mask = document.getElementById('slider-bar')
+      let scroll = document.getElementById('slider')
+      let leftValue = event.clientX
+      window.onmousemove = function(){
+        this.barleft = event.clientX - leftValue
+        let width = Math.floor((parseInt(this.barleft)/350*100))
+        if(width > 100 ){
+          width = 100
+        }else if(width < 0){
+          width = 0
+        }
+        mask.style.width = width + '%'
+        bar.style.left = width + '%'
+        console.log(mask.style.width)
+      }
+    }
+  },
+  filters: {
+    transPlayPause(value) {
+      return value ? "暂停" : "播放";
+    },
+    formatSecond(second = 0) {
+      return realFormatSecond(second);
+    }
+  }
+}
+</script>
+
+<style lang='scss' scoped>
+.slider-block {
+  padding: 30px 24px;
+  overflow: hidden;
+  border-bottom: 1px solid #eff2f6;
+  .slider {
+    float: right;
+    width: 70%;
+    margin-right: 20px;
+    .slider-runway{
+      width: 100%;
+      height: 15px;
+      margin: 16px 0;
+      background-color: #22A9AB;
+      border-radius: 3px;
+      position: relative;
+      cursor: pointer;
+      vertical-align: middle;
+      border-radius: 7px;
+      .slider-bar {
+        height: 15px;
+        background-color: #7EECF5;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        position: absolute;
+        border-radius: 7px;
+      }
+      .slider-btn-wrapper {
+        height: 36px;
+        width: 36px;
+        position: absolute;
+        z-index: 1001;
+        top: -9px;
+        transform: translateX(-50%);
+        background-color: transparent;
+        text-align: center;
+        user-select: none;
+        .slider-btn {
+          display: inline-block;
+          vertical-align: middle;
+          width: 23px;
+          height: 23px;
+          background-color: #2BF9FE;
+          border-radius: 50%;
+          transition: 0.2s;
+          user-select: none;
+          box-shadow: -1px 0px 1px 1px #21B6B8 inset;
+        }
+      }
+    }
+  }
+}
+</style>

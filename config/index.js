@@ -7,7 +7,7 @@ module.exports = {
 	index: path.resolve(__dirname, '../dist/index.html'),
 	assetsRoot: path.resolve(__dirname, '../dist'),
 	assetsSubDirectory: 'static',
-	assetsPublicPath: '/',
+	assetsPublicPath: './',
 	productionSourceMap: true,
 	// Gzip off by default as many popular static hosts such as
 	// Surge or Netlify already gzip all static assets for you.
@@ -23,30 +23,24 @@ module.exports = {
   },
   dev: {
 	env: require('./dev.env'),
-	port: 8080,
+	port: 8888,
 	autoOpenBrowser: true,
 	assetsSubDirectory: 'static',
-	assetsPublicPath: './',
+	assetsPublicPath: '/',
 	proxyTable: {
-		'/execute/useradd':{
-			target:'http://aip.kehu.zaidayou.com/api/execute/useradd',
-			changeOrigin: 'true'
-		},
-		'/execute/register':{
-			target:'http://aip.kehu.zaidayou.com/api/execute/register',
-      changeOrigin: 'true'
-		},
-		'/execute/login':{
-			target:'http://aip.kehu.zaidayou.com/api/execute/login',
-			changeOrigin: 'true'
-		},
-		'/execute/getuser':{
-			target:'http://aip.kehu.zaidayou.com/api/execute/getuser',
-			changeOrigin: 'true'
-		},
-		// '/news/last':{
-		// 	target:'https://news-at.zhihu.com/api/4/news/latest',
-		// 	changeOrigin: 'true'
+		// '/zyd':{
+		// 	target:'http://aip.kehu.zaidayou.com',
+		// 	changeOrigin: true,
+		// 	pathRewrite: {
+		// 		'^/zyd': '/api/execute'
+		// 	}
+		// },
+		// '/api': {
+		// 	target: 'https://news-at.zhihu.com',
+		// 	changeOrigin: true,
+		// 	pathRewrite: {
+		// 	  '^/api': '/api/4'
+		// 	}
 		// },
 	},
 	// CSS Sourcemaps off by default because relative paths are "buggy"

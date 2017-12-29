@@ -1,50 +1,22 @@
 <template>
   <div class="offline">
     <div class="items">
-      <div class="item">
+      <div class="item" v-for="item in items" :key="item.state">
         <div class="col col-1">
           <router-link to="/odetail">
             <img class="img" src="../../assets/images/jdtax_线下_01.png">
-            <span class="tag tag-01">正在报名</span>
+            <span class="tag tag-01">{{item.state}}</span>
           </router-link>
         </div>
         <div class="col col-2">
           <p class="title">
-            税收筹划案例精解-3
+            {{item.title}}
           </p>
-          <p>金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）</p>
-          <p>2017-09-07 至 09-08 <span class="position">地点: 具体位置待定</span>
-            <i></i>
+          <p>{{item.info}}</p>
+          <p>{{item.date}}<i></i><span class="position" title="点击查看地图" @click="getPosition(item.position)">地点: {{item.position}}</span>
           </p>
-          <p class="tag tag-02">公开课</p>
-          <p>讲师：孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；</p>
-        </div>
-        <div class="col col-3">
-<router-link to="/odetail" tag="p" class="tag tag-03">立即报名</router-link>
-          <i></i>
-          <p>
-            资料下载
-          </p>
-        </div>
-      </div>
-   
-       <div class="item">
-        <div class="col col-1">
-          <router-link to="/odetail">
-            <img class="img" src="../../assets/images/jdtax_线下_01.png">
-            <span class="tag tag-01">正在报名</span>
-          </router-link>
-        </div>
-        <div class="col col-2">
-          <p class="title">
-            税收筹划案例精解-3
-          </p>
-          <p>金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）</p>
-          <p>2017-09-07 至 09-08 <span class="position">地点: 具体位置待定</span>
-            <i></i>
-          </p>
-          <p class="tag tag-02">公开课</p>
-          <p>讲师：孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；</p>
+          <p class="tag tag-02">{{item.type}}</p>
+          <p>讲师：{{item.leader}}</p>
         </div>
         <div class="col col-3">
          <router-link to="/odetail" tag="p" class="tag tag-03">立即报名</router-link>
@@ -54,8 +26,6 @@
           </p>
         </div>
       </div>
-   
-    
     </div>
   </div>
 </template>
@@ -64,6 +34,40 @@
 export default {
   data(){
     return{
+      items:[
+        {
+        "state":"正在报名",
+        "title":"税收筹划案例精解-3",
+        "info":"金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）",
+        "date":"2017-09-07 至 09-08",
+        "position":"鸿基实业酒店",
+        "type":"公开课",
+        "leader":"孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；"
+        },
+        {
+        "state":"正在报名",
+        "title":"税收筹划案例精解-3",
+        "info":"金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）",
+        "date":"2017-09-07 至 09-08",
+        "position":"西直门",
+        "type":"公开课",
+        "leader":"孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；"
+        },
+        {
+        "state":"正在报名",
+        "title":"税收筹划案例精解-3",
+        "info":"金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）",
+        "date":"2017-09-07 至 09-08",
+        "position":"天安门广场",
+        "type":"公开课",
+        "leader":"孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；"
+        },
+      ]
+    }
+  },
+  methods:{
+    getPosition:(position) => {
+      window.location.href = 'http://ditu.amap.com/search?query='+ position +'&zoom=15'
     }
   }
 }
@@ -96,7 +100,9 @@ export default {
         text-align: center
       }
       .position{
-        margin-left: 20px;
+        margin-left: 5px;
+        color:$red;
+        cursor: pointer;
       }
       .tag-01 {
         width: 80px;
@@ -142,6 +148,7 @@ export default {
         i{
           display: inline-block;
           background-position: -61px -253px;
+          margin-left: 15px;
         }
       }
       .col-3 {

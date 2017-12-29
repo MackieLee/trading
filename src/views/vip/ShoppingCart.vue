@@ -71,8 +71,6 @@ export default {
     toggle() {
       document.getElementsByClassName("li01")[0].className = ""
       let attr = event.target.getAttribute("class")
-      console.log(event.target)
-      console.log(attr)
       if (attr != "ul01") {
         event.target.setAttribute("class", "li01")
       }
@@ -107,7 +105,7 @@ export default {
     }
   },
   filters: {
-    
+
   }
 }
 </script>

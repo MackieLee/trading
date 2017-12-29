@@ -22,8 +22,8 @@
         <P>课程数量：5 节</P>
         <p>适合人群：学 员</p>
         <p class="p01">
-        	<span @click='cur01=true' v-bind:class="{'red':!cur01}">系列</span>
-        	<span @click='cur01=false' v-bind:class="{'red':cur01}">小节</span>
+        	<span @click='cur01=true' v-bind:class="{'red':cur01}">系列</span>
+        	<span @click='cur01=false' v-bind:class="{'red':!cur01}">小节</span>
         </p>
         <ul>
           <li>
@@ -54,9 +54,7 @@
       	 </div>
       </div>
     </div>
-
-
-   <div id="xxkc_xq02">
+    <div id="xxkc_xq02">
       <div class="xq02_l">
         <h2>
           <!-- .............................. -->
