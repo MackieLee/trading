@@ -54,7 +54,6 @@
 import JoinFooter from "./JoinFooter";
 import { loginUserUrl } from "@/api/api";
 import axios from 'axios'
-var jsonp = require("jsonp");
 
 export default {
 	name: "login",
@@ -85,11 +84,12 @@ export default {
 		// 密码隐藏
 		submit: function() {
 			// 表单提交
-			loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getuser',{
+			loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/login',{
 				username:'niuhongda',
 				password:'123123q',
-				name:'13141472665'
-			})
+				name:this.userInfo.name,
+				pwd:this.userInfo.pwd
+			})?(this.$store.state.user.nickName = this.userInfo.name,window.location.href = 'http://localhost:8888/#/home'):''
 		},
 	}
 }

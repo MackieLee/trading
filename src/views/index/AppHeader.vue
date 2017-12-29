@@ -17,7 +17,7 @@
           <i></i>
         </form>
       </div>
-      <div class="user-info">
+      <div class="user-info" v-show="!nickname">
         <ul>
           <li>
             <router-link :to="{name:'login'}">
@@ -33,7 +33,7 @@
           </li>
         </ul>
       </div>
-      <div class="logined" v-show="false">
+      <div class="logined" v-show="nickname">
         <div class="rt_part" @mouseleave="drop = ''">
           <a class="a-broadcast" @mouseenter="drop = 'left'">
             <i class="broadcast"></i>
@@ -109,8 +109,13 @@ export default {
     }
   },
 // Vuex state manager
+	computed:{
+		nickname(){
+			return this.$store.state.user.nickName
+		}
+	},
   mounted () {
-
+		console.log(this.$store.state.user.nickName)
   }
 };
 </script>

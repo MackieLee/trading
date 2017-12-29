@@ -63,6 +63,8 @@
 
 <script>
 import { validateForm } from "../../util";
+import { loginUserUrl } from "@/api/api";
+import axios from 'axios'
 export default {
   data() {
     return {
@@ -102,7 +104,12 @@ export default {
       (this.confirmPwd === this.pwd)?this.pwdError = "":null
     },
     submit:function(){
-
+			loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/login',{
+				username:'niuhongda',
+				password:'123123q',
+				name:this.formData.userName,
+				pwd:this.formData.pwd
+			})?window.location.href = 'http://localhost:8888/#/login':''
     }
   }
 };

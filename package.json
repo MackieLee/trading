@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "element-ui": "^2.0.8",
+    "iview": "^2.8.0",
     "jsonp": "^0.2.1",
     "vue": "^2.2.6",
     "vue-amap": "^0.4.5",
