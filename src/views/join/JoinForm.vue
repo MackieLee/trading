@@ -1,215 +1,133 @@
 <template>
-  <form @submit.prevent="submit">
-    <!-- 用户名 -->
-    <div class="error"><p v-show="error.userError">
-      <span> {{ error.userNameError }}</span></p></div>
-    <div class="icon user">
-      <i class="iblock"></i>
-      <input type="text" name="user" v-model="formData.userName" @input="validate('userName',$event.target.value)" placeholder="请输入用户名" />
-    </div>
-    <!-- 手机号/邮箱 -->
-    <div class="error"><p v-show="error.userError">
-      <span> {{ error.userError }}</span></p></div>
-    <div class="icon user">
-      <i class="iblock"></i>
-      <input type="text" name="user" v-model="formData.phoneNum" @input="validate('user',$event.target.value)" placeholder="请输入手机号/邮箱" />
-    </div>
-    <!-- 密码 -->
-    <div class="error"><p v-show="error.pwdError">
-      <span> {{ error.pwdError }}</span></p></div>
-    <div class="icon pwd">
-      <i class="iblock"></i>
-      <input type="text" v-model="formData.pwd" name="pwd" @input="validate('pwd',$event.target.value)" placeholder="请输入密码" />
-    </div>
-    <!-- 确认密码 -->
-    <div class="error"><p v-show="error.pwdError">
-      <span> {{ error.confirmError }}</span></p></div>
-    <div class="icon confirm">
-      <i class="iblock"></i>
-      <input type="text" v-model="formData.confirmPwd" @blur="checkPwd" @input="validate('pwd',$event.target.value)" name="confirm" placeholder="确认密码" />
-    </div>
-    <!-- 验证码 -->
-    <div class="error"><p v-show="error.ckCodeError">
-      <span> {{ error.ckCodeError }}</span></p></div>
-    <div class="icon code ckcode">
-      <i class="iblock"></i>
-      <input type="text" v-model="formData.ckcode" name="ckcode" placeholder="请输入验证码" />
-      <span class="ck-code"></span>
-    </div>
-    <!-- 短信/邮件验证码 -->
-    <div class="error"><p v-show="error.phoneCodeError">
-      <span> {{ error.phoneCodeError }}</span></p></div>
-    <div class="icon code phcode">
-      <i class="iblock"></i>
-      <input type="text" v-model="formData.phoneCode" name="phcode" placeholder="短信验证码" />
-    </div>
-    <!-- 邀请码 -->
-    <div class="error"><p v-show="error.invCodeError">
-      <span> {{ error.invCodeError }}</span></p></div>
-    <div class="icon code invcode">
-      <i class="iblock"></i>
-      <input type="text" v-model="formData.invCode" name="invcode" placeholder="邀请码" />
-    </div>
-    <div class="read">
-      <span @click="toggleChecked">
-        <input type="checkbox" name="read"/><i :class="[ { checked: checked },{ unchecked: !checked },'iblock' ]"></i><label for="read">阅读并同意《九鼎服务协议》</label>
-      </span>
-    </div>
-    <div class="login-btn">
-      <button class="submit" type="submit">注册</button>
-    </div>
-  </form>
+	<Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
+		<FormItem label="用户名" prop="name">
+			<Input v-model="formValidate.name" placeholder="请输入您要注册的用户名"></Input>
+		</FormItem>
+		<FormItem label="密码" prop="passwd">
+			<Input type="password" v-model="formValidate.passwd" placeholder="请输入密码"></Input>
+		</FormItem>
+		<FormItem label="确认密码" prop="passwdCheck">
+			<Input type="password" v-model="formValidate.passwdCheck" placeholder="请再次输入密码"></Input>
+		</FormItem>
+		<FormItem label="手机/邮箱" prop="mail">
+			<Input v-model="formValidate.mail" placeholder="请输入手机号码或邮箱"></Input>
+		</FormItem>
+		<FormItem label="验证码" prop="yanzhengma">
+			<Input v-model="formValidate.yanzhengma" placeholder="请输入验证码"></Input>
+		</FormItem>
+		<FormItem label="邀请码" prop="yaoqingma">
+			<Input v-model="formValidate.yaoqingma" placeholder="请输入邀请码"></Input>
+		</FormItem>
+		<FormItem>
+			<Button type="primary" @click="handleSubmit('formValidate')">Submit</Button>
+			<Button type="ghost" @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
+		</FormItem>
+	</Form>
 </template>
-
 <script>
-import { validateForm } from "../../util";
-import { loginUserUrl } from "@/api/api";
-import axios from 'axios'
-export default {
-  data() {
-    return {
-      checked: false,
-      error:{
-        userError: "",
-        userNameError:"",
-        pwdError: "",
-        confirmError:"",
-        phoneCodeError:"",
-        ckCodeError:"",
-        invCodeError:""
-      },
-      formData:{
-        userName:"",
-        phoneNum:"",
-        pwd:"",
-        confirmPwd:"",
-        ckCode:"",
-        phoneCode:"",
-        invCode:""
-      },
-    };
-  },
-  methods: {
-    toggleChecked: function() {
-      this.checked = !this.checked;
-    },
-    //扩充checkjs内容
-    //格式不对的输入框显示对应的文字
-    // 类型 和 状态，成功状态 或者是 失败状态，失败状态返回失败原因
-    validateForm,
-    validate: function(type, value) {
-      let state = validateForm(type, value);
-    },
-    checkPwd:function(){
-      (this.confirmPwd === this.pwd)?this.pwdError = "":null
-    },
-    submit:function(){
-			loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/login',{
-				username:'niuhongda',
-				password:'123123q',
-				name:this.formData.userName,
-				pwd:this.formData.pwd
-			})?window.location.href = 'http://localhost:8888/#/login':''
-    }
-  }
-};
+	import { loginUserUrl } from "@/api/api";
+	export default {
+		data() {
+			//用户名验证
+			const validateName = (rule, value, callback) => {
+				if(value === '') {
+					callback(new Error('请输入用户名'))
+				} else {
+					let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getuser', {
+						username: 'niuhongda',
+						password: '123123q',
+						name: value
+					})
+					setTimeout(() => {
+						res.then((res)=>{
+							if(res === 0 ){
+								console.log(res)
+								callback(new Error('用户已存在'))
+							}else{
+								callback()
+							}
+						})
+					}, 1000)
+				}
+			}
+			//密码
+			const validatePass = (rule, value, callback) => {
+				if(value === '') {
+					callback(new Error('请输入密码'))
+				} else {
+					let reg = reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,}$/
+					if(reg.test(value)){
+						if(this.formValidate.passwdCheck !== '') {
+							// 对第二个密码框单独验证
+							this.$refs.formValidate.validateField('passwdCheck')
+						}
+					}else{
+						callback(new Error('密码不少于8位且必须包含字母和数字'))
+					}
+					callback();
+				}
+			}
+			//确认密码
+			const validatePassCheck = (rule, value, callback) => {
+				if(value === '') {
+					callback(new Error('请确认密码'));
+				} else if(value !== this.formValidate.passwd) {
+					callback(new Error('两次输入的密码不一样'));
+				} else {
+					callback();
+				}
+			}
+			return {
+				formValidate: {
+					name: '',
+					passwd: '',
+					passwdCheck: '',
+					mail: '',
+					yanzhengma: '',
+					yaoqingma: ''
+				},
+				ruleValidate: {
+					name: [
+						{ required: true, validator:validateName, trigger: 'blur' }
+					],
+					mail: [
+						{ required: true, message: '不能为空', trigger: 'blur' },
+					],
+					passwd: [
+						{ required: true, validator: validatePass, trigger: 'blur' }
+					],
+					passwdCheck: [
+						{ required: true, validator: validatePassCheck, trigger: 'blur' }
+					],
+					yanzhengma: [
+						{ required: true, message: '不能为空', trigger: 'blur' }
+					]
+				}
+			}
+		},
+		methods: {
+			handleSubmit(name) {
+				this.$refs[name].validate((valid) => {
+					
+					let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/login', {
+						username: 'niuhongda',
+						password: '123123q',
+						name:'124',
+						password:'1234567q'
+					})
+					console.log(res)
+					
+					if(valid) {
+						
+						this.$Message.success('注册成功!');
+					} else {
+						this.$Message.error('表单提交失败');
+					}
+				})
+			},
+			handleReset(name) {
+				this.$refs[name].resetFields();
+			}
+		}
+	}
 </script>
-
-<style lang="scss" scoped>
-@import "../../assets/style/base.scss";
-.iblock {
-  display: inline-block;
-  height: 22px;
-  width: 20px;
-  background-image: url("../../assets/images/Sprite.png");
-}
-.error {
-  height: 20px;
-  p {
-    line-height: 14px;
-    i {
-      background-position: -55px 0;
-    }
-    span {
-      vertical-align: text-top;
-      color: $red;
-    }
-  }
-}
-.icon {
-  position: relative;
-  i {
-    position: absolute;
-    top: 4px;
-    left: 4px;
-  }
-}
-.pwd,
-.confirm {
-  i {
-    background-position: -99px -49px;
-  }
-}
-.user,
-.ckcode,
-.phcode,
-.invcode {
-  i {
-    background-position: -101px -15px;
-  }
-}
-input {
-  height: 20px;
-  padding: 5px 10px 5px 35px;
-  font-size: 12px;
-  line-height: 1.5;
-  border-radius: 3px;
-  border: 1px solid $border-blue;
-  width: 267px;
-  margin-bottom: 7px;
-  &:focus {
-    border-color: $red;
-    outline: none;
-  }
-}
-.ckcode input {
-  width: 30%;
-  margin-right: 12px;
-}
-.read {
-  display: flex;
-
-  padding-right: 28px;
-  margin: 10px 0 38px 0;
-  input {
-    display: none;
-  }
-  i {
-    vertical-align: text-bottom;
-    height: 18px;
-    width: 18px;
-  }
-  .unchecked {
-    background-position: -101px -282px;
-  }
-  .checked {
-    background-position: -101px -253px;
-  }
-}
-.login-btn {
-  display: flex;
-  justify-content: center;
-  .submit {
-    width: 162px;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    color: $white;
-    background-color: $btn-danger;
-    cursor: pointer;
-    &:hover {
-      background-color: $btn-danger-hover;
-    }
-  }
-}
-</style>
