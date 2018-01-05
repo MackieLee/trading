@@ -1,8 +1,5 @@
 <template>
   <div class="faq-box">
-    <div class="modal-outer" v-show="modal">
-      <modal @closeModal="closeModal" :content-series="series"></modal>
-    </div>
     <div class="title">
       <span></span>
       <font>最新问答</font>
@@ -75,22 +72,12 @@
 </template>
 
 <script>
-import modal from "./Modal";
 export default {
-  components: { modal },
   data() {
     return {
-      modal: false,
-      series: true
     };
   },
   methods: {
-    closeModal: function() {
-      this.modal = false;
-    },
-    showDetail: function() {
-      this.modal = true;
-    }
   }
 };
 </script>
@@ -98,20 +85,6 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .faq-box {
-  .modal-outer {
-    width: 100%;
-    height: 240%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 2000;
-    .close {
-      position: absolute;
-      top: 15%;
-      left: 60%;
-    }
-  }
   .board {
     margin-right: 0 !important;
   }

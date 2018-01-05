@@ -1,14 +1,13 @@
 
 <template>
  <div class="my_qianb_r">
-  	<div class="modal-outer" v-show="modal">
-      <!-- <div class="close">X</div> -->
-      <!-- v-bind传输数据到子组件(contentSeries) -->
-      <modal @showTip="showTip" @closeModal="closeModal" :content-series="series"></modal>
-    </div>
-		<div v-show="tip" class="tip">
-			{{ tipMsg }}
-		</div>
+   <Modal
+      :width = '850'
+      v-model="modal"
+      :closable = "false"
+      :mask-closable="false">
+      <video-pingjia></video-pingjia>
+    </Modal>
     <p class="p01">共7个回答</p>
     <div class="my_qianb_cotainer">
       <p class="p02">
@@ -30,76 +29,7 @@
 	        	<p class="red" @click="modal=!modal,series=true">立即评价</p>
 	        </div>
 	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p>指定回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p>指定回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p>指定回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
-						</p>
-						<img src="../../assets/images/wendavip.png">
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="hui">已评价</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p>指定回答</p>
-	        </div>
-	       </li>
-       <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
-						</p>
-						<img src="../../assets/images/wendavip.png">
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="modal=!modal,series=true">立即评价</p>
-	        </div>
-	       </li>
-
       </ul>
-
-
       <ul class="div01" v-if="part=='2'">
         <li>
 	        <div class="l">
@@ -152,37 +82,22 @@
 	        	<p>指定回答</p>
 	        </div>
 	       </li>
-
       </ul>
-
-      <ul class="div01" v-if="part=='3'">
-        <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
-						</p>
-						<img src="../../assets/images/wendavip.png">
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="modal=!modal,series=true">立即评价</p>
-	        </div>
-	       </li>
-	       <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
-						</p>
-						<img src="../../assets/images/wendavip.png">
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="modal=!modal,series=true">立即评价</p>
-	        </div>
-	       </li>
-      </ul>
+        <ul class="div01" v-if="part=='3'">
+          <li>
+            <div class="l">
+              <h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+                <p class="phui">指定回答者：孙炜老师</p>
+              <p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
+              </p>
+              <img src="../../assets/images/wendavip.png">
+            </div>
+            <div class="r">
+              <h3> 2018-2-12</h3>
+              <p class="red" @click="modal=!modal,series=true">立即评价</p>
+            </div>
+          </li>
+        </ul>
       </div>
 			<div class="pgs">
         <li class="prev">&lt;上一页</li>
@@ -200,17 +115,15 @@
 </template>
 
 <script>
-import Modal from "./Qa_Modal";
+import VideoPingjia from "../modal/VideoPingjia"
 export default {
   name: "youhuiquan",
-  components: { Modal },
+  components: { VideoPingjia },
   data() {
     return {
       part: "1",
       modal: false,
-      series: true,
-      tip: false,
-      tipMsg: ""
+      series: true
     };
   },
   methods: {
@@ -219,17 +132,6 @@ export default {
       event.target.setAttribute("class", "cur");
       let ref = event.target.dataset.ref;
       this.part = ref;
-    },
-    closeModal: function() {
-      this.modal = false;
-    },
-    showTip: function() {
-      this.closeModal();
-      this.tipMsg = "谢谢您的评价";
-      this.tip = true;
-      setTimeout(() => {
-        this.tip = false;
-      }, 1500);
     }
   }
 };
@@ -237,22 +139,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
-.modal-outer {
-  width: 100%;
-  height: 173%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2000;
-  .modal {
-    height: 110%;
-  }
-  .close {
-    position: absolute;
-    top: 15%;
-    left: 60%;
-  }
-}
 .pgs {
   width: 525px;
   margin: 60px auto;
@@ -302,18 +188,6 @@ export default {
   width: 810px;
   margin: 0 auto;
   background-color: $white;
-}
-.tip {
-  width: 100px;
-  height: 60px;
-  line-height: 60px;
-  background-color: rgba(0, 0, 0, 0.9);
-  color: $white;
-  position: fixed;
-  text-align: center;
-  top: 40%;
-  left: 50%;
-  z-index: 10;
 }
 .my_qianb_cotainer {
   padding-bottom: 65px;

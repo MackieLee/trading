@@ -1,10 +1,20 @@
 <template>
   <div class="origin-item">
-    <div class="modal-outer" v-show="modal">
-      <!-- <div class="close">X</div> -->
-      <!-- v-bind传输数据到子组件(contentSeries) -->
-      <modal @closeModal="closeModal" :content-series="series"></modal>
-    </div>
+    <Modal
+      :width = '850'
+      v-model="modal1"
+      :closable = "false"
+      :mask-closable="false">
+      <video-pingjia></video-pingjia>
+    </Modal>
+    <Modal
+      :width = '450'
+      v-model="modal2"
+      :closable = "false"
+      :mask-closable="false">
+      <Input v-model="bijiTitle" placeholder="请输入标题" style="margin:20px 0;"></Input>
+      <Input v-model="biji" type="textarea" :rows="4" placeholder="请输入笔记内容"></Input>
+    </Modal>
     <div class="container">
       <div class="player">
         <video-player class="vjs-custom-skin" ref="videoPlayer" :options="playerOptions" :playsinline="true" @play="onPlayerPlay($event)" @pause="onPlayerPause($event)" @ended="onPlayerEnded($event)" @loadeddata="onPlayerLoadeddata($event)" @waiting="onPlayerWaiting($event)" @playing="onPlayerPlaying($event)" @timeupdate="onPlayerTimeupdate($event)" @canplay="onPlayerCanplay($event)" @canplaythrough="onPlayerCanplaythrough($event)" @ready="playerReadied" @statechanged="playerStateChanged($event)">
@@ -64,21 +74,18 @@
       <!-- 课程标题 -->
       <span class="doc-title">{{ curClass }}</span>
       <span class="teacher">主讲：孙玮老师</span>
-      <span class="pointer pingjia" @click="modal=!modal,series=true">本节评价</span>
+      <span class="pointer pingjia" @click="modal1=true,series=true">本节评价</span>
       <span class="pointer shoucang" @click="shouCang">收藏</span>
       <i class="red-heart" v-if="shoucang"></i>
       <i class="grey-heart" v-if="!shoucang"></i>
       <span>下载本节视频</span>
       <div class="doc-box">
         <div class="doc-item" v-for="item in doc" :key="item.cutpoint">
-          <!-- 循环遍历出文档模块 -->
-          <!-- 我建议文档内容用富文本编辑器在线编辑 -->
           <div class="doc-content" :data-cut="item.cutPoint" @click="jumpTo">
             {{ item.content }}
-            <!-- 将此段的文档遍历到这个地方 -->
             <div class="notes">
               <span>播放本段</span>
-              <span @click="modal=!modal,series=false">编写笔记</span>
+              <span @click="modal2=true">编写笔记</span>
             </div>
           </div>
         </div>
@@ -92,11 +99,11 @@ require("video.js/dist/video-js.css")
 require("vue-video-player/src/custom-theme.css")
 const DOC = require("../../assets/doc.json")
 import Exam from './Exam'
-import Modal from "./Modal"
+import VideoPingjia from "../modal/VideoPingjia"
 import Dayi from './Dayi'
 export default {
   name: "video",
-  components: { Modal,Dayi,Exam },
+  components: { VideoPingjia,Dayi,Exam },
   data() {
     return {
       markNum: "1",
@@ -142,9 +149,9 @@ export default {
       doc: DOC,
       curClass: "土地增值税清算技巧[专题]",
       shoucang: false,
-      modal: false,
       // 父组件和子组件数据绑定
-      series: true
+      modal1:false,
+      modal2:false
     };
   },
   mounted() {
@@ -197,34 +204,12 @@ export default {
     },
     shouCang: function() {
       this.shoucang = !this.shoucang
-    },
-    closeModal: function() {
-      this.modal = false
-    },
-    noteDown: function() {
-      this.modal = true
     }
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
-.modal-outer {
-  width: 100%;
-  height: 173%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2000;
-  .modal{
-    height: 110%;
-  }
-  .close {
-    position: absolute;
-    top: 15%;
-    left: 60%;
-  }
-}
 .origin-item {
   width: 90%;
   margin: 0 auto;

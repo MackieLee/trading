@@ -1,8 +1,0 @@
-1.
-    relative ����Ч
-2.
-    a-zԪ���л�
-3.
-    router
-4.
-    :key

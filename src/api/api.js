@@ -15,8 +15,8 @@ export const loginUserUrl = (url,params) => {
 	    }
 	    return res = res.slice(0,-1)
 	  }]
-//}).then((response)=>response.data.error_code).catch(
- 	}).then((response)=>{console.log(response)}).catch(
+}).then((response)=>response.data).catch(
+ 	// }).then((response)=>{console.log(response)}).catch(
   	(error)=>{console.log(error)}
   )
 }

@@ -13,7 +13,7 @@
 							<Input type="text" v-model="form.name" placeholder="请输入用户名/邮箱/手机号"></Input>
 						</FormItem>
 						<FormItem prop="passwd">
-							<Input type="password" v-model="form.passwd" placeholder="请输入密码"></Input>
+							<Input :type="type" v-model="form.passwd" placeholder="请输入密码"  @on-click="showPasswd" :icon="eye"></Input>
 						</FormItem>
 						<FormItem prop="yanzhengma">
 							<Input type="text" placeholder="请输入验证码"></Input>
@@ -23,7 +23,7 @@
 							<router-link class="getpwd" :to="{name:'getpwd'}">忘记密码</router-link>
 						</FormItem>
 						<FormItem>
-							<Button type="error" @click="submit(this.form)" long>登录</Button>
+							<Button type="error" @click="submit(form)" long>登录</Button>
 						</FormItem>
 					</Form>
 					<div class="others">
@@ -40,133 +40,155 @@
 	</div>
 </template>
 <script>
-	import JoinHeader from "./JoinHeader"
-	import JoinFooter from "./JoinFooter"
-	import { loginUserUrl } from "@/api/api"
-	import axios from 'axios'
+import JoinHeader from "./JoinHeader";
+import JoinFooter from "./JoinFooter";
+import { loginUserUrl } from "@/api/api";
+import { setCookie, getCookie } from "@/util/cookie";
+import axios from "axios";
 
-	export default {
-		components: { JoinHeader, JoinFooter },
-		data() {
-			//这是验证用户是否存在
-			const validateName = (rule, value, callback) => {
-				if(value === '') {
-					callback(new Error('用户名不能为空'))
-				}
-				callback()
-			}
-			const validatePwd = (rule, value, callback) => {
-				if(value === '') {
-					callback(new Error('密码不能为空'))
-				}
-				callback()
-			}
-			//验证码
-			const validateYanzhengma = (rule, value, callback) => {
-				if(value === '') {
-					callback(new Error('验证码不能为空'))
-				}
-				callback()
-			}
-			return {
-				form: {
-					name: '',
-					passwd: ''
-				},
-				remember: false,
-				ruleCustom: {
-					passwd: [
-						{ validator: validatePwd, trigger: 'blur' }
-					],
-					name: [
-						{ validator: validateName, trigger: 'blur' }
-					],
-					yanzhengma: [
-						{ validator: validateYanzhengma, trigger: 'blur' }
-					]
-				}
-			}
-		},
-		methods: {
-			// 记住密码
-			discover: function() {
-				document.getElementById("pwd").type = "text";
-			},
-			// 密码显示
-			cover: function() {
-				document.getElementById("pwd").type = "password";
-			},
-			// 密码隐藏
-			submit: function(arg) {
-				let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/login', {
-					username: 'niuhongda',
-					password: '123123q',
-					arg
-				})
-				console.log(res)
-			},
-		}
-	}
+export default {
+  components: { JoinHeader, JoinFooter },
+  data() {
+    //这是验证用户是否存在
+    const validateName = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("用户名不能为空"));
+      }
+      callback();
+    };
+    const validatePwd = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("密码不能为空"));
+      }
+      callback();
+    };
+    //验证码
+    const validateYanzhengma = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("验证码不能为空"));
+      }
+      callback();
+    };
+    return {
+      form: {
+        name: "",
+        passwd: ""
+      },
+      remember: false,
+      eye: "eye-disabled",
+      type: "password",
+      ruleCustom: {
+        passwd: [{ validator: validatePwd, trigger: "blur" }],
+        name: [{ validator: validateName, trigger: "blur" }],
+        yanzhengma: [{ validator: validateYanzhengma, trigger: "blur" }]
+      }
+    };
+  },
+  methods: {
+    // 密码隐藏
+    showPasswd: function() {
+      this.eye === "eye" ? (this.eye = "eye-disabled") : (this.eye = "eye");
+      this.type === "password"
+        ? (this.type = "text")
+        : (this.type = "password");
+    },
+    // 登录
+    submit: function(arg) {
+      let _self = this;
+      let res = loginUserUrl("http://aip.kehu.zaidayou.com/api/execute/login", {
+        username: "niuhongda",
+        password: "123123q",
+        name: arg.name,
+        pwd: arg.passwd
+      }).then(res => {
+        if (res.error_code === 0) {
+          // 登录成功记录用户信息
+          if (_self.checked) {
+            // localStorage
+            // if(localStorage){
+            //   localStorage.setItem('user',JSON.stringify(_self.form))
+            // 显示 [object object]，实际上是JSON对象，可以直接 => 属性 使用或读取具体属性值
+            // console.log('local-ok' + JSON.parse(sessionStorage.getItem('user')))
+            // }else{
+            //   this.$Message.error('您的浏览器未启用缓存')
+            // }
+            setCookie("u_name", arg.name, 365);
+            window.location.href = "http://localhost:8888/#/home";
+          } else {
+            // sessionStorage 和 window 生命周期绑定 页面关闭 => 数据清空，而且登录状态应该由后台来验证，前台容易被伪造。webstorage只适合存储次要数据
+            // 用户的登录状态和退出状态由后台来记录
+            // 用户的登录信息保存在cookie中
+            setCookie("u_name", arg.name, 1);
+            window.location.href = "http://localhost:8888/#/home";
+          }
+          this.$Message.success("登录成功");
+        } else {
+          this.$Message.error("登录失败");
+        }
+      });
+    }
+  }
+};
 </script>
 <style lang="scss" scoped>
-	@import "../../assets/style/base.scss";
-	.login-box {
-		background: url("../../assets/images/登录.png") center center no-repeat;
-		background-size: 100% 100%;
-		overflow: hidden;
-		.form-box {
-			width: 315px;
-			background-color: #fff;
-			float: right;
-			margin: 50px 120px;
-			padding: 25px;
-			border-radius: 10px;
-			.title {
-				padding-bottom: 10px;
-				a {
-					display: inline-block;
-					cursor: pointer;
-					text-align: right;
-					padding: 0 10px 5px 10px;
-				}
-				.txt-ali-rt {
-					text-align: right;
-					border-bottom: 2px solid $border-rice;
-					width: 217px;
-				}
-				.txt-ali-ctr {
-					text-align: center;
-					border-bottom: 2px solid $border-blue;
-				}
-			}
-			.getpwd {
-				float: right;
-				color: red;
-			}
-		}
-		.others {
-			margin-top: 20px;
-			padding: 20px 0 15px 0;
-			border-top: 1px solid $border-rice;
-			a {
-				display: inline-block;
-				margin: 0 9px;
-				width: 25px;
-				height: 22px;
-				background-image: url("../../assets/images/Sprite.png");
-			}
-			.wechat {
-				background-position: -182px -49px;
-			}
-			.weibo {
-				background-position: -184px -92px;
-			}
-			.qq {
-				background-position: -186px -122px;
-			}
-			.alipay {
-				background-position: -185px -162px;
-			}
-		}
-	}
+@import "../../assets/style/base.scss";
+.login-box {
+  background: url("../../assets/images/登录.png") center center no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  .form-box {
+    width: 315px;
+    background-color: #fff;
+    float: right;
+    margin: 50px 120px;
+    padding: 25px;
+    border-radius: 10px;
+    .title {
+      padding-bottom: 10px;
+      a {
+        display: inline-block;
+        cursor: pointer;
+        text-align: right;
+        padding: 0 10px 5px 10px;
+      }
+      .txt-ali-rt {
+        text-align: right;
+        border-bottom: 2px solid $border-rice;
+        width: 217px;
+      }
+      .txt-ali-ctr {
+        text-align: center;
+        border-bottom: 2px solid $border-blue;
+      }
+    }
+    .getpwd {
+      float: right;
+      color: red;
+    }
+  }
+  .others {
+    margin-top: 20px;
+    padding: 20px 0 15px 0;
+    border-top: 1px solid $border-rice;
+    a {
+      display: inline-block;
+      margin: 0 9px;
+      width: 25px;
+      height: 22px;
+      background-image: url("../../assets/images/Sprite.png");
+    }
+    .wechat {
+      background-position: -182px -49px;
+    }
+    .weibo {
+      background-position: -184px -92px;
+    }
+    .qq {
+      background-position: -186px -122px;
+    }
+    .alipay {
+      background-position: -185px -162px;
+    }
+  }
+}
 </style>

@@ -1,232 +1,217 @@
 <template>
-  <div class="login">
-    <join-header></join-header>
-    <div class="login-box">
-      <div class="content">
-        <form class="login-form">
-          <div>
-            <p class="title"><a class="txt-ali-ctr mobile" @click="zhaohui()">手机找回</a><a class="txt-ali-rt email" @click="zhaohui()">邮箱找回</a></p>
-            <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
-            <div class="user">
-              <i class="iblock"></i>
-              <input type="text" name="user" :placeholder=" placeholder " />
-            </div>
-            <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
-            <div class="ckcode">
-              <span></span>
-              <input type="text" name="ckcode" placeholder="请输入验证码" />
-              <span class="ck-code"></span>
-            </div>
-            <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
-            <div class="pwd">
-              <span></span>
-              <i class="iblock"></i>
-              <input type="password" name="pwd" placeholder="6~16位密码，包含数字、字母或符号中的两种" />
-            </div>
-            <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
-            <div class="pwd">
-              <span></span>
-              <i class="iblock"></i>
-              <input type="password" name="pwd" placeholder="请输入密码" />
-            </div>
-            <div class="login-btn">
-              <button class="submit" type="submit">重置密码</button>
-            </div>
-            <P class="shensu">如您的检验方式都已无法使用，请<a>点此申诉</a>,成功后<br>可更换</P>
-          </div>
-        </form>
-      </div>
-    </div>
-    <join-footer></join-footer>
-  </div>
+	<div class="login">
+		<join-header></join-header>
+		<div class="login-box">
+			<div class="content">
+				<div class="form-box">
+					<p class="title">
+						<a :class="{'text-bottom-long':cur,'text-bottom-short':!cur}" @click="cur=false" class="text-ali-ctr">手机找回</a>
+						<a :class="{'text-bottom-long':!cur,'text-bottom-short':cur}" @click="cur=true" style="text-align:right">邮箱找回</a>
+					</p>
+					<Form ref="form" :model="form" :rules="ruleCustom">
+						<FormItem prop="phNum" v-show="!cur">
+							<Input type="text" v-model="form.phNum" placeholder="请输入手机号"></Input>
+						</FormItem>
+            <FormItem prop="mail" v-show="cur">
+							<Input type="text" v-model="form.mail" placeholder="请输入邮箱"></Input>
+						</FormItem>
+						<FormItem prop="passwd">
+							<Input :type="type" v-model="form.passwd" placeholder="请输入密码"  @on-click="showPasswd" :icon="eye"></Input>
+						</FormItem>
+            <FormItem prop="passwdCheck">
+              <Input :type="type" v-model="form.passwd" placeholder="请确认密码"  @on-click="showPasswd" :icon="eye"></Input>
+            </FormItem>
+						<FormItem prop="yanzhengma">
+							<Input type="text" placeholder="请输入验证码"></Input>
+						</FormItem>
+						<FormItem>
+							<Button type="error" @click="submit(form)" long>重 置</Button>
+						</FormItem>
+					</Form>
+				</div>
+			</div>
+		</div>
+		<join-footer></join-footer>
+	</div>
 </template>
 <script>
-import JoinHeader from "./JoinHeader";
-import JoinFooter from "./JoinFooter";
+	import JoinHeader from "./JoinHeader"
+	import JoinFooter from "./JoinFooter"
+  import { loginUserUrl } from "@/api/api"
+  import { setCookie,getCookie } from "@/util/cookie"
+	import axios from 'axios'
 
-export default {
-  name: "getpwd",
-  data() {
-    return {
-      error: "",
-      placeholder: "请输入手机号"
-    };
-  },
-  methods: {
-    zhaohui: function() {
-      // document.getElementsByClassName('mail')[0].className = 'mobile'
-      // var mobile = document.getElementsByClassName('mobile')[0].className=
-      // 改变类，包含text-align，borde-bottom
-      event.currentTarget.text === "手机找回"
-        ? ((this.placeholder = "请输入手机号"), this.rt())
-        : ((this.placeholder = "请输入邮箱"), this.lf());
-    },
-    rt: () => {
-      if (document.getElementsByClassName("mobile")) {
-        document.getElementsByClassName("mobile")[0].className =
-          "mobile txt-ali-ctr";
-        document.getElementsByClassName("email")[0].className =
-          "email txt-ali-rt";
-      }
-    },
-    lf: () => {
-      if (document.getElementsByClassName("mobile")) {
-        document.getElementsByClassName("mobile")[0].className =
-          "mobile txt-ali-lf";
-        document.getElementsByClassName("email")[0].className =
-          "email txt-ali-ctr";
-      }
-    }
-  },
-  components: { JoinHeader, JoinFooter }
-};
+	export default {
+		components: { JoinHeader, JoinFooter },
+		data() {
+      // 验证密码格式
+      const validatePass = (rule, value, callback) => {
+				if(value === '') {
+					callback(new Error('请输入密码'))
+				} else {
+					let reg = reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,}$/
+					if(reg.test(value)){
+						if(this.form.passwdCheck !== '') {
+							// 对第二个密码框单独验证
+							this.$refs.form.validateField('passwdCheck')
+						}
+					}else{
+						callback(new Error('密码不少于8位且必须包含字母和数字'))
+					}
+					callback();
+				}
+			}
+			//确认密码
+			const validatePassCheck = (rule, value, callback) => {
+				if(value === '') {
+					callback(new Error('请确认密码'));
+				} else if(value !== this.form.passwd) {
+					callback(new Error('两次输入的密码不一样'));
+				} else {
+					callback();
+				}
+			}
+			//验证码
+			const validateYanzhengma = (rule, value, callback) => {
+				if(value === '') {
+					callback(new Error('验证码不能为空'))
+				}
+				callback()
+			}
+			return {
+				form: {
+					name: '',
+          passwd: '',
+          passwdCheck:'',
+          phNum:'',
+          mail:''
+				},
+        eye:'eye-disabled',
+        type:'password',
+        cur:false,
+				ruleCustom: {
+					passwd: [
+						{ required: true, validator: validatePass, trigger: 'blur' }
+					],
+					passwdCheck: [
+						{ required: true, validator: validatePassCheck, trigger: 'blur' }
+          ],
+          mail: [
+						{ required: true, message: '不能为空', trigger: 'blur' }
+          ],
+          phNum: [
+            { required: true, message: '不能为空', trigger: 'blur' }
+          ],
+					yanzhengma: [
+						{ validator: validateYanzhengma, trigger: 'blur' }
+					]
+				}
+			}
+		},
+		methods: {
+      // 密码隐藏
+      showPasswd:function(){
+        this.eye === 'eye'?this.eye = 'eye-disabled':this.eye = 'eye'
+        this.type === 'password'?this.type = 'text':this.type = 'password'
+      },
+			// 登录
+      submit: function(arg) {
+        let _self = this
+				let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/login', {
+					username: 'niuhongda',
+					password: '123123q',
+          name:arg.name,
+          pwd:arg.passwd
+				}).then((res)=>{
+          if(res.error_code === 0){
+            // 登录成功记录用户信息
+            if(_self.checked){
+              // localStorage
+              if(localStorage){
+                localStorage.setItem('user',JSON.stringify(_self.form))
+                // 显示 [object object]，实际上是JSON对象，可以直接 => 属性 使用或读取具体属性值
+                // console.log('local-ok' + JSON.parse(sessionStorage.getItem('user')))
+              }else{
+                this.$Message.error('您的浏览器未启用缓存')
+              }
+            }else{
+            // sessionStorage 和 window 生命周期绑定 页面关闭 => 数据清空，而且登录状态应该由后台来验证，前台容易被伪造。webstorage只适合存储次要数据
+            // 用户的登录状态和退出状态由后台来记录
+            // 用户的登录信息保存在cookie中
+              setCookie('u_name',arg.name,1)
+              window.location.href = "http://localhost:8888/#/home"
+            }
+            this.$Message.success('登录成功')
+          }else{
+            this.$Message.error('登录失败')
+          }
+        })
+			},
+		}
+	}
 </script>
 <style lang="scss" scoped>
-@import "../../assets/style/base.scss";
-.login-box {
-  background: url("../../assets/images/登录.png") center center no-repeat;
-  background-size: 100% 100%;
-  .content {
-    width: $width;
-    margin: 0 auto;
-    display: flex;
-    justify-content: flex-end;
-    .login-form {
-      border-radius: 10px;
-      margin: 50px 90px;
-      width: 314px;
-      padding: 25px;
-      background-color: $white;
-      .iblock {
-        display: inline-block;
-        height: 22px;
-        width: 20px;
-        background-image: url("../../assets/images/Sprite.png");
-      }
-      .error {
-        height: 20px;
-        p {
-          line-height: 14px;
-          i {
-            background-position: -55px 0;
-          }
-          span {
-            vertical-align: text-top;
-            color: $red;
-          }
-        }
-      }
-      .title {
-        padding-bottom: 10px;
-        a {
-          display: inline-block;
-          padding-bottom: 5px;
-          cursor: pointer;
-        }
-        .txt-ali-lf {
-          text-align: left;
+	@import "../../assets/style/base.scss";
+	.login-box {
+		background: url("../../assets/images/登录.png") center center no-repeat;
+		background-size: 100% 100%;
+		overflow: hidden;
+		.form-box {
+			width: 315px;
+			background-color: #fff;
+			float: right;
+			margin: 50px 120px;
+			padding: 25px;
+			border-radius: 10px;
+			.title {
+				padding-bottom: 10px;
+				a {
+					display: inline-block;
+					cursor: pointer;
+					padding: 0 10px 5px 10px;
+				}
+        .text-bottom-long{
           border-bottom: 2px solid $border-rice;
-          width: 224px;
+          width: 193px;
         }
-        .txt-ali-rt {
-          text-align: right;
-          border-bottom: 2px solid $border-rice;
-          width: 224px;
-        }
-        .txt-ali-ctr {
-          text-align: center;
+        .text-bottom-short{
           border-bottom: 2px solid $border-blue;
         }
-        a {
-          text-align: right;
-          padding: 0 10px 5px 10px;
-        }
-      }
-      .pwd,
-      .user {
-        position: relative;
-        i {
-          position: absolute;
-          top: 4px;
-          left: 4px;
-        }
-      }
-      .pwd {
-        i {
-          background-position:  -99px -49px;
-        }
-      }
-      .user {
-        i {
-          background-position: -101px -14px;
-        }
-      }
-      input {
-        height: 20px;
-        padding: 5px 10px 5px 35px;
-        font-size: 12px;
-        line-height: 1.5;
-        border-radius: 3px;
-        border: 1px solid $border-blue;
-        width: 267px;
-        margin-bottom: 10px;
-        &:focus {
-          border-color: $red;
-          outline: none;
-        }
-      }
-      .ckcode input {
-        width: 30%;
-        padding: 5px 10px;
-      }
-      .login-btn {
-        display: flex;
-        justify-content: center;
-        .submit {
-          margin: 24px 0 15px 0;
-          width: 160px;
-          padding: 5px;
-          border: none;
-          border-radius: 5px;
-          color: $black;
-          background-color: $btn-default;
-          color: $white;
-          cursor: pointer;
-          &:hover{
-            background-color: $btn-default-hover;
-          }
-        }
-      }
-      .shensu {
-        font-size: 12px;
-        line-height: 24px;
-        a {
-          color: $blue;
-          cursor: pointer;
-        }
-      }
-      .remember {
-        display: flex;
-        justify-content: space-between;
-        padding-right: 28px;
-        margin-bottom: 40px;
-        input {
-          display: none;
-        }
-        i {
-          vertical-align: text-bottom;
-        }
-        .unchecked{
-          background-position:-99px -193px;
-        }
-        .checked{
-          background-position:-99px -225px;
-        }
-        a {
-          color: $red;
-        }
-      }
-    }
-  }
-}
+				.txt-ali-rt {
+					text-align: right;
+				}
+				.txt-ali-ctr {
+					text-align: left;
+				}
+			}
+			.getpwd {
+				float: right;
+				color: red;
+			}
+		}
+		.others {
+			margin-top: 20px;
+			padding: 20px 0 15px 0;
+			border-top: 1px solid $border-rice;
+			a {
+				display: inline-block;
+				margin: 0 9px;
+				width: 25px;
+				height: 22px;
+				background-image: url("../../assets/images/Sprite.png");
+			}
+			.wechat {
+				background-position: -182px -49px;
+			}
+			.weibo {
+				background-position: -184px -92px;
+			}
+			.qq {
+				background-position: -186px -122px;
+			}
+			.alipay {
+				background-position: -185px -162px;
+			}
+		}
+	}
 </style>
