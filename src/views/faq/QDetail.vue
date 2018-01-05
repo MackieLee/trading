@@ -7,9 +7,13 @@
         &nbsp;&gt;&nbsp;问答
       </p>
     </div>
-    <div class="modal-outer" v-show="modal">
-      <modal @closeModal="closeModal"></modal>
-    </div>
+    <Modal
+      :width="700"
+      v-model="modal"
+      :closable="false"
+      :mask-closable="false">
+      <frequently-asked-questions></frequently-asked-questions>
+    </Modal>
     <div class="item">
       <div class="container">
         <div class="left lf">
@@ -61,11 +65,10 @@
               </span>
             </div>
           </div>
-          <div class="btn-group">
-            <i @click="showModal" class="ask-icon"></i><input @click="showModal" class="ask-input" type="button" value="点我提问" />
-            <p>没有找到问题？点击上方直接提问</p>
+          <div class="btn-group rt">
+            <i @click="modal = true" class="ask-icon"></i><input class="ask-input" @click="modal = true" type="button" value="点我提问" /><br>
+            <span>没有找到问题？点击上方直接提问</span>
           </div>
-       
         </div>
       </div>
     </div>
@@ -77,24 +80,21 @@
           <p class="indent tchr">回答者：孙玮老师</p>
           <p class="indent">根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料....<span class="more">查看全部&gt;&gt;</span></p>
         </div>
-     
-             <div class="list-item">
+        <div class="list-item">
           <p><span class="question">您好孙老师您好孙老师您好孙老师您好孙老师您好根据贵公司的资料</span><span class="date rt">4天前</span></p>
           <p class="indent tchr">回答者：孙玮老师</p>
           <p class="indent">根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料....<span class="more">查看全部&gt;&gt;</span></p>
         </div>
-     
-      
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { quillEditor } from "vue-quill-editor";
-import Modal from "./Modal";
+import { quillEditor } from "vue-quill-editor"
+import FrequentlyAskedQuestions from "../modal/FrequentlyAskedQuestions"
 export default {
-  components: { quillEditor, Modal },
+  components: { quillEditor, FrequentlyAskedQuestions },
   data() {
     return {
       guanzhu: false,
@@ -114,12 +114,6 @@ export default {
     },
     onWatch: function(state) {
       state === "watch" ? (this.guanzhu = false) : (this.guanzhu = true);
-    },
-    closeModal: function() {
-      this.modal = false;
-    },
-    showModal: function() {
-      this.modal = true;
     }
   },
   computed: {
@@ -143,9 +137,6 @@ export default {
     height: 24px;
     background-image: url("../../assets/images/Sprite.png");
     vertical-align: text-bottom;
-  }
-  .modal {
-    height: 128%;
   }
   .lf {
     float: left;
@@ -210,7 +201,7 @@ export default {
             width: 200px;
             padding-bottom: 28px;
             margin: 0 auto;
-            border-bottom: 1px solid $black; 
+            border-bottom: 1px solid $black;
             span[class="shanchang"] {
               font-size: 16px;
               display: block;
@@ -262,7 +253,7 @@ export default {
           .ask-icon {
             position: absolute;
             background-position: -388px -83px;
-            left: 97px;
+            left: 30px;
             top: 5px;
           }
           .ask-input:hover{background-color: #e7141a;}

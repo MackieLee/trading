@@ -1,7 +1,7 @@
 const user = {
   state: {
-    userName:'12154545',
-    nickName:'吾系挂',
+    userName:'',
+    nickName:'',
     province:'',
     city:'',
     district:'',

@@ -6,7 +6,7 @@
       <modal @showTip="showTip" @closeModal="closeModal"></modal>
     </div>
     <div v-show="tip" class="tip">
-                谢谢你的评价
+      谢谢你的评价
     </div>
     <h2>我的订单</h2>
     <ul class="ul01">
@@ -87,7 +87,45 @@
          </li>
         </ul>
       </div>
-      
+   </div>
+   <div class="container" v-if="part=='2'">
+    <div>
+      <el-table
+        :data="tableData6"
+        :span-method="arraySpanMethod"
+        :row-style="subTitle"
+        border
+        style="width: 100%">
+        <el-table-column
+          prop="id"
+          label="ID"
+          width="180">
+        </el-table-column>
+        <el-table-column
+          prop="name"
+          label="姓名">
+        </el-table-column>
+        <el-table-column
+          prop="amount1"
+          sortable
+          label="数值 1">
+        </el-table-column>
+        <el-table-column
+          prop="amount2"
+          sortable
+          label="数值 2">
+        </el-table-column>
+        <el-table-column
+          prop="amount3"
+          sortable
+          label="数值 3">
+        </el-table-column>
+      </el-table>
+    </div>
+   </div>
+    <div class="container" v-if="part=='3'"></div>
+    <div class="container" v-if="part=='4'"></div>
+
     <div class="pgs">
       <li class="prev">&lt;上一页</li>
       <li class="current">1</li>
@@ -99,18 +137,11 @@
       <li class="submit">确定</li>
       <li class="next">下一页&gt;</li>
     </div>
-  
-   </div>
-   
-   <div class="container" v-if="part=='2'"></div>
-    <div class="container" v-if="part=='3'"></div>
-    <div class="container" v-if="part=='4'"></div>
-
   </div>
 </template>
 
 <script>
-import Modal from "./dingd_modal"
+import Modal from "./dingd_modal";
 export default {
   name: "dingdan",
   components: { Modal },
@@ -121,10 +152,28 @@ export default {
       num3: false,
       all: false,
       part: "1",
-     pingjia:false,
-			series: true,
-			tip: false,
-			tipMsg: ''
+      pingjia: false,
+      series: true,
+      tip: false,
+      tipMsg: "",
+      tableData6: [{
+        id: '12987122'
+      }, {
+        id: '12987123',
+        amount1: '165',
+        amount2: '4.43',
+        amount3: 12
+      }, {
+        id: '12987124'
+      }, {
+        id: '12987125',
+        name: '王小虎',
+        amount1: '621',
+        amount2: '2.2',
+        amount3: 17
+      }, {
+        id: '12987126'
+      }]
     };
   },
   methods: {
@@ -137,37 +186,36 @@ export default {
       let ref = event.target.dataset.ref;
       this.part = ref;
     },
-    change: function() {
-      let ref = event.target.dataset.ref;
-      if (ref === "all") {
-        if (this.num1 == this.num2 && this.num2 == this.num3) {
-          this.num1 = !this.num1;
-          this.num2 = !this.num2;
-          this.num3 = !this.num3;
-          this.all = !this.all;
-        } else {
-          this.num1 = true;
-          this.num2 = true;
-          this.num3 = true;
-          this.all = true;
+    arraySpanMethod({ row, column, rowIndex, columnIndex }) {
+      if (rowIndex % 2 === 0) {
+        if (columnIndex === 0) {
+          return [1, 5];
+        } else if (columnIndex === 1) {
+          return [0, 0];
         }
-      } else if (ref === "0") {
-        this.num1 = !this.num1;
-      } else if (ref === "1") {
-        this.num2 = !this.num2;
-      } else {
-        this.num3 = !this.num3;
       }
     },
-    showTip:function(){
-    	this.pingjia = false
-    	this.tip = true
-    	setTimeout(()=>{
-    		this.tip = false
-    	},1500)
+    subTitle({row,rowIndex}){
+      if(rowIndex % 2 === 0){
+        return {
+          'backround-color': 'red'
+        }
+      }else{
+        return ''
+      }
     },
-    closeModal:function(){
-    	this.pingjia=false
+    showTip: function() {
+      this.pingjia = false;
+      this.tip = true;
+      setTimeout(() => {
+        this.tip = false;
+      }, 1500);
+    },
+    closeModal: function() {
+      this.pingjia = false;
+    },
+    handleSelectAll(status) {
+      this.$refs.selection.selectAll(status);
     }
   }
 };
@@ -175,8 +223,11 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
+.sub-title{
+  background-color: red;
+}
 .tip {
-  width:100px;
+  width: 100px;
   height: 60px;
   line-height: 60px;
   background-color: rgba(0, 0, 0, 0.9);
@@ -199,7 +250,7 @@ export default {
   top: 0;
   left: 0;
   z-index: 2000;
-  .modal{
+  .modal {
     height: 110%;
   }
   .close {
@@ -293,7 +344,7 @@ export default {
 .my_order_r .ul02 {
   height: 36px;
   width: 100%;
-  background: #f5f5f5;
+  background: #ddd;
   margin: 14px 0;
   li {
     width: 12%;
@@ -370,11 +421,11 @@ export default {
           border: 1px solid #ddd;
         }
         span {
-          width: 67%;
+          width: 56%;
           line-height: 30px;
           float: left;
           font-size: 14px;
-          margin-left: 10px;
+          margin: 5px 10px 0;
           display: block;
           span {
             display: block;
@@ -424,7 +475,8 @@ export default {
         }
         .jindu {
           color: $light-blue;
-          text-indent: 1em;cursor: pointer;
+          text-indent: 1em;
+          cursor: pointer;
         }
       }
     }

@@ -17,7 +17,7 @@
           <i></i>
         </form>
       </div>
-      <div class="user-info">
+      <div class="user-info" v-show="!nickName">
         <ul>
           <li>
             <router-link :to="{name:'login'}">
@@ -33,7 +33,7 @@
           </li>
         </ul>
       </div>
-      <div class="logined" v-show="false">
+      <div class="logined" v-show="nickName">
         <div class="rt_part" @mouseleave="drop = ''">
           <a class="a-broadcast" @mouseenter="drop = 'left'">
             <i class="broadcast"></i>
@@ -63,10 +63,9 @@
               <router-link :to="{ name: 'initdata'}" tag="li">
                 <i class="set"></i><span>账号设置</span>
               </router-link>
-              <li><i class="quit"></i><span>安全退出</span></li>
+              <li @click="quit"><i class="quit"></i><span>安全退出</span></li>
             </ul>
           </div>
-
         </div>
       </div>
     </div>
@@ -75,6 +74,7 @@
 
 <script>
 import store from '../../store'
+import { getCookie,setCookie } from "@/util/cookie"
 export default {
   name: "app-herader",
   data() {
@@ -92,7 +92,8 @@ export default {
         { name: "关于我们", link: "about" }
       ],
       activeItem: "home",
-      drop:''
+      drop:'',
+      nickName:''
     };
   },
   computed: {
@@ -106,11 +107,19 @@ export default {
   methods: {
     getItem: function(item) {
       this.activeItem = item.link;
+    },
+    quit:function(){
+      setCookie('u_name','',1)
+      this.nickName = ''
     }
   },
-// Vuex state manager
   mounted () {
-
+    let userName = getCookie("u_name")
+    if(userName !== null && userName !== ''){
+      this.nickName = userName
+    }else{
+      return ''
+    }
   }
 };
 </script>

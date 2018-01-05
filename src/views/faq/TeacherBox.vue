@@ -1,8 +1,13 @@
 <template>
   <div class="teacher-box">
-    <div class="modal-outer" v-show="modal">
-      <modal @closeModal="closeModal"></modal>
-    </div>
+    <!-- 修改 -->
+    <Modal
+      :width="700"
+      v-model="modal"
+      :closable="false"
+      :mask-closable="false">
+      <frequently-asked-questions></frequently-asked-questions>
+    </Modal>
     <div class="cur-posi lf">
       <p>
         <i></i>当前位置 : &nbsp;
@@ -15,7 +20,7 @@
         <span>全部</span><span>房地产</span><span>个税</span><span>咨询</span><span>会计</span>
       </div>
       <div class="btn-group rt">
-        <i @click="showModal" class="ask-icon"></i><input class="ask-input" @click="showModal" type="button" value="点我提问" /><br>
+        <i @click="modal = true" class="ask-icon"></i><input class="ask-input" @click="modal = true" type="button" value="点我提问" /><br>
         <span>没有找到问题？点击上方直接提问</span>
       </div>
     </div>
@@ -142,26 +147,18 @@
         <p>已解决27个问题</p>
       </div>
     </div>
- 
+
   </div>
 </template>
 
 <script>
-import Modal from "./Modal"
+import FrequentlyAskedQuestions from "../modal/FrequentlyAskedQuestions"
 export default {
-  components: { Modal },
+  components:{ FrequentlyAskedQuestions },
   data() {
     return {
-      modal: false
+      modal:false
     };
-  },
-  methods: {
-    closeModal: function() {
-      this.modal = false;
-    },
-    showModal:function(){
-      this.modal = true;
-    }
   }
 };
 </script>
@@ -170,9 +167,6 @@ export default {
 @import "../../assets/style/base.scss";
 .teacher-box {
   overflow: hidden;
-}
-.modal {
-  height: 224%;
 }
 .head-content {
   width: 100%;

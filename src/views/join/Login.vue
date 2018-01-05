@@ -1,264 +1,194 @@
 <template>
-  <div class="login">
-    <join-header></join-header>
-    <div class="login-box">
-      <div class="content">
-        <form class="login-form" @submit.prevent = 'submit'>
-          <p class="title"><span>会员登录</span><router-link :to=" { name:'register'} ">会员注册</router-link></p>
-          <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
-          <div class="user">
-            <!-- 用户名 -->
-            <i class="iblock"></i>
-            <input v-model="userInfo.name" type="text" name="user" placeholder="请输入用户名"/>
-          </div>
-          <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
-          <div class="pwd">
-            <span></span>
-            <!-- 密码 -->
-            <i class="iblock"></i>
-            <input v-model="userInfo.pwd" type="password" id="pwd" name="pwd" placeholder="请输入密码" />
-            <i class="cover pos-rt" @mouseenter="discover" @mouseout="cover"></i>
-          </div>
-          <div class="error"><p v-show="error"><i class="iblock"></i><span> {{ error }}</span></p></div>
-          <div class="ckcode">
-            <span></span>
-            <!-- 验证码 -->
-            <input type="text" name="ckcode" placeholder="请输入验证码" />
-            <span class="ck-code"></span>
-          </div>
-          <div class="remember">
-            <span @click="toggleChecked">
-              <input type="checkbox" name="remember"/><i :class="[ { checked: checked },{ unchecked: !checked },'iblock' ]"></i><label for="remember">记住密码</label>
-            </span>
-            <router-link :to=" { name:'getpwd' } ">
-              找回密码
-            </router-link>
-          </div>
-          <div class="login-btn">
-            <button class="submit" type="submit">登录</button>
-          </div>
-          <div class="others">
-            <span>合作账号登录 : </span>
-            <router-link :to=" { name:'register'} " class="wechat"></router-link>
-            <router-link :to=" { name:'register'} " class="weibo"></router-link>
-            <router-link :to=" { name:'register'} " class="qq"></router-link>
-            <router-link :to=" { name:'register'} " class="alipay"></router-link>
-          </div>
-        </form>
-      </div>
-    </div>
-    <join-footer></join-footer>
-  </div>
+	<div class="login">
+		<join-header></join-header>
+		<div class="login-box">
+			<div class="content">
+				<div class="form-box">
+					<p class="title">
+						<a class="txt-ali-ctr">登录</a>
+						<router-link :to="{ name:'register' }" class="txt-ali-rt">注册</router-link>
+					</p>
+					<Form ref="form" :model="form" :rules="ruleCustom">
+						<FormItem prop="name">
+							<Input type="text" v-model="form.name" placeholder="请输入用户名/邮箱/手机号"></Input>
+						</FormItem>
+						<FormItem prop="passwd">
+							<Input :type="type" v-model="form.passwd" placeholder="请输入密码"  @on-click="showPasswd" :icon="eye"></Input>
+						</FormItem>
+						<FormItem prop="yanzhengma">
+							<Input type="text" placeholder="请输入验证码"></Input>
+						</FormItem>
+						<FormItem prop="interest">
+							<Checkbox label="记住账号" v-model="remember">记住账号</Checkbox>
+							<router-link class="getpwd" :to="{name:'getpwd'}">忘记密码</router-link>
+						</FormItem>
+						<FormItem>
+							<Button type="error" @click="submit(form)" long>登录</Button>
+						</FormItem>
+					</Form>
+					<div class="others">
+						<span>合作账号登录 : </span>
+						<router-link :to=" { name:'register'} " class="wechat"></router-link>
+						<router-link :to=" { name:'register'} " class="weibo"></router-link>
+						<router-link :to=" { name:'register'} " class="qq"></router-link>
+						<router-link :to=" { name:'register'} " class="alipay"></router-link>
+					</div>
+				</div>
+			</div>
+		</div>
+		<join-footer></join-footer>
+	</div>
 </template>
-<script>import JoinHeader from "./JoinHeader";
+<script>
+import JoinHeader from "./JoinHeader";
 import JoinFooter from "./JoinFooter";
 import { loginUserUrl } from "@/api/api";
-import axios from 'axios'
-var jsonp = require("jsonp");
+import { setCookie, getCookie } from "@/util/cookie";
+import axios from "axios";
 
 export default {
-	name: "login",
-	components: { JoinHeader, JoinFooter },
-	data() {
-		return {
-			checked: false,
-			error: "",
-			// 向后台提交表单数据
-			userInfo: {
-				name: '',
-				pwd: ''
-			}
-		};
-	},
-	methods: {
-		toggleChecked: function() {
-			this.checked = !this.checked;
-		},
-		// 记住密码
-		discover: function() {
-			document.getElementById("pwd").type = "text";
-		},
-		// 密码显示
-		cover: function() {
-			document.getElementById("pwd").type = "password";
-		},
-		// 密码隐藏
-		submit: function() {
-			// 表单提交
-			loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getuser',{
-				username:'niuhongda',
-				password:'123123q',
-				name:'13141472665'
-			})
-		},
-	}
-}
+  components: { JoinHeader, JoinFooter },
+  data() {
+    //这是验证用户是否存在
+    const validateName = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("用户名不能为空"));
+      }
+      callback();
+    };
+    const validatePwd = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("密码不能为空"));
+      }
+      callback();
+    };
+    //验证码
+    const validateYanzhengma = (rule, value, callback) => {
+      if (value === "") {
+        callback(new Error("验证码不能为空"));
+      }
+      callback();
+    };
+    return {
+      form: {
+        name: "",
+        passwd: ""
+      },
+      remember: false,
+      eye: "eye-disabled",
+      type: "password",
+      ruleCustom: {
+        passwd: [{ validator: validatePwd, trigger: "blur" }],
+        name: [{ validator: validateName, trigger: "blur" }],
+        yanzhengma: [{ validator: validateYanzhengma, trigger: "blur" }]
+      }
+    };
+  },
+  methods: {
+    // 密码隐藏
+    showPasswd: function() {
+      this.eye === "eye" ? (this.eye = "eye-disabled") : (this.eye = "eye");
+      this.type === "password"
+        ? (this.type = "text")
+        : (this.type = "password");
+    },
+    // 登录
+    submit: function(arg) {
+      let _self = this;
+      let res = loginUserUrl("http://aip.kehu.zaidayou.com/api/execute/login", {
+        username: "niuhongda",
+        password: "123123q",
+        name: arg.name,
+        pwd: arg.passwd
+      }).then(res => {
+        if (res.error_code === 0) {
+          // 登录成功记录用户信息
+          if (_self.checked) {
+            // localStorage
+            // if(localStorage){
+            //   localStorage.setItem('user',JSON.stringify(_self.form))
+            // 显示 [object object]，实际上是JSON对象，可以直接 => 属性 使用或读取具体属性值
+            // console.log('local-ok' + JSON.parse(sessionStorage.getItem('user')))
+            // }else{
+            //   this.$Message.error('您的浏览器未启用缓存')
+            // }
+            setCookie("u_name", arg.name, 365);
+            window.location.href = "http://localhost:8888/#/home";
+          } else {
+            // sessionStorage 和 window 生命周期绑定 页面关闭 => 数据清空，而且登录状态应该由后台来验证，前台容易被伪造。webstorage只适合存储次要数据
+            // 用户的登录状态和退出状态由后台来记录
+            // 用户的登录信息保存在cookie中
+            setCookie("u_name", arg.name, 1);
+            window.location.href = "http://localhost:8888/#/home";
+          }
+          this.$Message.success("登录成功");
+        } else {
+          this.$Message.error("登录失败");
+        }
+      });
+    }
+  }
+};
 </script>
-<style lang="scss" scoped>@import "../../assets/style/base.scss";
+<style lang="scss" scoped>
+@import "../../assets/style/base.scss";
 .login-box {
-	background: url("../../assets/images/登录.png") center center no-repeat;
-	background-size: 100% 100%;
-	.content {
-		width: $width;
-		margin: 0 auto;
-		display: flex;
-		justify-content: flex-end;
-		.login-form {
-			border-radius: 10px;
-			margin: 50px 90px;
-			width: 314px;
-			padding: 25px;
-			background-color: $white;
-			.iblock,
-			.cover,
-			.discover {
-				display: inline-block;
-				height: 18px;
-				width: 18px;
-				background-image: url("../../assets/images/Sprite.png");
-			}
-			.error {
-				height: 20px;
-				p {
-					line-height: 14px;
-					i {
-						background-position: -55px 0;
-					}
-					span {
-						vertical-align: text-top;
-						color: $red;
-					}
-				}
-			}
-			.title {
-				padding-bottom: 10px;
-				span,
-				a {
-					display: inline-block;
-					padding-bottom: 5px;
-				}
-				span {
-					width: 90px;
-					text-align: center;
-					border-bottom: 2px solid $border-blue;
-				}
-				a {
-					width: 204px;
-					text-align: right;
-					padding-right: 20px;
-					border-bottom: 2px solid $border-rice;
-				}
-			}
-			.pwd,
-			.user {
-				position: relative;
-				i {
-					position: absolute;
-					top: 4px;
-				}
-				.cover {
-					background-position: -143px 300px;
-					&:hover {
-						background-position: -143px 272px;
-					}
-				}
-				.pos-rt {
-					top: 6px;
-					right: 30px;
-				}
-			}
-			.pwd {
-				i[class="iblock"] {
-					background-position: -99px -49px;
-					left: 4px;
-				}
-			}
-			.user {
-				i {
-					background-position: -60px -41px;
-					left: 4px;
-				}
-			}
-			input {
-				height: 20px;
-				padding: 5px 10px 5px 35px;
-				font-size: 12px;
-				line-height: 1.5;
-				border-radius: 3px;
-				border: 1px solid $border-blue;
-				width: 267px;
-				margin-bottom: 10px;
-				&:focus {
-					border-color: $red;
-					outline: none;
-				}
-			}
-			.ckcode input {
-				width: 30%;
-				padding: 5px 10px;
-			}
-			.login-btn {
-				display: flex;
-				justify-content: center;
-				.submit {
-					width: 160px;
-					padding: 5px;
-					border: none;
-					border-radius: 5px;
-					color: $white;
-					background-color: $btn-danger;
-					cursor: pointer;
-					&:hover {
-						background-color: $btn-danger-hover;
-					}
-				}
-			}
-			.remember {
-				display: flex;
-				justify-content: space-between;
-				padding-right: 28px;
-				margin-bottom: 40px;
-				input {
-					display: none;
-				}
-				i {
-					vertical-align: text-bottom;
-				}
-				.unchecked {
-					background-position: -101px -282px;
-				}
-				.checked {
-					background-position: -101px -253px;
-				}
-				a {
-					color: $red;
-				}
-			}
-			.others {
-				width: 314px;
-				margin-top: 20px;
-				padding: 20px 0 15px 0;
-				border-top: 1px solid $border-rice;
-				a {
-					display: inline-block;
-					margin: 0 9px;
-					width: 25px;
-					height: 22px;
-					background-image: url("../../assets/images/Sprite.png");
-				}
-				.wechat {
-					background-position: -182px -49px;
-				}
-				.weibo {
-					background-position: -184px -92px;
-				}
-				.qq {
-					background-position: -186px -122px;
-				}
-				.alipay {
-					background-position: -185px -162px;
-				}
-			}
-		}
-	}
-}</style>
+  background: url("../../assets/images/登录.png") center center no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  .form-box {
+    width: 315px;
+    background-color: #fff;
+    float: right;
+    margin: 50px 120px;
+    padding: 25px;
+    border-radius: 10px;
+    .title {
+      padding-bottom: 10px;
+      a {
+        display: inline-block;
+        cursor: pointer;
+        text-align: right;
+        padding: 0 10px 5px 10px;
+      }
+      .txt-ali-rt {
+        text-align: right;
+        border-bottom: 2px solid $border-rice;
+        width: 217px;
+      }
+      .txt-ali-ctr {
+        text-align: center;
+        border-bottom: 2px solid $border-blue;
+      }
+    }
+    .getpwd {
+      float: right;
+      color: red;
+    }
+  }
+  .others {
+    margin-top: 20px;
+    padding: 20px 0 15px 0;
+    border-top: 1px solid $border-rice;
+    a {
+      display: inline-block;
+      margin: 0 9px;
+      width: 25px;
+      height: 22px;
+      background-image: url("../../assets/images/Sprite.png");
+    }
+    .wechat {
+      background-position: -182px -49px;
+    }
+    .weibo {
+      background-position: -184px -92px;
+    }
+    .qq {
+      background-position: -186px -122px;
+    }
+    .alipay {
+      background-position: -185px -162px;
+    }
+  }
+}
+</style>
