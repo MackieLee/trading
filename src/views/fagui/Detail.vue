@@ -61,6 +61,7 @@
             国家税务总局<br> 2017年9月13日
           </div>
         </div>
+        <p class="jiedua">链接：<a href="###">相关政策解读</a></p>
         <div class="clearfix" style="margin:20px 0 25px 0;">
           <div class="lf">分享到:
             <i class="qq"></i>
@@ -141,6 +142,9 @@ export default {
   }
   .red {
     color: $red
+  }
+  .jiedua{line-height: 36px; height: 36px;
+  a{color: #468EE3;}
   }
   .clearfix {
     overflow: hidden;

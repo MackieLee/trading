@@ -7,9 +7,7 @@
         &nbsp;&gt;&nbsp;新法规
       </p>
     </div>
-    <div class="main-title">
-      政策解读
-    </div>
+    <div class="main-title">最新文件</div>
     <div class="th">
       <table cellspacing="0" cellpadding="0">
         <tbody>
@@ -27,7 +25,9 @@
         <tbody>
           <router-link tag="tr" :to="{ name:'fdetail'}">
             <td class="xuhao pointer ctr">·</td>
-            <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
+            <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知
+            <i class="jingxuan"></i>
+            </td>
             <td class="fahao pointer ctr">税总发〔2017〕102号</td>
             <td class="riqi pointer ctr">2017-09-07</td>
           </router-link>
@@ -44,12 +44,12 @@
             <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
-            <td class="xuhao pointer ctr  red">·</td>
-            <td class="biaoti pointer  red">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知
+            <td class="xuhao pointer ctr">·</td>
+            <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知
               <i class="jingxuan"></i>
             </td>
-            <td class="fahao pointer ctr  red">税总发〔2017〕102号</td>
-            <td class="riqi pointer ctr  red">2017-09-07</td>
+            <td class="fahao pointer ctr">税总发〔2017〕102号</td>
+            <td class="riqi pointer ctr">2017-09-07</td>
           </tr>
           <tr>
             <td class="xuhao pointer ctr">·</td>

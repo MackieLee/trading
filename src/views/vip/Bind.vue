@@ -133,13 +133,13 @@ export default {
     color: $black;
     &:hover {
       border: none;
-      background-color: $btn-special;
+      background-color: #4683ee;;
       color: $white;
     }
   }
   .imm-bind {
     border: none;
-    background-color: $btn-default;
+    background-color: #4683ee;;
     color: $white;
   }
   .cancel-bind {

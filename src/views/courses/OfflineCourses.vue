@@ -13,7 +13,9 @@
             {{item.title}}
           </p>
           <p>{{item.info}}</p>
-          <p>{{item.date}}<i></i><span class="position" title="点击查看地图" @click="getPosition(item.position)">地点: {{item.position}}</span>
+          <p>{{item.date}}<i></i>
+          	<span class="position" title="点击查看地图" @click="getPosition(item.position)">
+          		地点: {{item.position}}</span>
           </p>
           <p class="tag tag-02">{{item.type}}</p>
           <p>讲师：{{item.leader}}</p>
@@ -66,8 +68,8 @@ export default {
     }
   },
   methods:{
-    getPosition:(position) => {
-      window.location.href = 'http://ditu.amap.com/search?query='+ position +'&zoom=15'
+    getPosition:(position) =>{
+      window.open('http://ditu.amap.com/search?query='+ position +'&zoom=15',"_brank") 
     }
   }
 }

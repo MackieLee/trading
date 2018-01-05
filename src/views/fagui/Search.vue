@@ -15,7 +15,7 @@
         <div class="content">
           <dl>
             <dd>
-              <router-link :to="{ name : 'fagui'}" class="newtitle">
+              <router-link :to="{ name : 'fdetail'}" class="newtitle">
                 上海市国家税务局、上海市地方税务局内设机构（部门）主要职能
               </router-link>
               <span class="date">2017-07-03</span>
@@ -104,7 +104,11 @@
             </dd>
             <dd>
               <div class="btn-items top-30">
-                <input type="button" class="search-btn" value="检      索" /><input type="button" class="reset" value="重     置" />
+                <router-link :to="{ name : 'fagui'}" tag='input' type="button" class="search-btn" value="检      索" />
+                </router-link>
+                <input type="button" class="reset" value="重     置" />
+        
+              
               </div>
             </dd>
           </dl>
@@ -133,7 +137,9 @@
             </dd>
             <dd>
               <div class="btn-items">
-                <input type="button" class="search-btn" value="检      索" /><input type="button" class="reset" value="重     置" />
+              	<router-link :to="{ name : 'fagui'}" tag='input' type="button" class="search-btn" value="检      索" />
+               </router-link>
+                <input type="button" class="reset" value="重     置" />
               </div>
             </dd>
           </dl>

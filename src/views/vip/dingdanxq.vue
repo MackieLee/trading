@@ -85,7 +85,7 @@ export default {};
   .span02{ width:35%;} 
     }	
   }
-	.ul02{ margin:30px 0;background: #e5e5e5;overflow: hidden;
+	.ul02{ margin:30px 0;background: #F5F5F5;overflow: hidden;
 	li{float: left;width: 15%; font-size: 14px;line-height: 40px;margin: 20px 0 20px 10px;
 	span{margin-right: 60px; display: block;  color: #000;}
 	p{font-size: 14px;float: left; width: 60%;line-height: 40px;}
@@ -95,7 +95,7 @@ export default {};
 	}
 	}
 	.ul03{margin: 10px 0;
-	li{font-size: 14px;background: #f0f0f0;line-height: 34px; height: 34px;width: 100%;text-align: right;
+	li{font-size: 14px;background: #F5F5F5;line-height: 34px; height: 34px;width: 100%;text-align: right;
 	span{
 		font-size: 18px; color: #E7141A;margin-right:20px;
 	}}

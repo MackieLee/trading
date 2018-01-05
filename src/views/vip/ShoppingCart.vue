@@ -14,7 +14,8 @@
     <div class="container">
       <div class="item">
         <p class="p01">
-          <i @click="change()" data-ref="0" :class="{ selected: num1}"></i>2017-08-31订单号: 53196839876687913</p>
+          <i @click="change()" data-ref="0" :class="{ selected: num1}"></i>
+          <span class="span01">2017-08-31</span>订单号: 53196839876687913</p>
         <div class="ul">
           <div class=" block block-1 li01 lf"><div class="lf img"><img src="../../assets/images/huanyuanzx02.png"></div><div class="lf header">土地增值税清算土地增值税清算</div></div>
           <div class=" block block-2 lf">￥4588.00</div>
@@ -25,11 +26,24 @@
       </div>
       <div class="item">
         <p class="p01">
-          <i @click="change()" data-ref="1" :class="{ selected: num2}"></i>2017-08-31订单号: 53196839876687913</p>
+          <i @click="change()" data-ref="1" :class="{ selected: num2}"></i>
+          <span class="span01">2017-08-31</span>订单号: 53196839876687913</p>
         <div class="ul">
           <div class=" block block-1 li01 lf"><div class="lf img"><img src="../../assets/images/huanyuanzx02.png"></div><div class="lf header">土地增值税清算土地增值税清算</div></div>
           <div class=" block block-2 lf">￥4588.00</div>
-          <div class=" block block-3 lf">视频</div>
+          <div class=" block block-3 lf">音频</div>
+          <div class=" block block-4 lf"><p>应付</p><p>￥4588.00</p></div>
+          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br><span>已收藏</span></div>
+        </div>
+      </div>
+      <div class="item">
+        <p class="p01">
+          <i @click="change()" data-ref="1" :class="{ selected: num2}"></i>
+          <span class="span01">2017-08-31</span>订单号: 53196839876687913</p>
+        <div class="ul">
+          <div class=" block block-1 li01 lf"><div class="lf img"><img src="../../assets/images/huanyuanzx02.png"></div><div class="lf header">土地增值税清算土地增值税清算</div></div>
+          <div class=" block block-2 lf">￥4588.00</div>
+          <div class=" block block-3 lf">音频</div>
           <div class=" block block-4 lf"><p>应付</p><p>￥4588.00</p></div>
           <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br><span>已收藏</span></div>
         </div>
@@ -64,7 +78,7 @@ export default {
       num3: false,
       all: false,
       part: "1",
-      shoucangMsg: "点击收藏"
+      shoucangMsg: "加入收藏"
     };
   },
   methods: {
@@ -113,7 +127,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .selected {
-  background-position: -101px -288px !important;
+  background-position: -101px -286px !important;
 }
 .my_order_r {
   height: 900px;
@@ -128,8 +142,8 @@ i {
   vertical-align: text-bottom;
   background: url("../../assets/images/Sprite.png");
   display: inline-block;
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
 }
 .container {
   margin-bottom: 20px;
@@ -144,7 +158,7 @@ i {
   width: 300px;
 }
 .block-1 {
-  width: 370px;
+  width: 375px;
   overflow: hidden;
   border-right: 1px solid $border-dark;
   .img {
@@ -156,13 +170,13 @@ i {
   }
 }
 .block-2 {
-  width: 54px;
+  width: 70px;
 }
 .block-3 {
-  width: 35px;
+  width: 45px;
 }
 .block-4 {
-  width: 70px;
+  width: 80px;
 }
 .btn-danger {
   width: 90px;
@@ -178,7 +192,7 @@ i {
   }
 }
 .right-cut {
-  margin-right: 60px;
+  margin-right:20px;
 }
 .my_order_r h2 {
   width: 100%;
@@ -193,23 +207,25 @@ i {
 .my_order_r .ul02 {
   height: 36px;
   width: 100%;
-  background: #ddd;
+  background:#f5f5f5;
   margin: 10px 0 15px;
   .li01 {
     margin-left: 13px;
     i {
-      background-position: -101px -256px;
+      background-position: -101px -349px;
       margin-right: 10px;
     }
   }
 }
-.ul03 .li01 {
-  font-size: 14px;
-  margin-left: 13px;
-  i {
-    background-position: -101px -256px;
-  }
+.my_order_r .p01{
+ i {
+  margin: 0 10px 0 13px;
+  background-position: -177px -390px;
 }
+.span01{ margin-right: 5px; display: inline-block;
+      color: $grey-white;
+    }
+    }
 .my_order_r .ul02 li {
   text-align: center;
   font-size: 14px;
@@ -224,6 +240,8 @@ i {
 
 .my_order_r .ul03 .li01 i {
   margin-right: 5px;
+   margin: 0 10px 0 13px;
+  background-position: -101px -349px;
 }
 /*   */
 .my_order_r .p01 {
@@ -242,6 +260,7 @@ i {
   }
   .block {
     padding: 13px;
+    text-align: center;
   }
   .block-1,
   .block-2,
@@ -310,8 +329,5 @@ i {
       color: $white;
     }
   }
-.my_order_r .p01 i {
-  margin: 0 5px 0 13px;
-  background-position: -101px -256px;
-}
+
 </style>

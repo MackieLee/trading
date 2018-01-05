@@ -18,7 +18,7 @@
   <label for="sum" class="danwei"><i>*</i>姓 名：</label><input placeholder="请输入您的名称" type="text" class="lg-input" />
         </div>
         <div class="flex">
-  <label for="sum" class="danwei"><i>*</i>性 别：</label><input placeholder="请输入您的性别" type="text" class="lg-input" />
+  <label for="sum" class="danwei">性 别：</label><input placeholder="请输入您的性别" type="text" class="lg-input" />
         </div>
         <div class="flex">
   <label for="sum" class="danwei"><i>*</i>手机号码：</label><input placeholder="请输入您的手机号码" type="text" class="mid-input" />
@@ -27,7 +27,7 @@
   <label for="sum" class="danwei"><i>*</i>电子邮箱：</label><input placeholder="请输入您的电子邮箱" type="text" class="mid-input" />
         </div>
         <div class="flex">
-  <label for="sum" class="danwei"><i>*</i>固定电话：</label><input placeholder="请输入您的电话" type="text" class="mid-input" />
+  <label for="sum" class="danwei">固定电话：</label><input placeholder="请输入您的电话" type="text" class="mid-input" />
         </div>
         <div class="flex">
   <label for="sum" class="danwei"><i>*</i>听课人数：</label><input placeholder="请输入您的听课人数" type="text" class="mid-input" />
@@ -45,7 +45,7 @@
   <label for="sum" class="danwei"><i>*</i>培训时间：</label><input placeholder="请输入培训时间" type="text" class="lg-input" />
         </div>
         <div class="flex">
-  <label for="sum" class="danwei"><i>*</i>是否住宿：</label><input placeholder="请输入是否住宿" type="text" class="lg-input" />
+  <label for="sum" class="danwei">是否住宿：</label><input placeholder="请输入是否住宿" type="text" class="lg-input" />
         </div>
         <div class="flex">
   <label for="sum" class="danwei"><i>*</i>付款方式：</label><input placeholder="请输入付款方式" type="text" class="lg-input" />

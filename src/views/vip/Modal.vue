@@ -237,16 +237,16 @@ export default {
     right: 30px;
     cursor: pointer;
     background-image: url('../../assets/images/Sprite.png');
-    background-position: 168px -166px;
+    background-position:-522px -124px;
     height: 20px;
     width:20px;
   }
   .title{
     height: 40px;
-    width: 100%;
+    width: 100%; color: #fff; font-size: 14px;
     text-align: center;
     line-height: 40px;
-    background-color:$bg-nav;
+    background-color:#4683ee;
   }
   .container{
     margin-top: 40px;

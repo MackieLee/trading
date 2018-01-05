@@ -316,7 +316,7 @@ export default {
   z-index: 10;
 }
 .my_qianb_cotainer {
-  padding-bottom: 65px;
+  padding-bottom: 5px;
 }
 .my_qianb_r .p01 {
   color: $white;
@@ -365,10 +365,12 @@ export default {
   width: 85%;
   position: relative;
 }
-.my_qianb_r .div01 .l h2,
-.my_qianb_r .div01 .r h3 {
+.my_qianb_r .div01 .l h2{
   font-size: 14px;
   line-height: 30px;
+}
+.my_qianb_r .div01 .r h3 {
+  color: #999;font-size: 12px;line-height: 30px;
 }
 .my_qianb_r .div01 li p {
   line-height: 30px;
@@ -384,10 +386,6 @@ export default {
   .phui {
     color: #999;
   }
-}
-.my_qianb_r .div01 .r .phui,
-.my_qianb_r .div01 .r h3 {
-  color: #999;
 }
 .my_qianb_r .div01 .l p .more {
   color: #468ee3;

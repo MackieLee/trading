@@ -143,7 +143,7 @@ export default {
     height: 16px;
     width: 16px;
     background-image: url("../../assets/images/Sprite.png");
-    background-position: -522px -126px;
+    background-position: -522px -124px;
   }
   .ctr {
     h2 {
@@ -225,7 +225,7 @@ export default {
       border-radius: 5px;
       outline: none;
       padding: 10px;
-      font-size: 14px;
+      font-size: 12px;
       border: 1px solid silver;
     }
     .sub-btn {
