@@ -102,7 +102,7 @@ import Exam from './Exam'
 import VideoPingjia from "../modal/VideoPingjia"
 import Dayi from './Dayi'
 export default {
-  name: "video",
+  name: "video-page",
   components: { VideoPingjia,Dayi,Exam },
   data() {
     return {
