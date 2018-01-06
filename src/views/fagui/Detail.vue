@@ -28,7 +28,7 @@
           {{ content.value }}
         </div>
         <div class="clearfix">
-          <div class="lf" v-if="content.adjunct">附件：</div>
+          <div class="lf" v-if="adjunct">附件：</div>
           <div class="lf green">
             <p v-for="item in content.adjunct" :key="item.name">
               <a :href="item.document">{{item.name}}</a>
@@ -86,6 +86,7 @@ export default {
   data(){
     return{
       content:{},
+      adjunct:false,
       path:''
     }
   },
@@ -97,8 +98,12 @@ export default {
       password: "123123q",
       nid: this.path
     }).then((res)=>{
-      console.log(res.data)
+      // console.log(res.data.adjunct)
       _self.content = res.data
+      if(res.data.adjunct.length !== 0 ){
+        console.log(res.data.adjunct.length)
+        _self.adjunct = true
+      }
     })
   },
   methods:{
