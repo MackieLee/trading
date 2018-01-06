@@ -153,7 +153,7 @@ export default {
       federal: true,
       newArr:[],
       federalSearch:{
-        area:null,
+        area:'',
         title:'',
         zihao:'',
         niandu:'',
@@ -179,6 +179,7 @@ export default {
       username: "niuhongda",
       password: "123123q",
     }).then((res)=>{
+      console.log(res)
       _self.newArr = res.data
       let arr = res.data
       if(arr){
@@ -194,12 +195,18 @@ export default {
     resetForm:(name)=>{
       this.$refs[name].resetFields();
     },
+    // 法规查询
     handleSubmit:function(name){
       let obj = this[name]
-      console.log(obj)
-      let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_Search',{
-        username: "niuhongda",
-        password: "123123q",
+      // console.log(obj)
+      let laws = 0
+      if(name === 'federalSearch'){
+        laws = 502
+      }else if(name === 'localSearch'){
+        laws = 503
+      }
+      this.$router.push({name:'fagui',query:{
+        laws:laws,
         area:obj.area,
         name:obj.title,
         reference:obj.zihao,
@@ -207,8 +214,7 @@ export default {
         department:obj.danwei,
         begin_time:obj.beginLine,
         end_time:obj.endLine
-      }).then((res)=>{
-        console.log(res)
+        }
       })
     },
     handleFormat:function(obj,line,date){

@@ -25,11 +25,11 @@
     <div class="td">
       <table cellspacing="0" cellpadding="0">
         <tbody>
-          <router-link tag="tr" :to="{ name:'fdetail'}">
-            <td class="xuhao pointer ctr">·</td>
-            <td class="biaoti pointer">关于建立税务机关、涉税专业服务社会组织及其行业协会和纳税人三方沟通机制的通知</td>
-            <td class="fahao pointer ctr">税总发〔2017〕102号</td>
-            <td class="riqi pointer ctr">2017-09-07</td>
+          <router-link v-for="(item,index) in list" :key="item.form_id" tag="tr" :to="{ name:'fdetail',query:{ id:item.id }}">
+            <td class="xuhao pointer ctr">{{index+1}}</td>
+            <td class="biaoti pointer">{{item.name}}</td>
+            <td class="fahao pointer ctr">{{item.reference}}</td>
+            <td class="riqi pointer ctr">{{item.date_posted}}</td>
           </router-link>
         </tbody>
       </table>
@@ -49,9 +49,34 @@
 </template>
 
 <script>
+import { loginUserUrl } from '@/api/api'
 export default {
-  name: "fagui"
-};
+  name: "fagui",
+  data(){
+    return{
+      list:[]
+    }
+  },
+  created () {
+    let obj = this.$route.query
+    let _self = this
+    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_Search',{
+      username: "niuhongda",
+      password: "123123q",
+      area:obj.area,
+      name:obj.name,
+      reference:obj.reference,
+      date_posted:obj.date_posted,
+      department:obj.department,
+      begin_time:obj.begin_time,
+      end_time:obj.end_time,
+      laws:obj.laws
+    }).then((res)=>{
+      _self.list = res.data
+      console.log(res.data)
+    })
+  }
+}
 </script>
 
 <style lang="scss" scoped>

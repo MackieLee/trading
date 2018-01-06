@@ -7,13 +7,13 @@
     </div>
     <div class="container">
       <div class="clearfix main-title ctr">
-        <h1>国家税务总局</h1>
-        <h3>关于跨省经营企业涉税事项全国通办的通知</h3>
+        <h1>{{ content.department }}</h1>
+        <h3>{{ content.name }}</h3>
       </div>
       <div class="clearfix" style="margin-bottom:35px;line-height:25px;">
         <div class="second-title">
-          <p>文号:税总发〔2017〕102号</p>
-          <p>发布日期:2017-10-19</p>
+          <p>文号:{{ content.reference }}</p>
+          <p>发布日期:{{ content.date_posted }}</p>
         </div>
       </div>
       <vue-audio>
@@ -27,12 +27,12 @@
         <div v-html="content.value">
           {{ content.value }}
         </div>
-        <h3 class="ctr" style="color:red;">查看更多内容</h3>
-        <a class="ctr" style="display:block;line-height:0;margin-top:10px;color:red;">∨</a>
-        <a class="ctr" style="display:block;line-height:15px;color:red;">∨</a>
         <div class="clearfix">
-          <div class="lf">附件：</div>
-          <div class="lf green">1.代办退税情况备案表<br> 2.外贸综合服务企业代办税申报表
+          <div class="lf" v-if="content.adjunct">附件：</div>
+          <div class="lf green">
+            <p v-for="item in content.adjunct" :key="item.name">
+              <a :href="item.document">{{item.name}}</a>
+            </p>
           </div>
           <div class="rt">
             国家税务总局<br> 2017年9月13日
@@ -52,16 +52,8 @@
             <span @click="windowClose" class="pointer">【关闭本页】</span>
           </div>
         </div>
-        <div class="pgs">
-          <li class="prev">&lt;上一页</li>
-          <li class="current ">1</li>
-          <li class="custom">2</li>
-          <li class="custom">3</li>
-          <li class="custom">4</li>
-          <li class="points">...</li>
-          <li class="jump"><input type="tel" maxlength="3"> /40页</li>
-          <li class="submit">确定</li>
-          <li class="next">下一页&gt;</li>
+        <div style="display:flex;justify-content:center">
+          <Page :total="200" show-elevator></Page>
         </div>
         <p class="red" style="font-size:14px;padding:20px 0 10px 30px;border-top:1px solid #ccc;margin-top:10px;">相关法规</p>
         <div class="clearfix xiangguan">
@@ -222,51 +214,6 @@ export default {
       margin-right: 30px;
       span {
         margin-right: 20px;
-      }
-    }
-    .pgs {
-      width: 525px;
-      margin: 30px auto;
-      li {
-        width: 33px;
-        padding: 4px 0;
-        line-height: 20px;
-        text-align: center;
-        margin-right: 2px;
-        cursor: pointer;
-        border: 1px solid $border-dark;
-        color: $black;
-      }
-      .prev {
-        width: 73px;
-        color: $blue;
-      }
-      .next {
-        width: 96px;
-        color: $blue;
-      }
-      .points{
-        border:none;
-      }
-      .submit{
-        background-color: $btn-default;
-        color: $white;
-        width: 44px;
-        border: none;
-      }
-      .jump {
-        width: 80px;
-        border: 1px solid $border-dark;
-        color: #333;
-        input {
-          width: 30px;
-          border: 1px solid $border-dark;
-          outline: none;
-        }
-      }
-      .current {
-        background-color: $btn-default;
-        color: $white;
       }
     }
   }
