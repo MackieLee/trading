@@ -67,7 +67,7 @@ export default {
   },
   methods:{
     getPosition:(position) => {
-      window.location.href = 'http://ditu.amap.com/search?query='+ position +'&zoom=15'
+      window.open('http://ditu.amap.com/search?query='+ position +'&zoom=15',"_blank")
     }
   }
 }

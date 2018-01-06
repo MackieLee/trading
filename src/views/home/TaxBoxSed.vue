@@ -61,7 +61,7 @@ export default {
           price: "1000"
         },
         {
-          title: "税收筹划案例精解-3",
+          title: "税收筹划案例精解-7",
           link: "videoinfo",
           src: "../../assets/images/九鼎财税01_10.png",
           score: "100",
@@ -70,7 +70,7 @@ export default {
           price: "1000"
         },
         {
-          title: "税收筹划案例精解-3",
+          title: "税收筹划案例精解-8",
           link: "videoinfo",
           src: "../../assets/images/九鼎财税01_10.png",
           score: "100",

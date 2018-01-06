@@ -13,7 +13,7 @@
           <p class="video-title"><a>{{ item.title }}</a></p>
           <p class="buss-info"><span class="score"><i></i><font>{{ item.score }}</font>分</span><span class="person-current"><i></i><font>{{ item.person }}</font>人</span><span class="classes">课时</span><font>{{ item.class }}</font><span>MIN</span></p>
           <p class="price"><span>课程:<font class="rd">￥{{ item.price }}</font></span>
-          	
+
           	<router-link :to="{name:item.link}" tag="span" class="free">
           		{{ item.free }}</router-link>
           </p>
@@ -69,7 +69,7 @@ export default {
           free:'试听'
         },
         {
-          title: "税收筹划案例精解-3",
+          title: "税收筹划案例精解-7",
           link: "videoinfo",
           src: "../../assets/images/九鼎财税01_10.png",
           score: "100",
@@ -79,7 +79,7 @@ export default {
           free:'试听'
         },
         {
-          title: "税收筹划案例精解-3",
+          title: "税收筹划案例精解-8",
           link: "videoinfo",
           src: "../../assets/images/九鼎财税01_10.png",
           score: "100",

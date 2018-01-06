@@ -14,65 +14,11 @@
         <div class="clearfix"></div>
         <div class="content">
           <dl>
-            <dd>
-              <router-link :to="{ name : 'fagui'}" class="newtitle">
-                上海市国家税务局、上海市地方税务局内设机构（部门）主要职能
+            <dd v-for="item in newArr" :key="item.name">
+              <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}" class="newtitle">
+                {{ item.name }}
               </router-link>
-              <span class="date">2017-07-03</span>
-            </dd>
-            <dd>
-              <a target="_blank">
-                <span class="newtitle">
-                  上海市国家税务局、上海市地方税务局领导专栏
-                </span>
-                <span class="date">2017-06-28</span>
-              </a>
-            </dd>
-            <dd>
-              <a target="_blank">
-                <span class="newtitle">
-                  上海市税务系统机构一览
-                </span>
-                <span class="date">2016-09-02</span>
-              </a>
-            </dd>
-            <dd>
-              <a target="_blank">
-                <span class="newtitle">
-                  上海市税务系统执法主体
-                </span>
-                <span class="date">2016-03-31</span>
-              </a>
-            </dd>
-            <dd>
-              <a target="_blank">
-                <span class="newtitle">
-                上海市地方税务局主要职责内设机构和人员编制规定
-                </span>
-                <span class="date">2015-08-14</span>
-              </a>
-            </dd>
-            <dd>
-              <span class="newtitle">
-                上海市国家税务局、上海市地方税务局内设机构（部门）主要职能
-              </span>
-              <span class="date">2017-07-03</span>
-            </dd>
-            <dd>
-              <a target="_blank">
-                <span class="newtitle">
-                  上海市国家税务局、上海市地方税务局领导专栏
-                </span>
-                <span class="date">2017-06-28</span>
-              </a>
-            </dd>
-            <dd>
-              <a target="_blank">
-                <span class="newtitle">
-                  上海市税务系统机构一览
-                </span>
-                <span class="date">2016-09-02</span>
-              </a>
+              <span class="date">{{ item.time }}</span>
             </dd>
           </dl>
         </div>
@@ -80,63 +26,82 @@
       <!-- 模块二 -->
       <div class="global-overview-left rt">
         <div class="titcon">
-          <span @click="center = true" :class="{ 'tab-cur': center }">中央法规</span>
-          <span @click="center = false" :class="{ 'tab-cur': !center }">地方法规</span>
+          <span @click="federal = true" :class="{ 'tab-cur': federal }">中央法规</span>
+          <span @click="federal = false" :class="{ 'tab-cur': !federal }">地方法规</span>
         </div>
         <div class="clearfix"></div>
         <div class="content">
-          <dl v-if="center" class="search">
-            <dd>
-              <label>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label><input/>
-            </dd>
-            <dd>
-              <label>字&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label><input/>
-            </dd>
-            <dd>
-              <label>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度</label><input/>
-            </dd>
-            <dd>
-              <label>发文单位</label><input/>
-            </dd>
-            <dd>
-              <label>发文日期</label><input class="input-sm" type="text" />
-              <label class="lb-md">至</label><input class="input-sm" type="text" />
-            </dd>
-            <dd>
-              <div class="btn-items top-30">
-                <input type="button" class="search-btn" value="检      索" /><input type="button" class="reset" value="重     置" />
-              </div>
-            </dd>
-          </dl>
-          <dl v-else class="search">
-            <dd class="clearfix">
-              <label class="lf">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区</label>
-              <select class="lf">
-                <option></option>
-              </select>
-            </dd>
-            <dd>
-              <label>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题</label><input/>
-            </dd>
-            <dd>
-              <label>字&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</label><input/>
-            </dd>
-            <dd>
-              <label>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度</label><input/>
-            </dd>
-            <dd>
-              <label>发文单位</label><input/>
-            </dd>
-            <dd>
-              <label>发文日期</label><input class="input-sm" type="text" />
-              <label class="lb-md">至</label><input class="input-sm" type="text" />
-            </dd>
-            <dd>
-              <div class="btn-items">
-                <input type="button" class="search-btn" value="检      索" /><input type="button" class="reset" value="重     置" />
-              </div>
-            </dd>
-          </dl>
+          <div v-if="federal" class="search">
+            <Form ref="federalSearch" :model="federalSearch" :label-width="80">
+              <FormItem label="标题">
+                <Input v-model="federalSearch.title" placeholder="请输入法规标题"></Input>
+              </FormItem>
+              <FormItem label="字号">
+                <Input v-model="federalSearch.zihao" placeholder="请输入法规字号"></Input>
+              </FormItem>
+              <FormItem label="年度">
+                <Input v-model="federalSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
+              </FormItem>
+              <FormItem label="发文单位">
+                <Input v-model="federalSearch.danwei" placeholder="请输入法规颁布的单位"></Input>
+              </FormItem>
+              <FormItem label="发文日期">
+                <Row>
+                  <Col span="12">
+                    <DatePicker type="date" @on-change="handleFormat('federalSearch','beginLine',$event)" format="yyyy-MM-dd" placeholder="选择起始时间" style="width: 180px"></DatePicker>
+                  </Col>
+                  <Col span="12">
+                    <DatePicker type="date" @on-change="handleFormat('federalSearch','endLine',$event)" format="yyyy-MM-dd" placeholder="选择截止时间" style="width: 190px"></DatePicker>
+                  </Col>
+                </Row>
+              </FormItem>
+              <FormItem>
+                <Button type="primary" style="width:100px" @click="handleSubmit('federalSearch')">检索</Button>
+                <Button type="ghost" style="margin-left: 8px;width:100px" @click="resetForm('federalSearch')">取消</Button>
+              </FormItem>
+            </Form>
+          </div>
+          <div v-else class="search">
+            <Form ref="localSearch" :model="localSearch" :label-width="80">
+              <FormItem label="地区">
+                <Select v-model="localSearch.area" style="width:120px">
+                  <Option value="地区1">山东省</Option>
+                  <Option value="地区1">河北省</Option>
+                  <Option value="地区1">河南省</Option>
+                  <Option value="地区1">山东省</Option>
+                  <Option value="地区1">山东省</Option>
+                  <Option value="地区1">山东省</Option>
+                  <Option value="地区1">山东省</Option>
+                </Select>
+              </FormItem>
+              <FormItem label="标题">
+                <Input v-model="localSearch.title" placeholder="请输入法规标题"></Input>
+              </FormItem>
+              <FormItem label="字号">
+                <Input v-model="localSearch.zihao" placeholder="请输入法规字号"></Input>
+              </FormItem>
+              <FormItem label="年度">
+                <Input v-model="localSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
+              </FormItem>
+              <FormItem label="发文单位">
+                <Input v-model="localSearch.danwei" placeholder="请输入法规颁布的单位"></Input>
+              </FormItem>
+              <FormItem label="发文日期">
+                <Row>
+                  <Col span="12">
+                    <DatePicker type="date" @on-change="handleFormat('localSearch','beginLine',$event)" format="yyyy-MM-dd" placeholder="选择起始时间" style="width: 180px"></DatePicker>
+                  </Col>
+                  <Col span="12">
+                    <DatePicker type="date" @on-change="handleFormat('localSearch','endLine',$event)" format="yyyy-MM-dd" placeholder="选择截止时间" style="width: 190px"></DatePicker>
+                  </Col>
+                </Row>
+              </FormItem>
+              <FormItem>
+                <Button type="primary" style="width:100px" @click="handleSubmit('localSearch')">检索</Button>
+                <Button type="ghost" style="margin-left: 8px;width:100px" @click="resetForm('localSearch')">取消</Button>
+              </FormItem>
+            </Form>
+          </div>
         </div>
       </div>
       <!-- 模块三 -->
@@ -155,46 +120,6 @@
                 <span class="date">2017-07-03</span>
               </a>
             </dd>
-            <dd>
-              <a target="_blank">
-                <span class="newtitle">
-                  上海市国家税务局、上海市地方税务局领导专栏
-                </span>
-                <span class="date">2017-06-28</span>
-              </a>
-            </dd>
-            <dd>
-              <a target="_blank">
-                <span class="newtitle">
-                  上海市税务系统机构一览
-                </span>
-                <span class="date">2016-09-02</span>
-              </a>
-            </dd>
-            <dd>
-              <a target="_blank">
-                <span class="newtitle">
-                  上海市税务系统执法主体
-                </span>
-                <span class="date">2016-03-31</span>
-              </a>
-            </dd>
-            <dd>
-              <a target="_blank">
-                <span class="newtitle">
-                  上海市地方税务局主要职责内设机构和人员编制规定
-                </span>
-                <span class="date">2015-08-14</span>
-              </a>
-            </dd>
-            <dd>
-              <a target="_blank">
-                <span class="newtitle">
-                  上海市地方税务局主要职责内设机构和人员编制规定
-                </span>
-                <span class="date">2015-08-14</span>
-              </a>
-            </dd>
           </dl>
         </div>
       </div>
@@ -210,74 +135,6 @@
               <span class="num"></span>
               <a target="_BLANK">税收征收管理</a>
             </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">纳税服务</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">增值税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">消费税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">营业税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">企业所得税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">个人所得税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">进出口税收</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">车船税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">资源税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">城镇土地使用税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">耕地占用税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">土地增值税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">房产税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a>印花税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">契税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">车辆购置税</a>
-            </li>
-            <li>
-              <span class="num"></span>
-              <a target="_BLANK">综合税收政策</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -286,14 +143,79 @@
 </template>
 
 <script>
+import { loginUserUrl } from '@/api/api'
+// import DatePicker from '../datepicker/DatePicker'
 export default {
+  // components:{DatePicker},
   name: "fsearch",
   data() {
     return {
-      center: true
-    };
+      federal: true,
+      newArr:[],
+      federalSearch:{
+        area:null,
+        title:'',
+        zihao:'',
+        niandu:'',
+        danwei:'',
+        beginLine:'',
+        endLine:''
+      },
+      localSearch:{
+        area:'',
+        title:'',
+        zihao:'',
+        niandu:'',
+        danwei:'',
+        beginLine:'',
+        endLine:''
+      }
+    }
+  },
+  mounted:function(){
+    let _self = this
+    // 最新法规列表
+    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_List',{
+      username: "niuhongda",
+      password: "123123q",
+    }).then((res)=>{
+      _self.newArr = res.data
+      let arr = res.data
+      if(arr){
+        for(let i = 0;i<arr.length;i++){
+          let time = parseInt(arr[i].time)*1000
+          let date = new Date(time).toLocaleDateString()
+          _self.newArr[i].time = date
+        }
+      }
+    })
+  },
+  methods:{
+    resetForm:(name)=>{
+      this.$refs[name].resetFields();
+    },
+    handleSubmit:function(name){
+      let obj = this[name]
+      console.log(obj)
+      let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_Search',{
+        username: "niuhongda",
+        password: "123123q",
+        area:obj.area,
+        name:obj.title,
+        reference:obj.zihao,
+        date_posted:obj.niandu,
+        department:obj.danwei,
+        begin_time:obj.beginLine,
+        end_time:obj.endLine
+      }).then((res)=>{
+        console.log(res)
+      })
+    },
+    handleFormat:function(obj,line,date){
+      this[obj][line] = date
+    }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -371,7 +293,7 @@ export default {
       .content {
         border: 1px solid $border-dark;
         border-top: none;
-        height: 342px;
+        height: 400px;
         dd {
           position: relative;
           padding: 10px 5px 4px 15px;
@@ -423,44 +345,8 @@ export default {
             }
           }
         }
-        .search {
-          width: 400px;
-          margin: 0 auto;
-          padding-top: 20px;
-          label {
-            margin-right: 20px;
-            font-size: 14px;
-          }
-          input {
-            width: 296px;
-            height: 26px;
-            line-height: 26px;
-            outline: none;
-            border: 1px solid $border-blue;
-          }
-          input[class="input-sm"] {
-            width: 121px;
-          }
-          label[class="lb-md"] {
-            margin: 0 17px;
-          }
-          .top-30{
-            margin-top: 30px;
-          }
-          .btn-items {
-            width: 373px;
-            display: flex;
-            justify-content: space-between;
-            input {
-              width: 176px;
-              height: 40px;
-              text-align: center;
-              background-color: $btn-default;
-              color: $white;
-              font-size: 14px;
-              cursor: pointer;
-            }
-          }
+        .search{
+          padding: 10px 40px 0 20px;
         }
       }
     }
