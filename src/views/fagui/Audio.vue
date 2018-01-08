@@ -11,18 +11,24 @@
       @timeupdate="onTimeupdate"
       @loadedmetadata="onLoadedmetadata"
       ></audio>
-      <div>
+      <div class="slider-w">
         <el-slider v-show="!controlList.noProcess" v-model="sliderTime" :format-tooltip="formatProcessToolTip" @change="changeCurrentTime" class="slider current-slider"></el-slider>
       </div>
-      <div>
+      <div style="overflow:hidden;width:360px;margin:5px auto;">
         <!-- <span @click="startPlayOrPause">{{audio.playing | transPlayPause}}</span> -->
-        <p @click="startPlayOrPause" style="display:inline-block;"><span :class="{ 'play':audio.playing ,'pause':!audio.playing}"></span></p>
-        <p @click="audioStop" style="display:inline-block;"><span class="stop"></span></p>
+        <div class="btns play-btn" @click="startPlayOrPause"><span :class="{ 'play':audio.playing ,'pause':!audio.playing}"></span></div>
+        <div class="btns stop-btn" @click="audioStop"><div class="stop"></div></div>
         <!-- <span v-show="!controlList.noSpeed" @click="changeSpeed">{{audio.speed | transSpeed}}</span> -->
-        <i>{{ audio.currentTime | formatSecond}}</i>
-        <i>{{ audio.maxTime | formatSecond }}</i>
-        <span v-show="!controlList.noMuted" @click="startMutedOrNot"><span :class="{ 'silence':audio.muted ,'volume':!audio.muted}"></span></span>
-        <el-slider v-show="!controlList.noVolume" v-model="volume" :format-tooltip="formatVolumeToolTip" @change="changeVolume" class="slider volume-slider"></el-slider>
+        <div class="btns time">
+          <i>{{ audio.currentTime | formatSecond}}</i>
+          <i>{{ audio.maxTime | formatSecond }}</i>
+        </div>
+        <div class="btns vol">
+          <div class="vol-btns vol-btn" v-show="!controlList.noMuted" @click="startMutedOrNot"><span :class="{ 'silence':audio.muted ,'volume':!audio.muted}"></span></div>
+          <div class="vol-btns vol-slider">
+            <el-slider v-show="!controlList.noVolume" v-model="volume" :format-tooltip="formatVolumeToolTip" @change="changeVolume" class="slider volume-slider"></el-slider>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -40,7 +46,7 @@
       var mimute = Math.floor(second / 60)
       second = second - mimute * 60
 
-      return hours + ':' + ('0' + mimute).slice(-2) + ':' + ('0' + second).slice(-2)
+      return ('0' + mimute).slice(-2) + ':' + ('0' + second).slice(-2)
     } else {
       return '0:00:00'
     }
@@ -218,20 +224,45 @@
     background-image: linear-gradient(to bottom,#f4f4f4,#d3d3d3);
     border-radius: 5px;
     margin: 0 auto;
-    width: 360px;
-    padding: 5px 15px;
+    width: 380px;
     span{
       color:#333;
+    }
+    .slider-w{
+      width:330px;
+      margin: 10px auto;
+    }
+    .vol{
+      overflow: hidden;
+      padding-right: 10px;
+      margin-left: 30px;
+      .vol-btns{
+        float: left;
+        .volume{
+          margin-top: 12px;
+        }
+      }
+    }
+    .el-slider__runway{
+      margin:4px 0;
+    }
+    .btns{
+      float: left;
+    }
+    .time{
+      margin-top: 6px;
+      i{
+        margin: 0 10px 0 10px;
+      }
     }
   }
   .slider {
     display: inline-block;
     position: relative;
     top: 7px;
-    margin-left: 15px;
   }
   .current-slider{
-    width: 340px;
+    width: 320px;
   }
   .volume-slider{
     width:70px;
@@ -243,38 +274,51 @@
     display: none;
   }
   .play{
-    background: url('../../assets/images/Sprite.png') -289px -133px;
+    background: url('../../assets/images/audio.btns.png') ;
+    background-position: -41px -42px;
     vertical-align: text-bottom;
     display: inline-block;
-    width: 27px;
-    height: 27px;
+    width: 40px;
+    height: 40px;
+    border-radius:100%;
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
   }
   .pause{
-    background: url('../../assets/images/Sprite.png') -288px -45px;
+    background: url('../../assets/images/audio.btns.png');
+    background-position: -41px 0px;
     vertical-align: text-bottom;
     display: inline-block;
-    width: 27px;
-    height: 27px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
   }
   .silence{
-    background: url('../../assets/images/Sprite.png') -280px -176px;
+    background: url('../../assets/images/audio.btns.png');
+    background-position: -280px -176px;
     vertical-align: text-bottom;
     display: inline-block;
     width: 27px;
     height: 27px;
   }
   .volume{
-    background: url('../../assets/images/Sprite.png') -283px -208px;
+    background: url('../../assets/images/audio.btns.png') ;
+    background-position: 0px -170px;
     vertical-align: text-bottom;
     display: inline-block;
-    width: 27px;
-    height: 27px;
+    width: 18px;
+    height: 15px;
   }
   .stop{
-    background: url('../../assets/images/Sprite.png') -289px -93px;
+    background: url('../../assets/images/audio.btns.png');
+    background-position: -29px -83px;
     vertical-align: text-bottom;
-    display: inline-block;
-    width: 27px;
-    height: 27px;
+    border-radius: 100%;
+    cursor: pointer;
+    margin: 6px 10px;
+    width: 28px;
+    height: 28px;
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
   }
 </style>

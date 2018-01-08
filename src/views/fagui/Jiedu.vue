@@ -41,7 +41,7 @@
         <div class="clearfix">
           <div class="lf" v-if="explain">政策解读：</div>
           <div class="lf green" v-if="explain">
-            <router-link tag="span" style="cursor:pointer" :to="{path:'/fagui-jiedu',query:{id:content.explain_id}}">《{{ content.name }}》的政策解读</router-link>
+            <router-link tag="span" style="cursor:pointer" :to="{path:'/fagui-detail',query:{id:content.explain_id}}">《{{ content.name }}》的政策解读</router-link>
           </div>
         </div>
         <div class="clearfix" style="margin:20px 0 25px 0;">

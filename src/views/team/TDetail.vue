@@ -5,19 +5,10 @@
     </div>
     <div class="detail">
       <img src="../../assets/images/jitax_专家团队_033.png" alt="孙玮教授">
-      <h1>孙玮教授</h1>
-      <p>
-            九鼎财税专家委员会专家；  注册会计师、注册税务师；东北财经大学财政专业硕士；
-        现任青岛大学经济学院副教授，硕士生导师；自1993年6月至今在青岛大学经济学院工作，
-        讲授《中国税制》、《国际税收》、《税务检查》、《外国税制》、《税务会计》等课程；
-        自2001年开始至今在全国巡回做财税培训讲座，是我国第一批在全国做税务公开课培训的
-        老师之一，17年财税培训经历，被称为财税培训界的“常青树”。
-      </p>
-      <p class="sec-p">
-            自1997年开始至今，在企业和事务所兼职从事财税实务工作，做过国企、大型民营企业、
-        跨国公司的审计工作；至今已经为多家大型民营企业、外资企业、国企、央企提供常年财税顾
-        问服务，并成功运作过若干税务筹划方案，深受企业家推崇。
-      </p>
+      <h1>{{ intro.name }}</h1>
+      <div v-html="intro.value">
+        {{ intro.value }}
+      </div>
     </div>
     <div class="book-box">
       <div class="title">
@@ -52,8 +43,25 @@
 </template>
 
 <script>
+import { loginUserUrl } from '@/api/api'
 export default {
-  name:'tdetail'
+  name:'tdetail',
+  data(){
+    return{
+      intro:{}
+    }
+  },
+  mounted () {
+    let _self = this
+    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getTeacher_Info',{
+      username: "niuhongda",
+      password: "123123q",
+      tid:this.$route.query.id
+    }).then((res)=>{
+      _self.intro = res.data
+      console.log(res.data)
+    })
+  }
 }
 </script>
 
@@ -79,6 +87,7 @@ export default {
     }
     .detail{
       margin: 26px 90px 45px 0;
+      overflow: hidden;
       h1{
         font-size: 18px;
         margin-bottom: 8px;
@@ -145,7 +154,7 @@ export default {
             bottom: 4px;
           }
           .book-name{
-            margin: 5px 0 20px 0; 
+            margin: 5px 0 20px 0;
             span{color: #e7141a;}
             a{
               margin-right: 15px;
