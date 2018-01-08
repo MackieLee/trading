@@ -39,11 +39,28 @@
     </div>
   </div>
 </template>
-
 <script>
-export default {
-
-}
+    export default {
+        data () {
+            return {
+                formValidate: {
+                    name: '',
+                    mail: '',
+                    city: '',
+                    gender: '',
+                    interest: [],
+                    date: '',
+                    time: '',
+                    desc: ''
+                },
+            }
+        },
+        methods: {
+            handleReset (name) {
+                this.$refs[name].resetFields();
+            }
+        }
+    }
 </script>
 
 <style lang="scss" scoped>

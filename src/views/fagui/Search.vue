@@ -32,7 +32,7 @@
         <div class="clearfix"></div>
         <div class="content">
           <div v-if="federal" class="search">
-            <Form ref="federalSearch" :model="federalSearch" :label-width="80">
+            <!-- <Form ref="federalSearch" :model="federalSearch" :label-width="80">
               <FormItem label="标题">
                 <Input v-model="federalSearch.title" placeholder="请输入法规标题"></Input>
               </FormItem>
@@ -57,21 +57,26 @@
               </FormItem>
               <FormItem>
                 <Button type="primary" style="width:100px" @click="handleSubmit('federalSearch')">检索</Button>
-                <Button type="ghost" style="margin-left: 8px;width:100px" @click="resetForm('federalSearch')">取消</Button>
+                <Button type="ghost" style="margin-left: 8px;width:100px" @click="handleReset('federalSearch')">取消</Button>
+              </FormItem>
+            </Form> -->
+            <Form ref="federalSearch" :model="federalSearch">
+              <FormItem label="Name" prop="name">
+                <Input v-model="federalSearch.name" placeholder="Enter your name"></Input>
+              </FormItem>
+              <FormItem>
+                <Button type="primary" @click="handleSubmit('federalSearch')">Submit</Button>
+                <Button type="ghost" @click="handleReset('federalSearch')" style="margin-left: 8px">Reset</Button>
               </FormItem>
             </Form>
           </div>
           <div v-else class="search">
             <Form ref="localSearch" :model="localSearch" :label-width="80">
               <FormItem label="地区">
-                <Select v-model="localSearch.area" style="width:120px">
-                  <Option value="地区1">山东省</Option>
-                  <Option value="地区1">河北省</Option>
-                  <Option value="地区1">河南省</Option>
-                  <Option value="地区1">山东省</Option>
-                  <Option value="地区1">山东省</Option>
-                  <Option value="地区1">山东省</Option>
-                  <Option value="地区1">山东省</Option>
+                <Select v-model="localSearch.area" style="width:100px">
+                  <Option value="beijing">一</Option>
+                  <Option value="shanghai">London</Option>
+                  <Option value="shenzhen">Sydney</Option>
                 </Select>
               </FormItem>
               <FormItem label="标题">
@@ -168,7 +173,10 @@ export default {
         danwei:'',
         beginLine:'',
         endLine:''
-      }
+      },
+      formValidate: {
+        name: ''
+      },
     }
   },
   mounted:function(){
@@ -187,6 +195,7 @@ export default {
         }
       }
       let arr = _self.newArr
+      let jArr = _self.jieduArr
       // 最新列表的时间
       if(arr){
         for(let i = 0;i<arr.length;i++){
@@ -196,6 +205,13 @@ export default {
         }
       }
       // 政策解读时间
+      if(jArr){
+        for(let a = 0;a<jArr.length;a++){
+          let time = parseInt(jArr[a].time)*1000
+          let date = new Date(time).toLocaleDateString()
+          _self.jieduArr[a].time = date
+        }
+      }
     })
   },
   methods:{
