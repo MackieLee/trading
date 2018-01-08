@@ -129,7 +129,7 @@ export default {
       })
     },
     handleReset(name) {
-      this.$refs[name].resetFields();
+      this.$refs[name].resetFields()
     }
   }
 };

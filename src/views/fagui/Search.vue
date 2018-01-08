@@ -14,7 +14,7 @@
         <div class="clearfix"></div>
         <div class="content clearfix">
           <dl>
-            <dd v-for="item in newArr" :key="item.name">
+            <dd v-for="item in newArr" :key="item.id">
               <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}" class="newtitle">
                 {{ item.name }}
               </router-link>
@@ -98,7 +98,7 @@
               </FormItem>
               <FormItem>
                 <Button type="primary" style="width:100px" @click="handleSubmit('localSearch')">检索</Button>
-                <Button type="ghost" style="margin-left: 8px;width:100px" @click="resetForm('localSearch')">取消</Button>
+                <Button type="ghost" style="margin-left: 8px;width:100px" @click="handleReset('localSearch')">取消</Button>
               </FormItem>
             </Form>
           </div>
@@ -112,7 +112,7 @@
         <div class="clearfix"></div>
         <div class="content clearfix">
           <dl>
-            <dd v-for="item in jieduArr" :key="item.name">
+            <dd v-for="item in jieduArr" :key="item.id">
               <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}" class="newtitle">
                 {{ item.name }}
               </router-link>
@@ -187,6 +187,7 @@ export default {
         }
       }
       let arr = _self.newArr
+      // 最新列表的时间
       if(arr){
         for(let i = 0;i<arr.length;i++){
           let time = parseInt(arr[i].time)*1000
@@ -194,11 +195,12 @@ export default {
           _self.newArr[i].time = date
         }
       }
+      // 政策解读时间
     })
   },
   methods:{
-    resetForm:(name)=>{
-      this.$refs[name].resetFields();
+    handleReset:function(name){
+      this.$refs[name].resetFields()
     },
     // 法规查询
     handleSubmit:function(name){
