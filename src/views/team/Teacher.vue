@@ -3,62 +3,40 @@
     <div class="cur-posi">
       <p><i></i>当前位置 : &nbsp;<router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;专家团队</p>
     </div>
-    <router-link tag="div" to="/tdetail" class="item">
+    <router-link tag="div" v-for="item in teacherList" :key="item.id" :to="{path:'/tdetail',query:{id:item.id}}" class="item">
       <div class="hd-pic">
         <img src="../../assets/images/jitax_专家团队_03.png" alt="孙玮">
       </div>
       <div class="short-msg">
-        <p class="name">孙玮 教授</p>
-        <p>
-          九鼎财税专家委员会专家；注册会计师、注册税务师；东北财经大学财政专业硕士；现任青岛大学经济学院副教授，硕士 生导师；自1993年6月至今在青岛大学经济学院工作，讲授《中国税制》、...
-          <span>更多>></span>
-        </p>
+        <p class="name">{{item.name}} 教授</p>
+        <div class="short-intro">
+          {{item.intro}}
+        </div>
+        <p class="more">更多>></p>
       </div>
     </router-link>
-    <router-link tag="div" to="/tdetail" class="item">
-      <div class="hd-pic">
-        <img src="../../assets/images/jitax_专家团队_03.png" alt="孙玮">
-      </div>
-      <div class="short-msg">
-        <p class="name">孙玮 教授</p>
-        <p>
-          九鼎财税专家委员会专家；注册会计师、注册税务师；东北财经大学财政专业硕士；现任青岛大学经济学院副教授，硕士 生导师；自1993年6月至今在青岛大学经济学院工作，讲授《中国税制》、...
-          <span>更多>></span>
-        </p>
-      </div>
-    </router-link>
-    <router-link tag="div" to="/tdetail" class="item">
-      <div class="hd-pic">
-        <img src="../../assets/images/jitax_专家团队_03.png" alt="孙玮">
-      </div>
-      <div class="short-msg">
-        <p class="name">孙玮 教授</p>
-        <p>
-          九鼎财税专家委员会专家；注册会计师、注册税务师；东北财经大学财政专业硕士；现任青岛大学经济学院副教授，硕士 生导师；自1993年6月至今在青岛大学经济学院工作，讲授《中国税制》、...
-          <span>更多>></span>
-        </p>
-      </div>
-    </router-link>
-    <router-link tag="div" to="/tdetail" class="item">
-      <div class="hd-pic">
-        <img src="../../assets/images/jitax_专家团队_03.png" alt="孙玮">
-      </div>
-      <div class="short-msg">
-        <p class="name">孙玮 教授</p>
-        <p>
-          九鼎财税专家委员会专家；注册会计师、注册税务师；东北财经大学财政专业硕士；现任青岛大学经济学院副教授，硕士 生导师；自1993年6月至今在青岛大学经济学院工作，讲授《中国税制》、...
-          <span>更多>></span>
-        </p>
-      </div>
-    </router-link>
-
-  
   </div>
 </template>
 
 <script>
+import { loginUserUrl } from '@/api/api'
 export default {
-  name:'teacher'
+  name:'teacher',
+  data(){
+    return{
+      teacherList:[]
+    }
+  },
+  mounted () {
+    let _self = this
+    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getTeacherList',{
+      username: "niuhongda",
+      password: "123123q"
+    }).then((res)=>{
+      _self.teacherList = res.data
+      console.log(res.data)
+    })
+  }
 }
 </script>
 
@@ -68,7 +46,6 @@ export default {
     width: $width;
     margin: 0 auto;
     padding-top: 20px;
-    // border-top: 2px solid $border-rice;
     i{
       display: inline-block;
       width: 22px;
@@ -101,15 +78,16 @@ export default {
           font-size: $lg-title;
           margin-bottom:32px;
         }
-        p{
+        .short-intro{
           font-size: $normal;
           line-height: 30px;
-          i{
-            background-position: -56px -56px;
-          }
-          span{
-            color: #117cee; cursor: pointer;
-          }
+          height: 90px;
+          overflow: hidden;
+        }
+        .more{
+          float: right;
+          color: $blue;
+          cursor: pointer;
         }
       }
     }

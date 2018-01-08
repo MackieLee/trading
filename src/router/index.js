@@ -16,6 +16,7 @@ import customize from '../views/customize/Customize'//课程定制
 // --------------------法规查询----------------------------------
 import fagui from '../views/fagui/Fagui'//法规
 import fdetail from '../views/fagui/Detail'//法规详情
+import jiedu from '../views/fagui/Jiedu'//政策解读
 import fsearch from '../views/fagui/Search'//法规查询
 // ---------------------线上课程---------------------------------
 import online from '../views/courses/Online'//线上课程
@@ -394,6 +395,11 @@ const routes = [
         path: 'fagui-detail',
         name: 'fdetail',
         component: fdetail
+      },
+      {
+        path: 'fagui-jiedu',
+        name: 'jiedu',
+        component: jiedu
       },
       {
         path: 'fagui-search',

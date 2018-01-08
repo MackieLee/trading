@@ -12,7 +12,7 @@
           <h2 class="ctr">最新文件</h2>
         </div>
         <div class="clearfix"></div>
-        <div class="content">
+        <div class="content clearfix">
           <dl>
             <dd v-for="item in newArr" :key="item.name">
               <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}" class="newtitle">
@@ -110,15 +110,13 @@
           <h2 class="ctr">政策解读</h2>
         </div>
         <div class="clearfix"></div>
-        <div class="content">
+        <div class="content clearfix">
           <dl>
-            <dd>
-              <a target="_blank">
-                <span class="newtitle">
-                  上海市国家税务局、上海市地方税务局内设机构（部门）主要职能
-                </span>
-                <span class="date">2017-07-03</span>
-              </a>
+            <dd v-for="item in jieduArr" :key="item.name">
+              <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}" class="newtitle">
+                {{ item.name }}
+              </router-link>
+              <span class="date">{{ item.time }}</span>
             </dd>
           </dl>
         </div>
@@ -152,6 +150,7 @@ export default {
     return {
       federal: true,
       newArr:[],
+      jieduArr:[],
       federalSearch:{
         area:'',
         title:'',
@@ -180,8 +179,14 @@ export default {
       password: "123123q",
     }).then((res)=>{
       console.log(res)
-      _self.newArr = res.data
-      let arr = res.data
+      for(let j = 0;j<res.data.length;j++){
+        if(res.data[j].explain === '1'){
+          _self.newArr.push(res.data[j])
+        }else if(res.data[j].explain === '2'){
+          _self.jieduArr.push(res.data[j])
+        }
+      }
+      let arr = _self.newArr
       if(arr){
         for(let i = 0;i<arr.length;i++){
           let time = parseInt(arr[i].time)*1000

@@ -41,10 +41,9 @@
         <div class="clearfix">
           <div class="lf" v-if="explain">政策解读：</div>
           <div class="lf green" v-if="explain">
-            <router-link tag="span" style="cursor:pointer" :to="{path:'/fagui-jiedu',query:{id:content.explain_id}}">《{{ content.name }}》的政策解读</router-link>
+            <router-link tag="span" style="cursor:pointer" :to="{path:'/fagui-detail',query:{id:content.explain_id}}">《{{ content.name }}》的政策解读</router-link>
           </div>
         </div>
-        <p class="jiedua">链接：<a href="###">相关政策解读</a></p>
         <div class="clearfix" style="margin:20px 0 25px 0;">
           <div class="lf">分享到:
             <i class="qq"></i>
@@ -146,9 +145,6 @@ export default {
   }
   .red {
     color: $red
-  }
-  .jiedua{line-height: 36px; height: 36px;
-  a{color: #468EE3;}
   }
   .clearfix {
     overflow: hidden;
