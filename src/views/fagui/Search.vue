@@ -32,7 +32,8 @@
         <div class="clearfix"></div>
         <div class="content">
           <div v-if="federal" class="search">
-            <Form ref="federalSearch" :model="federalSearch" :label-width="80">
+            <Form ref="federalSearch" :model="federalSearch" :label-width="80"
+ style="padding-top:26px;" >
               <FormItem label="标题">
                 <Input v-model="federalSearch.title" placeholder="请输入法规标题"></Input>
               </FormItem>
@@ -285,8 +286,7 @@ export default {
         height: 44px;
         h2 {
           font-size: 16px;
-          padding: 10px 0;
-          margin-left: 40px;
+          padding: 10px 0;        
           color: $white;
         }
         span {
@@ -363,7 +363,7 @@ export default {
     }
     .second-line {
       .content {
-        height: 235px;
+        height: 245px;
       }
     }
   }

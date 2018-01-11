@@ -50,25 +50,25 @@
             <i class="wechat"></i>
             <i class="weibo"></i>
           </div>
-          <div class="rt">
+          <div class="rt" style="width:20%;">
             <span>
               <a href="#top" class="pointer">【返回顶部】</a>
             </span>
             <span @click="print" class="pointer">【打印本页】</span>
-            <span @click="windowClose" class="pointer">【关闭本页】</span>
+            <!--<span @click="windowClose" class="pointer">【关闭本页】</span>-->
           </div>
         </div>
         <!-- 分页导航 -->
         <div style="display:flex;justify-content:center">
           <Page :total="200" show-elevator></Page>
         </div>
-        <p class="red" style="font-size:14px;padding:20px 0 10px 30px;border-top:1px solid #ccc;margin-top:10px;">相关法规</p>
+        <p class="red" style="font-size:14px;padding:20px 0 10px 10px;border-top:1px solid #ccc;margin-top:10px;">相关法规</p>
         <div class="clearfix xiangguan">
           <div class="lf">
             <p class="p1">关于推荐企业登记管理基层联系点的通知</p>
             <p class="p1">关于外国驻华使(领)馆及其馆员在华购买货物和服务增值税退税政策有关问题的补充通知</p>
           </div>
-          <div class="lf">
+          <div class="rt">
             <p>企函字[2012]47</p>
             <p>企函字[2012]47</p>
           </div>
@@ -139,7 +139,7 @@ export default {
   width: $width;
   margin: 0 auto;
   padding-top:15px;
-  // border-top: 1px solid $border-rice;
+  //border-top: 1px solid $border-rice;
   .green {
     color: green;
   }
@@ -153,10 +153,10 @@ export default {
     text-align: center;
   }
   .lf {
-    float: left;
+    float: left;width:70%;
   }
   .rt {
-    float: right;
+    float: right;width: 14%;
   }
   .pointer{
     cursor: pointer;
@@ -175,7 +175,7 @@ export default {
   .second-title {
     p {
       text-align: center;
-      margin-top: 10px;
+      margin-top: 10px; font-size: 14px;
     }
   }
   .artical {
@@ -186,7 +186,7 @@ export default {
     border-top: 1px solid #ccc;
   }
   .xiangguan {
-    margin-left: 30px;
+    margin-left: 10px;
     p {
       line-height: 25px;
       font-size: 14px;

@@ -169,7 +169,7 @@ export default {
   overflow: hidden;
 }
 .head-content {
-  width: 100%;
+  width: 100%;margin-bottom:10px;
   overflow: hidden;
   input[type="text"] {
     width: 500px;
@@ -190,7 +190,7 @@ export default {
   }
   span {
     display: inline-block;
-    margin:10px 5px 10px;
+    margin:15px 5px 5px;
     font-weight: bold;
     cursor: pointer;
   }
@@ -246,19 +246,20 @@ i {
 .item {
   width: 330px;
   background: $white;
-  margin: 0 46px 53px 0;
+  margin: 0 46px 45px 0;
   overflow: hidden;
   border: 1px solid $border-rice;
    .flex {
     display: flex;
     height: auto;
-    margin: 10px 35px 28px 15px;
+    margin: 10px 35px 18px 15px;
     img{width: 80px;}
     .name {
-      margin: 10px 38px 28px;
+      margin: 10px 38px 0px;
       p {font-size: $lg-title;
         margin-bottom: 16px;
       }
+      span{font-size: 14px;}
     }
   }
   .tag-box {
@@ -314,11 +315,11 @@ i {
   }
   .ask {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom:10px;
     p[class="ask-btn"] {
       width: 107px;
       height: 33px;
-      margin: 25px auto;
+      margin: 20px auto;
       line-height: 33px;
       border-radius: 5px;
       color: $white;

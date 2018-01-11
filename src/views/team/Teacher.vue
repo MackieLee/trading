@@ -76,12 +76,12 @@ export default {
         width: 750px;
         p[class="name"]{
           font-size: $lg-title;
-          margin-bottom:32px;
+          margin-bottom:10px;
         }
         .short-intro{
           font-size: $normal;
-          line-height: 30px;
-          height: 90px;
+          line-height: 35px;
+          height: auto;
           overflow: hidden;
         }
         .more{

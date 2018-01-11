@@ -220,7 +220,7 @@ i {
 }
 #xxkc_xq01 {
   width: 100%;
-  height: 356px;
+  height: 335px;
 }
      .rt{
       margin-left: 70px; float: right;   margin-top: -50px;
@@ -250,7 +250,7 @@ img {
 
 #xxkc_xq01 .xq01_r h2 {
   font-size: 18px;
-  padding-bottom: 45px;
+  padding-bottom: 30px;
 }
 
 #xxkc_xq01 .xq01_r p {
@@ -288,7 +288,7 @@ img {
 
 #xxkc_xq01 .xq01_r ul {
   height: auto;
-  width: 100%;
+  width: 100%;margin-top: 15px;
   overflow: hidden;
 }
 
@@ -310,11 +310,11 @@ img {
 
 #xxkc_xq01 .xq01_r ul li a {
   height: 34px;
-  width: 100px;
-  padding: 0 10px;
+  width: 110px;
+  padding: 0 8px;
   background: $red;
   color: $white;
-  font-size: 16px;
+  font-size: 14px;
   display: block;
   border-radius: 3px;
   line-height: 34px;

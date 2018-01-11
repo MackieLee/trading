@@ -10,7 +10,7 @@
         <h1>{{ content.department }}</h1>
         <h3>{{ content.name }}</h3>
       </div>
-      <div class="clearfix" style="margin-bottom:35px;line-height:25px;">
+      <div class="clearfix" style="margin-bottom:15px;line-height:25px;">
         <div class="second-title">
           <p>文号:{{ content.reference }}</p>
           <p>发文日期:{{ timeUp }}</p>
@@ -44,19 +44,19 @@
             <router-link tag="span" style="cursor:pointer" :to="{path:'/fagui-jiedu',query:{id:content.explain_id}}">《{{ content.name }}》的政策解读</router-link>
           </div>
         </div>
-        <p class="jiedua">链接：<a href="###">相关政策解读</a></p>
+       
         <div class="clearfix" style="margin:20px 0 25px 0;">
           <div class="lf">分享到:
             <i class="qq"></i>
             <i class="wechat"></i>
             <i class="weibo"></i>
           </div>
-          <div class="rt">
+          <div class="rt" style="width:20%;">
             <span>
               <a href="#top" class="pointer">【返回顶部】</a>
             </span>
             <span @click="print" class="pointer">【打印本页】</span>
-            <span @click="windowClose" class="pointer">【关闭本页】</span>
+           <!--<span @click="windowClose" class="pointer">【关闭本页】</span>-->
           </div>
         </div>
         <!-- 分页导航 -->
@@ -69,7 +69,7 @@
             <p class="p1">关于推荐企业登记管理基层联系点的通知</p>
             <p class="p1">关于外国驻华使(领)馆及其馆员在华购买货物和服务增值税退税政策有关问题的补充通知</p>
           </div>
-          <div class="lf">
+          <div class="rt">
             <p>企函字[2012]47</p>
             <p>企函字[2012]47</p>
           </div>
@@ -157,10 +157,10 @@ export default {
     text-align: center;
   }
   .lf {
-    float: left;
+    float: left; width: 70%;
   }
   .rt {
-    float: right;
+    float: right; width: 14%;
   }
   .pointer{
     cursor: pointer;
@@ -179,7 +179,7 @@ export default {
   .second-title {
     p {
       text-align: center;
-      margin-top: 10px;
+      margin-top: 10px; font-size: 14px;
     }
   }
   .artical {
