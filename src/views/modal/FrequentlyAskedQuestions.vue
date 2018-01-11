@@ -2,36 +2,76 @@
   <div>
     <div class="content">
       <div class="title">我要提问</div>
-      <div class="ctr">
-        <Input v-model="title" placeholder="写下您的问题"></Input>
+      <Form ref="ask" :model="ask" :roules="askValidate">
+        <FormItem prop = "title">
+          <Input v-model="ask.title" placeholder="写下您的问题"></Input>
+        </FormItem>
         <div class="sub-title">问题描述（选填）：</div>
-          <Input v-model="content" type="textarea" :rows="6" placeholder="请在这儿写下您的问题描述"></Input>
-        <div class="teacher-sel">
-          <span>指定老师</span>
-          <Select class="select">
-            <Option value="beijing">New York</Option>
-            <Option value="shanghai">London</Option>
-            <Option value="shenzhen">Sydney</Option>
-          </Select>
-          <Checkbox v-model="wait">超过24小时继续等待所指定老师回答</Checkbox>
-        </div>
+        <FormItem prop="content">
+          <Input v-model="ask.content" type="textarea" :rows="6" placeholder="请在这儿写下您的问题描述"></Input>
+        </FormItem>
+        <FormItem>
+          <Row>
+            <Col span="12">
+              <span>指定老师</span>
+              <Select v-model="ask.teacher" style="width:150px">
+                <Option v-for="t in ts" :value="t.id" :key="t.name">{{ t.name }}</Option>
+              </Select>
+            </Col>
+            <Col span="12">
+              <Checkbox v-model="ask.choose">超过24小时继续等待所指定老师回答</Checkbox>
+            </Col>
+          </Row>
+        </FormItem>
+        <FormItem>
+          <!-- <Button type="primary" @click="handleSubmit">Submit</Button>
+          <Button type="ghost" @click="handleReset" style="margin-left: 8px">Reset</Button> -->
+        </FormItem>
         <div style="color:grey;">指定老师回答，若老师24小时内未回答，自动转入专家团问答，差额退回，不转入可勾选继续等待</div>
-      </div>
+      </Form>
     </div>
   </div>
 </template>
 
 <script>
+import { loginUserUrl } from "@/api/api"
 export default {
   data() {
     return {
-      wait:null,
-      title:'',
-      content:''
+      ts:[],
+      ask:{
+        choose:false,
+        title:'',
+        content:'',
+        teacher:''
+      },
+      askValidate:{
+        title:[{required:true,trigger:"blur"}],
+        content:[{required:true,trigger:"blur"}]
+      }
     }
   },
   computed: {
 
+  },
+  mounted () {
+    let res = loginUserUrl(
+      "http://aip.kehu.zaidayou.com/api/execute/getTeacherList",
+      {
+        username: "niuhongda",
+        password: "123123q"
+      }
+    ).then((res)=>{
+      this.ts = res.data
+    })
+  },
+  methods:{
+    handleReset:function(){
+      this.ask.title = ''
+      this.ask.content = ''
+      this.ask.teacher = ''
+      this.ask.choose = false
+    }
   }
 }
 </script>

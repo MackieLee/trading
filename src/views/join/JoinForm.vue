@@ -25,8 +25,8 @@
 	</Form>
 </template>
 <script>
-import { loginUserUrl } from "@/api/api";
-import { setCookie, getCookie } from "@/util/cookie";
+import { loginUserUrl } from "@/api/api"
+import { setCookie, getCookie } from "@/util/cookie"
 export default {
   data() {
     //用户名验证
@@ -41,7 +41,7 @@ export default {
             password: "123123q",
             name: value
           }
-        );
+        )
         setTimeout(() => {
           res.then(res => {
             if (res === 0) {
@@ -115,9 +115,9 @@ export default {
         ).then(res => {
           if (valid) {
             if (res.error_code === 0) {
-              this.$Message.success("注册成功!");
-              setCookie("u_name", arg.name, 1);
-              window.location.href = "http://localhost:8888/#/home";
+              this.$Message.success("注册成功!")
+              setCookie("u_name", arg.name, 1)
+              window.location.href = "http://localhost:8888/#/home"
             } else {
               console.log(res);
               this.$Message.error("表单提交失败");
@@ -129,7 +129,7 @@ export default {
       })
     },
     handleReset(name) {
-      this.$refs[name].resetFields();
+      this.$refs[name].resetFields()
     }
   }
 };

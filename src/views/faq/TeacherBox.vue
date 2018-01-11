@@ -5,22 +5,26 @@
       :width="700"
       v-model="modal"
       :closable="false"
-      :mask-closable="false">
-      <frequently-asked-questions></frequently-asked-questions>
+      :mask-closable="false"
+    >
+      <div slot="footer">
+        <Button type="primary" @click="submit">提交</Button>
+        <Button type="ghost" @click="handleReset" style="margin-left: 8px">取消</Button>
+      </div>
+      <frequently-asked-questions ref="faqModal"></frequently-asked-questions>
     </Modal>
     <div class="cur-posi lf">
       <p>
         <i></i>当前位置 : &nbsp;
         <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;问答</p>
     </div>
-
     <div class="head-content lf">
       <div class="search lf">
         <input type="text"/><input class="search-btn" type="button" value="搜一下"/><br>
         <span>全部</span><span>房地产</span><span>个税</span><span>咨询</span><span>会计</span>
       </div>
       <div class="btn-group rt">
-        <i @click="modal = true" class="ask-icon"></i><input class="ask-input" @click="modal = true" type="button" value="点我提问" /><br>
+        <i @click="openModal" class="ask-icon"></i><input  @click="openModal" class="ask-input" type="button" value="点我提问" /><br>
         <span>没有找到问题？点击上方直接提问</span>
       </div>
     </div>
@@ -147,20 +151,77 @@
         <p>已解决27个问题</p>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
+import { loginUserUrl } from "@/api/api"
+import { getCookie } from "@/util/cookie"
 import FrequentlyAskedQuestions from "../modal/FrequentlyAskedQuestions"
 export default {
   components:{ FrequentlyAskedQuestions },
   data() {
     return {
-      modal:false
-    };
+      modal:false,
+      teachers:[]
+    }
+  },
+  methods:{
+    submit:function(){
+      let faqModal = this.$refs.faqModal
+      let name = faqModal.ask.title
+      let intro = faqModal.ask.content
+      let teacher_id = faqModal.ask.teacher
+      let choose = faqModal.ask.choose
+      let uid = getCookie('u_name')
+      if(name!==''&& intro!==''){
+        let res = loginUserUrl(
+          "http://aip.kehu.zaidayou.com/api/execute/getQuestions_add",
+          {
+            username: "niuhongda",
+            password: "123123q",
+            name:name,
+            intro:intro,
+            teacher_id:teacher_id,
+            choose:!choose,
+            uid:uid
+          }
+        ).then((res)=>{
+          if(res.error_code === 0){
+            // console.log(res.data)
+            this.handleReset()
+            this.$message.success('提问成功')
+          }else{
+            this.$message.error('返回值错误，提问失败')
+          }
+        })
+      }else{
+        this.$message.error('表单为空，提问失败')
+      }
+    },
+    openModal:function(){
+      let cookieName = getCookie('u_name')
+      if(cookieName !== '' && cookieName !== undefined ){
+        this.modal = true
+      }else{
+        this.$router.push({name:'login'})
+      }
+    },
+    handleReset:function(){
+      this.$refs.faqModal.handleReset()
+      this.modal=false
+    }
+  },
+  mounted () {
+    let res = loginUserUrl("http://aip.kehu.zaidayou.com/api/execute/getTeacherList",{
+      username: "niuhongda",
+      password: "123123q"
+    }).then((res)=>{
+      console.log(res)
+      this.teachers = res.data
+    })
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -7,77 +7,49 @@
     </div>
     <div class="container">
       <div class="floor">
-        <div class="item lf lf-part">
+        <div v-for="item in newAnsr" :key="item.id" class="item">
           <div>
             <div class="wen lf">问 :&nbsp;</div>
             <div class="item-container">
-              <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
+              <div class="ask">{{ item.name }}</div>
             </div>
           </div>
           <div>
             <div class="wen">答 :&nbsp;</div>
             <div class="item-container">
-              <div class="ask ansr">一般纳税人销售自行开发的房...<span class="more">查看更多&gt;&gt;</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="item rt">
-          <div>
-            <div class="wen lf">问 :&nbsp;</div>
-            <div class="item-container lf">
-              <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
-            </div>
-          </div>
-          <div>
-            <div class="wen">答 :&nbsp;</div>
-            <div class="item-container">
-              <div class="ask ansr">一般纳税人销售自行开发的房...<span class="more">查看更多&gt;&gt;</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="floor">
-        <div class="item lf lf-part">
-          <div>
-            <div class="wen lf">问 :&nbsp;</div>
-            <div class="item-container">
-              <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
-            </div>
-          </div>
-          <div>
-            <div class="wen">答 :&nbsp;</div>
-            <div class="item-container">
-              <div class="ask ansr">一般纳税人销售自行开发的房...<span class="more">查看更多&gt;&gt;</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="item rt">
-          <div>
-            <div class="wen lf">问 :&nbsp;</div>
-            <div class="item-container lf">
-              <div class="ask">一般纳税人销售自行开发的房地产项目，在营改增之前已经申报了营业税，但是没有开具发票，营改增之后怎么处理？</div>
-            </div>
-          </div>
-          <div>
-            <div class="wen">答 :&nbsp;</div>
-            <div class="item-container">
-              <div class="ansr">一般纳税人销售自行开发的房...<span class="more">查看更多&gt;&gt;</span></div>
+              <div class="ask ansr">{{ item.value.substring(0,15) }}...<span class="more">查看更多&gt;&gt;</span></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="click-more">点击查看更多</div>
   </div>
 </template>
 
 <script>
+import { loginUserUrl } from "@/api/api"
 export default {
   data() {
     return {
-    };
+      newAnsr:[]
+    }
   },
   methods: {
+
+  },
+  created () {
+
+  },
+  mounted () {
+    let res = loginUserUrl(
+      "http://aip.kehu.zaidayou.com/api/execute/getQuestions_list",
+      {
+        username: "niuhongda",
+        password: "123123q"
+      }
+    ).then((res)=>{
+      this.newAnsr = res.data
+    })
   }
 };
 </script>
@@ -114,23 +86,21 @@ export default {
     overflow: hidden;
     .floor {
       overflow: hidden;
-      border-bottom: 1px dashed $border-orange;
-      .lf {
-        float: left;
-      }
-      .rt {
-        float: right;
-      }
-      .lf-part {
-        border-right: 1px dashed $border-orange;
-      }
+      // border-bottom: 1px dashed $border-orange;
+      // .lf {
+      //   float: left;
+      // }
+      // .rt {
+      //   float: right;
+      // }
+      // .lf-part {
+      //   border-right: 1px dashed $border-orange;
+      // }
       .item {
         margin: 24px 0;
         padding-right: 50px;
-        div {
-          overflow: hidden;
-        }
         width: 478px;
+        border-bottom: 1px dashed $border-orange;
         .wen {
           color: $red;
           padding-top: 3px;
@@ -155,20 +125,6 @@ export default {
           margin-left: 10px;
         }
       }
-    }
-  }
-  .click-more {
-    width: 180px;
-    border-radius: 3px;
-    background-color: $btn-danger;
-    font-size: 16px;
-    color: $white;
-    padding: 5px 0;
-    text-align: center;
-    margin: 76px auto 108px auto;
-    cursor: pointer;
-    &:hover {
-      background-color: $btn-danger-hover;
     }
   }
 }
