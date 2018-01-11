@@ -4,20 +4,15 @@
       <p>
         <i></i>当前位置 : &nbsp;
         <router-link to="/home">九鼎财税</router-link>
-        &nbsp;&gt;&nbsp;问答
+        &nbsp;&gt;&nbsp;最新问答列表
       </p>
     </div>
     <Modal
       :width="700"
       v-model="modal"
       :closable="false"
-      :mask-closable="false"
-    >
-      <div slot="footer">
-        <Button type="primary" @click="submit">提交</Button>
-        <Button type="ghost" @click="handleReset" style="margin-left: 8px">取消</Button>
-      </div>
-      <frequently-asked-questions ref="faqModal"></frequently-asked-questions>
+      :mask-closable="false">
+      <frequently-asked-questions></frequently-asked-questions>
     </Modal>
     <div class="item">
       <div class="container">
@@ -96,11 +91,10 @@
 </template>
 
 <script>
-import { loginUserUrl } from "@/api/api"
-import { getCookie } from "@/util/cookie"
+import { quillEditor } from "vue-quill-editor"
 import FrequentlyAskedQuestions from "../modal/FrequentlyAskedQuestions"
 export default {
-  components: { FrequentlyAskedQuestions },
+  components: { quillEditor, FrequentlyAskedQuestions },
   data() {
     return {
       guanzhu: false,
@@ -112,55 +106,20 @@ export default {
     };
   },
   methods: {
-    submit:function(){
-      let faqModal = this.$refs.faqModal
-      let name = faqModal.ask.title
-      let intro = faqModal.ask.content
-      let teacher_id = faqModal.ask.teacher
-      let choose = faqModal.ask.choose
-      let uid = getCookie('u_name')
-      if(name!==''&& intro!==''){
-        let res = loginUserUrl(
-          "http://aip.kehu.zaidayou.com/api/execute/getQuestions_add",
-          {
-            username: "niuhongda",
-            password: "123123q",
-            name:name,
-            intro:intro,
-            teacher_id:teacher_id,
-            choose:!choose,
-            uid:uid
-          }
-        ).then((res)=>{
-          if(res.error_code === 0){
-            // console.log(res.data)
-            this.handleReset()
-            this.$message.success('提问成功')
-          }else{
-            this.$message.error('提问失败')
-          }
-        })
-      }else{
-        this.$message.error('表单为空，提问失败')
-      }
-    },
-    openModal:function(){
-      let cookieName = getCookie('u_name')
-      if(cookieName !== '' && cookieName !== undefined ){
-        this.modal = true
-      }else{
-        this.$router.push({name:'login'})
-      }
-    },
-    handleReset:function(){
-      this.$refs.faqModal.handleReset()
-      this.modal=false
+    onEditorBlur(editor) {},
+    onEditorFocus(editor) {},
+    onEditorReady(editor) {},
+    onEditorChange({ editor, html, text }) {
+      this.content = html;
     },
     onWatch: function(state) {
       state === "watch" ? (this.guanzhu = false) : (this.guanzhu = true);
     }
   },
   computed: {
+    editor() {
+      return this.$refs.myQuillEditor.quill;
+    }
   },
   mounted() {}
 };

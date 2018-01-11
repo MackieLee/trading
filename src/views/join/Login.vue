@@ -40,11 +40,11 @@
 	</div>
 </template>
 <script>
-import JoinHeader from "./JoinHeader";
-import JoinFooter from "./JoinFooter";
-import { loginUserUrl } from "@/api/api";
-import { setCookie, getCookie } from "@/util/cookie";
-import axios from "axios";
+import JoinHeader from "./JoinHeader"
+import JoinFooter from "./JoinFooter"
+import { loginUserUrl } from "@/api/api"
+import { setCookie, getCookie } from "@/util/cookie"
+import axios from "axios"
 
 export default {
   components: { JoinHeader, JoinFooter },
@@ -52,20 +52,20 @@ export default {
     //这是验证用户是否存在
     const validateName = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("用户名不能为空"));
+        callback(new Error("用户名不能为空"))
       }
-      callback();
+      callback()
     };
     const validatePwd = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("密码不能为空"));
+        callback(new Error("密码不能为空"))
       }
       callback();
     };
     //验证码
     const validateYanzhengma = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("验证码不能为空"));
+        callback(new Error("验证码不能为空"))
       }
       callback();
     };
@@ -87,10 +87,10 @@ export default {
   methods: {
     // 密码隐藏
     showPasswd: function() {
-      this.eye === "eye" ? (this.eye = "eye-disabled") : (this.eye = "eye");
+      this.eye === "eye" ? (this.eye = "eye-disabled") : (this.eye = "eye")
       this.type === "password"
         ? (this.type = "text")
-        : (this.type = "password");
+        : (this.type = "password")
     },
     // 登录
     submit: function(arg) {
@@ -101,29 +101,19 @@ export default {
         name: arg.name,
         pwd: arg.passwd
       }).then(res => {
+        console.log(res)
         if (res.error_code === 0) {
           // 登录成功记录用户信息
           if (_self.checked) {
-            // localStorage
-            // if(localStorage){
-            //   localStorage.setItem('user',JSON.stringify(_self.form))
-            // 显示 [object object]，实际上是JSON对象，可以直接 => 属性 使用或读取具体属性值
-            // console.log('local-ok' + JSON.parse(sessionStorage.getItem('user')))
-            // }else{
-            //   this.$Message.error('您的浏览器未启用缓存')
-            // }
-            setCookie("u_name", arg.name, 365);
-            window.location.href = "http://localhost:8888/#/home";
+            setCookie("u_name", arg.id, 365)
+            window.location.href = "http://localhost:8888/#/home"
           } else {
-            // sessionStorage 和 window 生命周期绑定 页面关闭 => 数据清空，而且登录状态应该由后台来验证，前台容易被伪造。webstorage只适合存储次要数据
-            // 用户的登录状态和退出状态由后台来记录
-            // 用户的登录信息保存在cookie中
-            setCookie("u_name", arg.name, 1);
-            window.location.href = "http://localhost:8888/#/home";
+            setCookie("u_name", arg.id, 1)
+            window.location.href = "http://localhost:8888/#/home"
           }
-          this.$Message.success("登录成功");
+          this.$Message.success("登录成功")
         } else {
-          this.$Message.error("登录失败");
+          this.$Message.error("登录失败")
         }
       });
     }
