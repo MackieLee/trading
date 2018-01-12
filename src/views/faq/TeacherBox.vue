@@ -28,13 +28,14 @@
         <span>没有找到问题？点击上方直接提问</span>
       </div>
     </div>
-    <div class="item lf">
+    <!-- 类名数组 ＋ 条件循环 -->
+    <div v-for="(item,index) in teachers" :key="item.id" :class="[{'m_r': (index+1) % 3 === 0},'item','lf']">
       <div class="flex">
         <div>
           <img src="../../assets/images/jitax_问答_01.png" />
         </div>
         <div class="name">
-          <p>孙老师</p>
+          <p>{{ item.name }}</p>
           <span>九鼎财税资深讲师</span>
         </div>
       </div>
@@ -65,89 +66,7 @@
         </ul>
       </div>
       <div class="ask">
-        <router-link :to="{ name : 'qdetail' }" tag="p" class="ask-btn">我要提问</router-link>
-        <p>已解决27个问题</p>
-      </div>
-    </div>
-    <div class="item lf">
-      <div class="flex">
-        <div>
-          <img src="../../assets/images/jitax_问答_01.png" />
-        </div>
-        <div class="name">
-          <p>孙老师</p>
-          <span>九鼎财税资深讲师</span>
-        </div>
-      </div>
-      <div class="tag-box">
-        <span>
-          <p>
-            课程
-          </p>
-          <font>10</font>
-        </span>
-        <span>
-          <p>回答</p>
-          <font>17</font>
-        </span>
-        <span>
-          <p>荣誉值</p>
-          <font>99%</font>
-        </span>
-        <span class="shanchang">
-          <i></i>擅长领域</span>
-      </div>
-      <div class="tags">
-        <ul>
-          <li>税收筹划</li>
-          <li>税收筹划</li>
-          <li class="board">税收筹划</li>
-          <li>税收筹划</li>
-        </ul>
-      </div>
-      <div class="ask">
-        <router-link :to="{ name : 'qdetail' }" tag="p" class="ask-btn">我要提问</router-link>
-        <p>已解决27个问题</p>
-      </div>
-    </div>
-    <div class="item lf m_r">
-      <div class="flex">
-        <div>
-          <img src="../../assets/images/jitax_问答_01.png" />
-        </div>
-        <div class="name">
-          <p>孙老师</p>
-          <span>九鼎财税资深讲师</span>
-        </div>
-      </div>
-      <div class="tag-box">
-        <span>
-          <p>
-            课程
-          </p>
-          <font>10</font>
-        </span>
-        <span>
-          <p>回答</p>
-          <font>17</font>
-        </span>
-        <span>
-          <p>荣誉值</p>
-          <font>99%</font>
-        </span>
-        <span class="shanchang">
-          <i></i>擅长领域</span>
-      </div>
-      <div class="tags">
-        <ul>
-          <li>税收筹划</li>
-          <li>税收筹划</li>
-          <li class="board">税收筹划</li>
-          <li>税收筹划</li>
-        </ul>
-      </div>
-      <div class="ask">
-        <router-link :to="{ name : 'qdetail' }" tag="p" class="ask-btn">我要提问</router-link>
+        <router-link :to="{ name : 'qdetail',query:{id:item.id}}" tag="p" class="ask-btn">我要提问</router-link>
         <p>已解决27个问题</p>
       </div>
     </div>
@@ -201,7 +120,7 @@ export default {
     },
     openModal:function(){
       let cookieName = getCookie('u_name')
-      if(cookieName !== '' && cookieName !== undefined ){
+      if(cookieName !== '' && cookieName !== 'undefined' ){
         this.modal = true
       }else{
         this.$router.push({name:'login'})
@@ -217,7 +136,7 @@ export default {
       username: "niuhongda",
       password: "123123q"
     }).then((res)=>{
-      console.log(res)
+      // console.log(res)
       this.teachers = res.data
     })
   }

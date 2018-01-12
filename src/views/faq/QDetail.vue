@@ -27,14 +27,14 @@
           </div>
           <div class="content lf">
             <div class="first-glance">
-              <span class="name">孙老师</span>
+              <span class="name">{{ intro.name }}</span>
               <p class="watch default" v-if="guanzhu" @click="onWatch('watch')">
                 <i></i>取消关注
               </p>
               <p class="cancel-watch default" v-if="!guanzhu" @click="onWatch('cancel')">
                 <i></i>添加关注
               </p>
-              <span class="price">￥50.00/次</span>
+              <span class="price">￥{{ intro.money }}/次</span>
             </div>
             <div class="tag-box">
               <span class="shanchang">
@@ -43,10 +43,7 @@
             </div>
             <div class="tags">
               <ul>
-                <li>税收筹划</li>
-                <li>税收筹划</li>
-                <li>税收筹划</li>
-                <li>税收筹划</li>
+                <li v-for="item in intro.laber" :key="item">{{ item }}</li>
               </ul>
             </div>
           </div>
@@ -58,15 +55,15 @@
                 <p>
                   课程
                 </p>
-                <font>10</font>
+                <font>{{ intro.goods_count }}</font>
               </span>
               <span>
                 <p>回答</p>
-                <font>17</font>
+                <font>{{ intro.question_count }}</font>
               </span>
               <span class="last">
                 <p>荣誉值</p>
-                <font>99%</font>
+                <font>{{ intro.grade }}%</font>
               </span>
             </div>
           </div>
@@ -80,15 +77,13 @@
     <div class="all">
       <p class="title"><span>所有回答</span></p>
       <div class="list">
-        <div class="list-item">
-          <p><span class="question">您好孙老师您好孙老师您好孙老师您好孙老师您好根据贵公司的资料</span><span class="date rt">4天前</span></p>
-          <p class="indent tchr">回答者：孙玮老师</p>
-          <p class="indent">根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料....<span class="more">查看全部&gt;&gt;</span></p>
-        </div>
-        <div class="list-item">
-          <p><span class="question">您好孙老师您好孙老师您好孙老师您好孙老师您好根据贵公司的资料</span><span class="date rt">4天前</span></p>
-          <p class="indent tchr">回答者：孙玮老师</p>
-          <p class="indent">根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料，根据贵公司的资料....<span class="more">查看全部&gt;&gt;</span></p>
+        <div v-for="item in qslst" :key="item.id" class="list-item">
+          <p><span class="question">{{ item.name }}</span><span class="date rt">4天前</span></p>
+          <p class="indent tchr">回答者：{{ intro.name }}</p>
+          <p class="indent">{{ item.value.substring(0,5)}}....
+            <!-- 如何传递价格到支付页面？？同时携带问题id以及开放答案并在支付成功后重新返回此页面(此时渲染完整答案 v-if) -->
+            <span class="more">查看全部&gt;&gt;</span>
+          </p>
         </div>
       </div>
     </div>
@@ -105,6 +100,8 @@ export default {
     return {
       guanzhu: false,
       content: "",
+      intro:"",
+      qslst:[],
       editorOption: {
         placeholder: "规则"
       },
@@ -162,7 +159,24 @@ export default {
   },
   computed: {
   },
-  mounted() {}
+  mounted() {
+    let _self = this
+    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getTeacher_Info',{
+      username: "niuhongda",
+      password: "123123q",
+      tid:this.$route.query.id
+    }).then((res)=>{
+      _self.intro = res.data
+      console.log(res.data)
+    })
+    let qslst = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getQuestions_list',{
+      username: "niuhongda",
+      password: "123123q",
+      teacher_id:this.$route.query.id
+    }).then((qslst)=>{
+      _self.qslst = qslst.data
+    })
+  }
 };
 </script>
 
@@ -213,7 +227,7 @@ export default {
             }
           }
           .default {
-            width: 73px;
+            width: 90px;
             border: 1px solid $blue;
             font-size: 12px;
             border-radius: 4px;

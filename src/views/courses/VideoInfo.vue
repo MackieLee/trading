@@ -23,7 +23,21 @@
         <p>适合人群：学 员</p>
         <p class="p01">
         	<span @click='cur01=true' v-bind:class="{'red':cur01}">系列</span>
-        	<span @click='cur01=false' v-bind:class="{'red':!cur01}">小节</span>
+        	<span @click='cur01=false' style="border:none">
+            <Select v-model="jie" style="width:80px">
+              <Option value="1">第1节</Option>
+              <Option value="2">第1节</Option>
+              <Option value="3">第1节</Option>
+              <Option value="4">第1节</Option>
+              <Option value="5">第1节</Option>
+              <Option value="6">第1节</Option>
+              <Option value="1">第1节</Option>
+              <Option value="1">第1节</Option>
+              <Option value="1">第1节</Option>
+              <Option value="1">第1节</Option>
+              <Option value="1">第1节</Option>
+            </Select>
+          </span>
         </p>
         <ul>
           <li>
@@ -122,7 +136,8 @@ export default {
       showShare: false,
       cur:true,
       cur01:false,
-    };
+      jie:''
+    }
   },
   methods: {
     share: function() {
@@ -330,7 +345,6 @@ i {
   overflow: hidden;
   li {
     float: left;
-    color: $red;
     margin-right: 15px;
     .a:hover {
       background: #e7141a;

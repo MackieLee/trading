@@ -101,21 +101,20 @@ export default {
         name: arg.name,
         pwd: arg.passwd
       }).then(res => {
-        console.log(res)
         if (res.error_code === 0) {
           // 登录成功记录用户信息
           if (_self.checked) {
-            setCookie("u_name", arg.id, 365)
+            setCookie("u_name", res.data.id, 365)
             window.location.href = "http://localhost:8888/#/home"
           } else {
-            setCookie("u_name", arg.id, 1)
+            setCookie("u_name", res.data.id, 1)
             window.location.href = "http://localhost:8888/#/home"
           }
           this.$Message.success("登录成功")
         } else {
           this.$Message.error("登录失败")
         }
-      });
+      })
     }
   }
 };

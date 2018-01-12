@@ -115,7 +115,7 @@ export default {
   },
   mounted () {
     let userName = getCookie("u_name")
-    if(userName !== null && userName !== ''){
+    if(userName !== null && userName !== '' && userName !== undefined){
       this.nickName = userName
     }else{
       return ''

@@ -16,105 +16,65 @@
         <span @click="toggle()" data-ref='3'>已回答</span>
       </p>
       <ul class="div01" v-if="part=='1'">
-        <li>
+        <li v-for="item in fqList" :key="item.id">
 	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<h2>{{ item.name }}</h2>
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
+						<p class="pshui"><span v-if="item.value === ''">还没有答案！</span><span v-else>{{ item.value.substring(0,5) }}……</span><span class="more">查看全部>></span>
 						</p>
 						<img src="../../assets/images/wendavip.png">
 	        </div>
 	        <div class="r">
-	         	<h3> 2018-2-12</h3>
+	         	<h3>{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
 	        	<p class="red" @click="modal=!modal,series=true">立即评价</p>
 	        </div>
 	       </li>
       </ul>
       <ul class="div01" v-if="part=='2'">
-        <li>
+        <li v-if="item.value === ''" v-for="item in fqList" :key="item.id">
 	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<h2>{{ item.name }}</h2>
 	        	<p>还没有答案！</p>
 	        </div>
 	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p>指定回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p>指定回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p>指定回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p>指定回答</p>
-	        </div>
-	       </li>
-
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
+	         	<h3>{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
 	        	<p>指定回答</p>
 	        </div>
 	       </li>
       </ul>
-        <ul class="div01" v-if="part=='3'">
-          <li>
-            <div class="l">
-              <h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-                <p class="phui">指定回答者：孙炜老师</p>
-              <p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
-              </p>
-              <img src="../../assets/images/wendavip.png">
-            </div>
-            <div class="r">
-              <h3> 2018-2-12</h3>
-              <p class="red" @click="modal=!modal,series=true">立即评价</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-			<div class="pgs">
-        <li class="prev">&lt;上一页</li>
-        <li class="current">1</li>
-        <li class="custom">2</li>
-        <li class="custom">3</li>
-        <li class="custom">4</li>
-        <li class="points">...</li>
-        <li class="jump"><input type="tel" maxlength="3"> /40页</li>
-        <li class="submit">确定</li>
-        <li class="next">下一页&gt;</li>
-      </div>
+      <ul class="div01" v-if="part=='3'">
+        <li v-if="item.value !== ''" v-for="item in fqList" :key="item.id">
+          <div class="l">
+            <h2>{{ item.name }}</h2>
+              <p class="phui">指定回答者：孙炜老师</p>
+            <p class="pshui">{{ item.value.substring(0,5) }}……<span class="more">查看全部>></span>
+            </p>
+            <img src="../../assets/images/wendavip.png">
+          </div>
+          <div class="r">
+            <h3>{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
+            <p class="red" @click="modal=!modal,series=true">立即评价</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="pgs">
+      <li class="prev">&lt;上一页</li>
+      <li class="current">1</li>
+      <li class="custom">2</li>
+      <li class="custom">3</li>
+      <li class="custom">4</li>
+      <li class="points">...</li>
+      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
+      <li class="submit">确定</li>
+      <li class="next">下一页&gt;</li>
     </div>
   </div>
 </template>
 
 <script>
+import { loginUserUrl } from '@/api/api'
+import { getCookie } from "@/util/cookie"
 import VideoPingjia from "../modal/VideoPingjia"
 export default {
   name: "youhuiquan",
@@ -123,18 +83,28 @@ export default {
     return {
       part: "1",
       modal: false,
-      series: true
-    };
+      series: true,
+      fqList:[]
+    }
   },
   methods: {
     toggle() {
-      document.getElementsByClassName("cur")[0].className = "";
-      event.target.setAttribute("class", "cur");
-      let ref = event.target.dataset.ref;
-      this.part = ref;
+      document.getElementsByClassName("cur")[0].className = ""
+      event.target.setAttribute("class", "cur")
+      let ref = event.target.dataset.ref
+      this.part = ref
     }
+  },
+  mounted () {
+    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getQuestions_list',{
+      username: "niuhongda",
+      password: "123123q",
+      uid:getCookie("u_name")
+    }).then((res)=>{
+      this.fqList = res.data
+    })
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
