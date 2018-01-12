@@ -355,7 +355,7 @@ export default {
     line-height: 36px;
   }
   .li01 {
-    width: 46%;
+    width: 50%;
   }
   .li02 {
     width: 11%;

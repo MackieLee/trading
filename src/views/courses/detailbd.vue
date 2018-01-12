@@ -117,7 +117,7 @@
       width: 94%;
       margin: 20px auto; padding:20px 30px;
       .flex {display: inline-block;
-        margin: 15px 10px;
+        margin: 15px 0px;
         i {
           margin-right: 6px;
           color: #e7141a;

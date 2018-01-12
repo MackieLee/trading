@@ -9,7 +9,7 @@
         <label for="real-name">真实姓名</label><input id="real-name" />
       </div>
       <div class="item">
-        <label for="company">公司名称</label><input id="company" />
+        <label for="company">联系电话</label><input id="company" />
       </div>
       <div class="item">
         <label>地区</label>
@@ -30,7 +30,7 @@
           </select>
       </div>
        <div class="item">
-        <label for="company">街道</label><input id="company" />
+        <label for="company">擅长领域</label><input id="companyy" />
       </div>           
       <div class="item">
         <label>行业</label>
@@ -49,14 +49,14 @@
         </select>
       </div>
 
-      <div class="item">
+      <!--<div class="item">
         <label>公司规模</label>
         <select class="lg-sel">
           <option v-for="(item,index) in size" :key="item">
             {{ item }}
           </option>
         </select>
-      </div>
+      </div>-->
       <div class="item_bc">保 存</div>
     </div>
 
@@ -174,6 +174,7 @@ export default {
         border: 1px solid $border-dark;
         padding: 0 8px;
       }
+      #companyy{ width: 100px;}
       .input-sm{
         width:200px;
       }

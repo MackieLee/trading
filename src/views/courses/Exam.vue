@@ -4,14 +4,14 @@
     <div>
       <form @submit.prevent="submit">
         <div v-for="question in exam[0].muilti" :key="question.title">
-          <p>{{ question.title }}(多选)</p>
+          <p>{{ question.title }}【 多选】<span style=" color: red;">已选AC</span></p>
           <p v-for="(item,index) in question.content " :key="item.id">
             <label :for="item.id"><span :class="{'checked':muiltiChecks.indexOf(item.id) !== -1}" class="option">{{ item.option }}</span><span>{{item.value}}</span></label>
             <input :id="item.id" v-model="muiltiChecks" type="checkbox" :value="item.id" :name="item.name"/>
           </p>
         </div>
         <div v-for="(question,index) in exam[0].single" :key="question.title">
-          <p>{{ question.title }}(单选){{ arr[index] }}</p>
+          <p>{{ question.title }}【 单选】{{ arr[index] }}</p>
           <p v-for="(item,index) in question.content " :key="item.id">
             <label :for="item.id"><span :class="{'checked':arr.indexOf(item.id) !== -1}" class="option">{{ item.option }}</span><span>{{item.value}}</span></label>
             <input :id="item.id" type="radio" v-model="checked" :value="item.id" :name="item.name"/>
@@ -54,7 +54,7 @@ export default {
 @import "../../assets/style/base.scss";
 .shiti {
   .title {
-    background-color: #d9d7d7;
+    background-color: #f5f5f5;
     line-height: 30px;
     padding: 0 13px;
     overflow: hidden;
@@ -68,16 +68,15 @@ export default {
     margin: 10px 0;
   }
   label{
-    cursor: pointer;
+    cursor: pointer;line-height: 14px;
   }
   .option{
     display: inline-block;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%; margin-right: 10px;
     text-align: center;
     border: 1px solid $border-dark;
-    margin: 0 10px;
   }
   .submit{
     display: block;

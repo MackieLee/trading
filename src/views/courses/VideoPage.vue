@@ -31,24 +31,50 @@
         </p>
         <div class="tab-content">
           <div class="min-650 benjie" v-if="part=='1'">
+          	<p class="biaoti">章节1:【音频试听】课程说明与安排</p>
             <ul>
               <li>
-                <font class="numb">1</font>房地产老项目收入成本结转问题</li>
+                <font class="numb">1</font>课时1 社保到底保什么14:10</li>
               <li>
-                <font class="numb">2</font>房地产老项目收入成本结转问题</li>
+                <font class="numb">2</font>课时2 社保到底保什么14:10</li>
               <li>
-                <font class="numb">3</font>房地产老项目收入成本结转问题</li>
+                <font class="numb">3</font>课时3有了社保，我还需要再增加保险吗？</li>
               <li>
-                <font class="numb">4</font>房地产老项目收入成本结转问题</li>
+                <font class="numb">4</font>章节4:【第二课】快速阅读的科学原理</li>
               <li>
-                <font class="numb">5</font>房地产老项目收入成本结转问题</li>
+                <font class="numb">5</font>课时4 商业保险 （本节无内容，我是分隔符）</li>
               <li>
-                <font class="numb">6</font>房地产老项目收入成本结转问题</li>
+                <font class="numb">6</font>课时5 社会保险 （本节无内容，我是分隔符）</li>
             </ul>
           </div>
           <!-- 笔记模块！！！！ -->
           <div class="min-650 biji" v-if="part=='2'">
-            未发现本节相关的笔记内容
+          <p  class="biaoti">本节相关的笔记内容</p>
+          <ul>
+          	<li style="display: block;">
+          		 <p class="p_l">1.主观题上面的蓝色的CH输入法按钮,切换输入法</p>
+          		<span>编辑</span>
+          		<span>删除</span>
+          	</li>
+           	<li>
+          		 <p class="p_l">2.正常情况下，直接点击CH输入法即可切换输入法，可能是您浏览器的问题，
+        	您试着换台电脑或者浏览器试试，祝备考顺利！法</p>
+          		<span>编辑</span>
+          		<span>删除</span>
+          	</li>
+           	<li>
+          		 <p class="p_l">3.正常情况下，直接点击CH输入法即可切换输入法，可能是您浏览器的问题，
+        	您试着换台电脑或者浏览器试试，祝备考顺利！主观题上面的蓝色的CH输入法按钮,切换输入法</p>
+          		<span>编辑</span>
+          		<span>删除</span>
+          	</li>
+           	<li>
+          		 <p class="p_l">4.主观题上面的蓝色的CH输入法按钮,切换输入法正常情况下，直接点击CH输入法即可切换输入法，可能是您浏览器的问题，
+        	您试着换台电脑或者浏览器试试，祝备考顺利！</p>
+          		<span>编辑</span>
+          		<span>删除</span>
+          	</li>          	
+          </ul>
           </div>
           <!-- 问答模块！！！！ -->
           <dayi class="min-650" v-if="part=='3'">
@@ -60,9 +86,10 @@
           <div class="min-650 kecheng" v-if="part=='5'">
             <div class="class-list">
               <ul>
-                <li v-for="item in classes" :key="item.num" :class="{ active: markNum == item.num }" @click="getVideo(item)">
+ <li v-for="item in classes" :key="item.num" :class="{ active: markNum == item.num }"
+ 	 @click="getVideo(item)">
                   <span>{{ item.title }}</span>
-                  <span></span>
+                  <span class="right">播放次数已用完</span>
                 </li>
               </ul>
             </div>
@@ -121,24 +148,29 @@ export default {
       classes: [
         {
           num: "1",
-          title: "1. 课程目录课程目录课程目录"
+          title: "1. 章节1:【音频试听】课程说明与安排"
         },
         {
           num: "2",
-          title: "2. 课程目录课程目录课程目录"
+          title: "2. 章节2:（免费试听）【第一课】 快速阅读的常见误区"
         },
         {
           num: "3",
-          title: "3. 课程目录课程目录课程目录"
+          title: "3. 章节3【视频课】常见的六个速读误区18:21"
         },
         {
           num: "4",
-          title: "4. 课程目录课程目录课程目录"
+          title: "4. 章节4:【第二课】快速阅读的科学原理"
         },
         {
           num: "5",
-          title: "5. 课程目录课程目录课程目录"
+          title: "5. 章节5:【第三课】基础模块一：眼球移动训练"
+        },
+        {
+          num: "6",
+          title: "6. 章节6:【第四课】基础模块二：视觉定焦训练"
         }
+      
       ],
       videos: [
         "http://112.253.22.163/2/z/x/a/d/zxaddmlybpqfcakgrlcmvbvzpnkdqk/he.yinyuetai.com/68DB01553913F3CAF794A41F2AB77A76.flv?sc=96b1e18fc28b7552&br=1153&vid=2592783&aid=29438&area=JP&vst=0",
@@ -228,49 +260,49 @@ export default {
     float: left;
   }
   .docs {
-    margin-left: 620px;
+    margin-left: 570px;
     .doc-title {
       font-size: 16px;
       margin-right: 48px;
     }
     .teacher {
-      margin-right: 70px;
+      margin-right:30px;
     }
     .pingjia {
-      margin-right: 10px;
+      margin-right: 20px;
     }
     .shoucang {
-      margin-right: 0px;
+      margin-right:0px;
     }
     .red-heart {
-      background-position: -236px -262px;
+      background-position: -140px -199px;margin-right:10px;
       height: 17px;
     }
     .grey-heart {
-      background-position: -140px -199px;
-      height: 17px;
+      background-position: -289px -288px;
+      height: 17px; margin-right:10px;
     }
     .pointer {
       cursor: pointer;
     }
     .doc-box {
       // border: 1px solid $border-red;
-      margin-top: 30px;
-      padding: 20px 10px;
+      padding: 20px 0px;
       .doc-item {
         border: 1px solid transparent;
         .doc-content {
           line-height: 30px;
-          margin: 15px;
-          padding: 15px;
+          margin: 10px;
+          padding: 10px;
           .notes {
             overflow: hidden;
             margin-top: 25px;
+            span:hover{ background-color:#e7141a; }
             span {
               float: right;
               width: 80px;
               text-align: center;
-              line-height: 25px;
+              line-height: 28px;
               background-color: $border-red;
               color: $white;
               margin-right: 10px;
@@ -304,21 +336,35 @@ export default {
       }
     }
     .tab-content {
-      padding: 24px;
+      padding:10px 22px;
       .min-650 {
         min-height: 400px;
       }
+      .biji{
+      	.biaoti{line-height:35px; background-color:#f5f5f5;
+      	 text-indent: 1em; margin-bottom: 2px;
+      	 }    	 
+      	 	li { margin: 10px 0px;overflow: hidden;
+         cursor: pointer; display: block;
+         .p_l{ float: left;line-height: 28px;width: 80%;}
+         span{line-height: 28px; float: right; margin: 0px 10px;}         	 	
+      	 }      	  
+      }
       .benjie {
+      	.biaoti{line-height:35px; background-color:#f5f5f5;
+      	 text-indent: 1em; margin-bottom: 2px;
+      	 }
+      	li:hover{background-color:#f5f5f5;}
         li {
-          display: list-item !important;
+          display: list-item !important; line-height: 34px; cursor: pointer; 
           .numb {
             color: $white;
             background-color: $orange;
             display: inline-block;
-            width: 18px;
-            line-height: 18px;
+            width:15px;
+            line-height:15px;
             text-align: center;
-            margin: 0 10px 17px 0;
+            margin:0 15px;
           }
         }
       }
@@ -329,16 +375,17 @@ export default {
             display: flex;
             flex-direction: column;
           }
+        /*  li:hover{ color: #E7141A;}*/
           li {
-            padding: 22px 36px 22px 32px;
-            font-size: 14px;
+            font-size: 12px; line-height: 36px; overflow: hidden;
             color: #333;
-            cursor: pointer;
+            cursor: pointer;background-color: #F5F5F5;
             overflow: hidden;
-            border-bottom: 1px solid #b0acac;
+           padding-left: 15px;margin:5px 0px 10px;
+           span.right{float: right; margin-right: 10px; display: inline-block;}
           }
           .active {
-            background-color: #d8d8d8;
+            color: #999;
           }
         }
       }

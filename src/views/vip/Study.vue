@@ -5,13 +5,13 @@
 	  	<div class="div-1">      
 	      <div class="container">
 	        <div class="item item1">
-	          <p class="f-line">已看</p>
-	          <p>100分钟</p>
+	          <p class="f-line">积分</p>
+	          <p>100积分</p>
 	        </div>
 	        <div class="item item2">
 	          <p class="f-line">今天上课</p>
 	          <p>0分
-	            <span>再上100分钟可获得100积分</span>
+	            <span>再上10分钟可获得100积分</span>
 	          </p>
 	        </div>
 	        <div class="item item3">

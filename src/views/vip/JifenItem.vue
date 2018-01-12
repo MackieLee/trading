@@ -12,19 +12,19 @@
         <magnifier></magnifier>
         <ul>
           <li>
-            <img src="../../assets/images/jitax_图书details_07.png" />
+             <img src="../../assets/images/jifen02.jpg" />
           </li>
           <li>
-            <img src="../../assets/images/jitax_图书details_07.png" />
+            <img src="../../assets/images/jifen02.jpg" />
           </li>
           <li>
-            <img src="../../assets/images/jitax_图书details_07.png" />
+           <img src="../../assets/images/jifen02.jpg" />
           </li>
           <li>
-            <img src="../../assets/images/jitax_图书details_07.png" />
+            <img src="../../assets/images/jifen02.jpg" />
           </li>
           <li>
-            <img src="../../assets/images/jitax_图书details_07.png" />
+            <img src="../../assets/images/jifen02.jpg" />
           </li>
         </ul>
       </div>
@@ -122,7 +122,7 @@
   </div>
 </template>
 <script>
-import magnifier from "../magnifier/Magnifier";
+import magnifier from "../magnifier/Magnifier_c";
 const PROVINCE = require("../../assets/全国省市.json");
 export default {
   components: { magnifier },
@@ -198,7 +198,8 @@ export default {
       margin-right:70px;
       ul{
       	li {
-       margin-top: 10px;margin-right: 8px;cursor: pointer;
+       margin-top: 10px; border: 1px solid #ddd;
+       margin-right: 6px;cursor: pointer;
        img{width: 50px;}
       }
       }

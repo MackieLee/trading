@@ -17,10 +17,10 @@
       	  <span>年终盛典，限时6折，领券再减100</span>
         </h2>
         <P class="p"> <b>￥</b> 2294.2<del>￥3962.56</del></P>
-        <P class="share-in">课程状态：正在报名
+        <P class="share-in">课程状态：热播
           <a @click="share"><i></i>分享</a><div class="share-box" v-show="showShare"><i class="arrow"></i><i class="weibo"></i><i class="wechat"></i><i class="qq"></i></div></P>
-        <P>课程数量：5 节</P>
-        <p>适合人群：学 员</p>
+        <P>课程数量：6节</P>
+        <p>适合人群：所有学员</p>
         <p class="p01">
         	<span @click='cur01=true' v-bind:class="{'red':cur01}">系列</span>
         	<span @click='cur01=false' v-bind:class="{'red':!cur01}">小节</span>
@@ -247,8 +247,7 @@ i {
        .rt{
        margin-left: 70px; float: right;
        width: 160px;text-align: center;
-       h3{ height: 40px;
-    line-height: 40px; border-bottom: 1px solid #ccc;
+       h3{ height:30px;border-bottom: 1px solid #ccc;
     font-size: 12px; margin-bottom:10px;
     font-weight: bold;
        }
@@ -258,7 +257,7 @@ i {
        	del,span{font-size: 12px;color: #333;}
        }
       img{
-        width:140px; height:70px; margin-bottom: 5px;
+        width:140px; height:82px;
       }
     }
   .xq01_r {
@@ -304,7 +303,7 @@ i {
       a {
         color: $dark;
         cursor: pointer;
-        margin-left: 30px;
+        margin-left:120px; top: 20px;
         &:hover {
           color: $red;
         }
@@ -335,6 +334,7 @@ i {
     .a:hover {
       background: #e7141a;
     }
+    .aa{width: 126px;}
     .a {
       height: 34px;
       width: 100px;

@@ -36,9 +36,9 @@ export default {
     return{
       items:[
         {
-        "state":"正在报名",
+        "state":"即将开始",
         "title":"税收筹划案例精解-3",
-        "info":"金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）",
+        "info":"土地增值税暂行条例实施细则模式及企业应对策略（克拉玛依）",
         "date":"2017-09-07 至 09-08",
         "position":"鸿基实业酒店",
         "type":"公开课",
@@ -47,16 +47,16 @@ export default {
         {
         "state":"正在报名",
         "title":"税收筹划案例精解-3",
-        "info":"金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）",
+        "info":"土地增值税暂行条例实施细则税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）",
         "date":"2017-09-07 至 09-08",
         "position":"西直门",
         "type":"公开课",
         "leader":"孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；"
         },
         {
-        "state":"正在报名",
+        "state":"已结束",
         "title":"税收筹划案例精解-3",
-        "info":"金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）",
+        "info":"土地增值税暂行条例实施细则据下，税务稽查新模式及企业应对策略（克拉玛依）",
         "date":"2017-09-07 至 09-08",
         "position":"天安门广场",
         "type":"公开课",
@@ -101,7 +101,7 @@ export default {
       }
       .position{
         margin-left: 5px;
-        color:$red;
+        color:#4683EE;
         cursor: pointer;
       }
       .tag-01 {
@@ -135,7 +135,7 @@ export default {
         // }
       }
       .col-2 {
-        margin: 0 115px 0 30px;
+        margin: 0px 30px; width: 60%;
         .title {
           margin-top: 0;
           color: $blue;
@@ -152,7 +152,7 @@ export default {
         }
       }
       .col-3 {
-        margin: 0 50px;
+        margin-right: 50px; 
         display: flex;
         flex-direction: column;
         justify-content: center;

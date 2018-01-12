@@ -2,9 +2,9 @@
   <div id="divcss5">
     <div class="small_pic" @mousemove="mag" @mouseout="magOff">
       <span class="float_layer"></span>
-      <img src="../../assets/images/jitax_图书details_03.png" width=300px height=300px />
+      <img src="../../assets/images/jifen02.jpg" width=300px height=300px />
     </div>
-    <div class="big_pic"><img id="lg-img" src="../../assets/images/jitax_图书details_03.png" width=1024px height=768px /></div>
+    <div class="big_pic"><img id="lg-img" src="../../assets/images/jifen02.jpg" width=1024px height=768px /></div>
   </div>
 </template>
 

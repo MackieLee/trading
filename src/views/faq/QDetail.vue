@@ -208,20 +208,20 @@ export default {
             }
             .price {
               color: $blue;
-              margin-left: 70px;
+              margin-left: 30px;
               font-size: 14px;
             }
           }
           .default {
-            width: 73px;
+            width:100px;
             border: 1px solid $blue;
             font-size: 12px;
             border-radius: 4px;
             cursor: pointer;
             line-height: 26px;
-            padding: 0 7px;
+            padding: 0px 7px;
             display: inline-block;
-            margin-left: 50px;
+            margin-left:30px;
           }
           .watch i {
             background-position: -239px -255px;
@@ -230,17 +230,17 @@ export default {
             background-position: -143px -192px;
           }
           .tags {
-            margin: 17px;
+            margin:0px 17px;
             li {
               padding: 3px 15px;
               border: 1px solid $border-blue;
-              margin: 10px 9px 0 0;
+              margin: 35px 9px 0 0;
             }
           }
           .tag-box {
             position: relative;
             width: 200px;
-            padding-bottom: 28px;
+             height: 50px;
             margin: 0 auto;
             border-bottom: 1px solid $black;
             span[class="shanchang"] {
@@ -290,7 +290,7 @@ export default {
           }
         }
         .btn-group {
-          position: relative;
+          position: relative; margin-right:50px;
           .ask-icon {
             position: absolute;
             background-position: -388px -83px;
@@ -319,14 +319,14 @@ export default {
     }
   }
   .all {
-    margin-top: 50px;
+    margin-top:40px;
     .title {
       border-bottom: 1px solid $red;
       span {
         display: inline-block;
         width: 100px;
-        height: 30px;
-        line-height: 30px;
+        height: 31px;
+        line-height: 31px;
         background-color: $red;
         color: $white;
         text-align: center;
@@ -334,18 +334,18 @@ export default {
     }
     .list {
       border: 1px solid $border-dark;
-      padding: 20px;
+      padding:10px 20px 0;
       min-height: 150px;
       margin-top: 20px;
       .list-item {
-        border-bottom: 1px solid $border-dark;
+        border-bottom: 1px solid $border-dark; margin-bottom:5px; padding-bottom:5px;
         p,
         span {
           line-height: 30px;
         }
         .question {
           display: inline-block;
-          width: 95%;
+          width: 95%; font-size: 14px;
         }
         .indent {
           text-indent: 2em;

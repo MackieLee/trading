@@ -266,7 +266,7 @@ export default {
         }
       }
       p {
-        margin-bottom: 18px;
+        margin-bottom: 18px; font-size: 14px;
       }
       .title {
         padding-bottom: 18px;
@@ -333,7 +333,7 @@ export default {
   }
   .video-boxes {
     width: $width;
-    margin: 35px auto;
+    margin: 35px auto 0px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -390,7 +390,7 @@ export default {
       span {
         float: left;
         color: $black;
-        padding: 10px 16px;
+        padding:9px 16px;
         cursor: pointer;
       }
       span[class="cur"] {

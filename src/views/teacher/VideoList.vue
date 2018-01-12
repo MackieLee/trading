@@ -122,12 +122,11 @@ export default {
     }
   }
   ul {
-    padding: 10px 20px; overflow: hidden;
+    padding:10px 0px; overflow: hidden;
     li {
       width: 180px;float: left;
       border-bottom: 1px dashed $border-dark;
-      margin-bottom: 15px;
-      padding-right: 15px;
+      margin:0px 11px 15px;
     }
     .last {
       padding: 0;

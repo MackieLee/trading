@@ -32,8 +32,14 @@
         <div class="clearfix"></div>
         <div class="content">
           <div v-if="federal" class="search">
+<<<<<<< HEAD
+            <Form ref="federalSearch" :model="federalSearch" :label-width="80"
+ style="padding-top:26px;" >
+              <FormItem label="标题">
+=======
             <Form ref="federalSearch" :model="federalSearch" :label-width="80">
               <FormItem label="标题" prop="title">
+>>>>>>> f60929e59fdd64ccdd6cf75ae9b5cfdfaf4080bf
                 <Input v-model="federalSearch.title" placeholder="请输入法规标题"></Input>
               </FormItem>
               <FormItem label="字号" prop="zihao">
@@ -296,8 +302,7 @@ export default {
         height: 44px;
         h2 {
           font-size: 16px;
-          padding: 10px 0;
-          margin-left: 40px;
+          padding: 10px 0;        
           color: $white;
         }
         span {
@@ -318,7 +323,7 @@ export default {
         height: 400px;
         dd {
           position: relative;
-          padding: 13px 5px 0px 15px;
+          padding: 10px 5px 4px 15px;
           .newtitle {
             display: inline-block;
             color: #333;
@@ -374,7 +379,7 @@ export default {
     }
     .second-line {
       .content {
-        height: 240px;
+        height: 245px;
       }
     }
   }

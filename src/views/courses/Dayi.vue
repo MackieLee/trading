@@ -16,9 +16,11 @@
         </router-link>
       </div>
       <div class="content fl">
-        <p class="ask">我拿中注协的机考模拟系统练习，点击主观题上面的蓝色的CH输入法按钮，无法切换输入法，怎么回事？是因为是模拟系统所以中注协没安装输入法么？考试时候怎么办？谢谢老师。</p>
-        <p class="date">2017-11-23</p>
-        <p class="toggle"><span class="ansr">正常情况下，直接点击CH输入法即可切换输入法，可能是您浏览器的问题，您试着换台电脑或者浏览器试试，考试的时候是不会出现这样的问题的，祝备考顺利！ 每个努力学习的小天使都会有收获的，加油</span>
+        <p class="ask">我拿中注协的机考模拟系统练习，点击主观题上面的蓝色的CH输入法按钮，无法切换输入法，怎么回事？</p>
+        <p class="date_l">答:</p><p class="date">2017-11-23</p>
+        <p class="toggle"><span class="ansr">正常情况下，直接点击CH输入法即可切换输入法，可能是您浏览器的问题，
+        	您试着换台电脑或者浏览器试试，祝备考顺利！
+        	 每个努力学习的小天使都会有收获的，加油</span>
           <span class="blue" @click="toggle">展开</span>
           <span class="blue" @click="toggle" style="display:none;">收起</span>
         </p>
@@ -33,7 +35,7 @@
       </div>
       <div class="content fl">
         <p class="ask">我拿中注协的机考模拟系统练习，点击主观题上面的蓝色的CH输入法按钮，无法切换输入法，怎么回事？是因为是模拟系统所以中注协没安装输入法么？考试时候怎么办？谢谢老师。</p>
-        <p class="date">2017-11-23</p>
+        <p class="date_l">答:</p> <p class="date">2017-11-23</p>
         <p class="toggle"><span @click="toggle" class="ansr">正常情况下，直接点击CH输入法即可切换输入法，可能是您浏览器的问题，您试着换台电脑或者浏览器试试，考试的时候是不会出现这样的问题的，祝备考顺利！ 每个努力学习的小天使都会有收获的，加油</span>
           <span class="blue" @click="toggle">展开</span>
           <span class="blue" @click="toggle" style="display:none;">收起</span>
@@ -78,7 +80,7 @@ export default {
   }
   .item {
     overflow: hidden;
-    padding: 20px 0;
+    padding: 10px 0;
     border-bottom: 1px solid $border-dark;
     .user-thumb-nail {
       width: 40px;
@@ -86,7 +88,7 @@ export default {
     }
     .content {
       width: 420px;
-      margin-left: 15px;
+      margin-left: 15px; overflow: hidden;
       p {
         line-height: 25px;
       }
@@ -103,6 +105,9 @@ export default {
       .date {
         color: $dark;
         float: right;
+      }
+       .date_l {
+       float: left;
       }
       .ansr {
         text-indent: 2em;
