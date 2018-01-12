@@ -129,7 +129,7 @@ export default {
   height: 110px;
   width: 100%;
   margin: 0px 0px 30px;
- .fr{ width: 45%;margin-right:0px;
+ .fr{ width:50%;margin-left:15px;
   	span{font-size:18px;line-height:40px; float: left; margin:0px 15px;}
   	i{font-style: normal;margin-top: 10px; color: #117cee;}
   		.fr_:hover{background: #E7141A;}
@@ -142,12 +142,12 @@ export default {
 
   }
   p {
-    width:20%;
+    width:25%;
     text-align: center;
     height: 110px;
     font-size: 20px;
     color: #333;
-    float: left;margin-right:40px;
+    float: left;margin-right:10px;
     button {
       width: 80px;margin-bottom: 10px;
       border-radius: 3px;
@@ -162,7 +162,7 @@ export default {
       &:hover {background: #e7141a;}
     }
   }
-  .p_ri {float: left;}
+  .p_ri {float: left;width:15%;}
 }
 
 .my_qianb_r .div01 .li01 {

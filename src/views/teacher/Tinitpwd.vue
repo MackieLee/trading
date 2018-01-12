@@ -5,9 +5,9 @@
      <div class="sum_of_class">账号安全</div>
       <table>
         <tr>
-          <th width="100" class="passed"><i class="passed"></i>登录密码</th>
-          <td width="500">互联网账号存在风险，建议您定期修改密码以保护账号安全。</td>
-          <td @click="showModal('pwd')" width="100" class="manager">修改</td>
+          <th class="passed"><i class="passed"></i>登录密码</th>
+          <td>互联网账号存在风险，建议您定期修改密码以保护账号安全。</td>
+          <td @click="showModal('pwd')" class="manager">修改</td>
         </tr>
         <tr>
           <th><i class="stay"></i>邮箱验证</th>
@@ -19,11 +19,11 @@
           <td>您验证的手机:<span style="font-weight:bold;margin: 0 10px;">177*****234</span>若已丢失或停用，请立即更换。</td>
           <td @click="showModal('phone')" class="manager">修改</td>
         </tr>
-        <tr>
+        <!--<tr>
           <th><i class="passed"></i>支付密码</th>
           <td>建议您定期更换新的支付密码，提高安全性。</td>
           <td @click="showModal('payword')" class="manager">支付密码管理</td>
-        </tr>
+        </tr>-->
       </table>
       <div class="modal-outer" v-show="modal">
         <modal @closeModal="closeModal" :content-series="series"></modal>
@@ -69,8 +69,7 @@ export default {
       color: #fff;
     }
     table {
-      th,
-      td {
+      th,td {
         height: 60px;
         border: 1px solid $border-dark;
         padding: 0 20px;
@@ -79,10 +78,10 @@ export default {
         font-weight: bold;
         text-align: right;
       }
-      .manager {
-        color: $blue;
-        cursor: pointer;
+      td{     
+        width: 550px;
       }
+       td.manager{width: 120px; color: $blue;cursor: pointer;}
       i {
         background-image: url("../../assets/images/Sprite.png");
         display: inline-block;
@@ -91,6 +90,7 @@ export default {
         width: 22px;
         margin-right: 10px;
       }
+      th.passed{width: 130px;}
       .passed {
         background-position: -518px -203px;
       }

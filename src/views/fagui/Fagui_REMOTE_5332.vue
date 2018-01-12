@@ -1,4 +1,4 @@
-.ivu-form-item.ivu-form-item<template>
+<template>
   <div class="fagui">
     <div class="cur-posi">
       <p>
@@ -14,7 +14,7 @@
       <table cellspacing="0" cellpadding="0">
         <tbody>
           <tr>
-            <td class="xuhao ctr" style="width: 40px;">序号</td>
+            <td class="xuhao ctr">序号</td>
             <td class="biaoti" style="text-align:center;">标题</td>
             <td class="fahao ctr">文号发文</td>
             <td class="riqi ctr">日期</td>
@@ -25,7 +25,7 @@
     <div class="td">
       <table cellspacing="0" cellpadding="0">
         <tbody>
-          <router-link v-for="(item,index) in list" :key="item.id" tag="tr" :to="{ name:'fdetail',query:{ id:item.id }}">
+          <router-link v-for="(item,index) in list" :key="item.form_id" tag="tr" :to="{ name:'fdetail',query:{ id:item.id }}">
             <td class="xuhao pointer ctr">{{index+1}}</td>
             <td class="biaoti pointer">{{item.name}}</td>
             <td class="fahao pointer ctr">{{item.reference}}</td>
@@ -115,16 +115,16 @@ export default {
     text-align: center;
   }
   .ctr {
-    text-align: left;
+    text-align: center;
   }
   .xuhao {
-    width: 20px;
+    width: 40px;
   }
   .fahao {
-    width: 230px;
+    width: 170px;
   }
   .riqi {
-    width: 130px; padding-left: 20px;
+    width: 150px;
   }
   .red {
     color: $red;
@@ -139,7 +139,7 @@ export default {
     table {
       table-layout: fixed;
       border-collapse: separate;
-      width: 96%; margin: 0px auto;
+      width: 100%;
       td {
         display: table-cell;
         line-height: 42px;
@@ -154,7 +154,7 @@ export default {
     table {
       table-layout: fixed;
       border-collapse: separate;
-      width: 96%; margin: 0 auto;
+      width: 100%;
       tr:hover{
       	td{color: red;}
       }

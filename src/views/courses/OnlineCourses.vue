@@ -49,7 +49,7 @@ export default {
     }
     .item {
       border: 1px solid $border-red;
-      padding: 5px 10px 10px 10px;
+      padding: 5px 10px 10px;
       float: left;
       margin: 0 13px 18px 13px;
       position: relative;

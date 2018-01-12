@@ -3,17 +3,21 @@
     <h2>我的发票</h2>
     <div class="22">
       <ul class="ul02">
-        <li class="head"><i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选<select v-model="type" class="sel"><option>商品类型</option><option>线上课</option><option>答疑</option><option>图书</option><option>线下课</option></select></li>
+        <li class="head">
+        	<i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选
+        	<select v-model="type" class="sel"><option>商品类型</option><option>线上课</option><option>答疑</option><option>图书</option><option>线下课</option></select></li>
         <li>状态</li>
         <li><select v-model="taxType" class="sel"><option>发票类型</option><option>普通发票</option><option>电子发票</option><option>专用发票</option></select></li>
         <li>操作</li>
       </ul>
       <p class="p01">
         <!-- <i @click="change()" data-ref='0' :class="{ selected: num1}"></i> -->
-        <i @click="change()" data-ref="1" :class="{ selected: num2}"></i><span class="span01">2017-08-31</span><span>53196839876687913</span>
+        <i @click="change()" data-ref="1" :class="{ selected: num2}"></i>
+        <span class="span01">2017-08-31</span><span>订单号: 53196839876687913</span>
       </p>
       <ul class="ul05">
-        <li class="li01"><img src="../../assets/images/huanyuanzx02.png"/><p>企业所得税年度纳税申报表中隐藏的稽查陷阱</p></li>
+        <li class="li01"><img src="../../assets/images/huanyuanzx02.png"/><p>
+        	企业所得税年度纳税申报表中隐藏的稽查陷阱</p></li>
         <li class="li02">已开</li>
         <li>
           <span>专用发票</span>
@@ -22,10 +26,12 @@
       </ul>
       <p class="p01">
         <!-- <i @click="change()" data-ref='1' :class="{ selected: num2}"></i> -->
-        <i @click="change()" data-ref="1" :class="{ selected: num2}"></i><span class="span01">2017-08-31</span><span>53196839876687913</span>
+        <i @click="change()" data-ref="1" :class="{ selected: num2}"></i><span class="span01">
+        	2017-08-31</span><span>订单号: 53196839876687913</span>
       </p>
       <ul class="ul05">
-        <li class="li01"><img src="../../assets/images/huanyuanzx02.png"/><p>企业所得税年度纳税申报表中隐藏的稽查陷阱</p></li>
+        <li class="li01"><img src="../../assets/images/huanyuanzx02.png"/><p>
+        	企业所得税年度纳税申报表中隐藏的稽查陷阱</p></li>
         <li>未开</li>
         <li><span>专用发票</span>
         </li>
@@ -92,7 +98,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .selected {
-  background-position: -103px -320px;
+  background-position: -101px -286px !important;
 }
 .sel {
   outline: none;
@@ -103,7 +109,7 @@ export default {
   background-color: #f0f0f0;
 }
 i {
-  background-position: -103px -353px;
+  background-position:-177px -390px;
   margin-right: 5px;
   display: inline-block;
   width: 18px;
@@ -167,7 +173,7 @@ i {
     border-left: 0 none;
   }
 }
-.my_order_r .ul02 {
+.my_order_r .ul02{
   height: 35px;
   width: 100%;
   background: $bgcolor;
@@ -176,8 +182,9 @@ i {
     width: 400px;
     text-align: left;
     margin-left: 10px;
+    background-position: -101px -349px;
   }
-  li {
+  li {	
     width: 120px;
     text-align: center;
     font-size: 14px;
@@ -218,26 +225,22 @@ i {
 }
 
 .my_order_r .ul03 .li01 i,
-.my_order_r .ul06 .li01 i {
-  background-position: -103px -353px;
+.my_order_r .ul06 .li02 i {
+  background-position: -101px -349px;
 }
 
 .my_order_r .p01 {
   width: 100%;
   background: $bg-blue;
-  line-height: 31px;
+  line-height: 36px;
   color: $white;
   i {
     margin-left: 10px;
-    background-position: -103px -353px;
+  background-position:-177px -388px;
   }
-  span {
-    margin-left: 30px;
-    .span01 {
-      margin-left: 10px;
+.span01 { margin-right: 5px; display: inline-block;
       color: $grey-white;
     }
-  }
 }
 .my_order_r .ul05 {
   height: 95px;

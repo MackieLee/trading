@@ -5,13 +5,13 @@
 	  	<div class="div-1">
 	      <div class="container">
 	        <div class="item item1">
-	          <p class="f-line">已看</p>
-	          <p>100分钟</p>
+	          <p class="f-line">积分</p>
+	          <p>100积分</p>
 	        </div>
 	        <div class="item item2">
 	          <p class="f-line">今天上课</p>
 	          <p>0分
-	            <span>再上100分钟可获得100积分</span>
+	            <span>再上10分钟可获得100积分</span>
 	          </p>
 	        </div>
 	        <div class="item item3">
@@ -51,7 +51,7 @@
       <div class="container">
         <img src="../../assets/images/huanyuanzx02.png" />
         <div class="middle">
-          <p>企业所得税年度纳税申报表中隐藏的稽查陷阱
+          <p>企业所得税年度纳税申报表中隐藏的稽查陷阱企业所得税年度纳税申报表中隐藏的稽查陷阱
 藏的稽查陷</p>
           <font>孙玮</font>
         </div>
@@ -69,7 +69,7 @@
         </div>
         <div class="sm-btn">
           <span class="zcgm">再次购买</span>
-          <p class="jindu">学习完成 </p>
+          <p class="jindu zcgm_jindu">学习完成 </p>
         </div>
       </div>
     </div>
@@ -176,20 +176,19 @@ export default {
         border: 1px solid #ddd;
       }
       .middle {
-        margin: 0 10px;
-        width: 70%;
+        margin:2px 25px 0px;
+        width: 68%;
         p {
           font-size: 14px;
           margin: 0;
         }
         font {
-          font-size: 14px;
-          line-height: 36px;
-          height: 36px;
+          margin-top: 10px;display: block;
+          
         }
       }
       .sm-btn {
-        width: 20%;
+        width: 15%;
         margin: 0 10px;
         span {
           display: block;
@@ -215,6 +214,7 @@ export default {
           color: #fff;
           background-color: #e7141a;
         }
+        p.zcgm_jindu{text-indent:1em;}
         .jindu {
           line-height: 36px;
           height: 36px;

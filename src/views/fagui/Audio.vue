@@ -244,7 +244,7 @@
       }
     }
     .el-slider__runway{
-      margin:4px 0;
+      margin:4px 0; background-color: #ccc;
     }
     .btns{
       float: left;

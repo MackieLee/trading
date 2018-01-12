@@ -13,7 +13,9 @@
             {{item.title}}
           </p>
           <p>{{item.info}}</p>
-          <p>{{item.date}}<i></i><span class="position" title="点击查看地图" @click="getPosition(item.position)">地点: {{item.position}}</span>
+          <p>{{item.date}}<i></i>
+          	<span class="position" title="点击查看地图" @click="getPosition(item.position)">
+          		地点: {{item.position}}</span>
           </p>
           <p class="tag tag-02">{{item.type}}</p>
           <p>讲师：{{item.leader}}</p>
@@ -36,9 +38,9 @@ export default {
     return{
       items:[
         {
-        "state":"即将开始",
+        "state":"正在报名",
         "title":"税收筹划案例精解-3",
-        "info":"土地增值税暂行条例实施细则模式及企业应对策略（克拉玛依）",
+        "info":"金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）",
         "date":"2017-09-07 至 09-08",
         "position":"鸿基实业酒店",
         "type":"公开课",
@@ -47,16 +49,16 @@ export default {
         {
         "state":"正在报名",
         "title":"税收筹划案例精解-3",
-        "info":"土地增值税暂行条例实施细则税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）",
+        "info":"金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）",
         "date":"2017-09-07 至 09-08",
         "position":"西直门",
         "type":"公开课",
         "leader":"孙 炜 教授 九鼎财税专家委员会专家；注册会计师、注册税务师；"
         },
         {
-        "state":"已结束",
+        "state":"正在报名",
         "title":"税收筹划案例精解-3",
-        "info":"土地增值税暂行条例实施细则据下，税务稽查新模式及企业应对策略（克拉玛依）",
+        "info":"金税三期大数据下，税务稽查新模式及企业应对策略（克拉玛依）",
         "date":"2017-09-07 至 09-08",
         "position":"天安门广场",
         "type":"公开课",
@@ -66,8 +68,13 @@ export default {
     }
   },
   methods:{
+<<<<<<< HEAD
+    getPosition:(position) =>{
+      window.open('http://ditu.amap.com/search?query='+ position +'&zoom=15',"_brank") 
+=======
     getPosition:(position) => {
       window.open('http://ditu.amap.com/search?query='+ position +'&zoom=15',"_blank")
+>>>>>>> 2d5b11c5d7482effcff643be125992a07877b84e
     }
   }
 }
@@ -101,7 +108,7 @@ export default {
       }
       .position{
         margin-left: 5px;
-        color:#4683EE;
+        color:$red;
         cursor: pointer;
       }
       .tag-01 {
@@ -135,7 +142,7 @@ export default {
         // }
       }
       .col-2 {
-        margin: 0px 30px; width: 60%;
+        margin: 0 115px 0 30px;
         .title {
           margin-top: 0;
           color: $blue;
@@ -152,7 +159,7 @@ export default {
         }
       }
       .col-3 {
-        margin-right: 50px; 
+        margin: 0 50px;
         display: flex;
         flex-direction: column;
         justify-content: center;

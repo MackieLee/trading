@@ -11,11 +11,12 @@
       <img src="../../assets/images/jitax_线下课程_xq01.png">
       <div class="xq01_r">
         <h2>【自营】土地增值税实战与案例精解</h2>
-        <P class="share-in">课程状态：正在报名
-          <span></span>所属类别：公开课<span></span><a @click="share"><i></i>分享</a><div class="share-box" v-show="showShare"><i class="arrow"></i><i class="weibo"></i><i class="wechat"></i><i class="qq"></i></div></P>
-        <P>举办时间：2017年-11月17日 08:30-17:00</P>
-        <P>举办地点：北京，北京工人体育馆</P>
-        <p>参会价格：2800元/人 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIP会员参会价格请参考<a style="color:red;cursor:pointer;">会员权益</a></p>
+        <P class="share-in">课程状态：<a>即将开始</a>
+          <span></span>所属类别：<a>公开课</a><span></span><a @click="share"><i></i>分享</a><div class="share-box" v-show="showShare"><i class="arrow"></i><i class="weibo"></i><i class="wechat"></i><i class="qq"></i></div></P>
+        <P>开课时间：<a>2017年-11月17日 08:30-17:00</a></P>
+        <P>举办地点：<a>北京，北京工人体育馆</a></P>
+        <p>参会价格：<a>2800元/人 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIP会员参会价格请参考</a>
+        	<a class="a">会员权益</a></p>
         <ul>
           <!-- <li>
             <b>￥</b>51.00
@@ -220,13 +221,12 @@ i {
 }
 #xxkc_xq01 {
   width: 100%;
-  height: 356px;
+  height: 335px;
 }
      .rt{
       margin-left: 70px; float: right;   margin-top: -50px;
        width: 160px;text-align: center;
-       h3{ height: 40px; 
-    line-height: 40px; border-bottom: 1px solid #ccc;
+       h3{ height:28px; border-bottom: 1px solid #ccc;
     font-size: 12px; margin-bottom:10px;
     font-weight: bold;
        }
@@ -250,12 +250,14 @@ img {
 
 #xxkc_xq01 .xq01_r h2 {
   font-size: 18px;
-  padding-bottom: 45px;
+  padding-bottom: 30px;
 }
 
 #xxkc_xq01 .xq01_r p {
   padding-bottom: 26px;
   font-size: 14px;
+  a{font-size: 13px;}
+  .a{color:red;cursor:pointer;}
 }
 
 #xxkc_xq01 .xq01_r p {
@@ -288,7 +290,7 @@ img {
 
 #xxkc_xq01 .xq01_r ul {
   height: auto;
-  width: 100%;
+  width: 100%;margin-top: 15px;
   overflow: hidden;
 }
 
@@ -310,11 +312,11 @@ img {
 
 #xxkc_xq01 .xq01_r ul li a {
   height: 34px;
-  width: 100px;
-  padding: 0 10px;
+  width: 110px;
+  padding: 0 8px;
   background: $red;
   color: $white;
-  font-size: 16px;
+  font-size: 14px;
   display: block;
   border-radius: 3px;
   line-height: 34px;

@@ -72,7 +72,7 @@ export default {
     .li03{
     	i{background: url(../../assets/images/ddzf5.png) no-repeat center center;}} 
   	}	
-		.ul02{ margin:30px 0;background: #e5e5e5;overflow: hidden;
+		.ul02{ margin:30px 0;background: #F5F5F5;overflow: hidden;
 		li{float: left;width: 15%;margin: 20px 0 20px 10px;font-size: 14px;line-height: 40px;
 		span{margin-right: 60px; display: block; color: #000;}
 		p{font-size: 14px;float: left; width: 60%;line-height: 40px;}

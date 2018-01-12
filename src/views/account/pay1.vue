@@ -55,8 +55,7 @@
 						<table>
 						<tr class="btn-group">
 							<th width="120"><span class="border" @click="toggle(1)" :class="{'rd-border':current == '1'}">普通发票<i></i></span></th>
-							<th width="120"><span class="border" @click="toggle(2)" :class="{'rd-border':current == '2'}">电子发票<i></i></span></th>
-							<th width="120"><span class="border" @click="toggle(3)" :class="{'rd-border':current == '3'}">专用发票<i></i></span></th>
+							<th width="120"><span class="border" @click="toggle(2)" :class="{'rd-border':current == '2'}">专用发票<i></i></span></th>
 							<th width="120"></th>
 							<th width="120"></th>
 						</tr>
@@ -97,39 +96,6 @@
 						</table>
 						<!-- 模块二 -->
 						<table v-show="current == '2'">
-						<tr><td colspan="5" class="warning"><p><i></i>发票内容仅是培训费，咨询费，图书费</p></td></tr>
-						<tr><th><font class="star">*</font><label for="elc-invoice-title">发票抬头：</label></th><td colspan="4"><input id="elc-invoice-title" name="invoice-title" type="text" /></td></tr>
-						<tr><th><font class="star">*</font><label for="elc-identifier">纳税人识别号：</label></th><td colspan="4"><input id="elc-identifier" name="identifier" type="text" /></td></tr>
-						<tr>
-							<th>
-							<font class="star"></font><label>发票内容：</label>
-							</th>
-							<td>
-							<label :class="{'rd-border':mingxi === 'mingxi' }" class="mingxi border" for="elc-mingxi">明细<i></i></label>
-							<input id="elc-mingxi" v-model="mingxi" value="mingxi" type="radio"/>
-							</td>
-							<td>
-							<label :class="{'rd-border':mingxi === 'train' }" class="mingxi border" for="elc-train">培训费<i></i></label>
-							<input id="elc-train" v-model="mingxi" value="train" type="radio"/>
-							</td>
-							<td>
-							<label :class="{'rd-border':mingxi === 'consult' }" class="mingxi border" for="elc-consult">咨询费<i></i></label>
-							<input id="elc-consult" v-model="mingxi" value="consult" type="radio"/>
-							</td>
-							<td v-show="bookItem">
-							<label :class="{'rd-border':mingxi === 'book' }" class="mingxi border" for="elc-book">图书费<i></i></label>
-							<input id="elc-book" v-model="mingxi" value="book" type="radio"/>
-							</td>
-						</tr>
-						<tr><td width="120"></td><td width="120"></td><td width="120"></td><td width="120"></td><td width="120"></td></tr>
-						<tr class="btn-group">
-							<td><input type="submit" class="btn btn-danger" value="提交"></td>
-							<td><input type="button" class="btn-cancel" @click="fapiao = false" value="取消"></td>
-							<td></td>
-						</tr>
-						</table>
-						<!-- 模块三 -->
-						<table v-show="current == '3'">
 						<!-- 单位名称 -->
 						<tr><td colspan="5" class="warning"><p><i></i>发票内容仅是培训费，咨询费，图书费</p></td></tr>
 						<tr>
@@ -314,7 +280,7 @@ export default {
     }
     .ul02 {
       margin: 30px 0;
-      background: #e5e5e5;
+      background: #f5f5f5;
       overflow: hidden;
       li {
         float: left;
@@ -354,7 +320,7 @@ export default {
         overflow: hidden;
         li {
           width: 142px;
-          height: 42px;
+          height: 65px;
           margin: 10px;
           cursor: pointer;
           padding: 10px;

@@ -269,7 +269,7 @@ export default {
           }
           input{
             height: 33px;
-            width: 384px;
+            width: 384px;font-size: 12px;
           }
         }
       }
