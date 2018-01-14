@@ -13,7 +13,7 @@
       <div class="clearfix" style="margin-bottom:15px;line-height:25px;">
         <div class="second-title">
           <p>文号:{{ content.reference }}</p>
-          <p>发文日期:{{ timeUp }}</p>
+          <p>发布日期:{{ timeUp }}</p>
         </div>
       </div>
       <vue-audio>
@@ -44,7 +44,7 @@
             <router-link tag="span" style="cursor:pointer" :to="{path:'/fagui-jiedu',query:{id:content.explain_id}}">《{{ content.name }}》的政策解读</router-link>
           </div>
         </div>
-       
+
         <div class="clearfix" style="margin:20px 0 25px 0;">
           <div class="lf">分享到:
             <i class="qq"></i>

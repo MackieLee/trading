@@ -19,11 +19,6 @@
           <td>您验证的手机:<span style="font-weight:bold;margin: 0 10px;">177*****234</span>若已丢失或停用，请立即更换。</td>
           <td @click="showModal('phone')" class="manager">修改</td>
         </tr>
-        <tr>
-          <th><i class="passed"></i>支付密码</th>
-          <td>建议您定期更换新的支付密码，提高安全性。</td>
-          <td @click="showModal('payword')" class="manager">支付密码管理</td>
-        </tr>
       </table>
       <div class="modal-outer" v-show="modal">
         <modal @closeModal="closeModal" :content-series="series"></modal>

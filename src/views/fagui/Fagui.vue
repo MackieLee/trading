@@ -8,7 +8,7 @@
       </p>
     </div>
     <div class="main-title">
-      政策解读
+      {{ title }}
     </div>
     <div class="th">
       <table cellspacing="0" cellpadding="0">
@@ -54,7 +54,8 @@ export default {
   name: "fagui",
   data(){
     return{
-      list:[]
+      list:[],
+      title:'法规列表'
     }
   },
   created () {

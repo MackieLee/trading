@@ -1,13 +1,43 @@
 <template>
   <div class="video-list">
+    <Modal
+      :width="700"
+      v-model="modal"
+      :closable="false"
+      :mask-closable="false"
+    >
+      <Form :model="bodan" ref="bodan" label-position="left" :label-width="100">
+        <FormItem label="标题" prop="name">
+          <Input v-model="bodan.name"></Input>
+        </FormItem>
+        <FormItem label="简要介绍" prop="intro">
+          <Input v-model="bodan.intro"></Input>
+        </FormItem>
+        <FormItem label="现价" prop="money">
+          <Input v-model="bodan.money"></Input>
+        </FormItem>
+        <FormItem label="原价" prop="moneyMarketing">
+          <Input v-model="bodan.moneyMarketing"></Input>
+        </FormItem>
+        <FormItem label="适合人群" prop="crowd">
+          <Input v-model="bodan.crowd"></Input>
+        </FormItem>
+        <FormItem label="课程介绍" prop="value">
+          <Input v-model="bodan.value" type="textarea" :autosize="{minRows: 2,maxRows: 12}" placeholder="课程介绍"></Input>
+        </FormItem>
+      </Form>
+      <div slot="footer">
+        <Button type="primary" @click="submit">提交</Button>
+        <Button type="ghost" @click="handleReset" style="margin-left: 8px">取消</Button>
+      </div>
+    </Modal>
     <div class="head">
       <div class="all">
-        <input id="all" type="checkbox" /><label for="all">全部</label><span>创建播单</span><span>删除</span>
-      </div>
-      <div class="modal-outer" v-show="modal2">
-        <!-- <div class="close">X</div> -->
-        <!-- v-bind传输数据到子组件(contentSeries) -->
-        <video-upload :contentSeries = "contentSeries" @closeModal="closeModal('modal2')"></video-upload>
+        <Checkbox
+          :indeterminate="indeterminate"
+          :value="checkAll"
+          @click.prevent.native="handleCheckAll">全选</Checkbox>
+        <span>创建播单</span><span>删除</span>
       </div>
       <div class="title">
         <span class="fl">播单</span>
@@ -18,9 +48,10 @@
     </div>
     <div class="upload-box">
       <table>
-        <tr height="120" v-for="item in items" :key="item.src">
+        <CheckboxGroup v-model="bodanDel" @on-change="bodanDelChange">
+        <tr height="120" v-for="item in classes" :key="item.id">
           <td width='50'>
-            <input type="checkbox" />
+            <Checkbox :label="item.name"><span></span></Checkbox>
           </td>
           <th width='550'>
             <div class="fl">
@@ -28,7 +59,7 @@
             </div>
             <div class="fl h-100">
               <div class="title">
-                <p>{{ item.title }}</p>
+                <p>{{ item.name }}</p>
               </div>
               <p class="date">2017-12-5 17:09:51</p>
             </div>
@@ -37,11 +68,14 @@
             视频:2
           </td>
           <td width='100'>
-            <p @click="modal2 = true;contentSeries = false">编辑信息</p>
-            <router-link tag="p" :to="{ name:item.link }">管理播单</router-link>
+            <p @click="modal = true,gid = item.id">
+              修改播单
+            </p>
+            <router-link tag="p" :to="{ name:'bodanmanger' }">管理播单</router-link>
             <p>删除</p>
           </td>
         </tr>
+        </CheckboxGroup>
       </table>
     </div>
     <div class="pgs">
@@ -59,42 +93,82 @@
 </template>
 
 <script>
-import VideoUpload from '../modal/VideoUpload'
+import { loginUserUrl } from '@/api/api'
 export default {
-  components:{ VideoUpload },
   data() {
     return {
-      items: [
-        {
-          src: "",
-          title: "企业所得税年度纳税申报表中隐企业所得税年度纳税申报表中隐藏的稽查陷阱企业所得税",
-          date: "2017-12-5 15:00",
-          counts: "2",
-          link: "bodanmanger"
-        },
-        {
-          src: "",
-          title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
-          date: "2017-12-5 15:00",
-          counts: "2",
-          link: "bodanmanger"
-        },
-        {
-          src: "",
-          title: "企业所得税年度纳税申报表中隐藏的稽查陷阱",
-          date: "2017-12-5 15:00",
-          counts: "2",
-          link: "bodanmanger"
-        }
-      ],
-      modal2:false,
-      contentSeries:true
+      classes: [],
+      bodanDel:[],
+      blankChoosen:[],
+      indeterminate:false,
+      checkAll:false,
+      modal:false,
+      bodan:{
+        name:'',
+        intro:'',
+        money:'',
+        moneyMarketing:'',
+        crowd:'',
+        value:''
+      },
+      gid:''
     }
   },
   methods: {
-    closeModal: function(modal) {
-      this[modal] = false;
+    handleReset:function(){
+      this.$refs.bodan.resetFields()
+      this.modal=false
+    },
+    submit:function(){
+      let bodan = this.bodan
+      let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getOnline_Courses_update',{
+        username: "niuhongda",
+        password: "123123q",
+        gid:this.gid,
+        bodan
+      }).then((res)=>{
+        console.log(res)
+      })
+      this.$router.go(0)
+    },
+    handleCheckAll () {
+      if (this.indeterminate) {
+        this.checkAll = false;
+      } else {
+        this.checkAll = !this.checkAll;
+      }
+      this.indeterminate = false;
+      if (this.checkAll) {
+        this.bodanDel = this.blankChoosen
+      } else {
+        this.bodanDel = [];
+      }
+    },
+    bodanDelChange (data) {
+      if (data.length === this.classes.length) {
+        this.indeterminate = false;
+        this.checkAll = true;
+      } else if (data.length > 0) {
+        this.indeterminate = true;
+        this.checkAll = false;
+      } else {
+        this.indeterminate = false;
+        this.checkAll = false;
+      }
     }
+  },
+  mounted () {
+    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getOnline_Courses',{
+      username: "niuhongda",
+      password: "123123q"
+    }).then((res)=>{
+      // console.log(res)
+      this.classes = res.data
+      for(let i = 0;i<res.data.length;i++){
+        // 将name 换成id！！！
+        this.blankChoosen.push(res.data[i].name)
+      }
+    })
   }
 };
 </script>

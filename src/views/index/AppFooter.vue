@@ -6,28 +6,28 @@
           <ul>
             <li class="title">新手指南</li>
             <li>
-              <router-link :to="{ name:'home' }">购买课程</router-link>
+              <router-link :to="{ path:'home#app' }">购买课程</router-link>
             </li>
             <li>
-              <router-link :to="{ name:'home' }">播放说明</router-link>
+              <router-link :to="{ path:'home#app' }">播放说明</router-link>
             </li>
           </ul>
           <ul>
             <li class="title">使用帮助</li>
             <li>
-              <router-link :to="{ name:'home' }">视频播放</router-link>
+              <router-link :to="{ path:'home#app' }">视频播放</router-link>
             </li>
             <li>
-              <router-link :to="{ name:'home' }">打击盗版</router-link>
+              <router-link :to="{ path:'home#app' }">打击盗版</router-link>
             </li>
           </ul>
           <ul>
             <li class="title">关于我们</li>
             <li>
-              <router-link :to="{ name:'home' }">市场合作</router-link>
+              <router-link :to="{ path:'home#app' }">市场合作</router-link>
             </li>
             <li>
-              <router-link :to="{ name:'home' }">服务条款</router-link>
+              <router-link :to="{ path:'home#app' }">服务条款</router-link>
             </li>
           </ul>
         </div>
@@ -37,7 +37,7 @@
           <p>
             <i class="tel"></i>010-6231-1360
             <span>(周一到周五9:00-17:30)</span>
-          </p>          
+          </p>
         </div>
       </div>
       <div class="footer-right">
@@ -56,28 +56,28 @@
         <span>友情链接:</span>
         <ul>
           <li>
-            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+            <router-link :to="{ path:'home#app' }">九鼎财税</router-link>
           </li>
           <li>
-            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+            <router-link :to="{ path:'home#app' }">九鼎财税</router-link>
           </li>
           <li>
-            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+            <router-link :to="{ path:'home#app' }">九鼎财税</router-link>
           </li>
           <li>
-            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+            <router-link :to="{ path:'home#app' }">九鼎财税</router-link>
           </li>
           <li>
-            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+            <router-link :to="{ path:'home#app' }">九鼎财税</router-link>
           </li>
           <li>
-            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+            <router-link :to="{ path:'home#app' }">九鼎财税</router-link>
           </li>
           <li>
-            <router-link :to="{ name:'home' }">九鼎财税</router-link>
+            <router-link :to="{ path:'home#app' }">九鼎财税</router-link>
           </li>
           <li>
-            <router-link :to="{ name:'home' }">更多>></router-link>
+            <router-link :to="{ path:'home#app' }">更多>></router-link>
           </li>
         </ul>
       </div>
@@ -96,7 +96,7 @@
           <li>京公网安备88888888号</li>
         </ul>
         <p>Copyright © 2016-2017 九鼎财税 All Rights Reserved. </p>
-       
+
       </div>
     </div>
   </div>

@@ -323,7 +323,7 @@ export default {
             display: inline-block;
             color: #333;
             font-size: 14px;
-            width: 100%;
+            width: 390px;
             height: 22px;
             overflow: hidden;
             white-space: nowrap;
