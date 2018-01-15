@@ -6,18 +6,16 @@
       :closable="false"
       :mask-closable="false"
     >
+      <p slot="header" style="color:#f60;text-align:center">
+        <Icon type="information-circled"></Icon>
+        <span>修改播单信息</span>
+      </p>
       <Form :model="bodan" ref="bodan" label-position="left" :label-width="100">
         <FormItem label="标题" prop="name">
           <Input v-model="bodan.name"></Input>
         </FormItem>
         <FormItem label="简要介绍" prop="intro">
           <Input v-model="bodan.intro"></Input>
-        </FormItem>
-        <FormItem label="现价" prop="money">
-          <Input v-model="bodan.money"></Input>
-        </FormItem>
-        <FormItem label="原价" prop="moneyMarketing">
-          <Input v-model="bodan.moneyMarketing"></Input>
         </FormItem>
         <FormItem label="适合人群" prop="crowd">
           <Input v-model="bodan.crowd"></Input>
@@ -31,13 +29,37 @@
         <Button type="ghost" @click="handleReset" style="margin-left: 8px">取消</Button>
       </div>
     </Modal>
+    <Modal v-model="modal1" :closable="false">
+      <p slot="header" style="color:#3399ff;text-align:center">
+        <Icon type="information-circled"></Icon>
+        <span>创建播单</span>
+      </p>
+      <Form :model="bodan" ref="bodan" label-position="left" :label-width="100">
+        <FormItem label="标题" prop="name">
+          <Input v-model="bodan.name"></Input>
+        </FormItem>
+        <FormItem label="简要介绍" prop="intro">
+          <Input v-model="bodan.intro"></Input>
+        </FormItem>
+        <FormItem label="适合人群" prop="crowd">
+          <Input v-model="bodan.crowd"></Input>
+        </FormItem>
+        <FormItem label="课程介绍" prop="value">
+          <Input v-model="bodan.value" type="textarea" :autosize="{minRows: 2,maxRows: 12}" placeholder="课程介绍"></Input>
+        </FormItem>
+      </Form>
+      <div slot="footer">
+        <Button type="primary" @click="create">提交</Button>
+        <Button type="ghost" @click="handleReset" style="margin-left: 8px">取消</Button>
+      </div>
+    </Modal>
     <div class="head">
       <div class="all">
         <Checkbox
           :indeterminate="indeterminate"
           :value="checkAll"
           @click.prevent.native="handleCheckAll">全选</Checkbox>
-        <span>创建播单</span><span>删除</span>
+        <span @click="modal1 = true">创建播单</span><span>删除</span>
       </div>
       <div class="title">
         <span class="fl">播单</span>
@@ -47,8 +69,8 @@
       <div style="height:20px;"></div>
     </div>
     <div class="upload-box">
+      <CheckboxGroup v-model="bodanDel" @on-change="bodanDelChange">
       <table>
-        <CheckboxGroup v-model="bodanDel" @on-change="bodanDelChange">
         <tr height="120" v-for="item in classes" :key="item.id">
           <td width='50'>
             <Checkbox :label="item.name"><span></span></Checkbox>
@@ -75,8 +97,8 @@
             <p>删除</p>
           </td>
         </tr>
-        </CheckboxGroup>
       </table>
+      </CheckboxGroup>
     </div>
     <div class="pgs">
       <li class="prev">&lt;上一页</li>
@@ -103,11 +125,10 @@ export default {
       indeterminate:false,
       checkAll:false,
       modal:false,
+      modal1:false,
       bodan:{
         name:'',
         intro:'',
-        money:'',
-        moneyMarketing:'',
         crowd:'',
         value:''
       },
@@ -118,8 +139,22 @@ export default {
     handleReset:function(){
       this.$refs.bodan.resetFields()
       this.modal=false
+      this.modal1=false
     },
     submit:function(){
+      let bodan = this.bodan
+      let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getOnline_Courses_update',{
+        username: "niuhongda",
+        password: "123123q",
+        gid:this.gid,
+        bodan
+      }).then((res)=>{
+        console.log(res)
+      })
+      this.$router.go(0)
+    },
+    // 创建播单的接口
+    create:function(){
       let bodan = this.bodan
       let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getOnline_Courses_update',{
         username: "niuhongda",
@@ -157,7 +192,7 @@ export default {
       }
     }
   },
-  mounted () {
+  created () {
     let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getOnline_Courses',{
       username: "niuhongda",
       password: "123123q"
@@ -165,7 +200,7 @@ export default {
       // console.log(res)
       this.classes = res.data
       for(let i = 0;i<res.data.length;i++){
-        // 将name 换成id！！！
+        // 将name 换成id！！！等接口返回id之后
         this.blankChoosen.push(res.data[i].name)
       }
     })

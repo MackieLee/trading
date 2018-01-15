@@ -175,16 +175,19 @@ export default {
     let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_List',{
       username: "niuhongda",
       password: "123123q",
+      page:1,
+      number:20
     }).then((res)=>{
       console.log(res)
-      for(let j = 0;j<res.data.length;j++){
-        if(res.data[j].explain === '1'){
-          _self.newArr.push(res.data[j])
-        }else if(res.data[j].explain === '2'){
-          console.log(res.data[j])
-          _self.jieduArr.push(res.data[j])
-        }
-      }
+      // for(let j = 0;j<res.data.length;j++){
+      //   if(res.data[j].explain === '1'){
+      //     _self.newArr.push(res.data[j])
+      //   }else if(res.data[j].explain === '2'){
+      //     console.log(res.data[j])
+      //     _self.jieduArr.push(res.data[j])
+      //   }
+      // }
+      _self.newArr = res.data
       let arr = _self.newArr
       let jArr = _self.jieduArr
       // 最新列表的时间

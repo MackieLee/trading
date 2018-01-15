@@ -425,7 +425,7 @@ const routes = [
   }
 ]
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   linkActiveClass: 'active',
   routes,
   scrollBehavior (to, from, savedPosition) {

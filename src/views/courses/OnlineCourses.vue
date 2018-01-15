@@ -22,9 +22,11 @@ export default {
   mounted () {
     let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getOnline_Courses',{
       username: "niuhongda",
-      password: "123123q"
+      password: "123123q",
+      page:1,
+      number:12
     }).then((res)=>{
-      console.log(res)
+      console.log(res.data)
       this.classes = res.data
     })
   }

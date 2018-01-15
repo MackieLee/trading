@@ -136,7 +136,7 @@ export default {
       username: "niuhongda",
       password: "123123q"
     }).then((res)=>{
-      // console.log(res)
+      // 遍历id ，根据id往卡片上填充老师信息！！！！！！important-------------------------------！！！！！！！！！！--------------------
       this.teachers = res.data
     })
   }

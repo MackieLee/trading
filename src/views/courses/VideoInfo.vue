@@ -7,11 +7,11 @@
         <router-link :to="{ name: 'offline' }">&nbsp;&gt;&nbsp;线上课程</router-link>&nbsp;&gt;&nbsp;{{ course.name }}</p>
     </div>
     <div id="xxkc_xq01">
-			<router-link tag="div" :to="{path:'./video'}" class="xq01_shit">
+			<div :to="{name:'video-page'}" class="xq01_shit">
 				<img src="../../assets/images/jdtax_线下_01.png">
-				  <a target="_blank" class="shit" data-trace="518" href="###"
-				data-trace-type="免费试听" data-trace-position="封面">免费试听</a>
-			</router-link>
+				  <router-link :to="{ name : 'video-page'}" class="shit" data-trace="518"
+				data-trace-type="免费试听" data-trace-position="封面">免费试听</router-link>
+			</div>
       <div class="xq01_r">
         <h2>
           {{ course.name }}

@@ -13,12 +13,13 @@
       <div class="clearfix" style="margin-bottom:15px;line-height:25px;">
         <div class="second-title">
           <p>文号:{{ content.reference }}</p>
-          <p>发布日期:{{ timeUp }}</p>
+          <p>发文日期:{{ content.date_posted }}</p>
         </div>
       </div>
       <vue-audio>
       </vue-audio>
       <div class="top-bar">
+        <span>网站发布日期:{{ timeUp }}</span>
         <span class="pointer">收藏</span>
         <span @click="print" class="pointer">打印本页</span>
         <a href="#bottom">一键到底</a>
