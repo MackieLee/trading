@@ -17,7 +17,9 @@
           <i @click="change()" data-ref="0" :class="{ selected: num1}"></i>
           <span class="span01">2017-08-31</span>订单号: 53196839876687913</p>
         <div class="ul">
-          <div class=" block block-1 li01 lf"><div class="lf img"><img src="../../assets/images/huanyuanzx02.png"></div><div class="lf header">土地增值税清算土地增值税清算</div></div>
+          <div class=" block block-1 li01 lf">
+          	<img class="lf img" src="../../assets/images/huanyuanzx02.png">
+          	<div class="lf header">土地增值税清算土地增值税清算</div></div>
           <div class=" block block-2 lf">￥4588.00</div>
           <div class=" block block-3 lf">视频</div>
           <div class=" block block-4 lf"><p>应付</p><p>￥4588.00</p></div>
@@ -29,7 +31,9 @@
           <i @click="change()" data-ref="1" :class="{ selected: num2}"></i>
           <span class="span01">2017-08-31</span>订单号: 53196839876687913</p>
         <div class="ul">
-          <div class=" block block-1 li01 lf"><div class="lf img"><img src="../../assets/images/huanyuanzx02.png"></div><div class="lf header">土地增值税清算土地增值税清算</div></div>
+          <div class=" block block-1 li01 lf">
+          	<img class="lf img" src="../../assets/images/huanyuanzx02.png">
+          	<div class="lf header">土地增值税清算土地增值税清算</div></div>
           <div class=" block block-2 lf">￥4588.00</div>
           <div class=" block block-3 lf">音频</div>
           <div class=" block block-4 lf"><p>应付</p><p>￥4588.00</p></div>
@@ -41,11 +45,15 @@
           <i @click="change()" data-ref="1" :class="{ selected: num2}"></i>
           <span class="span01">2017-08-31</span>订单号: 53196839876687913</p>
         <div class="ul">
-          <div class=" block block-1 li01 lf"><div class="lf img"><img src="../../assets/images/huanyuanzx02.png"></div><div class="lf header">土地增值税清算土地增值税清算</div></div>
+          <div class=" block block-1 li01 lf">
+          		<img class="lf img" src="../../assets/images/huanyuanzx02.png">
+          <div class="lf header">土地增值税清算土地增值税清算</div></div>
           <div class=" block block-2 lf">￥4588.00</div>
           <div class=" block block-3 lf">音频</div>
           <div class=" block block-4 lf"><p>应付</p><p>￥4588.00</p></div>
-          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br><span>已收藏</span></div>
+          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br>
+          <span>已收藏</span>
+        </div>
         </div>
       </div>
     </div>
@@ -152,7 +160,7 @@ i {
   }
 }
 .block-hori {
-  padding: 0 15px;
+ width: 110px;
 }
 .block-nav-1 {
   width: 300px;
@@ -169,14 +177,11 @@ i {
     width: 200px;
   }
 }
-.block-2 {
-  width: 70px;
+.block-2,.block-4  {
+  width: 100px;
 }
 .block-3 {
-  width: 45px;
-}
-.block-4 {
-  width: 80px;
+  width: 85px;
 }
 .btn-danger {
   width: 90px;
@@ -259,20 +264,16 @@ i {
     float: left;
   }
   .block {
-    padding: 13px;
+    padding:10px 13px 0;
     text-align: center;
   }
   .block-1,
   .block-2,
   .block-3,
-  .block-4 {
+  .block-4  {
+    line-height: 50px;
+     height: 85px; 
     border-right: 1px solid $border-dark;
-    height: 68px;
-  }
-  .block-1,
-  .block-2,
-  .block-3 {
-    line-height: 65px;
   }
   .block-4 p {
     text-align: center;

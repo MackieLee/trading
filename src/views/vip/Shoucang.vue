@@ -57,7 +57,7 @@
         <ul>
           <li class="li01">
           	<img src="../../assets/images/huanyuanzx02.png">  
-          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽表中隐藏的稽查陷阱藏的稽查陷
+          	 <strong>企业所得税年度纳税阱藏的稽表中的稽查陷阱藏的稽查陷
           	 	<span>孙炜</span>
           	 </strong>
          </li>
@@ -154,11 +154,11 @@ export default {
         li {
           float: left;
           border-right: 1px solid #ddd;
-          height: 76px;
-          padding: 10px 10px;
+          height: auto;
+          padding:15px 10px;
         }
         .li01 {
-          width: 65%;
+          width: 70%;
           img {
             float: left;
             width: 92px;
@@ -180,17 +180,17 @@ export default {
         }
         .li02 {
           width: 14%;
-          line-height: 80px;
+          line-height: 50px;
           text-align: center;
         }
         .li03 {
           border: 0 none;
           text-align: center;
-          height: 30px;
+          height: auto;
           line-height: 30px;
           .zcgm {
             display: block;
-            margin: 5px 0 15px;
+            margin: 5px 0px;
             color: #fff;
             width: 90px;
             border-radius: 3px;

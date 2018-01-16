@@ -35,11 +35,13 @@
         <li>未开</li>
         <li><span>专用发票</span>
         </li>
-        <li><router-link :to="{ name:'fapiaoapp' }">申请发票</router-link></li>
+        <li class="sqfp"><router-link :to="{ name:'fapiaoapp' }">申请发票</router-link></li>
       </ul>
-      <i @click="change()" data-ref="1" :class="{ selected: num2}"></i>全选
-      <input type="button" class="btn btn-1" value="删除订单"/>
-      <input type="button" class="btn btn-2" value="去结算"/>
+      <div class="div_btn">
+      	<i @click="change()" data-ref="1" :class="{ selected: num2}"></i>全选
+        <input type="button" class="btn btn-1" value="删除订单"/>
+        <input type="button" class="btn btn-2" value="去结算"/>
+      </div> 
       <div class="pgs">
         <li class="prev">&lt;上一页</li>
         <li class="current">1</li>
@@ -123,6 +125,7 @@ i {
   height: 30px;
   cursor: pointer;
 }
+.div_btn{margin-top: 20px;
 .btn-1 {
   border: 1px solid $border-dark;
   margin-left: 20px;
@@ -136,6 +139,7 @@ i {
   &:hover {
     background-color: $btn-danger-hover;
   }
+}
 }
 .my_order_r {
   height: 900px;
@@ -273,6 +277,7 @@ i {
       display: inline-block;
     }
   }
+  li.sqfp a{color: #4683EE;}
   li {
     width: 120px;
     line-height: 95px;

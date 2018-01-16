@@ -178,6 +178,7 @@
       	</div>
       </div>
     </div>
+  
   </div>
 </template>
 <script>
@@ -406,7 +407,7 @@ export default {
       margin-top: 15px;
       .li01{width: 100%;overflow: hidden;
        li{ padding-left:10px;
-    width: 300px;
+    width: 33%;
     float: left;
     line-height: 26px;
     height: 26px;}

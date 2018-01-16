@@ -171,7 +171,7 @@ export default {
         }
       }
       .sm-btn {
-        width: 15%;
+        width: 12%;
         margin: 0 10px;
         span {
           display: block;

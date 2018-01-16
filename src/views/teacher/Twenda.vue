@@ -21,59 +21,41 @@
       <ul class="div01" v-if="part=='1'">
         <li>
 	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<div class="div"> 
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企……  <span class="more">查看全部>></span>
-						</p>
-						<img src="../../assets/images/wendavip.png">
+					<p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
+					<img src="../../assets/images/wendavip.png">
+				</div>
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
 	        	<p class="hui" @click="modal=!modal">查看评价</p>
 	        </div>
 	       </li>
-	      <li>
+	     <li>
 	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<div class="div"> 
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
-						</p>
-						<img src="../../assets/images/wendavip.png">
+					<p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
+					<img src="../../assets/images/wendavip.png">
+				</div>
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
 	        	<p class="hui" @click="modal=!modal">查看评价</p>
 	        </div>
+	    </li>
+	     <li>
+	        <div class="l">
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p>还没有答案！</p>
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
+	        </div>
 	       </li>
 	      <li>
 	        <div class="l">
@@ -85,19 +67,41 @@
 	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
 	        </div>
 	       </li>
-       <li>
+	      <li>
 	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p>还没有答案！</p>
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
+	        </div>
+	       </li>
+	      	 <li>
+	        <div class="l">
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<div class="div"> 
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
-						</p>
-						<img src="../../assets/images/wendavip.png">
+					<p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
+					<img src="../../assets/images/wendavip.png">
+				</div>
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
 	        	<p class="hui" @click="modal=!modal">查看评价</p>
 	        </div>
+	    </li>
+	      <li>
+	        <div class="l">
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<p>还没有答案！</p>
+	        </div>
+	        <div class="r">
+	         	<h3> 2018-2-12</h3>
+	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
+	        </div>
 	       </li>
+       
 
       </ul>
 
@@ -157,32 +161,35 @@
       </ul>
 
       <ul class="div01" v-if="part=='3'">
-        <li>
+       <li>
 	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<div class="div"> 
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
-						</p>
-						<img src="../../assets/images/wendavip.png">
+					<p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
+					<img src="../../assets/images/wendavip.png">
+				</div>
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
 	        	<p class="hui" @click="modal=!modal">查看评价</p>
 	        </div>
-	       </li>
-	       <li>
+	    </li>
+         <li>
 	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<div class="div"> 
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">根据贵公司提供的资料理公司打算收购甲企业的债务包，收购价……  <span class="more">查看全部>></span>
-						</p>
-						<img src="../../assets/images/wendavip.png">
+					<p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
+					<img src="../../assets/images/wendavip.png">
+				</div>
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
 	        	<p class="hui" @click="modal=!modal">查看评价</p>
 	        </div>
-	      </li>
+	    </li>
+
       </ul>
       </div>
 			<div class="pgs">
@@ -332,7 +339,7 @@ export default {
   padding-bottom: 10px;
 }
 .my_qianb_r .div01 li {
-  width: 96%;
+  width: 100%;
   border-bottom: 1px solid #eee;
   padding: 10px 15px;
 }
@@ -343,9 +350,9 @@ export default {
   float: left;
 }
 .my_qianb_r .div01 .l {
-  width: 80%;
-  position: relative;
+  width: 83%;
   margin-right: 5%;
+  .div{position: relative;}
 }
 .my_qianb_r .div01 .l h2,
 .my_qianb_r .div01 .r h3 {
@@ -357,7 +364,7 @@ export default {
 }
 .div01 {
   .r {
-    width: 15%;
+    width: 11%;
   }
   .red {
     color: #e7141a;
@@ -384,6 +391,6 @@ export default {
 .my_qianb_r .div01 .l img {
   position: absolute;
   left: 0px;
-  top: 40px;
+  top: 8px;
 }
 </style>

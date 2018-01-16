@@ -84,18 +84,51 @@
       	 </div>
       </div>
     </div>
-    <div class="comment">
-     
+    <div class="comment">    
       <div class="content" v-if="part=='1'">
       	 <p @click="toggle()">
         <span data-ref='1' class="cur">商品介绍</span>
       </p>
-      <div class="div01">
-      	<img src="../../assets/images/jifen01.png">
+      <div class="content_div">
+		      <div class="div01">
+		      		<h3>基础信息</h3>
+		      	<ul class="li01">
+		      		<li>产品名称：DP久量可折叠LED护眼台灯685</li>
+		      		<li>光源功率：1.8W</li>
+		      		<li>充电时间：2H</li>
+		      		<li>产品品牌：久量</li>
+		      		<li>额定电压：16开</li>
+		      		<li>使用时间：12H</li>
+		      		<li>电池容量：700AH</li>
+		      		<li>电流额定：否</li>
+		      		<li>LED灯数：9787119111612</li>
+		      	</ul>
+		      	<h3>产品详情</h3>
+						 <p class="p">《注册会计师法》规定，国家实行注册会计师全国统一考试制度。注册会计师全国统一考试制度已经成为注册会计师行业资格准人的重要环节，在引导会计专业人才健康成长、评价会计专业人才资质能力、建设会计专业人才队伍等方面发挥了不可替代的作用。
+						    注册会计师全国统一考试分为专业阶段和综合阶段两个阶段。专业阶段主要测试考生是否具备注册会计师执业所需要的专业知识，是否掌握基本的职业技能和职业道德规范，设会计、审计、财务成本管理、公司战略与风险管理、经济法、税法6科。综合阶段主要测试考生是否具备在职业环境中综合运用专业学科知识，坚守职业价值观、遵循职业道德、坚持职业态度，有效解决实务问题的能力，设职业能力综合测试科目，分成试卷一和试卷二。
+						    为有效指导考生进行复习备考，我们组织专家编写了专业阶段6个科目的考试辅导教材和《经济法规汇编》；同时，分科汇编了近5年专业阶段和综合阶段的考试试题。本套教材作为注册会计师考试质量保证体系改革的重要成果，按照理论性、科学性、全面性、实践性、可读性的质量要求进行了全面修订，旨在帮助考生系统理解和掌握基本原理，培养考生的专业思维和分析问题、解决问题的能力。本套教材以读者掌握大学会计等相关专业本科以上专业知识为基准，力求体现注册会计师考试制度改革的总体目标。
+						</p>
+						      		<p>第一章税法总论<br>
+						第一节税法的概念<br>
+						第二节税法原则<br>
+						第三节税法要素<br>
+						第四节税收立法与我国现行税法体系<br>
+						第五节税收执法<br>
+						第六节税务机关和纳税人的权利与义务<br>
+						第七节国际税收关系<br>
+						第二章增值税法<br>
+						第一节征税范围与纳税义务人<br>
+						第二节一般纳税人、小规模纳税人的资格登记及管理<br>
+						第三节税率与征收率<br>
+						第四节增值税的计税方法<br>
+						第五节一般计税方法应纳税额的计算
+						</p>	
+		      	<img src="../../assets/images/jifen01.png">
+		      	<a href="###" class="a">查看更多>></a>
+		      </div>
+       </div> 
       </div>
-       
-      </div>
-       <div class="content01" v-if="part=='1'">
+      <div class="content01" v-if="part=='1'">
       	 <p @click="toggle()">
         <span data-ref='1' class="cur">相关推荐</span>
       </p>
@@ -374,14 +407,6 @@ export default {
   .comment {
   	width:100%; overflow: hidden;
     .content{float: left; width:800px;
-    .div01{
-    margin-top:20px;
-    line-height: 35px;
-    font-size: 14px;
-    padding: 15px 10px 20px;
-    border: 1px solid #fbc081;
-    margin-top: 15px;   
-    	}
       p {
       border-bottom: 1px solid $red;
       overflow: hidden;
@@ -390,8 +415,34 @@ export default {
         color: $white;
         padding: 11px 16px;
         cursor: pointer;
-      }
     }
+    }
+     .content_div{ border: 1px solid #fbc081; 
+     overflow:hidden ; 
+      line-height: 35px;
+      font-size: 14px;
+      padding: 15px 10px 20px;
+      border: 1px solid $border-rice;
+      margin-top: 15px;
+      .li01{width: 100%;overflow: hidden;
+       li{ padding-left:10px;
+    width: 33%;
+    float: left;
+    line-height: 26px;
+    height: 26px;
+    }
+      }
+      .div01{
+      	h3{ border-bottom: 2px solid #e5e5e5;  margin:10px 0;
+    height: 22px;
+    border-left: 2px solid #ff2832;
+    padding: 0 30px 0 6px;}
+    .p{text-indent: 32px;}
+     p{ border: none; color: #656565;line-height: 32px;
+    padding: 5px 10px; font-size: 14px;}
+    .a{color: #117cee;float: right;}
+      }
+     }
     }
     .content01{float: left; width:160px;margin-left: 70px;
     .div01{

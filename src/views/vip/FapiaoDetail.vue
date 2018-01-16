@@ -64,7 +64,7 @@ export default {
   .tab-2{
     margin-top: 50px;
     th{
-      background-color: $border-dark;
+      background-color: #F5F5F5;
       color: $black;
       text-align: left;
       padding-left: 20px;

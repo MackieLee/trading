@@ -29,7 +29,7 @@
         <ul>
           <li class="li01">
           	<img src="../../assets/images/huanyuanzx02.png">
-          	 <span>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+          	 <span>企业所得税年度纳税申报表中隐藏的查陷
           	 </span>
          </li>
          <li class="li02">¥988.00</li>
@@ -50,7 +50,7 @@
         <ul>
           <li class="li01">
           	<img src="../../assets/images/huanyuanzx02.png">
-          	 <span>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+          	 <span>企业所得税年度纳税申报表中隐藏的稽查
           	 </span>
          </li>
          <li class="li02">¥988.00</li>
@@ -71,7 +71,7 @@
         <ul>
           <li class="li01">
           	<img src="../../assets/images/huanyuanzx02.png">
-          	 <span>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+          	 <span>企业所得税年度纳税申报表中隐报表中隐
           	 </span>
          </li>
          <li class="li02">¥988.00</li>
@@ -344,7 +344,7 @@ export default {
 .my_order_r .ul02 {
   height: 36px;
   width: 100%;
-  background: #ddd;
+  background: #F5F5F5;
   margin: 14px 0;
   li {
     width: 12%;
@@ -355,7 +355,7 @@ export default {
     line-height: 36px;
   }
   .li01 {
-    width: 50%;
+    width: 43%;
   }
   .li02 {
     width: 11%;
@@ -408,11 +408,11 @@ export default {
       li {
         float: left;
         border-right: 1px solid #ddd;
-        height: 76px;
+        height: 85px;
         padding: 10px 10px;
       }
       .li01 {
-        width: 44%;
+        width:44%;
         img {
           float: left;
           width: 92px;
@@ -421,11 +421,11 @@ export default {
           border: 1px solid #ddd;
         }
         span {
-          width: 56%;
+          width: 68%;
           line-height: 30px;
           float: left;
           font-size: 14px;
-          margin: 5px 10px 0;
+          margin:5px 0px 0px 10px;
           display: block;
           span {
             display: block;
@@ -435,21 +435,19 @@ export default {
       }
       .li02,
       .li03,
-      .li04 {
-        width: 8%;
-        line-height: 80px;
-        text-align: center;
+      .li04,
+      .li05{
+        width: 11%;
+        text-align: center;line-height: 30px;
       }
       .li03 {
-        width: 6%;
+        width: 8%;
       }
       .li05 {
         line-height: 30px;
         text-align: center;
-        width: 8%;
         .zcgm {
           display: block;
-          margin: 10px 0;
           color: #e7141a;
         }
         .jindu {
@@ -460,7 +458,7 @@ export default {
         border: 0 none;
         .zcgm {
           display: block;
-          margin: 5px 0 15px;
+          margin: 5px 0;
           color: #fff;
           width: 80px;
           text-align: center;

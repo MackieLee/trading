@@ -61,9 +61,9 @@ export default {
 <style lang="scss">
 @import '../../assets/style/base.scss';
 #divcss5 {
-  width: 300px;
-  height: 300px;
-  position: relative;
+  width: 302px;
+  height: 302px;
+  position: relative; border: 1px solid #ddd;
 }
 
 #divcss5 .small_pic {

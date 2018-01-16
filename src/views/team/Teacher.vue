@@ -73,7 +73,7 @@ export default {
       }
       .short-msg{
         margin-top: 29px;
-        width: 750px;
+        width: 80%;
         p[class="name"]{
           font-size: $lg-title;
           margin-bottom:10px;

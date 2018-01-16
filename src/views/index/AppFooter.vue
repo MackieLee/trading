@@ -6,28 +6,28 @@
           <ul>
             <li class="title">新手指南</li>
             <li>
-              <router-link :to="{ name:'home' }">购买课程</router-link>
+              <router-link :to="{ name:'Explain' }">播放说明</router-link>
             </li>
             <li>
-              <router-link :to="{ name:'home' }">播放说明</router-link>
-            </li>
-          </ul>
-          <ul>
-            <li class="title">使用帮助</li>
-            <li>
-              <router-link :to="{ name:'home' }">视频播放</router-link>
-            </li>
-            <li>
-              <router-link :to="{ name:'home' }">打击盗版</router-link>
+              <router-link :to="{ path:'/Explain#app' }">问答说明</router-link>
             </li>
           </ul>
           <ul>
             <li class="title">关于我们</li>
             <li>
-              <router-link :to="{ name:'home' }">市场合作</router-link>
+              <router-link :to="{ name:'hezuo' }">帮助中心</router-link>
             </li>
             <li>
-              <router-link :to="{ name:'home' }">服务条款</router-link>
+              <router-link :to="{ path:'hezuo#app' }">市场合作</router-link>
+            </li>
+          </ul>
+          <ul>
+            <li class="title">法律协议</li>
+            <li>
+              <router-link :to="{ name:'copy' }">版权声明</router-link>
+            </li>
+            <li>
+              <router-link :to="{ path:'/copy#app' }">服务条款</router-link>
             </li>
           </ul>
         </div>

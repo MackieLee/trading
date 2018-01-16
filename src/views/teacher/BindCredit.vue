@@ -3,7 +3,7 @@
     <div class="content">
       <div class="title">绑定银行卡</div>
       <div class="form-container">
-        <p class="emit">填写身份信息<span>请认真填写并核对真实信息，填写后将无法更改</span></p>
+        <p class="emit">填写身份信息<span>请填写每项信息并认真核对，填写后将无法更改</span></p>
         <table>
           <tr>
             <th width="120">真实姓名</th>
@@ -15,7 +15,7 @@
             <td colspan="2"></td>
           </tr>
           <tr>
-            <th>身份证号/护照号</th>
+            <th>身份证号</th>
             <td >
               <input type="text">
             </td>
@@ -30,7 +30,7 @@
               <!-- {{ 当store中存在真实姓名 }} -->
             </td>
           </tr>
-          <tr class="split">
+          <!--<tr class="split">
             <td colspan="3"></td>
           </tr>
           <tr>
@@ -52,11 +52,11 @@
               </select>
             </td>
           </tr>
-          <tr class="split">
+          <tr class="split">-->
             <td colspan="3"></td>
           </tr>
           <tr>
-            <th>身份证号/护照号</th>
+            <th>银行卡号</th>
             <td colspan="2">
               <input type="text">
             </td>
@@ -65,7 +65,7 @@
             <td colspan="3"></td>
           </tr>
           <tr>
-            <th>身份证号/护照号</th>
+            <th>手机号</th>
             <td colspan="2">
               <input type="text">
             </td>
@@ -79,7 +79,7 @@
           <tr>
             <td width="120"></td>
             <td width="120"><input type="button" value="确定"/></td>
-            <td width="120"><input type="button" value="确定"/></td>
+            <td width="120"><input type="button" value="取消"/></td>
           </tr>
         </table>
       </div>
