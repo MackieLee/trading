@@ -178,7 +178,7 @@ export default {
       username: "niuhongda",
       password: "123123q",
       page:1,
-      number:20
+      number:5000
     }).then((res)=>{
       let _self = this
       let resArr = Object.entries(res.data).slice(0,-1)
@@ -194,6 +194,7 @@ export default {
           resArr[j][1].time = date
           _self.jieduArr.push(resArr[j][1])
         }
+        // console.log(resArr[j][1])
       }
     })
   },
@@ -213,7 +214,6 @@ export default {
       }else if(name === 'localSearch'){
         laws = 503
       }
-      console.log(this.federalSearch.beginLine)
       this.$router.push({name:'fagui',query:{
         laws:laws,
         area:obj.area,
@@ -227,7 +227,6 @@ export default {
       })
     },
     handleFormat:function(obj,line,date){
-      console.log(date)
       if(line === 'beginLine'){
         this.begin = date
       }else{

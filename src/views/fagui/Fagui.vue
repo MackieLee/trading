@@ -16,7 +16,7 @@
           <tr>
             <td class="xuhao ctr" style="width: 40px;">序号</td>
             <td class="biaoti" style="text-align:center;">标题</td>
-            <td class="fahao ctr">文号发文</td>
+            <td class="fahao ctr">文号</td>
             <td class="riqi ctr">日期</td>
           </tr>
         </tbody>
@@ -74,6 +74,7 @@ export default {
         number:20
       }).then((res)=>{
         // console.log('typeof(res.data):'+typeof(res.data))
+        console.log(res)
         this.total = parseInt(res.data.counts)
         this.list = Object.entries(res.data).slice(0,-1)
       })

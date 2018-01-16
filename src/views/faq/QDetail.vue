@@ -80,9 +80,9 @@
         <div v-for="item in qslst" :key="item.id" class="list-item">
           <p><span class="question">{{ item.name }}</span><span class="date rt">4天前</span></p>
           <p class="indent tchr">回答者：{{ intro.name }}</p>
-          <p class="indent">{{ item.value.substring(0,5)}}....
+          <p class="indent">{{ item.value === ''?'暂无回答':item.value.substring(0,5)+'……'}}
             <!-- 如何传递价格到支付页面？？同时携带问题id以及开放答案并在支付成功后重新返回此页面(此时渲染完整答案 v-if) -->
-            <span class="more">查看全部&gt;&gt;</span>
+            <span v-show="item.value !==''" class="more">查看全部&gt;&gt;</span>
           </p>
         </div>
       </div>
