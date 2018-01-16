@@ -1,7 +1,7 @@
 
 <template>
  <div class="my_qianb_r">
-   <Modal
+    <Modal
       :width = '850'
       v-model="modal"
       :closable = "false"

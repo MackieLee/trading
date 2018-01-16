@@ -73,7 +73,7 @@
         	您试着换台电脑或者浏览器试试，祝备考顺利！</p>
           		<span>编辑</span>
           		<span>删除</span>
-          	</li>          	
+          	</li>
           </ul>
           </div>
           <!-- 问答模块！！！！ -->
@@ -145,6 +145,8 @@ export default {
           }
         ]
       },
+      bijiTitle:'',
+      biji:'',
       classes: [
         {
           num: "1",
@@ -170,7 +172,7 @@ export default {
           num: "6",
           title: "6. 章节6:【第四课】基础模块二：视觉定焦训练"
         }
-      
+
       ],
       videos: [
         "http://112.253.22.163/2/z/x/a/d/zxaddmlybpqfcakgrlcmvbvzpnkdqk/he.yinyuetai.com/68DB01553913F3CAF794A41F2AB77A76.flv?sc=96b1e18fc28b7552&br=1153&vid=2592783&aid=29438&area=JP&vst=0",
@@ -343,12 +345,12 @@ export default {
       .biji{
       	.biaoti{line-height:35px; background-color:#f5f5f5;
       	 text-indent: 1em; margin-bottom: 2px;
-      	 }    	 
+      	 }
       	 	li { margin: 10px 0px;overflow: hidden;
          cursor: pointer; display: block;
          .p_l{ float: left;line-height: 28px;width: 80%;}
-         span{line-height: 28px; float: right; margin: 0px 10px;}         	 	
-      	 }      	  
+         span{line-height: 28px; float: right; margin: 0px 10px;}
+      	 }
       }
       .benjie {
       	.biaoti{line-height:35px; background-color:#f5f5f5;
@@ -356,7 +358,7 @@ export default {
       	 }
       	li:hover{background-color:#f5f5f5;}
         li {
-          display: list-item !important; line-height: 34px; cursor: pointer; 
+          display: list-item !important; line-height: 34px; cursor: pointer;
           .numb {
             color: $white;
             background-color: $orange;
