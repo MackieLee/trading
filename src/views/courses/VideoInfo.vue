@@ -9,8 +9,8 @@
     <div id="xxkc_xq01">
 			<div :to="{name:'video-page'}" class="xq01_shit">
 				<img src="../../assets/images/jdtax_线下_01.png">
-				  <router-link :to="{ name : 'video-page'}" class="shit" data-trace="518"
-				data-trace-type="免费试听" data-trace-position="封面">免费试听</router-link>
+				  <a @click="ifLogined" class="shit" data-trace="518"
+				data-trace-type="免费试听" data-trace-position="封面">免费试听</a>
 			</div>
       <div class="xq01_r">
         <h2>
@@ -19,7 +19,7 @@
         </h2>
         <P class="p"> <b>￥</b> {{ course.money }} —— {{ length*50 }}.00<del>￥{{ course.money_marketing }}</del></P>
         <P class="share-in">课程状态：热播
-          <a @click="share"><i></i>分享</a><div class="share-box" v-show="showShare"><i class="arrow"></i><i class="weibo"></i><i class="wechat"></i><i class="qq"></i></div></P>
+          <a @click="showShare = !showShare"><i></i>分享</a><div class="share-box" v-show="showShare"><i class="arrow"></i><i class="weibo"></i><i class="wechat"></i><i class="qq"></i></div></P>
         <P>课程数量：{{ length }}</P>
         <p>适合人群：{{ course.crowd }}</p>
         <p class="p01">
@@ -76,12 +76,13 @@
         </div>
       </div>
     </div>
- 
+
   </div>
 </template>
 
 <script>
 import { loginUserUrl } from '@/api/api'
+import { getCookie } from "@/util/cookie"
 export default {
   name: "odetail",
   data() {
@@ -95,8 +96,14 @@ export default {
     }
   },
   methods: {
-    share: function() {
-      this.showShare = !this.showShare;
+    ifLogined:function(){
+      let cookieName = getCookie('u_name')
+      let id = this.$route.query.id
+      if(cookieName !== '' && cookieName !== undefined ){
+        this.$router.push({name:'video-page',query:{id:id}})
+      }else{
+        this.$router.push({name:'login'})
+      }
     }
   },
   mounted () {

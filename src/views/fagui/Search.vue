@@ -149,6 +149,8 @@ export default {
       federal: true,
       newArr:[],
       jieduArr:[],
+      begin:'',
+      end:'',
       federalSearch:{
         area:'',
         title:'',
@@ -178,32 +180,19 @@ export default {
       page:1,
       number:20
     }).then((res)=>{
-      console.log(res)
-      // for(let j = 0;j<res.data.length;j++){
-      //   if(res.data[j].explain === '1'){
-      //     _self.newArr.push(res.data[j])
-      //   }else if(res.data[j].explain === '2'){
-      //     console.log(res.data[j])
-      //     _self.jieduArr.push(res.data[j])
-      //   }
-      // }
-      _self.newArr = res.data
-      let arr = _self.newArr
-      let jArr = _self.jieduArr
-      // 最新列表的时间
-      if(arr){
-        for(let i = 0;i<arr.length;i++){
-          let time = parseInt(arr[i].time)*1000
-          let date = new Date(time).toLocaleDateString()
-          _self.newArr[i].time = date
-        }
-      }
-      // 政策解读时间
-      if(jArr){
-        for(let a = 0;a<jArr.length;a++){
-          let time = parseInt(jArr[a].time)*1000
-          let date = new Date(time).toLocaleDateString()
-          _self.jieduArr[a].time = date
+      let _self = this
+      let resArr = Object.entries(res.data).slice(0,-1)
+      for (let j = 0;j<resArr.length;j++){
+        if(resArr[j][1].explain === '1'){
+          let faguiTime = resArr[j][1].time
+          let date = new Date(parseInt(faguiTime)*1000).toLocaleDateString()
+          resArr[j][1].time = date
+          _self.newArr.push(resArr[j][1])
+        }else if(resArr[j][1].explain === '2'){
+          let time = resArr[j][1].time
+          let date = new Date(parseInt(time)*1000).toLocaleDateString()
+          resArr[j][1].time = date
+          _self.jieduArr.push(resArr[j][1])
         }
       }
     })
@@ -224,6 +213,7 @@ export default {
       }else if(name === 'localSearch'){
         laws = 503
       }
+      console.log(this.federalSearch.beginLine)
       this.$router.push({name:'fagui',query:{
         laws:laws,
         area:obj.area,
@@ -231,13 +221,18 @@ export default {
         reference:obj.zihao,
         date_posted:obj.niandu,
         department:obj.danwei,
-        begin_time:obj.beginLine,
-        end_time:obj.endLine
+        begin_time:this.begin,
+        end_time:this.end
         }
       })
     },
     handleFormat:function(obj,line,date){
-      this[obj][line] = date
+      console.log(date)
+      if(line === 'beginLine'){
+        this.begin = date
+      }else{
+        this.end = date
+      }
     }
   }
 }

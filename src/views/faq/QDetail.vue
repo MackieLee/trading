@@ -116,6 +116,8 @@ export default {
       let teacher_id = faqModal.ask.teacher
       let choose = faqModal.ask.choose
       let uid = getCookie('u_name')
+      console.log('uid:'+uid)
+      console.log('teacher_id:'+teacher_id)
       if(name!==''&& intro!==''){
         let res = loginUserUrl(
           "http://aip.kehu.zaidayou.com/api/execute/getQuestions_add",
@@ -161,6 +163,7 @@ export default {
   },
   mounted() {
     let _self = this
+    // 获取讲师信息
     let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getTeacher_Info',{
       username: "niuhongda",
       password: "123123q",
@@ -169,6 +172,7 @@ export default {
       _self.intro = res.data
       console.log(res.data)
     })
+    // 获取讲师的问题列表
     let qslst = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getQuestions_list',{
       username: "niuhongda",
       password: "123123q",

@@ -25,24 +25,16 @@
     <div class="td">
       <table cellspacing="0" cellpadding="0">
         <tbody>
-          <router-link v-for="(item,key,index) in list" :key="item.id" tag="tr" :to="{ name:'fdetail',query:{ id:item.id }}">
-            <td class="xuhao pointer ctr">{{parseInt(index)+1}}</td><span style="display:none">{{key}}</span>
-            <td class="biaoti pointer">{{item.name}}</td>
-            <td class="fahao pointer ctr">{{item.reference}}</td>
-            <td class="riqi pointer ctr">{{item.date_posted}}</td>
+          <router-link v-for="(item,index) in list" :key="item[1].id" tag="tr" :to="{ name:'fdetail',query:{ id:item[1].id }}">
+            <td class="xuhao pointer ctr">{{parseInt(index)+1}}</td>
+            <td class="biaoti pointer">{{item[1].name}}</td>
+            <td class="fahao pointer ctr">{{item[1].reference}}</td>
+            <td class="riqi pointer ctr">{{item[1].date_posted}}</td>
           </router-link>
         </tbody>
       </table>
-      <div class="pgs">
-        <li class="prev">&lt;上一页</li>
-        <li class="current ">1</li>
-        <li class="custom">2</li>
-        <li class="custom">3</li>
-        <li class="custom">4</li>
-        <li class="points">...</li>
-        <li class="jump"><input type="tel" maxlength="3"> /40页</li>
-        <li class="submit">确定</li>
-        <li class="next">下一页&gt;</li>
+      <div style="display:flex;justify-content:center;margin:80px 0 30px 0;">
+        <Page :total="total" @on-change="page($event)" :page-size="20" show-elevator show-total></Page>
       </div>
     </div>
   </div>
@@ -54,32 +46,42 @@ export default {
   name: "fagui",
   data(){
     return{
-      counts:'',
-      list:{},
-      title:'法规列表'
+      list:[],
+      title:'法规列表',
+      total:0,
+      pageNum:1
     }
   },
   created () {
-    let obj = this.$route.query
-    let _self = this
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_Search',{
-      username: "niuhongda",
-      password: "123123q",
-      area:obj.area,
-      name:obj.name,
-      reference:obj.reference,
-      date_posted:obj.date_posted,
-      department:obj.department,
-      begin_time:obj.begin_time,
-      end_time:obj.end_time,
-      laws:obj.laws,
-      page:1,
-      number:20
-    }).then((res)=>{
-      this.list = res.data
-      this.counts = res.data.counts
-      console.log(res)
-    })
+    this.onload()
+  },
+  methods:{
+    onload:function(){
+      let obj = this.$route.query
+      let _self = this
+      let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_Search',{
+        username: "niuhongda",
+        password: "123123q",
+        area:obj.area,
+        name:obj.name,
+        reference:obj.reference,
+        date_posted:obj.date_posted,
+        department:obj.department,
+        begin_time:obj.begin_time,
+        end_time:obj.end_time,
+        laws:obj.laws,
+        page:this.pageNum,
+        number:20
+      }).then((res)=>{
+        // console.log('typeof(res.data):'+typeof(res.data))
+        this.total = parseInt(res.data.counts)
+        this.list = Object.entries(res.data).slice(0,-1)
+      })
+    },
+    page:function(num){
+      this.pageNum = num
+      this.onload()
+    }
   }
 }
 </script>
@@ -171,51 +173,6 @@ export default {
       .separate{
         border-bottom: 1px solid $border-dark;
       }
-    }
-  }
-  .pgs {
-    width: 525px;
-    margin: 60px auto;
-    li {
-      width: 33px;
-      padding: 4px 0;
-      line-height: 20px;
-      text-align: center;
-      margin-right: 2px;
-      cursor: pointer;
-      border: 1px solid $border-dark;
-      color: $black;
-    }
-    .prev {
-      width: 73px;
-      color: $blue;
-    }
-    .next {
-      width: 96px;
-      color: $blue;
-    }
-    .points {
-      border: none;
-    }
-    .submit {
-      background-color: $btn-default;
-      color: $white;
-      width: 44px;
-      border: none;
-    }
-    .jump {
-      width: 80px;
-      border: 1px solid $border-dark;
-      color: #333;
-      input {
-        width: 30px;
-        border: 1px solid $border-dark;
-        outline: none;
-      }
-    }
-    .current {
-      background-color: $btn-default;
-      color: $white;
     }
   }
 }

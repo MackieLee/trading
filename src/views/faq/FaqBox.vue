@@ -6,6 +6,7 @@
     <!--  <a>更多>></a>-->
     </div>
     <div class="container">
+      <div>{{ data }}</div>
       <div class="floor">
         <div v-for="item in newAnsr" :key="item.id" class="item">
           <div>
@@ -31,7 +32,8 @@ import { loginUserUrl } from "@/api/api"
 export default {
   data() {
     return {
-      newAnsr:[]
+      newAnsr:[],
+      data:''
     }
   },
   methods: {
@@ -48,8 +50,12 @@ export default {
         password: "123123q"
       }
     ).then((res)=>{
-      console.log(res)
-      this.newAnsr = res.data
+      console.log(res === '暂无数据')
+      if(res === '暂无数据'){
+        this.data = res
+      }else{
+        this.newAnsr = res.data
+      }
     })
   }
 };

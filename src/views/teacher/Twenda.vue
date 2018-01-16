@@ -20,91 +20,20 @@
       </p>
       <ul class="div01" v-if="part=='1'">
         <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<div class="div"> 
-	        		<p class="phui">指定回答者：孙炜老师</p>
-					<p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
-					<img src="../../assets/images/wendavip.png">
-				</div>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="hui" @click="modal=!modal">查看评价</p>
-	        </div>
-	       </li>
-	     <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<div class="div"> 
-	        		<p class="phui">指定回答者：孙炜老师</p>
-					<p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
-					<img src="../../assets/images/wendavip.png">
-				</div>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="hui" @click="modal=!modal">查看评价</p>
-	        </div>
-	    </li>
-	     <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
-	        </div>
-	       </li>
-	      	 <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<div class="div"> 
-	        		<p class="phui">指定回答者：孙炜老师</p>
-					<p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
-					<img src="../../assets/images/wendavip.png">
-				</div>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="hui" @click="modal=!modal">查看评价</p>
-	        </div>
-	    </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
-	        </div>
-	       </li>
-       
-
+        <div class="l">
+          <h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+          <div class="div">
+            <p class="phui">指定回答者：孙炜老师</p>
+            <p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
+            <img src="../../assets/images/wendavip.png">
+          </div>
+        </div>
+        <div class="r">
+          <h3> 2018-2-12</h3>
+          <p class="hui" @click="modal=!modal">查看评价</p>
+        </div>
+        </li>
       </ul>
-
       <ul class="div01" v-if="part=='2'">
         <li>
 	        <div class="l">
@@ -116,99 +45,30 @@
 	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
 	        </div>
 	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
-	        </div>
-	       </li>
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
-	        </div>
-	       </li>
-
-	      <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
-	        </div>
-	       </li>
-
       </ul>
-
       <ul class="div01" v-if="part=='3'">
-       <li>
+        <li>
 	        <div class="l">
 	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<div class="div"> 
+	        	<div class="div">
 	        		<p class="phui">指定回答者：孙炜老师</p>
-					<p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
-					<img src="../../assets/images/wendavip.png">
-				</div>
+              <p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
+              <img src="../../assets/images/wendavip.png">
+            </div>
 	        </div>
 	        <div class="r">
 	         	<h3> 2018-2-12</h3>
 	        	<p class="hui" @click="modal=!modal">查看评价</p>
 	        </div>
-	    </li>
-         <li>
-	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<div class="div"> 
-	        		<p class="phui">指定回答者：孙炜老师</p>
-					<p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
-					<img src="../../assets/images/wendavip.png">
-				</div>
-	        </div>
-	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="hui" @click="modal=!modal">查看评价</p>
-	        </div>
-	    </li>
-
+	      </li>
       </ul>
-      </div>
-			<div class="pgs">
-        <li class="prev">&lt;上一页</li>
-        <li class="current">1</li>
-        <li class="custom">2</li>
-        <li class="custom">3</li>
-        <li class="custom">4</li>
-        <li class="points">...</li>
-        <li class="jump"><input type="tel" maxlength="3"> /40页</li>
-        <li class="submit">确定</li>
-        <li class="next">下一页&gt;</li>
-      </div>
     </div>
-		
   </div>
 </template>
 
 <script>
+import { loginUserUrl } from '@/api/api'
+import { getCookie } from "@/util/cookie"
 import Modal from "../modal/Qa_Modal";
 import WendaModal from "../modal/Twenda_Modal";
 export default {
@@ -218,7 +78,8 @@ export default {
     return {
       part: "1",
       modal: false,
-      wendaModal: false
+      wendaModal: false,
+      fqList:[]
     };
   },
   methods: {
@@ -231,6 +92,16 @@ export default {
     toggle: function(){
       this.part = event.currentTarget.dataset.ref
     }
+  },
+  mounted () {
+    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getQuestions_list',{
+      username: "niuhongda",
+      password: "123123q",
+      teacher_id:getCookie("u_name")
+    }).then((res)=>{
+      console.log(getCookie("u_name"))
+      this.fqList = res.data
+    })
   }
 };
 </script>
@@ -251,51 +122,6 @@ export default {
     position: absolute;
     top: 15%;
     left: 60%;
-  }
-}
-.pgs {
-  width: 525px;
-  margin: 60px auto;
-  li {
-    width: 33px;
-    padding: 4px 0;
-    line-height: 20px;
-    text-align: center;
-    margin-right: 2px;
-    cursor: pointer;
-    border: 1px solid $border-dark;
-    color: $black;
-  }
-  .prev {
-    width: 73px;
-    color: $blue;
-  }
-  .next {
-    width: 96px;
-    color: $blue;
-  }
-  .points {
-    border: none;
-  }
-  .submit {
-    background-color: $btn-default;
-    color: $white;
-    width: 44px;
-    border: none;
-  }
-  .jump {
-    width: 80px;
-    border: 1px solid $border-dark;
-    color: #333;
-    input {
-      width: 30px;
-      border: 1px solid $border-dark;
-      outline: none;
-    }
-  }
-  .current {
-    background-color: $btn-default;
-    color: $white;
   }
 }
 .my_qianb_r {

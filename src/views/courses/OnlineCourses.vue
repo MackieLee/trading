@@ -1,11 +1,11 @@
 <template>
   <div class="online">
     <div class="video-boxes">
-      <div class="item" v-for="item in classes" :key="item.title">
-        <div><router-link :to="{name: 'videoinfo',query:{}}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
-        <p class="video-title"><a :title="item.name">{{ item.name }}</a></p>
-        <p class="buss-info"><span class="score"><i></i><font>{{ item.score }}</font>分</span><span class="person-current"><i></i><font>{{ item.person }}</font>人</span><span class="classes">课时</span><font>{{ item.period }}&nbsp;</font><span>节</span></p>
-        <p class="price"><span>课程:<font class="rd">￥{{ item.price }}</font></span><router-link :to="{name:item.link}" class="free">试 听</router-link></p>
+      <div class="item" v-for="item in classes" :key="item[1].title">
+        <div><router-link :to="{name: 'videoinfo',query:{ id:item[1].id}}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
+        <p class="video-title"><a :title="item[1].name">{{ item[1].name }}</a></p>
+        <p class="buss-info"><span class="score"><i></i><font>{{ item[1].score }}</font>分</span><span class="person-current"><i></i><font>{{ item[1].person }}</font>人</span><span class="classes">课时</span><font>{{ item[1].period }}&nbsp;</font><span>节</span></p>
+        <p class="price"><span>课程:<font class="rd">￥{{ item[1].price }}</font></span><router-link :to="{name:item[1].link}" class="free">试 听</router-link></p>
       </div>
     </div>
   </div>
@@ -26,8 +26,7 @@ export default {
       page:1,
       number:12
     }).then((res)=>{
-      console.log(res.data)
-      this.classes = res.data
+      this.classes = Object.entries(res.data).slice(0,-2)
     })
   }
 };
