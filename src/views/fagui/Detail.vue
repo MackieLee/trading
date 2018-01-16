@@ -110,15 +110,17 @@ export default {
       password: "123123q",
       nid: this.path
     }).then((res)=>{
-      console.log(res.data)
+      // console.log(res.data)
       let originTime = (new Date(parseInt(res.data.time)*1000).toLocaleDateString()).split('/')
       _self.timeUp = originTime[0]+'-'+originTime[1]+'-'+originTime[2]
       _self.timeDown = originTime[0]+'年'+originTime[1]+'月'+originTime[2]+'日'
       _self.content = res.data
+      // 是否包含附属文档
       if(res.data.adjunct.length !== 0 ){
         // console.log(res.data.adjunct.length)
         _self.adjunct = true
       }
+      // 是否包含解读文件
       if(res.data.explain_id !== '0' && res.data.explain_id !== '' && res.data.explain === '1'){
         _self.explain = true
       }
