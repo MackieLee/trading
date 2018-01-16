@@ -69,9 +69,7 @@
             <Form ref="localSearch" :model="localSearch" :label-width="80">
               <FormItem label="地区">
                 <Select v-model="localSearch.area" style="width:100px">
-                  <Option value="beijing">一</Option>
-                  <Option value="shanghai">London</Option>
-                  <Option value="shenzhen">Sydney</Option>
+                  <Option v-for="area in areas" :key="area.id" :value="area.name">{{ area.name }}</Option>
                 </Select>
               </FormItem>
               <FormItem label="标题">
@@ -129,9 +127,9 @@
         <div class="clearfix"></div>
         <div class="content">
           <ul class="policy">
-            <li>
+            <li v-for="item in classify" :key="item.id">
               <span class="num"></span>
-              <a target="_BLANK">税收征收管理</a>
+              <a target="_BLANK">{{ item.name }}</a>
             </li>
           </ul>
         </div>
@@ -151,6 +149,8 @@ export default {
       jieduArr:[],
       begin:'',
       end:'',
+      areas:'',
+      classify:'',
       federalSearch:{
         area:'',
         title:'',
@@ -196,6 +196,19 @@ export default {
         }
         // console.log(resArr[j][1])
       }
+    })
+    let area = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_localStatute',{
+      username: "niuhongda",
+      password: "123123q"
+    }).then((area)=>{
+      this.areas = area.data
+    })
+    let classify = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_classify',{
+      username: "niuhongda",
+      password: "123123q"
+    }).then((classify)=>{
+      // console.log(classify)
+      this.classify = classify.data
     })
   },
   methods:{

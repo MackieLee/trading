@@ -58,6 +58,7 @@ export default {
   methods:{
     onload:function(){
       let obj = this.$route.query
+      // console.log(obj.area)
       let _self = this
       let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_Search',{
         username: "niuhongda",
@@ -74,7 +75,7 @@ export default {
         number:20
       }).then((res)=>{
         // console.log('typeof(res.data):'+typeof(res.data))
-        console.log(res)
+        // console.log(res)
         this.total = parseInt(res.data.counts)
         this.list = Object.entries(res.data).slice(0,-1)
       })

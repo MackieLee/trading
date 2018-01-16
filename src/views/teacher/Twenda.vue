@@ -23,7 +23,7 @@
           <div class="l">
             <h2>{{ item.name }}</h2>
             <div class="div">
-              <p class="phui">指定回答者：孙炜老师</p>
+              <p class="phui">提问者：提问者的名字</p>
               <p class="pshui">{{ item.value === ''?'暂无回答':item.value.substring(0,5)+'……'}}<span v-show="item.value !==''" class="more">查看全部>></span></p>
               <img src="../../assets/images/wendavip.png">
             </div>
@@ -35,24 +35,24 @@
         </li>
       </ul>
       <ul class="div01" v-if="part=='2'">
-        <li>
+        <li v-if="item.value === ''" v-for="item in fqList" :key="item.id">
 	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
+	        	<h2>{{ item.name }}</h2>
+	        	<p>暂无回答</p>
 	        </div>
 	        <div class="r">
-	         	<h3> 2018-2-12</h3>
+	         	<h3>{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
 	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
 	        </div>
 	       </li>
       </ul>
       <ul class="div01" v-if="part=='3'">
-        <li>
+        <li v-if="item.value !== ''" v-for="item in fqList" :key="item.id">
 	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<h2>{{ item.name }}</h2>
 	        	<div class="div">
-	        		<p class="phui">指定回答者：孙炜老师</p>
-              <p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
+	        		<p class="phui">提问者: 提问者的name </p>
+              <p class="pshui">{{ item.value.substring(0,5)+'……' }}<span class="more">查看全部>></span></p>
               <img src="../../assets/images/wendavip.png">
             </div>
 	        </div>
