@@ -13,7 +13,7 @@
       <div class="clearfix" style="margin-bottom:35px;line-height:25px;">
         <div class="second-title">
           <p>文号:{{ content.reference }}</p>
-          <p>发文日期:{{ timeUp }}</p>
+          <p>发布日期:{{ timeUp }}</p>
         </div>
       </div>
       <vue-audio>

@@ -2,9 +2,9 @@
   <div class="online">
     <div class="video-boxes">
       <div class="item" v-for="item in classes" :key="item.title">
-        <div><router-link :to="{name: item.link}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
-        <p class="video-title"><a>{{ item.title }}</a></p>
-        <p class="buss-info"><span class="score"><i></i><font>{{ item.score }}</font>分</span><span class="person-current"><i></i><font>{{ item.person }}</font>人</span><span class="classes">课时</span><font>{{ item.class }}</font><span>MIN</span></p>
+        <div><router-link :to="{name: 'videoinfo',query:{}}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
+        <p class="video-title"><a :title="item.name">{{ item.name }}</a></p>
+        <p class="buss-info"><span class="score"><i></i><font>{{ item.score }}</font>分</span><span class="person-current"><i></i><font>{{ item.person }}</font>人</span><span class="classes">课时</span><font>{{ item.period }}&nbsp;</font><span>节</span></p>
         <p class="price"><span>课程:<font class="rd">￥{{ item.price }}</font></span><router-link :to="{name:item.link}" class="free">试 听</router-link></p>
       </div>
     </div>
@@ -12,20 +12,23 @@
 </template>
 
 <script>
+import { loginUserUrl } from '@/api/api'
 export default {
   data(){
     return{
-      classes:[
-        { title:"税收筹划案例精解-3",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-4",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-5",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-6",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-3",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-3",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-3",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"},
-        { title:"税收筹划案例精解-3",link:"videoinfo",src:"../../assets/images/九鼎财税01_10.png",score:"100",class:"25",person:"1500",price:"1000"}
-      ]
+      classes:[]
     }
+  },
+  mounted () {
+    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getOnline_Courses',{
+      username: "niuhongda",
+      password: "123123q",
+      page:1,
+      number:12
+    }).then((res)=>{
+      console.log(res.data)
+      this.classes = res.data
+    })
   }
 };
 </script>
@@ -68,6 +71,13 @@ export default {
       .video-title {
         margin: 5px 0;
         font-size: 14px;
+        a{
+          display: inline-block;
+          width:220px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
       }
       .buss-info {
         font-size: 12px;

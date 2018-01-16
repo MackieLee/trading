@@ -41,7 +41,7 @@
           <th>状态</th>
           <th>操作</th>
         </tr>
-        <tr height="120" v-for="item in items" :key="item.src">
+        <tr height="120" v-for="item in items" :key="item.id">
           <td class="ctr" width='50'>
             <input type="checkbox" />
           </td>

@@ -68,10 +68,6 @@ import pay from '../views/account/Pay'//支付页面
 import pay1 from '../views/account/Pay1'//支付页面
 import pay2 from '../views/account/Pay2'//支付页面
 import payok from '../views/account/payok'//支付页面
-// ----------------------footer----------------------------------
-import hezuo from '../views/footer/hezuo'//服务条款/市场合作
-import copy from '../views/footer/copy'//版权声明
-import Explain from '../views/footer/Explain'//版权声明
 
 Vue.use(Router)
 
@@ -409,24 +405,7 @@ const routes = [
         path: 'fagui-search',
         name: 'fsearch',
         component: fsearch
-      },
-      {
-        path: 'hezuo',
-        name: 'hezuo',
-        component: hezuo
-      },
-      {
-        path: 'copy',
-        name: 'copy',
-        component: copy
-      },
-      {
-        path: 'Explain',
-        name: 'Explain',
-        component: Explain
       }
-      
-      
     ]
   },
   {
@@ -446,14 +425,14 @@ const routes = [
   }
 ]
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   linkActiveClass: 'active',
   routes,
   scrollBehavior (to, from, savedPosition) {
-	if (to.hash) {
-		return {
-				selector: to.hash
-			}
-		}
-	}
+    if (to.hash) {
+      return {
+        selector: to.hash
+      }
+    }
+  }
 })

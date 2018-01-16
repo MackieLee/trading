@@ -2,7 +2,7 @@
   <div class="study">
    		<div class="pt-1">
 	      <p class="sum_of_class">我的学习</p>
-	  	<div class="div-1">      
+	  	<div class="div-1">
 	      <div class="container">
 	        <div class="item item1">
 	          <p class="f-line">积分</p>
@@ -19,10 +19,10 @@
 	          <p>0%学员</p>
 	        </div>
 	      </div>
-	    
+
    		</div>
-   	</div> 
-    
+   	</div>
+
     <div class="pt-2">
       <div class="container">
         <img src="../../assets/images/huanyuanzx02.png" />
@@ -72,8 +72,6 @@
           <p class="jindu zcgm_jindu">学习完成 </p>
         </div>
       </div>
-      
-         
     </div>
    <div class="pgs">
       <li class="prev">&lt;上一页</li>
@@ -90,9 +88,28 @@
 </template>
 
 <script>
+import { loginUserUrl } from '@/api/api'
+import { getCookie } from "@/util/cookie"
 export default {
-  name: "study"
-};
+  name: "study",
+  data(){
+    return{
+
+    }
+  },
+  methods: {
+
+  },
+  created () {
+    let cookieName = getCookie('u_name')
+    console.log(cookieName)
+    if(cookieName !== '' && cookieName !== 'undefined' ){
+      console.log(this.$store.state.user)
+    }else{
+      this.$router.push({name:'login'})
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

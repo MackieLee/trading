@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import { loginUserUrl } from '@/api/api'
 import OnlineCourses from './OnlineCourses'
 export default {
   name: 'online',

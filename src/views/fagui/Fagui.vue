@@ -8,7 +8,7 @@
       </p>
     </div>
     <div class="main-title">
-      政策解读
+      {{ title }}
     </div>
     <div class="th">
       <table cellspacing="0" cellpadding="0">
@@ -25,8 +25,8 @@
     <div class="td">
       <table cellspacing="0" cellpadding="0">
         <tbody>
-          <router-link v-for="(item,index) in list" :key="item.id" tag="tr" :to="{ name:'fdetail',query:{ id:item.id }}">
-            <td class="xuhao pointer ctr">{{index+1}}</td>
+          <router-link v-for="(item,key,index) in list" :key="item.id" tag="tr" :to="{ name:'fdetail',query:{ id:item.id }}">
+            <td class="xuhao pointer ctr">{{parseInt(index)+1}}</td><span style="display:none">{{key}}</span>
             <td class="biaoti pointer">{{item.name}}</td>
             <td class="fahao pointer ctr">{{item.reference}}</td>
             <td class="riqi pointer ctr">{{item.date_posted}}</td>
@@ -54,7 +54,9 @@ export default {
   name: "fagui",
   data(){
     return{
-      list:[]
+      counts:'',
+      list:{},
+      title:'法规列表'
     }
   },
   created () {
@@ -70,10 +72,13 @@ export default {
       department:obj.department,
       begin_time:obj.begin_time,
       end_time:obj.end_time,
-      laws:obj.laws
+      laws:obj.laws,
+      page:1,
+      number:20
     }).then((res)=>{
-      _self.list = res.data
-      console.log(res.data)
+      this.list = res.data
+      this.counts = res.data.counts
+      console.log(res)
     })
   }
 }

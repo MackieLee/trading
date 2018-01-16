@@ -31,7 +31,8 @@
       </div>
        <div class="item">
         <label for="company">擅长领域</label><input id="companyy" />
-      </div>           
+
+      </div>
       <div class="item">
         <label>行业</label>
         <select class="lg-sel">
@@ -126,7 +127,7 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .rt{
-  float: left; 
+  float: left;
   .sum_of_class{background-color: #468ee3; margin:0 0px 30px;
     border: none;
     height: 40px;
@@ -135,7 +136,7 @@ export default {
     text-align: center;
     color: #fff;}
 }
-.lf{ 
+.lf{
   float: left; margin:0 70px 20px 40px;
 }
 .lg-sel{

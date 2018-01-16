@@ -31,8 +31,14 @@
               <font>注册</font>
             </router-link>
           </li>
+          <li>
+          </li>
         </ul>
+
       </div>
+      <router-link :to="{name:'t-admin'}">
+        <font>测试</font>
+      </router-link>
       <div class="logined" v-show="nickName">
         <div class="rt_part" @mouseleave="drop = ''">
           <a class="a-broadcast" @mouseenter="drop = 'left'">
@@ -115,7 +121,7 @@ export default {
   },
   mounted () {
     let userName = getCookie("u_name")
-    if(userName !== null && userName !== ''){
+    if(userName !== null && userName !== '' && userName !== undefined){
       this.nickName = userName
     }else{
       return ''

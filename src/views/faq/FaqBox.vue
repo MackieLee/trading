@@ -48,6 +48,7 @@ export default {
         password: "123123q"
       }
     ).then((res)=>{
+      console.log(res)
       this.newAnsr = res.data
     })
   }
