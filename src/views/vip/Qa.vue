@@ -96,7 +96,7 @@ export default {
     }
   },
   mounted () {
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getQuestions_list',{
+    let res = loginUserUrl('getQuestions_list',{
       username: "niuhongda",
       password: "123123q",
       uid:getCookie("u_name")

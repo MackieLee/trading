@@ -143,7 +143,7 @@ export default {
     },
     submit:function(){
       let bodan = this.bodan
-      let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getOnline_Courses_update',{
+      let res = loginUserUrl('getOnline_Courses_update',{
         username: "niuhongda",
         password: "123123q",
         gid:this.gid,
@@ -156,7 +156,7 @@ export default {
     // 创建播单的接口
     create:function(){
       let bodan = this.bodan
-      let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getOnline_Courses_update',{
+      let res = loginUserUrl('getOnline_Courses_update',{
         username: "niuhongda",
         password: "123123q",
         gid:this.gid,
@@ -193,7 +193,7 @@ export default {
     }
   },
   created () {
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getOnline_Courses',{
+    let res = loginUserUrl('getOnline_Courses',{
       username: "niuhongda",
       password: "123123q"
     }).then((res)=>{

@@ -129,7 +129,7 @@
           <ul class="policy">
             <li v-for="item in classify" :key="item.id">
               <span class="num"></span>
-              <a target="_BLANK">{{ item.name }}</a>
+              <router-link tag="span" style="cursor:pointer" :to="{name:'fagui',query:{form_id:item.id}}">{{ item.name }}</router-link>
             </li>
           </ul>
         </div>
@@ -174,7 +174,7 @@ export default {
   mounted:function(){
     let _self = this
     // 最新法规列表
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_List',{
+    let res = loginUserUrl('getlaws_List',{
       username: "niuhongda",
       password: "123123q",
       page:1,
@@ -197,13 +197,13 @@ export default {
         // console.log(resArr[j][1])
       }
     })
-    let area = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_localStatute',{
+    let area = loginUserUrl('getlaws_localStatute',{
       username: "niuhongda",
       password: "123123q"
     }).then((area)=>{
       this.areas = area.data
     })
-    let classify = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_classify',{
+    let classify = loginUserUrl('getlaws_classify',{
       username: "niuhongda",
       password: "123123q"
     }).then((classify)=>{
@@ -245,6 +245,9 @@ export default {
       }else{
         this.end = date
       }
+    },
+    jump:function(arg){
+      console.log(arg)
     }
   }
 }

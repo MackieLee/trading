@@ -35,7 +35,7 @@ export default {
         callback(new Error("请输入用户名"));
       } else {
         let res = loginUserUrl(
-          "http://aip.kehu.zaidayou.com/api/execute/getuser",
+          "getuser",
           {
             username: "niuhongda",
             password: "123123q",
@@ -105,7 +105,7 @@ export default {
     handleSubmit(name, arg) {
       this.$refs[name].validate(valid => {
         let res = loginUserUrl(
-          "http://aip.kehu.zaidayou.com/api/execute/register",
+          "register",
           {
             username: "niuhongda",
             password: "123123q",

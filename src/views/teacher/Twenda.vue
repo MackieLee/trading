@@ -30,7 +30,8 @@
           </div>
           <div class="r">
             <h3> {{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
-            <p class="hui" @click="modal=!modal">查看评价</p>
+            <p v-if="item.value === ''" class="red" @click="wendaModal=!wendaModal">回答</p>
+            <p v-else class="hui" @click="modal=!modal">查看评价</p>
           </div>
         </li>
       </ul>
@@ -38,7 +39,11 @@
         <li v-if="item.value === ''" v-for="item in fqList" :key="item.id">
 	        <div class="l">
 	        	<h2>{{ item.name }}</h2>
-	        	<p>暂无回答</p>
+            <div class="div">
+              <p class="phui">提问者：提问者的名字</p>
+              <p class="pshui">暂无回答</p>
+              <img src="../../assets/images/wendavip.png">
+            </div>
 	        </div>
 	        <div class="r">
 	         	<h3>{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
@@ -94,12 +99,12 @@ export default {
     }
   },
   mounted () {
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getQuestions_list',{
+    let res = loginUserUrl('getQuestions_list',{
       username: "niuhongda",
       password: "123123q",
-      teacher_id:getCookie("u_name")
+      teacher_id:'531'
     }).then((res)=>{
-      console.log(res)
+      // console.log(res)
       this.fqList = res.data
     })
   }

@@ -120,7 +120,7 @@ export default {
       console.log('teacher_id:'+teacher_id)
       if(name!==''&& intro!==''){
         let res = loginUserUrl(
-          "http://aip.kehu.zaidayou.com/api/execute/getQuestions_add",
+          "getQuestions_add",
           {
             username: "niuhongda",
             password: "123123q",
@@ -164,7 +164,7 @@ export default {
   mounted() {
     let _self = this
     // 获取讲师信息
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getTeacher_Info',{
+    let res = loginUserUrl('getTeacher_Info',{
       username: "niuhongda",
       password: "123123q",
       tid:this.$route.query.id
@@ -173,7 +173,7 @@ export default {
       console.log(res.data)
     })
     // 获取讲师的问题列表
-    let qslst = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getQuestions_list',{
+    let qslst = loginUserUrl('getQuestions_list',{
       username: "niuhongda",
       password: "123123q",
       teacher_id:this.$route.query.id

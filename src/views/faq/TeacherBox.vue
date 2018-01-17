@@ -35,8 +35,8 @@
           <img src="../../assets/images/jitax_问答_01.png" />
         </div>
         <div class="name">
-          <p>{{ item.name }}</p>
-          <span>九鼎财税资深讲师</span>
+          <p>{{ item.name.substring(0,6) }}</p>
+          <span>{{ item.intro.substring(0,10) }}</span>
         </div>
       </div>
       <div class="tag-box">
@@ -95,7 +95,7 @@ export default {
       let uid = getCookie('u_name')
       if(name!==''&& intro!==''){
         let res = loginUserUrl(
-          "http://aip.kehu.zaidayou.com/api/execute/getQuestions_add",
+          "getQuestions_add",
           {
             username: "niuhongda",
             password: "123123q",
@@ -132,11 +132,12 @@ export default {
     }
   },
   mounted () {
-    let res = loginUserUrl("http://aip.kehu.zaidayou.com/api/execute/getTeacherList",{
+    let res = loginUserUrl("getTeacherList",{
       username: "niuhongda",
       password: "123123q"
     }).then((res)=>{
-      // 遍历id ，根据id往卡片上填充老师信息！！！！！！important-------------------------------！！！！！！！！！！--------------------
+      // 遍历id ，根据id往卡片上填充老师信息！！！！！！important-------------------------------！！！！！！！！！！--------------------这种做法不可取
+      console.log(res)
       this.teachers = res.data
     })
   }
@@ -235,7 +236,7 @@ i {
     margin: 10px 35px 18px 15px;
     img{width: 80px;}
     .name {
-      margin: 10px 38px 0px;
+      margin: 10px 20px 0px;
       p {font-size: $lg-title;
         margin-bottom: 16px;
       }

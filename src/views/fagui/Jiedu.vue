@@ -103,7 +103,7 @@ export default {
   created:function(){
     let _self = this
     this.path = this.$route.query.id
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_Details',{
+    let res = loginUserUrl('getlaws_Details',{
       username: "niuhongda",
       password: "123123q",
       nid: this.path

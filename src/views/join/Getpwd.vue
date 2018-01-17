@@ -117,7 +117,7 @@
 			// 登录
       submit: function(arg) {
         let _self = this
-				let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/login', {
+				let res = loginUserUrl('login', {
 					username: 'niuhongda',
 					password: '123123q',
           name:arg.name,

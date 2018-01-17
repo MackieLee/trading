@@ -20,7 +20,8 @@
       </vue-audio>
       <div class="top-bar">
         <span>网站发布日期:{{ timeUp }}</span>
-        <span class="pointer">收藏</span>
+        <span class="pointer" v-if="shoucang === '2'" @click="pick">点击收藏</span>
+        <span class="pointer" v-if="shoucang === '1'" @click="cancelPick">已收藏</span>
         <span @click="print" class="pointer">打印本页</span>
         <a href="#bottom">一键到底</a>
       </div>
@@ -57,7 +58,6 @@
               <a href="#top" class="pointer">【返回顶部】</a>
             </span>
             <span @click="print" class="pointer">【打印本页】</span>
-           <!--<span @click="windowClose" class="pointer">【关闭本页】</span>-->
           </div>
         </div>
         <!-- 分页导航 -->
@@ -67,8 +67,7 @@
         <p class="red" style="font-size:14px;padding:20px 0 10px 30px;border-top:1px solid #ccc;margin-top:10px;">相关法规</p>
         <div class="clearfix xiangguan">
           <div class="lf">
-            <p class="p1">关于推荐企业登记管理基层联系点的通知</p>
-            <p class="p1">关于外国驻华使(领)馆及其馆员在华购买货物和服务增值税退税政策有关问题的补充通知</p>
+            <router-link tag="p" :to="{ name:'fdetail',query:{ id:item.id }}" v-for="item in categray" :key="item.id" class="p1">{{ item.name }}</router-link>
           </div>
           <div class="rt">
             <p>企函字[2012]47</p>
@@ -86,6 +85,7 @@
 
 <script>
 import { loginUserUrl } from '@/api/api'
+import { getCookie } from "@/util/cookie"
 import VueAudio from './Audio'
 export default {
   name: "fdetail",
@@ -99,18 +99,39 @@ export default {
       explain:false,
       timeUp:'',
       timeDown:'',
-      path:''
+      path:'',
+      shoucang:'2',
+      categray:[]
     }
   },
   created:function(){
     let _self = this
+    let uid = getCookie('u_name')
     this.path = this.$route.query.id
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_Details',{
+
+    // 加载文章
+
+    let res = loginUserUrl('getlaws_Details',{
       username: "niuhongda",
       password: "123123q",
       nid: this.path
     }).then((res)=>{
       // console.log(res.data)
+      // 相关法规
+      let rel = loginUserUrl('getlaws_category',{
+        username: "niuhongda",
+        password: "123123q",
+        id:res.data.form_id
+      }).then((rel)=>{
+        let random = Math.floor((Math.random()*(rel.data.length-1)))
+        let random2 = 0
+        if(random >= rel.data.length-2){
+          random2 = random - 1
+        }else{
+          random2 = random + 1
+        }
+        this.categray.push(rel.data[random],rel.data[random2])
+      })
       let originTime = (new Date(parseInt(res.data.time)*1000).toLocaleDateString()).split('/')
       _self.timeUp = originTime[0]+'-'+originTime[1]+'-'+originTime[2]
       _self.timeDown = originTime[0]+'年'+originTime[1]+'月'+originTime[2]+'日'
@@ -125,15 +146,57 @@ export default {
         _self.explain = true
       }
     })
+
+    // 判断文章是否已经被收藏
+
+    if(uid !== '' && uid !== 'undefined' ){
+      let sc = loginUserUrl('getlaws_userCollect',{
+        username: "niuhongda",
+        password: "123123q",
+        uid: uid
+      }).then((sc)=>{
+        // console.log(sc.data)
+        for(let i=0;i<sc.data.length;i++){
+          sc.data[i].goods_id === this.$route.query.id ? this.shoucang = '1':this.shoucang
+        }
+      })
+    }else{
+      return false
+    }
   },
   methods:{
     print:function(){
       window.print()
     },
-    windowClose:function(){
-      // 关闭窗口
+    // 添加收藏
+    pick:function(){
+      let uid = getCookie('u_name')
+      if(uid !== '' && uid !== 'undefined' ){
+        let res = loginUserUrl('getlaws_addCollect',{
+          username: "niuhongda",
+          password: "123123q",
+          nid:this.$route.query.id,
+          uid: uid
+        }).then((res)=>{
+          if(res.data.status){
+            this.shoucang = res.data.status
+          }
+        })
+      }else{
+        this.$router.push({name:'login'})
+      }
+    },
+    cancelPick:function(){
+      let res = loginUserUrl('getlaws_delCollect',{
+        username: "niuhongda",
+        password: "123123q",
+        nid:this.$route.query.id,
+        uid: getCookie('u_name')
+      }).then((res)=>{
+        res.data === 'ok' ? this.shoucang = '2' : this.shoucang
+      })
     }
-  },
+  }
 }
 </script>
 

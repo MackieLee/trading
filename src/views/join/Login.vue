@@ -95,24 +95,29 @@ export default {
     // 登录
     submit: function(arg) {
       let _self = this;
-      let res = loginUserUrl("http://aip.kehu.zaidayou.com/api/execute/login", {
+      let res = loginUserUrl("login", {
         username: "niuhongda",
         password: "123123q",
         name: arg.name,
         pwd: arg.passwd
       }).then(res => {
-        if (res.error_code === 0) {
-          // 登录成功记录用户信息
-          if (_self.checked) {
-            setCookie("u_name", res.data.id, 365)
-            window.location.href = "http://localhost:8888/#/home"
+        // console.log(res)
+        if(!res){
+          this.$Message.error("账户名和密码不匹配")
+        }else{
+          if (res.error_code === 0) {
+            // 登录成功记录用户信息
+            if (_self.checked) {
+              setCookie("u_name", res.data.id, 365)
+              window.location.href = "http://localhost:8888/#/home"
+            } else {
+              setCookie("u_name", res.data.id, 1)
+              window.location.href = "http://localhost:8888/#/home"
+            }
+            this.$Message.success("登录成功")
           } else {
-            setCookie("u_name", res.data.id, 1)
-            window.location.href = "http://localhost:8888/#/home"
+            this.$Message.error("登录失败")
           }
-          this.$Message.success("登录成功")
-        } else {
-          this.$Message.error("登录失败")
         }
       })
     }

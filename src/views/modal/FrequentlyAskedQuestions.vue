@@ -56,7 +56,7 @@ export default {
   },
   mounted () {
     let res = loginUserUrl(
-      "http://aip.kehu.zaidayou.com/api/execute/getTeacherList",
+      "getTeacherList",
       {
         username: "niuhongda",
         password: "123123q"

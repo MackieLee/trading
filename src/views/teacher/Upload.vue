@@ -99,7 +99,7 @@ export default {
     },
     submit:function(){
       let bodan = this.bodan
-      let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getOnline_Courses_update',{
+      let res = loginUserUrl('getOnline_Courses_update',{
         username: "niuhongda",
         password: "123123q",
         bodan

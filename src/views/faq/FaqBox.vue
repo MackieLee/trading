@@ -44,13 +44,12 @@ export default {
   },
   mounted () {
     let res = loginUserUrl(
-      "http://aip.kehu.zaidayou.com/api/execute/getQuestions_list",
+      "getQuestions_list",
       {
         username: "niuhongda",
         password: "123123q"
       }
     ).then((res)=>{
-      console.log(res === '暂无数据')
       if(res === '暂无数据'){
         this.data = res
       }else{

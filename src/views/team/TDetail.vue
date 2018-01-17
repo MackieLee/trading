@@ -53,7 +53,7 @@ export default {
   },
   mounted () {
     let _self = this
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getTeacher_Info',{
+    let res = loginUserUrl('getTeacher_Info',{
       username: "niuhongda",
       password: "123123q",
       tid:this.$route.query.id
