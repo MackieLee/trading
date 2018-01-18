@@ -7,7 +7,7 @@
       </p>
     </div>
     <div class="content">
-      <font>2017专属您的私人定制</font>
+      <font>2018专属您的私人定制</font>
       <form @submit.prevent="submit">
         <div class="flex">
           <label for="danwei" class="tag tag-width">单位名称：</label><input name="danwei" id="danwei" placeholder="请输入您的公司名称" type="text" class="lg-input" />
@@ -274,7 +274,7 @@ export default {
         }
       }
       .sub{
-         padding-left: 10px; padding-right: 20px; margin:30px 0 50px 50%;
+         padding-left: 10px; padding-right: 20px; margin:30px 0 60px 40%;
         line-height: 36px;height: 36px;
         background-color: $red;
         outline: none; border-radius: 3px;

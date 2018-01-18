@@ -4,11 +4,12 @@
       <div class="title">我要提问</div>
       <Form ref="ask" :model="ask" :roules="askValidate">
         <FormItem prop = "title">
-          <Input v-model="ask.title" placeholder="写下您的问题"></Input>
+          <Input v-model="ask.title" placeholder="输入下您的问题"></Input>
         </FormItem>
         <div class="sub-title">问题描述（选填）：</div>
         <FormItem prop="content">
-          <Input v-model="ask.content" type="textarea" :rows="6" placeholder="请在这儿写下您的问题描述"></Input>
+          <Input v-model="ask.content" type="textarea" :rows="6" placeholder="请在这儿描述您的问题">
+          </Input>
         </FormItem>
         <FormItem>
           <Row>
@@ -23,10 +24,10 @@
             </Col>
           </Row>
         </FormItem>
-        <FormItem>
-          <!-- <Button type="primary" @click="handleSubmit">Submit</Button>
-          <Button type="ghost" @click="handleReset" style="margin-left: 8px">Reset</Button> -->
-        </FormItem>
+       <!--  <FormItem>
+          <Button type="primary" @click="handleSubmit">Submit</Button>
+          <Button type="ghost" @click="handleReset" style="margin-left: 8px">Reset</Button> 
+        </FormItem>-->
         <div style="color:grey;">指定老师回答，若老师24小时内未回答，自动转入专家团问答，差额退回，不转入可勾选继续等待</div>
       </Form>
     </div>

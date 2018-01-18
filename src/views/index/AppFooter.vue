@@ -6,7 +6,7 @@
           <ul>
             <li class="title">新手指南</li>
             <li>
-              <router-link :to="{ name:'Explain' }">播放说明</router-link>
+              <router-link :to="{ name:'Explain' }">课程说明</router-link>
             </li>
             <li>
               <router-link :to="{ path:'/Explain#app' }">问答说明</router-link>
@@ -32,6 +32,7 @@
           </ul>
         </div>
         <div class="bussiness">
+        	 <router-link tag='p' :to="{ path:'/yijianfk#app' }">意见反馈</router-link>
           <p>
             <i class="mail"></i>jdtax@jdtax.cn</p>
           <p>
@@ -156,9 +157,13 @@ export default {
         }
       }
       .bussiness {
+      	p:first-child{
+          cursor: pointer;
+        }
+        
         p {
           color: #333;
-          margin:25px 0;
+          margin-bottom:20px;
           font-size: 14px;
         }
         .mail,

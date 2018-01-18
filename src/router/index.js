@@ -72,6 +72,7 @@ import payok from '../views/account/payok'//支付页面
 import hezuo from '../views/footer/hezuo'//服务条款/市场合作
 import copy from '../views/footer/copy'//版权声明
 import Explain from '../views/footer/Explain'//版权声明
+import yijianfk from '../views/footer/yijianfk'//意见反馈
 
 Vue.use(Router)
 
@@ -424,7 +425,16 @@ const routes = [
         path: 'Explain',
         name: 'Explain',
         component: Explain
+      },
+      {
+        path: 'yijianfk',
+        name: 'yijianfk',
+        component: yijianfk
       }
+      
+      
+      
+      
     ]
   },
   {

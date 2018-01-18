@@ -235,7 +235,7 @@ i {
     margin: 10px 35px 18px 15px;
     img{width: 80px;}
     .name {
-      margin: 10px 38px 0px;
+      margin: 10px 20px 0px;
       p {font-size: $lg-title;
         margin-bottom: 16px;
       }

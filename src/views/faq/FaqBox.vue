@@ -10,15 +10,17 @@
       <div class="floor">
         <div v-for="item in newAnsr" :key="item.id" class="item">
           <div>
-            <div class="wen lf">问 :&nbsp;</div>
+            
             <div class="item-container">
+            	<div class="wen lf">问 :&nbsp;</div>
               <div class="ask">{{ item.name }}</div>
             </div>
           </div>
-          <div>
-            <div class="wen">答 :&nbsp;</div>
+          <div>            
             <div class="item-container">
-              <div class="ask ansr">{{ item.value.substring(0,15) }}...<span class="more">查看更多&gt;&gt;</span></div>
+            	<div class="wen">答 :&nbsp;</div>
+              <div class="ask ansr">{{ item.value.substring(0,15) }}
+              	<span class="more">查看更多&gt;&gt;</span></div>
             </div>
           </div>
         </div>
@@ -104,24 +106,23 @@ export default {
       //   border-right: 1px dashed $border-orange;
       // }
       .item {
-        margin: 24px 0;
+        margin: 10px 0px 0px;
         padding-right: 50px;
-        width: 478px;
+        width:100%;float: left;
         border-bottom: 1px dashed $border-orange;
-        .wen {
-          color: $red;
-          padding-top: 3px;
-          font-size: 16px;
-          float: left;
-        }
         .item-container {
           float: left;
           color: $black;
           font-size: 12px;
           line-height: 35px;
-          width: 432px;
+          width: 100%;
+          .wen {
+          color: $red;
+          font-size: 16px;
+          float: left;
+        	}
           .ask {
-            margin-bottom: 10px;
+            margin-bottom: 10px;float: left;
           }
         }
         .more {
