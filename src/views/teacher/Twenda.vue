@@ -1,16 +1,22 @@
 
 <template>
  <div class="my_qianb_r">
-  	<div class="modal-outer" v-show="modal">
-      <!-- <div class="close">X</div> -->
-      <!-- v-bind传输数据到子组件(contentSeries) -->
-      <modal @closeModal="closeModal"></modal>
-    </div>
-		<div class="modal-outer" v-show="wendaModal">
-      <!-- <div class="close">X</div> -->
-      <!-- v-bind传输数据到子组件(contentSeries) -->
-      <wenda-modal @closeWendaModal="closeWendaModal"></wenda-modal>
-    </div>
+    <Modal v-model="modal">
+      okokok
+    </Modal>
+    <!-- 回答 -->
+    <Modal v-model="modal2" width="450">
+        <p slot="header" style="color:#f60;text-align:center">
+          <span>回答</span>
+        </p>
+        <div style="text-align:center">
+          <Input v-model="ansr" type="textarea" :rows="4" placeholder="请输入答案"></Input>
+        </div>
+        <div slot="footer">
+          <Button type="primary" @click="subAnsr">确定</Button>
+          <Button type="ghost" @click="modal2 = false">取消</Button>
+        </div>
+    </Modal>
     <p class="p01">共7个回答</p>
     <div class="my_qianb_cotainer">
       <p class="p02">
@@ -30,8 +36,8 @@
           </div>
           <div class="r">
             <h3> {{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
-            <p v-if="item.value === ''" class="red" @click="wendaModal=!wendaModal">回答</p>
-            <p v-else class="hui" @click="modal=!modal">查看评价</p>
+            <p v-if="item.value === ''" class="red" @click="showAnsr(item.id,item.uid,item.teacher_id)">回答</p>
+            <p v-else class="hui" @click="showPingjia(item.id,item.uid,item.teacher_id)">查看评价</p>
           </div>
         </li>
       </ul>
@@ -47,7 +53,7 @@
 	        </div>
 	        <div class="r">
 	         	<h3>{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
+	        	<p class="red" @click="modal2=true">回答</p>
 	        </div>
 	       </li>
       </ul>
@@ -74,28 +80,58 @@
 <script>
 import { loginUserUrl } from '@/api/api'
 import { getCookie } from "@/util/cookie"
-import Modal from "../modal/Qa_Modal";
+// import Modal from "../modal/Qa_Modal";
 import WendaModal from "../modal/Twenda_Modal";
 export default {
   name: "youhuiquan",
-  components: { Modal, WendaModal },
+  components: { WendaModal },
   data() {
     return {
       part: "1",
       modal: false,
-      wendaModal: false,
-      fqList:[]
+      modal2: false,
+      ansr:'',
+      fqList:[],
+      args:{}
     };
   },
   methods: {
-    closeModal: function() {
-      this.modal = false;
-    },
-    closeWendaModal: function() {
-      this.wendaModal = false;
-    },
     toggle: function(){
       this.part = event.currentTarget.dataset.ref
+    },
+    // 提交回答
+    subAnsr:function(){
+      let res = loginUserUrl('getQuestions_answer',{
+        username: "niuhongda",
+        password: "123123q",
+        value:this.ansr,
+        form_id:this.args.id,
+        uid:this.args.uid,
+        teacher_id:this.args.teacher_id
+      }).then((res)=>{
+        console.log('回答完成后的返回------')
+        console.log(res)
+        console.log('------回答完成后的返回')
+        this.ansr = ''
+        if(res && res.error_code === 0){
+          this.modal2 = false
+          this.$Message.success('回答成功')
+        }else{
+          this.$Message.error('回答失败')
+        }
+      })
+    },
+    // 打开回答对话框
+    showAnsr:function(id,uid,teacher_id){
+      this.args = {
+        id:id,
+        uid:uid,
+        teacher_id:teacher_id
+      }
+      this.modal2 = true
+    },
+    showPingjia:function(){
+
     }
   },
   mounted () {
@@ -104,7 +140,8 @@ export default {
       password: "123123q",
       teacher_id:'531'
     }).then((res)=>{
-      // console.log(res)
+      console.log('问题列表---')
+      console.log(res)
       this.fqList = res.data
     })
   }
@@ -113,22 +150,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
-.modal-outer {
-  width: 100%;
-  height: 173%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2000;
-  .modal {
-    height: 110%;
-  }
-  .close {
-    position: absolute;
-    top: 15%;
-    left: 60%;
-  }
-}
 .my_qianb_r {
   width: 810px;
   margin: 0 auto;

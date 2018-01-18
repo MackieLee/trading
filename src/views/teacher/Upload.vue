@@ -77,10 +77,9 @@
 </template>
 
 <script>
-// import Modal from "../modal/TeacherMainModal";
+import { getCookie } from "@/util/cookie"
 import { loginUserUrl } from '@/api/api'
 export default {
-  // components: { Modal },
   data() {
     return {
       modal: false,
@@ -111,6 +110,15 @@ export default {
     handleReset:function(){
       this.$refs.bodan.resetFields()
       this.modal1=false
+    }
+  },
+  created () {
+    let cookieName = getCookie('u_name')
+    console.log(cookieName)
+    if(cookieName !== '' && cookieName !== 'undefined' ){
+      console.log(this.$store.state.user)
+    }else{
+      this.$router.push({name:'login'})
     }
   }
 };
