@@ -110,10 +110,9 @@
         <div class="doc-item" v-for="item in doc" :key="item.cutpoint">
           <div class="doc-content" :data-cut="item.cutPoint" @click="jumpTo">
             {{ item.content }}
-            <div class="notes">
-              <span>播放本段</span>
-              <span @click="modal2=true">编写笔记</span>
-            </div>
+          </div>
+          <div class="notes">
+            <span @click="modal2=true">编写笔记</span>
           </div>
         </div>
       </div>
@@ -296,20 +295,6 @@ export default {
           line-height: 30px;
           margin: 10px;
           padding: 10px;
-          .notes {
-            overflow: hidden;
-            margin-top: 25px;
-            span:hover{ background-color:#e7141a; }
-            span {
-              float: right;
-              width: 80px;
-              text-align: center;
-              line-height: 28px;
-              background-color: $border-red;
-              color: $white;
-              margin-right: 10px;
-            }
-          }
           &:hover {
             background-color: #f9f9f9;
             cursor: pointer;
@@ -317,6 +302,20 @@ export default {
         }
         &:hover {
           border: 1px dashed $border-red;
+        }
+        .notes {
+          overflow: hidden;
+          margin-top: 25px;
+          span:hover{ background-color:#e7141a; }
+          span {
+            float: right;
+            width: 80px;
+            text-align: center;
+            line-height: 28px;
+            background-color: $border-red;
+            color: $white;
+            margin-right: 10px;
+          }
         }
       }
     }

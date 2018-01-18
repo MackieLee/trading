@@ -6,7 +6,7 @@ import router from '../router'
 export const loginUserUrl = (url,params) => {
   return axios({
   	method:'post',
-  	url:url,
+  	url:'http://aip.kehu.zaidayou.com/api/execute/'+ url,
   	data:params,
   	transformRequest: [function (data) {
 	    let res = ''

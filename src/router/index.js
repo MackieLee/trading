@@ -454,14 +454,10 @@ const routes = [
   }
 ]
 export default new Router({
-  // mode: 'history',
+  mode: 'history',
   linkActiveClass: 'active',
   routes,
   scrollBehavior (to, from, savedPosition) {
-    if (to.hash) {
-      return {
-        selector: to.hash
-      }
-    }
+    return { x: 0, y: 0 }
   }
 })

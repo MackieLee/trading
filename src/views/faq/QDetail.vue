@@ -80,7 +80,7 @@
         <div v-for="item in qslst" :key="item.id" class="list-item">
           <p><span class="question">{{ item.name }}</span><span class="date rt">4天前</span></p>
           <p class="indent tchr">回答者：{{ intro.name }}</p>
-          <p class="indent">{{ item.value === ''?'暂无回答':item.value.substring(0,5)+'……'}}
+          <p class="indent">{{ item.value === ''?'暂无回答':(item.value === null ?'':item.value).substring(0,5)+'……'}}
             <!-- 如何传递价格到支付页面？？同时携带问题id以及开放答案并在支付成功后重新返回此页面(此时渲染完整答案 v-if) -->
             <span v-show="item.value !==''" class="more">查看全部&gt;&gt;</span>
           </p>
@@ -120,7 +120,7 @@ export default {
       console.log('teacher_id:'+teacher_id)
       if(name!==''&& intro!==''){
         let res = loginUserUrl(
-          "http://aip.kehu.zaidayou.com/api/execute/getQuestions_add",
+          "getQuestions_add",
           {
             username: "niuhongda",
             password: "123123q",
@@ -164,7 +164,7 @@ export default {
   mounted() {
     let _self = this
     // 获取讲师信息
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getTeacher_Info',{
+    let res = loginUserUrl('getTeacher_Info',{
       username: "niuhongda",
       password: "123123q",
       tid:this.$route.query.id
@@ -173,7 +173,7 @@ export default {
       console.log(res.data)
     })
     // 获取讲师的问题列表
-    let qslst = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getQuestions_list',{
+    let qslst = loginUserUrl('getQuestions_list',{
       username: "niuhongda",
       password: "123123q",
       teacher_id:this.$route.query.id

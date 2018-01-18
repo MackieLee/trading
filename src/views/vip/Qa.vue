@@ -20,7 +20,7 @@
 	        <div class="l">
 	        	<h2>{{ item.name }}</h2>
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui"><span v-if="item.value === ''">还没有答案！</span><span v-else>{{ item.value.substring(0,5) }}……</span><span class="more">查看全部>></span>
+						<p class="pshui">{{ item.value === ''?'暂无回答':item.value.substring(0,5)+'……'}}<span v-show="item.value !==''" class="more">查看全部>></span>
 						</p>
 						<img src="../../assets/images/wendavip.png">
 	        </div>
@@ -96,7 +96,7 @@ export default {
     }
   },
   mounted () {
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getQuestions_list',{
+    let res = loginUserUrl('getQuestions_list',{
       username: "niuhongda",
       password: "123123q",
       uid:getCookie("u_name")

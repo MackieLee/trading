@@ -1,16 +1,22 @@
 
 <template>
  <div class="my_qianb_r">
-  	<div class="modal-outer" v-show="modal">
-      <!-- <div class="close">X</div> -->
-      <!-- v-bind传输数据到子组件(contentSeries) -->
-      <modal @closeModal="closeModal"></modal>
-    </div>
-		<div class="modal-outer" v-show="wendaModal">
-      <!-- <div class="close">X</div> -->
-      <!-- v-bind传输数据到子组件(contentSeries) -->
-      <wenda-modal @closeWendaModal="closeWendaModal"></wenda-modal>
-    </div>
+    <Modal v-model="modal">
+      okokok
+    </Modal>
+    <!-- 回答 -->
+    <Modal v-model="modal2" width="450">
+        <p slot="header" style="color:#f60;text-align:center">
+          <span>回答</span>
+        </p>
+        <div style="text-align:center">
+          <Input v-model="ansr" type="textarea" :rows="4" placeholder="请输入答案"></Input>
+        </div>
+        <div slot="footer">
+          <Button type="primary" @click="subAnsr">确定</Button>
+          <Button type="ghost" @click="modal2 = false">取消</Button>
+        </div>
+    </Modal>
     <p class="p01">共7个回答</p>
     <div class="my_qianb_cotainer">
       <p class="p02">
@@ -23,36 +29,41 @@
           <div class="l">
             <h2>{{ item.name }}</h2>
             <div class="div">
-              <p class="phui">指定回答者：孙炜老师</p>
-              <p class="pshui">{{ item.value === ''?'暂无回答':item.value.substring(0,5)+'……'}}<span v-show="item.value !==''" class="more">查看全部>></span></p>
+              <p class="phui">提问者：提问者的名字</p>
+              <p class="pshui">{{ item.value === ''?'暂无回答':(item.value === null ?'':item.value).substring(0,5)+'……'}}<span v-show="item.value !==''" class="more">查看全部>></span></p>
               <img src="../../assets/images/wendavip.png">
             </div>
           </div>
           <div class="r">
             <h3> {{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
-            <p class="hui" @click="modal=!modal">查看评价</p>
+            <p v-if="item.value === ''||item.value === null" class="red" @click="showAnsr(item.id,item.uid,item.teacher_id)">回答</p>
+            <p v-else class="hui" @click="showPingjia(item.id,item.uid,item.teacher_id)">查看评价</p>
           </div>
         </li>
       </ul>
       <ul class="div01" v-if="part=='2'">
-        <li>
+        <li v-if="item.value === ''" v-for="item in fqList" :key="item.id">
 	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
-	        	<p>还没有答案！</p>
+	        	<h2>{{ item.name }}</h2>
+            <div class="div">
+              <p class="phui">提问者：提问者的名字</p>
+              <p class="pshui">暂无回答</p>
+              <img src="../../assets/images/wendavip.png">
+            </div>
 	        </div>
 	        <div class="r">
-	         	<h3> 2018-2-12</h3>
-	        	<p class="red" @click="wendaModal=!wendaModal">回答</p>
+	         	<h3>{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
+	        	<p class="red" @click="modal2=true">回答</p>
 	        </div>
 	       </li>
       </ul>
       <ul class="div01" v-if="part=='3'">
-        <li>
+        <li v-if="item.value !== ''" v-for="item in fqList" :key="item.id">
 	        <div class="l">
-	        	<h2>孙老师，您好!房地产开发企业销售精装修房所含装饰、设备是否视同销售房地产开发企业销售精装修房所含装饰、设备是否视同销售？</h2>
+	        	<h2>{{ item.name }}</h2>
 	        	<div class="div">
-	        		<p class="phui">指定回答者：孙炜老师</p>
-              <p class="pshui">根据贵公司提供的资料理公司打算收购甲企…… <span class="more">查看全部>></span></p>
+	        		<p class="phui">提问者: 提问者的name </p>
+              <p class="pshui">{{ (item.value === null ?'':item.value).substring(0,5)+'……' }}<span class="more">查看全部>></span></p>
               <img src="../../assets/images/wendavip.png">
             </div>
 	        </div>
@@ -69,35 +80,62 @@
 <script>
 import { loginUserUrl } from '@/api/api'
 import { getCookie } from "@/util/cookie"
-import Modal from "../modal/Qa_Modal";
 import WendaModal from "../modal/Twenda_Modal";
 export default {
   name: "youhuiquan",
-  components: { Modal, WendaModal },
+  components: { WendaModal },
   data() {
     return {
       part: "1",
       modal: false,
-      wendaModal: false,
-      fqList:[]
+      modal2: false,
+      ansr:'',
+      fqList:[],
+      args:{}
     };
   },
   methods: {
-    closeModal: function() {
-      this.modal = false;
-    },
-    closeWendaModal: function() {
-      this.wendaModal = false;
-    },
     toggle: function(){
       this.part = event.currentTarget.dataset.ref
+    },
+    // 提交回答
+    subAnsr:function(){
+      let res = loginUserUrl('getQuestions_answer',{
+        username: "niuhongda",
+        password: "123123q",
+        value:this.ansr,
+        form_id:this.args.id,
+        uid:this.args.uid,
+        teacher_id:this.args.teacher_id
+      }).then((res)=>{
+        console.log(res)
+        this.ansr = ''
+        if(res && res.error_code === 0){
+          this.modal2 = false
+          this.$Message.success('回答成功')
+        }else{
+          this.$Message.error('回答失败')
+        }
+      })
+    },
+    // 打开回答对话框
+    showAnsr:function(id,uid,teacher_id){
+      this.args = {
+        id:id,
+        uid:uid,
+        teacher_id:teacher_id
+      }
+      this.modal2 = true
+    },
+    showPingjia:function(){
+
     }
   },
   mounted () {
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getQuestions_list',{
+    let res = loginUserUrl('getQuestions_list',{
       username: "niuhongda",
       password: "123123q",
-      teacher_id:getCookie("u_name")
+      tid:'531'
     }).then((res)=>{
       console.log(res)
       this.fqList = res.data
@@ -108,22 +146,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
-.modal-outer {
-  width: 100%;
-  height: 173%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2000;
-  .modal {
-    height: 110%;
-  }
-  .close {
-    position: absolute;
-    top: 15%;
-    left: 60%;
-  }
-}
 .my_qianb_r {
   width: 810px;
   margin: 0 auto;

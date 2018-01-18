@@ -31,6 +31,12 @@
             <td class="fahao pointer ctr">{{item[1].reference}}</td>
             <td class="riqi pointer ctr">{{item[1].date_posted}}</td>
           </router-link>
+          <router-link v-for="(item,index) in cateLst" :key="item.id" tag="tr" :to="{ name:'fdetail',query:{ id:item.id }}">
+            <td class="xuhao pointer ctr">{{index+1}}</td>
+            <td class="biaoti pointer">{{item.name}}</td>
+            <td class="fahao pointer ctr">{{item.reference}}</td>
+            <td class="riqi pointer ctr">{{item.date_posted}}</td>
+          </router-link>
         </tbody>
       </table>
       <div style="display:flex;justify-content:center;margin:80px 0 30px 0;">
@@ -47,6 +53,7 @@ export default {
   data(){
     return{
       list:[],
+      cateLst:[],
       title:'法规列表',
       total:0,
       pageNum:1
@@ -54,15 +61,27 @@ export default {
   },
   created () {
     this.onload()
+    if(this.$route.query.form_id){
+      let res = loginUserUrl('getlaws_category',{
+        username: "niuhongda",
+        password: "123123q",
+        id:this.$route.query.form_id
+      }).then((res)=>{
+        this.cateLst = res.data
+        this.total = res.data.length
+      })
+    }
   },
   methods:{
     onload:function(){
       let obj = this.$route.query
+      console.log('地区:'+obj.area)
+      console.log('类别:'+obj.form_id)
       let _self = this
-      let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getlaws_Search',{
+      let res = loginUserUrl('getlaws_Search',{
         username: "niuhongda",
         password: "123123q",
-        area:obj.area,
+        laws_area:obj.area,
         name:obj.name,
         reference:obj.reference,
         date_posted:obj.date_posted,
@@ -70,11 +89,10 @@ export default {
         begin_time:obj.begin_time,
         end_time:obj.end_time,
         laws:obj.laws,
+        form_id:obj.form_id,
         page:this.pageNum,
         number:20
       }).then((res)=>{
-        // console.log('typeof(res.data):'+typeof(res.data))
-        console.log(res)
         this.total = parseInt(res.data.counts)
         this.list = Object.entries(res.data).slice(0,-1)
       })

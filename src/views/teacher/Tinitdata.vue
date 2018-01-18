@@ -1,70 +1,79 @@
 <template>
   <div class="init-data">
-  	<div class="sum_of_class">个人资料</div>
+    <div class="sum_of_class">个人资料</div>
     <div class="info-data lf">
-      <div class="item">
-        <label for="name">昵称</label><input id="name" />
-      </div>
-      <div class="item">
-        <label for="real-name">真实姓名</label><input id="real-name" />
-      </div>
-      <div class="item">
-        <label for="company">联系电话</label><input id="company" />
-      </div>
-      <div class="item">
-        <label>地区</label>
-        <select v-model="provId" @click="selectProvince(provId)">
-            <option v-for="(item,index) in province" :key="item.name" :value="index">
-              {{ item.name }}
-            </option>
-          </select>
-          <select v-model="areaId" @click="selectArea(areaId)">
-            <option v-for="(item,index) in area" :key="item.name" :value="index">
-              {{ item.name }}
-            </option>
-          </select>
-          <select>
-            <option v-for="item in city" :key="item.name">
-              {{ item.name }}
-            </option>
-          </select>
-      </div>
-       <div class="item">
-        <label for="company">擅长领域</label><input id="companyy" />
-
-      </div>
-      <div class="item">
-        <label>行业</label>
-        <select class="lg-sel">
-          <option v-for="(item,index) in industry" :key="item">
-            {{ item }}
-          </option>
-        </select>
-      </div>
-      <div class="item">
-        <label>职位</label>
-        <select class="lg-sel">
-          <option v-for="(item,index) in position" :key="item">
-            {{ item }}
-          </option>
-        </select>
-      </div>
-
-      <!--<div class="item">
-        <label>公司规模</label>
-        <select class="lg-sel">
-          <option v-for="(item,index) in size" :key="item">
-            {{ item }}
-          </option>
-        </select>
-      </div>-->
-      <div class="item_bc">保 存</div>
+      <Form :label-width="100" label-position='right' :model="uData">
+        <FormItem label="昵称" prop="nickName">
+          <Input type="text" v-model="uData.nickName" small placeholder="请输入昵称"></Input>
+        </FormItem>
+        <FormItem label="真实姓名" prop="realName">
+          <Input type="text" v-model="uData.realName" placeholder="请输入真实姓名"></Input>
+        </FormItem>
+        <FormItem label="联系电话" prop="num">
+          <Input type="text" v-model="uData.num" placeholder="请输入联系电话"></Input>
+        </FormItem>
+        <formItem label="行业" prop="industry">
+          <Select v-model="uData.industry" style="width:150px">
+            <Option v-for="item in industry" :key="item" :value="item">{{ item }}</Option>
+          </Select>
+        </formItem>
+        <formItem label="职位" prop="position">
+          <Select v-model="uData.position" style="width:150px">
+            <Option v-for="item in position" :key="item" :value="item">{{ item }}</Option>
+          </Select>
+        </formItem>
+        <FormItem label="地区" prop="prov" inline>
+          <Row>
+            <Col span="7">
+              <Select v-model="provId" @on-change="selectProvince(provId)">
+                <Option v-for="(item,index) in province" :key="item.name" :value="index">{{ item.name }}</Option>
+              </Select>
+            </Col>
+            <Col span="7" offset="1">
+              <Select v-model="areaId" @on-change="selectArea(areaId)">
+                <Option v-for="(item,index) in this.area" :key="item.name" :value="index">{{ item.name }}</Option>
+              </Select>
+            </Col>
+            <Col span="7" offset="1">
+              <Select v-model="uData.district">
+                <Option v-for="item in this.city" :key="item.name" :value="item.name">{{ item.name }}</Option>
+              </Select>
+            </Col>
+          </Row>
+        </FormItem>
+        <!-- 添加标签 -->
+        <FormItem
+          v-for="(item, index) in uData.tag.items"
+          v-if="item.status"
+          label="标签"
+          :key="index"
+          :prop="item.value">
+            <Row>
+              <Col span="18">
+                <Input type="text" v-model="item.value" placeholder="请输入标签..."></Input>
+              </Col>
+              <Col span="4" offset="1">
+                <Button type="ghost" @click="handleRemove(index)">删除</Button>
+              </Col>
+            </Row>
+        </FormItem>
+        <FormItem>
+          <Row>
+            <Col span="12">
+              <Button type="dashed" long @click="handleAdd" icon="plus-round">添加擅长领域</Button>
+            </Col>
+          </Row>
+        </FormItem>
+        <FormItem>
+          <Button type="primary" @click="handleSubmit">提交</Button>
+          <Button type="ghost" @click="cancel">取消</Button>
+        </FormItem>
+      </Form>
     </div>
-
-<div class="cropper rt">
+    <div class="cropper rt">
       <img class="preview" :src="newavatar">
       <upload v-show="avataredit" :server="upload.server" :limit="upload.limit" :api="upload.api" :filename="upload.filename" :params="upload.params" @success="upsuccess" v-model="newavatar" :crop="upload.crop" :width="upload.width" :height="upload.height" :ok="upload.ok" :cancel="upload.cancel">
-          <button class="upavatar">上传头像</button>
+        <button class="upavatar">上传头像</button>
       </upload>
       <p>仅支持jpg、png格式，不要超过1M</p>
     </div>
@@ -78,8 +87,6 @@ export default {
   components: { upload },
   data() {
     return {
-      dataUrl: "",
-      selected: null,
       province: PROVINCE,
       provId:'0',
       areaId:'0',
@@ -87,7 +94,6 @@ export default {
       city:[{ name:'请选择'}],
       position:['CFO','财务经理','财务专员','财务总监','副总裁','公务员','人事/培训','事业单位人员','税务经理','税务专员','税务总监','学生/学者','总经理'],
       industry:['制造','贸易/零售','进出口','服务','高科技','互联网','建筑和房地产','金融','农林渔牧','物流'],
-      size:['小型企业','小微型企业','中型企业','大型企业','中企业/大企业','小企业/大企业','不限'],
       avataredit: true,
       newavatar: null,
       upload: {
@@ -101,14 +107,37 @@ export default {
         width: 400,
         height: 400,
         cancel: "取消",
-        ok: "裁剪",
+        ok: "确定",
         limit:1024*1024*10
+      },
+      index:1,
+      uData:{
+        name:'',
+        nickName:'',
+        realName:'',
+        num:'',
+        prov:'',
+        tag:{
+          items: [
+            {
+              value: '',
+              index: 1,
+              status: 1
+            }
+          ]
+        },
+        industry:'',
+        position:''
       }
     };
   },
   methods: {
-    destroy() {},
-    submit() {},
+    cancel:function(){
+
+    },
+    handleSubmit() {
+
+    },
     upsuccess() {
       console.log(this);
     },
@@ -119,6 +148,17 @@ export default {
       if(this.area[value]){
         this.city = this.area[value].sub
       }
+    },
+    handleAdd () {
+      this.index++;
+      this.uData.tag.items.push({
+        value: '',
+        index: this.index,
+        status: 1
+      });
+    },
+    handleRemove (index) {
+      this.uData.tag.items[index].status = 0;
     }
   }
 };
@@ -137,57 +177,13 @@ export default {
     color: #fff;}
 }
 .lf{
-  float: left; margin:0 70px 20px 40px;
-}
-.lg-sel{
-  width: 306px !important;
+  float: left;
+  margin:0 80px 20px 20px;
+  width:400px;
 }
 .init-data {
   overflow: hidden;
   border: 1px solid $border-dark;
-  .info-data{
-  	.item_bc{
-  		      width: 80px;
-      height: 38px;
-      background-color:#e7141a;
-      text-align: center;
-      line-height: 38px;
-      color: $white;
-      border: none;
-      outline: none;
-      border-radius: 3px;
-      margin: 20px auto;
-  	}
-    .item{
-      margin-bottom: 20px;
-      label{
-        display: inline-block;
-        width: 70px;
-        text-align: right;
-        margin-right: 30px;
-        font-size: 14px;
-      }
-      input{
-        width: 300px;
-        height: 36px;
-        outline: none;
-        border-radius: 3px;
-        border: 1px solid $border-dark;
-        padding: 0 8px;
-      }
-      #companyy{ width: 100px;}
-      .input-sm{
-        width:200px;
-      }
-      select{
-        width: 100px;
-        height: 40px;
-        outline: none;
-        border-radius: 3px;
-        border: 1px solid $border-dark;
-      }
-    }
-  }
   .cropper {text-align: center;
     .preview {
       width: 230px;

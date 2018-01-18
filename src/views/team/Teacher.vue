@@ -8,7 +8,7 @@
         <img src="../../assets/images/jitax_专家团队_03.png" alt="孙玮">
       </div>
       <div class="short-msg">
-        <p class="name">{{item.name}} 教授</p>
+        <p class="name">{{item.name.substring(0,6)}}</p>
         <div class="short-intro">
           {{item.intro}}
         </div>
@@ -29,7 +29,7 @@ export default {
   },
   mounted () {
     let _self = this
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getTeacherList',{
+    let res = loginUserUrl('getTeacherList',{
       username: "niuhongda",
       password: "123123q"
     }).then((res)=>{

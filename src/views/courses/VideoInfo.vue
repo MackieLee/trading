@@ -107,7 +107,7 @@ export default {
     }
   },
   mounted () {
-    let res = loginUserUrl('http://aip.kehu.zaidayou.com/api/execute/getOnline_Courses_details',{
+    let res = loginUserUrl('getOnline_Courses_details',{
       username: "niuhongda",
       password: "123123q",
       gid:1192

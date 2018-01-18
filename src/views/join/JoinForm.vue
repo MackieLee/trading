@@ -18,9 +18,12 @@
 		<FormItem label="邀请码" prop="yaoqingma">
 			<Input v-model="formValidate.yaoqingma" placeholder="请输入邀请码"></Input>
 		</FormItem>
+    <FormItem prop="agree">
+      <Checkbox v-model="formValidate.agree">阅读并接受《神州九鼎财税法律协议》</Checkbox>
+    </FormItem>
 		<FormItem>
-			<Button type="primary" @click="handleSubmit('formValidate',formValidate)">Submit</Button>
-			<Button type="ghost" @click="handleReset('formValidate')" style="margin-left: 8px">Reset</Button>
+			<Button type="primary" @click="handleSubmit('formValidate',formValidate)">提交</Button>
+			<Button type="ghost" @click="handleReset('formValidate')" style="margin-left: 8px">重置</Button>
 		</FormItem>
 	</Form>
 </template>
@@ -34,14 +37,11 @@ export default {
       if (value === "") {
         callback(new Error("请输入用户名"));
       } else {
-        let res = loginUserUrl(
-          "http://aip.kehu.zaidayou.com/api/execute/getuser",
-          {
+        let res = loginUserUrl("getuser",{
             username: "niuhongda",
             password: "123123q",
             name: value
-          }
-        )
+          })
         setTimeout(() => {
           res.then(res => {
             if (res === 0) {
@@ -80,7 +80,14 @@ export default {
       } else {
         callback();
       }
-    };
+    }
+    const validateAgree = (rule,value,callback) =>{
+      if(value === false){
+        callback(new Error("请阅读并同意《神州九鼎财税法律协议》"))
+      }else{
+        callback()
+      }
+    }
     return {
       formValidate: {
         name: "",
@@ -88,7 +95,8 @@ export default {
         passwdCheck: "",
         mail: "",
         yanzhengma: "",
-        yaoqingma: ""
+        yaoqingma: "",
+        agree:true
       },
       ruleValidate: {
         name: [{ required: true, validator: validateName, trigger: "blur" }],
@@ -97,7 +105,8 @@ export default {
         passwdCheck: [
           { required: true, validator: validatePassCheck, trigger: "blur" }
         ],
-        yanzhengma: [{ required: true, message: "不能为空", trigger: "blur" }]
+        yanzhengma: [{ required: true, message: "不能为空", trigger: "blur" }],
+        agree: [{ required: true, validator: validateAgree,trigger: "blur" }]
       }
     };
   },
@@ -105,7 +114,7 @@ export default {
     handleSubmit(name, arg) {
       this.$refs[name].validate(valid => {
         let res = loginUserUrl(
-          "http://aip.kehu.zaidayou.com/api/execute/register",
+          "register",
           {
             username: "niuhongda",
             password: "123123q",
@@ -114,7 +123,7 @@ export default {
           }
         ).then(res => {
           if (valid) {
-            if (res.error_code === 0) {
+            if (res && res.error_code === 0) {
               this.$Message.success("注册成功!")
               setCookie("u_name", arg.name, 1)
               window.location.href = "http://localhost:8888/#/home"

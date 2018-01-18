@@ -10,17 +10,15 @@
       <div class="floor">
         <div v-for="item in newAnsr" :key="item.id" class="item">
           <div>
-            
+            <div class="wen lf">问 :&nbsp;</div>
             <div class="item-container">
-            	<div class="wen lf">问 :&nbsp;</div>
               <div class="ask">{{ item.name }}</div>
             </div>
           </div>
-          <div>            
+          <div>
+            <div class="wen">答 :&nbsp;</div>
             <div class="item-container">
-            	<div class="wen">答 :&nbsp;</div>
-              <div class="ask ansr">{{ item.value.substring(0,15) }}
-              	<span class="more">查看更多&gt;&gt;</span></div>
+              <div class="ask ansr">{{ (item.value === null ?'':item.value).substring(0,15) }}...<span class="more">查看更多&gt;&gt;</span></div>
             </div>
           </div>
         </div>
@@ -46,13 +44,12 @@ export default {
   },
   mounted () {
     let res = loginUserUrl(
-      "http://aip.kehu.zaidayou.com/api/execute/getQuestions_list",
+      "getQuestions_list",
       {
         username: "niuhongda",
         password: "123123q"
       }
     ).then((res)=>{
-      console.log(res === '暂无数据')
       if(res === '暂无数据'){
         this.data = res
       }else{
@@ -106,23 +103,24 @@ export default {
       //   border-right: 1px dashed $border-orange;
       // }
       .item {
-        margin: 10px 0px 0px;
+        margin: 24px 0;
         padding-right: 50px;
-        width:100%;float: left;
+        width: 478px;
         border-bottom: 1px dashed $border-orange;
+        .wen {
+          color: $red;
+          padding-top: 3px;
+          font-size: 16px;
+          float: left;
+        }
         .item-container {
           float: left;
           color: $black;
           font-size: 12px;
           line-height: 35px;
-          width: 100%;
-          .wen {
-          color: $red;
-          font-size: 16px;
-          float: left;
-        	}
+          width: 432px;
           .ask {
-            margin-bottom: 10px;float: left;
+            margin-bottom: 10px;
           }
         }
         .more {

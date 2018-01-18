@@ -40,14 +40,24 @@
   </div>
 </template>
 <script>
-  export default {
-    data () {
-      return {
-      }
-    },
-    methods: {
+import { loginUserUrl } from '@/api/api'
+export default {
+  data () {
+    return {
     }
+  },
+  methods: {
+
+  },
+  created () {
+    let res = loginUserUrl('getAbout_Us',{
+      username: "niuhongda",
+      password: "123123q"
+    }).then((res)=>{
+      console.log(res)
+    })
   }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -102,9 +102,7 @@ export default {
   },
   created () {
     let cookieName = getCookie('u_name')
-    console.log(cookieName)
     if(cookieName !== '' && cookieName !== 'undefined' ){
-      console.log(this.$store.state.user)
     }else{
       this.$router.push({name:'login'})
     }
@@ -184,7 +182,7 @@ export default {
         }
         font {
           margin-top: 10px;display: block;
-          
+
         }
       }
       .sm-btn {
