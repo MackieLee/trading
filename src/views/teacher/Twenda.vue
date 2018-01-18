@@ -30,13 +30,13 @@
             <h2>{{ item.name }}</h2>
             <div class="div">
               <p class="phui">提问者：提问者的名字</p>
-              <p class="pshui">{{ item.value === ''?'暂无回答':item.value.substring(0,5)+'……'}}<span v-show="item.value !==''" class="more">查看全部>></span></p>
+              <p class="pshui">{{ item.value === ''?'暂无回答':(item.value === null ?'':item.value).substring(0,5)+'……'}}<span v-show="item.value !==''" class="more">查看全部>></span></p>
               <img src="../../assets/images/wendavip.png">
             </div>
           </div>
           <div class="r">
             <h3> {{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
-            <p v-if="item.value === ''" class="red" @click="showAnsr(item.id,item.uid,item.teacher_id)">回答</p>
+            <p v-if="item.value === ''||item.value === null" class="red" @click="showAnsr(item.id,item.uid,item.teacher_id)">回答</p>
             <p v-else class="hui" @click="showPingjia(item.id,item.uid,item.teacher_id)">查看评价</p>
           </div>
         </li>
@@ -63,7 +63,7 @@
 	        	<h2>{{ item.name }}</h2>
 	        	<div class="div">
 	        		<p class="phui">提问者: 提问者的name </p>
-              <p class="pshui">{{ item.value.substring(0,5)+'……' }}<span class="more">查看全部>></span></p>
+              <p class="pshui">{{ (item.value === null ?'':item.value).substring(0,5)+'……' }}<span class="more">查看全部>></span></p>
               <img src="../../assets/images/wendavip.png">
             </div>
 	        </div>
@@ -80,7 +80,6 @@
 <script>
 import { loginUserUrl } from '@/api/api'
 import { getCookie } from "@/util/cookie"
-// import Modal from "../modal/Qa_Modal";
 import WendaModal from "../modal/Twenda_Modal";
 export default {
   name: "youhuiquan",
@@ -109,9 +108,7 @@ export default {
         uid:this.args.uid,
         teacher_id:this.args.teacher_id
       }).then((res)=>{
-        console.log('回答完成后的返回------')
         console.log(res)
-        console.log('------回答完成后的返回')
         this.ansr = ''
         if(res && res.error_code === 0){
           this.modal2 = false
@@ -138,9 +135,8 @@ export default {
     let res = loginUserUrl('getQuestions_list',{
       username: "niuhongda",
       password: "123123q",
-      teacher_id:'531'
+      tid:'531'
     }).then((res)=>{
-      console.log('问题列表---')
       console.log(res)
       this.fqList = res.data
     })

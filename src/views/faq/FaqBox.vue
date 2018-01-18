@@ -18,7 +18,7 @@
           <div>
             <div class="wen">答 :&nbsp;</div>
             <div class="item-container">
-              <div class="ask ansr">{{ item.value.substring(0,15) }}...<span class="more">查看更多&gt;&gt;</span></div>
+              <div class="ask ansr">{{ (item.value === null ?'':item.value).substring(0,15) }}...<span class="more">查看更多&gt;&gt;</span></div>
             </div>
           </div>
         </div>

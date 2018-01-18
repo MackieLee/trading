@@ -23,10 +23,6 @@
             </Col>
           </Row>
         </FormItem>
-        <FormItem>
-          <!-- <Button type="primary" @click="handleSubmit">Submit</Button>
-          <Button type="ghost" @click="handleReset" style="margin-left: 8px">Reset</Button> -->
-        </FormItem>
         <div style="color:grey;">指定老师回答，若老师24小时内未回答，自动转入专家团问答，差额退回，不转入可勾选继续等待</div>
       </Form>
     </div>
