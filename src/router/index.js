@@ -9,6 +9,7 @@ import teacher from '../views/team/teacher'//专家团队
 import tdetail from '../views/team/TDetail'//专家团队详情页
 import faq from '../views/faq/Faq'//问答
 import qdetail from '../views/faq/QDetail'//问答详情
+import qdMore from '../views/faq/qdMore'//问答列表
 import book from '../views/book/Book'//图书
 import item from '../views/book/Item'//图书详情
 import about from '../views/about/About'//关于我们
@@ -133,6 +134,11 @@ const routes = [
         path: '/qdetail',
         name: 'qdetail',
         component: qdetail
+      },
+      {
+        path: '/qdMore',
+        name: 'qdMore',
+        component: qdMore
       },
       {
         path: '/book',

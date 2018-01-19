@@ -10,7 +10,8 @@
         <p>
           <span>适用行业：</span>
           <ul>
-            <li data-name="industry" @click="getItem(item)" :class="{ 'active':i === item}" v-for="item in industry" :key="item">{{ item }}</li>
+            <li data-name="industry" @click="getItem(item)" :class="{ 'active':i === item}" 
+            	v-for="item in industry" :key="item">{{ item }}</li>
           </ul>
         </p>
       </div>
@@ -18,7 +19,8 @@
         <p>
           <span>课程体系：</span>
           <ul>
-            <li data-name="topics" @click="getItem(item)" :class="{ 'active':t === item}" v-for="item in topics" :key="item">{{ item }}</li>
+            <li data-name="topics" @click="getItem(item)" :class="{ 'active':t === item}" 
+            	v-for="item in topics" :key="item">{{ item }}</li>
           </ul>
         </p>
       </div>
@@ -26,7 +28,8 @@
         <p>
           <span>讲&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;师：</span>
           <ul>
-            <li data-name="leaders" @click="getItem(item)" :class="{ 'active':l === item}" v-for="item in leaders" :key="item">{{ item }}</li>
+            <li data-name="leaders" @click="getItem(item)" :class="{ 'active':l === item}"
+            	 v-for="item in leaders" :key="item">{{ item }}</li>
           </ul>
         </p>
       </div>
@@ -34,7 +37,8 @@
         <p>
           <span>适宜人群：</span>
           <ul>
-            <li data-name="easy" @click="getItem(item)" :class="{ 'active':e === item}" v-for="item in easy" :key="item">{{ item }}</li>
+            <li data-name="easy" @click="getItem(item)" :class="{ 'active':e === item}" 
+            	v-for="item in easy" :key="item">{{ item }}</li>
           </ul>
         </p>
       </div>
@@ -42,7 +46,8 @@
         <p>
           <span>价格范围：</span>
           <ul>
-            <li data-name="fee" @click="getItem(item)" :class="{ 'active':f === item}" v-for="item in fee" :key="item">{{ item }}</li>
+            <li data-name="fee" @click="getItem(item)" :class="{ 'active':f === item}" 
+            	v-for="item in fee" :key="item">{{ item }}</li>
             <li class="price-in">
               <input type="tel" maxlength="6" placeholder="￥"/> &nbsp;一&nbsp;
               <input type="tel" maxlength="6" placeholder="￥"/>

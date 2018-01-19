@@ -4,7 +4,7 @@
       <p>
         <i></i>当前位置 : &nbsp;
         <router-link to="/home">九鼎财税</router-link>
-        &nbsp;&gt;&nbsp;新法规
+        &nbsp;&gt;&nbsp;法规列表
       </p>
     </div>
     <div class="main-title">

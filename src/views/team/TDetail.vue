@@ -1,7 +1,8 @@
 <template>
   <div class="tdetail">
     <div class="cur-posi">
-      <p><i></i>当前位置 : &nbsp;<router-link to="/home">九鼎财税 &gt;</router-link><router-link to="/teacher">专家团队 &gt;</router-link>孙玮教授</p>
+      <p><i></i>当前位置 : &nbsp;
+      	<router-link to="/teacher">专家团队 &gt;</router-link>{{ intro.name }}</p>
     </div>
     <div class="detail">
       <img src="../../assets/images/jitax_专家团队_033.png" alt="孙玮教授">

@@ -3,8 +3,8 @@
     <div class="cur-posi">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>
-        &nbsp;&gt;&nbsp;问答
+        <router-link to="/Faq">问答</router-link>
+        &nbsp;&gt;&nbsp;个人问答
       </p>
     </div>
     <Modal

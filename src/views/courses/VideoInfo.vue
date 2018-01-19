@@ -2,9 +2,9 @@
   <div id="xxkc_xq">
     <div class="cur-posi">
       <p>
-        <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>
-        <router-link :to="{ name: 'offline' }">&nbsp;&gt;&nbsp;线上课程</router-link>&nbsp;&gt;&nbsp;{{ course.name }}</p>
+        <i></i>当前位置 :&nbsp;
+        <router-link :to="{ name: 'offline' }">&nbsp;&nbsp;线上课程</router-link>
+        &nbsp;&gt;&nbsp;{{ course.name }}</p>
     </div>
     <div id="xxkc_xq01">
 			<div :to="{name:'video-page'}" class="xq01_shit">
@@ -20,8 +20,8 @@
         <P class="p"> <b>￥</b> {{ course.money }} —— {{ length*50 }}.00<del>￥{{ course.money_marketing }}</del></P>
         <P class="share-in">课程状态：热播
           <a @click="showShare = !showShare"><i></i>分享</a><div class="share-box" v-show="showShare"><i class="arrow"></i><i class="weibo"></i><i class="wechat"></i><i class="qq"></i></div></P>
-        <P>课程数量：{{ length }}</P>
-        <p>适合人群：{{ course.crowd }}</p>
+        <P>课时：{{ length }}</P>
+        <p>适宜人群：{{ course.crowd }}</p>
         <p class="p01">
         	<span @click='cur01=true' v-bind:class="{'red':cur01}">系列</span>
         	<span @click='cur01=false' style="border:none">

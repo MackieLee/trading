@@ -3,7 +3,8 @@
     <div class="cur-posi">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;图书
+        <router-link to="/book">图书</router-link>&nbsp;&gt;&nbsp;图书详情
+        
       </p>
     </div>
     <div class="product-msg">

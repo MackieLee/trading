@@ -2,10 +2,15 @@
   <div class="online">
     <div class="video-boxes">
       <div class="item" v-for="item in classes" :key="item[1].title">
-        <div><router-link :to="{name: 'videoinfo',query:{ id:item[1].id}}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
+        <div><router-link :to="{name: 'videoinfo',query:{ id:item[1].id}}" class="video-cover">
+        	<img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
         <p class="video-title"><a :title="item[1].name">{{ item[1].name }}</a></p>
-        <p class="buss-info"><span class="score"><i></i><font>{{ item[1].grade }}</font>分</span><span class="person-current"><i></i><font>{{ item[1].quantity }}</font>人</span><span class="classes">课时</span><font>{{ item[1].period }}&nbsp;</font><span>节</span></p>
-        <p class="price"><span>课程:<font class="rd">￥{{ item[1].money }}</font></span><router-link :to="{name: 'videoinfo',query:{ id:item[1].id}}" v-if="item[1].audition === '1'" class="free">试 听</router-link></p>
+        <p class="buss-info"><span class="score"><i></i><font>{{ item[1].grade }}</font>分</span>
+        	<span class="person-current"><i></i><font>{{ item[1].quantity }}</font>人</span><span class="classes">
+        		课时:</span><font>{{ item[1].period }}&nbsp;</font><span>节</span></p>
+        <p class="price"><span>价格:<font class="rd">￥{{ item[1].money }}</font></span>
+        	<router-link :to="{name: 'videoinfo',query:{ id:item[1].id}}" 
+        		v-if="item[1].audition === '1'" class="free">试听</router-link></p>
       </div>
     </div>
   </div>

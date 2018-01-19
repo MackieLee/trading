@@ -44,7 +44,7 @@ export default {
           })
         setTimeout(() => {
           res.then(res => {
-            if (res === 0) {
+            if (res && res.error_code === 0) {
               console.log(res);
               callback(new Error("用户已存在"));
             } else {

@@ -3,24 +3,28 @@
     <div class="title">
       <span></span>
       <font>最新问答</font>
-     <router-link to="/qdMore">更多>></router-link>
+    <!--  <a>更多>></a>-->
     </div>
     <div class="container">
       <div>{{ data }}</div>
       <div class="floor">
         <div v-for="item in newAnsr" :key="item.id" class="item">
-          <div>           
+          <div>
+            
             <div class="item-container">
             	<div class="wen lf">问 :&nbsp;</div>
-              <div class="ask">{{ item.name }} <span class="date_rt">20181.19</span></div>
+              <div class="ask">{{ item.name }}</div>
             </div>
           </div>
-          <div>         
+          <div>            
             <div class="item-container">
-            	  <div class="wen">答 :&nbsp;</div>
-              <div class="ask ansr">{{ (item.value === null ?'':item.value).substring(0,15) }}...
-              	<span class="more">查看更多&gt;&gt;</span>
-              </div>
+<<<<<<< HEAD
+            	<div class="wen">答 :&nbsp;</div>
+              <div class="ask ansr">{{ item.value.substring(0,15) }}
+              	<span class="more">查看更多&gt;&gt;</span></div>
+=======
+              <div class="ask ansr">{{ (item.value === null ?'':item.value).substring(0,15) }}...<span class="more">查看更多&gt;&gt;</span></div>
+>>>>>>> b78318d5e303849e9d7d66ac358aec9e8994b9e7
             </div>
           </div>
         </div>
@@ -105,9 +109,9 @@ export default {
       //   border-right: 1px dashed $border-orange;
       // }
       .item {
-        margin-bottom: 20px;
-        padding-right: 20px;
-        width: 100%; float: left;
+        margin: 10px 0px 0px;
+        padding-right: 50px;
+        width:100%;float: left;
         border-bottom: 1px dashed $border-orange;
         .item-container {
           float: left;
@@ -119,22 +123,18 @@ export default {
           color: $red;
           font-size: 16px;
           float: left;
-        }
+        	}
           .ask {
-            margin-bottom: 10px;
-            .date_rt{
-            	float: right;
-            }
-            .more {
+            margin-bottom: 10px;float: left;
+          }
+        }
+        .more {
           text-align: right;
           color: $blue;
           cursor: pointer;
           font-size: 12px;
           margin-left: 10px;
-       				 }
-          }
         }
-        
       }
     }
   }

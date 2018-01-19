@@ -4,7 +4,9 @@
       <span class="float_layer"></span>
       <img src="../../assets/images/jifen02.jpg" width=300px height=300px />
     </div>
-    <div class="big_pic"><img id="lg-img" src="../../assets/images/jifen02.jpg" width=1024px height=768px /></div>
+    <div class="big_pic">
+    	<img id="lg-img" src="../../assets/images/jifen02.jpg" width=1024px height=768px />
+    </div>
   </div>
 </template>
 
