@@ -110,12 +110,13 @@ export default {
     let res = loginUserUrl('getOnline_Courses_details',{
       username: "niuhongda",
       password: "123123q",
-      gid:1192
+      gid:this.$route.query.id
     }).then((res)=>{
       console.log(res)
-      this.course = res.data
-      this.length = res.data.catalogue.length
-
+      if(res){
+        this.course = res.data
+        this.length = res.data.catalogue.length
+      }
     })
   }
 };

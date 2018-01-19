@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import { loginUserUrl } from '@/api/api'
+import { getCookie } from "@/util/cookie"
 export default {
   name:'vip',
   data(){
@@ -83,6 +85,13 @@ export default {
     }
   },
   methods:{
+  },
+  created () {
+    let cookieName = getCookie('u_name')
+    if(cookieName !== '' && cookieName !== 'undefined' ){
+    }else{
+      this.$router.push({name:'login'})
+    }
   }
 
 }

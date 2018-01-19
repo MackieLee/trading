@@ -109,9 +109,9 @@ export default {
           if(res.error_code === 0){
             // console.log(res.data)
             this.handleReset()
-            this.$message.success('提问成功')
+            this.$Message.success('提问成功')
           }else{
-            this.$message.error('返回值错误，提问失败')
+            this.$Message.error('返回值错误，提问失败')
           }
         })
       }else{

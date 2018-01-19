@@ -12,8 +12,26 @@
 		<FormItem label="手机/邮箱" prop="mail">
 			<Input v-model="formValidate.mail" placeholder="请输入手机号码或邮箱"></Input>
 		</FormItem>
+    <FormItem label="验证码" prop="picYanzheng">
+      <Row>
+        <Col span="8">
+          <Input v-model="formValidate.picYanzheng" placeholder="图片验证"></Input>
+        </Col>
+        <Col span="15" offset="1">
+          <Input placeholder="此处放图片"></Input>
+        </Col>
+      </Row>
+		</FormItem>
 		<FormItem label="验证码" prop="yanzhengma">
-			<Input v-model="formValidate.yanzhengma" placeholder="请输入验证码"></Input>
+      <Row>
+        <Col span="10">
+          <Input v-model="formValidate.yanzhengma" placeholder="动态验证码"></Input>
+        </Col>
+        <Col span="12" offset="2">
+          <Button v-if="vCode" type="ghost" @click="getVCode">获取动态验证码</Button>
+          <Button v-else type="ghost" disabled>{{ time + "后获取"}}</Button>
+        </Col>
+      </Row>
 		</FormItem>
 		<FormItem label="邀请码" prop="yaoqingma">
 			<Input v-model="formValidate.yaoqingma" placeholder="请输入邀请码"></Input>
@@ -44,8 +62,9 @@ export default {
           })
         setTimeout(() => {
           res.then(res => {
+            // console.log(res)
             if (res && res.error_code === 0) {
-              console.log(res);
+              // console.log(res);
               callback(new Error("用户已存在"));
             } else {
               callback();
@@ -59,28 +78,73 @@ export default {
       if (value === "") {
         callback(new Error("请输入密码"));
       } else {
-        let reg = (reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,}$/);
+        let reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,}$/
         if (reg.test(value)) {
           if (this.formValidate.passwdCheck !== "") {
             // 对第二个密码框单独验证
-            this.$refs.formValidate.validateField("passwdCheck");
+            this.$refs.formValidate.validateField("passwdCheck")
           }
         } else {
-          callback(new Error("密码不少于8位且必须包含字母和数字"));
+          callback(new Error("密码不少于8位且必须包含字母和数字"))
         }
-        callback();
+        callback()
       }
-    };
+    }
     //确认密码
     const validatePassCheck = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("请确认密码"));
+        callback(new Error("请确认密码"))
       } else if (value !== this.formValidate.passwd) {
-        callback(new Error("两次输入的密码不一样"));
+        callback(new Error("两次输入的密码不一样"))
       } else {
-        callback();
+        callback()
       }
     }
+    // 验证手机号或邮箱
+    const validateMail = (rule,value,callback) => {
+      // 至2017年的手机号正则
+      let regMb = /^134[0-8]\d{7}$|^13[^4]\d{8}$|^14[5-9]\d{8}$|^15[^4]\d{8}$|^16[6]\d{8}$|^17[0-8]\d{8}$|^18[\d]{9}$|^19[8,9]\d{8}$/
+      // 邮箱正则
+      let regMa =/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+      if(value === '') {
+        callback(new Error("不能为空"))
+      }else if(regMb.test(value)){
+        this.mail = true
+        callback()
+        // 判断手机号是否已经被注册过，如果没有，那就可以向这个手机发送验证码
+        // {...}
+      }else if(regMa.test(value)){
+        // console.log('邮箱不对')
+        this.mail = true
+        callback()
+        // 判断邮箱号是否已经被注册过，如果没有，那就可以向这个邮箱发送验证码
+        // {...}
+      }else{
+        callback()
+      }
+    }
+    // 验证动态码
+    const validateYanzhengma = (rule,value,callback) => {
+      if(value === ''){
+        callback(new Error("不能为空"))
+      }else{
+        // 在此处发送后台验证验证码是否输入正确
+        // {...}
+        callback()
+      }
+    }
+    // 验证图片验证码
+    const validatePic = (rule,value,callback) => {
+      if(value === ''){
+        callback(new Error("不能为空"))
+      }else{
+        this.yanZheng = true
+        // 在此处发送到后台验证验证码是否输入正确
+        // {...}
+      }
+      callback()
+    }
+    // 是否勾选了同意
     const validateAgree = (rule,value,callback) =>{
       if(value === false){
         callback(new Error("请阅读并同意《神州九鼎财税法律协议》"))
@@ -89,24 +153,30 @@ export default {
       }
     }
     return {
+      vCode:true,
+      time:60,
+      mail:false,
+      yanZheng:false,
       formValidate: {
         name: "",
         passwd: "",
         passwdCheck: "",
         mail: "",
+        picYanzheng:"",
         yanzhengma: "",
         yaoqingma: "",
         agree:true
       },
       ruleValidate: {
         name: [{ required: true, validator: validateName, trigger: "blur" }],
-        mail: [{ required: true, message: "不能为空", trigger: "blur" }],
+        mail: [{ required: true, validator:validateMail, trigger: "blur" }],
         passwd: [{ required: true, validator: validatePass, trigger: "blur" }],
         passwdCheck: [
           { required: true, validator: validatePassCheck, trigger: "blur" }
         ],
-        yanzhengma: [{ required: true, message: "不能为空", trigger: "blur" }],
-        agree: [{ required: true, validator: validateAgree,trigger: "blur" }]
+        yanzhengma: [{ required: true, validator: validateYanzhengma, message: "不能为空", trigger: "blur" }],
+        agree: [{ required: true, validator: validateAgree,trigger: "blur" }],
+        picYanzheng: [{ required: true, validator: validatePic, trigger: "blur"}]
       }
     };
   },
@@ -128,14 +198,31 @@ export default {
               setCookie("u_name", arg.name, 1)
               window.location.href = "http://localhost:8888/#/home"
             } else {
-              console.log(res);
-              this.$Message.error("表单提交失败");
+              // console.log(res)
+              this.$Message.error("表单提交失败")
             }
           } else {
-            return false;
+            return false
           }
         })
       })
+    },
+    getVCode:function(){
+      let _self = this
+      _self.$refs.formValidate.validateField('mail')
+      _self.$refs.formValidate.validateField('picYanzheng')
+      if(_self.mail && _self.yanZheng){
+        _self.vCode = false
+        // 在这儿申请后台发送验证码给用户
+        // {...}
+        let interval = window.setInterval(function() {
+          if ((_self.time--) <= 0) {
+            _self.time = 60
+            _self.vCode = true
+            window.clearInterval(interval)
+          }
+        }, 1000)
+      }
     },
     handleReset(name) {
       this.$refs[name].resetFields()

@@ -15,9 +15,16 @@
 						<FormItem prop="passwd">
 							<Input :type="type" v-model="form.passwd" placeholder="请输入密码"  @on-click="showPasswd" :icon="eye"></Input>
 						</FormItem>
-						<FormItem prop="yanzhengma">
-							<Input type="text" placeholder="请输入验证码"></Input>
-						</FormItem>
+						<FormItem prop="picYanzheng">
+              <Row>
+                <Col span="8">
+                  <Input v-model="form.picYanzheng" placeholder="图片验证"></Input>
+                </Col>
+                <Col span="15" offset="1">
+                  <Input placeholder="此处放图片"></Input>
+                </Col>
+              </Row>
+            </FormItem>
 						<FormItem prop="interest">
 							<Checkbox label="记住账号" v-model="remember">记住账号</Checkbox>
 							<router-link class="getpwd" :to="{name:'getpwd'}">忘记密码</router-link>
@@ -63,16 +70,20 @@ export default {
       callback();
     };
     //验证码
-    const validateYanzhengma = (rule, value, callback) => {
-      if (value === "") {
-        callback(new Error("验证码不能为空"))
+    const validatePic = (rule,value,callback) => {
+      if(value === ''){
+        callback(new Error("不能为空"))
+      }else{
+        // 在此处发送到后台验证验证码是否输入正确
+        // {...}
       }
-      callback();
-    };
+      callback()
+    }
     return {
       form: {
         name: "",
-        passwd: ""
+        passwd: "",
+        picYanzheng:""
       },
       remember: false,
       eye: "eye-disabled",
@@ -80,7 +91,7 @@ export default {
       ruleCustom: {
         passwd: [{ validator: validatePwd, trigger: "blur" }],
         name: [{ validator: validateName, trigger: "blur" }],
-        yanzhengma: [{ validator: validateYanzhengma, trigger: "blur" }]
+        picYanzheng: [{ validator: validatePic, trigger: "blur" }]
       }
     };
   },
@@ -109,10 +120,10 @@ export default {
             // 登录成功记录用户信息
             if (_self.checked) {
               setCookie("u_name", res.data.id, 365)
-              // window.location.href = "http://localhost:8888/#/home"
+              window.location.href = "http://localhost:8888/#/home"
             } else {
               setCookie("u_name", res.data.id, 1)
-              // window.location.href = "http://localhost:8888/#/home"
+              window.location.href = "http://localhost:8888/#/home"
             }
             this.$Message.success("登录成功")
           } else {

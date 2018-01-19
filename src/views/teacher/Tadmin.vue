@@ -29,6 +29,8 @@
 </template>
 
 <script>
+import { loginUserUrl } from '@/api/api'
+import { getCookie } from "@/util/cookie"
 export default {
   name: "t-admin",
   data() {
@@ -46,7 +48,14 @@ export default {
       ]
     };
   },
-  methods: {}
+  methods: {},
+  created () {
+    let cookieName = getCookie('u_name')
+    if(cookieName !== '' && cookieName !== 'undefined' ){
+    }else{
+      this.$router.push({name:'login'})
+    }
+  }
 };
 </script>
 
@@ -111,7 +120,7 @@ export default {
           text-align: left;
           cursor: pointer;
           i{margin-right: 6px;}
-       
+
         .t-kecheng { background-position: -58px -221px;}
         .t-video{ background-position: -15px -388px;}
         .t-wenda { background-position: -143px -228px;}
