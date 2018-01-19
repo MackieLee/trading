@@ -23,8 +23,7 @@ export default {
   },
   methods: {
     onWatch: function(state) {
-      state === "watch" ? (this.guanzhu = false) : (this.guanzhu = true);
-
+      state === "watch" ? (this.guanzhu = false) : (this.guanzhu = true)
     }
   }
 };

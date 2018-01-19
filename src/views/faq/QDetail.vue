@@ -68,7 +68,7 @@
             </div>
           </div>
           <div class="btn-group rt">
-            <i @click="modal = true" class="ask-icon"></i><input class="ask-input" @click="modal = true" type="button" value="点我提问" /><br>
+            <i @click="modal = true" class="ask-icon"></i><input class="ask-input" @click="openModal" type="button" value="点我提问" /><br>
             <span>没有找到问题？点击上方直接提问</span>
           </div>
         </div>
@@ -79,11 +79,12 @@
       <div class="list">
         <div v-for="item in qslst" :key="item.id" class="list-item">
           <p><span class="question">{{ item.name }}</span><span class="date rt">4天前</span></p>
-          <p class="indent tchr">回答者：{{ intro.name }}</p>
-          <p class="indent">{{ item.value === ''?'暂无回答':(item.value === null ?'':item.value).substring(0,5)+'……'}}
-            <!-- 如何传递价格到支付页面？？同时携带问题id以及开放答案并在支付成功后重新返回此页面(此时渲染完整答案 v-if) -->
-            <span v-show="item.value !==''" class="more">查看全部&gt;&gt;</span>
-          </p>
+          <div v-if="item.value !== null && item.value !== ''" class="ask ansr">{{ item.value === null ?'':(item.value.substring(0,15)+'...') }}
+            <span class="more">查看更多&gt;&gt;</span>
+          </div>
+          <div v-else>
+            暂无回答
+          </div>
         </div>
       </div>
     </div>
@@ -134,13 +135,13 @@ export default {
           if(res.error_code === 0){
             // console.log(res.data)
             this.handleReset()
-            this.$message.success('提问成功')
+            this.$Message.success('提问成功')
           }else{
-            this.$message.error('提问失败')
+            this.$Message.error('提问失败')
           }
         })
       }else{
-        this.$message.error('表单为空，提问失败')
+        this.$Message.error('表单为空，提问失败')
       }
     },
     openModal:function(){
@@ -170,13 +171,12 @@ export default {
       tid:this.$route.query.id
     }).then((res)=>{
       _self.intro = res.data
-      console.log(res.data)
     })
     // 获取讲师的问题列表
     let qslst = loginUserUrl('getQuestions_list',{
       username: "niuhongda",
       password: "123123q",
-      teacher_id:this.$route.query.id
+      tid:this.$route.query.id
     }).then((qslst)=>{
       _self.qslst = qslst.data
     })
