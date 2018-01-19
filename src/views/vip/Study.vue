@@ -99,13 +99,6 @@ export default {
   },
   methods: {
 
-  },
-  created () {
-    let cookieName = getCookie('u_name')
-    if(cookieName !== '' && cookieName !== 'undefined' ){
-    }else{
-      this.$router.push({name:'login'})
-    }
   }
 }
 </script>

@@ -20,7 +20,7 @@
 	        <div class="l">
 	        	<h2>{{ item.name }}</h2>
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">{{ item.value === ''?'暂无回答':item.value.substring(0,5)+'……'}}<span v-show="item.value !==''" class="more">查看全部>></span>
+						<p class="pshui">{{ item.value === ''||item.value === null?'暂无回答':item.value === null ?'':(item.value.substring(0,5)+'……')}}<span v-show="item.value !=='' && item.value !== null" class="more">查看全部>></span>
 						</p>
 						<img src="../../assets/images/wendavip.png">
 	        </div>
@@ -31,7 +31,7 @@
 	       </li>
       </ul>
       <ul class="div01" v-if="part=='2'">
-        <li v-if="item.value === ''" v-for="item in fqList" :key="item.id">
+        <li v-if="item.value === ''||item.value === null" v-for="item in fqList" :key="item.id">
 	        <div class="l">
 	        	<h2>{{ item.name }}</h2>
 	        	<p>还没有答案！</p>
@@ -43,11 +43,11 @@
 	       </li>
       </ul>
       <ul class="div01" v-if="part=='3'">
-        <li v-if="item.value !== ''" v-for="item in fqList" :key="item.id">
+        <li v-if="item.value !== '' && item.value != null" v-for="item in fqList" :key="item.id">
           <div class="l">
             <h2>{{ item.name }}</h2>
               <p class="phui">指定回答者：孙炜老师</p>
-            <p class="pshui">{{ item.value.substring(0,5) }}……<span class="more">查看全部>></span>
+            <p class="pshui">{{ (item.value === null ?'':item.value).substring(0,5)+'……' }}<span class="more">查看全部>></span>
             </p>
             <img src="../../assets/images/wendavip.png">
           </div>
@@ -101,6 +101,7 @@ export default {
       password: "123123q",
       uid:getCookie("u_name")
     }).then((res)=>{
+      console.log(res)
       this.fqList = res.data
     })
   }

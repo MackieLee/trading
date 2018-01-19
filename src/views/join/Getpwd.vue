@@ -9,11 +9,8 @@
 						<a :class="{'text-bottom-long':!cur,'text-bottom-short':cur}" @click="cur=true" style="text-align:right">邮箱找回</a>
 					</p>
 					<Form ref="form" :model="form" :rules="ruleCustom">
-						<FormItem prop="phNum" v-show="!cur">
-							<Input type="text" v-model="form.phNum" placeholder="请输入手机号"></Input>
-						</FormItem>
-            <FormItem prop="mail" v-show="cur">
-							<Input type="text" v-model="form.mail" placeholder="请输入邮箱"></Input>
+						<FormItem prop="mail">
+							<Input type="text" v-model="form.phNum" :placeholder="cur?'请输入邮箱':'请输入手机号'"></Input>
 						</FormItem>
 						<FormItem prop="passwd">
 							<Input :type="type" v-model="form.passwd" placeholder="请输入密码"  @on-click="showPasswd" :icon="eye"></Input>
@@ -21,9 +18,16 @@
             <FormItem prop="passwdCheck">
               <Input :type="type" v-model="form.passwd" placeholder="请确认密码"  @on-click="showPasswd" :icon="eye"></Input>
             </FormItem>
-						<FormItem prop="yanzhengma">
-							<Input type="text" placeholder="请输入验证码"></Input>
-						</FormItem>
+						<FormItem prop="picYanzheng">
+              <Row>
+                <Col span="8">
+                  <Input v-model="form.picYanzheng" placeholder="图片验证"></Input>
+                </Col>
+                <Col span="15" offset="1">
+                  <Input placeholder="此处放图片"></Input>
+                </Col>
+              </Row>
+            </FormItem>
 						<FormItem>
 							<Button type="error" @click="submit(form)" long>重 置</Button>
 						</FormItem>
@@ -44,6 +48,27 @@
 	export default {
 		components: { JoinHeader, JoinFooter },
 		data() {
+      // 验证手机号或邮箱
+      const validateMail = (rule,value,callback) => {
+        // 至2017年的手机号正则
+        let regMb = /^134[0-8]\d{7}$|^13[^4]\d{8}$|^14[5-9]\d{8}$|^15[^4]\d{8}$|^16[6]\d{8}$|^17[0-8]\d{8}$|^18[\d]{9}$|^19[8,9]\d{8}$/
+        // 邮箱正则
+        let regMa =/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+        if(value === '') {
+          callback(new Error("不能为空"))
+        }else if(regMb.test(value)){
+          callback()
+          // 判断手机号是否已经被注册过，如果没有，那就可以向这个手机发送验证码
+          // {...}
+        }else if(regMa.test(value)){
+          // console.log('邮箱不对')
+          callback()
+          // 判断邮箱号是否已经被注册过，如果没有，那就可以向这个邮箱发送验证码
+          // {...}
+        }else{
+          callback()
+        }
+      }
       // 验证密码格式
       const validatePass = (rule, value, callback) => {
 				if(value === '') {
@@ -72,18 +97,20 @@
 				}
 			}
 			//验证码
-			const validateYanzhengma = (rule, value, callback) => {
-				if(value === '') {
-					callback(new Error('验证码不能为空'))
-				}
-				callback()
-			}
+			const validatePic = (rule,value,callback) => {
+        if(value === ''){
+          callback(new Error("不能为空"))
+        }else{
+          // 在此处发送到后台验证验证码是否输入正确
+          // {...}
+        }
+        callback()
+      }
 			return {
 				form: {
 					name: '',
           passwd: '',
           passwdCheck:'',
-          phNum:'',
           mail:''
 				},
         eye:'eye-disabled',
@@ -96,15 +123,8 @@
 					passwdCheck: [
 						{ required: true, validator: validatePassCheck, trigger: 'blur' }
           ],
-          mail: [
-						{ required: true, message: '不能为空', trigger: 'blur' }
-          ],
-          phNum: [
-            { required: true, message: '不能为空', trigger: 'blur' }
-          ],
-					yanzhengma: [
-						{ validator: validateYanzhengma, trigger: 'blur' }
-					]
+          mail: [{ required: true, validator:validateMail, trigger: "blur" }],
+					picYanzheng: [{ required: true, validator: validatePic, trigger: "blur"}]
 				}
 			}
 		},
