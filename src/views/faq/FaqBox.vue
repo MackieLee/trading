@@ -9,17 +9,20 @@
       <div>{{ data }}</div>
       <div class="floor">
         <div v-for="item in newAnsr" :key="item.id" class="item">
-          <div>           
+          <div>
             <div class="item-container">
             	<div class="wen lf">问 :&nbsp;</div>
               <div class="ask">{{ item.name }} <span class="date_rt">20181.19</span></div>
             </div>
           </div>
-          <div>         
+          <div>
             <div class="item-container">
-            	  <div class="wen">答 :&nbsp;</div>
-              <div class="ask ansr">{{ (item.value === null ?'':item.value).substring(0,15) }}...
+            	<div class="wen">答 :&nbsp;</div>
+              <div v-if="item.value !== null && item.value !== ''" class="ask ansr">{{ item.value === null ?'':(item.value.substring(0,15)+'...') }}
               	<span class="more">查看更多&gt;&gt;</span>
+              </div>
+              <div v-else>
+                暂无回答
               </div>
             </div>
           </div>
@@ -134,7 +137,7 @@ export default {
        				 }
           }
         }
-        
+
       }
     }
   }

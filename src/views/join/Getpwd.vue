@@ -24,7 +24,7 @@
                   <Input v-model="form.picYanzheng" placeholder="图片验证"></Input>
                 </Col>
                 <Col span="15" offset="1">
-                  <Input placeholder="此处放图片"></Input>
+                  <img @click="getCodeImgChange" :src="codeUri">
                 </Col>
               </Row>
             </FormItem>
@@ -57,14 +57,35 @@
         if(value === '') {
           callback(new Error("不能为空"))
         }else if(regMb.test(value)){
-          callback()
-          // 判断手机号是否已经被注册过，如果没有，那就可以向这个手机发送验证码
-          // {...}
+          // if this phone never used,return an error
+          // otherwise send the code
+          let res = loginUserUrl('register_verification',{
+            username: "niuhongda",
+            password: "123123q",
+            tel:value
+          }).then((res)=>{
+            if(res && res.intro === 'ok'){
+              callback(new Error('该手机号未被注册'))
+            }else{
+              // send the code
+              // via phoneNum
+            }
+          })
         }else if(regMa.test(value)){
-          // console.log('邮箱不对')
           callback()
-          // 判断邮箱号是否已经被注册过，如果没有，那就可以向这个邮箱发送验证码
-          // {...}
+          // if the mail had never be used,return an error
+          let res = loginUserUrl('register_verification',{
+            username: "niuhongda",
+            password: "123123q",
+            email:value
+          }).then((res)=>{
+            if(res && res.intro === 'ok'){
+              callback(new Error('该手机号未被注册'))
+            }else{
+              // send the code
+              // via mail
+            }
+          })
         }else{
           callback()
         }
@@ -101,8 +122,19 @@
         if(value === ''){
           callback(new Error("不能为空"))
         }else{
-          // 在此处发送到后台验证验证码是否输入正确
-          // {...}
+          let res = loginUserUrl('register_verification',{
+            username: "niuhongda",
+            password: "123123q",
+            piccode:value
+          }).then((res)=>{
+            if(res && res === 10004){
+              this.errData = '验证码错误'
+            }else if(!res){
+              this.errData = '验证码错误'
+            }else{
+              callback()
+            }
+          })
         }
         callback()
       }
@@ -112,10 +144,12 @@
           passwd: '',
           passwdCheck:'',
           mail:''
-				},
+        },
+        codeUri:'',
         eye:'eye-disabled',
         type:'password',
         cur:false,
+        errData:'',
 				ruleCustom: {
 					passwd: [
 						{ required: true, validator: validatePass, trigger: 'blur' }
@@ -166,8 +200,19 @@
             this.$Message.error('登录失败')
           }
         })
-			},
-		}
+      },
+      getCodeImgChange(){
+        let _self = this
+        _self.codeUri = ''
+        setTimeout(function(){
+          _self.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
+        },100)
+      }
+    },
+    created () {
+      // 获取图片验证码
+      this.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
+    }
 	}
 </script>
 <style lang="scss" scoped>
@@ -175,6 +220,7 @@
 	.login-box {
 		background: url("../../assets/images/登录.png") center center no-repeat;
 		background-size: 100% 100%;
+    min-height: 549px;
 		overflow: hidden;
 		.form-box {
 			width: 315px;

@@ -13,13 +13,13 @@
           <span @click="cur = false" :class="{'cur-active' : !cur}">服务条款</span>
         </h2>
         <div class="copy" v-if="cur">
-          <P>  
+          <P>
           	访问者在浏览本站信息、注册本站会员或接受本网站服务之前，请务必仔细阅读本条款并同意本声明。<br>
           	访问者访问本网站的行为以及通过各类方式利用本网站的行为，
           	都将被视作是对本声明全部内容的无异议的认可;如有异议，请立即跟本网站协商，并取得本网站的书面同意意见。<br>
-          	本网所有资料，凡未经特殊注明的，版权均属神州九鼎财税咨询（北京）有限公司（www.jdtax.cn ）所有。<br><br>    	
-          	<h3>版权声明</h3>	    		
-          	<font>1、</font>衷心感谢您关注和支持九鼎财税，如果您需要转载视频、资料、答疑、新闻与资讯等内容信息,请仔细阅读本版权声明：<br>         	
+          	本网所有资料，凡未经特殊注明的，版权均属神州九鼎财税咨询（北京）有限公司（www.jdtax.cn ）所有。<br><br>
+          	<h3>版权声明</h3>
+          	<font>1、</font>衷心感谢您关注和支持九鼎财税，如果您需要转载视频、资料、答疑、新闻与资讯等内容信息,请仔细阅读本版权声明：<br>
           	本网站对所提供的教学视频、教学成果、服务及本服务所使用的视频、资料、源代码等均受知识产权法或其他法律保护的资料享有相应的权利，
           	包括但不限于受到著作权法及其实施细则、商标法及其实施细则、专利法及其实施细则或其他法律的保护。<br>
           	<font>2、</font>本网站（www.jdtax.cn ）提供的内容，九鼎财税拥有版权或有权使用，
@@ -35,7 +35,7 @@
 					 	（2）网中必须具有特别授权或具有注册用户资格方可知晓的内容；<br>
 					 	（3）本网所指向的非本网内容的相关链接内容；<br>
 					 	（4）本网中特有的图形、标志、页面风格、编排方式、程序等；<br>
-					 	（5）作出不得转载或未经许可不得转载声明的内容；<br>					
+					 	（5）作出不得转载或未经许可不得转载声明的内容；<br>
 				   <font>6、</font>转载或引用本网内容须注明“资料来源：神州九鼎财税咨询（北京）有限公司”字样，并标明本网网址 ，违者将依法追究责任。<br>
 				   <font>7、</font>对于不当转载或引用本网内容而引起的民事纷争、行政处理或其他损失，本网不承担责任。<br>
 				   <font>8、</font>转载或引用本网内容不得进行如下活动：<br>
@@ -50,7 +50,7 @@
 					<font>11、</font>神州九鼎财税咨询（北京）有限公司书面同意， 任何用户或网站不允许以任何理由和方式将本网站的视频、音频、答疑服务内容进行再传播。<br>
 					<font>12、</font>本版权声明的解释权归九鼎财税。<br>
          </P>
-         
+
         </div>
         <div v-else class="copy">
 			    <P>
@@ -86,12 +86,12 @@
 				（2）保持维护本网站的商标所有权。<br>
 				（3）在紧急情况下竭力维护用户个人和社会大众的隐私安全。<br>
 				（4）本网站保留发布会员人口分析资询的权利。<br>
-				</P> 
+				</P>
    		   <P>
    		   <h3>会员承担的责任</h3>
 	    		 <font>1、</font>九鼎财税所有会员需自备上网所需要的设备，自行承担上网产生的各项费用。使用自己的电脑能够顺利地接入国际互联网，并能访问本网站主页。
            <font>2、</font>会员需提供详尽、准确的个人资料并及时更新。若会员提供任何错误、不实、过时或不完整的资料为九鼎财税所知，或者九鼎财税有合理理由怀疑资料为错误、不实、过时或不完整，
-九鼎财税保留结束或终止其注册学员资格的权利。九鼎财税承诺不对外透露学员信息，除以下情况外：  <br>		   
+九鼎财税保留结束或终止其注册学员资格的权利。九鼎财税承诺不对外透露学员信息，除以下情况外：  <br>
 						（1）会员授权九鼎财税透露这些信息。<br>
 						（2）相应的法律及程序要求九鼎财税提供会员的个人资料。如果会员提供的资料包含有不正确的信息，九鼎财税保留结束会员使用网络服务资格的权利。<br>
 					<font>3、</font>会员必须遵守中华人民共和国的法律、法规、规章、条例、以及其他具有法律效力的规范，不使用网络服务做任何非法用途。<br>
@@ -109,15 +109,15 @@
 严禁任何个人或单位在未经九鼎财税许可的情况下对这些内容进行翻版、复制、转载、篡改等一切用于商业课程的行为。<br>
 				<font>2、</font>对于会员在九鼎财税平台上的不当行为或其它任何九鼎财税认为应当终止服务的情况，九鼎财税有权随时作出删除相关信息、终止服务提供等处理，
 而无须征得会员的同意；九鼎财税应本着诚实信用的原则向会员提供远程教育服务，不得随意中断或停止提供该项服务。
-   		   </P>   		   
+   		   </P>
  		      <P>
-	    		<h3>本网站服务条款的确认和接纳</h3>本网站各项服务的所有权和运作权归本网站拥有。		
+	    		<h3>本网站服务条款的确认和接纳</h3>本网站各项服务的所有权和运作权归本网站拥有。
 	    		</P>
 	    		<P>
 	    		<h3>关于网站的说明</h3>
 	    		<font>1、</font>九鼎财税所有产品一经购买（包括网上注册、邮局汇款、银行电汇、报名点缴费等各种购买方式），都不允许任何形式的退换。<br>
 				  <font>2、</font>会员缴费为九鼎财税在线网络课堂的教育信息费，不包含学员的上网电话费、上网信息费等。<br>
-			 	  <font>3、</font>积分和优惠卷是会员在九鼎财税在线听课、问答、图书购买、线下课报名使用，不找零，不兑换现金或其他产品和服务。<br>	
+			 	  <font>3、</font>积分和优惠卷是会员在九鼎财税在线听课、问答、图书购买、线下课报名使用，不找零，不兑换现金或其他产品和服务。<br>
 	    		<font>4、</font>会员在九鼎财税购买的课程，只限播放三次，请会员认真观看。<br>
 	    		<font>5、</font>会员在九鼎财税报名线下课程，可在官方报名，也可拨打官方电话报名。<br>
 	    		<font>6、</font>会员在九鼎财税向专家提问，需向专家支付费用。<br>
@@ -142,7 +142,7 @@
 	    	付费经确认后，九鼎财税会开通相应的服务权限（服务权限是指会员享受所购买服务的资格）。
 	          具体服务内容开通的时间和进度以网站的最新公告或课件更新记录为准。<br>
 			<font>2、</font>结束服务后，会员使用相应服务权限的权利马上终止。从那时起，会员没有权利，九鼎财税也没有义务传送任何未处理的信息或未完成的服务给会员或第三方。
-   		   </P>  
+   		   </P>
 	    		<P>
 	    		<h3>免责条款</h3>
 	    		<font>1、</font>不保证（包括但不限于）：<br>
@@ -150,7 +150,7 @@
 	    			（2）用户经由本服务取得的任何产品、服务或其他材料符合用户的期望。<br>
 				  <font>2、</font>会员使用经由九鼎财税务下载或取得的任何资料，其风险自行负担。<br>
 			 	  <font>3、</font>由于地震、台风、洪水、火灾、战争、政府禁令以及其他不能预见并且对
-			 	 	 其发生和后果不能防止或避免的不可抗力或互联网上的黑客攻击事件，致使影响九鼎财税服务履行的，九鼎财税不承担责任。<br>	
+			 	 	 其发生和后果不能防止或避免的不可抗力或互联网上的黑客攻击事件，致使影响九鼎财税服务履行的，九鼎财税不承担责任。<br>
 	    		<font>4、</font>当九鼎财税以链接形式推荐其他网站内容时，由于九鼎财税并不控制相关网站和资源，因此访问者需理解并同意，
 	    		九鼎财税并不对这些网站或资源的可用性负责，且不保证从这些网站获取的任何内容、产品、服务或其他材料的真实性、合法性，
 	    		对于任何因使用或信赖从此类网站或资源上获取的内容、产品、服务或其他材料而造成（或声称造成）的任何直接或间接损失，九鼎财税均不承担任何责任。<br>
@@ -159,7 +159,7 @@
 				<font>6、</font>九鼎财税如因系统维护或升级而需暂停服务时，将事先公告。若因线路及非本公司控制范围外的硬件故障或其它不可抗力而导致暂停服务，于暂停服务期间造成的一切不便与损失，九鼎财税不负任何责任。<br>
 				<font>7、</font>九鼎财税使用者因违反本声明的规定而触犯中华人民共和国法律的，一切后果自己负责，本网站不承担任何责任。本用户协议根据现行中华人民共和国法律法规制定。如发生协议条款与中华人民共和国法律法规相抵触时，则这些条款将完全按法律法规的规定重新解释，
 					本用户协议的其它条款仍对九鼎财税和会员具有法律约束力。<br>
-					</P>	
+					</P>
 					<P>
    		   		<h3>法律</h3>
 						<font>1、</font>本网站信息服务条款要与中华人民共和国的法律解释一致。<br>
@@ -169,7 +169,7 @@
         </div>
       </div>
     </div>
-  
+
   </div>
 </template>
 <script>
@@ -178,8 +178,8 @@ export default {
   data() {
     return {
       showShare: false,
-      cur:true,
-      cur01:false,
+      cur: true,
+      cur01: false
     };
   },
   methods: {
@@ -191,12 +191,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .about {
   width: $width;
   margin: 0 auto;
-  .bold-title{
-     font-size: 16px;
+  .bold-title {
+    font-size: 16px;
   }
   .cur-posi {
     border-bottom: none;
@@ -205,64 +205,69 @@ export default {
       margin-right: 6px;
     }
   }
-    margin-top: 26px;
-/*课程目录有简介*/
-#xxkc_xq02 {
-  width: 100%;
-  height: auto;
-  margin-top: 20px;
-  overflow: hidden;
-  // .xq02_r {
-  //   width: 45%;
-  //   float: right;
-  // }
-  // .xq02_l {
-  //   width: 100%;
-  //   float: left;
-  // }
-  h2 {
+  margin-top: 26px;
+  /*课程目录有简介*/
+  #xxkc_xq02 {
     width: 100%;
-    height: 32px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid $red;
-    span {
-      width: 100px;
+    height: auto;
+    margin-top: 20px;
+    overflow: hidden;
+    // .xq02_r {
+    //   width: 45%;
+    //   float: right;
+    // }
+    // .xq02_l {
+    //   width: 100%;
+    //   float: left;
+    // }
+    h2 {
+      width: 100%;
       height: 32px;
-      line-height: 32px;
-      text-align: center;
-      box-sizing: border-box;
-      display: inline-block;
-      font-weight: normal;
-      font-size: 14px;
-      cursor: pointer;
+      margin-bottom: 15px;
+      border-bottom: 1px solid $red;
+      span {
+        width: 100px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        box-sizing: border-box;
+        display: inline-block;
+        font-weight: normal;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .cur-active {
+        background-color: $red;
+        color: $white;
+      }
     }
-    .cur-active{
-      background-color: $red;
-      color: $white;
+    .txt {
+      padding-top: 20px;
+      text-indent: 2em;
     }
-  }
-  .txt {
-    padding-top: 20px;
-    text-indent: 2em;
-  }
-    .copy{border: 1px solid #fbc081;
-    margin-top: 15px;
-  h3{border-bottom: 2px solid #e5e5e5;
-    height: 26px;font-size: 14px;
-    border-left: 2px solid #ff2832;
-    padding: 0 30px 0 6px;}
-    p {
- 		overflow: hidden;
-   width:100%; line-height: 32px;
-    font-size: 14px;
-    padding: 15px 18px 20px; 
-    color: #656565;
-		font,.a{color: #4683ee;}
-
-  }
+    .copy {
+      border: 1px solid #fbc081;
+      margin-top: 15px;
+      h3 {
+        border-bottom: 2px solid #e5e5e5;
+        height: 26px;
+        font-size: 14px;
+        border-left: 2px solid #ff2832;
+        padding: 0 30px 0 6px;
+      }
+      p {
+        overflow: hidden;
+        width: 100%;
+        line-height: 32px;
+        font-size: 14px;
+        padding: 15px 18px 20px;
+        color: #656565;
+        font,
+        .a {
+          color: #4683ee;
+        }
+      }
+    }
   }
 }
-   
-      }
-   
 </style>
