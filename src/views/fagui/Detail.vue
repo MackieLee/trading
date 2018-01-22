@@ -10,7 +10,7 @@
         <h1>{{ content.department }}</h1>
         <h3>{{ content.name }}</h3>
       </div>
-      <div class="clearfix" style="margin-bottom:15px;line-height:25px;">
+      <div class="clearfix biaot">
         <div class="second-title">
           <p>文号:{{ content.reference }}</p>
           <p>发文日期:{{ content.date_posted }}</p>
@@ -43,7 +43,9 @@
         <div class="clearfix">
           <div class="lf" v-if="explain">政策解读：</div>
           <div class="lf green" v-if="explain">
-            <router-link tag="span" style="cursor:pointer" :to="{path:'/fagui-jiedu',query:{id:content.explain_id}}">《{{ content.name }}》的政策解读</router-link>
+            <router-link tag="span" style="cursor:pointer" 
+            	:to="{path:'/fagui-jiedu',query:{id:content.explain_id}}">《{{ content.name }}
+            	》的政策解读</router-link>
           </div>
         </div>
 
@@ -216,6 +218,12 @@ export default {
   .jiedua{line-height: 36px; height: 36px;
   a{color: #468EE3;}
   }
+  .biaot{ 
+  	margin:0px 20px 15px;
+  	line-height:25px;
+  	padding-bottom: 20px;
+  	 border-bottom: 1.2px solid red;
+  }
   .clearfix {
     overflow: hidden;
   }
@@ -302,7 +310,7 @@ export default {
     border: 1px solid $border-rice;
     .top-bar {
       text-align: right;
-      margin-right: 30px;
+      margin:15px 30px 0 0; 
       span {
         margin-right: 20px;
       }

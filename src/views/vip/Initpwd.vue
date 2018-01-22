@@ -5,8 +5,8 @@
      <div class="sum_of_class">账号安全</div>
       <table>
         <tr>
-          <th width="100" class="passed"><i class="passed"></i>登录密码</th>
-          <td width="500">互联网账号存在风险，建议您定期修改密码以保护账号安全。</td>
+          <th width="150" class="passed"><i class="passed"></i>登录密码</th>
+          <td width="550">互联网账号存在风险，建议您定期修改密码以保护账号安全。</td>
           <td @click="showModal('pwd')" width="100" class="manager">修改</td>
         </tr>
         <tr>
@@ -16,7 +16,8 @@
         </tr>
         <tr>
           <th><i class="passed"></i>手机验证</th>
-          <td>您验证的手机:<span style="font-weight:bold;margin: 0 10px;">177*****234</span>若已丢失或停用，请立即更换。</td>
+          <td>您验证的手机:<span style="font-weight:bold;margin: 0 10px;">177*****234</span>
+          	若已丢失或停用，请立即更换。</td>
           <td @click="showModal('phone')" class="manager">修改</td>
         </tr>
       </table>

@@ -40,7 +40,8 @@
         </tbody>
       </table>
       <div style="display:flex;justify-content:center;margin:80px 0 30px 0;">
-        <Page :total="total" @on-change="page($event)" :page-size="20" show-elevator show-total></Page>
+        <Page :total="total" @on-change="page($event)" :page-size="20" show-elevator show-total>
+				</Page>
       </div>
     </div>
   </div>

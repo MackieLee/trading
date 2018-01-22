@@ -4,12 +4,14 @@
     <div class="container">
       <div class="form-box">
         <div class="form">
-          <p>欢迎注册九鼎账户</p>
+          <p class="line">欢迎注册九鼎账户</p>
           <join-form></join-form>
         </div>
       </div>
       <div class="login-box">
-        <p>已有九鼎账户<router-link :to="{name:'login'}">登录</router-link></p>
+        <p>已有九鼎账户
+        	<router-link :to="{name:'login'}">登录</router-link>
+        </p>
         <ul class="others">
           <router-link to="/home" tag="li"><i class="qq"></i>QQ账号</router-link>
           <router-link to="/home" tag="li"><i class="wechat"></i>微信账号</router-link>
@@ -40,6 +42,11 @@ export default {
   margin: auto;
   justify-content: center;
   background-color: $white;
+  .line{
+  	border-bottom: 1px solid red;
+  	   margin-top:25px;
+  	   padding-bottom: 12px;
+  	}
   p{
     text-align: center;
     margin:30px 0 15px 0;
@@ -49,7 +56,7 @@ export default {
     width: 544px;
     .form{
       padding-right: 100px;
-      border-right: 1px solid $border-blue;
+      border-right: 1px solid red;
       margin:0 0 45px 118px;
     }
   }

@@ -37,7 +37,7 @@
 			<Input v-model="formValidate.yaoqingma" placeholder="请输入邀请码"></Input>
 		</FormItem>
     <FormItem prop="agree">
-      <Checkbox v-model="formValidate.agree">阅读并接受《神州九鼎财税用户协议》</Checkbox>
+      <Checkbox v-model="formValidate.agree">阅读并接受《神州九鼎财税法律协议》</Checkbox>
     </FormItem>
 		<FormItem>
 			<Button type="primary" @click="handleSubmit('formValidate',formValidate)">提交</Button>
@@ -62,9 +62,14 @@ export default {
           })
         setTimeout(() => {
           res.then(res => {
+<<<<<<< HEAD
+            if (res && res.error_code === 0) {
+              console.log(res);
+=======
             // console.log(res)
             if (res && res.error_code === 0) {
               // console.log(res);
+>>>>>>> 1d273c2d1de1253f49eb8b6c0e0a1a66c389f666
               callback(new Error("用户已存在"));
             } else {
               callback();
@@ -147,7 +152,7 @@ export default {
     // 是否勾选了同意
     const validateAgree = (rule,value,callback) =>{
       if(value === false){
-        callback(new Error("请阅读并同意《神州九鼎财税用户协议》"))
+        callback(new Error("请阅读并同意《神州九鼎财税法律协议》"))
       }else{
         callback()
       }

@@ -2,8 +2,8 @@
   <div class="modal">
     <div class="content">
       <div class="close" @click="closeModal"></div>
-      <div class="title">支付密码管理</div>
       <div class="container" v-show="contentSeries === 'pwd'">
+      	<div class="title">密码管理</div>
         <table>
           <tr>
             <th>新登录密码</th>
@@ -58,6 +58,7 @@
         </table>
       </div>
       <div class="container" v-show="contentSeries === 'email'">
+      	<div class="title">邮箱验证</div>
         <table>
           <tr class="split">
             <td colspan="5"></td>
@@ -100,6 +101,7 @@
         </table>
       </div>
       <div class="container" v-show="contentSeries === 'phone'">
+      	<div class="title">手机验证</div>
         <table>
           <tr>
             <th>当前手机号</th>
@@ -226,7 +228,7 @@ export default {
 @import '../../assets/style/base.scss';
 .content {
   width: 700px;
-  height: 450px;
+  height: 440px;
   background-color: $white;
   margin: auto;
   margin-top: 10%;
@@ -247,9 +249,9 @@ export default {
     text-align: center;
     line-height: 40px;
     background-color:#4683ee;
+    margin-bottom: 40px;
   }
   .container{
-    margin-top: 40px;
     table{
       border-collapse: collapse;
       margin: 0 auto;

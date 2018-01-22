@@ -1,5 +1,8 @@
 <template>
   <div class="bind">
+  	<Modal v-model='modal'>
+  		
+ 	</Modal>
     <div class="container">
       <div class="sum_of_class">账号安全</div>
       <table>
@@ -14,7 +17,7 @@
             <span>li******@jdtax.cn</span>
           </td>
           <td width="110">
-            <input class="re-bind" type="button" value="修改绑定" />
+            <input @click="showModal('email')" class="re-bind" type="button" value="修改绑定" />
           </td>
         </tr>
         <tr height="50">
@@ -28,7 +31,7 @@
             <span>177******1234</span>
           </td>
           <td>
-            <input class="re-bind" type="button" value="修改绑定" />
+            <input @click="showModal('email')" class="re-bind" type="button" value="修改绑定" />
           </td>
         </tr>
         <tr height="50">
@@ -42,7 +45,7 @@
             <span>qzuser</span>
           </td>
           <td>
-            <input class="cancel-bind" type="button" value="取消绑定" />
+            <input @click="showModal('email')" class="cancel-bind" type="button" value="取消绑定" />
           </td>
         </tr>
         <tr height="50">
@@ -56,7 +59,8 @@
             <span>未绑定</span>
           </td>
           <td>
-            <input class="imm-bind" type="button" value="立即绑定" />
+            <input @click="showModal('pwd')" class="imm-bind" type="button" value="立即绑定" />
+            
           </td>
         </tr>
         <tr height="50">
@@ -70,24 +74,25 @@
             <span>一杯北野君</span>
           </td>
           <td>
-            <input class="cancel-bind" type="button" value="取消绑定" />
+            <input @click="showModal('email')" class="cancel-bind" type="button" value="取消绑定" />
           </td>
         </tr>
         <tr height="50">
           <td>
             <img />
           </td>
-          <td>
-            支付宝
-          </td>
+          <td> 支付宝</td>
           <td>
             <span>七七七</span>
           </td>
           <td>
-            <input class="imm-bind" type="button" value="立即绑定" />
+            <input @click="showModal('email')" class="imm-bind" type="button" value="立即绑定" />
           </td>
         </tr>
       </table>
+      
+
+      
     </div>
   </div>
 </template>
@@ -95,11 +100,23 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      modal: false,
+      series: ""
+    };
   },
-  methods: {}
+  methods: {
+    closeModal: function() {
+      this.modal = false;
+    },
+    showModal: function(what) {
+      this.modal = true;
+      this.series = what;
+    }
+  }
 };
 </script>
+
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
