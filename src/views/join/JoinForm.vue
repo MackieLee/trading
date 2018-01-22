@@ -131,17 +131,17 @@
       <FormItem label="手机/邮箱" prop="mail">
         <Input v-model="formValidate.mail" placeholder="请输入手机号码或邮箱"></Input>
       </FormItem>
-      <FormItem label="验证码" prop="picYanzheng">
+      <FormItem ref="picyz" label="验证码" prop="picYanzheng" :error="errData2">
         <Row>
           <Col span="8">
             <Input v-model="formValidate.picYanzheng" placeholder="图片验证"></Input>
           </Col>
           <Col span="15" offset="1">
-            <Input placeholder="此处放图片"></Input>
+            <img @click="getCodeImgChange" :src="codeUri">
           </Col>
         </Row>
       </FormItem>
-      <FormItem label="验证码" prop="yanzhengma">
+      <FormItem ref="yanzheng" label="验证码" prop="yanzhengma" :error="errData">
         <Row>
           <Col span="10">
             <Input v-model="formValidate.yanzhengma" placeholder="动态验证码"></Input>
@@ -185,9 +185,9 @@ export default {
             // console.log(res)
             if (res && res.error_code === 0) {
               // console.log(res);
-              callback(new Error("用户已存在"));
+              callback(new Error("用户已存在"))
             } else {
-              callback();
+              callback()
             }
           });
         }, 1000);
@@ -196,26 +196,26 @@ export default {
     //密码
     const validatePass = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("请输入密码"));
+        callback(new Error("请输入密码"))
       } else {
         let reg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,}$/;
         if (reg.test(value)) {
           if (this.formValidate.passwdCheck !== "") {
             // 对第二个密码框单独验证
-            this.$refs.formValidate.validateField("passwdCheck");
+            this.$refs.formValidate.validateField("passwdCheck")
           }
         } else {
-          callback(new Error("密码不少于8位且必须包含字母和数字"));
+          callback(new Error("密码不少于8位且必须包含字母和数字"))
         }
-        callback();
+        callback()
       }
     };
     //确认密码
     const validatePassCheck = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("请确认密码"));
+        callback(new Error("请确认密码"))
       } else if (value !== this.formValidate.passwd) {
-        callback(new Error("两次输入的密码不一样"));
+        callback(new Error("两次输入的密码不一样"))
       } else {
         callback();
       }
@@ -232,13 +232,33 @@ export default {
         this.mail = true;
         callback();
         // 判断手机号是否已经被注册过，如果没有，那就可以向这个手机发送验证码
-        // {...}
+        let res = loginUserUrl('register_verification',{
+          username: "niuhongda",
+          password: "123123q",
+          tel:value
+        }).then((res)=>{
+          if(res && res.intro === 'ok'){
+            this.type = 1
+          }else{
+            callback(new Error('该手机号已被注册'))
+          }
+        })
       } else if (regMa.test(value)) {
         // console.log('邮箱不对')
         this.mail = true;
         callback();
         // 判断邮箱号是否已经被注册过，如果没有，那就可以向这个邮箱发送验证码
-        // {...}
+        let res = loginUserUrl('register_verification',{
+          username: "niuhongda",
+          password: "123123q",
+          email:value
+        }).then((res)=>{
+          if(res && res.intro === 'ok'){
+            this.type = 2
+          }else{
+            callback(new Error('该邮箱已被注册'))
+          }
+        })
       } else {
         callback();
       }
@@ -248,10 +268,21 @@ export default {
       if (value === "") {
         callback(new Error("不能为空"));
       } else {
-        // 在此处发送后台验证验证码是否输入正确
-        // {...}
-        callback();
+        let res = loginUserUrl('register_verification',{
+          username: "niuhongda",
+          password: "123123q",
+          code:value
+        }).then((res)=>{
+          if(res && res === 10004){
+            this.errData = '验证码错误'
+          }else if(!res){
+            this.errData = '验证码错误'
+          }else{
+            callback()
+          }
+        })
       }
+      callback()
     };
     // 验证图片验证码
     const validatePic = (rule, value, callback) => {
@@ -259,17 +290,28 @@ export default {
         callback(new Error("不能为空"));
       } else {
         this.yanZheng = true;
-        // 在此处发送到后台验证验证码是否输入正确
-        // {...}
+        let res = loginUserUrl('register_verification',{
+          username: "niuhongda",
+          password: "123123q",
+          piccode:value
+        }).then((res)=>{
+          if(res && res === 10004){
+            this.errData2 = '验证码错误'
+          }else if(!res){
+            this.errData2 = '验证码错误'
+          }else{
+            callback()
+          }
+        })
       }
       callback();
     };
     // 是否勾选了同意
     const validateAgree = (rule, value, callback) => {
       if (value === false) {
-        callback(new Error("请阅读并同意《神州九鼎财税用户协议》"));
+        callback(new Error("请阅读并同意《神州九鼎财税用户协议》"))
       } else {
-        callback();
+        callback()
       }
     };
     return {
@@ -278,6 +320,9 @@ export default {
       mail: false,
       yanZheng: false,
       modal: false,
+      codeUri:'',
+      errData:'',
+      errData2:'',
       formValidate: {
         name: "",
         passwd: "",
@@ -288,6 +333,8 @@ export default {
         yaoqingma: "",
         agree: true
       },
+      type:1,
+      ready:false,
       ruleValidate: {
         name: [{ required: true, validator: validateName, trigger: "blur" }],
         mail: [{ required: true, validator: validateMail, trigger: "blur" }],
@@ -317,19 +364,25 @@ export default {
           username: "niuhongda",
           password: "123123q",
           name: arg.name,
-          pwd: arg.passwd
+          pwd: arg.passwd,
+          piccode:arg.picYanzheng,
+          code:arg.yanzhengma,
+          tel:arg.mail,
+          email:arg.mail,
+          type:arg.type,
+          invitation:arg.yanzhengma
         }).then(res => {
           if (valid) {
             if (res && res.error_code === 0) {
-              this.$Message.success("注册成功!");
-              setCookie("u_name", arg.name, 1);
+              this.$Message.success("注册成功!")
+              setCookie("u_name", arg.name, 1)
               window.location.href = "http://localhost:8888/#/home";
             } else {
               // console.log(res)
-              this.$Message.error("表单提交失败");
+              this.$Message.error("表单提交失败")
             }
           } else {
-            return false;
+            return false
           }
         });
       });
@@ -340,22 +393,40 @@ export default {
       _self.$refs.formValidate.validateField("picYanzheng");
       if (_self.mail && _self.yanZheng) {
         _self.vCode = false;
-        // 在这儿申请后台发送验证码给用户
-        // {...}
+        // 获取短信/邮件验证码
+        let res = loginUserUrl("register_sendCode", {
+          username: "niuhongda",
+          password: "123123q",
+          number:this.formValidate.mail,
+          type:this.type
+        }).then((res)=>{
+          console.log(res)
+        })
         let interval = window.setInterval(function() {
           if (_self.time-- <= 0) {
-            _self.time = 60;
-            _self.vCode = true;
-            window.clearInterval(interval);
+            _self.time = 60
+            _self.vCode = true
+            window.clearInterval(interval)
           }
-        }, 1000);
+        }, 1000)
       }
     },
     handleReset(name) {
       this.$refs[name].resetFields();
+    },
+    getCodeImgChange(){
+      let _self = this
+      _self.codeUri = ''
+      setTimeout(function(){
+        _self.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
+      },200)
     }
+  },
+  created () {
+    // 获取图片验证码
+    this.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 .copy {

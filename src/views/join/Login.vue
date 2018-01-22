@@ -15,13 +15,13 @@
 						<FormItem prop="passwd">
 							<Input :type="type" v-model="form.passwd" placeholder="请输入密码"  @on-click="showPasswd" :icon="eye"></Input>
 						</FormItem>
-						<FormItem prop="picYanzheng">
+						<FormItem prop="picYanzheng" :error="errData">
               <Row>
-                <Col span="8">
+                <Col span="8" prop="picYanzheng">
                   <Input v-model="form.picYanzheng" placeholder="图片验证"></Input>
                 </Col>
                 <Col span="15" offset="1">
-                  <Input placeholder="此处放图片"></Input>
+                  <img @click="getCodeImgChange" :src="codeUri">
                 </Col>
               </Row>
             </FormItem>
@@ -74,8 +74,19 @@ export default {
       if(value === ''){
         callback(new Error("不能为空"))
       }else{
-        // 在此处发送到后台验证验证码是否输入正确
-        // {...}
+        let res = loginUserUrl('register_verification',{
+          username: "niuhongda",
+          password: "123123q",
+          piccode:value
+        }).then((res)=>{
+          if(res && res === 10004){
+            this.errData = '验证码错误'
+          }else if(!res){
+            this.errData = '验证码错误'
+          }else{
+            callback()
+          }
+        })
       }
       callback()
     }
@@ -85,9 +96,11 @@ export default {
         passwd: "",
         picYanzheng:""
       },
+      errData:'',
       remember: false,
       eye: "eye-disabled",
       type: "password",
+      codeUri:'',
       ruleCustom: {
         passwd: [{ validator: validatePwd, trigger: "blur" }],
         name: [{ validator: validateName, trigger: "blur" }],
@@ -131,15 +144,27 @@ export default {
           }
         }
       })
+    },
+    getCodeImgChange(){
+      let _self = this
+      _self.codeUri = ''
+      setTimeout(function(){
+        _self.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
+      },200)
     }
+  },
+  created () {
+    // 获取图片验证码
+    this.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
   }
-};
+}
 </script>
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .login-box {
   background: url("../../assets/images/登录.png") center center no-repeat;
   background-size: 100% 100%;
+  min-height: 549px;
   overflow: hidden;
   .form-box {
     width: 315px;
