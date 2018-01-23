@@ -20,7 +20,7 @@
 	        <div class="l">
 	        	<h2>{{ item.name }}</h2>
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">{{ item.value === ''||item.value === null?'暂无回答':item.value === null ?'':(item.value.substring(0,5)+'……')}}<span v-show="item.value !=='' && item.value !== null" class="more">查看全部>></span>
+						<p class="pshui">{{ item.value === ''|| item.value === null?'暂无回答':item.value === null ?'':(item.value.substring(0,5)+'……')}}<span v-show="item.value !=='' && item.value !== null" class="more">查看全部>></span>
 						</p>
 						<img src="../../assets/images/wendavip.png">
 	        </div>

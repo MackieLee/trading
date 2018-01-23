@@ -10,7 +10,7 @@
         <p>
           <span>适用行业：</span>
           <ul>
-            <li data-name="industry" @click="getItem(item)" :class="{ 'active':i === item}" 
+            <li data-name="industry" @click="getItem(item)" :class="{ 'active':i === item}"
             	v-for="item in industry" :key="item">{{ item }}</li>
           </ul>
         </p>
@@ -19,7 +19,7 @@
         <p>
           <span>课程体系：</span>
           <ul>
-            <li data-name="topics" @click="getItem(item)" :class="{ 'active':t === item}" 
+            <li data-name="topics" @click="getItem(item)" :class="{ 'active':t === item}"
             	v-for="item in topics" :key="item">{{ item }}</li>
           </ul>
         </p>
@@ -37,7 +37,7 @@
         <p>
           <span>适宜人群：</span>
           <ul>
-            <li data-name="easy" @click="getItem(item)" :class="{ 'active':e === item}" 
+            <li data-name="easy" @click="getItem(item)" :class="{ 'active':e === item}"
             	v-for="item in easy" :key="item">{{ item }}</li>
           </ul>
         </p>
@@ -46,7 +46,7 @@
         <p>
           <span>价格范围：</span>
           <ul>
-            <li data-name="fee" @click="getItem(item)" :class="{ 'active':f === item}" 
+            <li data-name="fee" @click="getItem(item)" :class="{ 'active':f === item}"
             	v-for="item in fee" :key="item">{{ item }}</li>
             <li class="price-in">
               <input type="tel" maxlength="6" placeholder="￥"/> &nbsp;一&nbsp;
@@ -69,17 +69,6 @@
     </div>
     <online-courses></online-courses>
     <!-- 触发子组件的数据刷新，传递页码给子组件 -->
-    <div class="pgs">
-      <li class="prev">&lt;上一页</li>
-      <li class="current">1</li>
-      <li class="custom">2</li>
-      <li class="custom">3</li>
-      <li class="custom">4</li>
-      <li class="points">...</li>
-      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
-      <li class="submit">确定</li>
-      <li class="next">下一页&gt;</li>
-    </div>
   </div>
 </template>
 
@@ -215,49 +204,4 @@ export default {
     color: $red;
   }
 }
-.pgs {
-    width: 525px;
-    margin: 60px auto;
-    li {
-      width: 33px;
-      padding: 4px 0;
-      line-height: 20px;
-      text-align: center;
-      margin-right: 2px;
-      cursor: pointer;
-      border: 1px solid $border-dark;
-      color: $black;
-    }
-    .prev {
-      width: 73px;
-      color: $blue;
-    }
-    .next {
-      width: 96px;
-      color: $blue;
-    }
-    .points {
-      border: none;
-    }
-    .submit {
-      background-color: $btn-default;
-      color: $white;
-      width: 44px;
-      border: none;
-    }
-    .jump {
-      width: 80px;
-      border: 1px solid $border-dark;
-      color: #333;
-      input {
-        width: 30px;
-        border: 1px solid $border-dark;
-        outline: none;
-      }
-    }
-    .current {
-      background-color: $btn-default;
-      color: $white;
-    }
-  }
 </style>
