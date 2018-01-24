@@ -42,27 +42,26 @@
           </Row>
         </FormItem>
         <!-- 添加标签 -->
-        <FormItem
-          v-for="(item, index) in uData.tag.items"
-          v-if="item.status"
-          label="标签"
-          :key="index"
-          :prop="item.value">
-            <Row>
-              <Col span="18">
-                <Input type="text" v-model="item.value" placeholder="请输入标签..."></Input>
-              </Col>
-              <Col span="4" offset="1">
-                <Button type="ghost" @click="handleRemove(index)">删除</Button>
-              </Col>
-            </Row>
-        </FormItem>
-        <FormItem>
-          <Row>
-            <Col span="12">
-              <Button type="dashed" long @click="handleAdd" icon="plus-round">添加擅长领域</Button>
-            </Col>
-          </Row>
+        <FormItem label="标签">
+          <el-tag
+            :key="tag"
+            v-for="tag in tags"
+            closable
+            :disable-transitions="false"
+            @close="handleClose(tag)">
+            {{tag}}
+          </el-tag>
+          <el-input
+            class="input-new-tag"
+            v-if="inputVisible"
+            v-model="inputValue"
+            ref="saveTagInput"
+            size="small"
+            @keyup.enter.native="handleInputConfirm"
+            @blur="handleInputConfirm"
+          >
+          </el-input>
+          <el-button v-else class="button-new-tag" size="small" @click="showInput">添加标签</el-button>
         </FormItem>
         <FormItem>
           <Button type="primary" @click="handleSubmit">提交</Button>
@@ -117,19 +116,14 @@ export default {
         realName:'',
         num:'',
         prov:'',
-        tag:{
-          items: [
-            {
-              value: '',
-              index: 1,
-              status: 1
-            }
-          ]
-        },
         industry:'',
         position:''
-      }
-    };
+      },
+      // 标签
+      tags: [],
+      inputVisible: false,
+      inputValue: ''
+    }
   },
   methods: {
     cancel:function(){
@@ -149,16 +143,23 @@ export default {
         this.city = this.area[value].sub
       }
     },
-    handleAdd () {
-      this.index++;
-      this.uData.tag.items.push({
-        value: '',
-        index: this.index,
-        status: 1
-      });
+    // 标签操作
+    handleClose(tag) {
+      this.tags.splice(this.tags.indexOf(tag), 1)
     },
-    handleRemove (index) {
-      this.uData.tag.items[index].status = 0;
+    showInput() {
+      this.inputVisible = true
+      this.$nextTick(_ => {
+        this.$refs.saveTagInput.$refs.input.focus()
+      })
+    },
+    handleInputConfirm() {
+      let inputValue = this.inputValue
+      if (inputValue) {
+        this.tags.push(inputValue)
+      }
+      this.inputVisible = false
+      this.inputValue = ''
     }
   }
 };

@@ -71,9 +71,9 @@
     <div class="upload-box">
       <CheckboxGroup v-model="bodanDel" @on-change="bodanDelChange">
       <table>
-        <tr height="120" v-for="item in classes" :key="item.id">
+        <tr height="120" v-for="item in classes" :key="item[1].id">
           <td width='50'>
-            <Checkbox :label="item.name"><span></span></Checkbox>
+            <Checkbox :label="item[1].id"><span></span></Checkbox>
           </td>
           <th width='550'>
             <div class="fl">
@@ -81,7 +81,7 @@
             </div>
             <div class="fl h-100">
               <div class="title">
-                <p>{{ item.name }}</p>
+                <p>{{ item[1].name }}</p>
               </div>
               <p class="date">2017-12-5 17:09:51</p>
             </div>
@@ -90,26 +90,18 @@
             视频:2
           </td>
           <td width='100'>
-            <p @click="modal = true,gid = item.id">
+            <p @click="modal = true,gid = item[1].id">
               修改播单
             </p>
             <router-link tag="p" :to="{ name:'bodanmanger' }">管理播单</router-link>
-            <p>删除</p>
+            <p @click="getDel(item[1].id)">删除</p>
           </td>
         </tr>
       </table>
       </CheckboxGroup>
     </div>
-    <div class="pgs">
-      <li class="prev">&lt;上一页</li>
-      <li class="current">1</li>
-      <li class="custom">2</li>
-      <li class="custom">3</li>
-      <li class="custom">4</li>
-      <li class="points">...</li>
-      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
-      <li class="submit">确定</li>
-      <li class="next">下一页&gt;</li>
+    <div style="display:flex;justify-content:center;margin:80px 0 30px 0;">
+      <Page :total="total" @on-change="page($event)" show-elevator></Page>
     </div>
   </div>
 </template>
@@ -130,9 +122,12 @@ export default {
         name:'',
         intro:'',
         crowd:'',
-        value:''
+        value:'',
       },
-      gid:''
+      gid:'',
+      total:null,
+      pageNum:1,
+
     }
   },
   methods: {
@@ -141,22 +136,29 @@ export default {
       this.modal=false
       this.modal1=false
     },
+    // 修改播单信息
     submit:function(){
       let bodan = this.bodan
+      console.log(bodan.name)
       let res = loginUserUrl('getOnline_Courses_update',{
         username: "niuhongda",
         password: "123123q",
         gid:this.gid,
-        bodan
+        name:bodan.name,
+        intro:bodan.intro,
+        crowd:bodan.crowd,
+        value:bodan.value,
+        lecturer:''//讲师id！！待获取
       }).then((res)=>{
         console.log(res)
       })
-      this.$router.go(0)
+      this.modal = false
+      this.onload()
     },
     // 创建播单的接口
     create:function(){
       let bodan = this.bodan
-      let res = loginUserUrl('getOnline_Courses_update',{
+      let res = loginUserUrl('getOnline_Courses_add',{
         username: "niuhongda",
         password: "123123q",
         gid:this.gid,
@@ -164,21 +166,23 @@ export default {
       }).then((res)=>{
         console.log(res)
       })
-      this.$router.go(0)
+      this.onload()
     },
+    // 全选
     handleCheckAll () {
       if (this.indeterminate) {
         this.checkAll = false;
       } else {
-        this.checkAll = !this.checkAll;
+        this.checkAll = !this.checkAll
       }
       this.indeterminate = false;
       if (this.checkAll) {
         this.bodanDel = this.blankChoosen
       } else {
-        this.bodanDel = [];
+        this.bodanDel = []
       }
     },
+    // 勾选时触发事件
     bodanDelChange (data) {
       if (data.length === this.classes.length) {
         this.indeterminate = false;
@@ -190,42 +194,46 @@ export default {
         this.indeterminate = false;
         this.checkAll = false;
       }
+    },
+    onload(){
+      let res = loginUserUrl('getOnline_Courses',{
+        username: "niuhongda",
+        password: "123123q",
+        page:this.pageNum
+      }).then((res)=>{
+        let obj = Object.entries(res.data).slice(0,-2)
+        this.classes = obj
+        for(let i = 0;i<obj.length;i++){
+          this.blankChoosen.push(obj[i][1].id)
+        }
+      })
+    },
+    page:function(num){
+      this.pageNum = num
+      this.onload()
+    },
+    // 播单删除
+    getDel(arg){
+      let id = parseInt(arg)
+      // console.log(id)
+      let res = loginUserUrl('getOnline_Courses_Delete',{
+        username: "niuhongda",
+        password: "123123q",
+        cid:id
+      }).then((res)=>{
+        // console.log(res)
+      })
+      this.onload()
     }
   },
   created () {
-    let res = loginUserUrl('getOnline_Courses',{
-      username: "niuhongda",
-      password: "123123q"
-    }).then((res)=>{
-      // console.log(res)
-      this.classes = res.data
-      for(let i = 0;i<res.data.length;i++){
-        // 将name 换成id！！！等接口返回id之后
-        this.blankChoosen.push(res.data[i].name)
-      }
-    })
+    this.onload()
   }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
-.modal-outer {
-  width: 100%;
-  height: 173%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2000;
-  .modal {
-    height: 110%;
-  }
-  .close {
-    position: absolute;
-    top: 15%;
-    left: 60%;
-  }
-}
 .active {
   border-bottom: 1px solid $red;
 }
@@ -301,51 +309,6 @@ export default {
       width: 180px;
       height: 100px;
     }
-  }
-}
-.pgs {
-  width: 525px;
-  margin: 60px auto;
-  li {
-    width: 33px;
-    padding: 4px 0;
-    line-height: 20px;
-    text-align: center;
-    margin-right: 2px;
-    cursor: pointer;
-    border: 1px solid $border-dark;
-    color: $black;
-  }
-  .prev {
-    width: 73px;
-    color: $blue;
-  }
-  .next {
-    width: 96px;
-    color: $blue;
-  }
-  .points {
-    border: none;
-  }
-  .submit {
-    background-color: $btn-default;
-    color: $white;
-    width: 44px;
-    border: none;
-  }
-  .jump {
-    width: 80px;
-    border: 1px solid $border-dark;
-    color: #333;
-    input {
-      width: 30px;
-      border: 1px solid $border-dark;
-      outline: none;
-    }
-  }
-  .current {
-    background-color: $btn-default;
-    color: $white;
   }
 }
 </style>

@@ -1,10 +1,22 @@
 <template>
   <div class="bodan-mager">
+    <!-- 添加文档 -->
     <Modal v-model="modal" :width="700" :closable="false">
-      <doc></doc>
+      <doc ref="doc"></doc>
+      <div slot="footer">
+        <Button type="primary" style="margin-right:10px;" @click="submit">确定</Button>
+        <Button type="ghost" @click="handleReset">取消</Button>
+      </div>
     </Modal>
+    <!-- 添加试题 -->
     <Modal v-model="modal1" :width="700" :closable="false">
-      <exam></exam>
+      <exam ref="exam"></exam>
+    </Modal>
+    <Modal v-model="modal2" :width="700" :closable="false">
+      <!-- 获取当前这一段文档 -->
+    </Modal>
+    <Modal v-model="modal3" :width="700" :closable="false">
+      <!-- 获取当前这一道题目 -->
     </Modal>
     <div>
       <div class="clearfix">
@@ -46,7 +58,7 @@
           <p class="red">【解析】:因为电子邮件后缀是.com</p>
         </td>
         <td width="100">
-          <p>编辑信息</p>
+          <p @click="modal3=true">编辑信息</p>
         </td>
       </tr>
       <tr>
@@ -85,7 +97,8 @@
           <p>(一)在企业财务上未反映的“视同销售”，而在汇算清缴被忽略不计。</p>
         </td>
         <td width="100">
-          <p>编辑信息</p>
+          <p @click="modal2 = true">编辑信息</p>
+          <p>删除</p>
         </td>
       </tr>
       <tr>
@@ -109,17 +122,53 @@
 <script>
 import exam from "../modal/Exam"
 import doc from "../modal/Doc"
+import { loginUserUrl } from "@/api/api"
+import { getCookie } from "@/util/cookie"
 export default {
   components: { exam,doc },
   data() {
     return {
       cur: "shiti",
       modal: false,
-      modal1:false
+      modal1:false,
+      modal2:false,
+      modal3:false
     }
   },
   methods: {
-
+    submit:function(){
+      let doc = this.$refs.doc
+      let value = doc.value
+      let title = doc.title
+      let min = doc.min
+      let sec = doc.sec
+      if(name!==''&& intro!==''){
+        let res = loginUserUrl(
+          "getOnline_Courses_chapterAdd",{
+            username: "niuhongda",
+            password: "123123q",
+            cid:'',//章节id
+            name:title,
+            min:min,
+            sec:sec,
+            value:value
+          }).then((res)=>{
+          if(res.error_code === 0){
+            // console.log(res.data)
+            this.handleReset()
+            this.$Message.success('提交')
+          }else{
+            this.$Message.error('提交失败')
+          }
+        })
+      }else{
+        this.$message.error('提交失败')
+      }
+    },
+    handleReset:function(){
+      // this.$refs.faqModal.handleReset()
+      this.modal=false
+    }
   }
 };
 </script>

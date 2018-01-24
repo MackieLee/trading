@@ -1,5 +1,5 @@
 <template>
-  <Form>
+  <Form v>
     <!-- 多选 -->
     <FormItem>
       <Row>
@@ -82,8 +82,8 @@
           <RadioGroup v-model="sin1.radio">
             <Radio label="A">A</Radio>
             <Radio label="B">B</Radio>
-            <Radio label="B">C</Radio>
-            <Radio label="B">D</Radio>
+            <Radio label="C">C</Radio>
+            <Radio label="D">D</Radio>
           </RadioGroup>
         </Col>
       </Row>
@@ -129,8 +129,8 @@
           <RadioGroup v-model="sin2.radio">
             <Radio label="A">A</Radio>
             <Radio label="B">B</Radio>
-            <Radio label="B">C</Radio>
-            <Radio label="B">D</Radio>
+            <Radio label="C">C</Radio>
+            <Radio label="D">D</Radio>
           </RadioGroup>
         </Col>
       </Row>
@@ -147,24 +147,6 @@
         <Col>请在此处添加判断题01</Col>
         <Col>
           <Input type="text" v-model="judge1.title" placeholder="判断题01"></Input>
-        </Col>
-        <Col style="height:10px"></Col>
-      </Row>
-      <Row>
-        <Col>
-          <Input type="text" v-model="judge1.a" placeholder="请输入选项A"></Input>
-        </Col>
-        <Col style="height:10px"></Col>
-        <Col>
-          <Input type="text" v-model="judge1.b" placeholder="请输入选项B"></Input>
-        </Col>
-        <Col style="height:10px"></Col>
-        <Col>
-          <Input type="text" v-model="judge1.c" placeholder="请输入选项C"></Input>
-        </Col>
-        <Col style="height:10px"></Col>
-        <Col>
-          <Input type="text" v-model="judge1.d" placeholder="请输入选项D"></Input>
         </Col>
       </Row>
       <Row>
@@ -192,24 +174,6 @@
         <Col>请在此处添加判断题02</Col>
         <Col>
           <Input type="text" v-model="judge2.title" placeholder="判断题"></Input>
-        </Col>
-        <Col style="height:10px"></Col>
-      </Row>
-      <Row>
-        <Col>
-          <Input type="text" v-model="judge2.a" placeholder="请输入选项A"></Input>
-        </Col>
-        <Col style="height:10px"></Col>
-        <Col>
-          <Input type="text" v-model="judge2.b" placeholder="请输入选项B"></Input>
-        </Col>
-        <Col style="height:10px"></Col>
-        <Col>
-          <Input type="text" v-model="judge2.c" placeholder="请输入选项C"></Input>
-        </Col>
-        <Col style="height:10px"></Col>
-        <Col>
-          <Input type="text" v-model="judge2.d" placeholder="请输入选项D"></Input>
         </Col>
       </Row>
       <Row>
@@ -266,10 +230,12 @@ export default {
         txtar:''
       },
       judge1:{
-
+        title:'',
+        radio:''
       },
       judge2:{
-
+        title:'',
+        radio:''
       }
     }
   }

@@ -16,7 +16,7 @@
       </div>
     </div>
     <div style="display:flex;justify-content:center;margin:80px 0 30px 0;">
-      <Page :total="total" @on-change="page($event)" show-elevator></Page>
+      <Page :total="total" :page-size="12" @on-change="page($event)" show-elevator></Page>
     </div>
   </div>
 </template>

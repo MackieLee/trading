@@ -84,137 +84,152 @@
 </template>
 
 <script>
-import { loginUserUrl } from '@/api/api'
-import { getCookie } from "@/util/cookie"
-import VueAudio from './Audio'
+import { loginUserUrl } from "@/api/api";
+import { getCookie } from "@/util/cookie";
+import VueAudio from "./Audio";
 export default {
   name: "fdetail",
   components: {
     VueAudio
   },
-  data(){
-    return{
-      content:{},
-      adjunct:false,
-      explain:false,
-      timeUp:'',
-      timeDown:'',
-      path:'',
-      shoucang:'2',
-      categray:[]
-    }
+  data() {
+    return {
+      content: {},
+      adjunct: false,
+      explain: false,
+      timeUp: "",
+      timeDown: "",
+      path: "",
+      shoucang: "2",
+      categray: []
+    };
   },
-  created:function(){
-    let _self = this
-    let uid = getCookie('u_name')
-    this.path = this.$route.query.id
-
-    // 加载文章
-
-    let res = loginUserUrl('getlaws_Details',{
-      username: "niuhongda",
-      password: "123123q",
-      nid: this.path
-    }).then((res)=>{
-      // console.log(res.data)
-      // 相关法规
-      let rel = loginUserUrl('getlaws_category',{
-        username: "niuhongda",
-        password: "123123q",
-        id:res.data.form_id
-      }).then((rel)=>{
-        let random = Math.floor((Math.random()*(rel.data.length-1)))
-        let random2 = 0
-        if(random >= rel.data.length-2){
-          random2 = random - 1
-        }else{
-          random2 = random + 1
-        }
-        this.categray.push(rel.data[random],rel.data[random2])
-      })
-      let originTime = (new Date(parseInt(res.data.time)*1000).toLocaleDateString()).split('/')
-      _self.timeUp = originTime[0]+'-'+originTime[1]+'-'+originTime[2]
-      _self.timeDown = originTime[0]+'年'+originTime[1]+'月'+originTime[2]+'日'
-      _self.content = res.data
-      // 是否包含附属文档
-      if(res.data.adjunct.length !== 0 ){
-        // console.log(res.data.adjunct.length)
-        _self.adjunct = true
-      }
-      // 是否包含解读文件
-      if(res.data.explain_id !== '0' && res.data.explain_id !== '' && res.data.explain === '1'){
-        _self.explain = true
-      }
-    })
-
-    // 判断文章是否已经被收藏
-
-    if(uid !== '' && uid !== 'undefined' ){
-      let sc = loginUserUrl('getlaws_userCollect',{
-        username: "niuhongda",
-        password: "123123q",
-        uid: uid
-      }).then((sc)=>{
-        // console.log(sc.data)
-        for(let i=0;i<sc.data.length;i++){
-          sc.data[i].goods_id === this.$route.query.id ? this.shoucang = '1':this.shoucang
-        }
-      })
-    }else{
-      return false
-    }
+  created: function() {
+    this.onload()
   },
-  methods:{
-    print:function(){
-      window.print()
+  methods: {
+    print: function() {
+      window.print();
     },
-    // 添加收藏
-    pick:function(){
-      let uid = getCookie('u_name')
-      if(uid !== '' && uid !== 'undefined' ){
-        let res = loginUserUrl('getlaws_addCollect',{
+    onload() {
+      let _self = this;
+      let uid = getCookie("u_name");
+      this.path = this.$route.query.id;
+      // 加载文章
+      let res = loginUserUrl("getlaws_Details", {
+        username: "niuhongda",
+        password: "123123q",
+        nid: this.path
+      }).then(res => {
+        // console.log(res.data)
+        // 相关法规
+        let rel = loginUserUrl("getlaws_category", {
           username: "niuhongda",
           password: "123123q",
-          nid:this.$route.query.id,
-          uid: uid
-        }).then((res)=>{
-          if(res.data.status){
-            this.shoucang = res.data.status
+          id: res.data.form_id
+        }).then(rel => {
+          let random = Math.floor(Math.random() * (rel.data.length - 1));
+          let random2 = 0;
+          if (random >= rel.data.length - 2) {
+            random2 = random - 1;
+          } else {
+            random2 = random + 1;
           }
-        })
-      }else{
-        this.$router.push({name:'login'})
+          this.categray.push(rel.data[random], rel.data[random2]);
+        });
+        let originTime = new Date(parseInt(res.data.time) * 1000)
+          .toLocaleDateString()
+          .split("/");
+        _self.timeUp =
+          originTime[0] + "-" + originTime[1] + "-" + originTime[2];
+        _self.timeDown =
+          originTime[0] + "年" + originTime[1] + "月" + originTime[2] + "日";
+        _self.content = res.data;
+        // 是否包含附属文档
+        if (res.data.adjunct.length !== 0) {
+          // console.log(res.data.adjunct.length)
+          _self.adjunct = true;
+        }
+        // 是否包含解读文件
+        if (
+          res.data.explain_id !== "0" &&
+          res.data.explain_id !== "" &&
+          res.data.explain === "1"
+        ) {
+          _self.explain = true;
+        }
+      });
+
+      // 判断文章是否已经被收藏
+
+      if (uid !== "" && uid !== "undefined") {
+        let sc = loginUserUrl("getlaws_userCollect", {
+          username: "niuhongda",
+          password: "123123q",
+          uid: uid
+        }).then(sc => {
+          // console.log(sc.data)
+          for (let i = 0; i < sc.data.length; i++) {
+            sc.data[i].goods_id === this.$route.query.id
+              ? (this.shoucang = "1")
+              : this.shoucang;
+          }
+        });
+      } else {
+        return false;
       }
     },
-    cancelPick:function(){
-      let res = loginUserUrl('getlaws_delCollect',{
+    // 添加收藏
+    pick: function() {
+      let uid = getCookie("u_name");
+      if (uid !== "" && uid !== "undefined") {
+        let res = loginUserUrl("getlaws_addCollect", {
+          username: "niuhongda",
+          password: "123123q",
+          nid: this.$route.query.id,
+          uid: uid
+        }).then(res => {
+          if (res.data.status) {
+            this.shoucang = res.data.status;
+          }
+        });
+      } else {
+        this.$router.push({ name: "login" });
+      }
+    },
+    cancelPick: function() {
+      let res = loginUserUrl("getlaws_delCollect", {
         username: "niuhongda",
         password: "123123q",
-        nid:this.$route.query.id,
-        uid: getCookie('u_name')
-      }).then((res)=>{
-        res.data === 'ok' ? this.shoucang = '2' : this.shoucang
-      })
+        nid: this.$route.query.id,
+        uid: getCookie("u_name")
+      }).then(res => {
+        res.data === "ok" ? (this.shoucang = "2") : this.shoucang;
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .about {
   width: $width;
   margin: 0 auto;
-  padding-top:15px;
+  padding-top: 15px;
   // border-top: 1px solid $border-rice;
   .green {
     color: green;
   }
   .red {
-    color: $red
+    color: $red;
   }
-  .jiedua{line-height: 36px; height: 36px;
-  a{color: #468EE3;}
+  .jiedua {
+    line-height: 36px;
+    height: 36px;
+    a {
+      color: #468ee3;
+    }
   }
   .clearfix {
     overflow: hidden;
@@ -223,12 +238,14 @@ export default {
     text-align: center;
   }
   .lf {
-    float: left; width: 70%;
+    float: left;
+    width: 70%;
   }
   .rt {
-    float: right; width: 14%;
+    float: right;
+    width: 14%;
   }
-  .pointer{
+  .pointer {
     cursor: pointer;
   }
   .main-title {
@@ -239,13 +256,14 @@ export default {
     h3 {
       font-size: 22px;
       display: inline-block;
-      color: $red
+      color: $red;
     }
   }
   .second-title {
     p {
       text-align: center;
-      margin-top: 10px; font-size: 14px;
+      margin-top: 10px;
+      font-size: 14px;
     }
   }
   .artical {
@@ -269,26 +287,28 @@ export default {
     display: inline-block;
     width: 27px;
     height: 25px;
-    background-image: url('../../assets/images/Sprite.png');
+    background-image: url("../../assets/images/Sprite.png");
     vertical-align: text-bottom;
-    margin:0 11px;
+    margin: 0 11px;
     cursor: pointer;
   }
-  .qq{
+  .qq {
     background-position: -183px -118px;
   }
-  .wechat{
+  .wechat {
     background-position: -181px -44px;
   }
-  .weibo{
+  .weibo {
     background-position: -183px -89px;
   }
   .cur-posi {
     border-bottom: none;
-    p{line-height: 20px;}
+    p {
+      line-height: 20px;
+    }
     i {
       background-position: -18px -96px;
-      margin:0 6px 0 0;
+      margin: 0 6px 0 0;
     }
   }
   .container {

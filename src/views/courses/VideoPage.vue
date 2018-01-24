@@ -7,13 +7,39 @@
       :mask-closable="false">
       <video-pingjia></video-pingjia>
     </Modal>
+    <!-- 评价 -->
     <Modal
-      :width = '450'
+      :width = '700'
       v-model="modal2"
       :closable = "false"
       :mask-closable="false">
-      <Input v-model="bijiTitle" placeholder="请输入标题" style="margin:20px 0;"></Input>
-      <Input v-model="biji" type="textarea" :rows="4" placeholder="请输入笔记内容"></Input>
+      <p slot="header" style="color:#f60;text-align:center">
+        <Icon type="information-circled"></Icon>
+        <span>编写笔记</span>
+      </p>
+      <Input v-model="bijiTitle" placeholder="请输入标题" style="margin-bottom:20px;"></Input>
+      <Input v-model="biji" type="textarea" :rows="12" placeholder="请输入笔记内容"></Input>
+      <div slot="footer">
+        <Button type="primary" @click="submit">提交</Button>
+        <Button type="ghost" @click="modal2 = false">取消</Button>
+      </div>
+    </Modal>
+    <!-- 笔记 -->
+    <Modal
+      :width = '700'
+      v-model="modal3"
+      :closable = "false"
+      :mask-closable="false">
+      <p slot="header" style="color:#f60;text-align:center">
+        <Icon type="information-circled"></Icon>
+        <span>更改笔记</span>
+      </p>
+      <Input v-model="bijiTitle" placeholder="请输入标题" style="margin-bottom:20px;"></Input>
+      <Input v-model="biji" type="textarea" :rows="12" placeholder="请输入笔记内容"></Input>
+      <div slot="footer">
+        <Button type="primary" @click="editSub">提交</Button>
+        <Button type="ghost" @click="modal2 = false">取消</Button>
+      </div>
     </Modal>
     <div class="container">
       <div class="player">
@@ -53,26 +79,8 @@
           <ul>
           	<li style="display: block;">
           		 <p class="p_l">1.主观题上面的蓝色的CH输入法按钮,切换输入法</p>
-          		<span>编辑</span>
-          		<span>删除</span>
-          	</li>
-           	<li>
-          		 <p class="p_l">2.正常情况下，直接点击CH输入法即可切换输入法，可能是您浏览器的问题，
-        	您试着换台电脑或者浏览器试试，祝备考顺利！法</p>
-          		<span>编辑</span>
-          		<span>删除</span>
-          	</li>
-           	<li>
-          		 <p class="p_l">3.正常情况下，直接点击CH输入法即可切换输入法，可能是您浏览器的问题，
-        	您试着换台电脑或者浏览器试试，祝备考顺利！主观题上面的蓝色的CH输入法按钮,切换输入法</p>
-          		<span>编辑</span>
-          		<span>删除</span>
-          	</li>
-           	<li>
-          		 <p class="p_l">4.主观题上面的蓝色的CH输入法按钮,切换输入法正常情况下，直接点击CH输入法即可切换输入法，可能是您浏览器的问题，
-        	您试着换台电脑或者浏览器试试，祝备考顺利！</p>
-          		<span>编辑</span>
-          		<span>删除</span>
+          		<span @click="editBj('id')">编辑</span>
+          		<span @click="delBj('id')">删除</span>
           	</li>
           </ul>
           </div>
@@ -86,8 +94,8 @@
           <div class="min-650 kecheng" v-if="part=='5'">
             <div class="class-list">
               <ul>
- <li v-for="item in classes" :key="item.num" :class="{ active: markNum == item.num }"
- 	 @click="getVideo(item)">
+                <li v-for="item in classes" :key="item.num" :class="{ active: markNum == item.num }"
+                  @click="getVideo(item)">
                   <span>{{ item.title }}</span>
                   <span class="right">播放次数已用完</span>
                 </li>
@@ -112,7 +120,7 @@
             {{ item.content }}
           </div>
           <div class="notes">
-            <span @click="modal2=true">编写笔记</span>
+            <span @click="addBj('id')">编写笔记</span>
           </div>
         </div>
       </div>
@@ -123,6 +131,7 @@
 <script>
 require("video.js/dist/video-js.css")
 require("vue-video-player/src/custom-theme.css")
+import { loginUserUrl } from '@/api/api'
 const DOC = require("../../assets/doc.json")
 import Exam from './Exam'
 import VideoPingjia from "../modal/VideoPingjia"
@@ -146,6 +155,7 @@ export default {
       },
       bijiTitle:'',
       biji:'',
+      curBj:'',//当前的段落id
       classes: [
         {
           num: "1",
@@ -184,7 +194,8 @@ export default {
       shoucang: false,
       // 父组件和子组件数据绑定
       modal1:false,
-      modal2:false
+      modal2:false,
+      modal3:false
     };
   },
   mounted() {
@@ -237,6 +248,64 @@ export default {
     },
     shouCang: function() {
       this.shoucang = !this.shoucang
+    },
+    // 提交笔记！！！！！！！！！！！！
+    // 查询笔记是否已经存在
+    submit(){
+      let res = loginUserUrl('getOnline_Courses_chapterNote',{
+        username: "niuhongda",
+        password: "123123q",
+        cid:"",
+        uid:"",
+        value:""
+      }).then((res)=>{
+        console.log(res)
+      })
+    },
+    // 删除笔记
+    delBj(id){
+      let res = loginUserUrl('delete',{
+        username: "niuhongda",
+        password: "123123q",
+      }).then((res)=>{
+        console.log(res)
+      })
+    },
+    // 编辑笔记
+    editBj(id){
+      this.modal3 = true
+      // 获取当前id的笔记内容
+      let res = loginUserUrl('getOnline_Courses_chapterNote_list',{
+        username: "niuhongda",
+        password: "123123q",
+        cid:'',
+        uid:''
+      }).then((res)=>{
+        console.log(res)
+      })
+      // this.bijiTitle = ...
+      // this.biji = value...
+      // 然后在用户提交后更改对应笔记内容
+      // 更改标记当前笔记的变量curBj
+
+    },
+    addBj(id){
+      // 先判断这个用户在这个id的段落下有没有笔记
+      // 如果没有，就添加笔记
+      let res = loginUserUrl('getOnline_Courses_chapterNote_list',{
+        username: "niuhongda",
+        password: "123123q",
+        cid:'',
+        uid:''
+      }).then((res)=>{
+        console.log(res)
+        // 保存id，当提交表单时候，提交这个保存的id
+        this.curBj = id
+        this.modal2 = true
+      })
+    },
+    editSub(){
+      // 根据curBj来向更改笔记接口提交内容
     }
   }
 };

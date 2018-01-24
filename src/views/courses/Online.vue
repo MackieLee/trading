@@ -58,6 +58,9 @@
           </ul>
         </p>
       </div>
+      <div>
+        <input placeholder="搜索"/>
+      </div>
       <div class="sorts">
         <p>
           <ul>
