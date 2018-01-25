@@ -1,10 +1,8 @@
 <template>
   <div class="my_order_r">
-  	<div class="modal-outer" v-show="pingjia">
-      <!-- <div class="close">X</div> -->
-      <!-- v-bind传输数据到子组件(contentSeries) -->
+  	<!--<div class="modal-outer" v-show="pingjia">
       <modal @showTip="showTip" @closeModal="closeModal"></modal>
-    </div>
+    </div>-->
     <div v-show="tip" class="tip">
       谢谢你的评价
     </div>
@@ -79,11 +77,11 @@
          <li class="li04">¥588.00</li>
          <li class="li05">
          	<span class="zcgm">已付款</span>
-          <router-link :to="{ name:'dingdanxq' }" git="p" class="jindu">订单详情 </router-link>
+          <router-link :to="{ name:'dingdanxq' }" gat="p" class="jindu">订单详情 </router-link>
          </li>
          <li class="li06">
          	<span class="zcgm">已付款</span>
-          <p class="jindu" @click="pingjia=!pingjia">立即评价</p>
+          <router-link :to="{ name:'dingdanpf' }" gat="p" class="jindu">立即评价 </router-link>
          </li>
         </ul>
       </div>
@@ -141,10 +139,9 @@
 </template>
 
 <script>
-import Modal from "./dingd_modal";
 export default {
   name: "dingdan",
-  components: { Modal },
+//components: { Modal },
   data() {
     return {
       num1: false,
@@ -324,22 +321,23 @@ export default {
 
 .my_order_r .ul01 {
   height: 30px;
-  line-height: 30px;
   width: 100%;
-  border-bottom: 1px solid $red;
-  padding-top: 10px;
+  margin: 10px 0;
+  border-bottom: 1px solid #ddd;
 }
 
 .my_order_r .ul01 li {
   width: 100px;
+  line-height: 30px;
   text-align: center;
-  border-right: 1.5px solid #999;
+  border-right: 0.5px solid #999;
   color: $black;
   float: left;
   cursor: pointer;
 }
 .my_order_r .ul01 .li01 {
   color: $red;
+  border-bottom: 2px solid $red;
 }
 .my_order_r .ul02 {
   height: 36px;

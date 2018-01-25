@@ -1,12 +1,8 @@
 <template>
-  <div class="modal">
     <!-- stars -->
     <div class="fixed">
-      <div class="content">
-        <div class="close" @click="closeModal"></div>
-        <div v-show="tip" class="tip">
-          {{ tipMsg }}
-        </div>
+      <div class="content">   
+
         <div class="ctr">
           <!-- 修改为star -->
           <h2>订单评价</h2>
@@ -15,7 +11,7 @@
           		<h3>综合满意度 :</h3>
           		<stars @check = "check" sequence = '5'></stars>
           	</div>
-	          <textarea v-model="msg" placeholder="商品是否给力？快分享你的购买心得吧~"/>
+	          <textarea v-model="msg" placeholder="是否给力？快分享你的购买心得吧~"/>
 	          <div class="sub-btn">
 	            <input type="button" class="submit" @click="submitCommit" value="提 交">
 	          </div>
@@ -24,7 +20,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -82,12 +77,10 @@ export default {
 }
 .fixed {
   overflow: hidden;
-  position: fixed;
-  top: 20%;
   width: 100%;
 }
 .content {
-  width: 700px;
+  width: 100%;
   height: 380px;
   background-color: $white;
   margin: 0 auto;
@@ -116,8 +109,11 @@ export default {
     .da_box {
   
       .da_box_c {
-        h3,.stars {float: left; margin: 14px 0;}
-        h3 {font-size: 16px;margin:10px 20px 10px 0; }
+      	 overflow: hidden;
+        h3,.stars {float: left; 
+        margin: 14px 0;}
+        h3 {font-size: 16px;
+        margin:10px 20px 10px 0; }
       }   
       padding: 20px;   
       .div_l {

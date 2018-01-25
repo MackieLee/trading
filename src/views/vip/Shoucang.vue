@@ -2,78 +2,137 @@
   <div class="study">
     <div class="pt-1">
       <p class="sum_of_class">我的收藏</p>
-      <div class="container">
-				<p class="p-line1">商品信息</p>
-        <p class="p-line2">商品类型</p>
-        <p class="p-line3">操作</p>
-      </div>
+    <!-- 切换-->
+    <Menu mode="horizontal" @on-select="toggle($event)" :theme="theme1" active-name="1">
+        <MenuItem name="1">
+         线上课
+        </MenuItem>
+        <MenuItem name="2">
+          法规
+        </MenuItem>
+        <MenuItem name="3">
+           图书
+        </MenuItem>        
+        <MenuItem name="4">
+           讲师
+        </MenuItem>          
+        <MenuItem name="5">
+           线下课
+        </MenuItem>        
+
+    </Menu> 
     </div>
     <div class="pt-2">
-  <div class="container">
-  	
+		  <div class="container" v-if="nameId==='1'">	  	
+		      <div class="item">
+		        <ul>
+		          <li>
+		          	<img src="../../assets/images/huanyuanzx02.png">  
+		          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+		          	 	<span>讲师：孙炜</span>
+		          	 </strong>
+		          	 	<a>购买</a>
+		         </li>
+ 						 <li>
+		          	<img src="../../assets/images/huanyuanzx02.png">  
+		          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+		          	 	<span>讲师：孙炜</span>
+		          	 </strong>
+		          	 	<a>购买</a>
+		         </li>
+		        </ul>
+		      </div>	
+		  </div>
+		 
+ 		  <div class="container" v-if="nameId==='2'">
       <div class="item">
-        <p class="p01">
-      		   订单号: 53196839876687913 <i >2017-08-31</i></p>
         <ul>
-          <li class="li01">
-          	<img src="../../assets/images/huanyuanzx02.png">  
-          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
-          	 	<span>孙炜</span>
-          	 </strong>
-         </li>
-         <li class="li02">视频</li>
-         <li class="li03">          
-         	<span class="zcgm">再次购买</span>
-          <p class="jindu">学习完成 </p>
-         </li>
-         
-         
-        
+          <li class="li_lingyu">
+		          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+		          	 	<span>财法字〔1995〕6号</span>
+		          	 </strong>
+		         </li>
+ 						 <li class="li_lingyu">
+		          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+		          	 	<span>财法字〔1995〕6号</span>
+		          	 </strong>
+		         </li>
         </ul>
       </div>
+  	</div>
+  
+  	<div class="container" v-if="nameId==='3'">
       <div class="item">
-        <p class="p01">
-      		   订单号: 53196839876687913 <i >2017-08-31</i></p>
         <ul>
-          <li class="li01">
-          	<img src="../../assets/images/huanyuanzx02.png">  
-          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
-          	 	<span>孙炜</span>
-          	 </strong>
-         </li>
-         <li class="li02">视频</li>
-         <li class="li03">          
-         	<span class="zcgm">再次购买</span>
-          <p class="jindu">学习完成 </p>
-         </li>
-         
-         
-        
+          <li>
+          		<img src="../../assets/images/huanyuanzx02.png">  
+		          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+		          	 	<span>简介：</span>
+		          	 </strong>
+		          	 	<a>购买</a>
+		         </li>
+ 						 <li>
+ 						 		<img src="../../assets/images/huanyuanzx02.png">  
+		          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+		          	 	<span>简介：</span>
+		          	 </strong>
+		          	 	<a>购买</a>
+		         </li>
         </ul>
       </div>
+  	</div>
+  
+  	<div class="container" v-if="nameId==='4'">
       <div class="item">
-        <p class="p01">
-      		   订单号: 53196839876687913 <i >2017-08-31</i></p>
         <ul>
-          <li class="li01">
-          	<img src="../../assets/images/huanyuanzx02.png">  
-          	 <strong>企业所得税年度纳税阱藏的稽表中的稽查陷阱藏的稽查陷
-          	 	<span>孙炜</span>
-          	 </strong>
-         </li>
-         <li class="li02">视频</li>
-         <li class="li03">          
-         	<span class="zcgm">再次购买</span>
-          <p class="jindu">学习完成 </p>
-         </li>
-         
-         
-        
-        </ul>
-      </div>
+          <li class="li_lingyu">
+		          	 <strong>孙炜
+		          	 	<span>简介：九鼎财税专家委员会专家</span>
+		          	 	<span>擅长领域：</span>
+		          	 </strong>
+		          	 	<a class="lingyu">资金管理</a>
+		          	 	<a class="lingyu">内控与合规</a>
+		          	 	<a class="lingyu">成本控制</a>
 
-  </div>
-         
+		         </li>
+ 						 <li class="li_lingyu">
+		          	 <strong>孙炜
+		          	 	<span>简介：九鼎财税专家委员会专家</span>
+		          	 	<span>擅长领域：</span>
+		          	 </strong>
+		          	 <a class="lingyu">个人所得税</a>
+		          	 <a class="lingyu">房地产</a>
+		          	 <a class="lingyu">融资与上市</a>
+		          	 	<a class="lingyu">兼并重组</a>
+		          	 	    
+		         </li>
+        </ul>
+      </div>
+  	</div>
+ 
+   	<div class="container" v-if="nameId==='5'">
+   		<div class="item">
+        <ul>
+          <li>
+          		<img src="../../assets/images/huanyuanzx02.png">  
+		          	 <strong>税收筹划案例精解-3
+		          	 	<span>讲师：孙 炜 教授</span>
+		          	 	<span>地点: 鸿基实业酒店</span> 	 	
+		          	 </strong>
+		          	 	<a>购买</a>
+		         </li>
+ 						 <li>
+ 						 		<img src="../../assets/images/huanyuanzx02.png">  
+		          	 <strong>企业所得税年度纳税申报表中隐
+		          	 	<span>讲师：孙 炜 教授</span>
+		          	 	<span>地点: 鸿基实业酒店</span>
+		          	 </strong>
+		          	 	<a>购买</a>
+		         </li>
+        </ul>
+      </div>
+  	</div>
+  	
     </div>
     <div class="pgs">
       <li class="prev">&lt;上一页</li>
@@ -91,7 +150,17 @@
 
 <script>
 export default {
-  name: "study"
+    data() {
+    return {
+    	theme1: 'light',
+    	nameId: '1'
+    }
+  },
+  	methods: {
+		toggle(ev){
+			this.nameId = ev
+		}
+  }
 };
 </script>
 
@@ -108,100 +177,69 @@ export default {
     color: $white;
   }
   .pt-1 {
+  	margin: 10px auto 15px;
     .container {
       width: 100%;
-      margin: 10px auto 15px;
+      margin: 10px auto;
       background-color: #f5f5f5;
       height: 36px;
-      p {
-        text-align: center;
-        float: left;
-        font-size: 16px;
-        line-height: 36px;
-      }
-      .p-line1 {
-        width: 68%;
-      }
-      .p-line2 {
-        width: 15%;
-      }
-      .p-line3 {
-        width: 15%;
-      }
+
     }
   }
   .container {
     margin-bottom: 20px;
     .item {
       margin-bottom: 20px;
-      .p01 {
-        background-color: $bg-blue;
-        border: none;
-        height: 36px;
-        line-height: 36px;
-        font-size: 12px;
-        text-indent: 1em;
-        color: $white;
-        i {
-          color: #e8e8e8;
-          font-style: normal;
-          padding-left: 10px;
-        }
-      }
       ul {
         overflow: hidden;
-        border: 1px solid #ddd;
-        li {
-          float: left;
-          border-right: 1px solid #ddd;
-          height: auto;
-          padding:15px 10px;
+        .li_lingyu{
+        	 width: 100%;
         }
-        .li01 {
-          width: 70%;
+        li{
+          float: left;
+          height: auto;
+          margin: 5px;
+          width: 250px;
           img {
-            float: left;
-            width: 92px;
+            width: 240px;
             padding: 5px;
-            height: 62px;
+            height: 150px;
             border: 1px solid #ddd;
           }
           strong {
-            width: 70%;
-            display: block;
-            float: left;
+            width:100%;
             font-size: 14px;
-            margin:2px 15px 0px; font-weight: normal;
-            span {
-           margin-top: 8px;font-size: 12px;
-              display: block;
+            display: block;
+            font-weight: normal;
+            span{
+            margin:10px 0;
+            font-size: 12px;
+             display: block;
             }
           }
-        }
-        .li02 {
-          width: 14%;
-          line-height: 50px;
-          text-align: center;
-        }
-        .li03 {
-          border: 0 none;
-          text-align: center;
-          height: auto;
-          line-height: 30px;
-          .zcgm {
+          .lingyu{
+          	background: none;
+            color: #333;
+            margin: 5px;
+            width: 100px;
+            float: left;
+            border: 1px solid #ddd;
+            display:inline-block;
+          }
+          a{
             display: block;
-            margin: 5px 0px;
+            padding: 0 10px;
+            height: 30px; 
+            width: 50px;
+            line-height: 30px;
             color: #fff;
-            width: 90px;
+            text-align: center;
             border-radius: 3px;
             background-color: #f84141;
             cursor: pointer;
           }
-          span:hover {
+          .zcgm:hover {
             background-color: #e7141a;
-          }
-          .jindu {
-            color: $light-blue;
           }
         }
       }

@@ -7,18 +7,6 @@
         &nbsp;&gt;&nbsp;个人问答
       </p>
     </div>
-    <Modal
-      :width="700"
-      v-model="modal"
-      :closable="false"
-      :mask-closable="false"
-    >
-      <div slot="footer">
-        <Button type="primary" @click="submit">提交</Button>
-        <Button type="ghost" @click="handleReset" style="margin-left: 8px">取消</Button>
-      </div>
-      <frequently-asked-questions ref="faqModal"></frequently-asked-questions>
-    </Modal>
     <div class="item">
       <div class="container">
         <div class="left lf">
@@ -68,7 +56,10 @@
             </div>
           </div>
           <div class="btn-group rt">
-            <i @click="modal = true" class="ask-icon"></i><input class="ask-input" @click="openModal" type="button" value="点我提问" /><br>
+            <i @click="modal = true" class="ask-icon"></i>
+          <router-link tag='button' class="ask-input" type="button" value="点我提问"  to="/TiwenMore">
+       		 点我提问
+        </router-link>
             <span>没有找到问题？点击上方直接提问</span>
           </div>
         </div>
@@ -80,7 +71,7 @@
         <div v-for="item in qslst" :key="item.id" class="list-item">
           <p><span class="question">{{ item.name }}</span><span class="date rt">4天前</span></p>
           <div v-if="item.value !== null && item.value !== ''" class="ask ansr">{{ item.value === null ?'':(item.value.substring(0,15)+'...') }}
-            <span class="more">查看更多&gt;&gt;</span>
+            <router-link tag="span" :to="{name:'pay'}" class="more" >查看更多&gt;&gt;</router-link>
           </div>
           <div v-else>
             暂无回答

@@ -1,7 +1,29 @@
 <template>
   <div class="faq-box">
-    <div class="separate"></div>
+  	<div class="cur-posi">
+      <p>
+        <i></i>当前位置 : &nbsp;
+        <router-link to="/Faq">问答</router-link>
+        &nbsp;&gt;&nbsp;问答列表
+      </p>
+   </div>
     <div class="container">
+    <div class="title">
+       <!-- 切换-->
+    <Menu mode="horizontal" :theme="theme1" active-name="1">
+        <MenuItem name="1">
+          最热
+        </MenuItem>
+        <MenuItem name="2">
+          最新
+        </MenuItem>
+        <MenuItem name="3">
+           待回答
+        </MenuItem>
+        <router-link tag='span' to="/Leibiebox">税收类别</router-link>
+    </Menu>
+    <!-- 切换-->    
+    </div>
       <div>{{ data }}</div>
       <div class="floor">
         <div v-for="item in newAnsr" :key="item.id" class="item">
@@ -15,7 +37,7 @@
             <div class="item-container">
             	<div class="wen">答 :&nbsp;</div>
               <div v-if="item.value !== null && item.value !== ''" class="ask ansr">{{ item.value === null ?'':(item.value.substring(0,15)+'...') }}
-              	<span class="more">查看更多&gt;&gt;</span>
+              	<router-link tag="span" :to="{name:'pay'}" class="more" >查看更多&gt;&gt;</router-link>
               </div>
               <div v-else>
                 暂无回答
@@ -33,6 +55,7 @@ import { loginUserUrl } from "@/api/api"
 export default {
   data() {
     return {
+    	theme1: 'light',
       newAnsr:[],
       data:''
     }
@@ -64,8 +87,34 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .faq-box {
-  .separate{
-    height: 50px;
+	width: $width;
+  margin: 0 auto;
+  padding-top: 20px;
+   i {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../assets/images/Sprite.png");
+    vertical-align: text-bottom;
+  }
+    .cur-posi {
+    padding: 0 0 6px 0;
+    i {
+      background-position: -18px -100px;
+      margin-right: 6px;
+    }
+  }
+  .title {
+    width: $width;
+    margin: auto;
+    padding-bottom: 10px;
+    position: relative;
+    span{margin-left: 15px;}
+    a {
+      font-size: 14px;
+      position: absolute;
+      right: 0;
+    }
   }
   .container {
     width: 1000px;

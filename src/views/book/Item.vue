@@ -3,8 +3,7 @@
     <div class="cur-posi">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/book">图书</router-link>&nbsp;&gt;&nbsp;图书详情
-        
+        <router-link to="/book">图书</router-link>&nbsp;&gt;&nbsp;图书详情 b         
       </p>
     </div>
     <div class="product-msg">

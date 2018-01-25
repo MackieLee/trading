@@ -11,8 +11,8 @@
     <p class="p01">共7个回答</p>
     <div class="my_qianb_cotainer">
       <p class="p02">
-        <span @click="toggle()" data-ref='1' class="cur">全部</span>|
-        <span @click="toggle()" data-ref='2'>待回答</span>|
+        <span @click="toggle()" data-ref='1' class="cur">全部</span>
+        <span @click="toggle()" data-ref='2'>待回答</span>
         <span @click="toggle()" data-ref='3'>已回答</span>
       </p>
       <ul class="div01" v-if="part=='1'">
@@ -26,11 +26,14 @@
 	        </div>
 	        <div class="r">
 	         	<h3>{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
-	        	<p class="red" @click="modal=!modal,series=true">立即评价</p>
+	        	<!--<p class="red" @click="modal=!modal,series=true">立即评价</p>-->
+	        	<!--<router-link tag='p' to="/TiwenMore" class="red"></router-link>-->
+	        	<router-link :to="{path:'qamodal'}" tag="p">立即评价</router-link>
 	        </div>
 	       </li>
       </ul>
-      <ul class="div01" v-if="part=='2'">
+     
+     <ul class="div01" v-if="part=='2'">
         <li v-if="item.value === ''||item.value === null" v-for="item in fqList" :key="item.id">
 	        <div class="l">
 	        	<h2>{{ item.name }}</h2>
@@ -53,7 +56,9 @@
           </div>
           <div class="r">
             <h3>{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
-            <p class="red" @click="modal=!modal,series=true">立即评价</p>
+           <router-link :to="{path:'qamodal'}" tag="p">立即评价</router-link>
+           
+           
           </div>
         </li>
       </ul>
@@ -75,10 +80,9 @@
 <script>
 import { loginUserUrl } from '@/api/api'
 import { getCookie } from "@/util/cookie"
-import VideoPingjia from "../modal/VideoPingjia"
+
 export default {
-  name: "youhuiquan",
-  components: { VideoPingjia },
+
   data() {
     return {
       part: "1",
@@ -173,21 +177,25 @@ export default {
   text-align: center;
 }
 .my_qianb_r .p02 {
-  margin: 10px 0 20px;
+  height: 30px;
   width: 100%;
+  margin: 10px 0;
   border-bottom: 1px solid #ddd;
-}
-.my_qianb_r .p02 span {
-  width: 80px;
-  display: inline-block;
-  text-align: center;
+   span {
+  width: 100px;
   line-height: 30px;
+  text-align: center;
+  border-right: 0.5px solid #999;
+  color: $black;
+  float: left;
   cursor: pointer;
 }
-.my_qianb_r .p02 .cur {
-  border-bottom: 1px solid #e7151b;
-  color: #e7151b;
+	.cur {
+  border-bottom: 2px solid #e7151b;
+  color: $red;;
+	}
 }
+
 .my_qianb_r .div01 {
   height: auto;
   width: 100%;

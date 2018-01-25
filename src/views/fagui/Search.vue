@@ -9,7 +9,9 @@
       <!-- 模块一 -->
       <div class="global-overview-left lf">
         <div class="titcon">
-          <h2 class="ctr">最新文件</h2>
+          <h2 class="ctr">最新文件
+          	<a @click="handleSubmit('federalSearch')" >更多>></a>
+          </h2>
         </div>
         <div class="clearfix"></div>
         <div class="content clearfix">
@@ -31,13 +33,13 @@
         </div>
         <div class="clearfix"></div>
         <div class="content">
-          <div v-if="federal" class="search">
+          <div v-if="federal" class="search" style="padding-top: 25px;">
             <Form ref="federalSearch" :model="federalSearch" :label-width="80">
               <FormItem label="标题" prop="title">
                 <Input v-model="federalSearch.title" placeholder="请输入法规标题"></Input>
               </FormItem>
-              <FormItem label="字号" prop="zihao">
-                <Input v-model="federalSearch.zihao" placeholder="请输入法规字号"></Input>
+              <FormItem label="文号" prop="zihao">
+                <Input v-model="federalSearch.zihao" placeholder="请输入法规文号"></Input>
               </FormItem>
               <FormItem label="年度" prop="niandu">
                 <Input v-model="federalSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
@@ -47,36 +49,43 @@
               </FormItem>
               <FormItem label="发文日期">
                 <Row>
-                  <Col span="12">
+                  <Col span="12" style="width: 160px; margin-bottom: 10px;">
                     <FormItem prop="beginLine">
-                      <DatePicker type="date" v-model="federalSearch.beginLine" @on-change="handleFormat('federalSearch','beginLine',$event)" format="yyyy-MM-dd" placeholder="选择起始时间" style="width: 180px"></DatePicker>
+                      <DatePicker type="date" v-model="federalSearch.beginLine" 
+                      	@on-change="handleFormat('federalSearch','beginLine',$event)"
+                      	 format="yyyy-MM-dd" placeholder="选择起始时间" style="width: 160px">
+                      </DatePicker>
                     </FormItem>
                   </Col>
-                  <Col span="12">
+                  <Col span="12" style="width: 160px; margin-bottom: 10px;">
                     <FormItem prop="endLine">
-                      <DatePicker type="date" v-model="federalSearch.endLine" @on-change="handleFormat('federalSearch','endLine',$event)" format="yyyy-MM-dd" placeholder="选择起始时间" style="width: 180px"></DatePicker>
+                      <DatePicker type="date" v-model="federalSearch.endLine" 
+                      	@on-change="handleFormat('federalSearch','endLine',$event)" 
+                      	format="yyyy-MM-dd" placeholder="选择起始时间" style="width: 160px">
+                      </DatePicker>
                     </FormItem>
                   </Col>
                 </Row>
               </FormItem>
+              <span>*注 发文年度不需要输入括号</span>
               <FormItem>
-                <Button type="primary" style="width:100px" @click="handleSubmit('federalSearch')">检索</Button>
-                <Button type="ghost" style="margin-left: 8px;width:100px" @click="handleReset('federalSearch')">取消</Button>
+                <Button type="primary" style="width:130px" @click="handleSubmit('federalSearch')">检索</Button>
+                <Button type="ghost" style="margin-top: 10px;width:130px" @click="handleReset('federalSearch')">取消</Button>
               </FormItem>
             </Form>
           </div>
           <div v-else class="search">
             <Form ref="localSearch" :model="localSearch" :label-width="80">
               <FormItem label="地区">
-                <Select v-model="localSearch.area" style="width:100px">
+                <Select v-model="localSearch.area" style="width:130px">
                   <Option v-for="area in areas" :key="area.id" :value="area.name">{{ area.name }}</Option>
                 </Select>
               </FormItem>
               <FormItem label="标题">
                 <Input v-model="localSearch.title" placeholder="请输入法规标题"></Input>
               </FormItem>
-              <FormItem label="字号">
-                <Input v-model="localSearch.zihao" placeholder="请输入法规字号"></Input>
+              <FormItem label="文号">
+                <Input v-model="localSearch.zihao" placeholder="请输入法规文号"></Input>
               </FormItem>
               <FormItem label="年度">
                 <Input v-model="localSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
@@ -86,17 +95,19 @@
               </FormItem>
               <FormItem label="发文日期">
                 <Row>
-                  <Col span="12">
-                    <DatePicker type="date" v-model="localSearch.beginLine" @on-change="handleFormat('localSearch','beginLine',$event)" format="yyyy-MM-dd" placeholder="选择起始时间" style="width: 180px"></DatePicker>
+                  <Col span="12"  style="width: 160px; margin-bottom: 10px;">
+                    <DatePicker type="date" v-model="localSearch.beginLine" @on-change="handleFormat('localSearch','beginLine',$event)" format="yyyy-MM-dd" placeholder="选择起始时间" style="width: 160px"></DatePicker>
                   </Col>
-                  <Col span="12">
-                    <DatePicker type="date" v-model="localSearch.endLine" @on-change="handleFormat('localSearch','endLine',$event)" format="yyyy-MM-dd" placeholder="选择截止时间" style="width: 190px"></DatePicker>
+                  <Col span="12"  style="width: 160px;">
+                    <DatePicker type="date" v-model="localSearch.endLine" @on-change="handleFormat('localSearch','endLine',$event)" format="yyyy-MM-dd" placeholder="选择截止时间" style="width: 160px"></DatePicker>
                   </Col>
                 </Row>
               </FormItem>
               <FormItem>
-                <Button type="primary" style="width:100px" @click="handleSubmit('localSearch')">检索</Button>
-                <Button type="ghost" style="margin-left: 8px;width:100px" @click="handleReset('localSearch')">取消</Button>
+                <Button type="primary" style="width:130px" @click="handleSubmit('localSearch')">
+                	检索</Button>
+                <Button type="ghost" style="margin-top: 10px;width:130px"
+                	 @click="handleReset('localSearch')">取消</Button>
               </FormItem>
             </Form>
           </div>
@@ -105,7 +116,9 @@
       <!-- 模块三 -->
       <div class="global-overview-left second-line lf">
         <div class="titcon">
-          <h2 class="ctr">政策解读</h2>
+          <h2 class="ctr">政策解读
+         	 <a @click="handleSubmit('federalSearch')" >更多>></a>
+          </h2>
         </div>
         <div class="clearfix"></div>
         <div class="content clearfix">
@@ -115,6 +128,7 @@
                 {{ item.name }}
               </router-link>
               <span class="date">{{ item.time }}</span>
+
             </dd>
           </dl>
         </div>
@@ -129,7 +143,8 @@
           <ul class="policy">
             <li v-for="item in classify" :key="item.id">
               <span class="num"></span>
-              <router-link tag="span" style="cursor:pointer" :to="{name:'fagui',query:{form_id:item.id}}">{{ item.name }}</router-link>
+              <router-link tag="span" style="cursor:pointer" 
+              	:to="{name:'fagui',query:{form_id:item.id}}">{{ item.name }}</router-link>
             </li>
           </ul>
         </div>
@@ -274,9 +289,11 @@ export default {
   }
   .lf {
     float: left;
+    width: 780px;
   }
   .rt {
     float: right;
+     width: 300px;
   }
   i {
     display: inline-block;
@@ -301,7 +318,6 @@ export default {
     margin-top: 35px;
     position: relative;
     .global-overview-left {
-      width: 528px;
       margin-bottom: 35px;
       .titcon {
         background-color: $bg-blue;
@@ -310,8 +326,13 @@ export default {
         h2 {
           font-size: 16px;
           padding: 10px 0;
-          margin-left: 40px;
-          color: $white;
+          color: $white; overflow: hidden;
+          a{
+          	float: right;
+          	font-size: 14px; height: 44px;
+          	color: $white;
+          	 margin-right: 20px;
+          }
         }
         span {
           line-height: 44px;
@@ -328,7 +349,7 @@ export default {
       .content {
         border: 1px solid $border-dark;
         border-top: none;
-        height: 400px;
+        height: 480px;
         dd {
           position: relative;
           padding: 13px 5px 0px 15px;
@@ -336,7 +357,7 @@ export default {
             display: inline-block;
             color: #333;
             font-size: 14px;
-            width: 390px;
+            width: 490px;
             height: 22px;
             overflow: hidden;
             white-space: nowrap;
@@ -359,13 +380,13 @@ export default {
           display: inline-block;
         }
         .policy {
-          height: 240px;
+          height: 100%;
           padding: 4px 15px;
           li {
             float: left;
             font-size: 14px;
             text-align: left;
-            width: 33%;
+            width: 50%;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -381,13 +402,13 @@ export default {
           }
         }
         .search{
-          padding: 10px 40px 0 20px;
+          padding: 10px 40px 0 10px;
         }
       }
     }
     .second-line {
       .content {
-        height: 240px;
+        height: 360px;
       }
     }
   }
