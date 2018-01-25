@@ -1,17 +1,19 @@
 <template>
   <div class="upload">
-    <Modal v-model="modal" :closable="false" :mask-closable="false">
+    <Modal v-model="videoModal" :closable="false" :mask-closable="false">
       <p slot="header" style="color:#3399ff;text-align:center">
         <Icon type="information-circled"></Icon>
         <span>上传视频</span>
       </p>
       <Upload
-        multiple
         type="drag"
+        ref="upload"
         action="//jsonplaceholder.typicode.com/posts/"
         accept=".mp4,.avi,.mov,.wmv,.flv"
         :format="['mp4','avi','mov','wmv','flv']"
         :on-format-error="formatError"
+        :on-success="upSuccess"
+        :on-error="upFail"
         >
         <div style="padding: 20px 0">
           <Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
@@ -19,9 +21,41 @@
           <p>支持的格式有.mp4/.avi/.mov/.wmv/.flv</p>
         </div>
       </Upload>
+      <Form :model="video" ref="video">
+        <!-- 播单选择下拉框 -->
+        <FormItem prop="belong">
+          <Select v-model="video.belong" placeholder="请选择播单">
+            <Option value=""></Option>
+          </Select>
+        </FormItem>
+        <!-- 视频url -->
+        <FormItem prop="url">
+          <Input v-model="video.url" placeholder="视频url"></Input>
+        </FormItem>
+        <!-- 标题 -->
+        <FormItem prop="title">
+          <Input v-model="video.title" placeholder="标题"></Input>
+        </FormItem>
+        <!-- 价格 -->
+        <FormItem props="price">
+          <Input v-model="video.price" placeholder="价格"></Input>
+        </FormItem>
+        <!-- 状态 -->
+        <FormItem prop="state">
+          <Select v-model="video.state" placeholder="显示或隐藏该视频">
+            <Option value="1">显示</Option>
+            <Option value="2">隐藏</Option>
+          </Select>
+        </FormItem>
+      </Form>
+      <div slot="footer">
+        <Button type="primary" @click="upload">确定</Button>
+        <Button type="ghost" @click="handleReset('video')">取消</Button>
+      </div>
     </Modal>
+    <!-- 创建播单 -->
     <Modal
-      v-model="modal1"
+      v-model="bodanModal"
       :closable="false"
       :mask-closable="false"
     >
@@ -45,19 +79,19 @@
       </Form>
       <div slot="footer">
         <Button type="primary" @click="submit">提交</Button>
-        <Button type="ghost" @click="handleReset" style="margin-left: 8px">取消</Button>
+        <Button type="ghost" @click="handleReset('bodan')" style="margin-left: 8px">取消</Button>
       </div>
     </Modal>
     <div class="upload-box">
       <div class="head">
-        <div class="title"><span class="lf">视频</span><router-link :to="{ name: 'videos'}" style="cursor:pointer" tag="span" class="rt">视频管理</router-link></div>
+        <div class="title"><span class="lf">视频</span></div>
       </div>
       <div class="video-loader">
         <div class="center">
           <p>您还没有上传过视频！</p>
           <!-- 传说中的实名认证和开放注册，后面被莫名其妙砍掉了 -->
           <!-- <input type="button" @click="showModal('upload')" value="立即上传" class="btn main-btn"/> -->
-          <input type="button" @click="modal = true" value="立即上传" class="btn main-btn"/>
+          <input type="button" @click="videoModal = true" value="立即上传" class="btn main-btn"/>
         </div>
       </div>
     </div>
@@ -69,7 +103,7 @@
         <div class="center">
           <p>点击按钮创建一个新的播单</p>
           <!-- <input type="button" @click="showModal('bodan')" value="创建播单" class="btn main-btn"/> -->
-          <input type="button" @click="modal1 = true" value="创建播单" class="btn main-btn"/>
+          <input type="button" @click="bodanModal = true" value="创建播单" class="btn main-btn"/>
         </div>
       </div>
     </div>
@@ -82,46 +116,83 @@ import { loginUserUrl } from '@/api/api'
 export default {
   data() {
     return {
-      modal: false,
-      modal1:false,
+      videoModal: false,
+      bodanModal:false,
       bodan:{
         name:'',
         intro:'',
         crowd:'',
         value:''
+      },
+      video:{
+        belong:'',
+        url:'',
+        title:'',
+        price:'',
+        state:''
       }
-    };
+    }
   },
   methods: {
     formatError(){
-      console.log('formatE')
+      this.$Message.error('格式错误，不能上传')
     },
     submit:function(){
       let bodan = this.bodan
-      let res = loginUserUrl('getOnline_Courses_update',{
+      let res = loginUserUrl('getOnline_Courses_add',{
         username: "niuhongda",
         password: "123123q",
-        bodan
+        uid:getCookie('u_name'),
+        form_id:'',
+        crowd:bodan.crowd,
+        lecturer:'',
+        profession:'',
+        period:'',
+        money:'',
+        money_marketing:'',
+        name:bodan.name,
+        img:'',
+        audition:'',
+        intro:bodan.intro,
+        value:bodan.value
       }).then((res)=>{
         this.$refs.bodan.resetFields()
-        this.modal1=false
+        this.bodanModal=false
       })
     },
-    handleReset:function(){
-      this.$refs.bodan.resetFields()
-      this.modal1=false
+    upload(){
+      let video = this.video
+      let res = loginUserUrl('getOnline_Courses_catalogueAdd',{
+        username: "niuhongda",
+        password: "123123q",
+        gid:video.belong,
+        url:video.url,
+        name:video.name,
+        money:video.price,
+        sort:'',
+        status:video.status
+      }).then((res)=>{
+        this.$refs.video.resetFields()
+        this.videoModal=false
+        this.$refs.upload.clearFiles()
+      })
+    },
+    handleReset:function(name){
+      this.$refs[name].resetFields()
+      this[name +'Modal']=false
+      // this.$refs.upload.clearFiles()
+    },
+    upSuccess(response,file){
+      console.log(response)
+    },
+    upFail(){
+
     }
   },
   created () {
-    let cookieName = getCookie('u_name')
-    console.log(cookieName)
-    if(cookieName !== '' && cookieName !== 'undefined' ){
-      console.log(this.$store.state.user)
-    }else{
-      this.$router.push({name:'login'})
-    }
+
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

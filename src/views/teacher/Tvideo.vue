@@ -4,8 +4,6 @@
       <div class="title">内容管理</div>
       <p>
         <router-link tag="span":to="{ name : 'bodan' }">播单管理</router-link>
-        <span class="splite">&nbsp;</span>
-        <router-link tag="span":to="{ name : 'videos' }">视频管理</router-link>
       </p>
     </div>
     <router-view></router-view>

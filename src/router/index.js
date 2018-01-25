@@ -437,10 +437,6 @@ const routes = [
         name: 'yijianfk',
         component: yijianfk
       }
-      
-      
-      
-      
     ]
   },
   {

@@ -56,7 +56,7 @@ export default {
       this.$router.push({name:'login'})
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -2,7 +2,7 @@
   <div class="video-list">
     <Modal
       :width="700"
-      v-model="modal"
+      v-model="bodanRestModal"
       :closable="false"
       :mask-closable="false"
     >
@@ -10,26 +10,31 @@
         <Icon type="information-circled"></Icon>
         <span>修改播单信息</span>
       </p>
-      <Form :model="bodan" ref="bodan" label-position="left" :label-width="100">
+      <Form :model="bodanRest" ref="bodanRest" label-position="left" :label-width="100">
         <FormItem label="标题" prop="name">
-          <Input v-model="bodan.name"></Input>
+          <Input v-model="bodanRest.name"></Input>
         </FormItem>
         <FormItem label="简要介绍" prop="intro">
-          <Input v-model="bodan.intro"></Input>
+          <Input v-model="bodanRest.intro"></Input>
         </FormItem>
         <FormItem label="适合人群" prop="crowd">
-          <Input v-model="bodan.crowd"></Input>
+          <Input v-model="bodanRest.crowd"></Input>
         </FormItem>
         <FormItem label="课程介绍" prop="value">
-          <Input v-model="bodan.value" type="textarea" :autosize="{minRows: 2,maxRows: 12}" placeholder="课程介绍"></Input>
+          <Input v-model="bodanRest.value" type="textarea" :autosize="{minRows: 2,maxRows: 12}" placeholder="课程介绍"></Input>
         </FormItem>
       </Form>
       <div slot="footer">
         <Button type="primary" @click="submit">提交</Button>
-        <Button type="ghost" @click="handleReset" style="margin-left: 8px">取消</Button>
+        <Button type="ghost" @click="handleReset('bodanRest')" style="margin-left: 8px">取消</Button>
       </div>
     </Modal>
-    <Modal v-model="modal1" :closable="false">
+    <!-- 创建播单对话框 -->
+    <Modal
+      v-model="bodanModal"
+      :closable="false"
+      :mask-closable="false"
+    >
       <p slot="header" style="color:#3399ff;text-align:center">
         <Icon type="information-circled"></Icon>
         <span>创建播单</span>
@@ -50,7 +55,7 @@
       </Form>
       <div slot="footer">
         <Button type="primary" @click="create">提交</Button>
-        <Button type="ghost" @click="handleReset" style="margin-left: 8px">取消</Button>
+        <Button type="ghost" @click="handleReset('bodan')" style="margin-left: 8px">取消</Button>
       </div>
     </Modal>
     <div class="head">
@@ -59,12 +64,13 @@
           :indeterminate="indeterminate"
           :value="checkAll"
           @click.prevent.native="handleCheckAll">全选</Checkbox>
-        <span @click="modal1 = true">创建播单</span><span>删除</span>
+        <span @click="bodanModal = true" style="cursor:pointer">创建播单</span>
+        <!-- <span>删除</span> -->
       </div>
       <div class="title">
         <span class="fl">播单</span>
-        <span class="fr" style="text-align:center">视频数</span>
-        <span class="fr">操作</span>
+        <span class="fr" style="text-align:center">操作</span>
+        <span class="fr">视频数</span>
       </div>
       <div style="height:20px;"></div>
     </div>
@@ -90,11 +96,11 @@
             视频:2
           </td>
           <td width='100'>
-            <p @click="modal = true,gid = item[1].id">
+            <p @click="bodanRestModal = true,gid = item[1].id">
               修改播单
             </p>
             <router-link tag="p" :to="{ name:'bodanmanger' }">管理播单</router-link>
-            <p @click="getDel(item[1].id)">删除</p>
+            <!-- <p @click="getDel(item[1].id)">删除</p> -->
           </td>
         </tr>
       </table>
@@ -107,6 +113,7 @@
 </template>
 
 <script>
+import { getCookie } from "@/util/cookie"
 import { loginUserUrl } from '@/api/api'
 export default {
   data() {
@@ -116,29 +123,34 @@ export default {
       blankChoosen:[],
       indeterminate:false,
       checkAll:false,
-      modal:false,
-      modal1:false,
+      bodanRestModal:false,
+      bodanModal:false,
       bodan:{
         name:'',
         intro:'',
         crowd:'',
-        value:'',
+        value:''
+      },
+      bodanRest:{
+        name:'',
+        intro:'',
+        crowd:'',
+        value:''
       },
       gid:'',
-      total:null,
+      total:0,
       pageNum:1,
 
     }
   },
   methods: {
-    handleReset:function(){
-      this.$refs.bodan.resetFields()
-      this.modal=false
-      this.modal1=false
+    handleReset:function(name){
+      this.$refs[name].resetFields()
+      this[name +'Modal']=false
     },
     // 修改播单信息
     submit:function(){
-      let bodan = this.bodan
+      let bodan = this.bodanRest
       console.log(bodan.name)
       let res = loginUserUrl('getOnline_Courses_update',{
         username: "niuhongda",
@@ -152,7 +164,7 @@ export default {
       }).then((res)=>{
         console.log(res)
       })
-      this.modal = false
+      this.bodanRestModal = false
       this.onload()
     },
     // 创建播单的接口
@@ -161,10 +173,23 @@ export default {
       let res = loginUserUrl('getOnline_Courses_add',{
         username: "niuhongda",
         password: "123123q",
-        gid:this.gid,
-        bodan
+        uid:getCookie('u_name'),
+        form_id:'',
+        crowd:bodan.crowd,
+        lecturer:'',
+        profession:'',
+        period:'',
+        money:'',
+        money_marketing:'',
+        name:bodan.name,
+        img:'',
+        audition:'',
+        intro:bodan.intro,
+        value:bodan.value
       }).then((res)=>{
         console.log(res)
+        this.$refs.bodan.resetFields()
+        this.bodanModal=false
       })
       this.onload()
     },
@@ -201,8 +226,10 @@ export default {
         password: "123123q",
         page:this.pageNum
       }).then((res)=>{
+        console.log(res.data.paging)
         let obj = Object.entries(res.data).slice(0,-2)
         this.classes = obj
+        this.total = parseInt(res.data.counts)
         for(let i = 0;i<obj.length;i++){
           this.blankChoosen.push(obj[i][1].id)
         }
@@ -213,18 +240,16 @@ export default {
       this.onload()
     },
     // 播单删除
-    getDel(arg){
-      let id = parseInt(arg)
-      // console.log(id)
-      let res = loginUserUrl('getOnline_Courses_Delete',{
-        username: "niuhongda",
-        password: "123123q",
-        cid:id
-      }).then((res)=>{
-        // console.log(res)
-      })
-      this.onload()
-    }
+    // getDel(arg){
+    //   let id = parseInt(arg)
+    //   let res = loginUserUrl('getOnline_Courses_Delete',{
+    //     username: "niuhongda",
+    //     password: "123123q",
+    //     cid:id
+    //   }).then((res)=>{
+    //   })
+    //   this.onload()
+    // }
   },
   created () {
     this.onload()
@@ -249,7 +274,7 @@ export default {
     line-height: 35px;
     overflow: hidden;
     span {
-      width: 70px;
+      width:105px;
       text-align: center;
     }
   }
