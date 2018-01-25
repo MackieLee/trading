@@ -153,6 +153,10 @@ export default {
   .riqi {
     width: 130px; padding-left: 20px;
   }
+  .biaoti{width: 600px;
+   white-space: nowrap;
+   overflow: hidden;
+    text-overflow: ellipsis;}
   .red {
     color: $red;
   }
@@ -167,6 +171,8 @@ export default {
       table-layout: fixed;
       border-collapse: separate;
       width: 96%; margin: 0px auto;
+      .biaoti{
+    }
       td {
         display: table-cell;
         line-height: 42px;

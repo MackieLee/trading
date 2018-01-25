@@ -38,8 +38,8 @@
               <FormItem label="标题" prop="title">
                 <Input v-model="federalSearch.title" placeholder="请输入法规标题"></Input>
               </FormItem>
-              <FormItem label="字号" prop="zihao">
-                <Input v-model="federalSearch.zihao" placeholder="请输入法规字号"></Input>
+              <FormItem label="文号" prop="zihao">
+                <Input v-model="federalSearch.zihao" placeholder="请输入法规文号"></Input>
               </FormItem>
               <FormItem label="年度" prop="niandu">
                 <Input v-model="federalSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
@@ -67,9 +67,10 @@
                   </Col>
                 </Row>
               </FormItem>
+              <span>*注 发文年度不需要输入括号</span>
               <FormItem>
                 <Button type="primary" style="width:130px" @click="handleSubmit('federalSearch')">检索</Button>
-                <Button type="ghost" style="margin-top: 20px;width:130px" @click="handleReset('federalSearch')">取消</Button>
+                <Button type="ghost" style="margin-top: 10px;width:130px" @click="handleReset('federalSearch')">取消</Button>
               </FormItem>
             </Form>
           </div>
@@ -83,8 +84,8 @@
               <FormItem label="标题">
                 <Input v-model="localSearch.title" placeholder="请输入法规标题"></Input>
               </FormItem>
-              <FormItem label="字号">
-                <Input v-model="localSearch.zihao" placeholder="请输入法规字号"></Input>
+              <FormItem label="文号">
+                <Input v-model="localSearch.zihao" placeholder="请输入法规文号"></Input>
               </FormItem>
               <FormItem label="年度">
                 <Input v-model="localSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
@@ -356,7 +357,7 @@ export default {
             display: inline-block;
             color: #333;
             font-size: 14px;
-            width: 390px;
+            width: 490px;
             height: 22px;
             overflow: hidden;
             white-space: nowrap;
@@ -407,7 +408,7 @@ export default {
     }
     .second-line {
       .content {
-        height: 325px;
+        height: 360px;
       }
     }
   }

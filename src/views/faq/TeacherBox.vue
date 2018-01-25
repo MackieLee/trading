@@ -1,18 +1,6 @@
 <template>
   <div class="teacher-box">
     <!-- 修改 -->
-    <Modal
-      :width="700"
-      v-model="modal"
-      :closable="false"
-      :mask-closable="false"
-    >
-      <div slot="footer">
-        <Button type="primary" @click="submit">提交</Button>
-        <Button type="ghost" @click="handleReset" style="margin-left: 8px">取消</Button>
-      </div>
-      <frequently-asked-questions ref="faqModal"></frequently-asked-questions>
-    </Modal>
     <div class="cur-posi lf">
       <p>
         <i></i>当前位置 : &nbsp;
@@ -24,7 +12,10 @@
         <span>全部</span><span>房地产</span><span>个税</span><span>咨询</span><span>会计</span>
       </div>
       <div class="btn-group rt">
-        <i @click="openModal" class="ask-icon"></i><input  @click="openModal" class="ask-input" type="button" value="点我提问" /><br>
+        <i @click="openModal" class="ask-icon"></i>
+<router-link tag='button' class="ask-input" type="button" value="点我提问" to="/TiwenMore">
+	 点我提问
+</router-link>
         <span>没有找到问题？点击上方直接提问</span>
       </div>
     </div>
@@ -66,7 +57,8 @@
         </ul>
       </div>
       <div class="ask">
-        <router-link :to="{ name : 'qdetail',query:{id:item.id}}" tag="p" class="ask-btn">我要提问</router-link>
+        <router-link :to="{ name : 'qdetail',query:{id:item.id}}" tag="p" class="ask-btn">
+        	我要提问</router-link>
         <p>已解决27个问题</p>
       </div>
     </div>
@@ -76,9 +68,8 @@
 <script>
 import { loginUserUrl } from "@/api/api"
 import { getCookie } from "@/util/cookie"
-import FrequentlyAskedQuestions from "../modal/FrequentlyAskedQuestions"
 export default {
-  components:{ FrequentlyAskedQuestions },
+
   data() {
     return {
       modal:false,
@@ -121,15 +112,12 @@ export default {
     openModal:function(){
       let cookieName = getCookie('u_name')
       if(cookieName !== '' && cookieName !== 'undefined' ){
-        this.modal = true
+       
       }else{
         this.$router.push({name:'login'})
       }
     },
-    handleReset:function(){
-      this.$refs.faqModal.handleReset()
-      this.modal=false
-    }
+
   },
   mounted () {
     let res = loginUserUrl("getTeacherList",{
@@ -227,7 +215,7 @@ i {
 .item {
   width: 330px;
   background: $white;
-  margin: 0 46px 45px 0;
+  margin: 0 46px 20px 0;
   overflow: hidden;
   border: 1px solid $border-rice;
    .flex {

@@ -1,8 +1,5 @@
 <template>
   <div class="bind">
-  	<Modal v-model='modal'>
-  		
- 	</Modal>
     <div class="container">
       <div class="sum_of_class">账号安全</div>
       <table>
@@ -17,7 +14,8 @@
             <span>li******@jdtax.cn</span>
           </td>
           <td width="110">
-            <input @click="showModal('email')" class="re-bind" type="button" value="修改绑定" />
+          	<router-link  class="re-bind" :to="{path:'bindModal'}" tag="button">
+           	修改绑定</router-link>
           </td>
         </tr>
         <tr height="50">
@@ -31,7 +29,8 @@
             <span>177******1234</span>
           </td>
           <td>
-            <input @click="showModal('email')" class="re-bind" type="button" value="修改绑定" />
+            <router-link  class="re-bind" :to="{path:'bindModal1'}" tag="button">
+           	修改绑定</router-link>
           </td>
         </tr>
         <tr height="50">
@@ -45,7 +44,8 @@
             <span>qzuser</span>
           </td>
           <td>
-            <input @click="showModal('email')" class="cancel-bind" type="button" value="取消绑定" />
+						<router-link  class="re-bind" :to="{path:'bindModal2'}" tag="button">
+           	修改绑定</router-link>
           </td>
         </tr>
         <tr height="50">
@@ -59,7 +59,8 @@
             <span>未绑定</span>
           </td>
           <td>
-            <input @click="showModal('pwd')" class="imm-bind" type="button" value="立即绑定" />
+           <router-link  class="re-bind" :to="{path:'bindModal3'}" tag="button">
+           	修改绑定</router-link>
             
           </td>
         </tr>
@@ -74,7 +75,8 @@
             <span>一杯北野君</span>
           </td>
           <td>
-            <input @click="showModal('email')" class="cancel-bind" type="button" value="取消绑定" />
+            <router-link  class="re-bind" :to="{path:'bindModal4'}" tag="button">
+           	修改绑定</router-link>
           </td>
         </tr>
         <tr height="50">
@@ -86,7 +88,8 @@
             <span>七七七</span>
           </td>
           <td>
-            <input @click="showModal('email')" class="imm-bind" type="button" value="立即绑定" />
+           <router-link  class="re-bind" :to="{path:'bindModal5'}" tag="button">
+           	修改绑定</router-link>
           </td>
         </tr>
       </table>
@@ -98,6 +101,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -137,7 +141,7 @@ export default {
     border: 1px solid $border-dark;
     padding-bottom: 20px;
   }
-  input[type="button"] {
+  button {
     width: 100px;
     height: 34px;
     outline: none;

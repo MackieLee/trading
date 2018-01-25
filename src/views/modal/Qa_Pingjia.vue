@@ -1,10 +1,6 @@
 <template>
   <div class="pingjia">
-  	<div class="cur-posi lf">
-      <p>
-        <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;问答</p>
-    </div>
+  	
     <!-- 修改为star -->
     <h2>课程评分</h2>
     <div class="div-head">
@@ -67,7 +63,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .pingjia {
-	width: 1090px;
+	 width: 100%;
 	 margin: 10px auto;
 	 .footer{
 	width:310px;
@@ -76,21 +72,6 @@ export default {
    margin:30px 15px;
 		}
 	}
-	i {
-  display: inline-block;
-  width: 20px;
-  height: 22px;
-  background-image: url("../../assets/images/Sprite.png");
-  vertical-align: text-bottom;
-}
-.cur-posi {
-  padding: 0 0 26px 0;
-  width: 100%;
-  i {
-    background-position: -18px -100px;
-    margin-right: 6px;
-  }
-}
   h2 {
     background-color: #468ee3;
     border: none;

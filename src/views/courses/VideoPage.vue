@@ -1,13 +1,6 @@
 <template>
   <div class="origin-item">
     <Modal
-      :width = '850'
-      v-model="modal1"
-      :closable = "false"
-      :mask-closable="false">
-      <video-pingjia></video-pingjia>
-    </Modal>
-    <Modal
       :width = '450'
       v-model="modal2"
       :closable = "false"
@@ -101,7 +94,9 @@
       <!-- 课程标题 -->
       <span class="doc-title">{{ curClass }}</span>
       <span class="teacher">主讲：孙玮老师</span>
-      <span class="pointer pingjia" @click="modal1=true,series=true">本节评价</span>
+      <!--<span class="pointer pingjia" @click="modal1=true,series=true">本节评价</span>-->
+ 	<router-link class="pointer pingjia"  to="/VideoPingfen" tag="span">
+        本节评价</router-link>       
       <span class="pointer shoucang" @click="shouCang">收藏</span>
       <i class="red-heart" v-if="shoucang"></i>
       <i class="grey-heart" v-if="!shoucang"></i>
@@ -125,11 +120,11 @@ require("video.js/dist/video-js.css")
 require("vue-video-player/src/custom-theme.css")
 const DOC = require("../../assets/doc.json")
 import Exam from './Exam'
-import VideoPingjia from "../modal/VideoPingjia"
+
 import Dayi from './Dayi'
 export default {
-  name: "video-page",
-  components: { VideoPingjia,Dayi,Exam },
+
+  components: {Dayi,Exam },
   data() {
     return {
       markNum: "1",

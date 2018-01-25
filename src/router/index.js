@@ -9,7 +9,9 @@ import teacher from '../views/team/teacher'//专家团队
 import tdetail from '../views/team/TDetail'//专家团队详情页
 import faq from '../views/faq/Faq'//问答
 import qdetail from '../views/faq/QDetail'//问答详情
-import qdMore from '../views/faq/qdMore'//问答列表
+import qdMore from '../views/faq/qdMore'//问答列表Q
+import Leibiebox from '../views/faq/Leibiebox'//税收类别
+import TiwenMore from '../views/faq/TiwenMore'//问答提问页面
 import book from '../views/book/Book'//图书
 import item from '../views/book/Item'//图书详情
 import about from '../views/about/About'//关于我们
@@ -23,26 +25,38 @@ import fsearch from '../views/fagui/Search'//法规查询
 import online from '../views/courses/Online'//线上课程
 import videopage from '../views/courses/VideoPage'//视频播放
 import videoinfo from '../views/courses/VideoInfo'//视频详情、试听、购买页面
+import VideoPingfen from '../views/modal/VideoPingjia'//视频详情、试听、购买页面
 // ---------------------登录注册----------------------------------
 import login from '../views/join/Login'//登录
 import register from '../views/join/Register'//注册
 import getpwd from '../views/join/Getpwd'//重置密码
-// ---------------------用户端------------------------------------
+// ---------------------vip用户端------------------------------------
 import initpwd from '../views/vip/Initpwd'//普通用户端账号安全
+import InitpwdModal from '../views/vip/Modal'//普通用户端账号安全绑定页面
+import InitpwdModal1 from '../views/vip/Modal1'//普通用户端账号安全绑定页面
+import InitpwdModal2 from '../views/vip/Modal2'//普通用户端账号安全绑定页面
 import initdata from '../views/vip/Initdata'//普通用户端个人信息设置
 import bind from '../views/vip/Bind'//普通用户端账号绑定
+import bindModal from '../views/vip/bindModal'//普通用户端账号绑定
+import bindModal1 from '../views/vip/bindModal1'//普通用户端账号绑定
+import bindModal2 from '../views/vip/bindModal2'//普通用户端账号绑定
+import bindModal3 from '../views/vip/bindModal3'//普通用户端账号绑定
+import bindModal4 from '../views/vip/bindModal4'//普通用户端账号绑定
+import bindModal5 from '../views/vip/bindModal5'//普通用户端账号绑定
 import fapiaodetail from '../views/vip/FapiaoDetail'//发票详情
 import fapiaoapp from '../views/vip/FapiaoApp'//发票索取
 import vip from '../views/vip/Vip'//普通会员端
 import study from '../views/vip/Study'//我的学习
 import shoucang from '../views/vip/Shoucang'//我的收藏
 import qa from '../views/vip/Qa'//我的问答
+import qamodal from '../views/modal/Qa_Pingjia'//答疑评价
 import qianbao from '../views/vip/Qianbao'//我的钱包
 import jifenmall from '../views/vip/jifenmall'//积分商城
 import youhuiquan from '../views/vip/Youhuiquan'//我的优惠券
 import fapiao from '../views/vip/Fapiao'//发票索取
 import dingdan from '../views/vip/Dingdan'//我的订单
 import dingdanxq from '../views/vip/dingdanxq'//订单详情
+import dingdanpf from '../views/vip/dingd_modal'//订单评价
 import cart from '../views/vip/ShoppingCart'//购物车
 import jfitem from '../views/vip/JifenItem'//积分商城商品详情
 // ---------------------老师端------------------------------------
@@ -101,6 +115,11 @@ const routes = [
         component:videoinfo
       },
       {
+        path:'VideoPingfen',
+        name:'VideoPingfen',
+        component:VideoPingfen
+      },
+      {
         path: 'offline',
         name: 'offline',
         component: offline
@@ -139,6 +158,16 @@ const routes = [
         path: '/qdMore',
         name: 'qdMore',
         component: qdMore
+      },
+      {
+        path: '/Leibiebox',
+        name: 'Leibiebox',
+        component: Leibiebox
+      },
+      {
+        path: '/TiwenMore',
+        name: 'TiwenMore',
+        component: TiwenMore
       },
       {
         path: '/book',
@@ -210,6 +239,11 @@ const routes = [
             component: qa
           },
           {
+            path: 'qamodal',
+            name: 'qamodal',
+            component: qamodal
+          },
+          {
             path: 'qb',
             name: 'qianbao',
             component: qianbao
@@ -235,6 +269,11 @@ const routes = [
             component: dingdanxq
           },
           {
+            path: 'dingdanpf',
+            name: 'dingdanpf',
+            component: dingdanpf
+          },
+          {
             path: 'cart',
             name: 'shopping-cart',
             component: cart
@@ -250,9 +289,54 @@ const routes = [
             component: initpwd
           },
           {
+            path: 'InitpwdModal',
+            name: 'InitpwdModal',
+            component: InitpwdModal
+          },
+          {
+            path: 'InitpwdModal1',
+            name: 'InitpwdModal1',
+            component: InitpwdModal1
+          },
+          {
+            path: 'InitpwdModal2',
+            name: 'InitpwdModal2',
+            component: InitpwdModal2
+          },
+          {
             path: 'bind',
             name: 'bind',
             component: bind
+          },
+          {
+            path: 'bindModal',
+            name: 'bindModal',
+            component: bindModal
+          },
+          {
+            path: 'bindModal1',
+            name: 'bindModal1',
+            component: bindModal1
+          },
+          {
+            path: 'bindModal2',
+            name: 'bindModal2',
+            component: bindModal2
+          },
+          {
+            path: 'bindModal3',
+            name: 'bindModal3',
+            component: bindModal3
+          },
+          {
+            path: 'bindModal4',
+            name: 'bindModal4',
+            component: bindModal4
+          },
+          {
+            path: 'bindModal5',
+            name: 'bindModal5',
+            component: bindModal5
           },
           {
             path: 'fapiao-detail',

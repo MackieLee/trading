@@ -38,11 +38,11 @@ export default {
       tags: [
         { name: "我的主页", router: "t-kecheng" },
         { name: "内容管理", router: "t-video" },
-        { name: "我的问答", router: "t-wenda" },
+        { name: "会员问答", router: "t-wenda" },
         { name: "老师认证", router: "identify" },
         { name: "我的钱包", router: "t-qianbao" },
-        { name: "学员评价", router: "valuate" },
-        { name: "个人资料", router: "t-initdata" },
+        { name: "会员评价", router: "valuate" },
+        { name: "我的资料", router: "t-initdata" },
         { name: "账号安全", router: "t-initpwd" },
         { name: "账号绑定", router: "t-bind" }
       ]

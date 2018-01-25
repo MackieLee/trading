@@ -1,9 +1,21 @@
 <template>
   <div class="faq-box">
     <div class="title">
-      <span></span>
-      <font>最新问答</font>
-     <router-link to="/qdMore">更多>></router-link>
+       <!-- 切换-->
+    <Menu mode="horizontal" :theme="theme1" active-name="1">
+        <MenuItem name="1">
+          最热
+        </MenuItem>
+        <MenuItem name="2">
+          最新
+        </MenuItem>
+        <MenuItem name="3">
+           待回答
+        </MenuItem>
+        <router-link tag='span' to="/Leibiebox">税收类别</router-link>
+				<router-link to="/qdMore">更多>></router-link>
+    </Menu>
+    <!-- 切换-->    
     </div>
     <div class="container">
       <div>{{ data }}</div>
@@ -18,8 +30,9 @@
           <div>
             <div class="item-container">
             	<div class="wen">答 :&nbsp;</div>
-              <div v-if="item.value !== null && item.value !== ''" class="ask ansr">{{ item.value === null ?'':(item.value.substring(0,15)+'...') }}
-              	<span class="more">查看更多&gt;&gt;</span>
+              <div v-if="item.value !== null && item.value !== ''" class="ask ansr">
+              	{{ item.value === null ?'':(item.value.substring(0,15)+'...') }}
+              	<router-link tag="span" :to="{name:'pay'}" class="more" >查看更多&gt;&gt;</router-link>
               </div>
               <div v-else>
                 暂无回答
@@ -37,6 +50,7 @@ import { loginUserUrl } from "@/api/api"
 export default {
   data() {
     return {
+    	theme1: 'light',
       newAnsr:[],
       data:''
     }
@@ -68,6 +82,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
 .faq-box {
+	
   .board {
     margin-right: 0 !important;
   }
@@ -76,17 +91,8 @@ export default {
     margin: auto;
     padding-bottom: 10px;
     position: relative;
-    border-bottom: 1px solid $border-rice;
-    span {
-      padding: 9px 14px;
-      margin-right: 10px;
-      background-image: url("../../assets/images/Sprite.png");
-      background-position: -98px -84px;
-    }
-    font {
-      font-size: 18px;
-      font-weight: 450;
-    }
+    border-top: 1px solid #ddd;
+    span{margin-left: 15px;}
     a {
       font-size: 14px;
       position: absolute;
@@ -97,6 +103,7 @@ export default {
     overflow: hidden;
     .floor {
       overflow: hidden;
+      height: 520px;
       // border-bottom: 1px dashed $border-orange;
       // .lf {
       //   float: left;
