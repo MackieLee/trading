@@ -4,14 +4,19 @@
       <div class="item" v-for="item in classes" :key="item[1].title">
         <div><router-link :to="{name: 'videoinfo',query:{ id:item[1].id}}" class="video-cover">
         	<img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
-        <p class="video-title"><a :title="item[1].name">{{ item[1].name }}</a></p>
-        <p class="buss-info"><span class="score"><i></i><font>{{ item[1].grade }}</font>分</span>
+        <div class="video-title"><a :title="item[1].name">{{ item[1].name }}</a></div>
+        <div class="buss-info"><span class="score"><i></i><font>{{ item[1].grade }}</font>分</span>
         	<span class="person-current"><i></i><font>{{ item[1].quantity }}</font>人</span><span class="classes">
-        		课时:</span><font>{{ item[1].period }}&nbsp;</font><span>节</span></p>
-        <p class="price"><span>价格:<font class="rd">￥{{ item[1].money }}</font></span>
-        	<router-link :to="{name: 'videoinfo',query:{ id:item[1].id}}" 
-        		v-if="item[1].audition === '1'" class="free">试听</router-link></p>
+        		课时:</span><font>{{ item[1].period }}&nbsp;</font><span>节</span>
+        </div>
+        <div class="price"><span>价格:<font class="rd">￥{{ item[1].money }}</font></span>
+        	<router-link :to="{name: 'videoinfo',query:{ id:item[1].id}}"
+        		v-if="item[1].audition === '1'" class="free">试听</router-link>
+        </div>
       </div>
+    </div>
+    <div style="display:flex;justify-content:center;margin:80px 0 30px 0;">
+      <Page :total="total" @on-change="page($event)" show-elevator></Page>
     </div>
   </div>
 </template>
@@ -21,19 +26,37 @@ import { loginUserUrl } from '@/api/api'
 export default {
   data(){
     return{
-      classes:[]
+      classes:[],
+      form_id:null,
+      crowd:null,
+      lecturer:null,
+      begin_money:null,
+      end_money:null,
+      order:1, //最新
+      pageNum:1,
+      total:null
     }
   },
   mounted () {
-    let res = loginUserUrl('getOnline_Courses',{
-      username: "niuhongda",
-      password: "123123q",
-      page:1,
-      number:12
-    }).then((res)=>{
-      console.log(res.data)
-      this.classes = Object.entries(res.data).slice(0,-2)
-    })
+    this.onload()
+  },
+  methods: {
+    onload(){
+      let res = loginUserUrl('getOnline_Filtrate',{
+        username: "niuhongda",
+        password: "123123q",
+        page:this.pageNum,
+        number:12
+      }).then((res)=>{
+        console.log(res.data.counts)
+        this.total = parseInt(res.data.counts)
+        this.classes = Object.entries(res.data).slice(0,-2)
+      })
+    },
+    page:function(num){
+      this.pageNum = num
+      this.onload()
+    }
   }
 };
 </script>

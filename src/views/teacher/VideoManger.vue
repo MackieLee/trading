@@ -1,10 +1,11 @@
 <template>
   <div class="bodan-mager">
-    <div class="modal-outer" v-show="modal">
-      <!-- <div class="close">X</div> -->
-      <!-- v-bind传输数据到子组件(contentSeries) -->
-      <modal @closeModal="closeModal" :content-series="series"></modal>
-    </div>
+    <Modal v-model="modal" :width="700" :closable="false">
+      <doc></doc>
+    </Modal>
+    <Modal v-model="modal1" :width="700" :closable="false">
+      <exam></exam>
+    </Modal>
     <div>
       <div class="clearfix">
         <div class="fl">
@@ -14,15 +15,14 @@
           <div class="title">
             <p>企业所得税年度纳税申报表中隐藏的稽查陷阱</p>
           </div>
-          <p>简介</p>
-          <p class="date">2017-12-5 17:09:51</p>
+          <p>播单：土地增值税</p>
+          <p class="date">SHICHANG</p>
         </div>
       </div>
       <ul class="sm-tags">
         <li style="border:none"><input type="checkbox" id="all"><label for="all" style="margin-left:10px">全部</label></li>
-        <li @click="modal = true;series = false">添加课件</li>
-        <li @click="modal = true;series = true">添加试题</li>
-        <li>删除</li>
+        <li @click="modal = true">添加课件</li>
+        <li @click="modal1 = true">添加试题</li>
       </ul>
     </div>
     <div class="head">
@@ -36,7 +36,6 @@
       <tr>
         <th></th>
         <th>附件</th>
-        <th>状态</th>
         <th>操作</th>
       </tr>
       <tr>
@@ -47,10 +46,7 @@
           <p class="red">【解析】:因为电子邮件后缀是.com</p>
         </td>
         <td width="100">
-          上传中
-        </td>
-        <td width="100">
-          <p>删除</p>
+          <p>编辑信息</p>
         </td>
       </tr>
       <tr>
@@ -61,10 +57,7 @@
           <p class="red">【解析】:因为电子邮件后缀是.com</p>
         </td>
         <td width="100">
-          上传中
-        </td>
-        <td width="100">
-          <p>删除</p>
+          <p>编辑信息</p>
         </td>
       </tr>
       <tr>
@@ -75,10 +68,7 @@
           <p class="red">【解析】:因为电子邮件后缀是.com</p>
         </td>
         <td width="100">
-          上传中
-        </td>
-        <td width="100">
-          <p>删除</p>
+          <p>编辑信息</p>
         </td>
       </tr>
     </table>
@@ -86,7 +76,6 @@
       <tr>
         <th></th>
         <th>附件</th>
-        <th>状态</th>
         <th>操作</th>
       </tr>
       <tr>
@@ -96,11 +85,7 @@
           <p>(一)在企业财务上未反映的“视同销售”，而在汇算清缴被忽略不计。</p>
         </td>
         <td width="100">
-          上传中
-        </td>
-        <td width="100">
           <p>编辑信息</p>
-          <p>删除</p>
         </td>
       </tr>
       <tr>
@@ -110,44 +95,31 @@
           <p>(一)在企业财务上未反映的“视同销售”，而在汇算清缴被忽略不计。</p>
         </td>
         <td width="100">
-          上传中
-        </td>
-        <td width="100">
           <p>编辑信息</p>
-          <p>删除</p>
         </td>
       </tr>
     </table>
     <router-view></router-view>
-    <div class="pgs">
-      <li class="prev">&lt;上一页</li>
-      <li class="current">1</li>
-      <li class="custom">2</li>
-      <li class="custom">3</li>
-      <li class="custom">4</li>
-      <li class="points">...</li>
-      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
-      <li class="submit">确定</li>
-      <li class="next">下一页&gt;</li>
+    <div style="display:flex;justify-content:center;margin:80px 0 30px 0;">
+      <Page :page-size="20" show-elevator show-total></Page>
     </div>
   </div>
 </template>
 
 <script>
-import Modal from "../modal/VideoMangerModal";
+import exam from "../modal/Exam"
+import doc from "../modal/Doc"
 export default {
-  components: { Modal },
+  components: { exam,doc },
   data() {
     return {
       cur: "shiti",
       modal: false,
-      series: ""
-    };
+      modal1:false
+    }
   },
   methods: {
-    closeModal: function() {
-      this.modal = false;
-    }
+
   }
 };
 </script>
@@ -270,51 +242,6 @@ table {
   img {
     width: 180px;
     height: 100px;
-  }
-}
-.pgs {
-  width: 525px;
-  margin: 60px auto;
-  li {
-    width: 33px;
-    padding: 4px 0;
-    line-height: 20px;
-    text-align: center;
-    margin-right: 2px;
-    cursor: pointer;
-    border: 1px solid $border-dark;
-    color: $black;
-  }
-  .prev {
-    width: 73px;
-    color: $blue;
-  }
-  .next {
-    width: 96px;
-    color: $blue;
-  }
-  .points {
-    border: none;
-  }
-  .submit {
-    background-color: $btn-default;
-    color: $white;
-    width: 44px;
-    border: none;
-  }
-  .jump {
-    width: 80px;
-    border: 1px solid $border-dark;
-    color: #333;
-    input {
-      width: 30px;
-      border: 1px solid $border-dark;
-      outline: none;
-    }
-  }
-  .current {
-    background-color: $btn-default;
-    color: $white;
   }
 }
 </style>
