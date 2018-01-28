@@ -99,7 +99,7 @@
             <p @click="bodanRestModal = true,gid = item[1].id">
               修改播单
             </p>
-            <router-link tag="p" :to="{ name:'bodanmanger' }">管理播单</router-link>
+            <router-link tag="p" :to="{ name:'bodanmanger',query:{gid:item[1].id} }">管理播单</router-link>
             <!-- <p @click="getDel(item[1].id)">删除</p> -->
           </td>
         </tr>
@@ -224,9 +224,9 @@ export default {
       let res = loginUserUrl('getOnline_Courses',{
         username: "niuhongda",
         password: "123123q",
-        page:this.pageNum
+        page:this.pageNum,
+        num:8
       }).then((res)=>{
-        console.log(res.data.paging)
         let obj = Object.entries(res.data).slice(0,-2)
         this.classes = obj
         this.total = parseInt(res.data.counts)

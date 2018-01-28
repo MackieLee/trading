@@ -72,7 +72,6 @@ export default {
 
   data() {
     return {
-      modal:false,
       teachers:[]
     }
   },
@@ -112,7 +111,7 @@ export default {
     openModal:function(){
       let cookieName = getCookie('u_name')
       if(cookieName !== '' && cookieName !== 'undefined' ){
-       
+
       }else{
         this.$router.push({name:'login'})
       }

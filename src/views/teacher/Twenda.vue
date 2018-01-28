@@ -25,11 +25,11 @@
         <span data-ref='3' @click="toggle()" :class="{ 'cur': part === '3' }">已回答</span>
       </p>
       <ul class="div01" v-if="part=='1'">
-        <li v-for="item in fqList" :key="item.id">
+        <li v-for="item in fqList" :key="item.cnm">
           <div class="l">
             <h2>{{ item.name }}</h2>
             <div class="div">
-              <p class="phui">提问者：提问者的名字</p>
+              <p class="phui">提问者：提问者的名字{{item.id}}</p>
               <p class="pshui">{{ item.value === '' || item.value === null ?'暂无回答':item.value === null ?'':(item.value.substring(0,5)+'……')}}<span v-show="item.value !=='' && item.value != null" class="more">查看全部>></span></p>
               <img src="../../assets/images/wendavip.png">
             </div>
@@ -42,7 +42,7 @@
         </li>
       </ul>
       <ul class="div01" v-if="part=='2'">
-        <li v-if="item.value === '' || item.value === null" v-for="item in fqList" :key="item.id">
+        <li v-if="item.value === '' || item.value === null" v-for="item in fqList" :key="item.cnm">
 	        <div class="l">
 	        	<h2>{{ item.name }}</h2>
             <div class="div">
@@ -58,7 +58,7 @@
 	       </li>
       </ul>
       <ul class="div01" v-if="part=='3'">
-        <li v-if="item.value !== '' && item.value !== null" v-for="item in fqList" :key="item.id">
+        <li v-if="item.value !== '' && item.value !== null" v-for="item in fqList" :key="item.cnm">
 	        <div class="l">
 	        	<h2>{{ item.name }}</h2>
 	        	<div class="div">
@@ -82,7 +82,6 @@ import { loginUserUrl } from '@/api/api'
 import { getCookie } from "@/util/cookie"
 import WendaModal from "../modal/Twenda_Modal";
 export default {
-  name: "youhuiquan",
   components: { WendaModal },
   data() {
     return {

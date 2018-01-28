@@ -137,6 +137,7 @@ export default {
     formatError(){
       this.$Message.error('格式错误，不能上传')
     },
+    // 添加播单
     submit:function(){
       let bodan = this.bodan
       let res = loginUserUrl('getOnline_Courses_add',{
@@ -145,7 +146,7 @@ export default {
         uid:getCookie('u_name'),
         form_id:'',
         crowd:bodan.crowd,
-        lecturer:'',
+        lecturer:getCookie('u_name'),
         profession:'',
         period:'',
         money:'',
@@ -160,6 +161,7 @@ export default {
         this.bodanModal=false
       })
     },
+    // 上传视频
     upload(){
       let video = this.video
       let res = loginUserUrl('getOnline_Courses_catalogueAdd',{

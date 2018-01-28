@@ -51,7 +51,7 @@
                 <Row>
                   <Col span="12" style="width: 160px; margin-bottom: 10px;">
                     <FormItem prop="beginLine">
-                      <DatePicker type="date" v-model="federalSearch.beginLine" 
+                      <DatePicker type="date" v-model="federalSearch.beginLine"
                       	@on-change="handleFormat('federalSearch','beginLine',$event)"
                       	 format="yyyy-MM-dd" placeholder="选择起始时间" style="width: 160px">
                       </DatePicker>
@@ -59,8 +59,8 @@
                   </Col>
                   <Col span="12" style="width: 160px; margin-bottom: 10px;">
                     <FormItem prop="endLine">
-                      <DatePicker type="date" v-model="federalSearch.endLine" 
-                      	@on-change="handleFormat('federalSearch','endLine',$event)" 
+                      <DatePicker type="date" v-model="federalSearch.endLine"
+                      	@on-change="handleFormat('federalSearch','endLine',$event)"
                       	format="yyyy-MM-dd" placeholder="选择起始时间" style="width: 160px">
                       </DatePicker>
                     </FormItem>
@@ -143,7 +143,7 @@
           <ul class="policy">
             <li v-for="item in classify" :key="item.id">
               <span class="num"></span>
-              <router-link tag="span" style="cursor:pointer" 
+              <router-link tag="span" style="cursor:pointer"
               	:to="{name:'fagui',query:{form_id:item.id}}">{{ item.name }}</router-link>
             </li>
           </ul>
@@ -195,18 +195,19 @@ export default {
       page:1,
       number:5000
     }).then((res)=>{
+      console.log(res)
       let _self = this
       let resArr = Object.entries(res.data).slice(0,-1)
       for (let j = 0;j<resArr.length;j++){
         if(resArr[j][1].explain === '1'){
-          let faguiTime = resArr[j][1].time
-          let date = new Date(parseInt(faguiTime)*1000).toLocaleDateString()
-          resArr[j][1].time = date
+          let faguiTime = resArr[j][1].reference
+          // let date = new Date(parseInt(faguiTime)*1000).toLocaleDateString()
+          resArr[j][1].time = faguiTime
           _self.newArr.push(resArr[j][1])
         }else if(resArr[j][1].explain === '2'){
-          let time = resArr[j][1].time
-          let date = new Date(parseInt(time)*1000).toLocaleDateString()
-          resArr[j][1].time = date
+          let time = resArr[j][1].reference
+          // let date = new Date(parseInt(time)*1000).toLocaleDateString()
+          resArr[j][1].time = time
           _self.jieduArr.push(resArr[j][1])
         }
         // console.log(resArr[j][1])
@@ -367,8 +368,8 @@ export default {
             position: absolute;
             right: 12px;
             top: 10px;
-            color: $dark;
-            font-size: 14px;
+            color: silver;
+            font-size: 12px;
           }
         }
         select {

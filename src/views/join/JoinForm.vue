@@ -220,7 +220,7 @@ export default {
         callback();
       }
     };
-    // 验证手机号或邮箱
+    // 验证手机号或邮箱 ----验证码功能不行----
     const validateMail = (rule, value, callback) => {
       // 至2017年的手机号正则
       let regMb = /^134[0-8]\d{7}$|^13[^4]\d{8}$|^14[5-9]\d{8}$|^15[^4]\d{8}$|^16[6]\d{8}$|^17[0-8]\d{8}$|^18[\d]{9}$|^19[8,9]\d{8}$/;
@@ -236,13 +236,17 @@ export default {
           username: "niuhongda",
           password: "123123q",
           tel:value
-        }).then((res)=>{
-          if(res && res.intro === 'ok'){
-            this.type = 1
-          }else{
-            callback(new Error('该手机号已被注册'))
-          }
         })
+        setTimeout(() => {
+          res.then(res => {
+            console.log('phone'+res)
+            if (res && res.error_code === 0) {
+              callback()
+            } else {
+              callback(new Error('验证码输入错误或已过期'))
+            }
+          });
+        }, 1000)
       } else if (regMa.test(value)) {
         // console.log('邮箱不对')
         this.mail = true;
@@ -252,39 +256,44 @@ export default {
           username: "niuhongda",
           password: "123123q",
           email:value
-        }).then((res)=>{
-          if(res && res.intro === 'ok'){
-            this.type = 2
-          }else{
-            callback(new Error('该邮箱已被注册'))
-          }
         })
+        setTimeout(() => {
+          res.then(res => {
+            console.log('mail'+res)
+            if (res && res.error_code === 0) {
+              callback()
+            } else {
+              callback(new Error('验证码输入错误或已过期'))
+            }
+          });
+        }, 1000)
       } else {
         callback();
       }
     };
-    // 验证动态码
+    // 验证动态码 ---目前功能测试正常---
     const validateYanzhengma = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("不能为空"));
+        callback(new Error("请输入验证码"))
       } else {
-        let res = loginUserUrl('register_verification',{
+        let res = loginUserUrl("register_verification_code", {
           username: "niuhongda",
           password: "123123q",
-          code:value
-        }).then((res)=>{
-          if(res && res === 10004){
-            this.errData = '验证码错误'
-          }else if(!res){
-            this.errData = '验证码错误'
-          }else{
-            callback()
-          }
+          name:this.formValidate.mail,
+			  	code:value
         })
+        setTimeout(() => {
+          res.then(res => {
+            if (res && res.error_code === 0) {
+              callback()
+            } else {
+              callback(new Error('验证码输入错误或已过期'))
+            }
+          });
+        }, 1000)
       }
-      callback()
     };
-    // 验证图片验证码
+    // 验证图片验证码 ----功能不行----
     const validatePic = (rule, value, callback) => {
       if (value === "") {
         callback(new Error("不能为空"));
@@ -339,21 +348,10 @@ export default {
         name: [{ required: true, validator: validateName, trigger: "blur" }],
         mail: [{ required: true, validator: validateMail, trigger: "blur" }],
         passwd: [{ required: true, validator: validatePass, trigger: "blur" }],
-        passwdCheck: [
-          { required: true, validator: validatePassCheck, trigger: "blur" }
-        ],
-        yanzhengma: [
-          {
-            required: true,
-            validator: validateYanzhengma,
-            message: "不能为空",
-            trigger: "blur"
-          }
-        ],
+        passwdCheck: [{ required: true, validator: validatePassCheck, trigger: "blur" }],
+        yanzhengma: [{ required: true,validator: validateYanzhengma,trigger: "blur"}],
         agree: [{ required: true, validator: validateAgree, trigger: "blur" }],
-        picYanzheng: [
-          { required: true, validator: validatePic, trigger: "blur" }
-        ]
+        picYanzheng: [{ required: true, validator: validatePic, trigger: "blur" }]
       }
     };
   },
@@ -400,7 +398,6 @@ export default {
           number:this.formValidate.mail,
           type:this.type
         }).then((res)=>{
-          console.log(res)
         })
         let interval = window.setInterval(function() {
           if (_self.time-- <= 0) {

@@ -43,7 +43,7 @@
         <div class="clearfix">
           <div class="lf" v-if="explain">政策解读：</div>
           <div class="lf green" v-if="explain">
-            <router-link tag="span" style="cursor:pointer" 
+            <router-link tag="span" style="cursor:pointer"
             	:to="{path:'/fagui-jiedu',query:{id:content.explain_id}}">《{{ content.name }}
             	》的政策解读</router-link>
           </div>
@@ -221,7 +221,7 @@ export default {
   padding-top: 15px;
   // border-top: 1px solid $border-rice;
   .green {
-    color: green;
+    color: #468ee3;
   }
   .red {
     color: $red;
@@ -233,7 +233,7 @@ export default {
       color: #468ee3;
     }
   }
-  .biaot{ 
+  .biaot{
   	margin:0px 20px 15px;
   	line-height:25px;
   	padding-bottom: 20px;
@@ -330,7 +330,7 @@ export default {
     border: 1px solid $border-rice;
     .top-bar {
       text-align: right;
-      margin:15px 30px 0 0; 
+      margin:15px 30px 0 0;
       span {
         margin-right: 20px;
       }

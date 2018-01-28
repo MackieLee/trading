@@ -8,35 +8,22 @@
     </div>
       <div class="title">我要提问</div>
       <ul class="leibie">
-      	 <li>企业所得税</li>
-         <li>税种征收管理</li>     
-      	 <li>个人所得税</li>
-         <li>印花税</li>     
-      	 <li>契税</li>
-         <li>房产税</li>     
-      	 <li>城镇土地使用税</li>
-         <li>土地增值税</li>     
-      	 <li>车船税</li>
-         <li>增值税</li>     
-         <li>其他税费</li>     
-      	 <li>综合税收政策</li>    
+      	<li v-for="item in items " :key="item.id" @click="thisItem = item.id" :class="{'active':thisItem===item.id}">{{ item.name }}</li>
       </ul>
       <Form ref="ask" :model="ask" :roules="askValidate">
         <FormItem prop = "title">
           <Input v-model="ask.title" placeholder="输入下您的问题"></Input>
         </FormItem>
         <div class="sub-title">问题描述（选填）：</div>
-        
         <FormItem prop="content">
-          <Input v-model="ask.content" type="textarea" :rows="6" placeholder="请在这儿描述您的问题">
-          </Input>
+          <Input v-model="ask.content" type="textarea" :rows="6" placeholder="请在这儿描述您的问题"></Input>
         </FormItem>
         <FormItem>
           <Row>
             <Col span="12"  style="width: 20%">
               <span>指定老师</span>
               <Select v-model="ask.teacher" class="teacher">
-                <Option v-for="t in ts" :value="t.id" :key="t.name">{{ t.name }}
+                <Option v-for="t in ts" :value="t.id" :key="t.id">{{ t.name }}
               </Option>
               </Select>
             </Col>
@@ -46,24 +33,27 @@
             <div style="color:grey;">
             	指定老师回答，若老师24小时内未回答，自动转入专家团问答，差额退回，不转入可勾选继续等待
             </div>
-				   <div class="footer">				    
-				    <Button type="ghost"  class="qux">取消</Button>
-				    <Button type="primary" class="tij">提交</Button>
+				   <div class="footer">
+				    <Button type="ghost" @click="handleReset" class="qux">重置</Button>
+				    <Button type="primary" class="tij" @click="handleSubmit">提交</Button>
 				   </div>
           </Row>
-        </FormItem>       
+        </FormItem>
       </Form>
-			
+
     </div>
   </div>
 </template>
 
 <script>
 import { loginUserUrl } from "@/api/api"
+import { getCookie } from "@/util/cookie"
 export default {
   data() {
     return {
-      ts:[],
+      ts:[],//老师列表
+      items:{},
+      thisItem:'',
       ask:{
         choose:false,
         title:'',
@@ -91,13 +81,36 @@ export default {
         this.ts = res.data
       }
     })
+    let classify = loginUserUrl('getlaws_classify',{
+      username: "niuhongda",
+      password: "123123q"
+    }).then((classify)=>{
+      this.items = classify.data
+    })
   },
   methods:{
-    handleReset:function(){
+    handleReset(){
       this.ask.title = ''
       this.ask.content = ''
       this.ask.teacher = ''
+      this.thisItem = ''
       this.ask.choose = false
+    },
+    handleSubmit(){
+      let choose = this.ask.choose?1:2
+      let res = loginUserUrl('getQuestions_add',{
+        username: "niuhongda",
+        password: "123123q",
+        name:this.ask.title,
+        intro:this.ask.content,
+        teacher_id:parseInt(this.ask.teacher),
+        uid:parseInt(getCookie('u_name')),
+        choose:choose,
+        form_id:parseInt(this.thisItem)
+      }).then((res)=>{
+        this.$Message.success('提交问题完成')
+        this.handleReset()
+      })
     }
   }
 }
@@ -123,17 +136,21 @@ i {
 }
 .content{width: 1090px; margin: 10px auto;
 .leibie{
-	overflow:hidden;	
+	overflow:hidden;
 	margin: 10px auto;
-	li{ 
+	li{
 		font-size: 14px;
 		margin:10px 10px;
-		 line-height: 25px;
+		line-height: 25px;
 		padding:5px 10px;
 		border: 1px solid #ddd;
-		border-radius: 5px;
-	
-	}
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .active{
+    border-color: $blue;
+    color:$blue;
+  }
 }
 .title{
   height: 35px;

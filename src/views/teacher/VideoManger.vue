@@ -1,7 +1,7 @@
 <template>
   <div class="bodan-mager">
     <!-- 添加文档 -->
-    <Modal v-model="modal" :width="700" :closable="false">
+    <Modal v-model="modal" :width="700" :mask-closable="false" :closable="false">
       <doc ref="doc"></doc>
       <div slot="footer">
         <Button type="primary" style="margin-right:10px;" @click="submit">确定</Button>
@@ -9,7 +9,7 @@
       </div>
     </Modal>
     <!-- 添加试题 -->
-    <Modal v-model="modal1" :width="700" :closable="false">
+    <Modal v-model="modal1" :width="700" :mask-closable="false" :closable="false">
       <exam ref="exam"></exam>
     </Modal>
     <Modal v-model="modal2" :width="700" :closable="false">

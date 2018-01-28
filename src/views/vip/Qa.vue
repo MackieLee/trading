@@ -6,7 +6,6 @@
       v-model="modal"
       :closable = "false"
       :mask-closable="false">
-      <video-pingjia></video-pingjia>
     </Modal>
     <p class="p01">共7个回答</p>
     <div class="my_qianb_cotainer">
@@ -32,7 +31,7 @@
 	        </div>
 	       </li>
       </ul>
-     
+
      <ul class="div01" v-if="part=='2'">
         <li v-if="item.value === ''||item.value === null" v-for="item in fqList" :key="item.id">
 	        <div class="l">
@@ -57,8 +56,8 @@
           <div class="r">
             <h3>{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
            <router-link :to="{path:'qamodal'}" tag="p">立即评价</router-link>
-           
-           
+
+
           </div>
         </li>
       </ul>

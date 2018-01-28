@@ -1,77 +1,63 @@
 <template>
   <div class="my_order_r">
     <h2>购物车</h2>
-    <ul class="ul02">
-      <li class="li01">
-        <i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选
-      </li>
-      <li class="block-hori block-nav-1">报名信息 </li>
-      <li class="block-hori block-2">单价</li>
-      <li class="block-hori block-3">商品</li>
-      <li class="block-hori block-4">实付款</li>
-      <li class="block-hori block-5">操作</li>
-    </ul>
-    <div class="container">
-      <div class="item">
-        <p class="p01">
-          <i @click="change()" data-ref="0" :class="{ selected: num1}"></i>
-          <span class="span01">2017-08-31</span>订单号: 53196839876687913</p>
-        <div class="ul">
-          <div class=" block block-1 li01 lf">
-          	<img class="lf img" src="../../assets/images/huanyuanzx02.png">
-          	<div class="lf header">土地增值税清算土地增值税清算</div></div>
-          <div class=" block block-2 lf">￥4588.00</div>
-          <div class=" block block-3 lf">视频</div>
-          <div class=" block block-4 lf"><p>应付</p><p>￥4588.00</p></div>
-          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br><span @click="shoucang">{{ shoucangMsg }}</span></div>
-        </div>
+    <div class="head">
+      <div class="all">
+        <Checkbox
+          :indeterminate="indeterminate"
+          :value="checkAll"
+          @click.prevent.native="handleCheckAll">全选</Checkbox>
+        <!-- <span>删除</span> -->
       </div>
-      <div class="item">
-        <p class="p01">
-          <i @click="change()" data-ref="1" :class="{ selected: num2}"></i>
-          <span class="span01">2017-08-31</span>订单号: 53196839876687913</p>
-        <div class="ul">
-          <div class=" block block-1 li01 lf">
-          	<img class="lf img" src="../../assets/images/huanyuanzx02.png">
-          	<div class="lf header">土地增值税清算土地增值税清算</div></div>
-          <div class=" block block-2 lf">￥4588.00</div>
-          <div class=" block block-3 lf">音频</div>
-          <div class=" block block-4 lf"><p>应付</p><p>￥4588.00</p></div>
-          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br><span>已收藏</span></div>
-        </div>
+      <div class="title">
+        <span class="fl">播单</span>
+        <span class="fr" style="text-align:center">操作</span>
+        <span class="fr">视频数</span>
       </div>
-      <div class="item">
-        <p class="p01">
-          <i @click="change()" data-ref="1" :class="{ selected: num2}"></i>
-          <span class="span01">2017-08-31</span>订单号: 53196839876687913</p>
-        <div class="ul">
-          <div class=" block block-1 li01 lf">
-          		<img class="lf img" src="../../assets/images/huanyuanzx02.png">
-          <div class="lf header">土地增值税清算土地增值税清算</div></div>
-          <div class=" block block-2 lf">￥4588.00</div>
-          <div class=" block block-3 lf">音频</div>
-          <div class=" block block-4 lf"><p>应付</p><p>￥4588.00</p></div>
-          <div class=" block block-5 lf"> <button class="btn-danger">立即付款</button><br>
-          <span>已收藏</span>
-        </div>
-        </div>
-      </div>
+      <div style="height:20px;"></div>
     </div>
-    <ul class="ul03">
-      <li class="li01">
-        <i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选 </li>
-      <button class="btn-danger rt right-cut">去结算</button>
-    </ul>
-    <div class="pgs">
-      <li class="prev">&lt;上一页</li>
-      <li class="current">1</li>
-      <li class="custom">2</li>
-      <li class="custom">3</li>
-      <li class="custom">4</li>
-      <li class="points">...</li>
-      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
-      <li class="submit">确定</li>
-      <li class="next">下一页&gt;</li>
+    <div class="upload-box">
+      <CheckboxGroup v-model="bodanDel" @on-change="bodanDelChange">
+      <table>
+        <tr>
+          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox><span class="date">2017-08-31</span> 订单号:324151234134132</th>
+        </tr>
+        <tr>
+          <td><img src="../../assets/images/huanyuanzx02.png"/></td>
+          <td width="300">秃顶增值税清算土地增值税清算</td>
+          <td width="100">￥4588.00</td>
+          <td width="100">视频</td>
+          <td width="100">应付 ￥4588.00</td>
+          <td width="120"><Button type="error">立即付款</Button></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox><span class="date">2017-08-31</span> 订单号:324151234134132</th>
+        </tr>
+        <tr>
+          <td><img src="../../assets/images/huanyuanzx02.png"/></td>
+          <td width="300">秃顶增值税清算土地增值税清算</td>
+          <td width="100">￥4588.00</td>
+          <td width="100">视频</td>
+          <td width="100">应付 ￥4588.00</td>
+          <td width="120"><Button type="error">立即付款</Button></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox><span class="date">2017-08-31</span> 订单号:324151234134132</th>
+        </tr>
+        <tr>
+          <td><img src="../../assets/images/huanyuanzx02.png"/></td>
+          <td width="300">秃顶增值税清算土地增值税清算</td>
+          <td width="100">￥4588.00</td>
+          <td width="100">视频</td>
+          <td width="100">应付 ￥4588.00</td>
+          <td width="120"><Button type="error">立即付款</Button></td>
+        </tr>
+      </table>
+      </CheckboxGroup>
     </div>
   </div>
 </template>
@@ -81,254 +67,122 @@ export default {
   name: "shopping-cart",
   data() {
     return {
-      num1: false,
-      num2: false,
-      num3: false,
-      all: false,
-      part: "1",
-      shoucangMsg: "加入收藏"
-    };
-  },
-  methods: {
-    toggle() {
-      document.getElementsByClassName("li01")[0].className = ""
-      let attr = event.target.getAttribute("class")
-      if (attr != "ul01") {
-        event.target.setAttribute("class", "li01")
-      }
-      let ref = event.target.dataset.ref
-      this.part = ref
-    },
-    change: function() {
-      let ref = event.target.dataset.ref
-      if (ref === "all") {
-        if (this.num1 == this.num2 && this.num2 == this.num3) {
-          this.num1 = !this.num1
-          this.num2 = !this.num2
-          this.num3 = !this.num3
-          this.all = !this.all
-        } else {
-          this.num1 = true
-          this.num2 = true
-          this.num3 = true
-          this.all = true
-        }
-      } else if (ref === "0") {
-        this.num1 = !this.num1
-      } else if (ref === "1") {
-        this.num2 = !this.num2
-      } else {
-        this.num3 = !this.num3
-      }
-    },
-    shoucang:function(){
-      // axios 获取收藏状态
-      this.shoucangMsg = '已收藏'
+      classes:['1'],//全部数据
+      bodanDel:[],
+      blankChoosen:['1'],//全部数据的id
+      indeterminate:false,
+      checkAll:false,
     }
   },
-  filters: {
-
-  }
+  methods: {
+    shoucang:function(){
+      // axios 获取收藏状态
+    },
+    handleCheckAll () {
+      if (this.indeterminate) {
+        this.checkAll = false;
+      } else {
+        this.checkAll = !this.checkAll
+      }
+      this.indeterminate = false;
+      if (this.checkAll) {
+        this.bodanDel = this.blankChoosen
+      } else {
+        this.bodanDel = []
+      }
+    },
+    bodanDelChange (data) {
+      if (data.length === this.classes.length) {
+        this.indeterminate = false;
+        this.checkAll = true;
+      } else if (data.length > 0) {
+        this.indeterminate = true;
+        this.checkAll = false;
+      } else {
+        this.indeterminate = false;
+        this.checkAll = false;
+      }
+    },
+    onload(){
+      // let res = loginUserUrl('getOnline_Courses',{
+      //   username: "niuhongda",
+      //   password: "123123q",
+      //   page:this.pageNum,
+      //   num:8
+      // }).then((res)=>{
+      //   let obj = Object.entries(res.data).slice(0,-2)
+      //   this.classes = obj
+      //   this.total = parseInt(res.data.counts)
+      //   for(let i = 0;i<obj.length;i++){
+      //     this.blankChoosen.push(obj[i][1].id)
+      //   }
+      // })
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
-.selected {
-  background-position: -101px -286px !important;
-}
-.my_order_r {
-  height: 900px;
-  width: 800px;
-  margin: 0 auto;
-  background-color: $white;
-}
-.rt {
-  float: right;
-}
-i {
-  vertical-align: text-bottom;
-  background: url("../../assets/images/Sprite.png");
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-}
-.container {
-  margin-bottom: 20px;
-  .item {
-    margin-bottom: 20px;
-  }
-}
-.block-hori {
- width: 110px;
-}
-.block-nav-1 {
-  width: 300px;
-}
-.block-1 {
-  width: 375px;
-  overflow: hidden;
-  border-right: 1px solid $border-dark;
-  .img {
-    margin-right: 20px;
-  }
-  .header {
-    font-size: 14px;
-    width: 200px;
-  }
-}
-.block-2,.block-4  {
-  width: 100px;
-}
-.block-3 {
-  width: 85px;
-}
-.btn-danger {
-  width: 90px;
-  height: 30px;
-  background-color: $btn-danger;
-  outline: none;
-  border: none;
-  color: $white;
-  border-radius: 3px;
-  margin: 10px 0;
-  &:hover {
-    background-color: $btn-danger-hover;
-  }
-}
-.right-cut {
-  margin-right:20px;
-}
-.my_order_r h2 {
-  width: 100%;
-  background: $bg-blue;
-  height: 40px;
-  font-weight: normal;
-  line-height: 40px;
-  text-align: center;
-  font-size: 16px;
-  color: $white;
-}
-.my_order_r .ul02 {
-  height: 36px;
-  width: 100%;
-  background:#f5f5f5;
-  margin: 10px 0 15px;
-  .li01 {
-    margin-left: 13px;
-    i {
-      background-position: -101px -349px;
-      margin-right: 10px;
-    }
-  }
-}
-.my_order_r .p01{
- i {
-  margin: 0 10px 0 13px;
-  background-position: -177px -390px;
-}
-.span01{ margin-right: 5px; display: inline-block;
-      color: $grey-white;
-    }
-    }
-.my_order_r .ul02 li {
-  text-align: center;
-  font-size: 14px;
-  color: #333;
-  float: left;
-  line-height: 36px;
-}
-
-.my_order_r .ul03 .li01 {
-  border: 0 none;
-}
-
-.my_order_r .ul03 .li01 i {
-  margin-right: 5px;
-   margin: 0 10px 0 13px;
-  background-position: -101px -349px;
-}
-/*   */
-.my_order_r .p01 {
-  height: 36px;
-  width: 100%;
-  background: $bg-blue;
-  line-height: 36px;
-  font-size: 12px;
-  color: $white;
-}
-.ul {
-  border: 1px solid $border-dark;
-  overflow: hidden;
-  .lf {
-    float: left;
-  }
-  .block {
-    padding:10px 13px 0;
+.my_order_r{
+  h2{
+    background-color: $blue;
     text-align: center;
-  }
-  .block-1,
-  .block-2,
-  .block-3,
-  .block-4  {
-    line-height: 50px;
-     height: 85px; 
-    border-right: 1px solid $border-dark;
-  }
-  .block-4 p {
-    text-align: center;
-    line-height: 25px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 40px;
   }
 }
-.my_order_r .ul05 .li01 img {
-  margin: -18px 18px 11px 5px;
-  float: left;
-}
-
-.pgs {
-    width: 525px;
-    margin: 60px auto;
-    li {
-      width: 33px;
-      padding: 4px 0;
-      line-height: 20px;
+.head {
+  .title {
+    background-color: $bg-nav;
+    line-height: 35px;
+    overflow: hidden;
+    span {
+      width:105px;
       text-align: center;
-      margin-right: 2px;
-      cursor: pointer;
-      border: 1px solid $border-dark;
-      color: $black;
     }
-    .prev {
-      width: 73px;
-      color: $blue;
-    }
-    .next {
-      width: 96px;
-      color: $blue;
-    }
-    .points {
-      border: none;
-    }
-    .submit {
-      background-color: $btn-default;
-      color: $white;
-      width: 44px;
-      border: none;
-    }
-    .jump {
-      width: 80px;
-      border: 1px solid $border-dark;
-      color: #333;
-      input {
-        width: 30px;
-        border: 1px solid $border-dark;
-        outline: none;
+  }
+}
+.all{
+  line-height:35px;
+  margin: 15px 0;
+  label{
+    margin:0 15px 0 10px;
+  }
+  span{
+    padding: 5px 15px;
+    margin-left: 10px;
+    border: 1px solid $border-dark;
+  }
+}
+.upload-box {
+  border: 1px solid $border-dark;
+  margin-bottom: 20px;
+  .ivu-checkbox-inner{
+    border-color:#fff !important;
+  }
+  table {
+    th {
+      font-weight: bold;
+      color: #fff;
+      text-align: left;
+      background-color: #308CEE;
+      line-height: 30px;
+      padding-left: 10px;
+      .date {
+        color: $dark;
+        margin: 36px 20px;
       }
     }
-    .current {
-      background-color: $btn-default;
-      color: $white;
+    td {
+      text-align: center;
+      border-right: 1px solid #ddd;
+      p {
+        line-height: 30px;
+        cursor: pointer;
+      }
     }
   }
-
+}
 </style>
