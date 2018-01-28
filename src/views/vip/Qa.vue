@@ -19,8 +19,9 @@
 	        <div class="l">
 	        	<h2>{{ item.name }}</h2>
 	        		<p class="phui">指定回答者：孙炜老师</p>
-						<p class="pshui">{{ item.value === ''|| item.value === null?'暂无回答':item.value === null ?'':(item.value.substring(0,5)+'……')}}<span v-show="item.value !=='' && item.value !== null" class="more">查看全部>></span>
+						<p class="pshui" v-show="showAll !== 'show'+item.id">{{ item.value === ''|| item.value === null?'暂无回答':item.value === null ?'':(item.value.substring(0,5)+'……')}}<span v-show="item.value !=='' && item.value !== null" class="more"  @click="showAll = 'show'+item.id">查看全部>></span>
 						</p>
+            <p class="pshui" v-show="showAll === 'show'+item.id">{{ item.value }}</p>
 						<img src="../../assets/images/wendavip.png">
 	        </div>
 	        <div class="r">
@@ -49,15 +50,14 @@
           <div class="l">
             <h2>{{ item.name }}</h2>
               <p class="phui">指定回答者：孙炜老师</p>
-            <p class="pshui">{{ (item.value === null ?'':item.value).substring(0,5)+'……' }}<span class="more">查看全部>></span>
+            <p class="pshui" v-show="showAll !== 'show'+item.id">{{ (item.value === null ?'':item.value).substring(0,5)+'……' }}<span class="more" @click="showAll = 'show'+item.id">查看全部>></span>
             </p>
+            <p class="pshui" v-show="showAll === 'show'+item.id">{{ item.value }}</p>
             <img src="../../assets/images/wendavip.png">
           </div>
           <div class="r">
             <h3>{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
            <router-link :to="{path:'qamodal'}" tag="p">立即评价</router-link>
-
-
           </div>
         </li>
       </ul>
@@ -87,7 +87,8 @@ export default {
       part: "1",
       modal: false,
       series: true,
-      fqList:[]
+      fqList:[],
+      showAll:''
     }
   },
   methods: {

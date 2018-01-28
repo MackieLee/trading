@@ -30,7 +30,8 @@
             <h2>{{ item.name }}</h2>
             <div class="div">
               <p class="phui">提问者：提问者的名字{{item.id}}</p>
-              <p class="pshui">{{ item.value === '' || item.value === null ?'暂无回答':item.value === null ?'':(item.value.substring(0,5)+'……')}}<span v-show="item.value !=='' && item.value != null" class="more">查看全部>></span></p>
+              <p class="pshui"  v-show="showAll !== 'show'+item.id">{{ item.value === '' || item.value === null ?'暂无回答':item.value === null ?'':(item.value.substring(0,5)+'……')}}<span v-show="item.value !=='' && item.value != null"  @click="showAll = 'show'+item.id" class="more">查看全部>></span></p>
+              <p class="pshui" v-show="showAll === 'show'+item.id">{{ item.value }}</p>
               <img src="../../assets/images/wendavip.png">
             </div>
           </div>
@@ -63,7 +64,8 @@
 	        	<h2>{{ item.name }}</h2>
 	        	<div class="div">
 	        		<p class="phui">提问者: 提问者的name </p>
-              <p class="pshui">{{ item.value === null ?'':(item.value.substring(0,5)+'……') }}<span class="more">查看全部>></span></p>
+              <p class="pshui" v-show="showAll !== 'show'+item.id">{{ item.value === null ?'':(item.value.substring(0,5)+'……') }}<span class="more"  @click="showAll = 'show'+item.id">查看全部>></span></p>
+              <p class="pshui" v-show="showAll === 'show'+item.id">{{ item.value }}</p>
               <img src="../../assets/images/wendavip.png">
             </div>
 	        </div>
@@ -90,7 +92,8 @@ export default {
       modal2: false,
       ansr:'',
       fqList:[],
-      args:{}
+      args:{},
+      showAll:''
     };
   },
   methods: {
