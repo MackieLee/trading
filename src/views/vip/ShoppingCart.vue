@@ -20,7 +20,20 @@
       <CheckboxGroup v-model="bodanDel" @on-change="bodanDelChange">
       <table>
         <tr>
-          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox><span class="date">2017-08-31</span> 订单号:324151234134132</th>
+          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox><span class="date">2017-08-31</span> 订单号:324151234134132 <span style="float:right;margin-right:20px;font-weight:normal;cursor:pointer"><Icon type="ios-trash-outline" size="16" style="margin-right:10px;"></Icon>删除</span></th>
+        </tr>
+        <tr>
+          <td><img src="../../assets/images/huanyuanzx02.png"/></td>
+          <td width="300">秃顶增值税清算土地增值税清算</td>
+          <td width="100">￥4588.00</td>
+          <td width="100">视频</td>
+          <td width="100">应付 ￥4588.00</td>
+          <td width="120"><Button type="error" @click="payNow">立即付款</Button></td><!-- 函数传参item.id -->
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th colspan="6"><Checkbox :label="'2'"><span style="display:none"></span></Checkbox><span class="date">2017-08-31</span> 订单号:324151234134132</th>
         </tr>
         <tr>
           <td><img src="../../assets/images/huanyuanzx02.png"/></td>
@@ -33,20 +46,7 @@
       </table>
       <table>
         <tr>
-          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox><span class="date">2017-08-31</span> 订单号:324151234134132</th>
-        </tr>
-        <tr>
-          <td><img src="../../assets/images/huanyuanzx02.png"/></td>
-          <td width="300">秃顶增值税清算土地增值税清算</td>
-          <td width="100">￥4588.00</td>
-          <td width="100">视频</td>
-          <td width="100">应付 ￥4588.00</td>
-          <td width="120"><Button type="error">立即付款</Button></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox><span class="date">2017-08-31</span> 订单号:324151234134132</th>
+          <th colspan="6"><Checkbox :label="'3'"><span style="display:none"></span></Checkbox><span class="date">2017-08-31</span> 订单号:324151234134132</th>
         </tr>
         <tr>
           <td><img src="../../assets/images/huanyuanzx02.png"/></td>
@@ -63,15 +63,18 @@
 </template>
 
 <script>
+import { getCookie } from "@/util/cookie"
+import { loginUserUrl } from '@/api/api'
 export default {
   name: "shopping-cart",
   data() {
     return {
-      classes:['1'],//全部数据
+      classes:['1','2','3'],//全部数据
       bodanDel:[],
-      blankChoosen:['1'],//全部数据的id
+      blankChoosen:['1','2','3'],//全部数据的id
       indeterminate:false,
       checkAll:false,
+      pageNum:1
     }
   },
   methods: {
@@ -103,22 +106,31 @@ export default {
         this.checkAll = false;
       }
     },
+    payNow(id){
+
+    },
     onload(){
-      // let res = loginUserUrl('getOnline_Courses',{
-      //   username: "niuhongda",
-      //   password: "123123q",
-      //   page:this.pageNum,
-      //   num:8
-      // }).then((res)=>{
-      //   let obj = Object.entries(res.data).slice(0,-2)
-      //   this.classes = obj
-      //   this.total = parseInt(res.data.counts)
-      //   for(let i = 0;i<obj.length;i++){
-      //     this.blankChoosen.push(obj[i][1].id)
-      //   }
-      // })
+      let res = loginUserUrl('getShopcar_List',{
+        username: "niuhongda",
+        password: "123123q",
+        uid:parseInt(getCookie('u_name')),
+        genre:1,
+        page:this.pageNum,
+        num:8
+      }).then((res)=>{
+        console.log(res)
+        // let obj = Object.entries(res.data).slice(0,-2)
+        // this.classes = obj
+        // this.total = parseInt(res.data.counts)
+        // for(let i = 0;i<obj.length;i++){
+        //   this.blankChoosen.push(obj[i][1].id)
+        // }
+      })
     },
   },
+  created () {
+    this.onload()
+  }
 }
 </script>
 

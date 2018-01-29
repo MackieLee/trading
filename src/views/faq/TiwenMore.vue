@@ -146,6 +146,10 @@ i {
 		border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
+    &:hover{
+      color:$blue;
+      border-color:$blue;
+    }
   }
   .active{
     border-color: $blue;

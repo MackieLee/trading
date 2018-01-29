@@ -9,7 +9,7 @@ import VueQuillEditor from 'vue-quill-editor'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import iView from 'iview'
-import 'iview/dist/styles/iview.css'
+import './my-theme/dist/iview.css'
 
 Vue.use(iView)
 Vue.use(VueResource)
