@@ -21,7 +21,7 @@
                   <Input v-model="form.picYanzheng" placeholder="图片验证"></Input>
                 </Col>
                 <Col span="15" offset="1">
-                  <img @click="getCodeImgChange" :src="codeUri">
+                  <img @click="getCodeImgChange" :src="imgUrl">
                 </Col>
               </Row>
             </FormItem>
@@ -51,7 +51,6 @@ import JoinHeader from "./JoinHeader"
 import JoinFooter from "./JoinFooter"
 import { loginUserUrl } from "@/api/api"
 import { setCookie, getCookie } from "@/util/cookie"
-import axios from "axios"
 
 export default {
   components: { JoinHeader, JoinFooter },
@@ -77,15 +76,18 @@ export default {
         let res = loginUserUrl('register_verification',{
           username: "niuhongda",
           password: "123123q",
-          piccode:value
+          piccode:value,
+          code:this.dataArr
         }).then((res)=>{
-          if(res && res === 10004){
-            this.errData = '验证码错误'
-          }else if(!res){
-            this.errData = '验证码错误'
-          }else{
-            callback()
-          }
+          console.log('....')
+          console.log(res)
+          // if(res && res === 10004){
+          //   this.errData = '验证码错误'
+          // }else if(!res){
+          //   this.errData = '验证码错误'
+          // }else{
+          //   callback()
+          // }
         })
       }
       callback()
@@ -96,6 +98,8 @@ export default {
         passwd: "",
         picYanzheng:""
       },
+      dataArr:'',
+      imgUrl:'',
       errData:'',
       remember: false,
       eye: "eye-disabled",
@@ -123,8 +127,11 @@ export default {
         username: "niuhongda",
         password: "123123q",
         name: arg.name,
-        pwd: arg.passwd
+        pwd: arg.passwd,
       }).then(res => {
+        console.log(arg.name)
+        console.log(arg.passwd)
+        console.log('??????????????')
         console.log(res)
         if(!res){
           this.$Message.error("账户名和密码不匹配")
@@ -145,17 +152,26 @@ export default {
         }
       })
     },
+    getImg(){
+      let res = loginUserUrl('register_code',{
+        username: "niuhongda",
+        password: "123123q"
+      }).then((res)=>{
+        this.dataArr = ''
+        for(let i=0;i<res.data.length;i++){
+          this.dataArr += res.data[i]
+        }
+        this.imgUrl = res.data1
+      })
+    },
     getCodeImgChange(){
-      let _self = this
-      _self.codeUri = ''
-      setTimeout(function(){
-        _self.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
-      },200)
+      this.getImg()
     }
   },
   created () {
+    this.getImg()
     // 获取图片验证码
-    this.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
+    // this.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
   }
 }
 </script>

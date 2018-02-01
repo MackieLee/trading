@@ -13,6 +13,7 @@
     "element-ui": "^2.0.8",
     "iview": "^2.8.0",
     "jsonp": "^0.2.1",
+    "net": "^1.0.2",
     "vue": "^2.5.13",
     "vue-amap": "^0.4.5",
     "vue-quill-editor": "^2.3.3",

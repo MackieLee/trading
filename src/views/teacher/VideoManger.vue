@@ -2,6 +2,9 @@
   <div class="bodan-mager">
     <!-- 添加文档 -->
     <Modal v-model="modal" :width="700" :mask-closable="false" :closable="false">
+      <div slot="header" style="color:#478EE1;text-align:center;">
+        <Icon type="bookmark" size="22" style="margin-right:10px"></Icon><span style="line-height:22px;font-size:16px;font-weight:bold;">课件</span>
+      </div>
       <doc ref="doc"></doc>
       <div slot="footer">
         <Button type="primary" style="margin-right:10px;" @click="submit">确定</Button>
@@ -39,79 +42,11 @@
     </div>
     <div class="head">
       <p>
-        <span @click="cur = 'shiti'" :class="{'red': cur === 'shiti'}">试题管理</span>
+        <span @click="kejian = false" :class="{'red': !kejian }">试题管理</span>
         <span class="splite">&nbsp;</span>
-        <span @click="cur = 'kejian'" :class="{'red': cur === 'kejian'}">课件管理</span>
+        <span @click="kejian = true" :class="{'red': kejian }">课件管理</span>
       </p>
     </div>
-    <table v-show=" cur === 'shiti'">
-      <tr>
-        <th></th>
-        <th>附件</th>
-        <th>操作</th>
-      </tr>
-      <tr>
-        <td width="50"><input type="checkbox" value="all" /></td>
-        <td class="left" width="550">
-          <p>下面哪一项的电子邮件链接是正确的？答案：D</p>
-          <p>A.xxx.com.cn B.xxx@.net C.xxx@.com D.xxx@xxx.com</p>
-          <p class="red">【解析】:因为电子邮件后缀是.com</p>
-        </td>
-        <td width="100">
-          <p @click="modal3=true">编辑信息</p>
-        </td>
-      </tr>
-      <tr>
-        <td width="50"><input type="checkbox" value="all" /></td>
-        <td class="left" width="550">
-          <p>下面哪一项的电子邮件链接是正确的？答案：D</p>
-          <p>A.xxx.com.cn B.xxx@.net C.xxx@.com D.xxx@xxx.com</p>
-          <p class="red">【解析】:因为电子邮件后缀是.com</p>
-        </td>
-        <td width="100">
-          <p>编辑信息</p>
-        </td>
-      </tr>
-      <tr>
-        <td width="50"><input type="checkbox" value="all" /></td>
-        <td class="left" width="550">
-          <p>下面哪一项的电子邮件链接是正确的？答案：D</p>
-          <p>A.xxx.com.cn B.xxx@.net C.xxx@.com D.xxx@xxx.com</p>
-          <p class="red">【解析】:因为电子邮件后缀是.com</p>
-        </td>
-        <td width="100">
-          <p>编辑信息</p>
-        </td>
-      </tr>
-    </table>
-    <table v-show="cur === 'kejian'">
-      <tr>
-        <th></th>
-        <th>附件</th>
-        <th>操作</th>
-      </tr>
-      <tr>
-        <td width="50"><input type="checkbox" value="all" /></td>
-        <td class="left" width="550">
-          <p>模块一:2017智能征管时代下汇算清缴主要风险点处理</p>
-          <p>(一)在企业财务上未反映的“视同销售”，而在汇算清缴被忽略不计。</p>
-        </td>
-        <td width="100">
-          <p @click="modal2 = true">编辑信息</p>
-          <p>删除</p>
-        </td>
-      </tr>
-      <tr>
-        <td width="50"><input type="checkbox" value="all" /></td>
-        <td class="left" width="550">
-          <p>模块一:2017智能征管时代下汇算清缴主要风险点处理</p>
-          <p>(一)在企业财务上未反映的“视同销售”，而在汇算清缴被忽略不计。</p>
-        </td>
-        <td width="100">
-          <p>编辑信息</p>
-        </td>
-      </tr>
-    </table>
     <router-view></router-view>
     <div style="display:flex;justify-content:center;margin:80px 0 30px 0;">
       <Page :page-size="20" show-elevator show-total></Page>
@@ -128,7 +63,7 @@ export default {
   components: { exam,doc },
   data() {
     return {
-      cur: "shiti",
+      kejian:false,
       modal: false,
       modal1:false,
       modal2:false,
@@ -138,32 +73,23 @@ export default {
   methods: {
     submit:function(){
       let doc = this.$refs.doc
-      let value = doc.value
-      let title = doc.title
-      let min = doc.min
-      let sec = doc.sec
-      if(name!==''&& intro!==''){
+      let str = JSON.stringify(doc.docs)
+      console.log(str.__proto__)
         let res = loginUserUrl(
           "getOnline_Courses_chapterAdd",{
             username: "niuhongda",
             password: "123123q",
-            cid:'',//章节id
-            name:title,
-            min:min,
-            sec:sec,
-            value:value
+            cid:800,//章节id
+            info:str
           }).then((res)=>{
-          if(res.error_code === 0){
-            // console.log(res.data)
-            this.handleReset()
-            this.$Message.success('提交')
-          }else{
-            this.$Message.error('提交失败')
-          }
+            console.log(res)
+          // if(res.error_code === 0){
+          //   this.handleReset()
+          //   this.$Message.success('提交')
+          // }else{
+          //   this.$Message.error('提交失败')
+          // }
         })
-      }else{
-        this.$message.error('提交失败')
-      }
     },
     handleReset:function(){
       // this.$refs.faqModal.handleReset()
