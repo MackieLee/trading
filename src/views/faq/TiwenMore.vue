@@ -96,7 +96,7 @@ export default {
       this.thisItem = ''
       this.ask.choose = false
     },
-    handleSubmit(){
+    sub(){
       let choose = this.ask.choose?1:2
       let res = loginUserUrl('getQuestions_add',{
         username: "niuhongda",
@@ -111,6 +111,14 @@ export default {
         this.$Message.success('提交问题完成')
         this.handleReset()
       })
+    },
+    handleSubmit(){
+      let pay = loginUserUrl('getShopcar_purchase',{
+        username: "niuhongda",
+        password: "123123q",
+
+      })
+      sub()
     }
   }
 }

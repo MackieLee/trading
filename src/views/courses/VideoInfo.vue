@@ -1,5 +1,9 @@
 <template>
   <div id="xxkc_xq">
+    <Modal v-model="modal" :closeable='false' >
+      <div slot="header">微信二维码</div>
+      <img :src="uriLink">
+    </Modal>
     <div class="cur-posi">
       <p>
         <i></i>当前位置 :&nbsp;
@@ -31,7 +35,7 @@
           </span>
         </p>
         <ul>
-          <li>
+          <li @click="pay">
             <a  class="a">
               <i></i>加入购物车</a>
           </li>
@@ -92,7 +96,10 @@ export default {
       cur01:false,
       jie:'',
       course:{},
-      length:0
+      length:0,
+      uriLink:'',
+      modal:false,
+      order_id:''
     }
   },
   methods: {
@@ -104,6 +111,42 @@ export default {
       }else{
         this.$router.push({name:'login'})
       }
+    },
+    pay(){
+      this.modal = true
+      let res = loginUserUrl('getShopcar_purchase',{
+        username: "niuhongda",
+        password: "123123q",
+        gid:this.$route.query.id,
+        uid:getCookie('u_name'),
+        cid:1,
+        genre:1
+      }).then((res)=>{
+        console.log(res)
+        if(res && res.intro){
+          this.uriLink = res.intro
+          this.order_id = res.order_pay.order_id
+        }
+      })
+      this.ifpayed()
+    },
+    ifpayed(){
+      let int = setInterval(()=>{
+        let res = loginUserUrl('getShopcar_WeiXinPayOK',{
+          username: "niuhongda",
+          password: "123123q",
+          order_id:this.order_id
+        }).then((res)=>{
+          console.log(res)
+          if(res.status === 1){
+            this.payed = true
+            clearInterval(int)
+          }
+          if(this.modal === false){
+            clearInterval(int)
+          }
+        })
+      },1000)
     }
   },
   mounted () {
