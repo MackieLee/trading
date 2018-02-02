@@ -30,7 +30,7 @@
 							<router-link class="getpwd" :to="{name:'getpwd'}">忘记密码</router-link>
 						</FormItem>
 						<FormItem>
-							<Button type="error" @click="submit(form)" long>登录</Button>
+							<Button type="error" @click="handleSubmit('form',form)" long>登录</Button>
 						</FormItem>
 					</Form>
 					<div class="others">
@@ -79,18 +79,15 @@ export default {
           piccode:value,
           code:this.dataArr
         }).then((res)=>{
-          console.log('....')
-          console.log(res)
-          // if(res && res === 10004){
-          //   this.errData = '验证码错误'
-          // }else if(!res){
-          //   this.errData = '验证码错误'
-          // }else{
-          //   callback()
-          // }
+          if(res && res === 10004){
+            callback(new Error("验证码错误"))
+          }else if(!res){
+            callback(new Error("验证码错误"))
+          }else{
+            callback()
+          }
         })
       }
-      callback()
     }
     return {
       form: {
@@ -104,11 +101,10 @@ export default {
       remember: false,
       eye: "eye-disabled",
       type: "password",
-      codeUri:'',
       ruleCustom: {
-        passwd: [{ validator: validatePwd, trigger: "blur" }],
-        name: [{ validator: validateName, trigger: "blur" }],
-        picYanzheng: [{ validator: validatePic, trigger: "blur" }]
+        passwd: [{ required: true, validator: validatePwd, trigger: "blur" }],
+        name: [{ required: true, validator: validateName, trigger: "blur" }],
+        picYanzheng: [{ required: true, validator: validatePic, trigger: "blur" }]
       }
     };
   },
@@ -121,35 +117,33 @@ export default {
         : (this.type = "password")
     },
     // 登录
-    submit: function(arg) {
-      let _self = this;
-      let res = loginUserUrl("login", {
-        username: "niuhongda",
-        password: "123123q",
-        name: arg.name,
-        pwd: arg.passwd,
-      }).then(res => {
-        console.log(arg.name)
-        console.log(arg.passwd)
-        console.log('??????????????')
-        console.log(res)
-        if(!res){
-          this.$Message.error("账户名和密码不匹配")
-        }else{
-          if (res.error_code === 0) {
-            // 登录成功记录用户信息
-            if (_self.checked) {
-              setCookie("u_name", res.data.id, 365)
-              window.location.href = "http://localhost:8888/#/home"
+    handleSubmit(name, arg) {
+      let _self = this
+      this.$refs[name].validate(valid => {
+        let res = loginUserUrl("login", {
+          username: "niuhongda",
+          password: "123123q",
+          name: arg.name,
+          pwd: arg.passwd,
+        }).then(res => {
+          if(!res){
+            this.$Message.error("账户名和密码不匹配")
+          }else{
+            if (res.error_code === 0) {
+              // 登录成功记录用户信息
+              if (_self.checked) {
+                setCookie("u_name", res.data.id, 365)
+                window.location.href = "http://localhost:8888/#/home"
+              } else {
+                setCookie("u_name", res.data.id, 1)
+                window.location.href = "http://localhost:8888/#/home"
+              }
+              this.$Message.success("登录成功")
             } else {
-              setCookie("u_name", res.data.id, 1)
-              window.location.href = "http://localhost:8888/#/home"
+              this.$Message.error("登录失败")
             }
-            this.$Message.success("登录成功")
-          } else {
-            this.$Message.error("登录失败")
           }
-        }
+        })
       })
     },
     getImg(){
@@ -170,8 +164,6 @@ export default {
   },
   created () {
     this.getImg()
-    // 获取图片验证码
-    // this.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
   }
 }
 </script>
