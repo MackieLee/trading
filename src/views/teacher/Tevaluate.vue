@@ -2,9 +2,9 @@
 	<div class="my_order_r">
 		<div class="sum_of_class">学员评价</div>
 			<p class="p02">
-        <span @click="toggle()" data-ref='1' class="cur">综合评价</span>|
-        <span @click="toggle()" data-ref='2'>课程评分</span>|
-        <span @click="toggle()" data-ref='3'>答疑评分</span>|
+        <span @click="toggle()" data-ref='1' class="cur">综合评价</span>
+        <span @click="toggle()" data-ref='2'>课程评分</span>
+        <span @click="toggle()" data-ref='3'>答疑评分</span>
         <span @click="toggle()" data-ref='4'>订单评分</span>
       </p>
 		<div class="container div01" v-if="part=='1'">
@@ -326,19 +326,21 @@ export default {
   margin: 0 auto;
   background-color: $white;
   .p02 {
-		margin: 10px 0 20px;
+	margin:10px 0px;
+	height:40px;
     width: 100%;
     border-bottom: 1px solid #ddd;
     .cur {
-      border-bottom: 1px solid #e7151b;
-      color: #e7151b;
+      border-bottom:2px solid #e7141a ;
+      color: #e7141a ;
     }
     span {
-      width: 80px;
+      width: 100px;
+      font-size: 14px;
       display: inline-block;
       text-align: center;
-      line-height: 30px;
-			cursor: pointer;
+      line-height: 40px;
+	 cursor: pointer;
     }
   }
   .sum_of_class {
@@ -407,7 +409,7 @@ export default {
         display: block;
         border-right: 1px solid #ddd;
         border-bottom: 1px solid #ddd;
-        width: 140px;
+        width: 141px;
         text-align: center;
         line-height: 40px;
         height: 40px;

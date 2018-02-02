@@ -110,6 +110,10 @@ export default {
     padding-bottom: 10px;
     position: relative;
     span{margin-left: 15px;}
+    span:hover{ 
+    	color: $blue;
+    	cursor: pointer;
+    	}
     a {
       font-size: 14px;
       position: absolute;

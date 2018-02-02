@@ -6,8 +6,7 @@
       </transition-group>-->
       <div class="title">
       <span></span>
-      <font>友情链接</font>
-      <a>更多>></a>
+      <font>合作伙伴</font>
     </div>
         <span class="span_img">
         	<img src="../../assets/images/youqlj (1).png" />
@@ -101,17 +100,39 @@ export default {
     right: 0;
   }
 }
-      width:4000px;      
+      	width:4000px;
       margin-bottom: 30px;
-   .jiant a{position: absolute;cursor: pointer; background-repeat: no-repeat;
-   width: 30px; height: 40px;top:80px; } 
-      .left{ left: 2px;  background-image: url("../../assets/images/Sprite.png");
-background-position: -392px -344px;}
-      .right{ right: 2px; background-image: url("../../assets/images/Sprite.png");
-      background-position: -378px -292px;}
-        
-      .span_img{overflow: hidden; width: 1030px;height: 85px;display: inline-block;padding: 0px 30px;
-      img{float: left;margin:0px 10px 20px 10px;}
+      .jiant a {
+      	position: absolute;
+      	cursor: pointer;
+      	background-repeat: no-repeat;
+      	width: 30px;
+      	height: 40px;
+      	top: 80px;
+      }
+      
+      .left {
+      	left: 2px;
+      	background-image: url("../../assets/images/Sprite.png");
+      	background-position: -392px -344px;
+      }
+      
+      .right {
+      	right: 2px;
+      	background-image: url("../../assets/images/Sprite.png");
+      	background-position: -378px -292px;
+      }
+      
+      .span_img {
+      	overflow: hidden;
+      	width: 1090px;
+      	height: 88px;
+      	display: inline-block;
+      	padding: 0px 30px;
+      	img {
+      		float: left;
+      		margin: 0px 10px 20px;
+      	}
       }
     }
   }

@@ -20,8 +20,8 @@
     <p class="p01">共7个回答</p>
     <div class="my_qianb_cotainer">
       <p class="p02">
-        <span data-ref='1' @click="toggle()" :class="{ 'cur': part === '1' }">全部</span>|
-        <span data-ref='2' @click="toggle()" :class="{ 'cur': part === '2' }">待回答</span>|
+        <span data-ref='1' @click="toggle()" :class="{ 'cur': part === '1' }">全部</span>
+        <span data-ref='2' @click="toggle()" :class="{ 'cur': part === '2' }">待回答</span>
         <span data-ref='3' @click="toggle()" :class="{ 'cur': part === '3' }">已回答</span>
       </p>
       <ul class="div01" v-if="part=='1'">
@@ -166,20 +166,23 @@ export default {
   text-align: center;
 }
 .my_qianb_r .p02 {
-  margin: 10px 0 20px;
+   height: 40px;
+  margin: 10px 0px;
   width: 100%;
   border-bottom: 1px solid #ddd;
 }
 .my_qianb_r .p02 span {
-  width: 80px;
+  width: 100px;
   display: inline-block;
   text-align: center;
-  line-height: 30px;
+  line-height: 40px;
   cursor: pointer;
+  font-size: 14px;
+  color: $black;
 }
 .my_qianb_r .p02 .cur {
-  border-bottom: 1px solid #e7151b;
-  color: #e7151b;
+  color: #e7141a ;
+  border-bottom: 2px solid #e7141a ;
 }
 .my_qianb_r .div01 {
   height: auto;

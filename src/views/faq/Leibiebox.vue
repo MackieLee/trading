@@ -11,7 +11,7 @@
     <div class="title">
     	<!--切换-->
 	    <Menu :theme="theme3" @on-select="toggle($event)" active-name="1">
-	        <MenuGroup title="税收类别">
+	        <MenuGroup title="答疑税收类别">
 	            <MenuItem name="1">
 	            	企业所得税
 	            </MenuItem>              
@@ -56,37 +56,37 @@
 				<div class="xiansi" v-if="nameId === '1'">
 					<h3>企业所得税</h3>
 					<ul>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>						
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以以作为长期待摊费作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>						
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>						
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作待摊费以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可，可以作为长以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>					
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可，可以作为长以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
 					</ul>
@@ -95,38 +95,38 @@
 				<div class="xiansi" v-if="nameId === '2'">
 					<h3>税种征收管理</h3>
 					<ul>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>						
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>						
 						
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
 						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>					
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
 					</ul>
@@ -134,38 +134,38 @@
 				<div class="xiansi" v-if="nameId === '3'">
 					<h3>个人所得税</h3>
 					<ul>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>						
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>						
 						
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>					
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
 					</ul>
@@ -173,31 +173,31 @@
 				<div class="xiansi" v-if="nameId === '4'">
 					<h3>印花税</h3>
 					<ul>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>					
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
 					</ul>
@@ -205,23 +205,23 @@
 				<div class="xiansi" v-if="nameId === '5'">
 					<h3>契税</h3>
 					<ul>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>						
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>						
 
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
+						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
 						</li>
 						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
@@ -577,8 +577,7 @@ export default {
 .faq-box {
 	width: $width;
   margin: 0 auto;
-  padding-top: 20px;
-  
+  padding-top: 20px;  
    i {
     display: inline-block;
     width: 24px;
@@ -597,31 +596,43 @@ export default {
     width: 1090px;
     margin: 0 auto;
     overflow: hidden;
-    .title {
-    .ivu-menu{
-    	width: 160px !important; background: #eee; float: left;
-    	.ivu-menu-item-group-title{width: 100% !important;
-   	 			background: #4683ee !important;
-    			color: #fff !important;	
+   .title{
+   .ivu-menu{
+    	width: 160px !important; 
+    	background: #eee; 
+    	float: left;    	
+		.ivu-menu-vertical .ivu-menu-item-group-title {
+    height: 48px;
+    line-height: 48px;
+    font-size: 14px;
+    padding-left: 28px;
+    background: red;
     }
     	li{
+    		.ivu-menu-item-active:not(.ivu-menu-submenu) {
+				    color: #fff;
+				    border-right:2px solid #4683EE;
+				    z-index: 2;
+				    background:#4683ee;
+				    }
 	    	li{width: 100%;}
     	} 	
     }
-    width: $width; overflow: hidden;
+    width: $width; 
+    overflow: hidden;
     margin: auto;
     padding-bottom: 10px;
     .box_xiansi{
     	width: 900px; 
     	float: left; 
     	margin-left: 20px;
-    	.xiansi{ 
-    		
-   	 width: 900px; 
-   	 
-
+    .xiansi{    		
+   	 width: 900px;
+   	 overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 570px;
    	h3{ line-height: 1.6em;
-    border-bottom: #ededed 2px solid;
     color: #3188d8;
     font-size: 1.375em;
     font-weight: 300;
@@ -631,20 +642,30 @@ export default {
     position: relative;
     margin:0 0 10px 0;
     border-bottom: solid #3188d8 2px;
-    padding-bottom: 10px;
+    padding:6px;
     bottom: -2px;
     }
     ul{padding-top: 20px;
     border: solid #ddd 1px;
-    min-height: 550px;
-	    li{line-height:40px;height: 40px;
+    height: 570px;
+	    li{line-height:38px;
+	    height: 38px;
+	    width: 100%;
 	    float: left;
-	    width: 100%; font-size: 14px;
+	     font-size: 14px;
 	    position: relative;
 	    overflow: hidden;
-	    border-bottom: solid #eee 1px;
 	    padding-left: 24px;
 	    margin-bottom: 5px;
+	    i{ position: absolute;
+		    z-index: 10;
+		    top:18px;
+		    left:12px;
+		     height:3px;
+	       width: 3px;
+	       background: #222;
+		    white-space: nowrap;
+	    	}
 		    span{ position: absolute;
 		    z-index: 10;
 		    top: 0px;

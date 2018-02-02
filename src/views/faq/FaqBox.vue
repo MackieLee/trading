@@ -24,7 +24,7 @@
           <div>
             <div class="item-container">
             	<div class="wen lf">问 :&nbsp;</div>
-              <div class="ask">{{ item.name }} <span class="date_rt">20181.19</span></div>
+              <div class="ask">{{ item.name }} <span class="date_rt">2018.1.19</span></div>
             </div>
           </div>
           <div>
@@ -93,6 +93,10 @@ export default {
     position: relative;
     border-top: 1px solid #ddd;
     span{margin-left: 15px;}
+    span:hover{ 
+    	color: $blue;
+    	cursor: pointer;
+    	}
     a {
       font-size: 14px;
       position: absolute;

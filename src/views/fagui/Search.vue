@@ -38,12 +38,16 @@
               <FormItem label="标题" prop="title">
                 <Input v-model="federalSearch.title" placeholder="请输入法规标题"></Input>
               </FormItem>
+               <span style="margin: 0px 10px;" >
+              </span>
               <FormItem label="文号" prop="zihao">
-                <Input v-model="federalSearch.zihao" placeholder="请输入法规文号"></Input>
+                <Input v-model="federalSearch.zihao" placeholder="国税发〔2009〕31号"></Input>
               </FormItem>
-              <FormItem label="年度" prop="niandu">
+               <span style="margin: 0px 10px;" >
+              </span>
+              <FormItem label="发文年度" prop="niandu">
                 <Input v-model="federalSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
-              </FormItem>
+              </FormItem>  
               <FormItem label="发文单位" prop="danwei">
                 <Input v-model="federalSearch.danwei" placeholder="请输入法规颁布的单位"></Input>
               </FormItem>
@@ -57,7 +61,7 @@
                       </DatePicker>
                     </FormItem>
                   </Col>
-                  <Col span="12" style="width: 160px; margin-bottom: 10px;">
+                  <Col span="12" style="width: 160px;">
                     <FormItem prop="endLine">
                       <DatePicker type="date" v-model="federalSearch.endLine"
                       	@on-change="handleFormat('federalSearch','endLine',$event)"
@@ -67,10 +71,9 @@
                   </Col>
                 </Row>
               </FormItem>
-              <span>*注 发文年度不需要输入括号</span>
               <FormItem>
                 <Button type="primary" style="width:130px" @click="handleSubmit('federalSearch')">检索</Button>
-                <Button type="ghost" style="margin-top: 10px;width:130px" @click="handleReset('federalSearch')">取消</Button>
+                <Button type="ghost" style="margin-top: 10px;width:130px" @click="handleReset('federalSearch')">重置</Button>
               </FormItem>
             </Form>
           </div>
@@ -85,9 +88,9 @@
                 <Input v-model="localSearch.title" placeholder="请输入法规标题"></Input>
               </FormItem>
               <FormItem label="文号">
-                <Input v-model="localSearch.zihao" placeholder="请输入法规文号"></Input>
+                <Input v-model="localSearch.zihao" placeholder="国税发〔2009〕31号"></Input>
               </FormItem>
-              <FormItem label="年度">
+              <FormItem label="发文年度">
                 <Input v-model="localSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
               </FormItem>
               <FormItem label="发文单位">
@@ -107,7 +110,7 @@
                 <Button type="primary" style="width:130px" @click="handleSubmit('localSearch')">
                 	检索</Button>
                 <Button type="ghost" style="margin-top: 10px;width:130px"
-                	 @click="handleReset('localSearch')">取消</Button>
+                	 @click="handleReset('localSearch')">重置</Button>
               </FormItem>
             </Form>
           </div>
@@ -336,7 +339,7 @@ export default {
           }
         }
         span {
-          line-height: 44px;
+          line-height: 45px;
           padding: 10px 10px 15px 10px;
           color: $white;
           margin-left: 3px;
@@ -345,6 +348,7 @@ export default {
         .tab-cur {
           background-color: $white;
           color: $black;
+          font: 14px/1.5 tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
         }
       }
       .content {
@@ -368,8 +372,12 @@ export default {
             position: absolute;
             right: 12px;
             top: 10px;
-            color: silver;
+            color: #666;
             font-size: 12px;
+            width: 190px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
           }
         }
         select {

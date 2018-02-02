@@ -176,6 +176,7 @@ export default {
       }
     }
     .header-nav {
+    	li:hover{color:$red;}
       li {
         cursor: pointer;
       }

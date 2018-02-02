@@ -6,37 +6,37 @@
           <ul>
             <li class="title">新手指南</li>
             <li>
-              <router-link :to="{ name:'Explain' }">课程说明</router-link>
+              <router-link :to="{ path:'kechengsm' }">课程说明</router-link>
             </li>
             <li>
-              <router-link :to="{ path:'/Explain#app' }">问答说明</router-link>
+              <router-link :to="{ path:'dayism' }">问答说明</router-link>
             </li>
           </ul>
           <ul>
             <li class="title">关于我们</li>
             <li>
-              <router-link :to="{ name:'hezuo' }">帮助中心</router-link>
+              <router-link :to="{ path:'Help' }">帮助中心</router-link>
             </li>
             <li>
-              <router-link :to="{ path:'hezuo#app' }">市场合作</router-link>
+              <router-link :to="{ path:'shichanghz' }">市场合作</router-link>
             </li>
           </ul>
           <ul>
             <li class="title">法律协议</li>
             <li>
-              <router-link :to="{ name:'copy' }">版权声明</router-link>
+              <router-link :to="{ path:'copy' }">版权声明</router-link>
             </li>
             <li>
-              <router-link :to="{ path:'/copy#app' }">服务条款</router-link>
+              <router-link :to="{ name:'/copy#app' }">服务条款</router-link>
             </li>
           </ul>
         </div>
         <div class="bussiness">
-        	 <router-link tag='p' :to="{ path:'/yijianfk#app' }">意见反馈</router-link>
+        	 <router-link tag='p' :to="{ path:'/yijianfk' }">意见反馈</router-link>
           <p>
             <i class="mail"></i>jdtax@jdtax.cn</p>
           <p>
-            <i class="tel"></i>010-6231-1360
+            <i class="tel"></i>010-62311360
             <span>(周一到周五9:00-17:30)</span>
           </p>          
         </div>
@@ -45,16 +45,16 @@
         <div class="qr-code">
           <div class="code1">
             <p>订阅号</p>
-            <p><img src="../../assets/images/订阅号.png" width="97" /></p>
+            <p><img src="../../assets/images/订阅号.jpg" width="97" /></p>
           </div>
           <div class="code2">
-            <p>订阅号</p>
-            <p><img src="../../assets/images/订阅号.png" width="97" /></p>
+            <p>服务号</p>
+            <p><img src="../../assets/images/服务号.jpg" width="97" /></p>
           </div>
         </div>
       </div>
       <div class="footer-left-bottom">
-        <span>友情链接:</span>
+        <span>合作伙伴:</span>
         <ul>
           <li>
             <router-link :to="{ name:'home' }">九鼎财税</router-link>
@@ -76,9 +76,6 @@
           </li>
           <li>
             <router-link :to="{ name:'home' }">九鼎财税</router-link>
-          </li>
-          <li>
-            <router-link :to="{ name:'home' }">更多>></router-link>
           </li>
         </ul>
       </div>
@@ -123,6 +120,7 @@ export default {
     display: flex;
     float: left;
     margin: 0px 0 26px 22px;
+    span{font-size: 14px;}
     li {
       margin: 0 14px;
       font-size: 14px;
@@ -159,12 +157,12 @@ export default {
       .bussiness {
       	p:first-child{
           cursor: pointer;
-        }
-        
+        }       
         p {
           color: #333;
           margin-bottom:20px;
           font-size: 14px;
+          span{ font-size: 12px;}
         }
         .mail,
         .tel {

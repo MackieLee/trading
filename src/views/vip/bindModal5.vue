@@ -1,7 +1,7 @@
 <template>
     <div class="content">
       <div class="container">
-      	<div class="title">密码管理</div>
+      	<div class="title">支付宝绑定</div>
         <table>
           <tr>
             <th>新登录密码</th>

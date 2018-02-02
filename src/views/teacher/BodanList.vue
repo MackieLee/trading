@@ -78,7 +78,7 @@
       <CheckboxGroup v-model="bodanDel" @on-change="bodanDelChange">
       <table>
         <tr height="120" v-for="item in classes" :key="item[1].id">
-          <td width='50'>
+          <td width='30'>
             <Checkbox :label="item[1].id"><span></span></Checkbox>
           </td>
           <th width='550'>

@@ -3,7 +3,7 @@
     <div class="cur-posi" id="top">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;详细内容</p>
+        <router-link to="/fagui-search">法规</router-link>&nbsp;&gt;&nbsp;详细内容</p>
     </div>
     <div class="container">
       <div class="clearfix main-title ctr">
@@ -12,19 +12,21 @@
       </div>
       <div class="clearfix biaot">
         <div class="second-title">
-          <p>文号:{{ content.reference }}</p>
-          <p>发文日期:{{ content.date_posted }}</p>
+          <p>文号：{{ content.reference }}</p>
+          <p>发文日期：{{ content.date_posted }}</p>
+        <div class="top-bar">		       
+		        <span class="pointer" v-if="shoucang === '2'" @click="pick">
+		        	点击收藏<i class="shouc"></i></span>
+		        <span class="pointer" v-if="shoucang === '1'" @click="cancelPick">
+		         	取消收藏<i class="shouc1"></i></span>
+		        <span>网站发布日期:{{ timeUp }}</span>
+		        <span @click="print" class="pointer">打印本页</span>
+        <a href="#bottom">一键到底</a>
+      </div>
         </div>
       </div>
       <vue-audio>
       </vue-audio>
-      <div class="top-bar">
-        <span>网站发布日期:{{ timeUp }}</span>
-        <span class="pointer" v-if="shoucang === '2'" @click="pick">点击收藏</span>
-        <span class="pointer" v-if="shoucang === '1'" @click="cancelPick">已收藏</span>
-        <span @click="print" class="pointer">打印本页</span>
-        <a href="#bottom">一键到底</a>
-      </div>
       <div class="artical">
         <div v-html="content.value">
           {{ content.value }}
@@ -37,7 +39,7 @@
             </p>
           </div>
           <div class="rt">
-            国家税务总局<br> {{ timeDown }}
+            国家税务总局<br> {{ content.date_posted }}
           </div>
         </div>
         <div class="clearfix">
@@ -66,7 +68,7 @@
         <div style="display:flex;justify-content:center">
           <Page :total="200" show-elevator></Page>
         </div>
-        <p class="red" style="font-size:14px;padding:20px 0 10px 30px;border-top:1px solid #ccc;margin-top:10px;">相关法规</p>
+        <p class="red">相关法规</p>
         <div class="clearfix xiangguan">
           <div class="lf">
             <router-link tag="p" :to="{ name:'fdetail',query:{ id:item.id }}" v-for="item in categray" :key="item.id" class="p1">{{ item.name }}</router-link>
@@ -75,10 +77,10 @@
             <p>企函字[2012]47</p>
             <p>企函字[2012]47</p>
           </div>
-          <div class="rt" id="bottom">
+          <!--<div class="rt" id="bottom">
             <p class="p1">2012-9-4</p>
             <p class="p1">2012-9-4</p>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>
@@ -225,6 +227,10 @@ export default {
   }
   .red {
     color: $red;
+   font-size:14px;
+        	padding:20px 0 10px 30px;
+        	border-top:1px solid #ccc;
+        	margin-top:10px;
   }
   .jiedua {
     line-height: 36px;
@@ -236,8 +242,8 @@ export default {
   .biaot{
   	margin:0px 20px 15px;
   	line-height:25px;
-  	padding-bottom: 20px;
-  	 border-bottom: 1.2px solid red;
+  
+  	border-bottom: 3px solid red;
   }
   .clearfix {
     overflow: hidden;
@@ -253,18 +259,29 @@ export default {
     float: right;
     width: 14%;
   }
+  .shouc,.shouc1{width: 24px;
+    height: 24px;
+    display: inline-block; 
+    margin: 0;
+    background-position: -140px -192px;
+    background-image: url("../../assets/images/Sprite.png");
+    }
+   .shouc{
+    background-position: -237px -383px;
+		}  
   .pointer {
     cursor: pointer;
   }
   .main-title {
     h1 {
-      font-size: 18px;
-      color: #333;
+      font-size: 24px;
+      color: #06c;;
     }
     h3 {
-      font-size: 22px;
+      font-size: 24px;
       display: inline-block;
       color: $red;
+      font-weight: 700;
     }
   }
   .second-title {
@@ -277,9 +294,8 @@ export default {
   .artical {
     background-color: $white;
     width: 1030px;
-    padding: 20px 0;
-    margin: 0px auto 10px auto;
-    border-top: 1px solid #ccc;
+    margin: 10px auto 10px auto;
+
   }
   .xiangguan {
     margin-left: 30px;
@@ -293,11 +309,11 @@ export default {
   }
   i {
     display: inline-block;
-    width: 27px;
-    height: 25px;
+    width: 32px;
+    height: 28px;
     background-image: url("../../assets/images/Sprite.png");
     vertical-align: text-bottom;
-    margin: 0 11px;
+    margin-left:5px;
     cursor: pointer;
   }
   .qq {
@@ -330,9 +346,8 @@ export default {
     border: 1px solid $border-rice;
     .top-bar {
       text-align: right;
-      margin:15px 30px 0 0;
       span {
-        margin-right: 20px;
+        margin:0px 10px;
       }
     }
   }

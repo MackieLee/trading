@@ -7,7 +7,8 @@
         	<i @click="change()" data-ref='all' :class="{ selected: all}"></i>全选
         	<select v-model="type" class="sel"><option>商品类型</option><option>线上课</option><option>答疑</option><option>图书</option><option>线下课</option></select></li>
         <li>状态</li>
-        <li><select v-model="taxType" class="sel"><option>发票类型</option><option>普通发票</option><option>电子发票</option><option>专用发票</option></select></li>
+        <li><select v-model="taxType" class="sel"><option>发票类型</option>
+        	<option>普通发票</option><option>电子发票</option><option>专用发票</option></select></li>
         <li>操作</li>
       </ul>
       <p class="p01">
@@ -235,7 +236,7 @@ i {
 
 .my_order_r .p01 {
   width: 100%;
-  background: $bg-blue;
+  background:#39f;
   line-height: 36px;
   color: $white;
   i {
@@ -247,7 +248,7 @@ i {
     }
 }
 .my_order_r .ul05 {
-  height: 95px;
+  height: 85px;
   width: 100%;
   border: 1px solid $border-dark;
   margin-bottom: 10px;

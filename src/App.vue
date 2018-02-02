@@ -13,11 +13,11 @@
         <div style="border:1px solid #ddd;overflow:hidden;float:left;">
           <div class="app-code code1">
             <p>订阅号</p>
-            <p><img src="./assets/images/订阅号.png" width="97" /></p>
+            <p><img src="./assets/images/订阅号.jpg" width="97" /></p>
           </div>
           <div class="app-code code2">
             <p>订阅号</p>
-            <p><img src="./assets/images/订阅号.png" width="97" /></p>
+            <p><img src="./assets/images/服务号.jpg" width="97" /></p>
           </div>
         </div>
       </div>
@@ -25,8 +25,8 @@
       <div class="lianxifangshi" v-if="kefu" @mouseenter = "kefu = true" @mouseleave = "kefu = false">
         <div class="content">
           <p class="title">客户服务</p>
-          <p><i></i>010-6231-1360</p>
-          <p><i></i>jdtax@jdtax.com</p>
+          <p><i></i>010-62311360</p>
+          <p><i></i>jdtax@jdtax.cn</p>
           <div @click="openKefu" class="kf">
             在线客服
           </div>

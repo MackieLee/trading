@@ -38,8 +38,8 @@ export default {
       box-sizing: border-box;
       span {
         display: inline-block;
-        line-height: 30px;
-        width: 80px;
+        line-height: 40px;
+        width: 100px;
         text-align: center;
         cursor: pointer;
       }
@@ -47,7 +47,7 @@ export default {
   }
   .active {
     color: $red;
-    border-bottom: 1px solid $red;
+    border-bottom:2px solid $red;
   }
 }
 </style>
