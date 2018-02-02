@@ -5,22 +5,7 @@
         <Icon type="information-circled"></Icon>
         <span>上传视频</span>
       </p>
-      <Upload
-        type="drag"
-        ref="upload"
-        action="//jsonplaceholder.typicode.com/posts/"
-        accept=".mp4,.avi,.mov,.wmv,.flv"
-        :format="['mp4','avi','mov','wmv','flv']"
-        :on-format-error="formatError"
-        :on-success="upSuccess"
-        :on-error="upFail"
-        >
-        <div style="padding: 20px 0">
-          <Icon type="ios-cloud-upload" size="52" style="color: #3399ff"></Icon>
-          <p>点击此处或拖拽视频到此处上传到服务器</p>
-          <p>支持的格式有.mp4/.avi/.mov/.wmv/.flv</p>
-        </div>
-      </Upload>
+      <input type="file" name="file" @change="selFile" id="files"/>
       <Form :model="video" ref="video">
         <!-- 播单选择下拉框 -->
         <FormItem prop="belong">
@@ -48,6 +33,9 @@
           </Select>
         </FormItem>
       </Form>
+      <div>
+        {{ txtar }}
+      </div>
       <div slot="footer">
         <Button type="primary" @click="upload">确定</Button>
         <Button type="ghost" @click="handleReset('video')">取消</Button>
@@ -91,6 +79,7 @@
           <p>您还没有上传过视频！</p>
           <!-- 传说中的实名认证和开放注册，后面被莫名其妙砍掉了 -->
           <!-- <input type="button" @click="showModal('upload')" value="立即上传" class="btn main-btn"/> -->
+          <!-- || 下面原始按钮 || -->
           <input type="button" @click="videoModal = true" value="立即上传" class="btn main-btn"/>
         </div>
       </div>
@@ -112,12 +101,17 @@
 
 <script>
 import { getCookie } from "@/util/cookie"
-import { loginUserUrl } from '@/api/api'
+import { loginUserUrl,pushVideoInfo } from '@/api/api'
 export default {
   data() {
     return {
       videoModal: false,
       bodanModal:false,
+      file:{},
+      uploadAddress:"",
+      uploadAuth:"",
+      videoId:"",
+      txtar:'',
       bodan:{
         name:'',
         intro:'',
@@ -130,13 +124,10 @@ export default {
         title:'',
         price:'',
         state:''
-      }
+      },
     }
   },
   methods: {
-    formatError(){
-      this.$Message.error('格式错误，不能上传')
-    },
     // 添加播单
     submit:function(){
       let bodan = this.bodan
@@ -161,22 +152,48 @@ export default {
         this.bodanModal=false
       })
     },
+    selFile(event){
+      this.file = event.target.files[0]
+      console.log(this.file)
+    },
     // 上传视频
     upload(){
       let video = this.video
-      let res = loginUserUrl('getOnline_Courses_catalogueAdd',{
-        username: "niuhongda",
-        password: "123123q",
-        gid:video.belong,
-        url:video.url,
-        name:video.name,
-        money:video.price,
-        sort:'',
-        status:video.status
+      let res = pushVideoInfo('Message/getaddress',{
+        data:[]
       }).then((res)=>{
-        this.$refs.video.resetFields()
-        this.videoModal=false
-        this.$refs.upload.clearFiles()
+        if(res.data){
+          console.log(res.data)
+          this.uploadAddress = res.data.UploadAddress
+          this.uploadAuth = res.data.uploadAuth
+          this.videoId = res.data.VideoId
+        }
+        var userData = '{"Vod":{"UserData":{"IsShowWaterMark":"false","Priority":"7"}}}'
+        var uploader = new AliyunUpload.Vod({
+          // 文件上传失败
+          'onUploadFailed': function (uploadInfo, code, message) {
+            this.txtar ="onUploadFailed: file:" + uploadInfo.file.name + ",code:" + code + ", message:" + message
+          },
+          // 文件上传完成
+          'onUploadSucceed': function (uploadInfo) {
+            console.log('success')
+          },
+          // 文件上传进度
+          'onUploadProgress': function (uploadInfo, totalSize, loadedPercent) {
+            this.txtar = "onUploadProgress:file:" + uploadInfo.file.name + ", fileSize:" + totalSize + ", percent:" + Math.ceil(loadedPercent * 100.00) + "%"
+          },
+          // STS临时账号会过期，过期时触发函数
+          'onUploadTokenExpired': function () {
+          },
+          onUploadCanceled:function(uploadInfo){
+          },
+          // 开始上传
+          'onUploadstarted': function (uploadInfo) {
+            uploader.setUploadAuthAndAddress(uploadInfo, this.uploadAuth, this.uploadAddress)
+          }
+        })
+        uploader.addFile(this.file, null, null, null, userData)
+        uploader.startUpload()
       })
     },
     handleReset:function(name){
@@ -184,12 +201,6 @@ export default {
       this[name +'Modal']=false
       // this.$refs.upload.clearFiles()
     },
-    upSuccess(response,file){
-      console.log(response)
-    },
-    upFail(){
-
-    }
   },
   created () {
 
@@ -224,7 +235,7 @@ export default {
     }
   }
   .video-loader {
-    height:200px;
+    height: 200px;
   }
 }
 .btn {

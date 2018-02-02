@@ -21,7 +21,7 @@
                   <Input v-model="form.picYanzheng" placeholder="图片验证"></Input>
                 </Col>
                 <Col span="15" offset="1">
-                  <img @click="getCodeImgChange" :src="codeUri">
+                  <img @click="getCodeImgChange" :src="imgUrl">
                 </Col>
               </Row>
             </FormItem>
@@ -30,7 +30,7 @@
 							<router-link class="getpwd" :to="{name:'getpwd'}">忘记密码</router-link>
 						</FormItem>
 						<FormItem>
-							<Button type="error" @click="submit(form)" long>登录</Button>
+							<Button type="error" @click="handleSubmit('form',form)" long>登录</Button>
 						</FormItem>
 					</Form>
 					<div class="others">
@@ -51,7 +51,6 @@ import JoinHeader from "./JoinHeader"
 import JoinFooter from "./JoinFooter"
 import { loginUserUrl } from "@/api/api"
 import { setCookie, getCookie } from "@/util/cookie"
-import axios from "axios"
 
 export default {
   components: { JoinHeader, JoinFooter },
@@ -77,18 +76,18 @@ export default {
         let res = loginUserUrl('register_verification',{
           username: "niuhongda",
           password: "123123q",
-          piccode:value
+          piccode:value,
+          code:this.dataArr
         }).then((res)=>{
           if(res && res === 10004){
-            this.errData = '验证码错误'
+            callback(new Error("验证码错误"))
           }else if(!res){
-            this.errData = '验证码错误'
+            callback(new Error("验证码错误"))
           }else{
             callback()
           }
         })
       }
-      callback()
     }
     return {
       form: {
@@ -96,15 +95,16 @@ export default {
         passwd: "",
         picYanzheng:""
       },
+      dataArr:'',
+      imgUrl:'',
       errData:'',
       remember: false,
       eye: "eye-disabled",
       type: "password",
-      codeUri:'',
       ruleCustom: {
-        passwd: [{ validator: validatePwd, trigger: "blur" }],
-        name: [{ validator: validateName, trigger: "blur" }],
-        picYanzheng: [{ validator: validatePic, trigger: "blur" }]
+        passwd: [{ required: true, validator: validatePwd, trigger: "blur" }],
+        name: [{ required: true, validator: validateName, trigger: "blur" }],
+        picYanzheng: [{ required: true, validator: validatePic, trigger: "blur" }]
       }
     };
   },
@@ -117,45 +117,53 @@ export default {
         : (this.type = "password")
     },
     // 登录
-    submit: function(arg) {
-      let _self = this;
-      let res = loginUserUrl("login", {
-        username: "niuhongda",
-        password: "123123q",
-        name: arg.name,
-        pwd: arg.passwd
-      }).then(res => {
-        console.log(res)
-        if(!res){
-          this.$Message.error("账户名和密码不匹配")
-        }else{
-          if (res.error_code === 0) {
-            // 登录成功记录用户信息
-            if (_self.checked) {
-              setCookie("u_name", res.data.id, 365)
-              window.location.href = "http://localhost:8888/#/home"
+    handleSubmit(name, arg) {
+      let _self = this
+      this.$refs[name].validate(valid => {
+        let res = loginUserUrl("login", {
+          username: "niuhongda",
+          password: "123123q",
+          name: arg.name,
+          pwd: arg.passwd,
+        }).then(res => {
+          if(!res){
+            this.$Message.error("账户名和密码不匹配")
+          }else{
+            if (res.error_code === 0) {
+              // 登录成功记录用户信息
+              if (_self.checked) {
+                setCookie("u_name", res.data.id, 365)
+                window.location.href = "http://localhost:8888/#/home"
+              } else {
+                setCookie("u_name", res.data.id, 1)
+                window.location.href = "http://localhost:8888/#/home"
+              }
+              this.$Message.success("登录成功")
             } else {
-              setCookie("u_name", res.data.id, 1)
-              window.location.href = "http://localhost:8888/#/home"
+              this.$Message.error("登录失败")
             }
-            this.$Message.success("登录成功")
-          } else {
-            this.$Message.error("登录失败")
           }
+        })
+      })
+    },
+    getImg(){
+      let res = loginUserUrl('register_code',{
+        username: "niuhongda",
+        password: "123123q"
+      }).then((res)=>{
+        this.dataArr = ''
+        for(let i=0;i<res.data.length;i++){
+          this.dataArr += res.data[i]
         }
+        this.imgUrl = res.data1
       })
     },
     getCodeImgChange(){
-      let _self = this
-      _self.codeUri = ''
-      setTimeout(function(){
-        _self.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
-      },200)
+      this.getImg()
     }
   },
   created () {
-    // 获取图片验证码
-    this.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
+    this.getImg()
   }
 }
 </script>

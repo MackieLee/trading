@@ -10,6 +10,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import iView from 'iview'
 import './my-theme/dist/iview.css'
+import { loginUserUrl } from "@/api/api";
+import { setCookie, getCookie } from "@/util/cookie"
 
 Vue.use(iView)
 Vue.use(VueResource)
@@ -19,6 +21,9 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 Vue.prototype.axios = axios
+Vue.prototype.setCookie = setCookie
+Vue.prototype.getCookie = getCookie
+Vue.prototype.loginUserUrl = loginUserUrl
 
 new Vue({
   el: '#app',
