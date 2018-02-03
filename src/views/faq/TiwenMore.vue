@@ -17,11 +17,11 @@
       </ul>
       <Form ref="ask" :model="ask" :roules="askValidate">
         <FormItem prop = "title">
-          <Input v-model="ask.title" placeholder="输入下您的问题"></Input>
+          <Input v-model.trim="ask.title" placeholder="输入下您的问题"></Input>
         </FormItem>
-        <div class="sub-title">问题描述（选填）：{{sel}}</div>
+        <div class="sub-title">问题描述（选填）:</div>
         <FormItem prop="content">
-          <Input v-model="ask.content" type="textarea" :rows="6" placeholder="请在这儿描述您的问题"></Input>
+          <Input v-model.trim="ask.content" type="textarea" :rows="6" placeholder="请在这儿描述您的问题"></Input>
         </FormItem>
         <FormItem>
           <Row>
@@ -68,8 +68,8 @@ export default {
         teacher:''
       },
       askValidate:{
-        title:[{required:true,trigger:"blur"}],
-        content:[{required:true,trigger:"blur"}]
+        title:[{required:true,message:'不能为空',trigger:"blur"}],
+        content:[{required:true,message:'不能为空',trigger:"blur"}]
       }
     }
   },
@@ -131,29 +131,33 @@ export default {
     sub(){
       let arr = ''
       let choose = this.ask.choose?1:2
-      for(let i =0;i<this.sel.length;i++){
-        arr += this.sel[i]+','
-      }
-      // console.log('this.ask.title:'+this.ask.title+"this.ask.content:"+this.ask.content+'this.ask.teacher:'+parseInt(this.ask.teacher)+'formid'+arr.substr(0,arr.length-1))
-      let res = loginUserUrl('getQuestions_add',{
-        username: "niuhongda",
-        password: "123123q",
-        name:this.ask.title,
-        intro:this.ask.content,
-        // teacher_id:parseInt(this.ask.teacher),
-        teacher_id:1448,
-        uid:parseInt(getCookie('u_name')),
-        choose:choose,
-        form_id:arr.substr(0,arr.length-1),
-        pay_type:2
-      }).then((res)=>{
-        this.order_id = res.order_pay.order_id
-        this.modal = true
-        if(res.intro){
-          this.imgUri = res.intro
+      if(this.ask.title.trim !=='' && this.ask.content !== ''){
+        for(let i =0;i<this.sel.length;i++){
+          arr += this.sel[i]+','
         }
-      })
-      this.ifpayed()
+        // console.log('this.ask.title:'+this.ask.title+"this.ask.content:"+this.ask.content+'this.ask.teacher:'+parseInt(this.ask.teacher)+'formid'+arr.substr(0,arr.length-1))
+        let res = loginUserUrl('getQuestions_add',{
+          username: "niuhongda",
+          password: "123123q",
+          name:this.ask.title,
+          intro:this.ask.content,
+          // teacher_id:parseInt(this.ask.teacher),
+          teacher_id:1448,
+          uid:parseInt(getCookie('u_name')),
+          choose:choose,
+          form_id:arr.substr(0,arr.length-1),
+          pay_type:2
+        }).then((res)=>{
+          this.order_id = res.order_pay.order_id
+          this.modal = true
+          if(res.intro){
+            this.imgUri = res.intro
+          }
+        })
+        this.ifpayed()
+      }else{
+        this.$message.error('问题不能为空')
+      }
     },
     ifpayed(){
       let int = setInterval(()=>{

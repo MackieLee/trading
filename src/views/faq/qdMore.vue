@@ -22,7 +22,7 @@
         </MenuItem>
         <router-link tag='span' to="/Leibiebox">税收类别</router-link>
     </Menu>
-    <!-- 切换-->    
+    <!-- 切换-->
     </div>
       <div>{{ data }}</div>
       <div class="floor">
@@ -30,7 +30,7 @@
           <div>
             <div class="item-container">
             	<div class="wen lf">问 :&nbsp;</div>
-              <div class="ask">{{ item.name }} <span class="date_rt">20181.19</span></div>
+              <div class="ask">{{ item.name }} <span class="date_rt">{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</span></div>
             </div>
           </div>
           <div>
@@ -74,6 +74,7 @@ export default {
         password: "123123q"
       }
     ).then((res)=>{
+      console.log(res)
       if(res === '暂无数据'){
         this.data = res
       }else{

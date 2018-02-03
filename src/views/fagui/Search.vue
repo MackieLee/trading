@@ -36,16 +36,16 @@
           <div v-if="federal" class="search" style="padding-top: 25px;">
             <Form ref="federalSearch" :model="federalSearch" :label-width="80">
               <FormItem label="标题" prop="title">
-                <Input v-model="federalSearch.title" placeholder="请输入法规标题"></Input>
+                <Input  @keyup.enter.native="handleSubmit('federalSearch')" v-model="federalSearch.title" placeholder="请输入法规标题"></Input>
               </FormItem>
               <FormItem label="文号" prop="zihao">
-                <Input v-model="federalSearch.zihao" placeholder="请输入法规文号"></Input>
+                <Input  @keyup.enter.native="handleSubmit('federalSearch')" v-model="federalSearch.zihao" placeholder="请输入法规文号"></Input>
               </FormItem>
               <FormItem label="年度" prop="niandu">
-                <Input v-model="federalSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
+                <Input  @keyup.enter.native="handleSubmit('federalSearch')" v-model="federalSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
               </FormItem>
               <FormItem label="发文单位" prop="danwei">
-                <Input v-model="federalSearch.danwei" placeholder="请输入法规颁布的单位"></Input>
+                <Input  @keyup.enter.native="handleSubmit('federalSearch')" v-model="federalSearch.danwei" placeholder="请输入法规颁布的单位"></Input>
               </FormItem>
               <FormItem label="发文日期">
                 <Row>
@@ -61,7 +61,7 @@
                     <FormItem prop="endLine">
                       <DatePicker type="date" v-model="federalSearch.endLine"
                       	@on-change="handleFormat('federalSearch','endLine',$event)"
-                      	format="yyyy-MM-dd" placeholder="选择起始时间" style="width: 160px">
+                      	format="yyyy-MM-dd" placeholder="选择起始时间" @keyup.enter.native="handleSubmit('federalSearch')" style="width: 160px">
                       </DatePicker>
                     </FormItem>
                   </Col>
@@ -77,21 +77,21 @@
           <div v-else class="search">
             <Form ref="localSearch" :model="localSearch" :label-width="80">
               <FormItem label="地区">
-                <Select v-model="localSearch.area" style="width:130px">
+                <Select v-model="localSearch.area"  @keyup.enter.native="handleSubmit('localSearch')" style="width:130px">
                   <Option v-for="area in areas" :key="area.id" :value="area.name">{{ area.name }}</Option>
                 </Select>
               </FormItem>
               <FormItem label="标题">
-                <Input v-model="localSearch.title" placeholder="请输入法规标题"></Input>
+                <Input v-model="localSearch.title" @keyup.enter.native="handleSubmit('localSearch')" placeholder="请输入法规标题"></Input>
               </FormItem>
               <FormItem label="文号">
-                <Input v-model="localSearch.zihao" placeholder="请输入法规文号"></Input>
+                <Input v-model="localSearch.zihao" @keyup.enter.native="handleSubmit('localSearch')" placeholder="请输入法规文号"></Input>
               </FormItem>
               <FormItem label="年度">
-                <Input v-model="localSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
+                <Input v-model="localSearch.niandu" @keyup.enter.native="handleSubmit('localSearch')" placeholder="请输入法规颁布的年度"></Input>
               </FormItem>
               <FormItem label="发文单位">
-                <Input v-model="localSearch.danwei" placeholder="请输入法规颁布的单位"></Input>
+                <Input v-model="localSearch.danwei" @keyup.enter.native="handleSubmit('localSearch')" placeholder="请输入法规颁布的单位"></Input>
               </FormItem>
               <FormItem label="发文日期">
                 <Row>
@@ -99,7 +99,7 @@
                     <DatePicker type="date" v-model="localSearch.beginLine" @on-change="handleFormat('localSearch','beginLine',$event)" format="yyyy-MM-dd" placeholder="选择起始时间" style="width: 160px"></DatePicker>
                   </Col>
                   <Col span="12"  style="width: 160px;">
-                    <DatePicker type="date" v-model="localSearch.endLine" @on-change="handleFormat('localSearch','endLine',$event)" format="yyyy-MM-dd" placeholder="选择截止时间" style="width: 160px"></DatePicker>
+                    <DatePicker type="date" @keyup.enter.native="handleSubmit('localSearch')" v-model="localSearch.endLine" @on-change="handleFormat('localSearch','endLine',$event)" format="yyyy-MM-dd" placeholder="选择截止时间" style="width: 160px"></DatePicker>
                   </Col>
                 </Row>
               </FormItem>
@@ -233,6 +233,9 @@ export default {
       for (let [key, value] of entries(this[name])) {
         this[name][key] = ''
       }
+    },
+    test(){
+      console.log('test')
     },
     // 法规查询
     handleSubmit:function(name){

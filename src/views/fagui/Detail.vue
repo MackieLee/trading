@@ -37,7 +37,7 @@
             </p>
           </div>
           <div class="rt">
-            国家税务总局<br> {{ timeDown }}
+            {{ content.department }}<br> {{ content.date_posted }}
           </div>
         </div>
         <div class="clearfix">

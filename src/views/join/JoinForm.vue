@@ -293,7 +293,7 @@ export default {
         }, 1000)
       }
     };
-    // 验证图片验证码 ----功能不行----
+    // 验证图片验证码
     const validatePic = (rule, value, callback) => {
       if(value === ''){
         callback(new Error("不能为空"))
@@ -359,19 +359,19 @@ export default {
   methods: {
     handleSubmit(name, arg) {
       this.$refs[name].validate(valid => {
-        let res = loginUserUrl("register", {
-          username: "niuhongda",
-          password: "123123q",
-          name: arg.name,
-          pwd: arg.passwd,
-          piccode:arg.picYanzheng,
-          code:arg.yanzhengma,
-          tel:arg.mail,
-          email:arg.mail,
-          type:arg.type,
-          invitation:arg.yanzhengma
-        }).then(res => {
-          if (valid) {
+        if(valid){
+          let res = loginUserUrl("register", {
+            username: "niuhongda",
+            password: "123123q",
+            name: arg.name,
+            pwd: arg.passwd,
+            piccode:arg.picYanzheng,
+            code:arg.yanzhengma,
+            tel:arg.mail,
+            email:arg.mail,
+            type:arg.type,
+            invitation:arg.yanzhengma
+          }).then(res => {
             if (res && res.error_code === 0) {
               this.$Message.success("注册成功!")
               setCookie("u_name", arg.name, 1)
@@ -380,11 +380,9 @@ export default {
               // console.log(res)
               this.$Message.error("表单提交失败")
             }
-          } else {
-            return false
-          }
-        });
-      });
+          })
+        }
+      })
     },
     getVCode: function() {
       console.log(this.formValidate.mail)
