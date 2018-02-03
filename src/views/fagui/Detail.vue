@@ -3,7 +3,7 @@
     <div class="cur-posi" id="top">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;详细内容</p>
+        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;{{ content.name }}</p>
     </div>
     <div class="container">
       <div class="clearfix main-title ctr">
