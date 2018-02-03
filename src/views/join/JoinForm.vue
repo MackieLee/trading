@@ -137,7 +137,7 @@
             <Input v-model="formValidate.picYanzheng" placeholder="图片验证"></Input>
           </Col>
           <Col span="15" offset="1">
-            <img @click="getCodeImgChange" :src="codeUri">
+            <img @click="getCodeImgChange" :src="imgUrl">
           </Col>
         </Row>
       </FormItem>
@@ -270,7 +270,7 @@ export default {
       } else {
         callback();
       }
-    };
+    }
     // 验证动态码 ---目前功能测试正常---
     const validateYanzhengma = (rule, value, callback) => {
       if (value === "") {
@@ -295,25 +295,25 @@ export default {
     };
     // 验证图片验证码 ----功能不行----
     const validatePic = (rule, value, callback) => {
-      if (value === "") {
-        callback(new Error("不能为空"));
-      } else {
-        this.yanZheng = true;
+      if(value === ''){
+        callback(new Error("不能为空"))
+      }else{
         let res = loginUserUrl('register_verification',{
           username: "niuhongda",
           password: "123123q",
-          piccode:value
+          piccode:value,
+          code:this.dataArr
         }).then((res)=>{
           if(res && res === 10004){
-            this.errData2 = '验证码错误'
+            callback(new Error("验证码错误"))
           }else if(!res){
-            this.errData2 = '验证码错误'
+            callback(new Error("验证码错误"))
           }else{
+            this.yanZheng = true
             callback()
           }
         })
       }
-      callback();
     };
     // 是否勾选了同意
     const validateAgree = (rule, value, callback) => {
@@ -329,9 +329,10 @@ export default {
       mail: false,
       yanZheng: false,
       modal: false,
-      codeUri:'',
+      imgUrl:'',
       errData:'',
       errData2:'',
+      dataArr:'',
       formValidate: {
         name: "",
         passwd: "",
@@ -386,11 +387,16 @@ export default {
       });
     },
     getVCode: function() {
+      console.log(this.formValidate.mail)
+      console.log(this.type)
       let _self = this;
       _self.$refs.formValidate.validateField("mail");
       _self.$refs.formValidate.validateField("picYanzheng");
+      console.log(_self.mail && _self.yanZheng)
       if (_self.mail && _self.yanZheng) {
         _self.vCode = false;
+        // console.log(this.formValidate.mail)
+        // console.log(this.type)
         // 获取短信/邮件验证码
         let res = loginUserUrl("register_sendCode", {
           username: "niuhongda",
@@ -412,16 +418,24 @@ export default {
       this.$refs[name].resetFields();
     },
     getCodeImgChange(){
-      let _self = this
-      _self.codeUri = ''
-      setTimeout(function(){
-        _self.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
-      },200)
+      this.getImg()
+    },
+    getImg(){
+      let res = loginUserUrl('register_code',{
+        username: "niuhongda",
+        password: "123123q"
+      }).then((res)=>{
+        console.log(res)
+        this.dataArr = ''
+        for(let i=0;i<res.data.length;i++){
+          this.dataArr += res.data[i]
+        }
+        this.imgUrl = res.data1
+      })
     }
   },
   created () {
-    // 获取图片验证码
-    this.codeUri = 'http://aip.kehu.zaidayou.com/api/execute/register_code?username=niuhongda&password=123123q'
+    this.getImg()
   }
 }
 </script>
