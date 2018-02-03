@@ -3,16 +3,13 @@
 
   <div id="xxkc_xq02">
       <div class="xq02_l">
-        <h2>
-          <!-- .............................. -->
-          <span class="cur-active">版权声明</span>
-        </h2>
+        <h2><i></i>版权声明</h2>
         <div class="copy">
           <P>
           	访问者在浏览本站信息、注册本站会员或接受本网站服务之前，请务必仔细阅读本条款并同意本声明。<br>
           	访问者访问本网站的行为以及通过各类方式利用本网站的行为，
           	都将被视作是对本声明全部内容的无异议的认可;如有异议，请立即跟本网站协商，并取得本网站的书面同意意见。<br>
-          	本网所有资料，凡未经特殊注明的，版权均属神州九鼎财税咨询（北京）有限公司（www.jdtax.cn ）所有。<br><br>
+          	本网所有资料，凡未经特殊注明的，版权均属神州九鼎财税咨询（北京）有限公司（www.jdtax.cn ）所有。
           	<h3>版权声明</h3>
           	<font>1、</font>衷心感谢您关注和支持九鼎财税，如果您需要转载视频、资料、答疑、新闻与资讯等内容信息,请仔细阅读本版权声明：<br>
           	本网站对所提供的教学视频、教学成果、服务及本服务所使用的视频、资料、源代码等均受知识产权法或其他法律保护的资料享有相应的权利，
@@ -84,53 +81,46 @@
     //   width: 100%;
     //   float: left;
     // }
-    h2 {
-      width: 100%;
-      height: 32px;
-      margin-bottom: 15px;
-      border-bottom: 1px solid $red;
-      span {
-        width: 100px;
-        height: 32px;
-        line-height: 32px;
-        text-align: center;
-        box-sizing: border-box;
-        display: inline-block;
-        font-weight: normal;
-        font-size: 14px;
-        cursor: pointer;
-      }
-      .cur-active {
-        background-color: $red;
-        color: $white;
-      }
-    }
+  h2 {
+  	 width: 686px;
+      background-image: url('../../assets/images/about01.png');
+      text-align: center;
+      background-repeat: no-repeat;
+      margin: 26px auto;
+      font-size:18px;
+      background-position: 0 5px;
+        i {
+	    display: inline-block;
+	    width: 26px;
+	    height: 22px;
+	    background-image: url('../../assets/images/Sprite.png');
+	    vertical-align: text-bottom;
+	    background-position: -15px -389px;
+	    margin-right: 10px;
+ 			  }
+ 	 	}
     .txt {
       padding-top: 20px;
       text-indent: 2em;
     }
     .copy {
-      border: 1px solid #fbc081;
       margin-top: 15px;
-      h3 {
-        border-bottom: 2px solid #e5e5e5;
-        height: 26px;
-        font-size: 14px;
-        border-left: 2px solid #ff2832;
-        padding: 0 30px 0 6px;
-      }
-      p {
-        overflow: hidden;
-        width: 100%;
-        line-height: 32px;
-        font-size: 14px;
-        padding: 15px 18px 20px;
-        color: #656565;
-        font,
-        .a {
-          color: #4683ee;
-        }
-      }
+		  h3{   
+		    margin:5px 0px;
+		    color: #4683ee;
+		    line-height: 36px;
+		    font-size: 16px;
+		    height: 36px;	    
+		    }
+		    p {
+			 overflow: hidden;
+		   width:100%; 
+		   line-height: 32px;
+		    font-size: 14px;
+		    color: #656565;
+		    font{margin-left: 10px;}
+		  }
+		  
     }
   }
 }

@@ -3,11 +3,7 @@
 
   <div id="xxkc_xq02">
       <div class="xq02_l">
-        <h2>
-          <!-- .............................. -->
-          <span class="cur-active">服务条款</span>
-        </h2>
-
+        <h2><i></i>服务条款 </h2>
        <div class="copy">
 			    <P>
 			    	尊敬的用户，欢迎您注册成为九鼎财税用户。<br>
@@ -16,8 +12,7 @@
 						请您务必在注册之前认真阅读全部
 						服务协议内容，如有任何疑问，可向本网站咨询。无论您事实上是否在注册之前认真阅读了本服务协议，只要您点击协议正本下方的
 						"注册"按钮并按照本网站注册程序成功注册为用户，您的行为仍然表示您同意并签署了本服务协议。
-		     </P>
-		      <P>
+
 	    		<h3>用户的帐号、密码和安全性</h3>
 	    		<font>1、</font>会员务必确保注册用户名及密码的安全性。如果丢失，造成的损失将由本人承担全部后果。<br>
 	    		<font>2、</font>会员对利用该用户名及密码所进行的一切课程负全部责任；因此所衍生的任何损失或损害，本网站不承担任何责任。<br>
@@ -160,53 +155,47 @@
     //   width: 100%;
     //   float: left;
     // }
-    h2 {
-      width: 100%;
-      height: 32px;
-      margin-bottom: 15px;
-      border-bottom: 1px solid $red;
-      span {
-        width: 100px;
-        height: 32px;
-        line-height: 32px;
-        text-align: center;
-        box-sizing: border-box;
-        display: inline-block;
-        font-weight: normal;
-        font-size: 14px;
-        cursor: pointer;
-      }
-      .cur-active {
-        background-color: $red;
-        color: $white;
-      }
-    }
+  h2 {
+  	 width: 686px;
+      background-image: url('../../assets/images/about01.png');
+      text-align: center;
+      background-repeat: no-repeat;
+      margin: 26px auto;
+      font-size:18px;
+      background-position: 0 5px;
+        i {
+	    display: inline-block;
+	    width: 26px;
+	    height: 22px;
+	    background-image: url('../../assets/images/Sprite.png');
+	    vertical-align: text-bottom;
+	    background-position: -15px -389px;
+	    margin-right: 10px;
+ 			  }
+ 	 	}
+ 	 	
     .txt {
       padding-top: 20px;
       text-indent: 2em;
     }
     .copy {
-      border: 1px solid #fbc081;
       margin-top: 15px;
-      h3 {
-        border-bottom: 2px solid #e5e5e5;
-        height: 26px;
-        font-size: 14px;
-        border-left: 2px solid #ff2832;
-        padding: 0 30px 0 6px;
-      }
-      p {
-        overflow: hidden;
-        width: 100%;
-        line-height: 32px;
-        font-size: 14px;
-        padding: 15px 18px 20px;
-        color: #656565;
-        font,
-        .a {
-          color: #4683ee;
-        }
-      }
+		  h3{   
+		    margin:5px 0px;
+		    color: #4683ee;
+		    line-height: 36px;
+		    font-size: 16px;
+		    height: 36px;	    
+		    }
+		    p {
+			 overflow: hidden;
+		   width:100%; 
+		   line-height: 32px;
+		    font-size: 14px;
+		    color: #656565;
+		    font{margin-left: 10px;}
+		  }
+		  
     }
   }
 }

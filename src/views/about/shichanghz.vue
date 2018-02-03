@@ -1,13 +1,8 @@
 <template>
   <div class="about">
-
   <div id="xxkc_xq02">
       <div class="xq02_l">
-        <h2>
-          <!-- .............................. -->
-          <span class="cur-active">市场合作</span>
-        </h2>
-
+			<h2 class="title"><i></i>时长合作</h2>
        <div class="hezuo">
 					 <P>		 	
 					 	 <h3>市场合作</h3>
@@ -59,12 +54,10 @@
       margin-right: 6px;
     }
   }
-    margin-top: 26px;
-/*服务条款*/
+/*时长合作*/
 #xxkc_xq02 {
   width: 100%;
   height: auto;
-  margin-top: 20px;
   overflow: hidden;
   // .xq02_r {
   //   width: 45%;
@@ -75,43 +68,45 @@
   //   float: left;
   // }
   h2 {
-    width: 100%;
-    height: 32px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid $red;
-    span {
-      width: 100px;
-      height: 32px;
-      line-height: 32px;
+  	 width: 686px;
+      background-image: url('../../assets/images/about01.png');
       text-align: center;
-      box-sizing: border-box;
-      display: inline-block;
-      font-weight: normal;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .cur-active{
-      background-color: $red;
-      color: $white;
-    }
-  }
+      background-repeat: no-repeat;
+      margin: 26px auto;
+      font-size:18px;
+      background-position: 0 5px;
+        i {
+	    display: inline-block;
+	    width: 26px;
+	    height: 22px;
+	    background-image: url('../../assets/images/Sprite.png');
+	    vertical-align: text-bottom;
+	    background-position: -15px -389px;
+	    margin-right: 10px;
+ 			  }
+ 	 	}
+ 	 	
   .txt {
     padding-top: 20px;
     text-indent: 2em;
   }
-  .hezuo{border: 1px solid #fbc081;
+  .hezuo{
     margin-top: 15px;
-  h3{    border-bottom: 2px solid #e5e5e5;
-    height: 26px;font-size: 14px;
-    border-left: 2px solid #ff2832;
-    padding: 0 30px 0 6px;}
+  h3{    
+  	 margin:5px 0px;
+    color: #4683ee;
+    line-height: 36px;
+    font-size: 16px;
+    height: 36px;	
+    }
     p {
- overflow: hidden;
-   width:100%; line-height: 32px;
+ 	overflow: hidden;
+   width:100%; 
+   line-height: 32px;
     font-size: 14px;
-    padding: 15px 18px 20px; 
+    padding:10px 18px; 
     color: #656565;
-		font,.a{color: #4683ee;}
+		font{color: #4683ee;}
 
   }
   }

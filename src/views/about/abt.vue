@@ -1,9 +1,9 @@
 <template>
   <div class="abt">
     <div class="container">
-      <p class="title">
-        <i></i>ABOUT US
-      </p>
+      <h2 class="title">
+        <i></i>关于我们
+      </h2>
       <div class="content">
         <img src="../../assets/images/us_企业.png" />
         <p>
@@ -70,25 +70,25 @@ export default {
     height: 22px;
     background-image: url('../../assets/images/Sprite.png');
     vertical-align: text-bottom;
-    background-position: -13px -350px;
-    margin-right: 11px;
+    background-position: -13px -349px;
+    margin-right: 5px;
   }
   .cur-posi {
     border-bottom: none;
     i {
       background-position: -18px -100px;
-      margin-right: 6px;
+      margin-right:10px;
     }
   }
   .container {
     margin-top: 26px;
-    p[class="title"] {
-      width: 686px;
+    h2[class="title"] {
+      width: 670px;
       background-image: url('../../assets/images/about01.png');
       text-align: center;
       background-repeat: no-repeat;
       margin: 26px auto;
-      font-size: 16px;
+      font-size:18px;
       background-position: 0 5px;
     }
     .content {

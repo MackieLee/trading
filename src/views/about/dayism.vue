@@ -3,20 +3,15 @@
 
   <div id="xxkc_xq02">
       <div class="xq02_l">
-        <h2>
-          <!-- .............................. -->
-         
-          <span class="cur-active">答疑说明</span>
-        </h2>    
+        <h2 class="title"><i></i>答疑说明</h2> 
         <div class="bofang">    
           <P>
           	 <h3>答疑说明</h3>
-		              本网站支持每个会员向专家提问。
+		            <font>本网站支持每个会员向专家提问。</font>
 		      </P>
 		      <P>
 		      <h3>在线提问</h3>
-		     	  【官方提问】<br>
-		     <font>1、</font>登录网站首页，点击登录按钮，在登录页面键入您的会员账号、密码及验证码后。<br>
+		      <font>1、</font>登录网站首页，点击登录按钮，在登录页面键入您的会员账号、密码及验证码后。<br>
           <font>2、</font>如未注册，先注册，填写个人信息后，同意协议，提交完成注册。<br>
 		      <font>3、</font>登录网站，进入问答页面，点击我要提问或进入专家个人详情页面，都可提问。 <br>
 		      <font>4、</font>点击“我要提问”，描述你的问题，可选择“指定老师回答”和勾选“超过24h自动转为专家团”回答。 <br>
@@ -49,12 +44,10 @@
       margin-right: 6px;
     }
   }
-    margin-top: 26px;
-/*课程说明*/
+/*答疑说明*/
 #xxkc_xq02 {
   width: 100%;
   height: auto;
-  margin-top: 20px;
   overflow: hidden;
   // .xq02_r {
   //   width: 45%;
@@ -65,45 +58,45 @@
   //   float: left;
   // }
   h2 {
-    width: 100%;
-    height: 32px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid $red;
-    span {
-      width: 100px;
-      height: 32px;
-      line-height: 32px;
+  	 width: 686px;
+      background-image: url('../../assets/images/about01.png');
       text-align: center;
-      box-sizing: border-box;
-      display: inline-block;
-      font-weight: normal;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .cur-active{
-      background-color: $red;
-      color: $white;
-    }
-  }
+      background-repeat: no-repeat;
+      margin: 26px auto;
+      font-size:18px;
+      background-position: 0 5px;
+        i {
+	    display: inline-block;
+	    width: 26px;
+	    height: 22px;
+	    background-image: url('../../assets/images/Sprite.png');
+	    vertical-align: text-bottom;
+	    background-position: -15px -389px;
+	    margin-right: 10px;
+ 			  }
+ 	 	}
   .txt {
     padding-top: 20px;
     text-indent: 2em;
   }
-  .bofang{border: 1px solid #fbc081;
+  .bofang{
     margin-top: 15px;
-  h3{    border-bottom: 2px solid #e5e5e5;
-    height: 26px;font-size: 14px;
-    border-left: 2px solid #ff2832;
-    padding: 0 30px 0 6px;}
-    p {
- overflow: hidden;
-   width:100%; line-height: 32px;
-    font-size: 14px;
-    padding: 15px 18px 20px; 
-    color: #656565;
-		font,.a{color: #4683ee;}
-
-  }
+		  h3{   
+		    margin:10px;
+		    color: #333;
+		    line-height: 36px;
+		    font-size: 18px;
+		    height: 36px;
+		    
+		    }
+		    p {
+			 overflow: hidden;
+		   width:100%; 
+		   line-height: 32px;
+		    font-size: 14px;
+		    color: #656565;
+		    font{margin-left: 10px;}
+		  }
   }
 }
    
