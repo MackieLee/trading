@@ -1,15 +1,11 @@
 <template>
   <div class="about">
-
   <div id="xxkc_xq02">
       <div class="xq02_l">
-        <h2>
-          <!-- .............................. -->
-          <span class="cur-active">课程说明</span>
-          
-        </h2>
+        <h2>课程说明</h2>
         <div class="bofang">
-          <P>
+        	<div>
+      	   <P>
           	<h3>播放说明</h3>由于版权问题，我们每节视频目前只支持在线观看三次，每节超过总时长的50%
           	视为播放一次。<br>
           	【答疑提问】<br>         
@@ -30,7 +26,9 @@
           <font>3、</font>听课时，点击视频右上方的课程评分，可对每小节视频进行评价/收藏。<br>
           	【课程目录与小节目录】<br> 
           	可对每个视频进行目录切换与小节目录切换，对小节可单独控制。
-          </P>
+          </P>		      	
+        	</div>
+				<div>
 		      <P>
          <h3>购买课程流程</h3>
          	【官网购买】<br>
@@ -53,8 +51,9 @@
           <font>12、</font>购买成功后，可在会员中心——我的学习,学习购买的课程。<br>
                      如了解详情可以<a href="###" class="a">咨询客服</a>或拨打官网电话010-6231-1360 。 
          </P>
-        </div>
-        
+       </div>
+       
+        </div>        
       </div>
     </div>
   
@@ -82,8 +81,9 @@
 #xxkc_xq02 {
   width: 100%;
   height: auto;
-  margin-top: 20px;
   overflow: hidden;
+  border: 1px solid #fbc081;
+  padding:15px 10px;
   // .xq02_r {
   //   width: 45%;
   //   float: right;
@@ -94,31 +94,21 @@
   // }
   h2 {
     width: 100%;
-    height: 32px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid $red;
-    span {
-      width: 100px;
-      height: 32px;
-      line-height: 32px;
-      text-align: center;
-      box-sizing: border-box;
-      display: inline-block;
-      font-weight: normal;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .cur-active{
-      background-color: $red;
-      color: $white;
-    }
+    line-height: 30px;
+		font-size: 24px;
+    color: #000;
+    padding-bottom: 20px;
   }
   .txt {
     padding-top: 20px;
     text-indent: 2em;
   }
-  .bofang{border: 1px solid #fbc081;
-    margin-top: 15px;
+  .bofang{
+  	div{
+  		float: left;
+  		width:45%;
+   		margin: 0 20px 36px;
+  	}
   h3{    border-bottom: 2px solid #e5e5e5;
     height: 26px;font-size: 14px;
     border-left: 2px solid #ff2832;
