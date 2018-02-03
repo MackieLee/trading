@@ -1,5 +1,10 @@
 <template>
   <div>
+    <Modal v-model="modal" width="430">
+      <div slot="header">微信支付</div>
+        <img :src="imgUri" style="height:400px"/>
+      <div slot="footer" style="display:none"></div>
+    </Modal>
     <div class="content">
     	<div class="cur-posi lf">
       <p>
@@ -37,12 +42,10 @@
             </div>
 				   <div class="footer">
 				    <Button type="ghost" @click="handleReset" class="qux">重置</Button>
-				    <Button type="primary" class="tij" @click="handleSubmit">提交</Button>
 				   </div>
           </Row>
         </FormItem>
       </Form>
-
     </div>
   </div>
 </template>
@@ -53,9 +56,12 @@ import { getCookie } from "@/util/cookie"
 export default {
   data() {
     return {
+      modal:false,
       ts:[],//老师列表
       items:{},
-      thisItem:'',
+      sel:[],
+      imgUri:'',
+      payed:false,
       ask:{
         choose:false,
         title:'',
@@ -87,6 +93,7 @@ export default {
       username: "niuhongda",
       password: "123123q"
     }).then((classify)=>{
+      console.log(classify)
       this.items = classify.data
     })
   },
@@ -95,32 +102,70 @@ export default {
       this.ask.title = ''
       this.ask.content = ''
       this.ask.teacher = ''
-      this.thisItem = ''
       this.ask.choose = false
     },
+    selAdd(id){
+      if(this.sel.length != 0){
+        let flag = false
+        for(let i = 0;i<this.sel.length;i++){
+          if(this.sel[i] === id){
+            this.sel.splice(i,1)
+            flag = true
+          }
+        }
+        if(!flag){
+          this.sel.push(id)
+        }
+      }else{
+        this.sel.push(id)
+      }
+    },
     sub(){
+      let arr = ''
       let choose = this.ask.choose?1:2
+      for(let i =0;i<this.sel.length;i++){
+        arr += this.sel[i]+','
+      }
+      // console.log('this.ask.title:'+this.ask.title+"this.ask.content:"+this.ask.content+'this.ask.teacher:'+parseInt(this.ask.teacher)+'formid'+arr.substr(0,arr.length-1))
       let res = loginUserUrl('getQuestions_add',{
         username: "niuhongda",
         password: "123123q",
         name:this.ask.title,
         intro:this.ask.content,
-        teacher_id:parseInt(this.ask.teacher),
+        // teacher_id:parseInt(this.ask.teacher),
+        teacher_id:1448,
         uid:parseInt(getCookie('u_name')),
         choose:choose,
-        form_id:parseInt(this.thisItem)
+        form_id:arr.substr(0,arr.length-1),
+        pay_type:2
       }).then((res)=>{
-        this.$Message.success('提交问题完成')
-        this.handleReset()
+        this.order_id = res.order_pay.order_id
+        this.modal = true
+        if(res.intro){
+          this.imgUri = res.intro
+        }
       })
+      this.ifpayed()
     },
-    handleSubmit(){
-      let pay = loginUserUrl('getShopcar_purchase',{
-        username: "niuhongda",
-        password: "123123q",
-
+    ifpayed(){
+      let int = setInterval(()=>{
+        let res = loginUserUrl('getShopcar_WeiXinPayOK',{
+          username: "niuhongda",
+          password: "123123q",
+          order_id:this.order_id
+        }).then((res)=>{
+          console.log(res)
+          if(res.status === 1){
+            this.payed = true
+            this.$Message.success('支付并提交问题成功')
+            this.modal = false
+            clearInterval(int)
+          }
+          if(this.modal === false){
+            clearInterval(int)
+          }
       })
-      sub()
+      },1000)
     }
   }
 }
