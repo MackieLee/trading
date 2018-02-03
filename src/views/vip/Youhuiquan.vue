@@ -3,9 +3,9 @@
     <p class="p01">优惠券</p>
     <div class="my_qianb_cotainer">
       <p class="p02">
-        <span @click="toggle()" data-ref='1' class="cur">未使用</span>|
-        <span @click="toggle()" data-ref='2'>已使用</span>|
-        <span @click="toggle()" data-ref='3'>即将过期</span>|
+        <span @click="toggle()" data-ref='1' class="cur">未使用</span>
+        <span @click="toggle()" data-ref='2'>已使用</span>
+        <span @click="toggle()" data-ref='3'>即将过期</span>
         <span @click="toggle()" data-ref='4'>已过期</span>
       </p>
       <div class="div01" v-if="part=='1'">
@@ -387,25 +387,22 @@ export default {
 .my_qianb_r .p02 {
   width: 99%;
   margin: 10px auto;
+  height: 40px;
   border-bottom: 1px solid #ddd;
-}
-
-.my_qianb_r .p02 span {
-  width: 80px;
+  span {
+  width:100px;
   display: inline-block;
   text-align: center;
   cursor: pointer;
-  line-height: 30px;
+  line-height: 40px;
+  font-size: 14px;
+		}
+	.cur {
+  color: #39f;
+  border-bottom: 2px solid #39f;
+		}
 }
-.my_qianb_r .p02 .cur {
-  border-bottom: 1px solid #e7151b;
-  color: #e7151b;
-}
-
-.div01,
-.div02,
-.div03,
-.div04 {
+.div01,.div02,.div03,.div04 {
   .yhj {
     float: left;
     height: auto;

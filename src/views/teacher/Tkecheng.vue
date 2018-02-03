@@ -3,7 +3,7 @@
     <div class="head">
       <div class="title">我的主页</div>
       <p>
-        <router-link tag="span":to="{ name : 'upload' }">上传</router-link>
+        <router-link tag="span":to="{ name : 'upload' }">视频上传</router-link>
         <!-- <span class="splite">&nbsp;</span>
         <router-link tag="span":to="{ name : 'videolist' }">视频</router-link> -->
       </p>

@@ -3,7 +3,7 @@
     <div class="cur-posi">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>
+        <router-link to="/fagui-search">法规</router-link>
         &nbsp;&gt;&nbsp;法规列表
       </p>
     </div>
@@ -17,7 +17,7 @@
             <td class="xuhao ctr" style="width: 40px;">序号</td>
             <td class="biaoti" style="text-align:center;">标题</td>
             <td class="fahao ctr">文号</td>
-            <td class="riqi ctr">日期</td>
+            <td class="riqi ctr">发文日期</td>
           </tr>
         </tbody>
       </table>
@@ -136,10 +136,12 @@ export default {
     }
   }
   .main-title {
-    line-height: 70px;
-    font-size: 18px;
+    line-height: 30px;
+    font-size: 24px;
     color: $red;
     text-align: center;
+ 	margin-top: 30px;
+ 	margin-bottom: 10px;
   }
   .ctr {
     text-align: left;
@@ -154,6 +156,7 @@ export default {
     width: 130px; padding-left: 20px;
   }
   .biaoti{width: 600px;
+  margin-right:10px;
    white-space: nowrap;
    overflow: hidden;
     text-overflow: ellipsis;}
@@ -195,6 +198,9 @@ export default {
         display: table-cell;
         line-height: 42px;
         font-size: 14px;
+            overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
       }
       .separate{
         border-bottom: 1px solid $border-dark;

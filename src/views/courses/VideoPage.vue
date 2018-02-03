@@ -271,11 +271,12 @@ export default {
       margin-right:0px;
     }
     .red-heart {
-      background-position: -140px -199px;margin-right:10px;
+      background-position:-237px -385px;
+      margin-right:10px;
       height: 17px;
     }
     .grey-heart {
-      background-position: -289px -288px;
+      background-position: -140px -198px;
       height: 17px; margin-right:10px;
     }
     .pointer {

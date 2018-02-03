@@ -59,7 +59,7 @@
           <router-link :to="{ name:'dingdanxq' }" git="p" class="jindu">订单详情 </router-link>
          </li>
          <li class="li06">
-         	<span class="zcgm">立即购买</span>
+         	<span class="zcgm">删除订单</span>
           <p class="jindu"> </p>
          </li>
         </ul>
@@ -80,7 +80,7 @@
           <router-link :to="{ name:'dingdanxq' }" gat="p" class="jindu">订单详情 </router-link>
          </li>
          <li class="li06">
-         	<span class="zcgm">已付款</span>
+         	<span class="zcgm">再次购买</span>
           <router-link :to="{ name:'dingdanpf' }" gat="p" class="jindu">立即评价 </router-link>
          </li>
         </ul>
@@ -320,7 +320,7 @@ export default {
 }
 
 .my_order_r .ul01 {
-  height: 30px;
+  height:40px;
   width: 100%;
   margin: 10px 0;
   border-bottom: 1px solid #ddd;
@@ -328,16 +328,16 @@ export default {
 
 .my_order_r .ul01 li {
   width: 100px;
-  line-height: 30px;
+  line-height: 40px;
   text-align: center;
-  border-right: 0.5px solid #999;
   color: $black;
   float: left;
   cursor: pointer;
+  font-size: 14px;
 }
 .my_order_r .ul01 .li01 {
-  color: $red;
-  border-bottom: 2px solid $red;
+  color: #39f;
+  border-bottom: 2px solid #39f;
 }
 .my_order_r .ul02 {
   height: 36px;
@@ -387,7 +387,7 @@ export default {
   .item {
     margin-bottom: 20px;
     .p01 {
-      background-color: $bg-blue;
+      background-color:#39f;
       border: none;
       height: 36px;
       line-height: 36px;
@@ -395,7 +395,7 @@ export default {
       text-indent: 1em;
       color: $white;
       i {
-        color: #e8e8e8;
+        color: #fff;
         font-style: normal;
         padding-left: 10px;
       }

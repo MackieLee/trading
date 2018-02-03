@@ -177,22 +177,22 @@ export default {
   text-align: center;
 }
 .my_qianb_r .p02 {
-  height: 30px;
+  height: 40px;
   width: 100%;
   margin: 10px 0;
   border-bottom: 1px solid #ddd;
    span {
   width: 100px;
-  line-height: 30px;
+  line-height:40px;
   text-align: center;
-  border-right: 0.5px solid #999;
   color: $black;
   float: left;
   cursor: pointer;
+  font-size: 14px;
 }
-	.cur {
-  border-bottom: 2px solid #e7151b;
-  color: $red;;
+ .cur {
+  color: #39f;
+  border-bottom: 2px solid #39f;
 	}
 }
 

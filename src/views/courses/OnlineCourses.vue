@@ -6,10 +6,11 @@
         	<img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
         <div class="video-title"><a :title="item[1].name">{{ item[1].name }}</a></div>
         <div class="buss-info"><span class="score"><i></i><font>{{ item[1].grade }}</font>分</span>
-        	<span class="person-current"><i></i><font>{{ item[1].quantity }}</font>人</span><span class="classes">
-        		课时:</span><font>{{ item[1].period }}&nbsp;</font><span>节</span>
+        	<span class="person-current"><i></i><font>{{ item[1].quantity }}</font>人</span> 	
+        	<span>孙炜老师</span>
         </div>
         <div class="price"><span>价格:<font class="rd">￥{{ item[1].money }}</font></span>
+        		/<font>{{ item[1].period }}&nbsp;</font><span>节</span>
         	<router-link :to="{name: 'videoinfo',query:{ id:item[1].id}}"
         		v-if="item[1].audition === '1'" class="free">试听</router-link>
         </div>

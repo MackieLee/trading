@@ -4,12 +4,12 @@
       <p>
         <i></i>当前位置 : &nbsp;
         <router-link :to="{ name: 'offline' }">&nbsp;&nbsp;线下课程</router-link>
-        &nbsp;&gt;&nbsp;土地增值税清算技巧[专题]</p>
+        &nbsp;&gt;&nbsp;土地增值税实战与案例精解</p>
     </div>
     <div id="xxkc_xq01">
       <img src="../../assets/images/jitax_线下课程_xq01.png">
       <div class="xq01_r">
-        <h2>【自营】土地增值税实战与案例精解</h2>
+        <h2>土地增值税实战与案例精解</h2>
         <P class="share-in">课程状态：<a>即将开始</a>
           <span></span>所属类别：<a>公开课</a><span></span><a @click="share"><i></i>分享</a><div class="share-box" v-show="showShare"><i class="arrow"></i><i class="weibo"></i><i class="wechat"></i><i class="qq"></i></div></P>
         <P>开课时间：<a>2017年-11月17日 08:30-17:00</a></P>
@@ -22,10 +22,9 @@
             <del>￥62.56</del>
           </li> -->
           <li>
-            <A>
-              <i></i>加入收藏</A>
+            <A><i></i>加入收藏</A>
           </li>
-          <li class="r">
+          <li>
              <router-link :to="{name:'detailbd'}" >立即报名</router-link>
           </li>
 
@@ -229,10 +228,15 @@ i {
     font-size: 12px; margin-bottom:10px;
     font-weight: bold;
        }
-       .div{border: 1px solid #ccc; padding: 8px; margin: 5px 0;
+       .div{border: 1px solid #ccc;
+        padding: 8px; 
+        margin: 5px 0;
        p{margin: 5px 0; }
-       	.price{font-size: 16px;color: #e7141a;margin:0;}
-       	del,span{font-size: 12px;color: #333;}
+       	.price{font-size: 16px;
+       	color: #e7141a;
+       	margin:0;}
+       	del,span{font-size: 12px;
+       	color: #333;}
        }
       img{
         width:140px; height:70px; margin-bottom: 5px;
@@ -256,7 +260,9 @@ img {
   padding-bottom: 26px;
   font-size: 14px;
   a{font-size: 13px;}
-  .a{color:red;cursor:pointer;}
+  .a{color:red;
+  	cursor:pointer;
+  	}
 }
 
 #xxkc_xq01 .xq01_r p {
@@ -292,7 +298,6 @@ img {
   width: 100%;margin-top: 15px;
   overflow: hidden;
 }
-
 #xxkc_xq01 .xq01_r ul li {
   float: left;
   color: $red;
@@ -323,7 +328,9 @@ img {
   line-height: 34px;
   cursor: pointer;
   i {
-    background-position: -99px -156px;
+  	height:20px;
+    width:22px;
+    background-position: -99px -158px;
     position: relative;
     top: 7px;
   }

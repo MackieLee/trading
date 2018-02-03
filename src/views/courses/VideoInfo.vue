@@ -7,7 +7,7 @@
     <div class="cur-posi">
       <p>
         <i></i>当前位置 :&nbsp;
-        <router-link :to="{ name: 'offline' }">&nbsp;&nbsp;线上课程</router-link>
+        <router-link :to="{ name: 'online' }">&nbsp;&nbsp;线上课程</router-link>
         &nbsp;&gt;&nbsp;{{ course.name }}</p>
     </div>
     <div id="xxkc_xq01">
@@ -24,7 +24,7 @@
         <P class="p"> <b>￥</b> {{ course.money }} —— {{ length*50 }}.00<del>￥{{ course.money_marketing }}</del></P>
         <P class="share-in">课程状态：热播
           <a @click="showShare = !showShare"><i></i>分享</a><div class="share-box" v-show="showShare"><i class="arrow"></i><i class="weibo"></i><i class="wechat"></i><i class="qq"></i></div></P>
-        <P>课时：{{ length }}</P>
+        <P>小节：{{ length }}</P>
         <p>适宜人群：{{ course.crowd }}</p>
         <p class="p01">
         	<span @click='cur01=true' v-bind:class="{'red':cur01}">系列</span>
@@ -36,7 +36,7 @@
         </p>
         <ul>
           <li @click="pay">
-            <a  class="a">
+            <a  class="a" style="width: 120px;">
               <i></i>加入购物车</a>
           </li>
           <li class="r">

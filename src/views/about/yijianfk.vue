@@ -1,10 +1,5 @@
 <template>
   <div class="about">
-    <div class="cur-posi">
-      <p>
-        <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;意见反馈</p>
-    </div>
   <div class="content">
   	 <font>意见反馈（你的建议就是我们的动力）</font>
   	    <div class="flex">
@@ -58,7 +53,7 @@ export default {
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .about {
-  width: $width;
+  width:890px;
   margin: 0 auto;
   ::-webkit-input-placeholder {
   color:    #aeaeae;

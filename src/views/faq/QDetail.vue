@@ -233,10 +233,10 @@ export default {
             margin-left:30px;
           }
           .watch i {
-            background-position: -239px -255px;
+            background-position: -140px -192px;
           }
           .cancel-watch i {
-            background-position: -143px -192px;
+            background-position: -237px -378px;
           }
           .tags {
             margin:0px 17px;

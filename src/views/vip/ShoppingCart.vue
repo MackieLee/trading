@@ -10,9 +10,11 @@
         <!-- <span>删除</span> -->
       </div>
       <div class="title">
-        <span class="fl">播单</span>
-        <span class="fr" style="text-align:center">操作</span>
-        <span class="fr">视频数</span>
+        <span class="fl">商品信息</span>
+         <span class="fr">单价（元）</span>
+         <span class="frr">数量</span>
+         <span class="fr">实付金额（元）</span>
+        <span class="fr" style="text-align:center">操作</span>     
       </div>
       <div style="height:20px;"></div>
     </div>
@@ -20,43 +22,59 @@
       <CheckboxGroup v-model="bodanDel" @on-change="bodanDelChange">
       <table>
         <tr>
-          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox><span class="date">2017-08-31</span> 订单号:324151234134132 <span style="float:right;margin-right:20px;font-weight:normal;cursor:pointer"><Icon type="ios-trash-outline" size="16" style="margin-right:10px;"></Icon>删除</span></th>
+          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox>
+          			订单号:324151234134132<span class="date">2017-08-31</span>
+          			<span style="cursor:pointer; float: right; margin-right: 20px;">删除</span>
+          </th>
         </tr>
         <tr>
           <td><img src="../../assets/images/huanyuanzx02.png"/></td>
-          <td width="300">秃顶增值税清算土地增值税清算</td>
-          <td width="100">￥4588.00</td>
-          <td width="100">视频</td>
-          <td width="100">应付 ￥4588.00</td>
-          <td width="120"><Button type="error" @click="payNow">立即付款</Button></td><!-- 函数传参item.id -->
+          <td width="310" style="text-align:left; text-indent:1em;">2016国家税务总局42号公告解读之关联申报管理</td>
+          <td width="110">￥4588.00</td>
+          <td width="60">1</td>
+          <td width="110">￥4088.00</td>  
+          <td width="110"><Button type="error">立即付款</Button></td>
+        
+          <!-- 函数传参item.id -->
         </tr>
       </table>
       <table>
         <tr>
-          <th colspan="6"><Checkbox :label="'2'"><span style="display:none"></span></Checkbox><span class="date">2017-08-31</span> 订单号:324151234134132</th>
+          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox>
+          			订单号:324151234134132<span class="date">2017-08-31</span>
+          			<span style="cursor:pointer; float: right; margin-right: 20px;">删除</span>
+          </th>
         </tr>
         <tr>
           <td><img src="../../assets/images/huanyuanzx02.png"/></td>
-          <td width="300">秃顶增值税清算土地增值税清算</td>
-          <td width="100">￥4588.00</td>
-          <td width="100">视频</td>
-          <td width="100">应付 ￥4588.00</td>
-          <td width="120"><Button type="error">立即付款</Button></td>
+          <td width="310" style="text-align:left; text-indent:1em;">2016国家税务总局42号公告解读之关联申报管理</td>
+          <td width="110">￥4588.00</td>
+          <td width="60">1</td>
+          <td width="110">￥4088.00</td>  
+          <td width="110"><Button type="error">立即付款</Button></td>
+        
+          <!-- 函数传参item.id -->
         </tr>
       </table>
       <table>
         <tr>
-          <th colspan="6"><Checkbox :label="'3'"><span style="display:none"></span></Checkbox><span class="date">2017-08-31</span> 订单号:324151234134132</th>
+          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox>
+          			订单号:324151234134132<span class="date">2017-08-31</span>
+          			<span style="cursor:pointer; float: right; margin-right: 20px;">删除</span>
+          </th>
         </tr>
         <tr>
           <td><img src="../../assets/images/huanyuanzx02.png"/></td>
-          <td width="300">秃顶增值税清算土地增值税清算</td>
-          <td width="100">￥4588.00</td>
-          <td width="100">视频</td>
-          <td width="100">应付 ￥4588.00</td>
-          <td width="120"><Button type="error">立即付款</Button></td>
+           <td width="310" style="text-align:left; text-indent:1em;">2016国家税务总局42号公告解读之关联申报管理</td>
+          <td width="110">￥4588.00</td>
+          <td width="60">1</td>
+          <td width="110">￥4088.00</td>  
+          <td width="110"><Button type="error">立即付款</Button></td>
+        
+          <!-- 函数传参item.id -->
         </tr>
       </table>
+      <Button type="error jiesuan">去结算</Button>
       </CheckboxGroup>
     </div>
   </div>
@@ -146,19 +164,12 @@ export default {
   }
 }
 .head {
-  .title {
-    background-color: $bg-nav;
-    line-height: 35px;
-    overflow: hidden;
-    span {
-      width:105px;
-      text-align: center;
-    }
-  }
-}
-.all{
-  line-height:35px;
-  margin: 15px 0;
+	  overflow: hidden;
+	  margin: 5px 0;
+	  height:36px;
+	.all{
+		float: left;
+    line-height:36px;
   label{
     margin:0 15px 0 10px;
   }
@@ -168,30 +179,52 @@ export default {
     border: 1px solid $border-dark;
   }
 }
+  .title {
+  	float: left;
+    line-height: 36px;
+    overflow: hidden;
+    .fl{ width:366px;}
+    .fr{ width:100px;}
+    .frr{ width:60px;}
+    span{
+      text-align: center;
+      display: inline-block;
+    }
+  }
+}
 .upload-box {
-  border: 1px solid $border-dark;
+	width: 100%;
   margin-bottom: 20px;
+  overflow: hidden;
   .ivu-checkbox-inner{
     border-color:#fff !important;
   }
+    .jiesuan{ float: right;
+    			width: 120px;
+    			margin: 20px;
+    }
   table {
+  	width: 100%;
+  	border: 1px solid #ddd;
+  	margin-bottom: 10px;
     th {
-      font-weight: bold;
-      color: #fff;
+       color: #fff;
       text-align: left;
-      background-color: #308CEE;
-      line-height: 30px;
-      padding-left: 10px;
+       background-color: #39f;
+       height: 36px;
+      line-height: 36px;
+       padding-left: 10px;
       .date {
-        color: $dark;
-        margin: 36px 20px;
+         margin: 36px 5px;
       }
     }
     td {
-      text-align: center;
+       text-align: center;
       border-right: 1px solid #ddd;
+       img{margin:5px 5px 5px 0;}
+     button{ padding: 5.5px;}
       p {
-        line-height: 30px;
+         line-height: 30px;
         cursor: pointer;
       }
     }

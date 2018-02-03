@@ -87,8 +87,9 @@ export default {
     margin-top: 26px;
     display: flex;
     .lf {
-      width: 224px;
+      width:180px;
       padding-bottom: 90px;
+       margin-left: 44px;
       p {
         margin: 15px 10px;
       }
@@ -115,12 +116,11 @@ export default {
         p {
           margin: 15px 0;
           padding: 5px 30px;
-          width: 224px;
+          width:180px;
           color: #333;
           text-align: left;
           cursor: pointer;
           i{margin-right: 6px;}
-
         .t-kecheng { background-position: -58px -221px;}
         .t-video{ background-position: -15px -388px;}
         .t-wenda { background-position: -143px -228px;}

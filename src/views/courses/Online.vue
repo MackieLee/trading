@@ -58,8 +58,9 @@
           </ul>
         </p>
       </div>
-      <div>
-        <input placeholder="搜索"/>
+      <div class="shousuo">  	
+      	<input class="shousuo1" type="text" placeholder="搜索">
+        <input class="shousuo2" type="button" value="搜一下"/>
       </div>
       <div class="sorts">
         <p>
@@ -85,7 +86,7 @@ export default {
     return {
       industry:['房地产','建筑安装'],
       topics: ['全部', '土地增值税', '营改增', '收并购重组', '税务战略与管理'],
-      leaders: ['牛鲁鹏', '王志国'],
+      leaders: ['孙炜', '王志国'],
       easy: ['全部会计专员', '财务经理', '总监'],
       fee: ['全部'],
       sorts: ['最新', '最热', '好评', '免费'],
@@ -149,6 +150,25 @@ export default {
       }
     }
   }
+  div[class="shousuo"]{
+  	.shousuo1{
+  	margin-top: 4px;
+  	width: 300px;
+    height: 26px;
+    line-height: 26px;
+    border: 1px solid #ff7f00;
+    outline: none;
+    padding-left: 10px;
+  	}
+  	.shousuo2{ 
+  	height: 26px;
+    line-height: 26px;
+    border: none;
+    background-color: #ff7f00;
+    width:60px;
+    color: #fff;
+    }
+    }
   div[class="cur-posi"] {
     height: auto;
     line-height: 0;

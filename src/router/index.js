@@ -14,7 +14,6 @@ import Leibiebox from '../views/faq/Leibiebox'//税收类别
 import TiwenMore from '../views/faq/TiwenMore'//问答提问页面
 import book from '../views/book/Book'//图书
 import item from '../views/book/Item'//图书详情
-import about from '../views/about/About'//关于我们
 import customize from '../views/customize/Customize'//课程定制
 // --------------------法规查询----------------------------------
 import fagui from '../views/fagui/Fagui'//法规
@@ -83,11 +82,16 @@ import pay from '../views/account/Pay'//支付页面
 import pay1 from '../views/account/Pay1'//支付页面
 import pay2 from '../views/account/Pay2'//支付页面
 import payok from '../views/account/payok'//支付页面
-// ----------------------footer----------------------------------
-import hezuo from '../views/footer/hezuo'//服务条款/市场合作
-import copy from '../views/footer/copy'//版权声明
-import Explain from '../views/footer/Explain'//版权声明
-import yijianfk from '../views/footer/yijianfk'//意见反馈
+// ----------------------About——footer----------------------------------
+import about from '../views/about/About'//关于我们
+import abt from '../views/about/abt'//关于我们
+import kechengsm from '../views/about/kechengsm'//课程说明
+import dayism from '../views/about/dayism'//答疑说明
+import Help from '../views/about/Help'//帮助中心
+import shichanghz from '../views/about/shichanghz'//市场合作
+import copy from '../views/about/copy'//版权声明
+import fuwutk from '../views/about/fuwutk'//服务条款
+import yijianfk from '../views/about/yijianfk'//意见反馈
 
 Vue.use(Router)
 
@@ -214,6 +218,59 @@ const routes = [
 			    name: 'detailbd',
 			    component: detailbd
 			  },
+			 
+      //关于我们---------------
+      {
+        path: 'about',
+        name: 'about',
+        component: about,
+        redirect: {
+          name: 'abt'
+        },
+        children: [
+          {
+            path: 'abt',
+            name: 'abt',
+            component: abt
+          },
+          {
+            path: 'kechengsm',
+            name: 'kechengsm',
+            component: kechengsm
+          },
+           {
+            path: 'dayism',
+            name: 'dayism',
+            component: dayism
+          },
+      {
+        path: 'Help',
+        name: 'Help',
+        component: Help
+      },
+      {
+        path: 'shichanghz',
+        name: 'shichanghz',
+        component: shichanghz
+      },
+      {
+        path: 'copy',
+        name: 'copy',
+        component: copy
+      },
+      {
+        path: 'fuwutk',
+        name: 'fuwutk',
+        component: fuwutk
+      },
+      {
+        path: 'yijianfk',
+        name: 'yijianfk',
+        component: yijianfk
+      }
+        ]
+      },
+      
       // 普通用户端----------------
       {
         path: 'vip',
@@ -500,26 +557,6 @@ const routes = [
         path: 'fagui-search',
         name: 'fsearch',
         component: fsearch
-      },
-      {
-        path: 'hezuo',
-        name: 'hezuo',
-        component: hezuo
-      },
-      {
-        path: 'copy',
-        name: 'copy',
-        component: copy
-      },
-      {
-        path: 'Explain',
-        name: 'Explain',
-        component: Explain
-      },
-      {
-        path: 'yijianfk',
-        name: 'yijianfk',
-        component: yijianfk
       }
     ]
   },

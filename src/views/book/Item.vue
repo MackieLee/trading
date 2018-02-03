@@ -3,7 +3,7 @@
     <div class="cur-posi">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/book">图书</router-link>&nbsp;&gt;&nbsp;图书详情 b         
+        <router-link to="/book">图书</router-link>&nbsp;&gt;&nbsp;图书详情          
       </p>
     </div>
     <div class="product-msg">
@@ -317,10 +317,9 @@ export default {
     position: relative;
     border-bottom: 1px solid $border-rice;
     span {
-      padding: 4px 19px;
-      margin-right: 10px;
+      padding: 4px 14px;
       background-image: url("../../assets/images/Sprite.png");
-      background-position: -5px -253px;
+      background-position: -17px -12px;
     }
     font {
       font-size: 18px;

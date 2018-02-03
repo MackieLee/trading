@@ -77,12 +77,11 @@
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
-          <span class="grey">￥</span>
-          <del class="grey origin-price">62.56</del>
+          <del class="grey origin-price">￥62.56</del>
           <a class="im-buy">购买</a>
         </p>
       </router-link>
-      <div class="item">
+      <router-link to="/item" tag="div" class="item">
         <div>
           <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
@@ -93,12 +92,11 @@
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
-          <span class="grey">￥</span>
-          <del class="grey origin-price">62.56</del>
+          <del class="grey origin-price">￥62.56</del>
           <a class="im-buy">购买</a>
         </p>
-      </div>
-      <div class="item">
+      </router-link>
+      <router-link to="/item" tag="div" class="item">
         <div>
           <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
@@ -109,12 +107,11 @@
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
-          <span class="grey">￥</span>
-          <del class="grey origin-price">62.56</del>
+          <del class="grey origin-price">￥62.56</del>
           <a class="im-buy">购买</a>
         </p>
-      </div>
-      <div class="item">
+      </router-link>
+      <router-link to="/item" tag="div" class="item">
         <div>
           <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
@@ -125,75 +122,11 @@
         </p>
         <p class="buss-info">￥
           <span class="current-price">51.00</span>
-          <span class="grey">￥</span>
-          <del class="grey origin-price">62.56</del>
+          <del class="grey origin-price">￥62.56</del>
           <a class="im-buy">购买</a>
         </p>
-      </div>
-      <div class="item">
-        <div>
-          <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
-            <span class="new">NEW</span>
-          </a>
-        </div>
-        <p class="book-name">
-          <a>土地增值税实战与案例</a>
-        </p>
-        <p class="buss-info">￥
-          <span class="current-price">51.00</span>
-          <span class="grey">￥</span>
-          <del class="grey origin-price">62.56</del>
-          <a class="im-buy">购买</a>
-        </p>
-      </div>
-      <div class="item">
-        <div>
-          <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
-            <span class="new">NEW</span>
-          </a>
-        </div>
-        <p class="book-name">
-          <a>土地增值税实战与案例</a>
-        </p>
-        <p class="buss-info">￥
-          <span class="current-price">51.00</span>
-          <span class="grey">￥</span>
-          <del class="grey origin-price">62.56</del>
-          <a class="im-buy">购买</a>
-        </p>
-      </div>
-      <div class="item">
-        <div>
-          <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
-            <span class="new">NEW</span>
-          </a>
-        </div>
-        <p class="book-name">
-          <a>土地增值税实战与案例</a>
-        </p>
-        <p class="buss-info">￥
-          <span class="current-price">51.00</span>
-          <span class="grey">￥</span>
-          <del class="grey origin-price">62.56</del>
-          <a class="im-buy">购买</a>
-        </p>
-      </div>
-      <div class="item">
-        <div>
-          <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
-            <span class="new">NEW</span>
-          </a>
-        </div>
-        <p class="book-name">
-          <a>土地增值税实战与案例</a>
-        </p>
-        <p class="buss-info">￥
-          <span class="current-price">51.00</span>
-          <span class="grey">￥</span>
-          <del class="grey origin-price">62.56</del>
-          <a class="im-buy">购买</a>
-        </p>
-      </div>
+      </router-link>
+      
     </div>
     <div class="modals">
       <div class="item" @mouseenter="modalBlock" @mouseleave="modalHide">
@@ -397,7 +330,7 @@ export default {
       bottom: 3px;
     }
     .book-name {
-      margin: 15px 0 20px 0;
+      margin:5px 0px;
       a { margin-right: 30px;
         font-size: 16px;}
     }
@@ -405,8 +338,7 @@ export default {
       font-size: 14px;
       color: $red;
       .current-price {
-        font-size: 22px;
-        margin-right: 10px;
+        font-size: 20px;
       }
       .grey {
         color: $dark;

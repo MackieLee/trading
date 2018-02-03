@@ -125,7 +125,8 @@ export default {
     margin-top: 26px;
     display: flex;
     .lf {
-      width: 224px;
+      width:180px;
+      margin-right: 44px;
       padding-bottom: 90px;
 			.name{margin-left: 10px;
 				      p {
@@ -151,9 +152,10 @@ export default {
         p {
           margin:15px 0;
           padding: 5px 30px;
-          width: 224px;
+          width: 100%;
           color: #333;
           text-align: left;
+          font-size: 13px;
           cursor: pointer;
           i{margin-right:20px;}
         }
