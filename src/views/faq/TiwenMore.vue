@@ -13,7 +13,7 @@
     </div>
       <div class="title">我要提问</div>
       <ul class="leibie">
-      	<li v-for="item in items" :key="item.id" @click="selAdd(item.id)">{{ item.name }}</li>
+      	<li v-for="item in items" :key="item.id" @click="selAdd(item.id)" :class="seled(item.id)">{{ item.name }}</li>
       </ul>
       <Form ref="ask" :model="ask" :roules="askValidate">
         <FormItem prop = "title">
@@ -102,6 +102,15 @@ export default {
       this.ask.content = ''
       this.ask.teacher = ''
       this.ask.choose = false
+    },
+    seled(id){
+      if(this.sel.length != 0){
+        for(let i = 0;i<this.sel.length;i++){
+          if(this.sel[i] === id){
+            return 'active'
+          }
+        }
+      }
     },
     selAdd(id){
       if(this.sel.length != 0){
