@@ -7,11 +7,7 @@
         <router-link to="/Faq">问答</router-link>&nbsp;&gt;&nbsp;提问</p>
     </div>
       <div class="title">我要提问</div>
-      <div class="sub-title"><i></i>请选出您要咨询的问题分类</div>
-      <ul class="leibie">
-      	<li v-for="item in items " :key="item.id" @click="thisItem = item.id" :class="{'active':thisItem===item.id}">{{ item.name }}</li>
-      </ul>
-      <Form ref="ask" :model="ask" :roules="askValidate">
+            <Form ref="ask" :model="ask" :roules="askValidate">
         <FormItem prop = "title">
         	<div class="sub-title sub-title1"><i></i>请您列出您要咨询的问题的标题</div>
           <Input v-model="ask.title" placeholder="输入下您的问题"></Input>
@@ -20,6 +16,10 @@
         <FormItem prop="content">
           <Input v-model="ask.content" type="textarea" :rows="6" placeholder="请在这儿描述您的问题"></Input>
         </FormItem>
+     <div class="sub-title"><i></i>请选出您要咨询的问题分类</div>
+      <ul class="leibie">
+      	<li v-for="item in items " :key="item.id" @click="thisItem = item.id" :class="{'active':thisItem===item.id}">{{ item.name }}</li>
+      </ul>
         <FormItem>
           <Row>
             <Col span="12"  style="width: 20%">
@@ -147,7 +147,7 @@ i {
 .content{width: 1090px; 
  margin: 10px auto;
  .sub-title1{margin: 0px auto 0px !important;}
- .sub-title{margin: 10px auto 0px;
+ .sub-title{margin: 10px auto;
  font-size: 14px;
  color: #333;
  i{background-position: -18px -101px;}

@@ -1,10 +1,5 @@
 <template>
-  <div class="about">
-    <div class="cur-posi">
-      <p>
-        <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;关于我们</p>
-    </div>
+  <div class="abt">
     <div class="container">
       <p class="title">
         <i></i>ABOUT US
@@ -63,10 +58,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
-.about {
-  width: $width;
+.abt {
+  width:890px;
   margin: 0 auto;
-  padding-top: 20px;
   .bold-title{
     font-size: 16px;
   }
@@ -101,7 +95,7 @@ export default {
       overflow: hidden;
       img {
         float: left;
-        margin: 15px 60px 65px 30px;
+        margin:10px 30px 0px;
       }
       p {
         margin: 0 45px 20px 60px;

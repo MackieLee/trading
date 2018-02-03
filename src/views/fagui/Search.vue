@@ -17,7 +17,7 @@
         <div class="content clearfix">
           <dl>
             <dd v-for="item in newArr" :key="item.id">
-              <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}" class="newtitle">
+              <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}"  class="newtitle">
                 {{ item.name }}
               </router-link>
               <span class="date">{{ item.time }}</span>
@@ -38,12 +38,10 @@
               <FormItem label="标题" prop="title">
                 <Input v-model="federalSearch.title" placeholder="请输入法规标题"></Input>
               </FormItem>
-               <span style="margin: 0px 10px;" >
               </span>
               <FormItem label="文号" prop="zihao">
                 <Input v-model="federalSearch.zihao" placeholder="国税发〔2009〕31号"></Input>
               </FormItem>
-               <span style="margin: 0px 10px;" >
               </span>
               <FormItem label="发文年度" prop="niandu">
                 <Input v-model="federalSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
@@ -72,8 +70,9 @@
                 </Row>
               </FormItem>
               <FormItem>
-                <Button type="primary" style="width:130px" @click="handleSubmit('federalSearch')">检索</Button>
-                <Button type="ghost" style="margin-top: 10px;width:130px" @click="handleReset('federalSearch')">重置</Button>
+                <Button type="primary" style="width:70px" @click="handleSubmit('federalSearch')">
+                	检索</Button>
+                <Button type="ghost" style="margin-left: 10px;width:70px" @click="handleReset('federalSearch')">重置</Button>
               </FormItem>
             </Form>
           </div>
@@ -84,7 +83,13 @@
                   <Option v-for="area in areas" :key="area.id" :value="area.name">{{ area.name }}</Option>
                 </Select>
               </FormItem>
-              <FormItem label="标题">
+               
+    <FormItem label="税收分类">
+   <Select v-model="localSearch.item" style="width:130px">
+      <Option v-for="item in classify" :key="item.id" :value="item.name">{{ item.name }}</Option>
+    </Select>
+  </FormItem>
+					   <FormItem label="标题">
                 <Input v-model="localSearch.title" placeholder="请输入法规标题"></Input>
               </FormItem>
               <FormItem label="文号">
@@ -107,9 +112,9 @@
                 </Row>
               </FormItem>
               <FormItem>
-                <Button type="primary" style="width:130px" @click="handleSubmit('localSearch')">
+                <Button type="primary" style="width:70px" @click="handleSubmit('localSearch')">
                 	检索</Button>
-                <Button type="ghost" style="margin-top: 10px;width:130px"
+                <Button type="ghost" style="margin-left: 10px;width:70px"
                 	 @click="handleReset('localSearch')">重置</Button>
               </FormItem>
             </Form>
@@ -354,10 +359,14 @@ export default {
       .content {
         border: 1px solid $border-dark;
         border-top: none;
-        height: 480px;
+        height: 506px;  
+        dd:hover{
+        .newtitle,.date{color: red;} 
+        	} 
         dd {
           position: relative;
-          padding: 13px 5px 0px 15px;
+          padding: 13px 5px 0px 15px;      
+           
           .newtitle {
             display: inline-block;
             color: #333;
@@ -391,6 +400,9 @@ export default {
         .policy {
           height: 100%;
           padding: 4px 15px;
+          li:hover{
+          	span{color: red;}
+          	}
           li {
             float: left;
             font-size: 14px;

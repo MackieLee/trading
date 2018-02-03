@@ -218,6 +218,59 @@ const routes = [
 			    name: 'detailbd',
 			    component: detailbd
 			  },
+			 
+      //关于我们---------------
+      {
+        path: 'about',
+        name: 'about',
+        component: about,
+        redirect: {
+          name: 'abt'
+        },
+        children: [
+          {
+            path: 'abt',
+            name: 'abt',
+            component: abt
+          },
+          {
+            path: 'kechengsm',
+            name: 'kechengsm',
+            component: kechengsm
+          },
+           {
+            path: 'dayism',
+            name: 'dayism',
+            component: dayism
+          },
+      {
+        path: 'Help',
+        name: 'Help',
+        component: Help
+      },
+      {
+        path: 'shichanghz',
+        name: 'shichanghz',
+        component: shichanghz
+      },
+      {
+        path: 'copy',
+        name: 'copy',
+        component: copy
+      },
+      {
+        path: 'fuwutk',
+        name: 'fuwutk',
+        component: fuwutk
+      },
+      {
+        path: 'yijianfk',
+        name: 'yijianfk',
+        component: yijianfk
+      }
+        ]
+      },
+      
       // 普通用户端----------------
       {
         path: 'vip',
@@ -504,46 +557,6 @@ const routes = [
         path: 'fagui-search',
         name: 'fsearch',
         component: fsearch
-      },
-      {
-        path: 'abt',
-        name: 'abt',
-        component: abt
-      },
-      {
-        path: 'kechengsm',
-        name: 'kechengsm',
-        component: kechengsm
-      },
-      {
-        path: 'dayism',
-        name: 'dayism',
-        component: dayism
-      },
-      {
-        path: 'Help',
-        name: 'Help',
-        component: Help
-      },
-      {
-        path: 'shichanghz',
-        name: 'shichanghz',
-        component: shichanghz
-      },
-      {
-        path: 'copy',
-        name: 'copy',
-        component: copy
-      },
-      {
-        path: 'fuwutk',
-        name: 'fuwutk',
-        component: fuwutk
-      },
-      {
-        path: 'yijianfk',
-        name: 'yijianfk',
-        component: yijianfk
       }
     ]
   },

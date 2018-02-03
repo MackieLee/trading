@@ -27,12 +27,12 @@
               <router-link :to="{ path:'copy' }">版权声明</router-link>
             </li>
             <li>
-              <router-link :to="{ name:'/copy#app' }">服务条款</router-link>
+              <router-link :to="{ path:'copy#app' }">服务条款</router-link>
             </li>
           </ul>
         </div>
         <div class="bussiness">
-        	 <router-link tag='p' :to="{ path:'/yijianfk' }">意见反馈</router-link>
+        	 <router-link tag='p' :to="{ path:'yijianfk' }">意见反馈</router-link>
           <p>
             <i class="mail"></i>jdtax@jdtax.cn</p>
           <p>

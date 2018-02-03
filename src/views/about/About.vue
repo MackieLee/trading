@@ -25,7 +25,7 @@
 import { loginUserUrl } from '@/api/api'
 import { getCookie } from "@/util/cookie"
 export default {
-  name:'vip',
+  name:'about',
   data(){
     return{
       tags:[
@@ -66,14 +66,13 @@ export default {
   },
   methods:{
   },
-  created () {
-    let cookieName = getCookie('u_name')
-    if(cookieName !== '' && cookieName !== 'undefined' ){
-    }else{
-      this.$router.push({name:'login'})
-    }
-  }
-
+//created () {
+//  let cookieName = getCookie('u_name')
+//  if(cookieName !== '' && cookieName !== 'undefined' ){
+//  }else{
+//    this.$router.push({name:'login'})
+//  }
+//}
 }
 </script>
 
@@ -106,7 +105,6 @@ export default {
     display: flex;
     .lf {
       width:180px;
-      margin-right: 44px;
       padding-bottom: 90px;
 			.name{margin-left: 10px;
 				      p {
@@ -167,8 +165,7 @@ export default {
       }
     }
     .rt{
-      width: 811px;
-      margin-left: 55px;
+      width: 910px;
     }
   }
 }

@@ -7,7 +7,7 @@
     <div class="cur-posi">
       <p>
         <i></i>当前位置 :&nbsp;
-        <router-link :to="{ name: 'offline' }">&nbsp;&nbsp;线上课程</router-link>
+        <router-link :to="{ name: 'online' }">&nbsp;&nbsp;线上课程</router-link>
         &nbsp;&gt;&nbsp;{{ course.name }}</p>
     </div>
     <div id="xxkc_xq01">
@@ -36,7 +36,7 @@
         </p>
         <ul>
           <li @click="pay">
-            <a  class="a">
+            <a  class="a" style="width: 120px;">
               <i></i>加入购物车</a>
           </li>
           <li class="r">

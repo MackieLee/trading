@@ -1,18 +1,14 @@
 <template>
   <div class="about">
-    <div class="cur-posi">
-      <p>
-        <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;新手指南</p>
-    </div>
+
   <div id="xxkc_xq02">
       <div class="xq02_l">
         <h2>
           <!-- .............................. -->
-          <span @click="cur = true" :class="{'cur-active' : cur}">课程说明</span>
-          <span @click="cur = false" :class="{'cur-active' : !cur}">答疑说明</span>
+          <span class="cur-active">课程说明</span>
+          
         </h2>
-        <div class="bofang" v-if="cur">
+        <div class="bofang">
           <P>
           	<h3>播放说明</h3>由于版权问题，我们每节视频目前只支持在线观看三次，每节超过总时长的50%
           	视为播放一次。<br>
@@ -58,54 +54,18 @@
                      如了解详情可以<a href="###" class="a">咨询客服</a>或拨打官网电话010-6231-1360 。 
          </P>
         </div>
-        <div v-else class="bofang">    
-          <P>
-          	 <h3>答疑说明</h3>
-		              本网站支持每个会员向专家提问。
-		      </P>
-		      <P>
-		      <h3>在线提问</h3>
-		     	  【官方提问】<br>
-		     <font>1、</font>登录网站首页，点击登录按钮，在登录页面键入您的会员账号、密码及验证码后。<br>
-          <font>2、</font>如未注册，先注册，填写个人信息后，同意协议，提交完成注册。<br>
-		      <font>3、</font>登录网站，进入问答页面，点击我要提问或进入专家个人详情页面，都可提问。 <br>
-		      <font>4、</font>点击“我要提问”，描述你的问题，可选择“指定老师回答”和勾选“超过24h自动转为专家团”回答。 <br>
-          <font>5、</font>指定老师回答，若老师24小时内未回答，自动转入专家团问答，差额退回，不转入可勾选继续等待。<br>
-          <font>6、</font>描述完点击提交即可，你的问题会在第一时间得到解答。<br>
-          <font>7、</font> 提问成功后，系统会提示您“提交成功”。<br>
-          <font>8、</font> 提交成功后，可在会员中心——我的问答,查看提交的问题,也能查看老师给您的回复，点击“查看更多”，
-          		即可查看该知识点下的全部答疑内容；如未解决您的问题，您也可以拨打官方电话咨询010-6231-1360。
-         </P>
         
-     
-        </div>
       </div>
     </div>
   
   </div>
 </template>
-<script>
-export default {
-  name: "odetail",
-  data() {
-    return {
-      showShare: false,
-      cur:true,
-      cur01:false,
-    };
-  },
-  methods: {
-    share: function() {
-      this.showShare = !this.showShare;
-    }
-  }
-};
-</script>
+
 
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
 .about {
-  width: $width;
+  width: 890px;
   margin: 0 auto;
   .bold-title{
      font-size: 16px;

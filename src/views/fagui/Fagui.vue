@@ -156,6 +156,7 @@ export default {
     width: 130px; padding-left: 20px;
   }
   .biaoti{width: 600px;
+  margin-right:10px;
    white-space: nowrap;
    overflow: hidden;
     text-overflow: ellipsis;}

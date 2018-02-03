@@ -21,18 +21,18 @@
         <ul>
           <li>
             <router-link :to="{name:'login'}">
-              <i class="login"></i>
-              <font>登录</font>
+             <!-- <i class="login"></i>-->
+              <font class="lu">登录</font>
             </router-link>
           </li>
           <li>
             <router-link :to="{name:'register'}">
-              <i class="register"></i>
-              <font>注册</font>
+              <!--<i class="register"></i>-->
+              <font class="zhuce">注册</font>
             </router-link>
           </li>
-          <li>
-          </li>
+          <!--<li>
+          </li>-->
         </ul>
 
       </div>
@@ -95,7 +95,7 @@ export default {
         { name: "图书", link: "book" },
         { name: "定制课程", link: "customize" },
         { name: "会员中心", link: "vip" },
-        { name: "关于我们", link: "about" }
+        { name: "关于我们", link: "abt" }
       ],
       activeItem: "home",
       drop:'',
@@ -174,6 +174,14 @@ export default {
         background-image: url("../../assets/images/Sprite.png");
         background-position: -20px -140px;
       }
+    }
+    .user-info{
+    	li{
+    		font{padding: 5px 8px;
+    		 color: #fff;}
+    		.lu{ background:#39f;}
+    		.zhuce{ background:red;}
+    	}
     }
     .header-nav {
     	li:hover{color:$red;}

@@ -56,7 +56,7 @@ export default {
         { name:'图书',link:'book'},
         { name:'定制课程',link:'customize'},
         { name:'会员中心',link:'vip'},
-        { name:'关于我们',link:'about'}
+        { name:'关于我们',link:'abt'}
       ],
       activeItem:''
     }
