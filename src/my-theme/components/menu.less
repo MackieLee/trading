@@ -123,11 +123,12 @@
     &-item-group{
         line-height: normal;
         &-title {
-            height: 30px;
-            line-height: 30px;
-            padding-left: 8px;
-            font-size: @font-size-small;
-            color: @legend-color;
+          height: 30px;
+          line-height: 30px;
+          padding-left: 8px;
+          font-size: @font-size-small;
+          color: #fff;
+          background-color: #4683ee;
         }
 
         & > ul{
@@ -140,15 +141,15 @@
     &-vertical &-item,
     &-vertical &-submenu-title
     {
-        padding: 14px 24px;
-        position: relative;
-        cursor: pointer;
-        z-index: 1;
-        transition: all @transition-time @ease-in-out;
-
-        &:hover{
-            background: @background-color-select-hover;
-        }
+      padding: 14px 24px;
+      position: relative;
+      cursor: pointer;
+      z-index: 1;
+      transition: all @transition-time @ease-in-out;
+      &:hover{
+        background: #39f;
+        color:#fff;
+      }
     }
 
     &-vertical &-submenu-title-icon{
@@ -183,7 +184,8 @@
     &-light&-vertical &-item{
         border-right: 2px solid transparent;
         &-active:not(.@{menu-prefix-cls}-submenu){
-            color: @primary-color;
+            color: #fff;
+            background-color: #39f;
             border-right: 2px solid @primary-color;
             z-index: 2;
         }

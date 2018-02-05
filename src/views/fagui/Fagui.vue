@@ -31,6 +31,7 @@
             <td class="fahao pointer ctr">{{item[1].reference}}</td>
             <td class="riqi pointer ctr">{{item[1].date_posted}}</td>
           </router-link>
+          <!-- 按照分类获得的列表 -->
           <router-link v-for="(item,index) in cateLst" :key="item.id" tag="tr" :to="{ name:'fdetail',query:{ id:item.id }}">
             <td class="xuhao pointer ctr">{{index+1}}</td>
             <td class="biaoti pointer">{{item.name}}</td>
@@ -62,6 +63,7 @@ export default {
   },
   created () {
     this.onload()
+    // 按照分类获取列表
     if(this.$route.query.form_id){
       let res = loginUserUrl('getlaws_category',{
         username: "niuhongda",
@@ -94,6 +96,7 @@ export default {
         page:this.pageNum,
         number:20
       }).then((res)=>{
+        console.log(res)
         this.total = parseInt(res.data.counts)
         this.list = Object.entries(res.data).slice(0,-1)
       })

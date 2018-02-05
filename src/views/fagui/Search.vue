@@ -16,7 +16,7 @@
         <div class="clearfix"></div>
         <div class="content clearfix">
           <dl>
-            <dd v-for="item in newArr" :key="item.id">
+            <dd v-for="item in newArr" :key="item.id" :title='item.name'>
               <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}"  class="newtitle">
                 {{ item.name }}
               </router-link>
@@ -40,20 +40,20 @@
 						      <Option v-for="item in classify" :key="item.id" :value="item.name">{{ item.name }}</Option>
 						    </Select>
 						  </FormItem>
-  
+
               <FormItem label="标题" prop="title">
-                <Input v-model="federalSearch.title" placeholder="请输入法规标题"></Input>
+                <Input v-model="federalSearch.title"  @keyup.enter.native="handleSubmit('federalSearch')" placeholder="请输入法规标题"></Input>
               </FormItem>
               </span>
               <FormItem label="文号" prop="zihao">
-                <Input v-model="federalSearch.zihao" placeholder="国税发〔2009〕31号"></Input>
+                <Input v-model="federalSearch.zihao"  @keyup.enter.native="handleSubmit('federalSearch')" placeholder="国税发〔2009〕31号"></Input>
               </FormItem>
               </span>
               <FormItem label="发文年度" prop="niandu">
-                <Input v-model="federalSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
-              </FormItem>  
+                <Input v-model="federalSearch.niandu"  @keyup.enter.native="handleSubmit('federalSearch')" placeholder="请输入法规颁布的年度"></Input>
+              </FormItem>
               <FormItem label="发文单位" prop="danwei">
-                <Input v-model="federalSearch.danwei" placeholder="请输入法规颁布的单位"></Input>
+                <Input v-model="federalSearch.danwei"  @keyup.enter.native="handleSubmit('federalSearch')" placeholder="请输入法规颁布的单位"></Input>
               </FormItem>
               <FormItem label="发文日期">
                 <Row>
@@ -89,23 +89,23 @@
                   <Option v-for="area in areas" :key="area.id" :value="area.name">{{ area.name }}</Option>
                 </Select>
               </FormItem>
-               
+
     <FormItem label="税收分类">
    <Select v-model="localSearch.item" style="width:130px">
       <Option v-for="item in classify" :key="item.id" :value="item.name">{{ item.name }}</Option>
     </Select>
   </FormItem>
 					   <FormItem label="标题">
-                <Input v-model="localSearch.title" placeholder="请输入法规标题"></Input>
+                <Input v-model="localSearch.title"  @keyup.enter.native="handleSubmit('localSearch')" placeholder="请输入法规标题"></Input>
               </FormItem>
               <FormItem label="文号">
-                <Input v-model="localSearch.zihao" placeholder="国税发〔2009〕31号"></Input>
+                <Input v-model="localSearch.zihao"  @keyup.enter.native="handleSubmit('localSearch')" placeholder="国税发〔2009〕31号"></Input>
               </FormItem>
               <FormItem label="发文年度">
-                <Input v-model="localSearch.niandu" placeholder="请输入法规颁布的年度"></Input>
+                <Input v-model="localSearch.niandu"  @keyup.enter.native="handleSubmit('localSearch')" placeholder="请输入法规颁布的年度"></Input>
               </FormItem>
               <FormItem label="发文单位">
-                <Input v-model="localSearch.danwei" placeholder="请输入法规颁布的单位"></Input>
+                <Input v-model="localSearch.danwei"  @keyup.enter.native="handleSubmit('localSearch')" placeholder="请输入法规颁布的单位"></Input>
               </FormItem>
               <FormItem label="发文日期">
                 <Row>
@@ -137,7 +137,7 @@
         <div class="clearfix"></div>
         <div class="content clearfix">
           <dl>
-            <dd v-for="item in jieduArr" :key="item.id">
+            <dd v-for="item in jieduArr" :key="item.id"  :title='item.name'>
               <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}" class="newtitle">
                 {{ item.name }}
               </router-link>
@@ -365,14 +365,14 @@ export default {
       .content {
         border: 1px solid $border-dark;
         border-top: none;
-        height: 506px;  
+        height: 506px;
         dd:hover{
-        .newtitle,.date{color: red;} 
-        	} 
+        .newtitle,.date{color: red;}
+        	}
         dd {
           position: relative;
-          padding: 13px 5px 0px 15px;      
-           
+          padding: 13px 5px 0px 15px;
+
           .newtitle {
             display: inline-block;
             color: #333;

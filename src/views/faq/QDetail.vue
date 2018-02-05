@@ -148,29 +148,56 @@ export default {
       this.modal=false
     },
     onWatch: function(state) {
-      state === "watch" ? (this.guanzhu = false) : (this.guanzhu = true);
+      loginUserUrl('getTeacher_Attention',{
+        username: "niuhongda",
+        password: "123123q",
+        uid:getCookie('u_name'),
+        sid:this.$route.query.id,
+        type:1
+      }).then((res)=>{
+        console.log(res)
+      })
+    },
+    onload(){
+      let _self = this
+      // 获取讲师信息
+      let res = loginUserUrl('getTeacher_Info',{
+        username: "niuhongda",
+        password: "123123q",
+        tid:this.$route.query.id
+      }).then((res)=>{
+        _self.intro = res.data
+      })
+      // 获取讲师的问题列表
+      let qls = loginUserUrl('getQuestions_list',{
+        username: "niuhongda",
+        password: "123123q",
+        tid:this.$route.query.id
+      }).then((qls)=>{
+        _self.qls = qls.data
+      })
+      // 获取老师是否已被关注
+      let wch = loginUserUrl('getTeacher_AttentionList',{
+        username: "niuhongda",
+        password: "123123q",
+        uid:getCookie("u_name"),
+        type:'1'
+      }).then((wch)=>{
+        if(wch.code && wch.code !=null){
+          console.log(wch.code)
+          for (let i = 0; i < wch.code.length; i++) {
+            wch.code[i].sid === this.$route.query.id
+              ? (this.guanzhu = true)
+              : this.guanzhu;
+          }
+        }
+      })
     }
   },
   computed: {
   },
   mounted() {
-    let _self = this
-    // 获取讲师信息
-    let res = loginUserUrl('getTeacher_Info',{
-      username: "niuhongda",
-      password: "123123q",
-      tid:this.$route.query.id
-    }).then((res)=>{
-      _self.intro = res.data
-    })
-    // 获取讲师的问题列表
-    let qslst = loginUserUrl('getQuestions_list',{
-      username: "niuhongda",
-      password: "123123q",
-      tid:this.$route.query.id
-    }).then((qslst)=>{
-      _self.qslst = qslst.data
-    })
+    this.onload()
   }
 };
 </script>

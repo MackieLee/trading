@@ -9,19 +9,23 @@
     	<div class="cur-posi lf">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;问答</p>
+        <router-link to="/faq">问答</router-link>&nbsp;&gt;&nbsp;问答</p>
     </div>
       <div class="title">我要提问</div>
-      <ul class="leibie">
-      	<li v-for="item in items" :key="item.id" @click="selAdd(item.id)" :class="seled(item.id)">{{ item.name }}</li>
-      </ul>
       <Form ref="ask" :model="ask" :roules="askValidate">
         <FormItem prop = "title">
+          <div class="sub-title"><i></i>请您列出您要咨询的问题的标题</div>
           <Input v-model.trim="ask.title" placeholder="输入下您的问题"></Input>
         </FormItem>
-        <div class="sub-title">问题描述（选填）:</div>
+        <div class="sub-title"><i></i>请具体描述您要咨询的问题</div>
         <FormItem prop="content">
           <Input v-model.trim="ask.content" type="textarea" :rows="6" placeholder="请在这儿描述您的问题"></Input>
+        </FormItem>
+        <FormItem>
+          <ul class="leibie">
+            <div class="sub-title"><i></i>您可选择税种进行提问</div>
+            <li v-for="item in items" :key="item.id" @click="selAdd(item.id)" :class="seled(item.id)">{{ item.name }}</li>
+          </ul>
         </FormItem>
         <FormItem>
           <Row>
@@ -202,9 +206,15 @@ i {
   }
 }
 .content{width: 1090px; margin: 10px auto;
+    .sub-title{margin: 10px auto;
+    font-size: 14px;
+    color: #333;
+    i{background-position: -18px -101px;}
+    		}
 .leibie{
 	overflow:hidden;
 	margin: 10px auto;
+
 	li{
 		font-size: 14px;
 		margin:10px 10px;

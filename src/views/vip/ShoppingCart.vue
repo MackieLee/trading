@@ -14,7 +14,7 @@
          <span class="fr">单价（元）</span>
          <span class="frr">数量</span>
          <span class="fr">实付金额（元）</span>
-        <span class="fr" style="text-align:center">操作</span>     
+        <span class="fr" style="text-align:center">操作</span>
       </div>
       <div style="height:20px;"></div>
     </div>
@@ -32,15 +32,15 @@
           <td width="310" style="text-align:left; text-indent:1em;">2016国家税务总局42号公告解读之关联申报管理</td>
           <td width="110">￥4588.00</td>
           <td width="60">1</td>
-          <td width="110">￥4088.00</td>  
+          <td width="110">￥4088.00</td>
           <td width="110"><Button type="error">立即付款</Button></td>
-        
+
           <!-- 函数传参item.id -->
         </tr>
       </table>
       <table>
         <tr>
-          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox>
+          <th colspan="6"><Checkbox :label="'2'"><span style="display:none"></span></Checkbox>
           			订单号:324151234134132<span class="date">2017-08-31</span>
           			<span style="cursor:pointer; float: right; margin-right: 20px;">删除</span>
           </th>
@@ -50,15 +50,15 @@
           <td width="310" style="text-align:left; text-indent:1em;">2016国家税务总局42号公告解读之关联申报管理</td>
           <td width="110">￥4588.00</td>
           <td width="60">1</td>
-          <td width="110">￥4088.00</td>  
+          <td width="110">￥4088.00</td>
           <td width="110"><Button type="error">立即付款</Button></td>
-        
+
           <!-- 函数传参item.id -->
         </tr>
       </table>
       <table>
         <tr>
-          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox>
+          <th colspan="6"><Checkbox :label="'3'"><span style="display:none"></span></Checkbox>
           			订单号:324151234134132<span class="date">2017-08-31</span>
           			<span style="cursor:pointer; float: right; margin-right: 20px;">删除</span>
           </th>
@@ -68,13 +68,13 @@
            <td width="310" style="text-align:left; text-indent:1em;">2016国家税务总局42号公告解读之关联申报管理</td>
           <td width="110">￥4588.00</td>
           <td width="60">1</td>
-          <td width="110">￥4088.00</td>  
+          <td width="110">￥4088.00</td>
           <td width="110"><Button type="error">立即付款</Button></td>
-        
+
           <!-- 函数传参item.id -->
         </tr>
       </table>
-      <Button type="error jiesuan">去结算</Button>
+      <Button type="error" class="jiesuan">去结算</Button>
       </CheckboxGroup>
     </div>
   </div>
@@ -200,22 +200,22 @@ export default {
     border-color:#fff !important;
   }
     .jiesuan{ float: right;
-    			width: 120px;
-    			margin: 20px;
+      width: 120px;
+      margin: 20px;
     }
   table {
   	width: 100%;
   	border: 1px solid #ddd;
-  	margin-bottom: 10px;
+  	margin-bottom: 30px;
     th {
-       color: #fff;
+      color: #fff;
       text-align: left;
-       background-color: #39f;
-       height: 36px;
-      line-height: 36px;
-       padding-left: 10px;
+      background-color: #39f;
+      height: 30px;
+      line-height: 30px;
+      padding-left: 10px;
       .date {
-         margin: 36px 5px;
+        margin: 36px 5px;
       }
     }
     td {
