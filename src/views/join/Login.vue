@@ -38,7 +38,7 @@
 						<router-link :to=" { name:'register'} " class="wechat"></router-link>
 						<router-link :to=" { name:'register'} " class="weibo"></router-link>
 						<router-link :to=" { name:'register'} " class="qq"></router-link>
-						<router-link :to=" { name:'register'} " class="alipay"></router-link>
+						<a href="https://openauth.alipay.com/oauth2/publicAppAuthorize.htm?app_id=2018013102120596&scope=auth_user&redirect_uri=http%3a%2f%2faip.kehu.zaidayou.com%2fapi%2fAlipaylogin%2flogin&state=542" class="alipay"></a>
 					</div>
 				</div>
 			</div>

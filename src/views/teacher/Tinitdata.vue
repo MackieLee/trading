@@ -122,7 +122,7 @@ export default {
         position:''
       },
       // 标签
-      tags: ['智商税'],
+      tags: [],
       inputVisible: false,
       inputValue: ''
     }
@@ -132,19 +132,23 @@ export default {
 
     },
     handleSubmit() {
-
+      this.labelAdd()
+      this.labelGet()
     },
     upsuccess() {
       console.log(this);
     },
     // 添加标签
     labelAdd(){
-      let res=loginUserUrl('getTeacher_laberl_Update',{
+      console.log('我提交的数组是这个:')
+      console.log(this.tags)
+      let res=loginUserUrl('getTeacher_laberl',{
         username: "niuhongda",
         password: "123123q",
-        lid:'',
+        tid:1448,
         laberl:this.tags
       }).then((res)=>{
+        console.log('返回的结果:')
         console.log(res)
         // 提交表单的时候同时调用这个函数，提交标签
       })
@@ -154,10 +158,14 @@ export default {
       let res=loginUserUrl('getTeacher_laberl_List',{
         username: "niuhongda",
         password: "123123q",
-        tid:''
+        tid:1448
       }).then((res)=>{
-        console.log(res)
-        // this.tags = res.data.arr 这一行代码只是参考
+        // console.log('get-----')
+        // console.log(res)
+        // console.log('---get')
+        if(res.data[0].label !== ''){
+          this.tags = res.data[0].label.split('"')[1].split(',')
+        }
       })
     },
     selectProvince:function(value){
@@ -186,6 +194,10 @@ export default {
       this.inputVisible = false
       this.inputValue = ''
     }
+  },
+  // 页面创建完成后，加载老师的标签
+  created(){
+    this.labelGet()
   }
 };
 </script>

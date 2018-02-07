@@ -4,125 +4,114 @@
       <p class="sum_of_class">我的收藏</p>
     <!-- 切换-->
     <Menu mode="horizontal" @on-select="toggle($event)" :theme="theme1" active-name="1">
-        <MenuItem name="1">
-         线上课
-        </MenuItem>
-        <MenuItem name="2">
-          法规
-        </MenuItem>
-        <MenuItem name="3">
-           图书
-        </MenuItem>        
-        <MenuItem name="4">
-           讲师
-        </MenuItem>          
-        <MenuItem name="5">
-           线下课
-        </MenuItem>        
-
-    </Menu> 
+      <MenuItem name="1">
+        线上课
+      </MenuItem>
+      <MenuItem name="2">
+        法规
+      </MenuItem>
+      <MenuItem name="3">
+          图书
+      </MenuItem>
+      <MenuItem name="4">
+          讲师
+      </MenuItem>
+      <MenuItem name="5">
+          线下课
+      </MenuItem>
+    </Menu>
     </div>
     <div class="pt-2">
-		  <div class="container" v-if="nameId==='1'">	  	
-		      <div class="item">
-		        <ul>
-		          <li>
-		          	<img src="../../assets/images/huanyuanzx02.png">  
-		          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
-		          	 	<span>讲师：孙炜</span>
-		          	 </strong>
-		          	 	<a>购买</a>
-		         </li>
- 						 <li>
-		          	<img src="../../assets/images/huanyuanzx02.png">  
-		          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
-		          	 	<span>讲师：孙炜</span>
-		          	 </strong>
-		          	 	<a>购买</a>
-		         </li>
-		        </ul>
-		      </div>	
+		  <div class="container" v-if="nameId==='1'">
+        <div class="item">
+          <ul>
+            <li>
+              <img src="../../assets/images/huanyuanzx02.png">
+                <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+                <span>讲师：孙炜</span>
+                </strong>
+                <a>购买</a>
+            </li>
+            <li>
+              <img src="../../assets/images/huanyuanzx02.png">
+                <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+                <span>讲师：孙炜</span>
+                </strong>
+                <a>购买</a>
+            </li>
+          </ul>
+        </div>
 		  </div>
-		 
  		  <div class="container" v-if="nameId==='2'">
       <div class="item">
         <ul>
-          <li class="li_lingyu">
-		          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
-		          	 	<span>财法字〔1995〕6号</span>
-		          	 </strong>
-		         </li>
- 						 <li class="li_lingyu">
-		          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
-		          	 	<span>财法字〔1995〕6号</span>
-		          	 </strong>
-		         </li>
+          <li v-for="item in faguis" :key="item.id" class="li_lingyu">
+            <strong>{{item.name}}
+            <span>{{ item.fanicy }}</span>
+            </strong>
+          </li>
         </ul>
       </div>
   	</div>
-  
   	<div class="container" v-if="nameId==='3'">
       <div class="item">
         <ul>
           <li>
-          		<img src="../../assets/images/huanyuanzx02.png">  
-		          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
-		          	 	<span>简介：</span>
-		          	 </strong>
-		          	 	<a>购买</a>
-		         </li>
- 						 <li>
- 						 		<img src="../../assets/images/huanyuanzx02.png">  
-		          	 <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
-		          	 	<span>简介：</span>
-		          	 </strong>
-		          	 	<a>购买</a>
-		         </li>
+            <img src="../../assets/images/huanyuanzx02.png">
+              <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+              <span>简介：</span>
+              </strong>
+              <a>购买</a>
+            </li>
+ 						<li>
+              <img src="../../assets/images/huanyuanzx02.png">
+              <strong>企业所得税年度纳税申报表中隐藏的稽查陷阱藏的稽查陷
+              <span>简介：</span>
+              </strong>
+              <a>购买</a>
+          </li>
         </ul>
       </div>
   	</div>
-  
   	<div class="container" v-if="nameId==='4'">
       <div class="item">
         <ul>
           <li class="li_lingyu">
-		          	 <strong>孙炜
-		          	 	<span>简介：九鼎财税专家委员会专家</span>
-		          	 	<span>擅长领域：</span>
-		          	 </strong>
-		          	 	<a class="lingyu">资金管理</a>
-		          	 	<a class="lingyu">内控与合规</a>
-		          	 	<a class="lingyu">成本控制</a>
-
-		         </li>
- 						 <li class="li_lingyu">
-		          	 <strong>孙炜
-		          	 	<span>简介：九鼎财税专家委员会专家</span>
-		          	 	<span>擅长领域：</span>
-		          	 </strong>
-		          	 <a class="lingyu">个人所得税</a>
-		          	 <a class="lingyu">房地产</a>
-		          	 <a class="lingyu">融资与上市</a>
-		          	 	<a class="lingyu">兼并重组</a>
-		          	 	    
-		         </li>
+            <strong>孙炜
+            <span>简介：九鼎财税专家委员会专家</span>
+            <span>擅长领域：</span>
+            </strong>
+            <a class="lingyu">资金管理</a>
+            <a class="lingyu">内控与合规</a>
+            <a class="lingyu">成本控制</a>
+          </li>
+          <li class="li_lingyu">
+            <strong>孙炜
+            <span>简介：九鼎财税专家委员会专家</span>
+            <span>擅长领域：</span>
+            </strong>
+            <a class="lingyu">个人所得税</a>
+            <a class="lingyu">房地产</a>
+            <a class="lingyu">融资与上市</a>
+            <a class="lingyu">兼并重组</a>
+          </li>
         </ul>
       </div>
   	</div>
- 
+
    	<div class="container" v-if="nameId==='5'">
    		<div class="item">
         <ul>
           <li>
-          		<img src="../../assets/images/huanyuanzx02.png">  
+          		<img src="../../assets/images/huanyuanzx02.png">
 		          	 <strong>税收筹划案例精解-3
 		          	 	<span>讲师：孙 炜 教授</span>
-		          	 	<span>地点: 鸿基实业酒店</span> 	 	
+		          	 	<span>地点: 鸿基实业酒店</span>
 		          	 </strong>
 		          	 	<a>购买</a>
 		         </li>
  						 <li>
- 						 		<img src="../../assets/images/huanyuanzx02.png">  
+ 						 		<img src="../../assets/images/huanyuanzx02.png">
 		          	 <strong>企业所得税年度纳税申报表中隐
 		          	 	<span>讲师：孙 炜 教授</span>
 		          	 	<span>地点: 鸿基实业酒店</span>
@@ -132,36 +121,48 @@
         </ul>
       </div>
   	</div>
-  	
-    </div>
-    <div class="pgs">
-      <li class="prev">&lt;上一页</li>
-      <li class="current">1</li>
-      <li class="custom">2</li>
-      <li class="custom">3</li>
-      <li class="custom">4</li>
-      <li class="points">...</li>
-      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
-      <li class="submit">确定</li>
-      <li class="next">下一页&gt;</li>
+      <div style="display:flex;justify-content:center;margin:80px 0 30px 0;">
+        <Page :total="100"></Page>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { getCookie } from "@/util/cookie"
+import { loginUserUrl } from '@/api/api'
 export default {
     data() {
     return {
     	theme1: 'light',
-    	nameId: '1'
+    	nameId: '1',
+      faguis:[],
     }
   },
-  	methods: {
-		toggle(ev){
-			this.nameId = ev
-		}
+  methods: {
+    toggle(ev){
+      this.nameId = ev
+    },
+    onload(){
+      let uid = getCookie("u_name")
+      if (uid !== "" && uid !== "undefined") {
+        let sc = loginUserUrl("getlaws_userCollect", {
+          username: "niuhongda",
+          password: "123123q",
+          uid: uid
+        }).then(sc => {
+          console.log(sc)
+          this.faguis = sc.data
+        });
+      } else {
+        return false;
+      }
+    }
+  },
+  created(){
+    this.onload()
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -193,7 +194,7 @@ export default {
       ul {
         overflow: hidden;
         .li_lingyu{
-        	 width: 100%;
+          width: 100%;
         }
         li{
           float: left;
@@ -229,7 +230,7 @@ export default {
           a{
             display: block;
             padding: 0 10px;
-            height: 30px; 
+            height: 30px;
             width: 50px;
             line-height: 30px;
             color: #fff;
@@ -243,51 +244,6 @@ export default {
           }
         }
       }
-    }
-  }
-  .pgs {
-    width: 525px;
-    margin: 60px auto;
-    li {
-      width: 33px;
-      padding: 4px 0;
-      line-height: 20px;
-      text-align: center;
-      margin-right: 2px;
-      cursor: pointer;
-      border: 1px solid $border-dark;
-      color: $black;
-    }
-    .prev {
-      width: 73px;
-      color: $blue;
-    }
-    .next {
-      width: 96px;
-      color: $blue;
-    }
-    .points {
-      border: none;
-    }
-    .submit {
-      background-color: $btn-default;
-      color: $white;
-      width: 44px;
-      border: none;
-    }
-    .jump {
-      width: 80px;
-      border: 1px solid $border-dark;
-      color: #333;
-      input {
-        width: 30px;
-        border: 1px solid $border-dark;
-        outline: none;
-      }
-    }
-    .current {
-      background-color: $btn-default;
-      color: $white;
     }
   }
 }

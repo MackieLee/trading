@@ -1,479 +1,236 @@
 <template>
-  <div class="my_order_r">
-  	<!--<div class="modal-outer" v-show="pingjia">
-      <modal @showTip="showTip" @closeModal="closeModal"></modal>
-    </div>-->
-    <div v-show="tip" class="tip">
-      谢谢你的评价
+  <div class="dingdan">
+    <h2>订单</h2>
+    <Menu mode="horizontal" theme="light" active-name="1">
+      <MenuItem name="1">
+        所有订单<Badge style="margin-left:10px" count="10"></Badge>
+      </MenuItem>
+      <MenuItem name="2">
+        未支付<Badge style="margin-left:10px" count="10"></Badge>
+      </MenuItem>
+      <MenuItem name="3">
+        已完成<Badge style="margin-left:10px" count="10"></Badge>
+      </MenuItem>
+      <MenuItem name="4">
+        待评价<Badge style="margin-left:10px" count="10"></Badge>
+      </MenuItem>
+    </Menu>
+    <div class="head">
+      <div class="all">
+        <Checkbox
+          :indeterminate="indeterminate"
+          :value="checkAll"
+          @click.prevent.native="handleCheckAll">全选</Checkbox>
+        <!-- <span>删除</span> -->
+      </div>
+      <div class="title">
+        <span class="fl">商品信息</span>
+         <span class="fr">单价（元）</span>
+         <span class="frr">数量</span>
+         <span class="fr">实付金额（元）</span>
+        <span class="fr" style="text-align:center">操作</span>
+      </div>
+      <div style="height:20px;"></div>
     </div>
-    <h2>我的订单</h2>
-    <ul class="ul01">
-      <li @click="toggle()" class="li01" data-ref="1">所有订单</li>
-      <li @click="toggle()" data-ref="2">待付款(1)</li>
-      <li @click="toggle()" data-ref="3"> 已完成</li>
-      <li @click="toggle()" data-ref="4"> 待评价(5)</li>
-    </ul>
-    <ul class="ul02">
-      <li class="li01">报名信息 </li>
-      <li class="li02">单价</li>
-      <li class="li03">类型</li>
-      <li class="li04">实付款</li>
-      <li class="li05">交易状态</li>
-      <li class="li06">操作</li>
-    </ul>
-   <div class="container" v-if="part=='1'">
-   	<div class="item">
-        <p class="p01">订单号: 53196839876687913<i >2017-08-31</i></p>
-        <ul>
-          <li class="li01">
-          	<img src="../../assets/images/huanyuanzx02.png">
-          	 <span>企业所得税年度纳税申报表中隐藏的查陷
-          	 </span>
-         </li>
-         <li class="li02">¥988.00</li>
-         <li class="li03">视频</li>
-         <li class="li04">¥588.00</li>
-         <li class="li05">
-         	<span class="zcgm">等待付款</span>
-          <router-link :to="{ name:'dingdanxq' }" git="p" class="jindu">订单详情 </router-link>
-         </li>
-         <li class="li06">
-         	<span class="zcgm">付款</span>
-          <p class="jindu">取消订单 </p>
-         </li>
-        </ul>
-      </div>
-   	  <div class="item">
-        <p class="p01">订单号: 53196839876687913<i>2017-08-31</i></p>
-        <ul>
-          <li class="li01">
-          	<img src="../../assets/images/huanyuanzx02.png">
-          	 <span>企业所得税年度纳税申报表中隐藏的稽查
-          	 </span>
-         </li>
-         <li class="li02">¥988.00</li>
-         <li class="li03">视频</li>
-         <li class="li04">¥588.00</li>
-         <li class="li05">
-         	<span class="zcgm">已取消</span>
-          <router-link :to="{ name:'dingdanxq' }" git="p" class="jindu">订单详情 </router-link>
-         </li>
-         <li class="li06">
-         	<span class="zcgm">删除订单</span>
-          <p class="jindu"> </p>
-         </li>
-        </ul>
-      </div>
-   	  <div class="item">
-        <p class="p01">订单号: 53196839876687913<i >2017-08-31</i></p>
-        <ul>
-          <li class="li01">
-          	<img src="../../assets/images/huanyuanzx02.png">
-          	 <span>企业所得税年度纳税申报表中隐报表中隐
-          	 </span>
-         </li>
-         <li class="li02">¥988.00</li>
-         <li class="li03">视频</li>
-         <li class="li04">¥588.00</li>
-         <li class="li05">
-         	<span class="zcgm">已付款</span>
-          <router-link :to="{ name:'dingdanxq' }" gat="p" class="jindu">订单详情 </router-link>
-         </li>
-         <li class="li06">
-         	<span class="zcgm">再次购买</span>
-          <router-link :to="{ name:'dingdanpf' }" gat="p" class="jindu">立即评价 </router-link>
-         </li>
-        </ul>
-      </div>
-   </div>
-   <div class="container" v-if="part=='2'">
-    <div>
-      <el-table
-        :data="tableData6"
-        :span-method="arraySpanMethod"
-        :row-style="subTitle"
-        border
-        style="width: 100%">
-        <el-table-column
-          prop="id"
-          label="ID"
-          width="180">
-        </el-table-column>
-        <el-table-column
-          prop="name"
-          label="姓名">
-        </el-table-column>
-        <el-table-column
-          prop="amount1"
-          sortable
-          label="数值 1">
-        </el-table-column>
-        <el-table-column
-          prop="amount2"
-          sortable
-          label="数值 2">
-        </el-table-column>
-        <el-table-column
-          prop="amount3"
-          sortable
-          label="数值 3">
-        </el-table-column>
-      </el-table>
-    </div>
-   </div>
-    <div class="container" v-if="part=='3'"></div>
-    <div class="container" v-if="part=='4'"></div>
-
-    <div class="pgs">
-      <li class="prev">&lt;上一页</li>
-      <li class="current">1</li>
-      <li class="custom">2</li>
-      <li class="custom">3</li>
-      <li class="custom">4</li>
-      <li class="points">...</li>
-      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
-      <li class="submit">确定</li>
-      <li class="next">下一页&gt;</li>
+    <div class="upload-box">
+      <CheckboxGroup v-model="bodanDel" @on-change="bodanDelChange">
+      <table>
+        <tr>
+          <th colspan="6"><Checkbox :label="'1'"><span style="display:none"></span></Checkbox>
+            订单号:324151234134132<span class="date">2017-08-31</span>
+            <span style="cursor:pointer; float: right; margin-right: 20px;">删除</span>
+          </th>
+        </tr>
+        <tr>
+          <td><img src="../../assets/images/huanyuanzx02.png"/></td>
+          <td width="310" style="text-align:left; text-indent:1em;">2016国家税务总局42号公告解读之关联申报管理</td>
+          <td width="110">￥4588.00</td>
+          <td width="60">1</td>
+          <td width="110">￥4088.00</td>
+          <td width="110"><Button type="error">立即付款</Button></td>
+          <!-- 函数传参item.id -->
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th colspan="6"><Checkbox :label="'2'"><span style="display:none"></span></Checkbox>
+              订单号:324151234134132<span class="date">2017-08-31</span>
+              <span style="cursor:pointer; float: right; margin-right: 20px;">删除</span>
+          </th>
+        </tr>
+        <tr>
+          <td><img src="../../assets/images/huanyuanzx02.png"/></td>
+          <td width="310" style="text-align:left; text-indent:1em;">2016国家税务总局42号公告解读之关联申报管理</td>
+          <td width="110">￥4588.00</td>
+          <td width="60">1</td>
+          <td width="110">￥4088.00</td>
+          <td width="110"><Button type="error">立即付款</Button></td>
+          <!-- 函数传参item.id -->
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <th colspan="6"><Checkbox :label="'3'"><span style="display:none"></span></Checkbox>
+            订单号:324151234134132<span class="date">2017-08-31</span>
+            <span style="cursor:pointer; float: right; margin-right: 20px;">删除</span>
+          </th>
+        </tr>
+        <tr>
+          <td><img src="../../assets/images/huanyuanzx02.png"/></td>
+           <td width="310" style="text-align:left; text-indent:1em;">2016国家税务总局42号公告解读之关联申报管理</td>
+          <td width="110">￥4588.00</td>
+          <td width="60">1</td>
+          <td width="110">￥4088.00</td>
+          <td width="110"><Button type="error">立即付款</Button></td>
+          <!-- 函数传参item.id -->
+        </tr>
+      </table>
+      <Button type="error" class="jiesuan">去结算</Button>
+      </CheckboxGroup>
     </div>
   </div>
 </template>
 
 <script>
+import { getCookie } from "@/util/cookie"
+import { loginUserUrl } from '@/api/api'
 export default {
-  name: "dingdan",
-//components: { Modal },
+  name: "shopping-cart",
   data() {
     return {
-      num1: false,
-      num2: false,
-      num3: false,
-      all: false,
-      part: "1",
-      pingjia: false,
-      series: true,
-      tip: false,
-      tipMsg: "",
-      tableData6: [{
-        id: '12987122'
-      }, {
-        id: '12987123',
-        amount1: '165',
-        amount2: '4.43',
-        amount3: 12
-      }, {
-        id: '12987124'
-      }, {
-        id: '12987125',
-        name: '王小虎',
-        amount1: '621',
-        amount2: '2.2',
-        amount3: 17
-      }, {
-        id: '12987126'
-      }]
-    };
+      classes:['1','2','3'],//全部数据
+      bodanDel:[],
+      blankChoosen:['1','2','3'],//全部数据的id
+      indeterminate:false,
+      checkAll:false,
+      pageNum:1
+    }
   },
   methods: {
-    toggle() {
-      document.getElementsByClassName("li01")[0].className = "";
-      let attr = event.target.getAttribute("class");
-      if (attr != "ul01") {
-        event.target.setAttribute("class", "li01");
-      }
-      let ref = event.target.dataset.ref;
-      this.part = ref;
+    shoucang:function(){
+      // axios 获取收藏状态
     },
-    arraySpanMethod({ row, column, rowIndex, columnIndex }) {
-      if (rowIndex % 2 === 0) {
-        if (columnIndex === 0) {
-          return [1, 5];
-        } else if (columnIndex === 1) {
-          return [0, 0];
-        }
+    handleCheckAll () {
+      if (this.indeterminate) {
+        this.checkAll = false;
+      } else {
+        this.checkAll = !this.checkAll
+      }
+      this.indeterminate = false;
+      if (this.checkAll) {
+        this.bodanDel = this.blankChoosen
+      } else {
+        this.bodanDel = []
       }
     },
-    subTitle({row,rowIndex}){
-      if(rowIndex % 2 === 0){
-        return {
-          'backround-color': 'red'
-        }
-      }else{
-        return ''
+    bodanDelChange (data) {
+      if (data.length === this.classes.length) {
+        this.indeterminate = false;
+        this.checkAll = true;
+      } else if (data.length > 0) {
+        this.indeterminate = true;
+        this.checkAll = false;
+      } else {
+        this.indeterminate = false;
+        this.checkAll = false;
       }
     },
-    showTip: function() {
-      this.pingjia = false;
-      this.tip = true;
-      setTimeout(() => {
-        this.tip = false;
-      }, 1500);
+    payNow(id){
+
     },
-    closeModal: function() {
-      this.pingjia = false;
+    onload(){
+      let res = loginUserUrl('getShopcar_List',{
+        username: "niuhongda",
+        password: "123123q",
+        uid:parseInt(getCookie('u_name')),
+        genre:1,
+        page:this.pageNum,
+        num:8
+      }).then((res)=>{
+        console.log(res)
+      })
     },
-    handleSelectAll(status) {
-      this.$refs.selection.selectAll(status);
-    }
+  },
+  created () {
+    this.onload()
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
-.sub-title{
-  background-color: red;
-}
-.tip {
-  width: 100px;
-  height: 60px;
-  line-height: 60px;
-  background-color: rgba(0, 0, 0, 0.9);
-  color: $white;
-  position: absolute;
-  text-align: center;
-  top: 40%;
-  left: 36%;
-}
-.fixed {
-  overflow: hidden;
-  position: fixed;
-  top: 20%;
-  width: 100%;
-}
-.modal-outer {
-  width: 100%;
-  height: 173%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2000;
-  .modal {
-    height: 110%;
-  }
-  .close {
-    position: absolute;
-    top: 15%;
-    left: 60%;
-  }
-}
-
-.my_order_r {
-  height: auto;
-  width: 800px;
-  margin: 0 auto;
-  background-color: $white;
-}
-.pgs {
-  width: 525px;
-  margin: 60px auto;
-  li {
-    width: 33px;
-    padding: 4px 0;
-    line-height: 20px;
+.dingdan{
+  h2{
+    background-color: $blue;
     text-align: center;
-    margin-right: 2px;
-    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    line-height: 40px;
+  }
+}
+.head {
+	  overflow: hidden;
+	  margin: 5px 0;
+	  height:36px;
+	.all{
+		float: left;
+    line-height:36px;
+  label{
+    margin:0 15px 0 10px;
+  }
+  span{
+    padding: 5px 15px;
+    margin-left: 10px;
     border: 1px solid $border-dark;
-    color: $black;
-  }
-  .prev {
-    width: 73px;
-    color: $blue;
-  }
-  .next {
-    width: 96px;
-    color: $blue;
-  }
-  .points {
-    border: none;
-  }
-  .submit {
-    background-color: $btn-default;
-    color: $white;
-    width: 44px;
-    border: none;
-  }
-  .jump {
-    width: 80px;
-    border: 1px solid $border-dark;
-    color: #333;
-    input {
-      width: 30px;
-      border: 1px solid $border-dark;
-      outline: none;
-    }
-  }
-  .current {
-    background-color: $btn-default;
-    color: $white;
   }
 }
-.my_order_r h2 {
-  widows: 100%;
-  background: $bg-blue;
-  height: 40px;
-  font-weight: normal;
-  line-height: 40px;
-  text-align: center;
-  font-size: 16px;
-  color: $white;
-}
-
-.my_order_r .ul01 {
-  height:40px;
-  width: 100%;
-  margin: 10px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.my_order_r .ul01 li {
-  width: 100px;
-  line-height: 40px;
-  text-align: center;
-  color: $black;
-  float: left;
-  cursor: pointer;
-  font-size: 14px;
-}
-.my_order_r .ul01 .li01 {
-  color: #39f;
-  border-bottom: 2px solid #39f;
-}
-.my_order_r .ul02 {
-  height: 36px;
-  width: 100%;
-  background: #F5F5F5;
-  margin: 14px 0;
-  li {
-    width: 12%;
-    text-align: center;
-    font-size: 14px;
-    color: #333;
-    float: left;
+  .title {
+  	float: left;
     line-height: 36px;
-  }
-  .li01 {
-    width: 43%;
-  }
-  .li02 {
-    width: 11%;
-  }
-  .li03 {
-    width: 8%;
-  }
-  .li05 {
-    width: 10%;
+    overflow: hidden;
+    .fl{ width:366px;}
+    .fr{ width:100px;}
+    .frr{ width:60px;}
+    span{
+      text-align: center;
+      display: inline-block;
+    }
   }
 }
-.my_order_r .number {
-  height: 36px;
-  width: 80px;
-  margin: 40px auto 0;
-}
-
-.my_order_r .number a {
-  height: 36px;
-  width: 34px;
-  display: inline-block;
-  text-align: center;
-  line-height: 36px;
-  color: $white;
-  font-size: 14px;
-  background: $btn-default;
-}
-/*   */
-.container {
+.upload-box {
+	width: 100%;
   margin-bottom: 20px;
-  .item {
-    margin-bottom: 20px;
-    .p01 {
-      background-color:#39f;
-      border: none;
-      height: 36px;
-      line-height: 36px;
-      font-size: 12px;
-      text-indent: 1em;
-      color: $white;
-      i {
-        color: #fff;
-        font-style: normal;
-        padding-left: 10px;
+  overflow: hidden;
+  .ivu-checkbox-inner{
+    border-color:#fff !important;
+  }
+    .jiesuan{ float: right;
+      width: 120px;
+      margin: 20px;
+    }
+  table {
+  	width: 100%;
+  	border: 1px solid #ddd;
+  	margin-bottom: 30px;
+    th {
+      color: #fff;
+      text-align: left;
+      background-color: #39f;
+      height: 30px;
+      line-height: 30px;
+      padding-left: 10px;
+      .date {
+        margin: 36px 5px;
       }
     }
-    ul {
-      overflow: hidden;
-      border: 1px solid #ddd;
-      li {
-        float: left;
-        border-right: 1px solid #ddd;
-        height: 85px;
-        padding: 10px 10px;
-      }
-      .li01 {
-        width:44%;
-        img {
-          float: left;
-          width: 92px;
-          padding: 5px;
-          height: 62px;
-          border: 1px solid #ddd;
-        }
-        span {
-          width: 68%;
-          line-height: 30px;
-          float: left;
-          font-size: 14px;
-          margin:5px 0px 0px 10px;
-          display: block;
-          span {
-            display: block;
-            font-weight: normal;
-          }
-        }
-      }
-      .li02,
-      .li03,
-      .li04,
-      .li05{
-        width: 11%;
-        text-align: center;line-height: 30px;
-      }
-      .li03 {
-        width: 8%;
-      }
-      .li05 {
-        line-height: 30px;
-        text-align: center;
-        .zcgm {
-          display: block;
-          color: #e7141a;
-        }
-        .jindu {
-          color: $light-blue;
-        }
-      }
-      .li06 {
-        border: 0 none;
-        .zcgm {
-          display: block;
-          margin: 5px 0;
-          color: #fff;
-          width: 80px;
-          text-align: center;
-          border-radius: 3px;
-          height: 30px;
-          line-height: 30px;
-          background-color: #f84141;
-          cursor: pointer;
-        }
-        span:hover {
-          background-color: #e7141a;
-        }
-        .jindu {
-          color: $light-blue;
-          text-indent: 1em;
-          cursor: pointer;
-        }
+    td {
+       text-align: center;
+      border-right: 1px solid #ddd;
+       img{margin:5px 5px 5px 0;}
+     button{ padding: 5.5px;}
+      p {
+         line-height: 30px;
+        cursor: pointer;
       }
     }
   }

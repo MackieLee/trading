@@ -44,7 +44,7 @@
           <a class="a-broadcast" @mouseenter="drop = 'left'">
             <i class="broadcast"></i>
           </a>
-          <router-link :to="{ name:'initdata'}" class="menu">
+          <router-link :to="{ name:'vip'}" class="menu">
             <img @mouseover="drop = 'right'" src="../../assets/images/thumb-test.jpg"/>
           </router-link>
         </div>
@@ -94,7 +94,6 @@ export default {
         { name: "法律法规", link: "fsearch" },
         { name: "图书", link: "book" },
         { name: "定制课程", link: "customize" },
-        { name: "会员中心", link: "vip" },
         { name: "关于我们", link: "abt" }
       ],
       activeItem: "home",

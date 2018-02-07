@@ -31,7 +31,7 @@
             </div>
             <div class="tags">
               <ul>
-                <li v-for="item in intro.laber" :key="item">{{ item }}</li>
+                <li v-for="item in labels" :key="item">{{ item }}</li>
               </ul>
             </div>
           </div>
@@ -94,6 +94,7 @@ export default {
       content: "",
       intro:"",
       qslst:[],
+      labels:[],
       editorOption: {
         placeholder: "规则"
       },
@@ -101,62 +102,20 @@ export default {
     };
   },
   methods: {
-    submit:function(){
-      let faqModal = this.$refs.faqModal
-      let name = faqModal.ask.title
-      let intro = faqModal.ask.content
-      let teacher_id = faqModal.ask.teacher
-      let choose = faqModal.ask.choose
-      let uid = getCookie('u_name')
-      console.log('uid:'+uid)
-      console.log('teacher_id:'+teacher_id)
-      if(name!==''&& intro!==''){
-        let res = loginUserUrl(
-          "getQuestions_add",
-          {
-            username: "niuhongda",
-            password: "123123q",
-            name:name,
-            intro:intro,
-            teacher_id:teacher_id,
-            choose:!choose,
-            uid:uid
-          }
-        ).then((res)=>{
-          if(res.error_code === 0){
-            // console.log(res.data)
-            this.handleReset()
-            this.$Message.success('提问成功')
-          }else{
-            this.$Message.error('提问失败')
-          }
-        })
-      }else{
-        this.$Message.error('表单为空，提问失败')
-      }
-    },
-    openModal:function(){
-      let cookieName = getCookie('u_name')
-      if(cookieName !== '' && cookieName !== undefined ){
-        this.modal = true
-      }else{
-        this.$router.push({name:'login'})
-      }
-    },
-    handleReset:function(){
-      this.$refs.faqModal.handleReset()
-      this.modal=false
-    },
     onWatch: function(state) {
-      loginUserUrl('getTeacher_Attention',{
-        username: "niuhongda",
-        password: "123123q",
-        uid:getCookie('u_name'),
-        sid:this.$route.query.id,
-        type:1
-      }).then((res)=>{
-        console.log(res)
-      })
+      if(this.guanzhu){
+        // 取消关注
+      }else{
+        loginUserUrl('getTeacher_Attention',{
+          username: "niuhongda",
+          password: "123123q",
+          uid:getCookie('u_name'),
+          sid:this.$route.query.id,
+          type:1
+        }).then((res)=>{
+
+        })
+      }
     },
     onload(){
       let _self = this
@@ -167,6 +126,7 @@ export default {
         tid:this.$route.query.id
       }).then((res)=>{
         _self.intro = res.data
+        this.labels = res.data.laber[0].label.split('"')[1].split(',')
       })
       // 获取讲师的问题列表
       let qls = loginUserUrl('getQuestions_list',{
@@ -184,7 +144,9 @@ export default {
         type:'1'
       }).then((wch)=>{
         if(wch.code && wch.code !=null){
+          console.log('//----')
           console.log(wch.code)
+          console.log('----//')
           for (let i = 0; i < wch.code.length; i++) {
             wch.code[i].sid === this.$route.query.id
               ? (this.guanzhu = true)

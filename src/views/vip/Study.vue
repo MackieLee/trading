@@ -19,10 +19,8 @@
 	          <p>0%学员</p>
 	        </div>
 	      </div>
-
    		</div>
    	</div>
-
     <div class="pt-2">
       <div class="container">
         <img :src="logo" />

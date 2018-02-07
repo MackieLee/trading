@@ -50,10 +50,7 @@
       </div>
       <div class="tags">
         <ul>
-          <li>税收筹划</li>
-          <li>税收筹划</li>
-          <li class="board">税收筹划</li>
-          <li>税收筹划</li>
+          <li v-for="t in item.arr" :key="t">{{ t }}</li>
         </ul>
       </div>
       <div class="ask">
@@ -69,10 +66,10 @@
 import { loginUserUrl } from "@/api/api"
 import { getCookie } from "@/util/cookie"
 export default {
-
   data() {
     return {
-      teachers:[]
+      teachers:[],
+      tags:[]
     }
   },
   methods:{
@@ -118,13 +115,30 @@ export default {
     },
 
   },
-  mounted () {
+  created() {
     let res = loginUserUrl("getTeacherList",{
       username: "niuhongda",
       password: "123123q"
     }).then((res)=>{
       // 遍历id ，根据id往卡片上填充老师信息！！！！！！important-------------------------------！！！！！！！！！！--------------------这种做法不可取
-      console.log(res)
+      // for(let i=0;i<res.data.length;i++){
+      //   let tag=loginUserUrl('getTeacher_laberl_List',{
+      //     username: "niuhongda",
+      //     password: "123123q",
+      //     tid:res.data[i].id
+      //   }).then((tag)=>{
+      //     console.log(tag.data[0])
+      //     if(tag.data[0] !== undefined){
+      //       if(tag.data[0].label !== ''){
+      //         let arr = tag.data[0].label.split('"')[1].split(',')
+      //         res.data[i].arr = arr
+      //       }
+      //       console.log(res.data[i].arr)
+      //     }else{
+      //       res.data[i].arr = []
+      //     }
+      //   })
+      // }
       this.teachers = res.data
     })
   }
@@ -276,9 +290,6 @@ i {
       padding: 3px 15px;
       border: 1px solid $border-blue;
       margin: 10px 9px 0 0;
-    }
-    .board {
-      margin: 0;
     }
   }
   .ask {
