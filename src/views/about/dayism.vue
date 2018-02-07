@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div class="about">
 
   <div id="xxkc_xq02">
@@ -6,11 +6,11 @@
         <h2 class="title"><i></i>答疑说明</h2> 
         <div class="bofang">    
           <P>
-          	 <h3>答疑说明</h3>
+          	<div> <h3>答疑说明</h3></div>
 		            <font>本网站支持每个会员向专家提问。</font>
 		      </P>
 		      <P>
-		      <h3>在线提问</h3>
+		      <div><h3>在线提问</h3></div>
 		      <font>1、</font>登录网站首页，点击登录按钮，在登录页面键入您的会员账号、密码及验证码后。<br>
           <font>2、</font>如未注册，先注册，填写个人信息后，同意协议，提交完成注册。<br>
 		      <font>3、</font>登录网站，进入问答页面，点击我要提问或进入专家个人详情页面，都可提问。 <br>
@@ -81,20 +81,26 @@
   }
   .bofang{
     margin-top: 15px;
-		  h3{   
-		    margin:10px;
-		    color: #333;
-		    line-height: 36px;
-		    font-size: 18px;
-		    height: 36px;
-		    
+		   div{ 
+      	margin: 5px 0; 
+      	h3{     	 
+		  	padding:0px 20px;
+		    background: red;
+		    text-align: center;
+		    color: #fff;
+		    display: inline-block;
+		    line-height: 32px;
+		    font-size: 16px;
+		    height: 32px;	   
+		    border-radius: 3px;   
 		    }
+      }		 
 		    p {
 			 overflow: hidden;
 		   width:100%; 
 		   line-height: 32px;
 		    font-size: 14px;
-		    color: #656565;
+		    color: #333;
 		    font{margin-left: 10px;}
 		  }
   }

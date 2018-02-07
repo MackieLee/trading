@@ -122,7 +122,6 @@ export default {
             width: 384px;font-size: 12px;
           }
   }
-
     .sub{
          padding:8px 12px;  margin:20px 0 60px 35%;
         background-color: $red;

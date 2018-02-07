@@ -8,8 +8,15 @@
     </div>
     <div class="head-content lf">
       <div class="search lf">
-        <input type="text"/><input class="search-btn" type="button" value="搜一下"/><br>
-        <span>全部</span><span>房地产</span><span>个税</span><span>咨询</span><span>会计</span>
+        <input type="text"/>
+        <router-link tag="button" to="/qdMore" class="search-btn">
+      	  搜一下</router-link>
+      	  <!--<Select v-model="ask.teacher" class="teacher">
+        	   <Option v-for="t in ts" :value="t.id" :key="t.id">{{ t.name }}
+     	 		   </Option>
+          </Select>-->
+      	
+        <!--<span>全部</span><span>房地产</span><span>个税</span><span>咨询</span><span>会计</span>-->
       </div>
       <div class="btn-group rt">
         <i @click="openModal" class="ask-icon"></i>

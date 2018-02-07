@@ -4,7 +4,7 @@
     <!-- <teacher-box></teacher-box> -->
     <tax-box></tax-box>
     <tax-box-sed></tax-box-sed>
-    <company></company>
+    <!--<company></company>-->
     <bottom-ad></bottom-ad>
   </div>
 </template>

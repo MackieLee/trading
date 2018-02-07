@@ -3,7 +3,7 @@
   	<div class="cur-posi lf">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;问答</p>
+        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;线上课程</p>
     </div>
     <!-- 修改为star -->
     <h2>课程评分</h2>
@@ -15,23 +15,23 @@
       <div class="div2">
         <ul>
           <li>
-            <p class="p">回答是否准确</p>
+            <p class="p">课程设置是否合理</p>
             <Rate allow-half v-model="zhunque"></Rate>
           </li>
           <li>
-            <p class="p">回答是否完整</p>
+            <p class="p">政策更新是否及时</p>
             <Rate allow-half v-model="wanzheng"></Rate>
           </li>
           <li>
-            <p class="p">答案是否实用</p>
+            <p class="p">课程是否实用</p>
             <Rate allow-half v-model="shiyong"></Rate>
           </li>
           <li>
-            <p class="p">政策是否过时</p>
+            <p class="p">老师的授课水平</p>
             <Rate allow-half v-model="zhengce"></Rate>
           </li>
           <li>
-            <p class="p">对您是否有用</p>
+            <p class="p">老师的专业程度</p>
             <Rate allow-half v-model="youyong"></Rate>
           </li>
         </ul>

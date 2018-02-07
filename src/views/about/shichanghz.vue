@@ -91,13 +91,16 @@
     text-indent: 2em;
   }
   .hezuo{
-    margin-top: 15px;
-  h3{    
-  	 margin:5px 0px;
-    color: #4683ee;
-    line-height: 36px;
-    font-size: 16px;
-    height: 36px;	
+   h3{    
+  				margin: 5px 0;  
+		    background: red;
+		    text-align: center;
+		    color: #fff;
+		    width: 110px;
+		    line-height: 32px;
+		    font-size: 16px;
+		    height: 32px;	   
+		    border-radius: 3px; 
     }
     p {
  	overflow: hidden;
@@ -105,7 +108,7 @@
    line-height: 32px;
     font-size: 14px;
     padding:10px 18px; 
-    color: #656565;
+    color: #333;
 		font{color: #4683ee;}
 
   }

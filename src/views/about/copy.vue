@@ -10,7 +10,7 @@
           	访问者访问本网站的行为以及通过各类方式利用本网站的行为，
           	都将被视作是对本声明全部内容的无异议的认可;如有异议，请立即跟本网站协商，并取得本网站的书面同意意见。<br>
           	本网所有资料，凡未经特殊注明的，版权均属神州九鼎财税咨询（北京）有限公司（www.jdtax.cn ）所有。
-          	<h3>版权声明</h3>
+          	 <div><h3>版权声明</h3> </div>
           	<font>1、</font>衷心感谢您关注和支持九鼎财税，如果您需要转载视频、资料、答疑、新闻与资讯等内容信息,请仔细阅读本版权声明：<br>
           	本网站对所提供的教学视频、教学成果、服务及本服务所使用的视频、资料、源代码等均受知识产权法或其他法律保护的资料享有相应的权利，
           	包括但不限于受到著作权法及其实施细则、商标法及其实施细则、专利法及其实施细则或其他法律的保护。<br>
@@ -66,12 +66,10 @@
       margin-right: 6px;
     }
   }
-  margin-top: 26px;
-  /*课程目录有简介*/
+  /*版权*/
   #xxkc_xq02 {
     width: 100%;
     height: auto;
-    margin-top: 20px;
     overflow: hidden;
     // .xq02_r {
     //   width: 45%;
@@ -105,20 +103,29 @@
     }
     .copy {
       margin-top: 15px;
-		  h3{   
-		    margin:5px 0px;
-		    color: #4683ee;
-		    line-height: 36px;
+      div{ 
+      	margin: 5px 0; 
+      	h3{     	 
+		  	padding:0px 20px;
+		    background: red;
+		    text-align: center;
+		    color: #fff;
+		    display: inline-block;
+		    line-height: 32px;
 		    font-size: 16px;
-		    height: 36px;	    
+		    height: 32px;	   
+		    border-radius: 3px;   
 		    }
+      }
 		    p {
-			 overflow: hidden;
-		   width:100%; 
-		   line-height: 32px;
-		    font-size: 14px;
-		    color: #656565;
-		    font{margin-left: 10px;}
+				  overflow: hidden;
+			    width:100%; 
+			    line-height: 32px;
+		      font-size: 14px;
+		      color: #333;
+		    font{
+		      margin-left: 10px;
+		    	}
 		  }
 		  
     }

@@ -17,10 +17,10 @@
             <div class="first-glance">
               <span class="name">{{ intro.name }}</span>
               <p class="watch default" v-if="guanzhu" @click="onWatch('watch')">
-                <i></i>取消关注
+                <i></i>取消收藏
               </p>
               <p class="cancel-watch default" v-if="!guanzhu" @click="onWatch('cancel')">
-                <i></i>添加关注
+                <i></i>添加收藏
               </p>
               <span class="price">￥{{ intro.money }}/次</span>
             </div>
