@@ -8,7 +8,8 @@
               <i class="logo"></i>
             </router-link>
           </li>
-          <router-link v-for="item in navItems" :key="item.name" :to="{ name:item.link }" tag="li">{{ item.name }}</router-link>
+          <router-link v-for="item in navItems" :key="item.name" :to="{ name:item.link }" tag="li">
+          	{{ item.name }}</router-link>
         </ul>
       </div>
       <div>
@@ -44,7 +45,7 @@
           <a class="a-broadcast" @mouseenter="drop = 'left'">
             <i class="broadcast"></i>
           </a>
-          <router-link :to="{ name:'initdata'}" class="menu">
+          <router-link :to="{ name:'vip'}" class="menu">
             <img @mouseover="drop = 'right'" src="../../assets/images/thumb-test.jpg"/>
           </router-link>
         </div>
@@ -94,7 +95,7 @@ export default {
         { name: "法律法规", link: "fsearch" },
         { name: "图书", link: "book" },
         { name: "定制课程", link: "customize" },
-        { name: "会员中心", link: "vip" },
+//      { name: "会员中心", link: "vip" },
         { name: "关于我们", link: "abt" }
       ],
       activeItem: "home",
@@ -160,6 +161,7 @@ export default {
         border: 1px solid $red;
         border-radius: 15px;
         outline: none;
+        width: 260px;
         padding: 0 10px 0 35px;
         line-height: 12px;
         font-size: 12px;
@@ -177,8 +179,10 @@ export default {
     }
     .user-info{
     	li{
-    		font{padding: 5px 8px;
-    		 color: #fff;}
+    		font{padding: 5px 10px;
+    		 color: #fff;
+    		  border-radius: 5px;
+    		 }
     		.lu{ background:#39f;}
     		.zhuce{ background:red;}
     	}
@@ -277,7 +281,7 @@ export default {
         }
       }
       .drop-right {
-        width: 100px;
+        width:120px;
         left:27px;
         li:hover{
           color: $blue;
@@ -289,7 +293,7 @@ export default {
           height: 20px;
           background-image: url("../../assets/images/Sprite.png");
           vertical-align: text-bottom;
-          margin-right: 10px;
+          margin-right:5px;
         }
         .set{
           background-position: -307px -314px;

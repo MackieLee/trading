@@ -9,10 +9,9 @@
     <div class="container">
       <div class="lf">
         <div class="flex">
-          <div class="head"></div>
+          <router-link :to="{ name: 'initdata'}" class="head" tag="div"></router-link>
           <div class="name">
-            <p class="p1">
-              在树下听歌</p>
+            <p class="p1">在树下听歌</p>
             <p class="p2">普通会员</p>
           </div>
         </div>
@@ -146,6 +145,7 @@ export default {
         background-repeat: no-repeat;
         background-position: 0px 0px;
         border-radius: 50%;
+        cursor: pointer;
         margin: 0px 10px;
       }
       .nav {

@@ -611,9 +611,9 @@ export default {
     	li{
     		.ivu-menu-item-active:not(.ivu-menu-submenu) {
 				    color: #fff;
-				    border-right:2px solid #4683EE;
+				    border-right:2px solid #39f;
 				    z-index: 2;
-				    background:#4683ee;
+				    background:#39f;
 				    }
 	    	li{width: 100%;}
     	} 	

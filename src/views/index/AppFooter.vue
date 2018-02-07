@@ -27,7 +27,7 @@
               <router-link :to="{ path:'copy' }">版权声明</router-link>
             </li>
             <li>
-              <router-link :to="{ path:'copy#app' }">服务条款</router-link>
+              <router-link :to="{ path:'fuwutk' }">服务条款</router-link>
             </li>
           </ul>
         </div>

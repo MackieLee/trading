@@ -9,19 +9,23 @@
     	<div class="cur-posi lf">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;问答</p>
+        <router-link to="/faq">问答</router-link>&nbsp;&gt;&nbsp;问答</p>
     </div>
       <div class="title">我要提问</div>
-      <ul class="leibie">
-      	<li v-for="item in items" :key="item.id" @click="selAdd(item.id)" :class="seled(item.id)">{{ item.name }}</li>
-      </ul>
       <Form ref="ask" :model="ask" :roules="askValidate">
         <FormItem prop = "title">
-          <Input v-model="ask.title" placeholder="输入下您的问题"></Input>
+          <div class="sub-title"><i></i>请您列出您要咨询的问题的标题</div>
+          <Input v-model.trim="ask.title" placeholder="输入下您的问题"></Input>
         </FormItem>
-        <div class="sub-title">问题描述（选填）：{{sel}}</div>
+        <div class="sub-title"><i></i>请具体描述您要咨询的问题</div>
         <FormItem prop="content">
-          <Input v-model="ask.content" type="textarea" :rows="6" placeholder="请在这儿描述您的问题"></Input>
+          <Input v-model.trim="ask.content" type="textarea" :rows="6" placeholder="请在这儿描述您的问题"></Input>
+        </FormItem>
+        <FormItem>
+          <ul class="leibie">
+            <div class="sub-title"><i></i>您可选择税种进行提问</div>
+            <li v-for="item in items" :key="item.id" @click="selAdd(item.id)" :class="seled(item.id)">{{ item.name }}</li>
+          </ul>
         </FormItem>
         <FormItem>
           <Row>
@@ -68,8 +72,8 @@ export default {
         teacher:''
       },
       askValidate:{
-        title:[{required:true,trigger:"blur"}],
-        content:[{required:true,trigger:"blur"}]
+        title:[{required:true,message:'不能为空',trigger:"blur"}],
+        content:[{required:true,message:'不能为空',trigger:"blur"}]
       }
     }
   },
@@ -131,29 +135,33 @@ export default {
     sub(){
       let arr = ''
       let choose = this.ask.choose?1:2
-      for(let i =0;i<this.sel.length;i++){
-        arr += this.sel[i]+','
-      }
-      // console.log('this.ask.title:'+this.ask.title+"this.ask.content:"+this.ask.content+'this.ask.teacher:'+parseInt(this.ask.teacher)+'formid'+arr.substr(0,arr.length-1))
-      let res = loginUserUrl('getQuestions_add',{
-        username: "niuhongda",
-        password: "123123q",
-        name:this.ask.title,
-        intro:this.ask.content,
-        // teacher_id:parseInt(this.ask.teacher),
-        teacher_id:1448,
-        uid:parseInt(getCookie('u_name')),
-        choose:choose,
-        form_id:arr.substr(0,arr.length-1),
-        pay_type:2
-      }).then((res)=>{
-        this.order_id = res.order_pay.order_id
-        this.modal = true
-        if(res.intro){
-          this.imgUri = res.intro
+      if(this.ask.title.trim !=='' && this.ask.content !== ''){
+        for(let i =0;i<this.sel.length;i++){
+          arr += this.sel[i]+','
         }
-      })
-      this.ifpayed()
+        // console.log('this.ask.title:'+this.ask.title+"this.ask.content:"+this.ask.content+'this.ask.teacher:'+parseInt(this.ask.teacher)+'formid'+arr.substr(0,arr.length-1))
+        let res = loginUserUrl('getQuestions_add',{
+          username: "niuhongda",
+          password: "123123q",
+          name:this.ask.title,
+          intro:this.ask.content,
+          // teacher_id:parseInt(this.ask.teacher),
+          teacher_id:1448,
+          uid:parseInt(getCookie('u_name')),
+          choose:choose,
+          form_id:arr.substr(0,arr.length-1),
+          pay_type:2
+        }).then((res)=>{
+          this.order_id = res.order_pay.order_id
+          this.modal = true
+          if(res.intro){
+            this.imgUri = res.intro
+          }
+        })
+        this.ifpayed()
+      }else{
+        this.$message.error('问题不能为空')
+      }
     },
     ifpayed(){
       let int = setInterval(()=>{
@@ -198,9 +206,15 @@ i {
   }
 }
 .content{width: 1090px; margin: 10px auto;
+    .sub-title{margin: 10px auto;
+    font-size: 14px;
+    color: #333;
+    i{background-position: -18px -101px;}
+    		}
 .leibie{
 	overflow:hidden;
 	margin: 10px auto;
+
 	li{
 		font-size: 14px;
 		margin:10px 10px;
