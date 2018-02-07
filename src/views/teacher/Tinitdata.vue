@@ -42,7 +42,7 @@
           </Row>
         </FormItem>
         <!-- 添加标签 -->
-        <FormItem label="标签">
+        <FormItem label="擅长领域">
           <el-tag
             :key="tag"
             v-for="tag in tags"
@@ -61,13 +61,13 @@
             @blur="handleInputConfirm"
           >
           </el-input>
-          <el-button v-else class="button-new-tag" size="small" @click="showInput">添加标签</el-button>
+          <el-button v-else class="button-new-tag" size="small" @click="showInput">添加</el-button><p style="color:silver;margin-top:10px;">如：个人所得税、房地产税</p>
         </FormItem>
         <FormItem>
           <Button type="primary" @click="handleSubmit">提交</Button>
           <Button type="ghost" @click="cancel">取消</Button>
         </FormItem>
-      </Form>
+      </Form>{{ tags }}
     </div>
     <div class="cropper rt">
       <img class="preview" :src="newavatar">
@@ -80,6 +80,8 @@
 </template>
 
 <script>
+import { loginUserUrl } from '@/api/api'
+import { getCookie } from "@/util/cookie"
 import upload from "../cropper/uploadavatar";
 const PROVINCE = require('../../assets/全国省市.json')
 export default {
@@ -120,7 +122,7 @@ export default {
         position:''
       },
       // 标签
-      tags: [],
+      tags: ['智商税'],
       inputVisible: false,
       inputValue: ''
     }
@@ -134,6 +136,29 @@ export default {
     },
     upsuccess() {
       console.log(this);
+    },
+    // 添加标签
+    labelAdd(){
+      let res=loginUserUrl('getTeacher_laberl_Update',{
+        username: "niuhongda",
+        password: "123123q",
+        lid:'',
+        laberl:this.tags
+      }).then((res)=>{
+        console.log(res)
+        // 提交表单的时候同时调用这个函数，提交标签
+      })
+    },
+    // 获取标签数组
+    labelGet(){
+      let res=loginUserUrl('getTeacher_laberl_List',{
+        username: "niuhongda",
+        password: "123123q",
+        tid:''
+      }).then((res)=>{
+        console.log(res)
+        // this.tags = res.data.arr 这一行代码只是参考
+      })
     },
     selectProvince:function(value){
       this.area = this.province[value].sub

@@ -28,7 +28,7 @@
 	         	<h3>{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</h3>
 	        	<!--<p class="red" @click="modal=!modal,series=true">立即评价</p>-->
 	        	<!--<router-link tag='p' to="/TiwenMore" class="red"></router-link>-->
-	        	<router-link :to="{path:'qamodal'}" tag="p">立即评价</router-link>
+	        	<router-link v-if="item.value && item.value !=='' && item.value !== null" :to="{path:'qamodal'}" tag="p">立即评价</router-link>
 	        </div>
 	       </li>
       </ul>

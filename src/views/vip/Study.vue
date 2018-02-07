@@ -25,7 +25,7 @@
 
     <div class="pt-2">
       <div class="container">
-        <img src="../../assets/images/huanyuanzx02.png" />
+        <img :src="logo" />
         <div class="middle">
           <p>企业所得税年度纳税申报表中隐藏的稽查陷阱
 藏的稽查陷</p>
@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="container">
-        <img src="../../assets/images/huanyuanzx02.png" />
+        <img :src="logo" />
         <div class="middle">
           <p>企业所得税年度纳税申报表中隐藏的稽查陷阱
 藏的稽查陷</p>
@@ -49,7 +49,7 @@
         </div>
       </div>
       <div class="container">
-        <img src="../../assets/images/huanyuanzx02.png" />
+        <img :src="logo" />
         <div class="middle">
           <p>企业所得税年度纳税申报表中隐藏的稽查陷阱企业所得税年度纳税申报表中隐藏的稽查陷阱
 藏的稽查陷</p>
@@ -94,7 +94,7 @@ export default {
   name: "study",
   data(){
     return{
-
+      logo:require('../../assets/images/huanyuanzx02.png')
     }
   },
   methods: {

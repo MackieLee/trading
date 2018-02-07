@@ -3,7 +3,7 @@
     <div class="cur-posi" id="top">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/fagui-search">法规</router-link>&nbsp;&gt;&nbsp;详细内容</p>
+        <router-link to="/fagui-search">法规</router-link>&nbsp;&gt;&nbsp;{{ content.name }}</p>
     </div>
     <div class="container">
       <div class="clearfix main-title ctr">
@@ -14,13 +14,13 @@
         <div class="second-title">
           <p>文号：{{ content.reference }}</p>
           <p>发文日期：{{ content.date_posted }}</p>
-        <div class="top-bar">		       
-		        <span class="pointer" v-if="shoucang === '2'" @click="pick">
-		        	点击收藏<i class="shouc"></i></span>
-		        <span class="pointer" v-if="shoucang === '1'" @click="cancelPick">
-		         	取消收藏<i class="shouc1"></i></span>
-		        <span>网站发布日期:{{ timeUp }}</span>
-		        <span @click="print" class="pointer">打印本页</span>
+        <div class="top-bar">
+          <span class="pointer" v-if="shoucang === '2'" @click="pick">
+            点击收藏<i class="shouc"></i></span>
+          <span class="pointer" v-if="shoucang === '1'" @click="cancelPick">
+            取消收藏<i class="shouc1"></i></span>
+          <span>网站发布日期:{{ timeUp }}</span>
+          <span @click="print" class="pointer">打印本页</span>
         <a href="#bottom">一键到底</a>
       </div>
         </div>
@@ -39,7 +39,7 @@
             </p>
           </div>
           <div class="rt">
-            国家税务总局<br> {{ content.date_posted }}
+            {{ content.department }}<br> {{ content.date_posted }}
           </div>
         </div>
         <div class="clearfix">
@@ -73,7 +73,7 @@
           <div class="lf">
             <router-link tag="p" :to="{ name:'fdetail',query:{ id:item.id }}" v-for="item in categray" :key="item.id" class="p1">{{ item.name }}</router-link>
           </div>
-          <div class="rt">
+          <div class="rt" id="bottom">
             <p>企函字[2012]47</p>
             <p>企函字[2012]47</p>
           </div>
@@ -242,7 +242,7 @@ export default {
   .biaot{
   	margin:0px 20px 15px;
   	line-height:25px;
-  
+
   	border-bottom: 3px solid red;
   }
   .clearfix {
@@ -261,21 +261,21 @@ export default {
   }
   .shouc,.shouc1{width: 24px;
     height: 24px;
-    display: inline-block; 
+    display: inline-block;
     margin: 0;
     background-position: -140px -192px;
     background-image: url("../../assets/images/Sprite.png");
     }
    .shouc{
-    background-position: -237px -383px;
-		}  
+    background-position: -236px -379px;
+		}
   .pointer {
     cursor: pointer;
   }
   .main-title {
     h1 {
       font-size: 24px;
-      color: #06c;;
+      color: #3188d8;
     }
     h3 {
       font-size: 24px;
