@@ -29,14 +29,14 @@
             <td class="xuhao pointer ctr">{{parseInt(index)+1}}</td>
             <td class="biaoti pointer">{{item[1].name}}</td>
             <td class="fahao pointer ctr">{{item[1].reference}}</td>
-            <td class="riqi pointer ctr">{{item[1].date_posted}}</td>
+            <td class="riqi pointer ctr">{{ new Date(parseInt(item[1].date_posted)*1000).toLocaleDateString() }}</td>
           </router-link>
           <!-- 按照分类获得的列表 -->
           <router-link v-for="(item,index) in cateLst" :key="item.id" tag="tr" :to="{ name:'fdetail',query:{ id:item.id }}">
             <td class="xuhao pointer ctr">{{index+1}}</td>
             <td class="biaoti pointer">{{item.name}}</td>
             <td class="fahao pointer ctr">{{item.reference}}</td>
-            <td class="riqi pointer ctr">{{item.date_posted}}</td>
+            <td class="riqi pointer ctr">{{ new Date(parseInt(item.date_posted)*1000).toLocaleDateString() }}</td>
           </router-link>
         </tbody>
       </table>

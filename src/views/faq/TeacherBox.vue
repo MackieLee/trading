@@ -15,7 +15,7 @@
         	   <Option v-for="t in ts" :value="t.id" :key="t.id">{{ t.name }}
      	 		   </Option>
           </Select>-->
-      	
+
         <!--<span>全部</span><span>房地产</span><span>个税</span><span>咨询</span><span>会计</span>-->
       </div>
       <div class="btn-group rt">
@@ -127,6 +127,7 @@ export default {
       username: "niuhongda",
       password: "123123q"
     }).then((res)=>{
+      console.log(res)
       // 遍历id ，根据id往卡片上填充老师信息！！！！！！important-------------------------------！！！！！！！！！！--------------------这种做法不可取
       // for(let i=0;i<res.data.length;i++){
       //   let tag=loginUserUrl('getTeacher_laberl_List',{

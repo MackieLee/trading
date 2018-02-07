@@ -218,7 +218,7 @@ const routes = [
 			    name: 'detailbd',
 			    component: detailbd
 			  },
-			 
+
       //关于我们---------------
       {
         path: 'about',
@@ -270,7 +270,7 @@ const routes = [
       }
         ]
       },
-      
+
       // 普通用户端----------------
       {
         path: 'vip',

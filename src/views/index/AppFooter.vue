@@ -6,39 +6,39 @@
           <ul>
             <li class="title">新手指南</li>
             <li>
-              <router-link :to="{ path:'kechengsm' }">课程说明</router-link>
+              <router-link :to="{ name:'kechengsm' }">课程说明</router-link>
             </li>
             <li>
-              <router-link :to="{ path:'dayism' }">问答说明</router-link>
+              <router-link :to="{ name:'dayism' }">问答说明</router-link>
             </li>
           </ul>
           <ul>
             <li class="title">关于我们</li>
             <li>
-              <router-link :to="{ path:'Help' }">帮助中心</router-link>
+              <router-link :to="{ name:'Help' }">帮助中心</router-link>
             </li>
             <li>
-              <router-link :to="{ path:'shichanghz' }">市场合作</router-link>
+              <router-link :to="{ name:'shichanghz' }">市场合作</router-link>
             </li>
           </ul>
           <ul>
             <li class="title">法律协议</li>
             <li>
-              <router-link :to="{ path:'copy' }">版权声明</router-link>
+              <router-link :to="{ name:'copy' }">版权声明</router-link>
             </li>
             <li>
-              <router-link :to="{ path:'fuwutk' }">服务条款</router-link>
+              <router-link :to="{ name:'fuwutk' }">服务条款</router-link>
             </li>
           </ul>
         </div>
         <div class="bussiness">
-        	 <router-link tag='p' :to="{ path:'yijianfk' }">意见反馈</router-link>
+        	 <router-link tag='p' :to="{ name:'yijianfk' }">意见反馈</router-link>
           <p>
             <i class="mail"></i>jdtax@jdtax.cn</p>
           <p>
             <i class="tel"></i>010-62311360
             <span>(周一到周五9:00-17:30)</span>
-          </p>          
+          </p>
         </div>
       </div>
       <div class="footer-right">
@@ -94,7 +94,7 @@
           <li>京公网安备88888888号</li>
         </ul>
         <p>Copyright © 2016-2017 九鼎财税 All Rights Reserved. </p>
-       
+
       </div>
     </div>
   </div>
@@ -157,7 +157,7 @@ export default {
       .bussiness {
       	p:first-child{
           cursor: pointer;
-        }       
+        }
         p {
           color: #333;
           margin-bottom:20px;
