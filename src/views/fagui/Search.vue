@@ -18,7 +18,7 @@
           <dl>
             <dd v-for="item in newArr" :key="item.id" :title='item.name'>
               <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}"  class="newtitle">
-                {{ item.name }}
+                {{ item.name|unescape }}
               </router-link>
               <span class="date">{{ item.time }}</span>
             </dd>
@@ -138,7 +138,7 @@
           <dl>
             <dd v-for="item in jieduArr" :key="item.id"  :title='item.name'>
               <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}" class="newtitle">
-                {{ item.name }}
+                {{ item.name|unescape }}
               </router-link>
               <span class="date">{{ item.time }}</span>
 
@@ -279,6 +279,16 @@ export default {
     },
     jump:function(arg){
       console.log(arg)
+    }
+  },
+  filters: {
+    unescape:function (html) {
+    return html
+      .replace(html ? /&(?!#?\w+;)/g : /&/g, '&amp;')
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, "\"")
+      .replace(/&#39;/g, "\'");
     }
   }
 }

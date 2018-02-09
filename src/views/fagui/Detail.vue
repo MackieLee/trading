@@ -8,12 +8,12 @@
     <div class="container">
       <div class="clearfix main-title ctr">
         <h1>{{ content.department }}</h1>
-        <h3>{{ content.name }}</h3>
+        <h3>{{ content.name|unescape }}</h3>
       </div>
       <div class="clearfix biaot">
         <div class="second-title">
           <p>文号：{{ content.reference }}</p>
-          <p>发文日期：{{ content.date_posted }}</p>
+          <p>发文日期：{{ content.date_posted|str }}</p>
         <div class="top-bar">
           <span class="pointer" v-if="shoucang === '2'" @click="pick">
             点击收藏<i class="shouc"></i></span>
@@ -39,7 +39,7 @@
             </p>
           </div>
           <div class="rt">
-            {{ content.department }}<br> {{ content.date_posted }}
+            {{ content.department }}<br> {{ content.date_posted|str }}
           </div>
         </div>
         <div class="clearfix">
@@ -210,6 +210,23 @@ export default {
       }).then(res => {
         res.data === "ok" ? (this.shoucang = "2") : this.shoucang;
       });
+    }
+  },
+  filters: {
+    unescape:function (html) {
+      return html
+        .replace(html ? /&(?!#?\w+;)/g : /&/g, '&amp;')
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&quot;/g, "\"")
+        .replace(/&#39;/g, "\'");
+    },
+    str:function (time) {
+      let date = new Date(parseInt(time))
+      let y = date.getFullYear()
+      let m = date.getMonth()
+      let d = date.getDate()
+      return y+'年'+m+1+'月'+d+'日'
     }
   }
 };
