@@ -36,11 +36,10 @@
           <div v-if="federal" class="search" style="padding-top: 25px;">
             <Form ref="federalSearch" :model="federalSearch" :label-width="80">
              <FormItem label="税收分类">
-						   <Select v-model="localSearch.item" style="width:130px">
-						      <Option v-for="item in classify" :key="item.id" :value="item.name">{{ item.name }}</Option>
+						   <Select v-model="federalSearch.form_id" style="width:130px">
+						      <Option v-for="item in classify" :key="item.fuck" :value="item.id">{{ item.name }}</Option>
 						    </Select>
 						  </FormItem>
-
               <FormItem label="标题" prop="title">
                 <Input v-model="federalSearch.title"  @keyup.enter.native="handleSubmit('federalSearch')" placeholder="请输入法规标题"></Input>
               </FormItem>
@@ -91,8 +90,8 @@
               </FormItem>
 
     <FormItem label="税收分类">
-   <Select v-model="localSearch.item" style="width:130px">
-      <Option v-for="item in classify" :key="item.id" :value="item.name">{{ item.name }}</Option>
+   <Select v-model="localSearch.form_id" style="width:130px">
+      <Option v-for="item in classify" :key="item.fuck" :value="item.id">{{ item.name }}</Option>
     </Select>
   </FormItem>
 					   <FormItem label="标题">
@@ -187,7 +186,8 @@ export default {
         niandu:'',
         danwei:'',
         beginLine:'',
-        endLine:''
+        endLine:'',
+        form_id:''
       },
       localSearch:{
         area:'',
@@ -196,7 +196,8 @@ export default {
         niandu:'',
         danwei:'',
         beginLine:'',
-        endLine:''
+        endLine:'',
+        form_id:''
       }
     }
   },
@@ -265,9 +266,9 @@ export default {
         date_posted:obj.niandu,
         department:obj.danwei,
         begin_time:this.begin,
-        end_time:this.end
-        }
-      })
+        end_time:this.end,
+        form_id:obj.form_id
+      }})
     },
     handleFormat:function(obj,line,date){
       if(line === 'beginLine'){

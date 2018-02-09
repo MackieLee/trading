@@ -25,19 +25,19 @@
     <div class="td">
       <table cellspacing="0" cellpadding="0">
         <tbody>
-          <router-link v-for="(item,index) in list" :key="item[1].id" tag="tr" :to="{ name:'fdetail',query:{ id:item[1].id }}">
+          <router-link v-for="(item,index) in list" :key="item[1].fuck" tag="tr" :to="{ name:'fdetail',query:{ id:item[1].id }}">
             <td class="xuhao pointer ctr">{{parseInt(index)+1}}</td>
             <td class="biaoti pointer">{{item[1].name}}</td>
             <td class="fahao pointer ctr">{{item[1].reference}}</td>
             <td class="riqi pointer ctr">{{ new Date(parseInt(item[1].date_posted)*1000).toLocaleDateString() }}</td>
           </router-link>
           <!-- 按照分类获得的列表 -->
-          <router-link v-for="(item,index) in cateLst" :key="item.id" tag="tr" :to="{ name:'fdetail',query:{ id:item.id }}">
+          <!-- <router-link v-for="(item,index) in cateLst" :key="item.fuck" tag="tr" :to="{ name:'fdetail',query:{ id:item.id }}">
             <td class="xuhao pointer ctr">{{index+1}}</td>
             <td class="biaoti pointer">{{item.name}}</td>
             <td class="fahao pointer ctr">{{item.reference}}</td>
             <td class="riqi pointer ctr">{{ new Date(parseInt(item.date_posted)*1000).toLocaleDateString() }}</td>
-          </router-link>
+          </router-link> -->
         </tbody>
       </table>
       <div style="display:flex;justify-content:center;margin:80px 0 30px 0;">
