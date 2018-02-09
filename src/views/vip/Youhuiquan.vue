@@ -387,14 +387,14 @@ export default {
 .my_qianb_r .p02 {
   width: 99%;
   margin: 10px auto;
-  height: 40px;
+  height:50px;
   border-bottom: 1px solid #ddd;
   span {
   width:100px;
   display: inline-block;
   text-align: center;
   cursor: pointer;
-  line-height: 40px;
+  line-height: 50px;
   font-size: 14px;
 		}
 	.cur {

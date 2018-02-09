@@ -166,8 +166,7 @@ export default {
   text-align: center;
 }
 .my_qianb_r .p02 {
-   height: 40px;
-  margin: 10px 0px;
+   height: 50px;
   width: 100%;
   border-bottom: 1px solid #ddd;
 }
@@ -175,7 +174,7 @@ export default {
   width: 100px;
   display: inline-block;
   text-align: center;
-  line-height: 40px;
+  line-height: 50px;
   cursor: pointer;
   font-size: 14px;
   color: $black;
@@ -189,7 +188,7 @@ export default {
   width: 100%;
   overflow: hidden;
   border: 1px solid #ddd;
-  padding-bottom: 10px;
+  margin: 20px 0 10px;
 }
 .my_qianb_r .div01 li {
   width: 100%;

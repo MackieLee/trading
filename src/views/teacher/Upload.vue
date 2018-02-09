@@ -226,7 +226,7 @@ export default {
     }
     .title {
       background-color: $bg-nav;
-      line-height: 35px;
+      line-height:50px;
       overflow: hidden;
       span {
         width: 70px;

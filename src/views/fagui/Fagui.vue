@@ -15,8 +15,8 @@
         <tbody>
           <tr>
             <td class="xuhao ctr" style="width: 40px;">序号</td>
-            <td class="biaoti" style="text-align:center;">标题</td>
-            <td class="fahao ctr">文号</td>
+            <td class="biaoti" style="padding-left: 150px"">标题</td>
+            <td class="fahao ctr"  style="padding-left:75px">文号</td>
             <td class="riqi ctr">发文日期</td>
           </tr>
         </tbody>
@@ -25,7 +25,7 @@
     <div class="td">
       <table cellspacing="0" cellpadding="0">
         <tbody>
-          <router-link v-for="(item,index) in list" :key="item[1].fuck" tag="tr" :to="{ name:'fdetail',query:{ id:item[1].id }}">
+          <router-link v-for="(item,index) in list" :key="item[1].fuck" :title='item[1].name' tag="tr" :to="{ name:'fdetail',query:{ id:item[1].id }}">
             <td class="xuhao pointer ctr">{{parseInt(index)+1}}</td>
             <td class="biaoti pointer">{{item[1].name}}</td>
             <td class="fahao pointer ctr">{{item[1].reference}}</td>
@@ -40,7 +40,7 @@
           </router-link> -->
         </tbody>
       </table>
-      <div style="display:flex;justify-content:center;margin:80px 0 30px 0;">
+      <div style="display:flex;justify-content:center;margin:40px 0 30px 0;">
         <Page :total="total" @on-change="page($event)" :page-size="20" show-elevator show-total>
 				</Page>
       </div>
@@ -157,19 +157,21 @@ export default {
     width: 230px;
   }
   .riqi {
-    width: 130px; padding-left: 20px;
+    width: 65px; 
   }
-  .biaoti{width: 600px;
-  margin-right:10px;
-   white-space: nowrap;
-   overflow: hidden;
-    text-overflow: ellipsis;}
+  .biaoti{
+  	width: 600px;
+    padding-right:30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    	}
   .red {
     color: $red;
-  }
+ 			 }
   .pointer {
     cursor: pointer;
-  }
+ 				 }
   .th {
     height: 42px;
     font-weight: bold;
@@ -179,13 +181,13 @@ export default {
       border-collapse: separate;
       width: 96%; margin: 0px auto;
       .biaoti{
-    }
+   					 }
       td {
         display: table-cell;
         line-height: 42px;
         font-size: 14px;
         color: $white;
-      }
+     		 }
     }
   }
   .td {

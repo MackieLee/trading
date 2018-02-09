@@ -499,12 +499,12 @@ export default {
   margin: 15px 0;
   li {
     display: inline-block;
-    width: 80px;
-    padding: 4px 0;
     text-align: center;
-    border: 1px solid $border-dark;
     cursor: pointer;
     margin-right: 5px;
+    padding: 5px 10px;   
+    border-radius: 6px;
+    border: 1px solid #ddd;
   }
 }
 table {

@@ -71,16 +71,13 @@
         <p class="red">相关法规</p>
         <div class="clearfix xiangguan">
           <div class="lf">
-            <router-link tag="p" :to="{ name:'fdetail',query:{ id:item.id }}" v-for="item in categray" :key="item.id" class="p1">{{ item.name }}</router-link>
+      <router-link tag="p" :to="{ name:'fdetail',query:{ id:item.id }}" 
+      	v-for="item in categray" :key="item.id" class="p1">{{ item.name }}</router-link>          
           </div>
           <div class="rt" id="bottom">
-            <p>企函字[2012]47</p>
-            <p>企函字[2012]47</p>
+            <p></p>
+            <p></p>
           </div>
-          <!--<div class="rt" id="bottom">
-            <p class="p1">2012-9-4</p>
-            <p class="p1">2012-9-4</p>
-          </div>-->
         </div>
       </div>
     </div>
