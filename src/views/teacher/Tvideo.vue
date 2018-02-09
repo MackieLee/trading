@@ -33,15 +33,16 @@ export default {
       width: 1px;
     }
     p {
-      margin: 10px 0 20px 0;
+      margin-bottom:20px;
       border-bottom: 1px solid $border-dark;
       box-sizing: border-box;
       span {
         display: inline-block;
-        line-height: 40px;
+        line-height: 50px;
         width: 100px;
         text-align: center;
         cursor: pointer;
+        font-size: 14px;
       }
     }
   }

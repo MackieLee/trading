@@ -62,7 +62,8 @@
         <div style="display:flex;justify-content:center">
           <Page :total="200" show-elevator></Page>
         </div>
-        <p class="red" style="font-size:14px;padding:20px 0 10px 10px;border-top:1px solid #ccc;margin-top:10px;">相关法规</p>
+        <p class="red" style="font-size:14px;padding:20px 0 10px 10px;border-top:1px solid #ccc;margin-top:10px;">
+        	相关法规</p>
         <div class="clearfix xiangguan">
           <div class="lf">
             <p class="p1">关于推荐企业登记管理基层联系点的通知</p>

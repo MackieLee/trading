@@ -177,19 +177,18 @@ export default {
   text-align: center;
 }
 .my_qianb_r .p02 {
-  height: 40px;
+  height: 60px;
   width: 100%;
-  margin: 10px 0;
   border-bottom: 1px solid #ddd;
    span {
   width: 100px;
-  line-height:40px;
+  line-height:60px;
   text-align: center;
   color: $black;
   float: left;
   cursor: pointer;
   font-size: 14px;
-}
+	}
  .cur {
   color: #39f;
   border-bottom: 2px solid #39f;
@@ -201,7 +200,7 @@ export default {
   width: 100%;
   overflow: hidden;
   border: 1px solid #ddd;
-  padding-bottom: 10px;
+ margin: 20px 0px;
 }
 .my_qianb_r .div01 li {
   width: 96%;

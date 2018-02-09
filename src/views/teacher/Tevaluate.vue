@@ -326,8 +326,7 @@ export default {
   margin: 0 auto;
   background-color: $white;
   .p02 {
-	margin:10px 0px;
-	height:40px;
+	height: 50px;
     width: 100%;
     border-bottom: 1px solid #ddd;
     .cur {
@@ -339,7 +338,7 @@ export default {
       font-size: 14px;
       display: inline-block;
       text-align: center;
-      line-height: 40px;
+      line-height:50px;
 	 cursor: pointer;
     }
   }

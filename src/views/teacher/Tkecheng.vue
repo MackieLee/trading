@@ -35,13 +35,14 @@ export default {
       width: 1px;
     }
     p{
-      margin: 10px 0 20px 0;
+      margin:0px 0 20px 0;
       border-bottom: 1px solid $border-dark;
       box-sizing: border-box;
       span{
         display: inline-block;
-        line-height: 30px;
-        width: 50px;
+        line-height:60px;
+        width:100px;
+        font-size: 14px;
         text-align: center;
         cursor: pointer;
       }
@@ -49,7 +50,7 @@ export default {
   }
   .active{
     color: $red;
-    border-bottom: 1px solid $red;
-  }
+    border-bottom: 2px solid $red;
+  	}
 }
 </style>

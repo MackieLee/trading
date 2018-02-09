@@ -286,8 +286,9 @@ export default {
     margin:0 15px 0 10px;
   }
   span{
-    padding: 5px 15px;
+    padding:8px 12px;
     margin-left: 10px;
+    border-radius: 6px;
     border: 1px solid $border-dark;
   }
 }
@@ -297,19 +298,18 @@ export default {
   padding: 10px;
 
   table {
-    th,
-    td {
+    th,td {
       height: 60px;
       // border: 1px solid $border-dark;
       border-bottom: 1px dashed $border-dark;
-    }
+  	  }
     th {
       font-weight: bold;
       text-align: left;
       .h-100{
         height: 100px;
         width: 360px;
-      }
+    	  }
       .title {
         height: 40px;
         p {

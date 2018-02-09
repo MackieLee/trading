@@ -165,11 +165,10 @@ export default {
 }
 .head {
 	  overflow: hidden;
-	  margin: 5px 0;
-	  height:36px;
+	  height:50px;
 	.all{
 		float: left;
-    line-height:36px;
+    line-height:50px;
   label{
     margin:0 15px 0 10px;
   }
@@ -181,7 +180,7 @@ export default {
 }
   .title {
   	float: left;
-    line-height: 36px;
+    line-height:50px;
     overflow: hidden;
     .fl{ width:366px;}
     .fr{ width:100px;}
