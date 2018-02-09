@@ -244,6 +244,6 @@ export default {
 .my_qianb_r .div01 .l img {
   position: absolute;
   left: 0px;
-  top: 8px;
+  top: 0px;
 }
 </style>

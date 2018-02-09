@@ -67,7 +67,7 @@ h3<template>
           <div><h3>购买问题</h3> </div>
           <font>12、</font>购买成功后，可在会员中心——我的学习,学习购买的课程。<br>
          <font>如了解详情可以咨询客服或拨打官网电话010-6231-1360。 </font>
-         <h3>课程购买重复能否退课</h3> 
+         <div> <h3>课程购买重复能否退课</h3>  </div>
 					凡购买九鼎财税线上课程、线下课程的会员，不可退课，如果您是课程购买重复可以致电客服010-6231-1360反
 					馈，会有相关工作人员联系您处理。<br>
 					 <div><h3>课程的退换</h3>  </div>
@@ -146,7 +146,7 @@ h3<template>
 	    height: 22px;
 	    background-image: url('../../assets/images/Sprite.png');
 	    vertical-align: text-bottom;
-	    background-position: -15px -389px;
+	    background-position:-527px -381px;
 	    margin-right: 10px;
  			  }
  	 	}

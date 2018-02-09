@@ -7,9 +7,9 @@
 					 <P>		 	
 					 	 <h3>市场合作</h3>
 					 	 【合作对象及方式】<br>
-							 如果您是媒体、渠道，想洽谈资源置换、市场合作，请联系：<br>
+							 如果您是媒体、渠道，想洽谈资源置换、市场合作，请联系：
 							邮箱：（jdtax@jdtax.cn）<br>
-							  如果您想在九鼎财税投放广告，请联系：<br>
+							  如果您想在九鼎财税投放广告，请联系：
 							   电话：010-6231-1360<br>
 							   我们拥有丰富的高端客户资源。如果您也拥有丰富的资
 源，而且在当地享有良好的声誉，拥有广泛的客户关系及网络。我们期望以互惠互利的原则与您携手合作，
@@ -81,7 +81,7 @@
 	    height: 22px;
 	    background-image: url('../../assets/images/Sprite.png');
 	    vertical-align: text-bottom;
-	    background-position: -15px -389px;
+	    background-position:-346px -386px;
 	    margin-right: 10px;
  			  }
  	 	}

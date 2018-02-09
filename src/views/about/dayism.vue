@@ -71,7 +71,7 @@
 	    height: 22px;
 	    background-image: url('../../assets/images/Sprite.png');
 	    vertical-align: text-bottom;
-	    background-position: -15px -389px;
+	    background-position: -143px -228px;
 	    margin-right: 10px;
  			  }
  	 	}
