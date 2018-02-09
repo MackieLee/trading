@@ -78,6 +78,7 @@ export default {
   methods:{
     onload:function(){
       let obj = this.$route.query
+      console.log(obj)
       console.log('地区:'+obj.area)
       console.log('类别:'+obj.form_id)
       let _self = this
