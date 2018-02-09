@@ -51,16 +51,16 @@
         <div class="drop-list drop-left" v-if="drop === 'left'" @mouseenter = "drop = 'left'" @mouseleave="drop = ''">
           <i></i>
           <div>
-            <ul>
-              <li class="title">通知/公告 <span>6</span></li>
-              <li>报名 <span>0</span></li>
-              <li>回答 <span>0</span></li>
-              <li>评论 <span>0</span></li>
-              <li>采纳 <span>0</span></li>
-              <li>关注 <span>0</span></li>
-              <li>企业公告 <span>0</span></li>
-              <li>系统通知 <span>0</span></li>
-            </ul>
+           	 <ul>
+	              <li class="title">通知/公告 <span>6</span></li>
+	              <li>报名 <span>0</span></li>
+	              <li>回答 <span>0</span></li>
+	              <li>评论 <span>0</span></li>
+	              <li>采纳 <span>0</span></li>
+	              <li>收藏 <span>0</span></li>
+	              <li>企业公告 <span>0</span></li>
+	              <li>系统通知 <span>0</span></li>
+           	 </ul>
           </div>
         </div>
         <div class="drop-list drop-right" v-if="drop === 'right'" @mouseenter = "drop = 'right'" @mouseleave="drop = ''">
@@ -155,6 +155,7 @@ export default {
     form {
       position: relative;
       input {
+      	width: 250px;
         height: 26px;
         border: 1px solid $red;
         border-radius: 15px;
@@ -256,7 +257,7 @@ export default {
       }
       .drop-left {
         right:30px;
-        width:100px;
+        width:130px;
         .title{
           border-bottom:1px solid $border-dark;
           span{
@@ -276,7 +277,7 @@ export default {
         }
       }
       .drop-right {
-        width: 100px;
+        width: 120px;
         left:27px;
         li:hover{
           color: $blue;
@@ -288,7 +289,7 @@ export default {
           height: 20px;
           background-image: url("../../assets/images/Sprite.png");
           vertical-align: text-bottom;
-          margin-right: 10px;
+          margin-right:6px;
         }
         .set{
           background-position: -307px -314px;

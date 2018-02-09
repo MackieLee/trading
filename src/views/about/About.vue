@@ -142,7 +142,7 @@ export default {
           background-position:-13px -346px;
         }
          .kechengsm {
-          background-position:-15px -388px;
+          background-position:-15px -314px;
         }
          .dayism {
           background-position:-143px -228px;
@@ -157,7 +157,7 @@ export default {
           background-position:-466px -381px;
         }
          .fuwutk {
-          background-position:-495px -382px;;
+          background-position:-495px -382px;
         }
         .yijianfk {
           background-position: -59px -129px;
