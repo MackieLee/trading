@@ -71,8 +71,8 @@
         <p class="red">相关法规</p>
         <div class="clearfix xiangguan">
           <div class="lf">
-      <router-link tag="p" :to="{ name:'fdetail',query:{ id:item.id }}" 
-      	v-for="item in categray" :key="item.id" class="p1">{{ item.name }}</router-link>          
+      <router-link tag="p" :to="{ name:'fdetail',query:{ id:item.id }}"
+      	v-for="item in categray" :key="item.id" class="p1">{{ item.name }}</router-link>
           </div>
           <div class="rt" id="bottom">
             <p></p>
@@ -219,11 +219,11 @@ export default {
         .replace(/&#39;/g, "\'");
     },
     str:function (time) {
-      let date = new Date(parseInt(time))
+      let date = new Date(parseInt(time)*1000)
       let y = date.getFullYear()
-      let m = date.getMonth()
+      let m = date.getMonth()+1
       let d = date.getDate()
-      return y+'年'+m+1+'月'+d+'日'
+      return y+'年'+m+'月'+d+'日'
     }
   }
 };
