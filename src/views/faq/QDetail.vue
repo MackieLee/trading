@@ -125,6 +125,7 @@ export default {
         password: "123123q",
         tid:this.$route.query.id
       }).then((res)=>{
+        console.log(res)
         _self.intro = res.data
         this.labels = res.data.laber[0].label.split('"')[1].split(',')
       })
