@@ -87,12 +87,12 @@ export default {
     return {
       navItems: [
         { name: "首页", link: "home" },
-        { name: "线上课程", link: "online" },
-        { name: "问答", link: "faq" },
-        { name: "专家团队", link: "teacher" },
-        { name: "线下课程", link: "offline" },
-        { name: "法律法规", link: "fsearch" },
-        { name: "图书", link: "book" },
+        { name: "线上课程", link: "o" },
+        { name: "问答", link: "f" },
+        { name: "专家团队", link: "t" },
+        { name: "线下课程", link: "off" },
+        { name: "法律法规", link: "fg" },
+        { name: "图书", link: "b" },
         { name: "定制课程", link: "customize" },
         { name: "关于我们", link: "abt" }
       ],

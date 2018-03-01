@@ -3,9 +3,9 @@
     <div class="cur-posi">
       <p><i></i>当前位置 : &nbsp;<router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;专家团队</p>
     </div>
-    <router-link tag="div" v-for="item in teacherList" :key="item.id" :to="{path:'/tdetail',query:{id:item.id}}" class="item">
+    <router-link tag="div" v-for="(item,index) in teacherList" :key="item.id" :to="{path:'tdetail',query:{id:item.id}}" class="item">
       <div class="hd-pic">
-        <img src="../../assets/images/jitax_专家团队_03.png" alt="孙玮">
+        <img :src="src[index]" style="width:132px;" alt="孙玮">
       </div>
       <div class="short-msg">
         <p class="name">{{item.name.substring(0,6)}}</p>
@@ -20,11 +20,15 @@
 
 <script>
 import { loginUserUrl } from '@/api/api'
+import jpg from '../../assets/images/t1.png'
+import jpg2 from '../../assets/images/t2.png'
+import jpg3 from '../../assets/images/t3.png'
 export default {
   name:'teacher',
   data(){
     return{
-      teacherList:[]
+      teacherList:[],
+      src:[jpg,jpg2,jpg3]
     }
   },
   mounted () {

@@ -12,8 +12,8 @@
         <MenuItem name="3">
            待回答
         </MenuItem>
-        <router-link tag='span' to="/Leibiebox">税收类别</router-link>
-				<router-link to="/qdMore">更多>></router-link>
+        <router-link tag='span' to="Leibiebox">税收类别</router-link>
+				<router-link to="qdMore">更多>></router-link>
     </Menu>
     <!-- 切换-->
     </div>
@@ -50,9 +50,9 @@ import { loginUserUrl } from "@/api/api"
 export default {
   data() {
     return {
-    	theme1: 'light',
-      newAnsr:[],
-      data:''
+    	theme1 : 'light',
+      newAnsr : [],
+      data : ''
     }
   },
   methods: {

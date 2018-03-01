@@ -12,282 +12,60 @@
 				<li>
 					<h4>课程设置是否合理</h4>
 					<p>
-					<i class="p_i"></i>
+					<i class="p_i" :style="'width:' + (score/5)*100 + '%'"></i>
 					</p>
-					<span>4.5</span>
+					<span>{{ score }}分</span>
 				</li>
-
-				<li>
-					<h4>政策更新是否及时</h4>
-					<p>
-					<i class="p_i"></i>
-					</p>
-					<span>4.5</span>
-				</li>
-
-				<li>
-					<h4>课程是否实用</h4>
-					<p>
-					<i class="p_i"></i>
-					</p>
-					<span>4.5</span>
-				</li>
-
-				<li>
-					<h4>老师授课水平</h4>
-					<p>
-					<i class="p_i"></i>
-					</p>
-					<span>4.5</span>
-				</li>
-
-				<li>
-					<h4>课程设置是否合理</h4>
-					<p>
-					<i class="p_i"></i>
-					</p>
-					<span>4.5</span>
-				</li>
-
 			</ul>
-
-			<ul class="ul01">
-				<li>
-					<h4>回答是否准确</h4>
-					<p>
-					<i class="p_i"></i>
-					</p>
-					<span>4.5</span>
-				</li>
-
-				<li>
-					<h4>回答是否完整</h4>
-					<p>
-					<i class="p_i"></i>
-					</p>
-					<span>4.5</span>
-				</li>
-
-				<li>
-					<h4>答案是否实用</h4>
-					<p>
-					<i class="p_i"></i>
-					</p>
-					<span>4.5</span>
-				</li>
-
-				<li>
-					<h4>政策是否过时</h4>
-					<p>
-					<i class="p_i"></i>
-					</p>
-					<span>4.5</span>
-				</li>
-
-				<li>
-					<h4>对您是否有用</h4>
-					<p>
-					<i class="p_i"></i>
-					</p>
-					<span>4.5</span>
-				</li>
-
-			</ul>
-
-			<ul class="ul01">
-				<li>
-					<h4>商品是否满意</h4>
-					<p>
-					<i class="p_i"></i>
-					</p>
-					<span>4.5</span>
-				</li>
-
-			</ul>
-
 	  </div>
-
     <div class="container div02" v-if="part=='2'">
     	<h3>课程评分<span>5.0</span><i></i></h3>
-    	<p class="p1">
-    		<span class="span1">分数/周期</span>
-    		<span>最近一周</span>
-    		<span>最近一个月</span>
-    		<span>最近六个月</span>
-    		<span>六个月以前</span>
-    		<span>总计</span>
-    	</p>
-     	<p class="p1">
-    		<span class="span1">5</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-    	<p class="p1">
-    		<span class="span1">4</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-      	<p class="p1">
-    		<span class="span1">3</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-    	<p class="p1">
-    		<span class="span1">2</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-      	<p class="p1">
-    		<span class="span1">1</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-    	<p class="p1">
-    		<span class="span1">总计</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-
+    	<table>
+        <tr>
+          <th v-for="item in titles" :key="item">{{item}}</th>
+        </tr>
+        <tr v-for="(index,item) in 5" :key="item">
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+        </tr>
+      </table>
     </div>
     <div class="container div02" v-if="part=='3'">
     	<h3>答疑评分<span>5.0</span><i></i></h3>
-    	<p class="p1">
-    		<span class="span1">分数/周期</span>
-    		<span>最近一周</span>
-    		<span>最近一个月</span>
-    		<span>最近六个月</span>
-    		<span>六个月以前</span>
-    		<span>总计</span>
-    	</p>
-     	<p class="p1">
-    		<span class="span1">5</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-    	<p class="p1">
-    		<span class="span1">4</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-      	<p class="p1">
-    		<span class="span1">3</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-    	<p class="p1">
-    		<span class="span1">2</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-      	<p class="p1">
-    		<span class="span1">1</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-    	<p class="p1">
-    		<span class="span1">总计</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-
+      <table>
+        <tr>
+          <th v-for="item in titles" :key="item">{{item}}</th>
+        </tr>
+        <tr v-for="(index,item) in 5" :key="item">
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+        </tr>
+      </table>
     </div>
     <div class="container div02" v-if="part=='4'">
     	<h3>订单评分<span>5.0</span><i></i></h3>
-    	<p class="p1">
-    		<span class="span1">分数/周期</span>
-    		<span>最近一周</span>
-    		<span>最近一个月</span>
-    		<span>最近六个月</span>
-    		<span>六个月以前</span>
-    		<span>总计</span>
-    	</p>
-     	<p class="p1">
-    		<span class="span1">5</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-    	<p class="p1">
-    		<span class="span1">4</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-      	<p class="p1">
-    		<span class="span1">3</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-    	<p class="p1">
-    		<span class="span1">2</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-      	<p class="p1">
-    		<span class="span1">1</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-    	<p class="p1">
-    		<span class="span1">总计</span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    		<span></span>
-    	</p>
-
+    	<table>
+        <tr>
+          <th v-for="item in titles" :key="item">{{item}}</th>
+        </tr>
+        <tr v-for="(index,item) in 5" :key="item">
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+          <td>{{index}}</td>
+        </tr>
+      </table>
     </div>
-
 	</div>
 </template>
 
@@ -300,8 +78,10 @@ export default {
     return {
       part: "1",
       modal: false,
-      series: true
-    };
+      series: true,
+      score:2,
+      titles:['分数/周期','最近一周','最近一个月','最近六个月','六个月以前','总计']
+    }
   },
   methods: {
     toggle() {
@@ -389,7 +169,6 @@ export default {
       background: #46dde3;
       height: 100%;
       border-radius: 10px;
-      width: 90%;
       position: absolute;
       top: 0px;
       left: 0px;
@@ -401,21 +180,12 @@ export default {
   }
   .div02 {
     margin: 20px 0;
-    .p1 {
-      border-left: 1px solid #ddd;
-      overflow: hidden;
-      span {
-        display: block;
-        border-right: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-        width: 141px;
-        text-align: center;
+    table{
+      th,td{
+        width: 140px;
         line-height: 40px;
-        height: 40px;
-        float: left;
-      }
-      .span1 {
-        width: 104px;
+        border: 1px solid #eee;
+        text-align:center;
       }
     }
     h3 {

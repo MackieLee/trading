@@ -39,6 +39,7 @@
 </template>
 
 <script>
+var kf = require('./util/kf')
 import { store } from "vuex";
 export default {
   name: "app",
@@ -70,14 +71,8 @@ export default {
   mounted: function() {},
   created() {},
   methods: {
-    openKefu: () => {
-      window.KF5SupportBoxAPI.ready(function() {
-        // 打开组件弹出层
-        window.KF5SupportBoxAPI.open(function() {
-          // 动画完成后执行的回调函数
-          // .........
-        });
-      });
+    openKefu:()=>{
+      kf.openKefu()
     }
   }
 };

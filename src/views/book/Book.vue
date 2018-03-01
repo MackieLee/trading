@@ -58,7 +58,7 @@
           <ul>
             <li class="sorts-items" data-name="sorts"
             	 @click="getItem(item)" :class="{ 'active':s === item}"
-            	  v-for="item in sorts" 
+            	  v-for="item in sorts"
             	 :key="item">{{ item }}</li>
           </ul>
         </p>
@@ -66,7 +66,7 @@
       </div>
     </div>
     <div class="video-boxes">
-      <router-link to="/item" tag="div" class="item">
+      <router-link to="item" tag="div" class="item">
         <div>
           <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
@@ -81,7 +81,7 @@
           <a class="im-buy">购买</a>
         </p>
       </router-link>
-      <router-link to="/item" tag="div" class="item">
+      <router-link to="item" tag="div" class="item">
         <div>
           <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
@@ -96,7 +96,7 @@
           <a class="im-buy">购买</a>
         </p>
       </router-link>
-      <router-link to="/item" tag="div" class="item">
+      <router-link to="item" tag="div" class="item">
         <div>
           <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
@@ -111,7 +111,7 @@
           <a class="im-buy">购买</a>
         </p>
       </router-link>
-      <router-link to="/item" tag="div" class="item">
+      <router-link to="item" tag="div" class="item">
         <div>
           <a class="video-cover"><img src="../../assets/images/jitax_图书.png" />
             <span class="new">NEW</span>
@@ -126,7 +126,7 @@
           <a class="im-buy">购买</a>
         </p>
       </router-link>
-      
+
     </div>
     <div class="modals">
       <div class="item" @mouseenter="modalBlock" @mouseleave="modalHide">
@@ -240,7 +240,7 @@ export default {
       width: 106px;
       text-align: center;
       line-height: 34px;
-    }  
+    }
     ul {
       display: inline-block;
       li {
@@ -251,7 +251,7 @@ export default {
           color: $red;
         }
       }
-     
+
       .sorts-items {
         font-size: 14px;
         line-height: 40px;
@@ -297,7 +297,7 @@ export default {
       border-radius: 3px;}
     &:hover {color: $blue;}}
   .sorts {
-    border-bottom: 1px solid $red; 
+    border-bottom: 1px solid $red;
     display: flex;
     justify-content: space-between;
       p {float: left;line-height: 44px;

@@ -96,7 +96,7 @@
       <span class="teacher">主讲：孙玮老师</span>
       <!--<span class="pointer pingjia" @click="modal1=true,series=true">本节评价</span>-->
  	<router-link class="pointer pingjia"  to="/VideoPingfen" tag="span">
-        本节评价</router-link>       
+        本节评价</router-link>
       <span class="pointer shoucang" @click="shouCang">收藏</span>
       <i class="red-heart" v-if="shoucang"></i>
       <i class="grey-heart" v-if="!shoucang"></i>

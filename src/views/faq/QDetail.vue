@@ -57,7 +57,7 @@
           </div>
           <div class="btn-group rt">
             <i @click="modal = true" class="ask-icon"></i>
-          <router-link tag='button' class="ask-input" type="button" value="点我提问"  to="/TiwenMore">
+          <router-link tag='button' class="ask-input" type="button" value="点我提问"  to="TiwenMore">
        		 点我提问
         </router-link>
             <span>没有找到问题？点击上方直接提问</span>

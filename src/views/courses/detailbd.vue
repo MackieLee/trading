@@ -49,17 +49,33 @@
         <div class="flex">
   <label for="sum" class="danwei"><i>*</i>付款方式：</label><input placeholder="请输入付款方式" type="text" class="lg-input" />
         </div>
-        
+
       </form>
       <div class="div">
- <router-link :to="{ name: 'pay' }" tag="input" type="submit" class="sub" value="提 交">
- </router-link>
-       	<router-link :to="{ name: 'home' }" tag="p" class="p">
-       如有任何疑问，请联系 <span>在线客服</span></router-link>
+        <router-link :to="{ name: 'pay' }" tag="input" type="submit" class="sub" value="提 交">
+        </router-link>
+        <p class="p" @click="openKefu">
+        如有任何疑问，请联系 <span>在线客服</span></p>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+var kf = require('../../util/kf')
+export default {
+  data () {
+    return {
+
+    }
+  },
+  methods: {
+    openKefu:()=>{
+      kf.openKefu()
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
@@ -112,7 +128,7 @@
       color: #fff;
     }
     form{
-      border: 1px solid #ddd; 
+      border: 1px solid #ddd;
       width: 94%;
       margin: 20px auto; padding:20px 30px;
       .flex {display: inline-block;

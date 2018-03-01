@@ -211,12 +211,8 @@ export default {
   },
   filters: {
     unescape:function (html) {
-      return html
-        .replace(html ? /&(?!#?\w+;)/g : /&/g, '&amp;')
-        .replace(/&lt;/g, "<")
-        .replace(/&gt;/g, ">")
-        .replace(/&quot;/g, "\"")
-        .replace(/&#39;/g, "\'");
+      let strobj = html.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, "\"").replace(/&#39;/g, "\'")
+      return strobj
     },
     str:function (time) {
       let date = new Date(parseInt(time)*1000)
@@ -296,6 +292,7 @@ export default {
       display: inline-block;
       color: $red;
       font-weight: 700;
+      padding: 0 2em;
     }
   }
   .second-title {

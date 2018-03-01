@@ -2,26 +2,32 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from '../views/index/Index'//网站总容器
 import home from '../views/home/Home'//主页
+import off from '../views/courses/off'//线下课程
 import offline from '../views/courses/Offline'//线下课程
 import odetail from '../views/courses/Detail'//线下课程详情
 import detailbd from '../views/courses/detailbd'//线下课程报名表单
+import t from '../views/team/t'//root page
 import teacher from '../views/team/teacher'//专家团队
 import tdetail from '../views/team/TDetail'//专家团队详情页
+import f from '../views/faq/f' //root page of faq
 import faq from '../views/faq/Faq'//问答
 import qdetail from '../views/faq/QDetail'//问答详情
 import qdMore from '../views/faq/qdMore'//问答列表Q
 import Leibiebox from '../views/faq/Leibiebox'//税收类别
 import TiwenMore from '../views/faq/TiwenMore'//问答提问页面
+import b from '../views/book/b'//图书
 import book from '../views/book/Book'//图书
 import item from '../views/book/Item'//图书详情
 import customize from '../views/customize/Customize'//课程定制
 // --------------------法规查询----------------------------------
+import fg from '../views/fagui/fg'//法规
 import fagui from '../views/fagui/Fagui'//法规
 import fdetail from '../views/fagui/Detail'//法规详情
 import jiedu from '../views/fagui/Jiedu'//政策解读
 import fsearch from '../views/fagui/Search'//法规查询
 // ---------------------线上课程---------------------------------
 import online from '../views/courses/Online'//线上课程
+import o from '../views/courses/o.vue'// root page
 import videopage from '../views/courses/VideoPage'//视频播放
 import videoinfo from '../views/courses/VideoInfo'//视频详情、试听、购买页面
 import VideoPingfen from '../views/modal/VideoPingjia'//视频详情、试听、购买页面
@@ -108,80 +114,134 @@ const routes = [
         name: 'home',
         component: home
       },
+
       {
-        path: 'online',
-        name: 'online',
-        component: online
+        path:'o',
+        name:'o',
+        component: o,
+        redirect: {
+          name: 'online'
+        },
+        children: [
+          {
+            path: 'online',
+            name: 'online',
+            component: online
+          },
+          {
+            path:'video-info',
+            name:'videoinfo',
+            component:videoinfo
+          },
+          {
+            path:'VideoPingfen',
+            name:'VideoPingfen',
+            component:VideoPingfen
+          },
+          {
+            path: 'video',
+            name: 'video-page',
+            component: videopage
+          }
+        ]
+      },
+
+      {
+        path: 'off',
+        name: 'off',
+        component: off,
+        redirect: {
+          name: 'offline'
+        },
+        children: [
+          {
+            path: 'offline',
+            name: 'offline',
+            component: offline
+          },
+          {
+            path: 'odetail',
+            name: 'odetail',
+            component: odetail
+          },
+        ]
+      },
+
+      {
+        path:'t',
+        name:'t',
+        component:t,
+        redirect:{
+          name: 'teacher'
+        },
+        children:[
+          {
+            path: 'teacher',
+            name: 'teacher',
+            component: teacher
+          },
+          {
+            path: 'tdetail',
+            name: 'tdetail',
+            component: tdetail
+          },
+        ]
+      },
+
+      {
+        path:'f',
+        name:'f',
+        component:f,
+        redirect: {
+          name: 'faq'
+        },
+        children: [
+          {
+            path: 'faq',
+            name: 'faq',
+            component: faq
+          },
+          {
+            path: 'qdetail',
+            name: 'qdetail',
+            component: qdetail
+          },
+          {
+            path: 'qdMore',
+            name: 'qdMore',
+            component: qdMore
+          },
+          {
+            path: 'Leibiebox',
+            name: 'Leibiebox',
+            component: Leibiebox
+          },
+          {
+            path: 'TiwenMore',
+            name: 'TiwenMore',
+            component: TiwenMore
+          }
+        ]
       },
       {
-        path:'video-info',
-        name:'videoinfo',
-        component:videoinfo
-      },
-      {
-        path:'VideoPingfen',
-        name:'VideoPingfen',
-        component:VideoPingfen
-      },
-      {
-        path: 'offline',
-        name: 'offline',
-        component: offline
-      },
-      {
-        path: 'video',
-        name: 'video-page',
-        component: videopage
-      },
-      {
-        path: 'odetail',
-        name: 'odetail',
-        component: odetail
-      },
-      {
-        path: '/teacher',
-        name: 'teacher',
-        component: teacher
-      },
-      {
-        path: '/tdetail',
-        name: 'tdetail',
-        component: tdetail
-      },
-      {
-        path: '/faq',
-        name: 'faq',
-        component: faq
-      },
-      {
-        path: '/qdetail',
-        name: 'qdetail',
-        component: qdetail
-      },
-      {
-        path: '/qdMore',
-        name: 'qdMore',
-        component: qdMore
-      },
-      {
-        path: '/Leibiebox',
-        name: 'Leibiebox',
-        component: Leibiebox
-      },
-      {
-        path: '/TiwenMore',
-        name: 'TiwenMore',
-        component: TiwenMore
-      },
-      {
-        path: '/book',
-        name: 'book',
-        component: book
-      },
-      {
-        path: '/item',
-        name: 'item',
-        component: item
+        path:'b',
+        name:'b',
+        component:b,
+        redirect:{
+          name:'book'
+        },
+        children:[
+          {
+            path: 'book',
+            name: 'book',
+            component: book
+          },
+          {
+            path: 'item',
+            name: 'item',
+            component: item
+          },
+        ]
       },
       {
         path: '/about',
@@ -539,25 +599,35 @@ const routes = [
         ]
       },
       {
-        path: 'fagui',
-        name: 'fagui',
-        component: fagui
+        path: 'fg',
+        name: 'fg',
+        component:fg,
+        redirect:{
+          name: 'fsearch'
+        },
+        children:[
+          {
+            path: 'fagui',
+            name: 'fagui',
+            component: fagui
+          },
+          {
+            path: 'fagui-detail',
+            name: 'fdetail',
+            component: fdetail
+          },
+          {
+            path: 'fagui-jiedu',
+            name: 'jiedu',
+            component: jiedu
+          },
+          {
+            path: 'fagui-search',
+            name: 'fsearch',
+            component: fsearch
+          }
+        ]
       },
-      {
-        path: 'fagui-detail',
-        name: 'fdetail',
-        component: fdetail
-      },
-      {
-        path: 'fagui-jiedu',
-        name: 'jiedu',
-        component: jiedu
-      },
-      {
-        path: 'fagui-search',
-        name: 'fsearch',
-        component: fsearch
-      }
     ]
   },
   {

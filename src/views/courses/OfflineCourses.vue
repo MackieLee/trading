@@ -3,7 +3,7 @@
     <div class="items">
       <div class="item" v-for="item in items" :key="item.state">
         <div class="col col-1">
-          <router-link to="/odetail">
+          <router-link to="odetail">
             <img class="img" src="../../assets/images/jdtax_线下_01.png">
             <span class="tag tag-01">{{item.state}}</span>
           </router-link>
@@ -19,7 +19,7 @@
           <p>讲师：{{item.leader}}</p>
         </div>
         <div class="col col-3">
-         <router-link to="/odetail" tag="p" class="tag tag-03">立即报名</router-link>
+         <router-link :to="{ path:'odetail' }" tag="p" class="tag tag-03">立即报名</router-link>
           <i></i>
           <p>
             资料下载
@@ -152,7 +152,7 @@ export default {
         }
       }
       .col-3 {
-        margin-right: 50px; 
+        margin-right: 50px;
         display: flex;
         flex-direction: column;
         justify-content: center;
