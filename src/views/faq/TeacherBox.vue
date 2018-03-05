@@ -19,10 +19,10 @@
         <!--<span>全部</span><span>房地产</span><span>个税</span><span>咨询</span><span>会计</span>-->
       </div>
       <div class="btn-group rt">
-        <i @click="openModal" class="ask-icon"></i>
-<router-link tag='button' class="ask-input" type="button" value="点我提问" to="TiwenMore">
+        <i @click="askIfLogined" class="ask-icon"></i>
+<button class="ask-input" type="button" value="点我提问" @click="askIfLogined">
 	 点我提问
-</router-link>
+</button>
         <span>没有找到问题？点击上方直接提问</span>
       </div>
     </div>
@@ -112,15 +112,14 @@ export default {
         this.$message.error('表单为空，提问失败')
       }
     },
-    openModal:function(){
+    askIfLogined:function(){
       let cookieName = getCookie('u_name')
       if(cookieName !== '' && cookieName !== 'undefined' ){
-
+        this.$router.push({name:'TiwenMore'})
       }else{
         this.$router.push({name:'login'})
       }
     },
-
   },
   created() {
     let res = loginUserUrl("getTeacherList",{

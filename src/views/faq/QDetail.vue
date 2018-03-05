@@ -56,10 +56,10 @@
             </div>
           </div>
           <div class="btn-group rt">
-            <i @click="modal = true" class="ask-icon"></i>
-          <router-link tag='button' class="ask-input" type="button" value="点我提问"  to="TiwenMore">
-       		 点我提问
-        </router-link>
+            <i @click="askIfLogined" class="ask-icon"></i>
+            <button class="ask-input" value="点我提问" @click="askIfLogined">
+       		   点我提问
+            </button>
             <span>没有找到问题？点击上方直接提问</span>
           </div>
         </div>
@@ -155,7 +155,15 @@ export default {
           }
         }
       })
-    }
+    },
+    askIfLogined:function(){
+      let cookieName = getCookie('u_name')
+      if(cookieName !== '' && cookieName !== 'undefined' ){
+        this.$router.push({name:'TiwenMore'})
+      }else{
+        this.$router.push({name:'login'})
+      }
+    },
   },
   computed: {
   },

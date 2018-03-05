@@ -18,7 +18,7 @@
 						<FormItem prop="picYanzheng" :error="errData">
               <Row>
                 <Col span="8" prop="picYanzheng">
-                  <Input v-model="form.picYanzheng" placeholder="图片验证"></Input>
+                  <Input v-model="form.picYanzheng" placeholder="图片验证" @keyup.enter.native="handleSubmit('form',form)"></Input>
                 </Col>
                 <Col span="15" offset="1">
                   <img @click="getCodeImgChange" :src="imgUrl">
@@ -26,7 +26,7 @@
               </Row>
             </FormItem>
 						<FormItem prop="interest">
-							<Checkbox label="记住账号" v-model="remember">记住账号</Checkbox>
+							<Checkbox label="记住账号" v-model="remember" @keyup.enter.native="handleSubmit('form',form)">记住账号</Checkbox>
 							<router-link class="getpwd" :to="{name:'getpwd'}">忘记密码</router-link>
 						</FormItem>
 						<FormItem>

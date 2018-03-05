@@ -5,7 +5,7 @@
       	<router-link to="/teacher">专家团队 &gt;</router-link>{{ intro.name }}</p>
     </div>
     <div class="detail">
-      <img src="../../assets/images/jitax_专家团队_033.png" alt="孙玮教授">
+      <img src="../../assets/images/t1.png" alt="孙玮教授">
       <h1>{{ intro.name }}</h1>
       <div v-html="intro.value">
         {{ intro.value }}

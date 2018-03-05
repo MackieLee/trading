@@ -53,7 +53,7 @@
 
         <div class="clearfix" style="margin:20px 0 25px 0;">
           <div class="lf">分享到:
-            <i class="qq"></i>
+            <i class="qq iathis_button_qzone"></i>
             <i class="wechat"></i>
             <i class="weibo"></i>
           </div>
@@ -207,12 +207,16 @@ export default {
       }).then(res => {
         res.data === "ok" ? (this.shoucang = "2") : this.shoucang;
       });
-    }
+    },
   },
   filters: {
     unescape:function (html) {
-      let strobj = html.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, "\"").replace(/&#39;/g, "\'")
-      return strobj
+      try{
+        let strobj = html.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, "\"").replace(/&#39;/g, "\'")
+        return strobj
+      }catch (err){
+        console.log(err)
+      }
     },
     str:function (time) {
       let date = new Date(parseInt(time)*1000)

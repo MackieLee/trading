@@ -43,11 +43,9 @@
               <FormItem label="标题" prop="title">
                 <Input v-model="federalSearch.title"  @keyup.enter.native="handleSubmit('federalSearch')" placeholder="请输入法规标题"></Input>
               </FormItem>
-              </span>
               <FormItem label="文号" prop="zihao">
                 <Input v-model="federalSearch.zihao"  @keyup.enter.native="handleSubmit('federalSearch')" placeholder="国税发〔2009〕31号"></Input>
               </FormItem>
-              </span>
               <FormItem label="发文年度" prop="niandu">
                 <Input v-model="federalSearch.niandu"  @keyup.enter.native="handleSubmit('federalSearch')" placeholder="请输入法规颁布的年度"></Input>
               </FormItem>
