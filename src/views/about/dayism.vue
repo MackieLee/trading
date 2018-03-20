@@ -8,6 +8,7 @@
           <P>
           	<div> <h3>答疑说明</h3></div>
 		            <font>本网站支持每个会员向专家提问。</font>
+		            <font><img src="../../assets/images/dayms.png"></font>
 		      </P>
 		      <P>
 		      <div><h3>在线提问</h3></div>
@@ -101,7 +102,10 @@
 		   line-height: 32px;
 		    font-size: 14px;
 		    color: #333;
-		    font{margin-left: 10px;}
+		    font{
+		    	margin-left: 10px;
+		    	img{width: 90%;}
+		    }
 		  }
   }
 }

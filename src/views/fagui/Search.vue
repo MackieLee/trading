@@ -146,7 +146,7 @@
       </div>
       <!-- 模块四 -->
       <div class="global-overview-left second-line rt">
-        <div class="titcon">
+        <!--<div class="titcon">
           <h2 class="ctr">税收类别</h2>
         </div>
         <div class="clearfix"></div>
@@ -158,8 +158,10 @@
               	:to="{name:'fagui',query:{form_id:item.id}}">{{ item.name }}</router-link>
             </li>
           </ul>
-        </div>
+        </div>-->
+         <img src="../../assets/images/faguit.png">
       </div>
+      
     </div>
   </div>
 </template>
