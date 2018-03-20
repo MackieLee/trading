@@ -39,12 +39,12 @@
     </div>
     <div class="div3">
       <h3>综合满意度 :</h3>
-      <Rate allow-half v-model="zhengce"></Rate>
+      <Rate allow-half v-model="zonghe"></Rate>
     </div>
     <Input v-model="textarea" type="textarea" :rows="6" placeholder="这么善良的您，夸夸我吧..."></Input>
-		<div class="footer">				    
+		<div class="footer">
 	    <Button type="ghost"  class="qux">取消</Button>
-	    <Button type="primary" class="tij">提交</Button>
+	    <Button type="primary" class="tij" @click="sub">提交</Button>
 		</div>
   </div>
 </template>
@@ -58,7 +58,23 @@ export default {
       shiyong:0,
       zhengce: 0,
       youyong:0,
+      zonghe:0,
       textarea: ''
+    }
+  },
+  methods: {
+    sub(){
+      let res = loginUserUrl("getOnline_Courses_Grade", {
+          username: "niuhongda",
+          password: "123123q",
+          reasonable:this.zhunque,
+          renewal:this.wanzheng,
+          practical:this.shiyong,
+          standard:this.zhengce,
+          specialty:youyong,
+          uid:this.getCookie('u_name'),
+          cid:this.$route.query.id
+        })
     }
   }
 };

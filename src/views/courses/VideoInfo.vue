@@ -11,11 +11,11 @@
         &nbsp;&gt;&nbsp;{{ course.name }}</p>
     </div>
     <div id="xxkc_xq01">
-			<div :to="{name:'video-page'}" class="xq01_shit">
+			<router-link tag="div" :to="{name:'video-page',query:{id:this.$route.query.id}}" class="xq01_shit">
 				<img src="../../assets/images/jdtax_线下_01.png">
 				  <a @click="ifLogined" class="shit" data-trace="518"
 				data-trace-type="免费试听" data-trace-position="封面">免费试听</a>
-			</div>
+			</router-link>
       <div class="xq01_r">
         <h2>
           {{ course.name }}

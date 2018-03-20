@@ -22,47 +22,10 @@
    		</div>
    	</div>
     <div class="pt-2">
-      <div class="container">
-        <img :src="logo" />
-        <div class="middle">
-          <p>企业所得税年度纳税申报表中隐藏的稽查陷阱
-藏的稽查陷</p>
-          <font>孙玮</font>
-        </div>
-        <div class="sm-btn">
-          <span>开始学习</span>
-          <p class="jindu">学习进度：0% </p>
-        </div>
-      </div>
-      <div class="container">
-        <img :src="logo" />
-        <div class="middle">
-          <p>企业所得税年度纳税申报表中隐藏的稽查陷阱
-藏的稽查陷</p>
-          <font>孙玮</font>
-        </div>
-        <div class="sm-btn">
-          <span>开始学习</span>
-          <p class="jindu">学习进度：0% </p>
-        </div>
-      </div>
-      <div class="container">
-        <img :src="logo" />
-        <div class="middle">
-          <p>企业所得税年度纳税申报表中隐藏的稽查陷阱企业所得税年度纳税申报表中隐藏的稽查陷阱
-藏的稽查陷</p>
-          <font>孙玮</font>
-        </div>
-        <div class="sm-btn">
-          <span>继续观看</span>
-          <p class="jindu">学习进度：2% </p>
-        </div>
-      </div>
-      <div class="container">
+      <div v-for="item in list" :key="item.ss" class="container">
         <img src="../../assets/images/huanyuanzx02.png" />
         <div class="middle">
-          <p>企业所得税年度纳税申报表中隐藏的稽查陷阱
-藏的稽查陷</p>
+          <p>{{ item.name }}</p>
           <font>孙玮</font>
         </div>
         <div class="sm-btn">
@@ -92,11 +55,22 @@ export default {
   name: "study",
   data(){
     return{
-      logo:require('../../assets/images/huanyuanzx02.png')
+      logo:require('../../assets/images/huanyuanzx02.png'),
+      list:[],
     }
   },
   methods: {
 
+  },
+  created () {
+    let res = this.loginUserUrl('mycourses',{
+      username: "niuhongda",
+      password: "123123q",
+      uid:this.getCookie("u_name"),
+    }).then((res)=>{
+      this.list = res.info
+      console.log(res.info)
+    })
   }
 }
 </script>

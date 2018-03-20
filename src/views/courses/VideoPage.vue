@@ -4,7 +4,9 @@
       :width = '450'
       v-model="modal2"
       :closable = "false"
-      :mask-closable="false">
+      :mask-closable="false"
+      :on-ok="bijiSub"
+    >
       <Input v-model="bijiTitle" placeholder="请输入标题" style="margin:20px 0;"></Input>
       <Input v-model="biji" type="textarea" :rows="4" placeholder="请输入笔记内容"></Input>
     </Modal>
@@ -95,8 +97,7 @@
       <span class="doc-title">{{ curClass }}</span>
       <span class="teacher">主讲：孙玮老师</span>
       <!--<span class="pointer pingjia" @click="modal1=true,series=true">本节评价</span>-->
- 	<router-link class="pointer pingjia"  to="/VideoPingfen" tag="span">
-        本节评价</router-link>
+ 	    <router-link class="pointer pingjia"  :to="{path:'/o/VideoPingfen',query:{id:this.$route.query.id}}" tag="span">本节评价</router-link>
       <span class="pointer shoucang" @click="shouCang">收藏</span>
       <i class="red-heart" v-if="shoucang"></i>
       <i class="grey-heart" v-if="!shoucang"></i>
@@ -232,7 +233,30 @@ export default {
     },
     shouCang: function() {
       this.shoucang = !this.shoucang
-    }
+      let res = this.loginUserUrl('getTeacher_Attention',{
+        username: 'niuhongda',
+        password: '123123q',
+        uid: this.getCookie('u_name'),
+        sid: this.biji,
+        type: 3,
+      }).then(res =>{
+        console.log('单个视频收藏')
+        console.log(res)
+      })
+    },
+    bijiSub:function(){
+      let res;
+      res = this.loginUserUrl('getOnline_Courses_chapterNote', {
+        username: "niuhongda",
+        password: "123123q",
+        cid: "",
+        uid: this.getCookie('u_name'),
+        value: this.biji,
+      }).then(res => {
+        console.log('add note text')
+        console.log(res)
+      });
+    },
   }
 };
 </script>

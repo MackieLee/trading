@@ -42,15 +42,15 @@
           <p>
             课程
           </p>
-          <font>10</font>
+          <font>{{ item.count_kecheng }}</font>
         </span>
         <span>
           <p>回答</p>
-          <font>17</font>
+          <font>{{ item.count_wenda }}</font>
         </span>
         <span>
           <p>荣誉值</p>
-          <font>99%</font>
+          <font>{{ item.grade }}</font>
         </span>
         <span class="shanchang">
           <i></i>擅长领域</span>

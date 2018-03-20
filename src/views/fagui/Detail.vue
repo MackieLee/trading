@@ -50,12 +50,11 @@
             	》的政策解读</router-link>
           </div>
         </div>
-
         <div class="clearfix" style="margin:20px 0 25px 0;">
           <div class="lf">分享到:
             <i class="qq iathis_button_qzone"></i>
             <i class="wechat"></i>
-            <i class="weibo"></i>
+            <a href="http://service.weibo.com/share/share.php?title=&url=&searchPic=false&style=simple" target="_blank"><i class="weibo"></i></a>
           </div>
           <div class="rt" style="width:20%;">
             <span>
@@ -102,7 +101,7 @@ export default {
       timeDown: "",
       path: "",
       shoucang: "2",
-      categray: []
+      categray: [],
     };
   },
   created: function() {
@@ -171,9 +170,7 @@ export default {
         }).then(sc => {
           // console.log(sc.data)
           for (let i = 0; i < sc.data.length; i++) {
-            sc.data[i].goods_id === this.$route.query.id
-              ? (this.shoucang = "1")
-              : this.shoucang;
+            sc.data[i].goods_id === this.$route.query.id ? (this.shoucang = "1") : this.shoucang;
           }
         });
       } else {

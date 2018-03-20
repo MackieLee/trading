@@ -147,6 +147,17 @@ export default {
         page:this.pageNum,
         num:8
       }).then((res)=>{
+        console.log('...')
+        console.log(res)
+      })
+      //訂單信息
+      let res1 = loginUserUrl('getShopcar_payInfo',{
+        username: "niuhongda",
+        password: "123123q",
+        uid:parseInt(getCookie('u_name')),
+        status:1,
+      }).then((res1)=>{
+        console.log('这是订单列表')
         console.log(res)
       })
     },

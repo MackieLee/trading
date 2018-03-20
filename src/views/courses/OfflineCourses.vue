@@ -68,12 +68,193 @@ export default {
   methods:{
     getPosition:(position) => {
       window.open('http://ditu.amap.com/search?query='+ position +'&zoom=15',"_blank")
+    },
+    init(){
+      let res = this.loginUserUrl('getFace_CoursesClassify',{
+        username:'niuhongda',
+        password:'123123q',
+        type:'1',
+
+      }).then(res => {
+        console.log('线下课程分类显示')
+        console.log(res)
+      })
     }
+  },
+  created:function(){
+    this.init()
   }
 }
 </script>
 
 <style lang="scss" scoped>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @import '../../assets/style/base.scss';
 .offline {
   width: $width;

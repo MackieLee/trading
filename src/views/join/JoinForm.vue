@@ -235,11 +235,12 @@ export default {
         let res = loginUserUrl('register_verification',{
           username: "niuhongda",
           password: "123123q",
+          name:this.formValidate.name,
           tel:value
         })
         setTimeout(() => {
           res.then(res => {
-            console.log('phone'+res)
+            console.log('phone'+res.error_code)
             if (res && res.error_code === 0) {
               callback()
             } else {

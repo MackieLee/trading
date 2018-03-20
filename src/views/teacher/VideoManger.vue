@@ -12,8 +12,15 @@
       </div>
     </Modal>
     <!-- 添加试题 -->
-    <Modal v-model="modal1" :width="700" :mask-closable="false" :closable="false">
+    <Modal v-model="modal1" :width="700" :mask-closable="false">
+      <div slot="header" style="color:#478EE1;text-align:center;">
+        <Icon type="bookmark" size="22" style="margin-right:10px"></Icon><span style="line-height:22px;font-size:16px;font-weight:bold;">試題</span>
+      </div>
       <exam ref="exam"></exam>
+      <div slot="footer">
+        <Button type="primary" style="margin-right:10px;" @click="shitiSubmit">确定</Button>
+        <Button type="ghost" @click="handleReset">取消</Button>
+      </div>
     </Modal>
     <Modal v-model="modal2" :width="700" :closable="false">
       <!-- 获取当前这一段文档 -->
@@ -74,26 +81,39 @@ export default {
     submit:function(){
       let doc = this.$refs.doc
       let str = JSON.stringify(doc.docs)
-      console.log(str.__proto__)
-        let res = loginUserUrl(
-          "getOnline_Courses_chapterAdd",{
-            username: "niuhongda",
-            password: "123123q",
-            cid:800,//章节id
-            info:str
-          }).then((res)=>{
-            console.log(res)
-          // if(res.error_code === 0){
-          //   this.handleReset()
-          //   this.$Message.success('提交')
-          // }else{
-          //   this.$Message.error('提交失败')
-          // }
-        })
+      let res = loginUserUrl(
+        "getOnline_Courses_chapterAdd",{
+          username: "niuhongda",
+          password: "123123q",
+          cid:800,//章节id
+          info:str
+        }).then((res)=>{
+          console.log(res)
+        // if(res.error_code === 0){
+        //   this.handleReset()
+        //   this.$Message.success('提交')
+        // }else{
+        //   this.$Message.error('提交失败')
+        // }
+      })
+    },
+    shitiSubmit:function(){//提交試題-----------------有問題
+      let exam = this.$refs.exam
+      let res = loginUserUrl(
+        "getOnline_Courses_chapterExam",{
+          username: "niuhongda",
+          password: "123123q",
+          uid:this.getCookie('u_name'),
+          cid:800,//章节id
+          info:str
+        }).then((res)=>{
+          console.log(res)
+      })
     },
     handleReset:function(){
       // this.$refs.faqModal.handleReset()
       this.modal=false
+      this.modal1=false
     }
   }
 };

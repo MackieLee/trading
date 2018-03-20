@@ -42,7 +42,7 @@
       	<i @click="change()" data-ref="1" :class="{ selected: num2}"></i>全选
         <input type="button" class="btn btn-1" value="删除订单"/>
         <input type="button" class="btn btn-2" value="去结算"/>
-      </div> 
+      </div>
       <div class="pgs">
         <li class="prev">&lt;上一页</li>
         <li class="current">1</li>
@@ -93,7 +93,31 @@ export default {
       } else {
         this.num3 = !this.num3;
       }
+    },
+    init(){
+      let res = this.loginUserUrl('getInvoice_add',{
+        username:'niuhongda',
+        password:'123123q',
+        type:1,
+        title:'',//发票抬头
+        number:'',//纳税人识别号
+        content:'',//发票内容
+        address:'',
+        tel:'',
+        email:'',
+        registered_address:'',
+        registered_tel:'',
+        registered_bank:'',
+        registered_account:'',
+        order_id:''
+      }).then(res => {
+        console.log('申请发票')
+        console.log('res')
+      })
     }
+  },
+  created:function(){
+    this.init()
   }
 };
 </script>
@@ -108,7 +132,7 @@ export default {
   border: none;
   width: 100px;
   height: 30px;
-  margin-left: 20px;  
+  margin-left: 20px;
   background-color: #f0f0f0;
 }
 i {
@@ -189,7 +213,7 @@ i {
     margin-left: 10px;
     background-position: -101px -349px;
   }
-  li {	
+  li {
     width: 120px;
     text-align: center;
     font-size: 14px;

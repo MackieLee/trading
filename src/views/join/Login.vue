@@ -10,10 +10,10 @@
 					</p>
 					<Form ref="form" :model="form" :rules="ruleCustom">
 						<FormItem prop="name">
-							<Input type="text" v-model="form.name" placeholder="请输入用户名/邮箱/手机号"></Input>
+							<Input type="text" v-model="form.name" placeholder="请输入用户名/邮箱/手机号" @keyup.enter.native="handleSubmit('form',form)"></Input>
 						</FormItem>
 						<FormItem prop="passwd">
-							<Input :type="type" v-model="form.passwd" placeholder="请输入密码"  @on-click="showPasswd" :icon="eye"></Input>
+							<Input :type="type" v-model="form.passwd" placeholder="请输入密码" @keyup.enter.native="handleSubmit('form',form)"  @on-click="showPasswd" :icon="eye"></Input>
 						</FormItem>
 						<FormItem prop="picYanzheng" :error="errData">
               <Row>

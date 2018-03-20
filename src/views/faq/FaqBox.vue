@@ -72,7 +72,8 @@ export default {
       if(res === '暂无数据'){
         this.data = res
       }else{
-        this.newAnsr = res.data
+        console.log(res.data)
+        // this.newAnsr = res.data
       }
     })
   }

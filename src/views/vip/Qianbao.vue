@@ -1,9 +1,17 @@
 <template>
   <div class="my_qianb_r">
+    <Modal v-model="cz" :mask-closable='false'>
+      <div slot="header">充值</div>
+      <cz ref="childcz"></cz>
+      <div slot="footer">
+        <Button type="primary" @click="czsub">确定</Button>
+        <Button type="default" @click="czCancle">取消</Button>
+      </div>
+    </Modal>
     <div class="div01">
       <p class="p_le">我的可用余额<br>0.00</p>
       <p class="p_ri">
-        <button>充值</button>
+        <button @click="cz = true">充值</button>
         <button>提现</button>
       </p>
        <p class="fr">
@@ -99,11 +107,16 @@
 </template>
 
 <script>
+import Cz from './CzModal'
 export default {
   name: "qianbao",
+  components: {
+    Cz
+  },
   data() {
     return {
-      show: false
+      show: false,
+      cz: false,
     };
   },
   methods: {
@@ -111,6 +124,14 @@ export default {
       document.getElementsByClassName("cur")[0].className = ""
       event.target.setAttribute("class", "cur")
       this.show = !this.show
+    },
+    czsub:function(){
+      this.$refs.childcz.czje()
+    },
+    czCancle:function(){
+      this.cz = false
+      this.$refs.childcz.block = true
+      this.$refs.childcz.jine = 0
     }
   }
 };

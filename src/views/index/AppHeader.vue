@@ -52,14 +52,12 @@
           <i></i>
           <div>
            	 <ul>
-	              <li class="title">通知/公告 <span>6</span></li>
-	              <li>报名 <span>0</span></li>
-	              <li>回答 <span>0</span></li>
-	              <li>评论 <span>0</span></li>
-	              <li>采纳 <span>0</span></li>
-	              <li>收藏 <span>0</span></li>
-	              <li>企业公告 <span>0</span></li>
-	              <li>系统通知 <span>0</span></li>
+	              <li class="title">通知/公告 <span>{{announce.counts}}</span></li>
+	              <li>报名 <span>{{announce.apply}}</span></li>
+	              <li>回答 <span>{{announce.answer}}</span></li>
+	              <li>评论 <span>{{announce.comment}}</span></li>
+	              <li>收藏 <span>{{announce.collect}}</span></li>
+	              <li>系统通知 <span>{{announce.xiaoxi}}</span></li>
            	 </ul>
           </div>
         </div>
@@ -98,7 +96,15 @@ export default {
       ],
       activeItem: "home",
       drop:'',
-      nickName:''
+      nickName:'',
+      announce:{
+        counts:0,
+        apply:0,
+        answer:0,
+        comment:0,
+        collect:0,
+        xiaoxi:0,
+      }
     };
   },
   computed: {
@@ -116,15 +122,28 @@ export default {
     quit:function(){
       setCookie('u_name','',1)
       this.nickName = ''
+    },
+    // get user's emits or announcements !!
+    init:function () {
+      let res = this.loginUserUrl("notification",{
+        username: "niuhongda",
+        password: "123123q",
+      }).then( res =>{
+        console.log('apply/answer/comment/collect/xiaoxi')
+        console.log(res)
+      //  先看数据格式，再计算数目相加的结果。
+      })
     }
   },
   mounted () {
     let userName = getCookie("u_name")
     if(userName !== null && userName !== '' && userName !== undefined){
       this.nickName = userName
+      this.init()
     }else{
       return ''
     }
+
   }
 };
 </script>

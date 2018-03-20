@@ -125,7 +125,7 @@ export default {
     },
     handleSubmit() {
       let udata = this.uData
-      let res = this.loginUserUrl('execute/useradd',{
+      let res = this.loginUserUrl('useradd',{
         username: "niuhongda",
         password: "123123q",
         name:this.getCookie("u_name"),
@@ -139,7 +139,7 @@ export default {
         company_scale:udata.scale,
         real_name:udata.realName
       }).then((res)=>{
-        console.log(this.getCookie("u_name"))
+        console.log(res)
       })
     },
     upsuccess() {
