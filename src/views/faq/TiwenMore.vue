@@ -134,14 +134,13 @@ export default {
         for (let i = 0; i < this.sel.length; i++) {
           arr += this.sel[i] + ",";
         }
-        // console.log('this.ask.title:'+this.ask.title+"this.ask.content:"+this.ask.content+'this.ask.teacher:'+parseInt(this.ask.teacher)+'formid'+arr.substr(0,arr.length-1))
+        // console.log('t is.ask.title:'+this.ask.title+"this.ask.content:"+this.ask.content+'this.ask.teacher:'+parseInt(this.ask.teacher)+'formid'+arr.substr(0,arr.length-1))
         let res = loginUserUrl("getQuestions_add", {
           username: "niuhongda",
           password: "123123q",
           name: this.ask.title,
           intro: this.ask.content,
-          // teacher_id:parseInt(this.ask.teacher),
-          teacher_id: 1448,
+          teacher_id:parseInt(this.ask.teacher),
           uid: parseInt(getCookie("u_name")),
           choose: choose,
           form_id: arr.substr(0, arr.length - 1),

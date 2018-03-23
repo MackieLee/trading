@@ -56,7 +56,19 @@ export default {
     }
   },
   methods: {
-
+    getFaqList(){
+      let res = loginUserUrl(
+        "getQuestions_list",
+        {
+          username: "niuhongda",
+          password: "123123q",
+          page:1,
+          num: 20
+        }
+      ).then((res)=>{
+        console.log(res)
+      })
+    }
   },
   created () {
 
@@ -73,7 +85,7 @@ export default {
         this.data = res
       }else{
         console.log(res.data)
-        // this.newAnsr = res.data
+        this.newAnsr = res.data
       }
     })
   }

@@ -230,7 +230,6 @@ export default {
         callback(new Error("不能为空"));
       } else if (regMb.test(value)) {
         this.mail = true;
-        callback();
         // 判断手机号是否已经被注册过，如果没有，那就可以向这个手机发送验证码
         let res = loginUserUrl('register_verification',{
           username: "niuhongda",
@@ -240,18 +239,17 @@ export default {
         })
         setTimeout(() => {
           res.then(res => {
-            console.log('phone'+res.error_code)
-            if (res && res.error_code === 0) {
+            if (res && res === 0) {
               callback()
             } else {
-              callback(new Error('验证码输入错误或已过期'))
+              console.log('err')
+              callback(new Error('手机号码已被使用'))
             }
           });
         }, 1000)
       } else if (regMa.test(value)) {
         // console.log('邮箱不对')
         this.mail = true;
-        callback();
         // 判断邮箱号是否已经被注册过，如果没有，那就可以向这个邮箱发送验证码
         let res = loginUserUrl('register_verification',{
           username: "niuhongda",
@@ -264,7 +262,7 @@ export default {
             if (res && res.error_code === 0) {
               callback()
             } else {
-              callback(new Error('验证码输入错误或已过期'))
+              callback(new Error('邮箱已被使用'))
             }
           });
         }, 1000)

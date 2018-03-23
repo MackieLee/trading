@@ -137,8 +137,9 @@ export default {
     let res = loginUserUrl('getQuestions_list',{
       username: "niuhongda",
       password: "123123q",
-      tid:'531'
+      tid:'1448',
     }).then((res)=>{
+      console.log('yemianjiazai')
       console.log(res)
       this.fqList = res.data
     })

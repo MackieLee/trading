@@ -55,10 +55,15 @@ import { setCookie, getCookie } from "@/util/cookie"
 export default {
   components: { JoinHeader, JoinFooter },
   data() {
+    let regMb = /^134[0-8]\d{7}$|^13[^4]\d{8}$|^14[5-9]\d{8}$|^15[^4]\d{8}$|^16[6]\d{8}$|^17[0-8]\d{8}$|^18[\d]{9}$|^19[8,9]\d{8}$/;
     // 用户名不能为空
     const validateName = (rule, value, callback) => {
       if (value === "") {
-        callback(new Error("用户名不能为空"))
+        callback(new Error("不能为空"))
+      }else if(regMb.test(value)){
+        this.format = 2
+      }else{
+        callback()
       }
       callback()
     };
@@ -106,7 +111,8 @@ export default {
         passwd: [{ required: true, validator: validatePwd, trigger: "blur" }],
         name: [{ required: true, validator: validateName, trigger: "blur" }],
         picYanzheng: [{ required: true, validator: validatePic, trigger: "blur" }]
-      }
+      },
+      format: 1,
     };
   },
   methods: {
@@ -126,6 +132,7 @@ export default {
           password: "123123q",
           name: arg.name,
           pwd: arg.passwd,
+          format:this.format,
         }).then(res => {
           if(valid){
             if(!res){
