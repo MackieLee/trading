@@ -20,7 +20,7 @@
         <MenuItem name="3">
            待回答
         </MenuItem>
-        <router-link tag='span' to="/Leibiebox">税收类别</router-link>
+        <router-link tag='span' to="Leibiebox">税收类别</router-link>
     </Menu>
     <!-- 切换-->
     </div>
@@ -111,7 +111,7 @@ export default {
     padding-bottom: 10px;
     position: relative;
     span{margin-left: 15px;}
-    span:hover{ 
+    span:hover{
     	color: $blue;
     	cursor: pointer;
     	}
