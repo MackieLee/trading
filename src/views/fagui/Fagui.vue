@@ -15,7 +15,7 @@
         <tbody>
           <tr>
             <td class="xuhao ctr" style="width: 40px;">序号</td>
-            <td class="biaoti" style="padding-left: 150px"">标题</td>
+            <td class="biaoti" style="padding-left: 150px">标题</td>
             <td class="fahao ctr"  style="padding-left:75px">文号</td>
             <td class="riqi ctr">发文日期</td>
           </tr>
@@ -157,7 +157,7 @@ export default {
     width: 230px;
   }
   .riqi {
-    width: 65px; 
+    width: 65px;
   }
   .biaoti{
   	width: 600px;

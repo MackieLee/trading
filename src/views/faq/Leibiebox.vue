@@ -11,7 +11,7 @@
     <div class="title">
     	<!--切换-->
       <div class="vertical-menu" style="float:left">
-        <Menu :theme="theme3" @on-select="toggle($event)" active-name="1">
+        <Menu :theme="theme3" @on-select="toggle($event)" active-name='0'>
           <MenuGroup title="答疑税收类别">
             <MenuItem v-for="(item,index) in items" :key="item.id" :name="index">
               {{ item.name }}
@@ -21,8 +21,8 @@
       </div>
 	<!--切换-->
 			<div class="box_xiansi">
-				<div class="xiansi" v-if="nameId === 1">
-					<h3>企业所得税</h3>
+				<div v-for="(item,index) in items" :key="item.id" class="xiansi" v-if="nameId === parseInt(index)">
+					<h3>{{ item.name }}</h3>
 					<ul>
 						<li><i></i>企业的哪些支出，可以作为长期待摊费以作为长期待摊费用，在计算应纳税所得额进行扣除？
 						    <span class="time">2017-12-22</span>
@@ -58,445 +58,18 @@
 						    <span class="time">2017-12-22</span>
 						</li>
 					</ul>
-
 				</div>
-				<div class="xiansi" v-if="nameId === 2">
-					<h3>税种征收管理</h3>
-					<ul>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-					</ul>
-				</div>
-				<div class="xiansi" v-if="nameId === 3">
-					<h3>个人所得税</h3>
-					<ul>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-					</ul>
-				</div>
-				<div class="xiansi" v-if="nameId === 4">
-					<h3>印花税</h3>
-					<ul>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-					</ul>
-				</div>
-				<div class="xiansi" v-if="nameId === 5">
-					<h3>契税</h3>
-					<ul>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li><i></i>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-					</ul>
-
-				</div>
-				<div class="xiansi" v-if="nameId === 6">
-					<h3>房产税</h3>
-					<ul>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-					</ul>
-
-				</div>
-				<div class="xiansi" v-if="nameId === 7">
-					<h3>城镇土地使用税</h3>
-					<ul>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-					</ul>
-				</div>
-				<div class="xiansi" v-if="nameId === '8'">
-					<h3>土地增值税</h3>
-					<ul>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-					</ul>
-				</div>
-				<div class="xiansi" v-if="nameId === '9'">
-					<h3>车船税</h3>
-					<ul>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-					</ul>
-				</div>
-				<div class="xiansi" v-if="nameId === '10'">
-					<h3>增值税</h3>
-					<ul>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-					</ul>
-				</div>
-				<div class="xiansi" v-if="nameId === '11'">
-					<h3>其他税费</h3>
-					<ul>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-					</ul>
-				</div>
-				<div class="xiansi" v-if="nameId === '12'">
-					<h3>综合</h3>
-					<ul>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-						<li>企业的哪些支出，可以作为长期待摊费用，在计算应纳税所得额进行扣除？
-						    <span class="time">2017-12-22</span>
-						</li>
-					</ul>
-				</div>
-
-				<div class="pgs">
-			      <li class="prev">&lt;上一页</li>
-			      <li class="current">1</li>
-			      <li class="custom">2</li>
-			      <li class="custom">3</li>
-			      <li class="custom">4</li>
-			      <li class="points">...</li>
-			      <li class="jump"><input type="tel" maxlength="3"> /40页</li>
-			      <li class="submit">确定</li>
-			      <li class="next">下一页&gt;</li>
-			 </div>
-
+        <div class="pgs">
+          <li class="prev">&lt;上一页</li>
+          <li class="current">1</li>
+          <li class="custom">2</li>
+          <li class="custom">3</li>
+          <li class="custom">4</li>
+          <li class="points">...</li>
+          <li class="jump"><input type="tel" maxlength="3"> /40页</li>
+          <li class="submit">确定</li>
+          <li class="next">下一页&gt;</li>
+        </div>
 			</div>
     </div>
     </div>
@@ -512,13 +85,13 @@ export default {
       newAnsr:[],
       data:'',
       items:{},
-      nameId:'1'
+      nameId:0
     }
   },
   methods: {
 		toggle(ev){
       console.log(ev)
-			this.nameId = ev
+			this.nameId = parseInt(ev)
 		}
   },
   created () {
@@ -526,6 +99,7 @@ export default {
       username: "niuhongda",
       password: "123123q"
     }).then((classify)=>{
+      console.log('/////')
       console.log(classify)
       this.items = classify.data
     })
