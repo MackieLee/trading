@@ -77,7 +77,6 @@ export default {
       }
     };
   },
-  computed: {},
   mounted() {
     let res = loginUserUrl("getTeacherList", {
       username: "niuhongda",
@@ -146,7 +145,7 @@ export default {
           form_id: arr.substr(0, arr.length - 1),
           pay_type: 2
         }).then(res => {
-          this.order_id = res.order_pay.order_id;
+          this.order_id = res.order_pay.order_id
           this.modal = true;
           if (res.intro) {
             this.imgUri = res.intro;

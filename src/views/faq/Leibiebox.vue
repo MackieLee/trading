@@ -11,7 +11,7 @@
     <div class="title">
     	<!--切换-->
       <div class="vertical-menu" style="float:left">
-        <Menu :theme="theme3" @on-select="toggle($event)" active-name='0'>
+        <Menu :theme="theme3" @on-select="toggle($event)" active-name= '0' >
           <MenuGroup title="答疑税收类别">
             <MenuItem v-for="(item,index) in items" :key="item.id" :name="index">
               {{ item.name }}
@@ -99,7 +99,6 @@ export default {
       username: "niuhongda",
       password: "123123q"
     }).then((classify)=>{
-      console.log('/////')
       console.log(classify)
       this.items = classify.data
     })

@@ -4,103 +4,102 @@ import Router from 'vue-router'
 
 const index = r => require.ensure([], () => r(require('../views/index/Index')), 'index') //网站总容器
 const home = r => require.ensure([], () => r(require('../views/home/Home')), 'home') //主页
-
-import off from '../views/courses/off'//线下课程
-import offline from '../views/courses/Offline'//线下课程
-import odetail from '../views/courses/Detail'//线下课程详情
-import detailbd from '../views/courses/detailbd'//线下课程报名表单
-import t from '../views/team/t'//root page
-import teacher from '../views/team/teacher'//专家团队
-import tdetail from '../views/team/TDetail'//专家团队详情页
-import f from '../views/faq/f' //root page of faq
-import faq from '../views/faq/Faq'//问答
-import qdetail from '../views/faq/QDetail'//问答详情
-import qdMore from '../views/faq/qdMore'//问答列表Q
-import Leibiebox from '../views/faq/Leibiebox'//税收类别
-import TiwenMore from '../views/faq/TiwenMore'//问答提问页面
-import b from '../views/book/b'//图书
-import book from '../views/book/Book'//图书
-import item from '../views/book/Item'//图书详情
-import customize from '../views/customize/Customize'//课程定制
+const off = r => require.ensure([], () => r(require('../views/courses/off')), 'off') //线下课程
+const offline = r => require.ensure([], () => r(require('../views/courses/Offline')), 'offline')//线下课程
+const odetail = r => require.ensure([], () => r(require('../views/courses/Detail')),'odetail')//线下课程详情
+const detailbd = r => require.ensure([], () => r(require('../views/courses/detailbd')),'detailbd')//线下课程报名表单
+const t = r => require.ensure([], () => r(require('../views/team/t')),'t')//root page
+const teacher = r => require.ensure([], () => r(require('../views/team/teacher')),'teacher')//专家团队
+const tdetail = r => require.ensure([], () => r(require('../views/team/TDetail')),'tdetail')//专家团队详情页
+const f = r => require.ensure([], () => r(require('../views/faq/f' )),'f')//root page of faq
+const faq = r => require.ensure([], () => r(require('../views/faq/Faq')),'faq')//问答
+const qdetail = r => require.ensure([], () => r(require('../views/faq/QDetail')),'qdetail')//问答详情
+const qdMore = r => require.ensure([], () => r(require('../views/faq/qdMore')),'qdMore')//问答列表Q
+const Leibiebox = r => require.ensure([], () => r(require('../views/faq/Leibiebox')),'Leibiebox')//税收类别
+const TiwenMore = r => require.ensure([], () => r(require('../views/faq/TiwenMore')),'TiwenMore')//问答提问页面
+const b = r => require.ensure([], () => r(require('../views/book/b')),'b')//图书
+const book = r => require.ensure([], () => r(require('../views/book/Book')),'book')//图书
+const item = r => require.ensure([], () => r(require('../views/book/Item')),'item')//图书详情
+const customize = r => require.ensure([], () => r(require('../views/customize/Customize')),'customize')//课程定制
 // --------------------法规查询----------------------------------
-import fg from '../views/fagui/fg'//法规
-import fagui from '../views/fagui/Fagui'//法规
-import fdetail from '../views/fagui/Detail'//法规详情
-import jiedu from '../views/fagui/Jiedu'//政策解读
-import fsearch from '../views/fagui/Search'//法规查询
+const fg = r => require.ensure([], () => r(require('../views/fagui/fg')),'fg')//法规
+const fagui = r => require.ensure([], () => r(require('../views/fagui/Fagui')),'fagui')//法规
+const fdetail = r => require.ensure([], () => r(require('../views/fagui/Detail')),'fdetail')//法规详情
+const jiedu = r => require.ensure([], () => r(require('../views/fagui/Jiedu')),'jiedu')//政策解读
+const fsearch = r => require.ensure([], () => r(require('../views/fagui/Search')),'fsearch')//法规查询
 // ---------------------线上课程---------------------------------
-import online from '../views/courses/Online'//线上课程
-import o from '../views/courses/o.vue'// root page
-import videopage from '../views/courses/VideoPage'//视频播放
-import videoinfo from '../views/courses/VideoInfo'//视频详情、试听、购买页面
-import VideoPingfen from '../views/modal/VideoPingjia'//视频详情、试听、购买页面
+const online = r => require.ensure([], () => r(require('../views/courses/Online')),'online')//线上课程
+const o = r => require.ensure([], () => r(require('../views/courses/o.vue')),'o')// root page
+const videopage = r => require.ensure([], () => r(require('../views/courses/VideoPage')),'videopage')//视频播放
+const videoinfo = r => require.ensure([], () => r(require('../views/courses/VideoInfo')),'videoinfo')//视频详情、试听、购买页面
+const VideoPingfen = r => require.ensure([], () => r(require('../views/modal/VideoPingjia')),'VideoPingfen')//视频详情、试听、购买页面
 // ---------------------登录注册----------------------------------
-import login from '../views/join/Login'//登录
-import register from '../views/join/Register'//注册
-import getpwd from '../views/join/Getpwd'//重置密码
+const login = r => require.ensure([], () => r(require('../views/join/Login')),'login')//登录
+const register = r => require.ensure([], () => r(require('../views/join/Register')),'register')//注册
+const getpwd = r => require.ensure([], () => r(require('../views/join/Getpwd')),'getpwd')//重置密码
 // ---------------------vip用户端------------------------------------
-import initpwd from '../views/vip/Initpwd'//普通用户端账号安全
-import InitpwdModal from '../views/vip/Modal'//普通用户端账号安全绑定页面
-import InitpwdModal1 from '../views/vip/Modal1'//普通用户端账号安全绑定页面
-import InitpwdModal2 from '../views/vip/Modal2'//普通用户端账号安全绑定页面
-import initdata from '../views/vip/Initdata'//普通用户端个人信息设置
-import bind from '../views/vip/Bind'//普通用户端账号绑定
-import bindModal from '../views/vip/bindModal'//普通用户端账号绑定
-import bindModal1 from '../views/vip/bindModal1'//普通用户端账号绑定
-import bindModal2 from '../views/vip/bindModal2'//普通用户端账号绑定
-import bindModal3 from '../views/vip/bindModal3'//普通用户端账号绑定
-import bindModal4 from '../views/vip/bindModal4'//普通用户端账号绑定
-import bindModal5 from '../views/vip/bindModal5'//普通用户端账号绑定
-import fapiaodetail from '../views/vip/FapiaoDetail'//发票详情
-import fapiaoapp from '../views/vip/FapiaoApp'//发票索取
-import vip from '../views/vip/Vip'//普通会员端
-import study from '../views/vip/Study'//我的学习
-import shoucang from '../views/vip/Shoucang'//我的收藏
-import qa from '../views/vip/Qa'//我的问答
-import qamodal from '../views/modal/Qa_Pingjia'//答疑评价
-import qianbao from '../views/vip/Qianbao'//我的钱包
-import jifenmall from '../views/vip/jifenmall'//积分商城
-import youhuiquan from '../views/vip/Youhuiquan'//我的优惠券
-import fapiao from '../views/vip/Fapiao'//发票索取
-import dingdan from '../views/vip/Dingdan'//我的订单
-import dingdanxq from '../views/vip/dingdanxq'//订单详情
-import dingdanpf from '../views/vip/dingd_modal'//订单评价
-import cart from '../views/vip/ShoppingCart'//购物车
-import jfitem from '../views/vip/JifenItem'//积分商城商品详情
+const initpwd = r => require.ensure([], () => r(require('../views/vip/Initpwd')),'initpwd')//普通用户端账号安全
+const InitpwdModal = r => require.ensure([], () => r(require('../views/vip/Modal')),'InitpwdModal')//普通用户端账号安全绑定页面
+const InitpwdModal1 = r => require.ensure([], () => r(require('../views/vip/Modal1')),'InitpwdModal1')//普通用户端账号安全绑定页面
+const InitpwdModal2 = r => require.ensure([], () => r(require('../views/vip/Modal2')),'InitpwdModal2')//普通用户端账号安全绑定页面
+const initdata = r => require.ensure([], () => r(require('../views/vip/Initdata')),'initdata')//普通用户端个人信息设置
+const bind = r => require.ensure([], () => r(require('../views/vip/Bind')),'bind')//普通用户端账号绑定
+const bindModal = r => require.ensure([], () => r(require('../views/vip/bindModal')),'bindModal')//普通用户端账号绑定
+const bindModal1 = r => require.ensure([], () => r(require('../views/vip/bindModal1')),'bindModal1')//普通用户端账号绑定
+const bindModal2 = r => require.ensure([], () => r(require('../views/vip/bindModal2')),'bindModal2')//普通用户端账号绑定
+const bindModal3 = r => require.ensure([], () => r(require('../views/vip/bindModal3')),'bindModal3')//普通用户端账号绑定
+const bindModal4 = r => require.ensure([], () => r(require('../views/vip/bindModal4')),'bindModal4')//普通用户端账号绑定
+const bindModal5 = r => require.ensure([], () => r(require('../views/vip/bindModal5')),'bindModal5')//普通用户端账号绑定
+const fapiaodetail = r => require.ensure([], () => r(require('../views/vip/FapiaoDetail')),'fapiaodetail')//发票详情
+const fapiaoapp = r => require.ensure([], () => r(require('../views/vip/FapiaoApp')),'fapiaoapp')//发票索取
+const vip = r => require.ensure([], () => r(require('../views/vip/Vip')),'vip')//普通会员端
+const study = r => require.ensure([], () => r(require('../views/vip/Study')),'study')//我的学习
+const shoucang = r => require.ensure([], () => r(require('../views/vip/Shoucang')),'shoucang')//我的收藏
+const qa = r => require.ensure([], () => r(require('../views/vip/Qa')),'qa')//我的问答
+const qamodal = r => require.ensure([], () => r(require('../views/modal/Qa_Pingjia')),'qamodal')//答疑评价
+const qianbao = r => require.ensure([], () => r(require('../views/vip/Qianbao')),'qianbao')//我的钱包
+const jifenmall = r => require.ensure([], () => r(require('../views/vip/jifenmall')),'jifenmall')//积分商城
+const youhuiquan = r => require.ensure([], () => r(require('../views/vip/Youhuiquan')),'youhuiquan')//我的优惠券
+const fapiao = r => require.ensure([], () => r(require('../views/vip/Fapiao')),'fapiao')//发票索取
+const dingdan = r => require.ensure([], () => r(require('../views/vip/Dingdan')),'dingdan')//我的订单
+const dingdanxq = r => require.ensure([], () => r(require('../views/vip/dingdanxq')),'dingdanxq')//订单详情
+const dingdanpf = r => require.ensure([], () => r(require('../views/vip/dingd_modal')),'dingdanpf')//订单评价
+const cart = r => require.ensure([], () => r(require('../views/vip/ShoppingCart')),'cart')//购物车
+const jfitem = r => require.ensure([], () => r(require('../views/vip/JifenItem')),'jfitem')//积分商城商品详情
 // ---------------------老师端------------------------------------
-import tadmin from '../views/teacher/Tadmin'//老师端
-import tkecheng from '../views/teacher/Tkecheng'//老师端我的课程
-import twenda from '../views/teacher/Twenda'//老师端我的问答
-import tqianbao from '../views/teacher/Tqianbao'//老师端我的钱包
-import upload from '../views/teacher/Upload'//视频上传
-import bindcredit from '../views/teacher/BindCredit'//绑定银行卡
-import videolist from '../views/teacher/VideoList'//视频列表
-import valuate from '../views/teacher/Tevaluate'//老师端我的评价
-import tinitdata from '../views/teacher/Tinitdata'//老师端个人信息设置
-import identify from '../views/teacher/Identify' //老师认证
-import tbind from '../views/teacher/Tbind'//老师端账号绑定
-import tinitpwd from '../views/teacher/Tinitpwd'//老师端账号安全
-import tvideo from '../views/teacher/Tvideo'//老师端视频管理
-import bodanlist from '../views/teacher/BodanList'//播单列表
-import bodanmanger from '../views/teacher/BodanManger'//播单管理
-import videomanger from '../views/teacher/Videomanger'//视频管理
-import bodan from '../views/teacher/Bodan'//播单中转页面
-import videos from '../views/teacher/Videos'//视频列表中转
+const tadmin = r => require.ensure([], () => r(require('../views/teacher/Tadmin')),'tadmin')//老师端
+const tkecheng = r => require.ensure([], () => r(require('../views/teacher/Tkecheng')),'tkecheng')//老师端我的课程
+const twenda = r => require.ensure([], () => r(require('../views/teacher/Twenda')),'twenda')//老师端我的问答
+const tqianbao = r => require.ensure([], () => r(require('../views/teacher/Tqianbao')),'tqianbao')//老师端我的钱包
+const upload = r => require.ensure([], () => r(require('../views/teacher/Upload')),'upload')//视频上传
+const bindcredit = r => require.ensure([], () => r(require('../views/teacher/BindCredit')),'bindcredit')//绑定银行卡
+const videolist = r => require.ensure([], () => r(require('../views/teacher/VideoList')),'videolist')//视频列表
+const valuate = r => require.ensure([], () => r(require('../views/teacher/Tevaluate')),'valuate')//老师端我的评价
+const tinitdata = r => require.ensure([], () => r(require('../views/teacher/Tinitdata')),'tinitdata')//老师端个人信息设置
+const identify = r => require.ensure([], () => r(require('../views/teacher/Identify' )),'identify')//老师认证
+const tbind = r => require.ensure([], () => r(require('../views/teacher/Tbind')),'tbind')//老师端账号绑定
+const tinitpwd = r => require.ensure([], () => r(require('../views/teacher/Tinitpwd')),'tinitpwd')//老师端账号安全
+const tvideo = r => require.ensure([], () => r(require('../views/teacher/Tvideo')),'tvideo')//老师端视频管理
+const bodanlist = r => require.ensure([], () => r(require('../views/teacher/BodanList')),'')//播单列表
+const bodanmanger = r => require.ensure([], () => r(require('../views/teacher/BodanManger')),'bodanlist')//播单管理
+const videomanger = r => require.ensure([], () => r(require('../views/teacher/Videomanger')),'videomanger')//视频管理
+const bodan = r => require.ensure([], () => r(require('../views/teacher/Bodan')),'bodan')//播单中转页面
+const videos = r => require.ensure([], () => r(require('../views/teacher/Videos')),'videos')//视频列表中转
 // ----------------------支付页面----------------------------------
-import pay from '../views/account/Pay'//支付页面
-import pay1 from '../views/account/Pay1'//支付页面
-import pay2 from '../views/account/Pay2'//支付页面
-import payok from '../views/account/payok'//支付页面
+const pay = r => require.ensure([], () => r(require('../views/account/Pay')),'pay')//支付页面
+const pay1 = r => require.ensure([], () => r(require('../views/account/Pay1')),'pay1')//支付页面
+const pay2 = r => require.ensure([], () => r(require('../views/account/Pay2')),'pay2')//支付页面
+const payok = r => require.ensure([], () => r(require('../views/account/payok')),'payok')//支付页面
 // ----------------------About——footer----------------------------------
-import about from '../views/about/About'//关于我们
-import abt from '../views/about/abt'//关于我们
-import kechengsm from '../views/about/kechengsm'//课程说明
-import dayism from '../views/about/dayism'//答疑说明
-import Help from '../views/about/Help'//帮助中心
-import shichanghz from '../views/about/shichanghz'//市场合作
-import copy from '../views/about/copy'//版权声明
-import fuwutk from '../views/about/fuwutk'//服务条款
-import yijianfk from '../views/about/yijianfk'//意见反馈
+const about = r => require.ensure([], () => r(require('../views/about/About')),'about')//关于我们
+const abt = r => require.ensure([], () => r(require('../views/about/abt')),'abt')//关于我们
+const kechengsm = r => require.ensure([], () => r(require('../views/about/kechengsm')),'kechengsm')//课程说明
+const dayism = r => require.ensure([], () => r(require('../views/about/dayism')),'dayism')//答疑说明
+const Help = r => require.ensure([], () => r(require('../views/about/Help')),'Help')//帮助中心
+const shichanghz = r => require.ensure([], () => r(require('../views/about/shichanghz')),'shichanghez')//市场合作
+const copy = r => require.ensure([], () => r(require('../views/about/copy')),'copy')//版权声明
+const fuwutk = r => require.ensure([], () => r(require('../views/about/fuwutk')),'fuwutk')//服务条款
+const yijianfk = r => require.ensure([], () => r(require('../views/about/yijianfk')),'yijianfk')//意见反馈
 
 Vue.use(Router)
 
@@ -653,7 +652,7 @@ export default new Router({
   mode: 'history',
   linkActiveClass: 'active',
   routes,
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior (to,from,savedPosition) {
     return { x: 0, y: 0 }
   }
 })

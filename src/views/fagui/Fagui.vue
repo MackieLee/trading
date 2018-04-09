@@ -86,8 +86,6 @@ export default {
       let _self = this
       try{
         let res = await loginUserUrl('getlaws_Search',{
-          username: "niuhongda",
-          password: "123123q",
           laws_area:obj.area,
           name:obj.name,
           reference:obj.reference,

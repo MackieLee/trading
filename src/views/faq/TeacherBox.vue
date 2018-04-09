@@ -122,10 +122,7 @@ export default {
     },
   },
   created() {
-    let res = loginUserUrl("getTeacherList",{
-      username: "niuhongda",
-      password: "123123q"
-    }).then((res)=>{
+    let res = loginUserUrl("getTeacherList",{}).then((res)=>{
       console.log(res)
       // 遍历id ，根据id往卡片上填充老师信息！！！！！！important-------------------------------！！！！！！！！！！--------------------这种做法不可取
       // for(let i=0;i<res.data.length;i++){

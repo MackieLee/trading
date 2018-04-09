@@ -173,7 +173,7 @@
         </div>-->
          <img src="../../assets/images/faguit.png">
       </div>
-      
+
     </div>
   </div>
 </template>
@@ -214,21 +214,12 @@ export default {
       }
     }
   },
-  mounted:function(){
+  mounted:async function(){
     let _self = this
     // 最新法规列表
-    let res = loginUserUrl('getlaws_List',{
-      username: "niuhongda",
-      password: "123123q",
-      page:1,
-      number:5000
-    }).then((res)=>{
-      if(res){
-        this.s_spin = false
-      }else{
-        console.log('err')
-      }
-      let _self = this
+    try{
+      let res = await loginUserUrl('getlaws_List',{page:1,number:5000})
+      if(res){this.s_spin = false}else{console.log('err')}
       let resArr = Object.entries(res.data).slice(0,-1)
       for (let j = 0;j<resArr.length;j++){
         if(resArr[j][1].explain === '1'){
@@ -244,20 +235,13 @@ export default {
         }
         // console.log(resArr[j][1])
       }
-    })
-    let area = loginUserUrl('getlaws_localStatute',{
-      username: "niuhongda",
-      password: "123123q"
-    }).then((area)=>{
-      this.areas = area.data
-    })
-    let classify = loginUserUrl('getlaws_classify',{
-      username: "niuhongda",
-      password: "123123q"
-    }).then((classify)=>{
-      // console.log(classify)
-      this.classify = classify.data
-    })
+    }catch(err){
+      console.log(err)
+    }
+    let area = await loginUserUrl('getlaws_localStatute',{})
+    this.areas = area.data
+    let classify = await loginUserUrl('getlaws_classify',{})
+    this.classify = classify.data
   },
   methods:{
     handleReset:function(name){

@@ -64,18 +64,16 @@
           </div>
         </div>
         <!-- 分页导航 -->
-        <div style="display:flex;justify-content:center">
+        <div v-if="ar_pg" style="display:flex;justify-content:center">
           <Page :total="200" show-elevator></Page>
         </div>
         <p class="red">相关法规</p>
         <div class="clearfix xiangguan">
           <div class="lf">
-      <router-link tag="p" :to="{ name:'fdetail',query:{ id:item.id }}"
-      	v-for="item in categray" :key="item.id" class="p1">{{ item.name }}</router-link>
+            <router-link tag="p" :to="{ name:'fdetail',query:{ id:item.id }}"
+            v-for="item in categray" :key="item.ccc" class="categray" :title="item.name">{{ item.name }}</router-link>
           </div>
           <div class="rt" id="bottom">
-            <p></p>
-            <p></p>
           </div>
         </div>
       </div>
@@ -102,10 +100,16 @@ export default {
       path: "",
       shoucang: "2",
       categray: [],
+      ar_pg:false,
     };
   },
   created: function() {
     this.onload()
+  },
+  watch: {
+    $route(){
+      this.onload()
+    }
   },
   methods: {
     print: function() {
@@ -113,8 +117,9 @@ export default {
     },
     onload() {
       let _self = this;
-      let uid = getCookie("u_name");
-      this.path = this.$route.query.id;
+      let uid = getCookie("u_name")
+      this.path = this.$route.query.id
+      this.categray = []
       // 加载文章
       let res = loginUserUrl("getlaws_Details", {
         username: "niuhongda",
@@ -128,15 +133,24 @@ export default {
           password: "123123q",
           id: res.data.form_id
         }).then(rel => {
-          let random = Math.floor(Math.random() * (rel.data.length - 1));
-          let random2 = 0;
-          if (random >= rel.data.length - 2) {
-            random2 = random - 1;
-          } else {
-            random2 = random + 1;
+          let len
+          let arr = []
+          if(rel.data.length - 1) len = rel.data.length - 1
+          let getRan = (x) =>{
+            let ran = (() => Math.floor(Math.random().toFixed(x) * len))()
+            arr.includes(rel.data[ran]) ? getRan(x) : arr.push(rel.data[ran])
           }
-          this.categray.push(rel.data[random], rel.data[random2]);
-        });
+          let count = 5 // 計數器
+          if(len >= 1000){
+            while(arr.length < count) getRan(3)
+          }else if(len >= 100){
+            while(arr.length < count) getRan(2)
+          }else if(len >= 10){
+            while(arr.length < count) getRan(1)
+          }
+          this.categray.push(...arr)
+        })
+
         let originTime = new Date(parseInt(res.data.time) * 1000)
           .toLocaleDateString()
           .split("/");
@@ -239,15 +253,22 @@ export default {
   .red {
     color: $red;
    font-size:14px;
-        	padding:20px 0 10px 30px;
-        	border-top:1px solid #ccc;
-        	margin-top:10px;
+    padding:20px 0 10px 30px;
+    border-top:1px solid #ccc;
+    margin-top:10px;
   }
   .jiedua {
     line-height: 36px;
     height: 36px;
     a {
       color: #468ee3;
+    }
+  }
+  .categray {
+    cursor: pointer;
+    line-height: 30px;
+    &:hover{
+      color: red;
     }
   }
   .biaot{
