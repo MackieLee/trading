@@ -1,11 +1,11 @@
 <template>
   <div class="pingjia">
-  	
+
     <!-- 修改为star -->
-    <h2>课程评分</h2>
+    <h2>答疑评分</h2>
     <div class="div-head">
       <div class="div1">
-        <p class="p">课程评分</p>
+        <p class="p">答疑评分</p>
         <h3>5.0</h3>
       </div>
       <div class="div2">
@@ -35,10 +35,10 @@
     </div>
     <div class="div3">
       <h3>综合满意度 :</h3>
-      <Rate allow-half v-model="zhengce"></Rate>
+      <Rate allow-half v-model="zonghe"></Rate>
     </div>
     <Input v-model="textarea" type="textarea" :rows="6" placeholder="这么善良的您，夸夸我吧..."></Input>
-		<div class="footer">				    
+		<div class="footer">
 	    <Button type="ghost"  class="qux">取消</Button>
 	    <Button type="primary" class="tij">提交</Button>
 		</div>
@@ -54,6 +54,7 @@ export default {
       shiyong:0,
       zhengce: 0,
       youyong:0,
+      zonghe:0,
       textarea: ''
     }
   }

@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import index from '../views/index/Index'//网站总容器
-import home from '../views/home/Home'//主页
+//------------------------------------------------------------
+
+const index = r => require.ensure([], () => r(require('../views/index/Index')), 'index') //网站总容器
+const home = r => require.ensure([], () => r(require('../views/home/Home')), 'home') //主页
+
 import off from '../views/courses/off'//线下课程
 import offline from '../views/courses/Offline'//线下课程
 import odetail from '../views/courses/Detail'//线下课程详情

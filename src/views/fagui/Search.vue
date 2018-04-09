@@ -14,7 +14,7 @@
           </h2>
         </div>
         <div class="clearfix"></div>
-        <div class="content clearfix">
+        <div class="content clearfix" style="position: relative;">
           <dl>
             <dd v-for="item in newArr" :key="item.id" :title='item.name'>
               <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}"  class="newtitle">
@@ -23,6 +23,12 @@
               <span class="date">{{ item.time }}</span>
             </dd>
           </dl>
+          <div v-if="s_spin" style="position:absolute; top:0; background-color: rgb(255,255,255,0.6);width:100%;height:100%;">
+            <div style="position: absolute; top: 50%; left: 50%;">
+              <p>加载中</p>
+              <Spin size="large"></Spin>
+            </div>
+          </div>
         </div>
       </div>
       <!-- 模块二 -->
@@ -132,7 +138,7 @@
           </h2>
         </div>
         <div class="clearfix"></div>
-        <div class="content clearfix">
+        <div class="content clearfix" style="position: relative;">
           <dl>
             <dd v-for="item in jieduArr" :key="item.id"  :title='item.name'>
               <router-link :to="{ name : 'fdetail' , query:{ id:item.id }}" class="newtitle">
@@ -142,6 +148,12 @@
 
             </dd>
           </dl>
+          <div v-if="s_spin" style="position:absolute; top:0; background-color: rgb(255,255,255,0.6);width:100%;height:100%;">
+            <div style="position: absolute; top: 50%; left: 50%;">
+              <p>加载中</p>
+              <Spin size="large"></Spin>
+            </div>
+          </div>
         </div>
       </div>
       <!-- 模块四 -->
@@ -179,6 +191,7 @@ export default {
       end:'',
       areas:'',
       classify:'',
+      s_spin:true,
       federalSearch:{
         area:'',
         title:'',
@@ -210,7 +223,11 @@ export default {
       page:1,
       number:5000
     }).then((res)=>{
-      console.log(res)
+      if(res){
+        this.s_spin = false
+      }else{
+        console.log('err')
+      }
       let _self = this
       let resArr = Object.entries(res.data).slice(0,-1)
       for (let j = 0;j<resArr.length;j++){
@@ -296,6 +313,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
+/*.spin-cover{
+  position:absoult;
+}*/
 .about {
   width: $width;
   margin: 0 auto;

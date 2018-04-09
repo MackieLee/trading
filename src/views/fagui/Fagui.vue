@@ -3,7 +3,7 @@
     <div class="cur-posi">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/fagui-search">法规</router-link>
+        <router-link to="fagui-search">法规</router-link>
         &nbsp;&gt;&nbsp;法规列表
       </p>
     </div>
@@ -29,7 +29,9 @@
             <td class="xuhao pointer ctr">{{parseInt(index)+1}}</td>
             <td class="biaoti pointer">{{item[1].name}}</td>
             <td class="fahao pointer ctr">{{item[1].reference}}</td>
-            <td class="riqi pointer ctr">{{ new Date(parseInt(item[1].date_posted)*1000).toLocaleDateString() }}</td>
+            <td class="riqi pointer ctr">
+              {{ new Date(parseInt(item[1].date_posted) * 1000).toLocaleDateString() }}
+            </td>
           </router-link>
           <!-- 按照分类获得的列表 -->
           <!-- <router-link v-for="(item,index) in cateLst" :key="item.fuck" tag="tr" :to="{ name:'fdetail',query:{ id:item.id }}">
@@ -76,31 +78,34 @@ export default {
     }
   },
   methods:{
-    onload:function(){
+    async onload(){
       let obj = this.$route.query
       console.log(obj)
       console.log('地区:'+obj.area)
       console.log('类别:'+obj.form_id)
       let _self = this
-      let res = loginUserUrl('getlaws_Search',{
-        username: "niuhongda",
-        password: "123123q",
-        laws_area:obj.area,
-        name:obj.name,
-        reference:obj.reference,
-        date_posted:obj.date_posted,
-        department:obj.department,
-        begin_time:obj.begin_time,
-        end_time:obj.end_time,
-        laws:obj.laws,
-        form_id:obj.form_id,
-        page:this.pageNum,
-        number:20
-      }).then((res)=>{
+      try{
+        let res = await loginUserUrl('getlaws_Search',{
+          username: "niuhongda",
+          password: "123123q",
+          laws_area:obj.area,
+          name:obj.name,
+          reference:obj.reference,
+          date_posted:obj.date_posted,
+          department:obj.department,
+          begin_time:obj.begin_time,
+          end_time:obj.end_time,
+          laws:obj.laws,
+          form_id:obj.form_id,
+          page:this.pageNum,
+          number:20
+        })
         console.log(res)
         this.total = parseInt(res.data.counts)
         this.list = Object.entries(res.data).slice(0,-1)
-      })
+      }catch(err){
+        console.log(err)
+      }
     },
     page:function(num){
       this.pageNum = num

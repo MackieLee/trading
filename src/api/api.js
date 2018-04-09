@@ -3,18 +3,18 @@ import router from '../router'
 /*
 * 用户登录
 */
-export const loginUserUrl = (url,params) => {
-  return axios({
-  	method:'post',
-  	url:'http://aip.kehu.zaidayou.com/api/execute/'+ url,
-  	data:params,
-  	transformRequest: [function (data) {
-	    let res = ''
-	    for (let it in data) {
-	      res += it + '=' + data[it] + '&'
-	    }
-	    return res = res.slice(0,-1)
-	  }]
+export const loginUserUrl = async function(url,params){
+  return await axios({
+    method:'post',
+    url:'http://aip.kehu.zaidayou.com/api/execute/'+ url,
+    data:params,
+    transformRequest: [function (data) {
+      let res = ''
+      for (let it in data) {
+        res += it + '=' + data[it] + '&'
+      }
+      return res = res.slice(0,-1)
+    }]
 }).then((response)=>{
   // console.log(response)
   let err_code = response.data.error_code
@@ -28,9 +28,10 @@ export const loginUserUrl = (url,params) => {
     return response.data
   }
 }).catch(
-  	(error)=>{console.log(error)}
+    (error)=>{console.log(error)}
   )
 }
+
 export const pushVideoInfo = (url,params) =>{
   return axios({
     method:'post',
