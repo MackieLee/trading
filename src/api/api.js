@@ -6,7 +6,7 @@ import router from '../router'
 export const loginUserUrl = async function(url,params){
   return await axios({
     method:'post',
-    url:'http://aip.kehu.zaidayou.com/api/execute/'+ url,
+    url: 'http://kc.jdtax.cn/api/execute/' + url,
     data: {...params, ...{username: "niuhongda",password: "123123q"}},
     transformRequest: [function (data) {
       let res = ''
@@ -35,7 +35,7 @@ export const loginUserUrl = async function(url,params){
 export const pushVideoInfo = (url,params) =>{
   return axios({
     method:'post',
-    url:'http://aip.kehu.zaidayou.com/api/'+ url,
+    url:'http://kc.jdtax.cn/api/'+ url,
     data:params
   }).then((response)=>{
     console.log(response)

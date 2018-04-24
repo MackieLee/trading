@@ -8,62 +8,72 @@
     </div>
     <div class="head-content lf">
       <div class="search lf">
-        <input type="text"/>
+        <div class="c">
+          <input type="text"/>
+          <select style="position:absolute;right:0px;top:0px;height:30px;width:100px;border:1px solid #ff7f00;outline:none;border:none;border-left:1px solid #ff7f00;">
+            <option>企业所得税</option>
+            <option>土地增值税</option>
+            <option>个人所得税</option>
+            <option>税收征管</option>
+          </select>
+        </div>
         <router-link tag="button" to="/qdMore" class="search-btn">
       	  搜一下</router-link>
-      	  <!--<Select v-model="ask.teacher" class="teacher">
-        	   <Option v-for="t in ts" :value="t.id" :key="t.id">{{ t.name }}
-     	 		   </Option>
-          </Select>-->
-
-        <!--<span>全部</span><span>房地产</span><span>个税</span><span>咨询</span><span>会计</span>-->
       </div>
       <div class="btn-group rt">
         <i @click="askIfLogined" class="ask-icon"></i>
-<button class="ask-input" type="button" value="点我提问" @click="askIfLogined">
-	 点我提问
-</button>
+        <button class="ask-input" type="button" value="点我提问" @click="askIfLogined">
+          点我提问
+        </button>
         <span>没有找到问题？点击上方直接提问</span>
       </div>
     </div>
     <!-- 类名数组 ＋ 条件循环 -->
-    <div v-for="(item,index) in teachers" :key="item.id" :class="[{'m_r': (index+1) % 3 === 0},'item','lf']">
-      <div class="flex">
+    <div style="overflow:hidden;min-height:400px;width:100%; position:relative;">
+      <div v-for="(item,index) in teachers" :key="item.id" :class="[{'m_r': (index+1) % 3 === 0},'item','lf']">
+        <div class="flex">
+          <div>
+            <img src="../../assets/images/jitax_问答_01.png" />
+          </div>
+          <div class="name">
+            <p>{{ item.name.substring(0,6) }}</p>
+            <span>{{ item.intro.substring(0,10) }}</span>
+          </div>
+        </div>
+        <div class="tag-box">
+          <span>
+            <p>
+              课程
+            </p>
+            <font>{{ item.count_kecheng }}</font>
+          </span>
+          <span>
+            <p>回答</p>
+            <font>{{ item.count_wenda }}</font>
+          </span>
+          <span>
+            <p>荣誉值</p>
+            <font>{{ item.grade }}</font>
+          </span>
+          <span class="shanchang">
+            <i></i>擅长领域</span>
+        </div>
+        <div class="tags">
+          <ul>
+            <!-- <li v-if="item.laber !== 0 " v-for="t in (item.laber=== 0?'':item.laber).split(',')" :key="t.s">{{ t }}</li> -->
+          </ul>
+        </div>
+        <div class="ask">
+          <router-link :to="{ name : 'qdetail',query:{id:item.id}}" tag="p" class="ask-btn">
+            我要提问</router-link>
+          <p>已解决27个问题</p>
+        </div>
+      </div>
+      <div v-if="s_spin" class="s_spin">
         <div>
-          <img src="../../assets/images/jitax_问答_01.png" />
+          <p>加载中</p>
+          <Spin size="large"></Spin>
         </div>
-        <div class="name">
-          <p>{{ item.name.substring(0,6) }}</p>
-          <span>{{ item.intro.substring(0,10) }}</span>
-        </div>
-      </div>
-      <div class="tag-box">
-        <span>
-          <p>
-            课程
-          </p>
-          <font>{{ item.count_kecheng }}</font>
-        </span>
-        <span>
-          <p>回答</p>
-          <font>{{ item.count_wenda }}</font>
-        </span>
-        <span>
-          <p>荣誉值</p>
-          <font>{{ item.grade }}</font>
-        </span>
-        <span class="shanchang">
-          <i></i>擅长领域</span>
-      </div>
-      <div class="tags">
-        <ul>
-          <li v-for="t in item.arr" :key="t">{{ t }}</li>
-        </ul>
-      </div>
-      <div class="ask">
-        <router-link :to="{ name : 'qdetail',query:{id:item.id}}" tag="p" class="ask-btn">
-        	我要提问</router-link>
-        <p>已解决27个问题</p>
       </div>
     </div>
   </div>
@@ -76,7 +86,8 @@ export default {
   data() {
     return {
       teachers:[],
-      tags:[]
+      tags:[],
+      s_spin: true,
     }
   },
   methods:{
@@ -123,27 +134,11 @@ export default {
   },
   created() {
     let res = loginUserUrl("getTeacherList",{}).then((res)=>{
-      console.log(res)
-      // 遍历id ，根据id往卡片上填充老师信息！！！！！！important-------------------------------！！！！！！！！！！--------------------这种做法不可取
-      // for(let i=0;i<res.data.length;i++){
-      //   let tag=loginUserUrl('getTeacher_laberl_List',{
-      //     username: "niuhongda",
-      //     password: "123123q",
-      //     tid:res.data[i].id
-      //   }).then((tag)=>{
-      //     console.log(tag.data[0])
-      //     if(tag.data[0] !== undefined){
-      //       if(tag.data[0].label !== ''){
-      //         let arr = tag.data[0].label.split('"')[1].split(',')
-      //         res.data[i].arr = arr
-      //       }
-      //       console.log(res.data[i].arr)
-      //     }else{
-      //       res.data[i].arr = []
-      //     }
-      //   })
-      // }
-      this.teachers = res.data
+      if(res.data){
+        this.teachers = res.data
+        console.log(this.teachers)
+        this.s_spin = false
+      }
     })
   }
 }
@@ -157,14 +152,23 @@ export default {
 .head-content {
   width: 100%;margin-bottom:10px;
   overflow: hidden;
-  input[type="text"] {
+  .c{
     width: 500px;
-    height: 30px;
-    line-height: 30px;
+    height: 32px;
+    position: relative;
     border: 1px solid $border-orange;
+    float: left;
+  }
+  input[type="text"] {
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
     outline: none;
     padding-left: 10px;
-    margin-left: 10px;
+    border:none;
+  }
+  option{
+   border: 1px solid #ff7f00;
   }
   .search-btn {
     height: 32px;

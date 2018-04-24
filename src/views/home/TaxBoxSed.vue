@@ -51,33 +51,6 @@ export default {
           person: "1500",
           price: "1000"
         },
-        {
-          title: "税收筹划案例精解-6",
-          link: "videoinfo",
-          src: "../../assets/images/九鼎财税01_10.png",
-          score: "100",
-          class: "25",
-          person: "1500",
-          price: "1000"
-        },
-        {
-          title: "税收筹划案例精解-7",
-          link: "videoinfo",
-          src: "../../assets/images/九鼎财税01_10.png",
-          score: "100",
-          class: "25",
-          person: "1500",
-          price: "1000"
-        },
-        {
-          title: "税收筹划案例精解-8",
-          link: "videoinfo",
-          src: "../../assets/images/九鼎财税01_10.png",
-          score: "100",
-          class: "25",
-          person: "1500",
-          price: "1000"
-        }
       ]
     };
   }
@@ -122,8 +95,7 @@ export default {
   margin: auto;
   .side-ad {
     width: 259px;
-    height: 506px;
-    background-image: url("../../assets/images/九鼎财税01_07.png");
+    background-image: url("../../assets/images/九鼎财税01_07.jpg");
     background-size: 100% auto;
     background-repeat: no-repeat;margin-right: 15px;
   }

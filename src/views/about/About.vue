@@ -34,33 +34,21 @@ export default {
           router:'abt'
         },
         {
-          name:'课程说明',
+          name:'时长合作',
           router:'kechengsm'
         },
         {
-          name:'答疑说明',
+          name:'招贤纳士',
           router:'dayism'
         },
         {
-          name:'帮助中心',
+          name:'意见反馈',
           router:'Help'
         },
         {
-          name:'市场合作',
+          name:'网站地图',
           router:'shichanghz'
-        },
-        {
-          name:'版权声明',
-          router:'copy'
-        },
-        {
-          name:'服务条款',
-          router:'fuwutk'
-        },
-        {
-          name:'意见反馈',
-          router:'yijianfk'
-        }        
+        }
       ]
     }
   },
@@ -115,7 +103,7 @@ export default {
         i{
           background-position: -115px -35px;}}
 			}
-			
+
       .head {
         width: 60px;
         height: 60px;

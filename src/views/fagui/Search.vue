@@ -23,8 +23,8 @@
               <span class="date">{{ item.time }}</span>
             </dd>
           </dl>
-          <div v-if="s_spin" style="position:absolute; top:0; background-color: rgb(255,255,255,0.6);width:100%;height:100%;">
-            <div style="position: absolute; top: 50%; left: 50%;">
+          <div v-if="s_spin" class="s_spin">
+            <div>
               <p>加载中</p>
               <Spin size="large"></Spin>
             </div>
@@ -158,19 +158,6 @@
       </div>
       <!-- 模块四 -->
       <div class="global-overview-left second-line rt">
-        <!--<div class="titcon">
-          <h2 class="ctr">税收类别</h2>
-        </div>
-        <div class="clearfix"></div>
-        <div class="content">
-          <ul class="policy">
-            <li v-for="item in classify" :key="item.id">
-              <span class="num"></span>
-              <router-link tag="span" style="cursor:pointer"
-              	:to="{name:'fagui',query:{form_id:item.id}}">{{ item.name }}</router-link>
-            </li>
-          </ul>
-        </div>-->
          <img src="../../assets/images/faguit.png">
       </div>
 

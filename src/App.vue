@@ -81,6 +81,7 @@ export default {
 <style lang="scss">
 @import "./assets/style/base-conf.scss";
 #app {
+  height: 100%;
   li {
     display: inline-block;
   }
@@ -206,5 +207,15 @@ export default {
 }
 .demo-spin-icon-load{
   animation: ani-demo-spin 1s linear infinite;
+}
+.s_spin{
+  position:absolute;
+  top:0;
+  background-color: rgba(255,255,255,0.6);
+  width:100%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

@@ -110,7 +110,7 @@ export default {
       ruleCustom: {
         passwd: [{ required: true, validator: validatePwd, trigger: "blur" }],
         name: [{ required: true, validator: validateName, trigger: "blur" }],
-        picYanzheng: [{ required: true, validator: validatePic, trigger: "blur" }]
+        // picYanzheng: [{ required: true, validator: validatePic, trigger: "blur" }]
       },
       format: 1,
     };
@@ -182,10 +182,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
+.login{
+  height: 100%;
+}
 .login-box {
-  background: url("../../assets/images/登录.png") center center no-repeat;
+  background: url("../../assets/images/登录.jpg") center center no-repeat;
   background-size: 100% 100%;
-  min-height: 549px;
   overflow: hidden;
   .form-box {
     width: 315px;

@@ -3,18 +3,26 @@
     <div class="cur-posi">
       <p><i></i>当前位置 : &nbsp;<router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;专家团队</p>
     </div>
-    <router-link tag="div" v-for="(item,index) in teacherList" :key="item.id" :to="{path:'tdetail',query:{id:item.id}}" class="item">
-      <div class="hd-pic">
-        <img :src="src[index]" style="width:132px;" alt="孙玮">
-      </div>
-      <div class="short-msg">
-        <p class="name">{{item.name.substring(0,6)}}</p>
-        <div class="short-intro">
-          {{item.intro}}
+    <div style="min-height:400px;width:100%;position:relative;">
+      <router-link tag="div" v-for="(item,index) in teacherList" :key="item.id" :to="{path:'tdetail',query:{id:item.id}}" class="item">
+        <div class="hd-pic">
+          <img :src="src[index]" style="width:132px;" alt="孙玮">
         </div>
-        <p class="more">更多>></p>
+        <div class="short-msg">
+          <p class="name">{{item.name.substring(0,6)}}</p>
+          <div class="short-intro">
+            {{item.intro}}
+          </div>
+          <p class="more">更多>></p>
+        </div>
+      </router-link>
+      <div v-if="s_spin" class="s_spin">
+        <div>
+          <p>加载中</p>
+          <Spin size="large"></Spin>
+        </div>
       </div>
-    </router-link>
+    </div>
   </div>
 </template>
 
@@ -28,7 +36,8 @@ export default {
   data(){
     return{
       teacherList:[],
-      src:[jpg,jpg2,jpg3]
+      src:[jpg,jpg2,jpg3],
+      s_spin: true,
     }
   },
   mounted () {
@@ -37,8 +46,10 @@ export default {
       username: "niuhongda",
       password: "123123q"
     }).then((res)=>{
-      _self.teacherList = res.data
-      console.log(res.data)
+      if(res.data){
+        _self.teacherList = res.data
+        this.s_spin = false
+      }
     })
   }
 }

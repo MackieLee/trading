@@ -85,14 +85,12 @@ export default {
     return {
       navItems: [
         { name: "首页", link: "home" },
-        { name: "线上课程", link: "o" },
-        { name: "问答", link: "f" },
-        { name: "专家团队", link: "t" },
-        { name: "线下课程", link: "off" },
-        { name: "法律法规", link: "fg" },
-        { name: "图书", link: "b" },
-        { name: "定制课程", link: "customize" },
-        { name: "关于我们", link: "abt" }
+        { name: "机构简介", link: "abt" },
+        { name: "品牌服务", link: ""},
+        { name: "专家团队", link: "f" },
+        { name: "专家答疑", link: "t" },
+        { name: "法规查询", link: "f" },
+        { name: "定制课程", link: "fg" },
       ],
       activeItem: "home",
       drop:'',

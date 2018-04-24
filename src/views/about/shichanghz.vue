@@ -4,13 +4,13 @@
       <div class="xq02_l">
 			<h2 class="title"><i></i>时长合作</h2>
        <div class="hezuo">
-					 <P>		 	
+					 <P>
 					 	 <h3>市场合作</h3>
-					 	 【合作对象及方式】<br>
+					 	 【合作对象及方式】<br/>
 							 如果您是媒体、渠道，想洽谈资源置换、市场合作，请联系：
-							邮箱：（jdtax@jdtax.cn）<br>
+							邮箱：（jdtax@jdtax.cn）<br/>
 							  如果您想在九鼎财税投放广告，请联系：
-							   电话：010-6231-1360<br>
+							   电话：010-6231-1360<br/>
 							   我们拥有丰富的高端客户资源。如果您也拥有丰富的资
 源，而且在当地享有良好的声誉，拥有广泛的客户关系及网络。我们期望以互惠互利的原则与您携手合作，
 共同开拓市场，共同打造优良品牌，为我们共同的客户提供业界优质的服务水平！
@@ -35,17 +35,17 @@
         </div>
       </div>
     </div>
-  
+
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/style/base.scss';
+@import "../../assets/style/base.scss";
 .about {
-  width:890px;
+  width: 890px;
   margin: 0 auto;
-  .bold-title{
-     font-size: 16px;
+  .bold-title {
+    font-size: 16px;
   }
   .cur-posi {
     border-bottom: none;
@@ -54,68 +54,66 @@
       margin-right: 6px;
     }
   }
-/*时长合作*/
-#xxkc_xq02 {
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  // .xq02_r {
-  //   width: 45%;
-  //   float: right;
-  // }
-  // .xq02_l {
-  //   width: 100%;
-  //   float: left;
-  // }
-  h2 {
-  	 width: 686px;
-      background-image: url('../../assets/images/about01.png');
+  /*时长合作*/
+  #xxkc_xq02 {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    // .xq02_r {
+    //   width: 45%;
+    //   float: right;
+    // }
+    // .xq02_l {
+    //   width: 100%;
+    //   float: left;
+    // }
+    h2 {
+      width: 686px;
+      background-image: url("../../assets/images/about01.png");
       text-align: center;
       background-repeat: no-repeat;
       margin: 26px auto;
-      font-size:18px;
+      font-size: 18px;
       background-position: 0 5px;
-        i {
-	    display: inline-block;
-	    width: 26px;
-	    height: 22px;
-	    background-image: url('../../assets/images/Sprite.png');
-	    vertical-align: text-bottom;
-	    background-position:-346px -386px;
-	    margin-right: 10px;
- 			  }
- 	 	}
- 	 	
-  .txt {
-    padding-top: 20px;
-    text-indent: 2em;
-  }
-  .hezuo{
-   h3{    
-  				margin: 5px 0;  
-		    background: red;
-		    text-align: center;
-		    color: #fff;
-		    width: 110px;
-		    line-height: 32px;
-		    font-size: 16px;
-		    height: 32px;	   
-		    border-radius: 3px; 
-    }
-    p {
- 	overflow: hidden;
-   width:100%; 
-   line-height: 32px;
-    font-size: 14px;
-    padding:10px 18px; 
-    color: #333;
-		font{color: #4683ee;}
-
-  }
-  }
-
-}
-   
+      i {
+        display: inline-block;
+        width: 26px;
+        height: 22px;
+        background-image: url("../../assets/images/Sprite.png");
+        vertical-align: text-bottom;
+        background-position: -346px -386px;
+        margin-right: 10px;
       }
-   
+    }
+
+    .txt {
+      padding-top: 20px;
+      text-indent: 2em;
+    }
+    .hezuo {
+      h3 {
+        margin: 5px 0;
+        background: red;
+        text-align: center;
+        color: #fff;
+        width: 110px;
+        line-height: 32px;
+        font-size: 16px;
+        height: 32px;
+        border-radius: 3px;
+      }
+      p {
+        overflow: hidden;
+        width: 100%;
+        line-height: 32px;
+        font-size: 14px;
+        padding: 10px 18px;
+        color: #333;
+        font {
+          color: #4683ee;
+        }
+      }
+    }
+  }
+}
 </style>

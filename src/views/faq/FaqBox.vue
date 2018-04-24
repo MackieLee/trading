@@ -10,7 +10,7 @@
           最新
         </MenuItem>
         <MenuItem name="3">
-           待回答
+          待回答
         </MenuItem>
         <router-link tag='span' to="Leibiebox">税收类别</router-link>
 				<router-link to="qdMore">更多>></router-link>
@@ -24,7 +24,7 @@
           <div>
             <div class="item-container">
             	<div class="wen lf">问 :&nbsp;</div>
-              <div class="ask">{{ item.name }} <span class="date_rt">{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</span></div>
+              <div class="ask">{{ item.name }}<span class="date_rt">{{ new Date(parseInt(item.time)*1000).toLocaleDateString() }}</span></div>
             </div>
           </div>
           <div>
@@ -117,16 +117,6 @@ export default {
     .floor {
       overflow: hidden;
       height: 520px;
-      // border-bottom: 1px dashed $border-orange;
-      // .lf {
-      //   float: left;
-      // }
-      // .rt {
-      //   float: right;
-      // }
-      // .lf-part {
-      //   border-right: 1px dashed $border-orange;
-      // }
       .item {
         margin-bottom: 20px;
         padding-right: 20px;

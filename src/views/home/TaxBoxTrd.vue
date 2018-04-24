@@ -1,77 +1,66 @@
 <template>
-  <div class="tax-box">
+  <div class="tax-box-trd">
     <div class="title">
       <span></span>
-      <font>土地增值税</font>
+      <font>企业所得税</font>
       <a>更多>></a>
     </div>
     <div class="tax-container">
       <div class="side-ad"></div>
-        <div class="video-boxes">
-		      <div class="item" v-for="item in classes" :key="item[1].title">
-		        <div><router-link :to="{name: 'videoinfo',query:{ id:item[1].id}}" class="video-cover">
-		        	<img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
-		        <div class="video-title"><a :title="item[1].name">{{ item[1].name }}</a></div>
-		        <div class="buss-info"><span class="score"><i></i><font>{{ item[1].grade }}</font>分</span>
-		        	<span class="person-current"><i></i><font>{{ item[1].quantity }}</font>人</span>
-		        	<span>孙炜老师</span>
-		        </div>
-		        <div class="price"><span>价格:<font class="rd">￥{{ item[1].money }}</font></span>
-		        		/<font>{{ item[1].period }}&nbsp;</font><span>节</span>
-		        	<router-link :to="{name: 'videoinfo',query:{ id:item[1].id}}"
-		        		v-if="item[1].audition === '1'" class="free">试听</router-link>
+      <div class="video-boxes">
+        <div class="item" v-for="item in classes" :key="item.title" title="zhe s sssss">
+          <div><router-link :to="{name:item.link}" class="video-cover"><img src="../../assets/images/九鼎财税01_10.png"/><span class="new">NEW</span></router-link></div>
+          <p class="video-title"><a>{{ item.title }}</a></p>
+          <p class="buss-info"><span class="score"><i></i><font>{{ item.score }}</font>分</span><span class="person-current"><i></i><font>{{ item.person }}</font>人</span><span class="classes">课时</span><font>{{ item.class }}</font><span>MIN</span></p>
+          <p class="price"><span>课程:<font class="rd">￥{{ item.price }}</font></span><span class="free">试 听</span></p>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
 
 <script>
-import { loginUserUrl } from '@/api/api'
 export default {
-  data(){
-    return{
-      classes:[],
-      form_id:null,
-      crowd:null,
-      lecturer:null,
-      begin_money:null,
-      end_money:null,
-      order:1, //最新
-      pageNum:1,
-      total:null
-    }
-  },
-  mounted () {
-    this.onload()
-  },
-  methods: {
-    onload(){
-      let res = loginUserUrl('getOnline_Filtrate',{
-        username: "niuhongda",
-        password: "123123q",
-        page:this.pageNum,
-        number:12
-      }).then((res)=>{
-        console.log(res.data.counts)
-        this.total = parseInt(res.data.counts)
-        this.classes = Object.entries(res.data).slice(0,-2)
-        this.classes.length = 3
-      })
-    },
-    page:function(num){
-      this.pageNum = num
-      this.onload()
-    }
+  data() {
+    return {
+      classes: [
+        {
+          title: "税收筹划案例精解-3",
+          link: "videoinfo",
+          src: "../../assets/images/九鼎财税01_10.png",
+      score: "100",
+          class: "25",
+          person: "1500",
+          price: "1000"
+        },
+        {
+          title: "税收筹划案例精解-4",
+          link: "videoinfo",
+          src: "../../assets/images/九鼎财税01_10.png",
+          score: "100",
+          class: "25",
+          person: "1500",
+          price: "1000"
+        },
+        {
+          title: "税收筹划案例精解-5",
+          link: "videoinfo",
+          src: "../../assets/images/九鼎财税01_10.png",
+          score: "100",
+          class: "25",
+          person: "1500",
+          price: "1000"
+        },
+      ]
+    };
   }
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/style/base.scss";
-.tax-box {
-  margin-top: 30px;
+.tax-box-trd {
+  margin: 30px 0;
 }
 .title {
   width: $width;
@@ -80,18 +69,18 @@ export default {
   padding-bottom: 5px;
   position: relative;
   border-bottom: 1px solid $red;
+  span {
+    padding: 6px 14px;
+    margin-right: 10px;
+    background-image: url("../../assets/images/Sprite.png");
+    background-repeat: no-repeat;
+    background-position: -467px -385px;
+  }
   font {
     font-size: 18px;
     font-weight: 450;
     display: inline-block;
     padding-left: 5px;
-  }
-  span {
-    padding: 6px 12px;
-    margin-right: 10px;
-    background-image: url("../../assets/images/Sprite.png");
-    background-repeat: no-repeat;
-    background-position: -340px -213px;
   }
   a {
     font-size: 14px;
@@ -104,11 +93,11 @@ export default {
   flex-direction: row;
   width: $width;
   margin: auto;
-  .side-ad {margin-right: 15px;
+  .side-ad {
     width: 259px;
-    background-image: url("../../assets/images/九鼎财税01_077.jpg");
+    background-image: url("../../assets/images/九鼎财税01_0777.jpg");
     background-size: 100% auto;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;margin-right: 15px;
   }
   .video-boxes {
     width: 821px;

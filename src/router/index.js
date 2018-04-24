@@ -3,7 +3,7 @@ import Router from 'vue-router'
 //------------------------------------------------------------
 
 const index = r => require.ensure([], () => r(require('../views/index/Index')), 'index') //网站总容器
-const home = r => require.ensure([], () => r(require('../views/home/Home')), 'home') //主页
+const home = r => require.ensure([], () => r(require('../views/home/Home')), 'home') //主页x`
 const off = r => require.ensure([], () => r(require('../views/courses/off')), 'off') //线下课程
 const offline = r => require.ensure([], () => r(require('../views/courses/Offline')), 'offline')//线下课程
 const odetail = r => require.ensure([], () => r(require('../views/courses/Detail')),'odetail')//线下课程详情
@@ -100,6 +100,8 @@ const shichanghz = r => require.ensure([], () => r(require('../views/about/shich
 const copy = r => require.ensure([], () => r(require('../views/about/copy')),'copy')//版权声明
 const fuwutk = r => require.ensure([], () => r(require('../views/about/fuwutk')),'fuwutk')//服务条款
 const yijianfk = r => require.ensure([], () => r(require('../views/about/yijianfk')),'yijianfk')//意见反馈
+// ----------------------404页面-------------------------------------------
+const notfound = r => require.ensure([], () => r(require('../views/404')), 'notfound') // 404
 
 Vue.use(Router)
 
@@ -165,6 +167,11 @@ const routes = [
             path: 'odetail',
             name: 'odetail',
             component: odetail
+          },
+          {
+            path: 'detailbd',
+            name: 'detailbd',
+            component: detailbd
           },
         ]
       },
@@ -275,12 +282,6 @@ const routes = [
         name: 'payok',
         component: payok
       },
-      {
-			    path: 'detailbd',
-			    name: 'detailbd',
-			    component: detailbd
-			  },
-
       //关于我们---------------
       {
         path: 'about',
@@ -646,6 +647,16 @@ const routes = [
     path: '/getpwd',
     name: 'getpwd',
     component: getpwd
+  },
+  {
+    path: '/404',
+    component: notfound
+  },
+  {
+    path: '*',
+    redirect: {
+      path: '404'
+    }
   }
 ]
 export default new Router({
@@ -654,5 +665,5 @@ export default new Router({
   routes,
   scrollBehavior (to,from,savedPosition) {
     return { x: 0, y: 0 }
-  }
+  },
 })
