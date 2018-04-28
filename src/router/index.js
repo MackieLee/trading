@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 //------------------------------------------------------------
-
 const index = r => require.ensure([], () => r(require('../views/index/Index')), 'index') //网站总容器
 const home = r => require.ensure([], () => r(require('../views/home/Home')), 'home') //主页x`
 const off = r => require.ensure([], () => r(require('../views/courses/off')), 'off') //线下课程
@@ -92,7 +91,7 @@ const pay2 = r => require.ensure([], () => r(require('../views/account/Pay2')),'
 const payok = r => require.ensure([], () => r(require('../views/account/payok')),'payok')//支付页面
 // ----------------------About——footer----------------------------------
 const about = r => require.ensure([], () => r(require('../views/about/About')),'about')//关于我们
-const abt = r => require.ensure([], () => r(require('../views/about/abt')),'abt')//关于我们
+const abt = r => require.ensure([], () => r(require('../views/about/OzIntro')),'obt')//关于我们
 const kechengsm = r => require.ensure([], () => r(require('../views/about/kechengsm')),'kechengsm')//课程说明
 const dayism = r => require.ensure([], () => r(require('../views/about/dayism')),'dayism')//答疑说明
 const Help = r => require.ensure([], () => r(require('../views/about/Help')),'Help')//帮助中心
@@ -100,6 +99,7 @@ const shichanghz = r => require.ensure([], () => r(require('../views/about/shich
 const copy = r => require.ensure([], () => r(require('../views/about/copy')),'copy')//版权声明
 const fuwutk = r => require.ensure([], () => r(require('../views/about/fuwutk')),'fuwutk')//服务条款
 const yijianfk = r => require.ensure([], () => r(require('../views/about/yijianfk')),'yijianfk')//意见反馈
+const serv = r => require.ensure([], () => r(require('../views/about/Serv')), 'serv')
 // ----------------------404页面-------------------------------------------
 const notfound = r => require.ensure([], () => r(require('../views/404')), 'notfound') // 404
 
@@ -149,7 +149,6 @@ const routes = [
           }
         ]
       },
-
       {
         path: 'off',
         name: 'off',
@@ -233,6 +232,11 @@ const routes = [
         ]
       },
       {
+        path: 'serv',
+        name: 'serv',
+        component: serv
+      },
+      {
         path:'b',
         name:'b',
         component:b,
@@ -251,11 +255,6 @@ const routes = [
             component: item
           },
         ]
-      },
-      {
-        path: '/about',
-        name: 'about',
-        component: about
       },
       {
         path: '/customize',

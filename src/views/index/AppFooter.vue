@@ -53,7 +53,7 @@ export default {
   width: 100%;
   background-color: #eaeaea;
   color: #333;
-  margin-top: 30px;
+  margin-top: 60px;
   margin-bottom: 15px;
   padding: 30px 10px;
   .container{

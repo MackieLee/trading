@@ -18,7 +18,7 @@
     </CarouselItem>
     <CarouselItem>
       <div width="100%">
-        <img style="width:100%;" src="../../assets/images/banner4.png"/>
+        <img style="width:100%;" src="../../assets/images/banner4.jpg"/>
       </div>
     </CarouselItem>
   </Carousel>

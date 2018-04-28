@@ -3,157 +3,163 @@
     <div class="cur-posi">
       <p>
         <i></i>当前位置 : &nbsp;
-        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;关于我们
+        <router-link to="/home">九鼎财税</router-link>&nbsp;&gt;&nbsp;机构简介
       </p>
     </div>
+    <p class="p"><span>机构简介</span></p>
     <div class="container">
-      <div class="lf">
-        <div class="nav">
-          <router-link tag="p" v-for="item in tags" :key="item.name" :to="{ name : item.router }">
-            <i :class="item.router"></i>{{ item.name }}
-          </router-link>
+      <div class="nav-left">
+        <a class="tt">机构简介</a>
+        <div v-for="(item,index) in tags" :key="item.name" @click="cur = index">
+          <a :class="{ 'active': cur === index }" :href="'#'+index+'rd'">
+            {{ item.name }}
+            <span v-show="cur === index"></span>
+          </a>
         </div>
       </div>
-      <div class="rt">
-        <router-view></router-view>
+      <div>
+        <oz-intro></oz-intro>
+        <kechengsm id="0rd"></kechengsm>
+        <jigouyoushi id="1rd"></jigouyoushi>
+        <div id="2rd" class="copyright">
+          <span class="copr">神州九鼎财税咨询（北京）有限公司</span>
+          <div class="flex">
+            <div>
+              <dl>
+                <dd><strong>电话:</strong> 010-6231-1360</dd>
+                <dd><strong>网站:</strong> www.jdtax.cn</dd>
+                <dd><strong>邮编:</strong> 100083</dd>
+              </dl>
+            </div>
+            <div>
+              <dl>
+                <dd><strong>地　　址：</strong>北京市海淀区志新东路5号鸿基世业商务酒店A座5层</dd>
+                <dd>
+                  <strong>附近交通：</strong>
+                  公交志新北里站,有16路,425路,508路,635路,751路,运通109线;附近地铁15号线北沙滩站和10号线牡丹园站。
+                </dd>
+              </dl>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { loginUserUrl } from '@/api/api'
-import { getCookie } from "@/util/cookie"
+import OzIntro from './OzIntro'
+import kechengsm from './kechengsm'
+import jigouyoushi from './jigouyoushi'
+
 export default {
   name:'about',
+  components: { OzIntro, kechengsm, jigouyoushi },
   data(){
     return{
       tags:[
         {
-          name:'关于我们',
-          router:'abt'
+          name:'机构定位',
         },
         {
-          name:'时长合作',
-          router:'kechengsm'
+          name:'机构优势',
         },
         {
-          name:'招贤纳士',
-          router:'dayism'
-        },
-        {
-          name:'意见反馈',
-          router:'Help'
-        },
-        {
-          name:'网站地图',
-          router:'shichanghz'
+          name:'联系我们',
         }
-      ]
+      ],
+      cur: 0
     }
   },
-  methods:{
+  methods: {
   },
-//created () {
-//  let cookieName = getCookie('u_name')
-//  if(cookieName !== '' && cookieName !== 'undefined' ){
-//  }else{
-//    this.$router.push({name:'login'})
-//  }
-//}
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../../assets/style/base.scss';
+i{
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-image: url('../../assets/images/Sprite.png');
+  vertical-align: text-bottom;
+}
+.cur-posi{
+  margin-top: 30px;
+  i{
+    background-position: -18px -100px;
+    margin-right: 6px;
+  }
+}
 .vip {
   width: $width;
   margin: 0 auto;
-  padding-top: 20px;
-  // border-top: 1px solid $border-rice;
-  .active{
-    color: $red !important;
-  }
-  i {
-    display: inline-block;
-    width: 28px;
-    height: 22px;
-    background-image: url('../../assets/images/Sprite.png');
-    vertical-align: text-bottom;
-  }
-  .cur-posi {
-    border-bottom: none;
-    i {
-      background-position: -18px -100px;
-      margin-right: 6px;
+  .p{
+    text-align: center;
+    margin-bottom: 20px;
+    span{
+      display: inline-block;
+      border-bottom: 2px solid red;
+      color: red;
+      font-size: 18px;
+      padding: .3rem 1rem;
+      margin: 1rem;
     }
   }
-  .container {
-    margin-top: 26px;
+  .container{
     display: flex;
-    .lf {
-      width:180px;
-      padding-bottom: 90px;
-			.name{margin-left: 10px;
-				      p {
-        margin: 5px 0 10px 0;
+    .nav-left{
+      margin-right: 100px;
+      height: 210px;
+      border-top: 1px solid #dcdcdc;
+      border-left: 1px solid #dcdcdc;
+      box-shadow:2px 2px 3px #aaaaaa;
+      .tt{
+        background-color: #e84040;
+        color: #fff;
       }
-      .p1{
-        font-size: 14px;
-        i{
-          background-position: -115px -35px;}}
-			}
-
-      .head {
-        width: 60px;
-        height: 60px;
-        background-image: url('../../assets/images/huanyuanzx01.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 0px 0px;
-        border-radius: 50%;
-        margin: 0px 10px;
+      a{
+        display: inline-block;
+        box-sizing: border-box;
+        height: 50px;
+        line-height: 50px;
+        width: 164px;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 1rem;
+        margin-bottom: 2px;
+        background-color: rgba(232,64,64,0.1);
+        color: #000;
+        span{
+          display: inline-block;
+          height: 10px;
+          width: 10px;
+          background: url('../../assets/images/Sprite.png') -602px -358px no-repeat;
+        }
       }
-      .nav {
-        p {
-          margin:15px 0;
-          padding: 5px 30px;
-          width: 100%;
-          color: #333;
-          text-align: left;
-          font-size: 13px;
-          cursor: pointer;
-          i{margin-right:8px;}
-        }
-
-			 .abt {
-          background-position:-13px -346px;
-        }
-         .kechengsm {
-          background-position:-15px -314px;
-        }
-         .dayism {
-          background-position:-143px -228px;
-        }
-         .Help {
-          background-position:-527px -381px;
-        }
-         .shichanghz {
-          background-position:-346px -386px;
-        }
-         .copy {
-          background-position:-466px -381px;
-        }
-         .fuwutk {
-          background-position:-495px -382px;
-        }
-        .yijianfk {
-          background-position: -59px -129px;
-        }
+      a.active{
+        background-color: rgba(232,64,64,0.6);
+        color: #fff;
       }
     }
-    .rt{
-      width: 910px;
+    .copyright{
+      margin-top: 150px;
+      .copr{
+        font-size: 16px;
+        line-height: 3rem;
+      }
+      .flex{
+        display: flex;
+        justify-content: space-between;
+        div{
+          width: 50%;
+        }
+        dd{
+          font-size: 14px;
+          line-height: 3rem;
+        }
+      }
     }
   }
 }

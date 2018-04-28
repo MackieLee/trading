@@ -2,7 +2,7 @@
   <div class="app-header">
     <div class="header-container">
       <div class="header-nav">
-        <ul>
+        <ul style="width: 500px; display: flex; justify-content: space-between;">
           <li>
             <router-link :to="{name: 'home'}" tag="span" class="no-active">
               <i class="logo"></i>
@@ -10,65 +10,64 @@
           </li>
           <router-link v-for="item in navItems" :key="item.name" :to="{ name:item.link }" tag="li">{{ item.name }}</router-link>
         </ul>
-      </div>
-      <div>
+      <!--</div>-->
+      <!--<div style="display: flex;">-->
         <form action="">
           <input placeholder="请输入您的搜索" />
           <i></i>
         </form>
-      </div>
-      <div class="user-info" v-show="!nickName">
-        <ul>
-          <li>
-            <router-link :to="{name:'login'}">
-             <!-- <i class="login"></i>-->
-              <font class="lu">登录</font>
-            </router-link>
-          </li>
-          <li>
-            <router-link :to="{name:'register'}">
-              <!--<i class="register"></i>-->
-              <font class="zhuce">注册</font>
-            </router-link>
-          </li>
-          <!--<li>
-          </li>-->
-        </ul>
-
-      </div>
-      <router-link :to="{name:'t-admin'}">
-        <font>测试</font>
-      </router-link>
-      <div class="logined" v-show="nickName">
-        <div class="rt_part" @mouseleave="drop = ''">
-          <a class="a-broadcast" @mouseenter="drop = 'left'">
-            <i class="broadcast"></i>
-          </a>
-          <router-link :to="{ name:'vip'}" class="menu">
-            <img @mouseover="drop = 'right'" src="../../assets/images/thumb-test.jpg"/>
-          </router-link>
-        </div>
-        <div class="drop-list drop-left" v-if="drop === 'left'" @mouseenter = "drop = 'left'" @mouseleave="drop = ''">
-          <i></i>
-          <div>
-           	 <ul>
-	              <li class="title">通知/公告 <span>{{announce.counts}}</span></li>
-	              <li>报名 <span>{{announce.apply}}</span></li>
-	              <li>回答 <span>{{announce.answer}}</span></li>
-	              <li>评论 <span>{{announce.comment}}</span></li>
-	              <li>收藏 <span>{{announce.collect}}</span></li>
-	              <li>系统通知 <span>{{announce.xiaoxi}}</span></li>
-           	 </ul>
-          </div>
-        </div>
-        <div class="drop-list drop-right" v-if="drop === 'right'" @mouseenter = "drop = 'right'" @mouseleave="drop = ''">
-          <div>
-            <ul>
-              <router-link :to="{ name: 'initdata'}" tag="li">
-                <i class="set"></i><span>账号设置</span>
+        <div class="user-info" v-show="!nickName">
+          <ul>
+            <li>
+              <router-link :to="{name:'login'}">
+                <!-- <i class="login"></i>-->
+                <font class="lu">登录</font>
               </router-link>
-              <li @click="quit"><i class="quit"></i><span>安全退出</span></li>
-            </ul>
+            </li>
+            <li>
+              <router-link :to="{name:'register'}">
+                <!--<i class="register"></i>-->
+                <font class="zhuce">注册</font>
+              </router-link>
+            </li>
+            <!--<li>
+            </li>-->
+          </ul>
+        </div>
+        <!--<router-link :to="{name:'t-admin'}">-->
+          <!--<font>测试</font>-->
+        <!--</router-link>-->
+        <div class="logined" v-show="nickName">
+          <div class="rt_part" @mouseleave="drop = ''">
+            <a class="a-broadcast" @mouseenter="drop = 'left'">
+              <i class="broadcast"></i>
+            </a>
+            <router-link :to="{ name:'vip'}" class="menu">
+              <img @mouseover="drop = 'right'" src="../../assets/images/thumb-test.jpg"/>
+            </router-link>
+          </div>
+          <div class="drop-list drop-left" v-if="drop === 'left'" @mouseenter = "drop = 'left'" @mouseleave="drop = ''">
+            <i></i>
+            <div>
+              <ul>
+                <li class="title">通知/公告 <span>{{announce.counts}}</span></li>
+                <li>报名 <span>{{announce.apply}}</span></li>
+                <li>回答 <span>{{announce.answer}}</span></li>
+                <li>评论 <span>{{announce.comment}}</span></li>
+                <li>收藏 <span>{{announce.collect}}</span></li>
+                <li>系统通知 <span>{{announce.xiaoxi}}</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="drop-list drop-right" v-if="drop === 'right'" @mouseenter = "drop = 'right'" @mouseleave="drop = ''">
+            <div>
+              <ul>
+                <router-link :to="{ name: 'initdata'}" tag="li">
+                  <i class="set"></i><span>账号设置</span>
+                </router-link>
+                <li @click="quit"><i class="quit"></i><span>安全退出</span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -86,11 +85,11 @@ export default {
       navItems: [
         { name: "首页", link: "home" },
         { name: "机构简介", link: "abt" },
-        { name: "品牌服务", link: ""},
-        { name: "专家团队", link: "f" },
-        { name: "专家答疑", link: "t" },
-        { name: "法规查询", link: "f" },
-        { name: "定制课程", link: "fg" },
+        { name: "品牌服务", link: "serv"},
+        { name: "专家团队", link: "t" },
+        // { name: "专家答疑", link: "t" },
+        // { name: "法规查询", link: "f" },
+        // { name: "定制课程", link: "fg" },
       ],
       activeItem: "home",
       drop:'',
@@ -153,17 +152,23 @@ export default {
 .app-header {
   height: 65px;
   border-bottom: 2px solid $border-rice;
+  display: flex;
+  align-items: center;
+  .header-nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
   .header-container {
     width: $width;
     margin: 0px auto;
-    padding-top: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     .logo {
       padding: 18px 71px;
       background-image: url("../../assets/images/Sprite.png");
-      background-position: -140px -322px;
+      background-position: -133px -322px;
     }
     li {
       margin: 0 1px;
