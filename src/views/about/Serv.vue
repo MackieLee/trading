@@ -151,19 +151,19 @@
         <div class="flex_align_justify border_red">
           <img src="../../assets/images/index_品牌服务切图_51.jpg" alt="">
           <div>
-            廣州某房地產公司，在合作開發建房過程中，聘請我們爲其籌劃，設計的《XXX財稅優化方案》，使整個房地產合作開發項目達到稅收最優，節約營業稅、所得稅共計3200萬元。廣州某房地產公司，在合作開發建房過程中，聘請我們爲其籌劃，設計的《XXX財稅優化方案》。
+            山东某房地产集团公司，聘请我们指导其综合体开发项目中，根据我们为其设计的《财税优化方案》，使整个房地产开发项目达到税收最优，节约土地增值税、所得税共计3200万元。
           </div>
         </div>
         <div class="flex_align_justify border_red">
           <img src="../../assets/images/index_品牌服务切图_51.jpg" alt="">
           <div>
-            廣州某房地產公司，在合作開發建房過程中，聘請我們爲其籌劃，設計的《XXX財稅優化方案》，使整個房地產合作開發項目達到稅收最優，節約營業稅、所得稅共計3200萬元。廣州某房地產公司，在合作開發建房過程中，聘請我們爲其籌劃，設計的《XXX財稅優化方案》。
+            北京某房地产开发公司，在项目清盘时，聘请我们为其筹划，从账务清理入手，在土地增值税、所得税两项纳税中，合理运用成本分摊技巧，依法节税5000多万元。
           </div>
         </div>
         <div class="flex_align_justify border_red">
           <img src="../../assets/images/index_品牌服务切图_51.jpg" alt="">
-          <div>
-            廣州某房地產公司，在合作開發建房過程中，聘請我們爲其籌劃，設計的《XXX財稅優化方案》，使整個房地產合作開發項目達到稅收最優，節約營業稅、所得稅共計3200萬元。廣州某房地產公司，在合作開發建房過程中，聘請我們爲其籌劃，設計的《XXX財稅優化方案》。
+          <div style="width:947px">
+            北京某特色小镇，在全程开发业务中，聘请我们进行综合筹划，结果仅此一项业务节税约8000多万。
           </div>
         </div>
       </div>
@@ -222,6 +222,7 @@
         display: flex;
         align-items: center;
         text-align: center;
+        justify-content: center;
         font-size: 20px;
         padding: 20px;
         position: absolute;

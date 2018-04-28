@@ -132,6 +132,7 @@
         display: flex;
         align-items: center;
         text-align: center;
+        justify-content: center;
         font-size: 20px;
         padding: 20px;
         position: absolute;

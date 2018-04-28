@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div class="toolbar-tabs">
-      <router-link tag="div" :to="{ name: 'shopping-cart'}" class="bar bar-1"></router-link>
+      <!-- <router-link tag="div" :to="{ name: 'shopping-cart'}" class="bar bar-1"></router-link> -->
       <div @click="kefu = true" class="bar bar-2"></div>
-      <router-link tag="div" :to="{ name: 'customize'}" class="bar bar-3"></router-link>
+      <!-- <router-link tag="div" :to="{ name: 'customize'}" class="bar bar-3"></router-link> -->
       <div class="bar bar-4" @mouseenter = "qrCode = true" @mouseleave = "qrCode = false"></div>
       <div class="bar bar-5">
         <a class="to-top" href="#app"></a>

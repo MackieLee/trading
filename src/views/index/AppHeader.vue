@@ -87,6 +87,7 @@ export default {
         { name: "机构简介", link: "abt" },
         { name: "品牌服务", link: "serv"},
         { name: "专家团队", link: "t" },
+        { name: "招贤纳士", link: "hire" },
         // { name: "专家答疑", link: "t" },
         // { name: "法规查询", link: "f" },
         // { name: "定制课程", link: "fg" },

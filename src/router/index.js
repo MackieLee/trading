@@ -20,6 +20,7 @@ const b = r => require.ensure([], () => r(require('../views/book/b')),'b')//图�
 const book = r => require.ensure([], () => r(require('../views/book/Book')),'book')//图书
 const item = r => require.ensure([], () => r(require('../views/book/Item')),'item')//图书详情
 const customize = r => require.ensure([], () => r(require('../views/customize/Customize')),'customize')//课程定制
+const hire = r => require.ensure([], () => r(require('../views/Hire/index')), 'hire') // 招贤纳士
 // --------------------法规查询----------------------------------
 const fg = r => require.ensure([], () => r(require('../views/fagui/fg')),'fg')//法规
 const fagui = r => require.ensure([], () => r(require('../views/fagui/Fagui')),'fagui')//法规
@@ -148,6 +149,11 @@ const routes = [
             component: videopage
           }
         ]
+      },
+      {
+        path: 'hire',
+        name: 'hire',
+        component: hire
       },
       {
         path: 'off',
